@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Notas personales
+assets/INSTRUCCIONES.txt
+
+# Variables de entorno (por si añades backend después)
+.env
+.env.local
+.env.production
