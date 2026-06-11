@@ -1,0 +1,61 @@
+name: Update Gemini Context File
+
+on:
+  schedule:
+    - cron: '0 */47 * * *'
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload context to Gemini Files API
+        id: upload
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          RESPONSE=$(curl -s -X POST \
+            "https://generativelanguage.googleapis.com/upload/v1beta/files?key=$GEMINI_API_KEY" \
+            -H "X-Goog-Upload-Command: start, upload, finalize" \
+            -H "X-Goog-Upload-Header-Content-Type: text/plain" \
+            -H "Content-Type: application/json" \
+            --data-binary @api/context.txt)
+          echo "Response: $RESPONSE"
+          FILE_URI=$(echo "$RESPONSE" | grep -o '"uri": *"[^"]*"' | head -1 | sed 's/"uri": *"\([^"]*\)"/\1/')
+          FILE_NAME=$(echo "$RESPONSE" | grep -o '"name": *"files/[^"]*"' | head -1 | sed 's/"name": *"\([^"]*\)"/\1/')
+          echo "FILE_URI=$FILE_URI" >> $GITHUB_OUTPUT
+          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_OUTPUT
+          echo "Uploaded: $FILE_NAME — $FILE_URI"
+
+      - name: Update Vercel env var
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+          FILE_NAME: ${{ steps.upload.outputs.FILE_NAME }}
+        run: |
+          # Delete existing env var if present
+          curl -s -X DELETE \
+            "https://api.vercel.com/v9/projects/$VERCEL_PROJECT_ID/env/GEMINI_FILE_NAME?teamId=$VERCEL_TEAM_ID" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" || true
+
+          # Create new env var
+          curl -s -X POST \
+            "https://api.vercel.com/v10/projects/$VERCEL_PROJECT_ID/env?teamId=$VERCEL_TEAM_ID" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"key\":\"GEMINI_FILE_NAME\",\"value\":\"$FILE_NAME\",\"type\":\"plain\",\"target\":[\"production\",\"preview\"]}"
+
+      - name: Trigger Vercel redeploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          curl -s -X POST \
+            "https://api.vercel.com/v13/deployments?teamId=$VERCEL_TEAM_ID" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"name\":\"danielux135-github-io\",\"gitSource\":{\"type\":\"github\",\"repoId\":\"Danielux135/Danielux135.github.io\",\"ref\":\"main\"}}"
