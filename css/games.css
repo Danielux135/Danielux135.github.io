@@ -1,0 +1,623 @@
+/* ==========================================================================
+   ARCADE — minijuegos musicales (overlay, hub y juegos)
+   Reusa los tokens de style.css: --accent-1/2, --surface, --border, --text…
+   ========================================================================== */
+
+/* ---- Overlay raíz ---- */
+.arcade-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    background: rgba(5, 9, 18, 0.94);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    backdrop-filter: blur(20px) saturate(1.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+    overscroll-behavior: contain;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.arcade-overlay.open { opacity: 1; visibility: visible; }
+html[data-theme="light"] .arcade-overlay { background: rgba(236, 241, 249, 0.95); }
+
+/* El atributo hidden pierde contra cualquier regla con display propio
+   (p. ej. .arcade-hub es flex): forzamos que ocultar SIEMPRE oculte. */
+.arcade-overlay [hidden] { display: none !important; }
+
+html.arcade-lock, html.arcade-lock body { overflow: hidden; }
+
+/* ---- Cabecera ---- */
+.arcade-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px clamp(14px, 3vw, 28px);
+    border-bottom: 1px solid var(--border);
+    flex: 0 0 auto;
+    min-height: 60px;
+}
+.arcade-title {
+    font-family: var(--font-head);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    white-space: nowrap;
+}
+.arcade-title i {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 calc(var(--beat-alpha, 0) * 10px) rgb(var(--accent-1-rgb) / 0.8));
+}
+.arcade-now {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.82rem;
+    min-width: 0;
+    max-width: 40%;
+}
+.arcade-now i { color: var(--accent-1); flex: 0 0 auto; }
+.arcade-now span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.arcade-back,
+.arcade-close {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all var(--ease);
+    flex: 0 0 auto;
+}
+.arcade-back { width: auto; border-radius: 999px; padding: 0 14px; gap: 8px; font-size: 0.85rem; }
+.arcade-back:hover,
+.arcade-close:hover {
+    background: var(--surface-hover);
+    border-color: rgb(var(--accent-1-rgb) / 0.5);
+    color: var(--accent-1);
+}
+
+/* ---- Hub (selector de juegos) ---- */
+.arcade-hub {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: clamp(18px, 4vh, 40px) clamp(14px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.arcade-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 26px;
+    text-align: center;
+    max-width: 640px;
+}
+.arcade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(218px, 1fr));
+    gap: 16px;
+    width: min(960px, 100%);
+}
+.arcade-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 18px 18px;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    font-family: inherit;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.arcade-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 90% at 50% -10%, rgb(var(--accent-2-rgb) / 0.14), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.arcade-card:hover,
+.arcade-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgb(var(--accent-1-rgb) / 0.55);
+    box-shadow: 0 14px 38px rgb(var(--accent-2-rgb) / 0.22);
+    background: var(--surface-hover);
+}
+.arcade-card:hover::before { opacity: 1; }
+.arcade-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #fff;
+    background: var(--gradient);
+    box-shadow: 0 6px 18px rgb(var(--accent-2-rgb) / 0.35), var(--beat-glow-soft, none);
+    flex: 0 0 auto;
+}
+html[data-theme="light"] .arcade-card-icon { color: #fff; }
+.arcade-card-name {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin: 4px 0 0;
+}
+.arcade-card-desc {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 0;
+    flex: 1 1 auto;
+}
+.arcade-card-best {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    color: var(--accent-1);
+    font-weight: 600;
+    margin-top: 4px;
+}
+.arcade-card-best i { font-size: 0.7rem; }
+.arcade-card-best:empty { display: none; }
+.arcade-hint {
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 28px;
+    text-align: center;
+}
+.arcade-hint kbd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.72rem;
+    font-family: inherit;
+}
+
+/* ---- Escenario de juego ---- */
+.arcade-stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.arcade-stage canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+/* ---- HUD ---- */
+.arcade-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px clamp(12px, 3vw, 24px);
+    pointer-events: none;
+    z-index: 3;
+}
+.arcade-hud-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    min-width: 70px;
+}
+.arcade-hud-box.right { align-items: flex-end; }
+.arcade-hud-box.center { align-items: center; }
+.arcade-hud-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+.arcade-hud-value {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    text-shadow: 0 0 calc(var(--beat-alpha, 0) * 14px) rgb(var(--accent-1-rgb) / 0.7);
+}
+.arcade-hud-value.combo-hot { color: var(--accent-1); }
+.arcade-lives { display: flex; gap: 5px; font-size: 0.95rem; }
+.arcade-lives i { color: rgb(var(--accent-2-rgb) / 0.95); transition: all 0.2s ease; }
+.arcade-lives i.lost { color: var(--muted); opacity: 0.3; transform: scale(0.85); }
+
+/* ---- Mensajes centrales (cuenta atrás, pausa, análisis, resultados) ---- */
+.arcade-msg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    z-index: 4;
+    text-align: center;
+    padding: 20px;
+    pointer-events: none;
+}
+.arcade-msg.interactive { pointer-events: auto; }
+.arcade-msg[hidden] { display: none; }
+.arcade-msg-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 9, 18, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+html[data-theme="light"] .arcade-msg-backdrop { background: rgba(236, 241, 249, 0.6); }
+.arcade-msg > * { position: relative; }
+.arcade-msg-title {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+.arcade-msg-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    line-height: 1.55;
+    margin: 0;
+}
+.arcade-count {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(4rem, 16vw, 7rem);
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: arcadeCountPop 0.9s ease both;
+}
+@keyframes arcadeCountPop {
+    0%   { transform: scale(1.6); opacity: 0; }
+    25%  { transform: scale(1);   opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: scale(0.92); opacity: 0; }
+}
+.arcade-spinner {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent-1);
+    animation: arcadeSpin 0.8s linear infinite;
+}
+@keyframes arcadeSpin { to { transform: rotate(360deg); } }
+
+/* ---- Resultados ---- */
+.arcade-results {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(22px, 5vw, 38px) clamp(26px, 6vw, 52px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), var(--beat-glow-soft, none);
+    max-width: min(420px, 92vw);
+    width: 100%;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    background-color: rgba(10, 16, 30, 0.82);
+}
+html[data-theme="light"] .arcade-results {
+    background-color: rgba(248, 250, 254, 0.9);
+    box-shadow: 0 24px 70px rgba(30, 40, 80, 0.18);
+}
+.arcade-results-grade {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 3.4rem;
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 4px;
+}
+.arcade-results-score {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+.arcade-results-record {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--gradient);
+    box-shadow: 0 4px 16px rgb(var(--accent-2-rgb) / 0.4);
+    animation: arcadeRecordPulse 1.4s ease infinite;
+}
+@keyframes arcadeRecordPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+.arcade-results-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 18px 0 22px;
+}
+.arcade-results-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+.arcade-results-row b {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+.arcade-results-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.arcade-btn {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: all var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+.arcade-btn:hover {
+    background: var(--surface-hover);
+    border-color: rgb(var(--accent-1-rgb) / 0.5);
+    transform: translateY(-2px);
+}
+.arcade-btn.primary {
+    background: var(--gradient);
+    border: none;
+    color: #fff;
+    box-shadow: 0 6px 20px rgb(var(--accent-2-rgb) / 0.38);
+}
+.arcade-btn.primary:hover { box-shadow: 0 10px 28px rgb(var(--accent-2-rgb) / 0.5); }
+
+/* ---- Botones del jugador en reproductor / NPB ---- */
+.player-games-btn i,
+.npb-games-btn i {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---- Simon Beat: pads DOM ---- */
+.simon-board {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 3vh, 26px);
+    z-index: 2;
+    padding: 70px 16px 24px;
+}
+.simon-status {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    min-height: 1.4em;
+    transition: color 0.2s ease;
+}
+.simon-status.your-turn { color: var(--accent-1); }
+.simon-pads {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(110px, 168px));
+    grid-template-rows: repeat(2, minmax(110px, 168px));
+    gap: clamp(12px, 2.5vw, 20px);
+}
+.simon-pad {
+    border-radius: 26px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    background: var(--surface);
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+.simon-pad::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--pad-color);
+    opacity: 0.16;
+    transition: opacity 0.15s ease;
+}
+html[data-theme="light"] .simon-pad::after { opacity: 0.3; }
+.simon-pad.lit { transform: scale(1.05); }
+.simon-pad.lit::after { opacity: 1; }
+.simon-pad.lit {
+    box-shadow: 0 0 34px var(--pad-color), 0 0 80px var(--pad-color);
+    border-color: transparent;
+}
+.simon-pad:active { transform: scale(0.96); }
+.simon-pad.wrong { animation: simonShake 0.4s ease; }
+@keyframes simonShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(9px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(4px); }
+}
+.simon-round {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Tap Tempo ---- */
+.tempo-board {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 3.5vh, 30px);
+    z-index: 2;
+    padding: 70px 18px 26px;
+    text-align: center;
+}
+.tempo-gauge { position: relative; width: min(320px, 78vw); }
+.tempo-gauge svg { width: 100%; height: auto; display: block; }
+.tempo-readout {
+    display: flex;
+    gap: clamp(20px, 6vw, 46px);
+    align-items: baseline;
+    justify-content: center;
+}
+.tempo-readout .t-block { display: flex; flex-direction: column; gap: 2px; }
+.tempo-readout .t-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+.tempo-readout .t-value {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: clamp(1.7rem, 6vw, 2.6rem);
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+.tempo-readout .t-value.you { color: var(--accent-1); }
+.tempo-tap-btn {
+    width: clamp(150px, 36vw, 210px);
+    height: clamp(150px, 36vw, 210px);
+    border-radius: 50%;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.55);
+    background: radial-gradient(circle at 35% 30%, rgb(var(--accent-1-rgb) / 0.22), rgb(var(--accent-2-rgb) / 0.12));
+    color: var(--text);
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: transform 0.08s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 calc(18px + var(--beat-alpha, 0) * 40px) rgb(var(--accent-1-rgb) / 0.35);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.tempo-tap-btn:active { transform: scale(0.93); }
+.tempo-feedback {
+    min-height: 1.5em;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-1);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+    .arcade-top { padding: 10px 12px; gap: 9px; min-height: 52px; }
+    .arcade-title { font-size: 0.95rem; }
+    .arcade-now { display: none; }
+    .arcade-back { padding: 0 11px; font-size: 0.78rem; height: 34px; }
+    .arcade-close { width: 34px; height: 34px; }
+    .arcade-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .arcade-card { padding: 14px 12px 12px; border-radius: var(--radius-sm); }
+    .arcade-card-icon { width: 38px; height: 38px; font-size: 1.05rem; border-radius: 11px; }
+    .arcade-card-name { font-size: 0.9rem; }
+    .arcade-card-desc { font-size: 0.74rem; }
+    .arcade-hud-value { font-size: 1.05rem; }
+    .simon-pads {
+        grid-template-columns: repeat(2, minmax(96px, 42vw));
+        grid-template-rows: repeat(2, minmax(96px, 24vh));
+    }
+    .arcade-results { padding: 20px 22px; }
+    .arcade-results-grade { font-size: 2.6rem; }
+    .arcade-results-score { font-size: 1.6rem; }
+}
+@media (max-width: 380px) {
+    .arcade-grid { grid-template-columns: 1fr; }
+}
+/* En móviles muy estrechos la NPB va justa de sitio: el acceso queda en el reproductor */
+@media (max-width: 480px) {
+    .npb-games-btn { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .arcade-overlay, .arcade-card, .arcade-count { transition: none; animation: none; }
+}

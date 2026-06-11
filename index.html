@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/games.css">
     <script>if(localStorage.getItem('portfolioTheme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 </head>
 <body>
@@ -326,6 +327,9 @@
                             <button class="player-btn player-share-btn" id="shareBtn" aria-label="Compartir canción" title="Compartir canción">
                                 <i class="fa-solid fa-share-nodes"></i>
                             </button>
+                            <button class="player-btn player-games-btn" id="gamesBtn" aria-label="Minijuegos" title="Minijuegos" data-i18n-aria-label="games.open" data-i18n-title="games.open">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -570,6 +574,7 @@
                     <i class="fa-solid fa-play" id="npbPlayIcon"></i>
                 </button>
                 <button class="npb-btn" id="npbNext" aria-label="Siguiente"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="npb-btn npb-games-btn" id="npbGames" aria-label="Minijuegos" title="Minijuegos" data-i18n-aria-label="games.open" data-i18n-title="games.open"><i class="fa-solid fa-gamepad"></i></button>
             </div>
             <div class="npb-seek-wrap">
                 <input type="range" class="npb-seek" id="npbSeek" min="0" max="100" value="0" aria-label="Progreso">
@@ -596,5 +601,6 @@
         </form>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/games.js"></script>
 </body>
 </html>

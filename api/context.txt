@@ -51,4 +51,5 @@ Borrowed Colors, Eastern Gate, Honeyed Sidechain, Nudos de Aire, Silkquake, Gorr
 - Chat IA (Gemini) via función serverless en Vercel
 - View Transitions API para navegación entre secciones
 - Modo claro/oscuro, multiidioma (ES/EN/VAL)
+- Arcade de minijuegos musicales (icono del mando 🎮 en el reproductor o en la barra inferior): 6 juegos que se juegan con la música que está sonando — Beat Tap (tocar círculos al ritmo), Danielux Hero (notas en carriles generadas analizando los golpes reales de la canción, estilo OSU!mania), Bass Surfer (runner de un botón sobre la forma de onda), Simon Beat (memoria de secuencias al ritmo), Beat Dodger (esquivar ondas expansivas) y Tap Tempo (seguir el BPM real). Funcionan en móvil y guardan récords locales.
 - Stack: HTML + CSS + JavaScript vanilla, sin frameworks
