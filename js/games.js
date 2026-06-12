@@ -47,6 +47,7 @@ const GAMES_I18N = {
         target: 'Canción', you: 'Tú', detecting: 'Detectando BPM…',
         tempoSpot: '¡Clavado!', tempoClose: 'Muy cerca', tempoFar: 'Sigue el bombo…',
         tempoHint: 'ESPACIO o botón',
+        bossIncoming: '¡JEFE!',
         g: {
             tap:    { name: 'Beat Tap',      desc: 'Cada golpe de la canción lanza un círculo: tócalo justo cuando el anillo se cierre.', how: 'El anillo se cierra exactamente en el golpe. Toca en ese instante. 3 vidas.' },
             hero:   { name: 'Danielux Hero', desc: 'Notas generadas con los golpes reales: graves a la izquierda, voz al centro, agudos a la derecha.', how: 'Pulsa la tecla del carril (o tócalo) cuando la nota cruce la línea.' },
@@ -54,6 +55,7 @@ const GAMES_I18N = {
             simon:  { name: 'Simon Beat',    desc: 'Memoriza la secuencia que se ilumina al pulso de la música y repítela sin fallar.', how: 'Observa la secuencia y repítela tocando los pads.' },
             dodger: { name: 'Beat Dodger',   desc: 'Cada golpe detona una onda donde marca el aviso. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
             tempo:  { name: 'Tap Tempo',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo de la canción. Mínimo 8 toques.' },
+            bass:   { name: 'Bass Invaders', desc: 'Naves que bajan con cada golpe de la canción. En los drops aparece un jefe que crece con la energía.', how: 'Mueve la nave (arrastra, A/D o flechas) para apuntar y esquivar. El disparo es automático. 3 vidas.' },
         },
     },
     en: {
@@ -83,6 +85,7 @@ const GAMES_I18N = {
         target: 'Song', you: 'You', detecting: 'Detecting BPM…',
         tempoSpot: 'Spot on!', tempoClose: 'So close', tempoFar: 'Follow the kick…',
         tempoHint: 'SPACE or button',
+        bossIncoming: 'BOSS!',
         g: {
             tap:    { name: 'Beat Tap',      desc: 'Every hit of the song fires a circle: tap it right when the ring closes.', how: 'The ring closes exactly on the hit. Tap at that instant. 3 lives.' },
             hero:   { name: 'Danielux Hero', desc: 'Notes built from the real hits: bass on the left, vocals center, highs on the right.', how: 'Press the lane key (or tap it) when the note crosses the line.' },
@@ -90,6 +93,7 @@ const GAMES_I18N = {
             simon:  { name: 'Simon Beat',    desc: 'Memorize the sequence that lights up on the pulse of the music and repeat it without failing.', how: 'Watch the sequence, then repeat it by tapping the pads.' },
             dodger: { name: 'Beat Dodger',   desc: 'Every hit detonates a wave where the warning marks. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
             tempo:  { name: 'Tap Tempo',     desc: 'Got real rhythm? Follow the pulse of the song and compare your BPM with the real one.', how: 'Tap the big button (or the space bar) to the beat. At least 8 taps.' },
+            bass:   { name: 'Bass Invaders', desc: 'Ships that descend with every hit of the song. On the drops a boss appears, growing with the energy.', how: 'Move the ship (drag, A/D or arrows) to aim and dodge. Firing is automatic. 3 lives.' },
         },
     },
     val: {
@@ -119,6 +123,7 @@ const GAMES_I18N = {
         target: 'Cançó', you: 'Tu', detecting: 'Detectant BPM…',
         tempoSpot: 'Clavat!', tempoClose: 'Molt a prop', tempoFar: 'Segueix el bombo…',
         tempoHint: 'ESPAI o botó',
+        bossIncoming: 'CAP!',
         g: {
             tap:    { name: 'Beat Tap',      desc: 'Cada colp de la cançó llança un cercle: toca’l just quan l’anell es tanque.', how: 'L’anell es tanca exactament en el colp. Toca en eixe instant. 3 vides.' },
             hero:   { name: 'Danielux Hero', desc: 'Notes generades amb els colps reals: greus a l’esquerra, veu al centre, aguts a la dreta.', how: 'Polsa la tecla del carril (o toca’l) quan la nota creue la línia.' },
@@ -126,6 +131,7 @@ const GAMES_I18N = {
             simon:  { name: 'Simon Beat',    desc: 'Memoritza la seqüència que s’il·lumina al pols de la música i repeteix-la sense fallar.', how: 'Observa la seqüència i repeteix-la tocant els pads.' },
             dodger: { name: 'Beat Dodger',   desc: 'Cada colp detona una ona on marca l’avís. Arrossega el teu orbe i sobreviu.', how: 'Arrossega l’orbe per a esquivar les ones. 3 vides.' },
             tempo:  { name: 'Tap Tempo',     desc: 'Tens ritme de veritat? Segueix el pols de la cançó i compara el teu BPM amb el real.', how: 'Toca el botó gran (o la barra d’espai) al ritme de la cançó. Mínim 8 tocs.' },
+            bass:   { name: 'Bass Invaders', desc: 'Naus que baixen amb cada colp de la cançó. En els drops apareix un cap que creix amb l’energia.', how: 'Mou la nau (arrossega, A/D o fletxes) per a apuntar i esquivar. El tret és automàtic. 3 vides.' },
         },
     },
 };
@@ -150,6 +156,43 @@ const ink = (a) => (document.documentElement.getAttribute('data-theme') === 'lig
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const fmtN = (n) => Math.round(n).toLocaleString('es-ES'); // separador de miles
 function haptic(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
+
+/* ===================== Glow barato (sustituto de ctx.shadowBlur) =====================
+   ctx.shadowBlur es carísimo en Canvas 2D: aplica un desenfoque a TODA la zona en
+   cada objeto, y con decenas de objetos por frame hunde los FPS. Lo sustituimos por
+   un sprite radial cacheado dibujado con composición aditiva ('lighter'): un drawImage
+   acelerado por GPU, ~30× más barato. Tres tintes (acento 1, acento 2, blanco/tinta).
+   Se reconstruyen solo al cambiar de tema, no cada frame. */
+const _glow = { a1: null, a2: null, w: null, theme: null };
+function _buildGlow() {
+    const mk = (rgb) => {
+        const c = document.createElement('canvas');
+        c.width = c.height = 96;
+        const g = c.getContext('2d');
+        const cs = rgb.split(/\s+/).join(',');
+        const grd = g.createRadialGradient(48, 48, 0, 48, 48, 48);
+        grd.addColorStop(0, `rgba(${cs},0.85)`);
+        grd.addColorStop(0.42, `rgba(${cs},0.30)`);
+        grd.addColorStop(1, `rgba(${cs},0)`);
+        g.fillStyle = grd;
+        g.fillRect(0, 0, 96, 96);
+        return c;
+    };
+    _glow.a1 = mk(accentRgb(1));
+    _glow.a2 = mk(accentRgb(2));
+    _glow.w = mk(document.documentElement.getAttribute('data-theme') === 'light' ? '60 80 160' : '255 255 255');
+    _glow.theme = document.documentElement.getAttribute('data-theme');
+}
+// dibuja un halo aditivo centrado en (x,y) de radio r. key: 'a1' | 'a2' | 'w'
+function glow(ctx, x, y, r, key, alpha) {
+    if (!_glow.a1 || _glow.theme !== document.documentElement.getAttribute('data-theme')) _buildGlow();
+    const s = _glow[key] || _glow.a1;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = alpha;
+    ctx.drawImage(s, x - r, y - r, r * 2, r * 2);
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+}
 
 // Reloj de canción: interpola audio.currentTime (que avanza a saltos) con performance.now
 function makeSongClock(a) {
@@ -763,9 +806,11 @@ const Arcade = {
     resize() {
         const r = this.stage.getBoundingClientRect();
         if (r.width === 0 || r.height === 0) return;
-        // en táctil limitamos la resolución del canvas: gran ahorro de GPU
+        // Limitamos la resolución del canvas: los juegos rellenan casi toda la
+        // pantalla cada frame, así que el fill-rate a DPR alto cuesta. Priorizamos
+        // fluidez (el degradado neón sigue viéndose nítido a 1.5×).
         const coarse = window.matchMedia('(pointer:coarse)').matches;
-        this.dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.6 : 2);
+        this.dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.35 : 1.5);
         this.canvas.width = Math.round(r.width * this.dpr);
         this.canvas.height = Math.round(r.height * this.dpr);
         this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
@@ -1160,9 +1205,10 @@ const Arcade = {
             ctx.globalAlpha = 1 - k * k;
             ctx.font = `800 ${15 + k * 6}px Montserrat, sans-serif`;
             ctx.textAlign = 'center';
+            // doble trazo (oscuro detrás + color) en vez de shadowBlur: legible y barato
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fillText(f.text, f.x + 1, f.y - 28 * k + 1);
             ctx.fillStyle = rgbStr(f.rgb, 1);
-            ctx.shadowColor = rgbStr(f.rgb, 0.8);
-            ctx.shadowBlur = 12;
             ctx.fillText(f.text, f.x, f.y - 28 * k);
             ctx.restore();
         }
@@ -1239,6 +1285,7 @@ const Arcade = {
             clamp,
             fmtN,
             haptic,
+            glow,
         };
     },
 
@@ -1436,16 +1483,14 @@ Arcade.register({
                     const ringR = c.r + c.r * 1.9 * k;
                     const a1 = accentRgb(1), a2 = accentRgb(2);
 
+                    glow(ctx, c.x, c.y, c.r * 2.1, 'a2', 0.5 + beat * 0.3);
                     const grad = ctx.createRadialGradient(c.x - c.r * 0.3, c.y - c.r * 0.3, c.r * 0.1, c.x, c.y, c.r);
                     grad.addColorStop(0, rgbStr(a1, 0.95));
                     grad.addColorStop(1, rgbStr(a2, 0.82));
                     ctx.beginPath();
                     ctx.arc(c.x, c.y, c.r * (1 + beat * 0.08), 0, Math.PI * 2);
                     ctx.fillStyle = grad;
-                    ctx.shadowColor = rgbStr(a2, 0.8);
-                    ctx.shadowBlur = 14 + beat * 22;
                     ctx.fill();
-                    ctx.shadowBlur = 0;
 
                     ctx.beginPath();
                     ctx.arc(c.x, c.y, c.r * (1 + beat * 0.08), 0, Math.PI * 2);
@@ -1649,6 +1694,11 @@ Arcade.register({
                 const t = api.songNow();
                 const L = layout();
                 const beat = api.beat();
+                // accentRgb lee del DOM: lo cacheamos UNA vez por frame (antes ~40 lecturas)
+                const a1 = accentRgb(1), a2 = accentRgb(2);
+                const inkLane = ink(0.02), inkBorder = ink(0.09);
+                const fh = L.hitY - L.topY + 26;
+                const noteH = Math.max(18, Math.min(L.laneW * 0.22, 26));
                 ctx.clearRect(0, 0, W, H);
 
                 while (idx < notes.length && notes[idx].t - t < LEAD + 0.2) {
@@ -1659,25 +1709,24 @@ Arcade.register({
                     idx++;
                 }
 
+                // carriles: relleno sólido (sin crear gradiente por frame). El flash
+                // se pinta como capa sólida encima solo cuando hay flash.
                 for (let l = 0; l < LANES; l++) {
                     const x = L.x0 + l * L.laneW;
-                    const g = ctx.createLinearGradient(0, L.topY, 0, L.hitY);
-                    g.addColorStop(0, ink(0.015));
-                    g.addColorStop(1, rgbStr(accentRgb(l % 2 === 1 ? 2 : 1), 0.05 + laneFlash[l] * 0.13));
-                    ctx.fillStyle = g;
-                    ctx.fillRect(x + 2, L.topY, L.laneW - 4, L.hitY - L.topY + 26);
-                    ctx.strokeStyle = ink(0.09);
+                    ctx.fillStyle = inkLane;
+                    ctx.fillRect(x + 2, L.topY, L.laneW - 4, fh);
+                    if (laneFlash[l] > 0.002) {
+                        ctx.fillStyle = rgbStr(l % 2 === 1 ? a2 : a1, laneFlash[l] * 0.16);
+                        ctx.fillRect(x + 2, L.topY, L.laneW - 4, fh);
+                        laneFlash[l] = Math.max(0, laneFlash[l] - dt * 5);
+                    }
+                    ctx.strokeStyle = inkBorder;
                     ctx.lineWidth = 1;
-                    ctx.strokeRect(x + 2, L.topY, L.laneW - 4, L.hitY - L.topY + 26);
-                    if (laneFlash[l] > 0) laneFlash[l] = Math.max(0, laneFlash[l] - dt * 5);
+                    ctx.strokeRect(x + 2, L.topY, L.laneW - 4, fh);
                 }
 
-                ctx.fillStyle = rgbStr(accentRgb(1), 0.5 + beat * 0.5);
-                ctx.shadowColor = rgbStr(accentRgb(1), 0.9);
-                ctx.shadowBlur = 8 + beat * 26;
+                ctx.fillStyle = rgbStr(a1, 0.5 + beat * 0.5);
                 ctx.fillRect(L.x0 - 8, L.hitY - 2, L.laneW * LANES + 16, 4);
-                ctx.shadowBlur = 0;
-                const noteH = Math.max(18, Math.min(L.laneW * 0.22, 26));
                 for (let l = 0; l < LANES; l++) {
                     const x = L.x0 + l * L.laneW;
                     roundRect(ctx, x + 6, L.hitY - noteH / 2, L.laneW - 12, noteH, 8);
@@ -1692,6 +1741,9 @@ Arcade.register({
                     }
                 }
 
+                // notas: relleno sólido por banda (sin gradiente por nota) + glow cacheado
+                ctx.lineWidth = 1.5;
+                ctx.strokeStyle = 'rgba(255,255,255,0.55)';
                 for (let i = active.length - 1; i >= 0; i--) {
                     const n = active[i];
                     if (n.hit) { active.splice(i, 1); continue; }
@@ -1710,25 +1762,18 @@ Arcade.register({
                     if (p < -0.02) continue;
                     const y = L.topY + p * (L.hitY - L.topY);
                     const x = L.x0 + n.lane * L.laneW;
-                    const a1 = accentRgb(n.lane % 2 === 1 ? 2 : 1);
-                    const grad = ctx.createLinearGradient(x, y - noteH / 2, x, y + noteH / 2);
-                    grad.addColorStop(0, rgbStr(accentRgb(1), 0.95));
-                    grad.addColorStop(1, rgbStr(accentRgb(2), 0.95));
+                    const odd = n.lane % 2 === 1;
+                    glow(ctx, x + L.laneW / 2, y, noteH * 1.7, odd ? 'a2' : 'a1', 0.4 + beat * 0.22);
                     roundRect(ctx, x + 6, y - noteH / 2, L.laneW - 12, noteH, 8);
-                    ctx.fillStyle = grad;
-                    ctx.shadowColor = rgbStr(a1, 0.75);
-                    ctx.shadowBlur = 10 + beat * 14;
+                    ctx.fillStyle = rgbStr(odd ? a2 : a1, 0.96);
                     ctx.fill();
-                    ctx.shadowBlur = 0;
-                    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
-                    ctx.lineWidth = 1.5;
                     ctx.stroke();
                 }
 
                 if (combo >= 5) {
                     ctx.font = `900 ${34 + beat * 8}px Montserrat, sans-serif`;
                     ctx.textAlign = 'center';
-                    ctx.fillStyle = rgbStr(accentRgb(1), 0.16 + beat * 0.2);
+                    ctx.fillStyle = rgbStr(a1, 0.16 + beat * 0.2);
                     ctx.fillText('x' + combo, W / 2, (L.topY + L.hitY) / 2);
                 }
 
@@ -1885,11 +1930,8 @@ Arcade.register({
                     gradT.addColorStop(0, rgbStr(a2, 0.75));
                     gradT.addColorStop(1, rgbStr(a1, 0.75));
                     ctx.fillStyle = gradT;
-                    ctx.shadowColor = rgbStr(a2, 0.6);
-                    ctx.shadowBlur = 8 + beat * 16;
                     ctx.fillRect(g.x, topY, g.w, yTop - topY);
                     ctx.fillRect(g.x, yBot, g.w, floorBase - yBot + 18);
-                    ctx.shadowBlur = 0;
                     ctx.fillStyle = 'rgba(255,255,255,0.85)';
                     ctx.fillRect(g.x, yTop - 3, g.w, 3);
                     ctx.fillRect(g.x, yBot, g.w, 3);
@@ -1920,10 +1962,7 @@ Arcade.register({
                 wavePts.forEach((p, i) => (i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)));
                 ctx.strokeStyle = rgbStr(a1, 0.8);
                 ctx.lineWidth = 2;
-                ctx.shadowColor = rgbStr(a1, 0.7);
-                ctx.shadowBlur = 6 + beat * 18;
                 ctx.stroke();
-                ctx.shadowBlur = 0;
 
                 trail.push({ x: px, y: py });
                 if (trail.length > 22) trail.shift();
@@ -1938,6 +1977,7 @@ Arcade.register({
 
                 const blink = invuln > 0 && Math.floor(t * 10) % 2 === 0;
                 if (!blink) {
+                    glow(ctx, px, py, 30 + beat * 14, 'a1', 0.5 + beat * 0.3);
                     const grad = ctx.createRadialGradient(px - 4, py - 4, 2, px, py, 13);
                     grad.addColorStop(0, '#ffffff');
                     grad.addColorStop(0.35, rgbStr(a1, 1));
@@ -1945,10 +1985,7 @@ Arcade.register({
                     ctx.beginPath();
                     ctx.arc(px, py, 12 + beat * 2.5, 0, Math.PI * 2);
                     ctx.fillStyle = grad;
-                    ctx.shadowColor = rgbStr(a1, 0.9);
-                    ctx.shadowBlur = 16 + beat * 24;
                     ctx.fill();
-                    ctx.shadowBlur = 0;
                     if (thrust) {
                         ctx.beginPath();
                         ctx.moveTo(px - 5, py + 11);
@@ -2241,12 +2278,9 @@ Arcade.register({
                     const fade = 1 - (r.r / r.maxR) * 0.45; // se desvanece al expandirse
                     ctx.beginPath();
                     ctx.arc(r.cx, r.cy, Math.max(r.r, 1), 0, Math.PI * 2);
-                    ctx.strokeStyle = rgbStr(a1, 0.78 * fade);
+                    ctx.strokeStyle = rgbStr(a1, 0.85 * fade);
                     ctx.lineWidth = r.band;
-                    ctx.shadowColor = rgbStr(a1, 0.6 * fade);
-                    ctx.shadowBlur = 10 + beat * 14;
                     ctx.stroke();
-                    ctx.shadowBlur = 0;
                     if (!r.done && invuln <= 0) {
                         const d = Math.hypot(px - r.cx, py - r.cy);
                         if (Math.abs(d - r.r) < r.band / 2 + PR) {
@@ -2258,6 +2292,7 @@ Arcade.register({
 
                 const blink = invuln > 0 && Math.floor(t * 10) % 2 === 0;
                 if (!blink) {
+                    glow(ctx, px, py, PR * 2.4 + beat * 12, 'a1', 0.5 + beat * 0.3);
                     const grad = ctx.createRadialGradient(px - 4, py - 4, 2, px, py, PR + 2);
                     grad.addColorStop(0, '#ffffff');
                     grad.addColorStop(0.35, rgbStr(a1, 1));
@@ -2265,10 +2300,7 @@ Arcade.register({
                     ctx.beginPath();
                     ctx.arc(px, py, PR + beat * 2.5, 0, Math.PI * 2);
                     ctx.fillStyle = grad;
-                    ctx.shadowColor = rgbStr(a1, 0.9);
-                    ctx.shadowBlur = 14 + beat * 22;
                     ctx.fill();
-                    ctx.shadowBlur = 0;
                 }
                 ctx.restore();
 
@@ -2410,6 +2442,331 @@ Arcade.register({
             },
             forceEnd() { finish(); },
             destroy() { board.remove(); },
+        };
+    },
+});
+
+/* ==========================================================================
+   JUEGO 7 — BASS INVADERS (naves que bajan en los golpes; jefe en los drops)
+   Las naves nacen en cada golpe real de la canción (su banda decide el tipo).
+   Los DROPS se detectan con la curva de energía: tramos de grave alto y
+   sostenido donde aparece un jefe que crece y dispara según esa energía.
+   ========================================================================== */
+function findDrops(map) {
+    const e = map.energy, hopT = map.hopT;
+    if (!e || !e.length) return [];
+    const n = e.length;
+    const W = Math.max(1, Math.round(0.4 / hopT));
+    const sm = new Float32Array(n); // energía suavizada (±0.4 s)
+    let acc = 0, lo = 0, hi = -1;
+    for (let i = 0; i < n; i++) {
+        const a = Math.max(0, i - W), b = Math.min(n - 1, i + W);
+        while (hi < b) acc += e[++hi];
+        while (lo < a) acc -= e[lo++];
+        sm[i] = acc / (b - a + 1);
+    }
+    const sorted = Array.from(sm).sort((x, y) => x - y);
+    const thr = Math.max(0.5, sorted[Math.floor(n * 0.72)] || 0.5);
+    const drops = [];
+    let start = -1;
+    for (let i = 0; i < n; i++) {
+        if (sm[i] >= thr) { if (start < 0) start = i; }
+        else { if (start >= 0 && (i - start) * hopT >= 6) drops.push({ t0: start * hopT, t1: i * hopT }); start = -1; }
+    }
+    if (start >= 0 && (n - start) * hopT >= 6) drops.push({ t0: start * hopT, t1: n * hopT });
+    return drops;
+}
+
+Arcade.register({
+    id: 'bass',
+    icon: 'fa-solid fa-shuttle-space',
+    colors: ['99 102 241', '34 211 238'],
+    createSession(api, run) {
+        const isTouch = window.matchMedia('(pointer:coarse)').matches;
+        const CFG = {
+            easy:   { fall: 2.4, bulletGap: 0.15, bossFire: 0.90, bossSpd: 85,  bossHpK: 2.2 },
+            medium: { fall: 2.0, bulletGap: 0.15, bossFire: 0.62, bossSpd: 115, bossHpK: 2.8 },
+            hard:   { fall: 1.6, bulletGap: 0.14, bossFire: 0.46, bossSpd: 150, bossHpK: 3.4 },
+            expert: { fall: 1.3, bulletGap: 0.13, bossFire: 0.35, bossSpd: 185, bossHpK: 4.0 },
+        }[run.diff];
+        const events = run.events;
+        const drops = findDrops(run.map);
+        const energyAt = run.map.energyAt || (() => 0);
+
+        let bIdx = 0, dropIdx = 0;
+        let score = 0, combo = 0, maxCombo = 0, lives = 3, invuln = 1.2;
+        let kills = 0, spawned = 0, shake = 0, t = 0, fireT = 0;
+        const invaders = [];   // {x,y,vy,r,hp,band,s}
+        const bullets = [];    // balas del jugador (suben)
+        const foeShots = [];   // proyectiles del jefe
+        let boss = null;       // {x,y,vx,hp,maxHp,fireT,t1}
+
+        let px = api.W() / 2, py = api.H() - 46, targetX = px;
+        const keyLeft = { on: false }, keyRight = { on: false };
+
+        const stars = [];
+        for (let i = 0; i < 64; i++) stars.push({ x: Math.random() * api.W(), y: Math.random() * api.H(), z: 0.3 + Math.random() * 1.4, r: Math.random() * 1.4 + 0.4 });
+
+        api.buildHud([
+            { label: T('score'), id: 'biScore', value: '0' },
+            { label: T('combo'), id: 'biCombo', value: '0', align: 'center' },
+            { label: T('lives'), id: 'biLives', lives: 3, align: 'right' },
+        ]);
+        const elScore = document.getElementById('biScore');
+        const elCombo = document.getElementById('biCombo');
+
+        const topLine = () => 58;
+        const bottomLine = () => api.H() - 72;
+        const bandColor = (b) => (b === 0 ? accentRgb(2) : b === 1 ? accentRgb(1) : '255 255 255');
+        const bandRadius = (b) => (b === 0 ? (isTouch ? 17 : 19) : b === 1 ? (isTouch ? 14 : 15) : (isTouch ? 11 : 12));
+
+        function spawnInvader(e) {
+            const r = bandRadius(e.band);
+            const margin = r + 14;
+            const x = margin + Math.random() * (api.W() - 2 * margin);
+            const fall = CFG.fall * (e.band === 0 ? 1.15 : e.band === 2 ? 0.85 : 1);
+            const vy = (bottomLine() - topLine()) / fall;
+            const hp = (e.band === 0 && (run.diff === 'hard' || run.diff === 'expert')) ? 2 : 1;
+            invaders.push({ x, y: topLine(), vy, r, hp, band: e.band, s: e.s });
+            spawned++;
+        }
+
+        function startBoss(drop) {
+            const dur = drop.t1 - drop.t0;
+            boss = { x: api.W() / 2, y: topLine() + 46, vx: CFG.bossSpd, fireT: 0.5, t1: drop.t1,
+                maxHp: Math.round(clamp(dur * CFG.bossHpK, 16, 120)) };
+            boss.hp = boss.maxHp;
+            api.addFloat(api.W() / 2, api.H() * 0.4, T('bossIncoming'), accentRgb(2));
+            haptic(40);
+        }
+
+        function loseLife(cx, cy) {
+            if (invuln > 0) return;
+            lives--; invuln = 1.4; shake = 0.32; combo = 0;
+            elCombo.textContent = '0'; elCombo.classList.remove('combo-hot');
+            api.setLives('biLives', lives, 3);
+            api.burst(cx, cy, { n: 30, power: 1.3, accent: 2 });
+            haptic(80);
+            if (lives <= 0) finish();
+        }
+
+        function finish() {
+            const acc = spawned > 0 ? (kills / spawned) * 100 : 0;
+            const grade = acc >= 92 ? 'S' : acc >= 82 ? 'A' : acc >= 68 ? 'B' : acc >= 50 ? 'C' : 'D';
+            api.end({ score, grade, stats: [
+                [T('hits'), `${kills} / ${spawned}`],
+                [T('accuracy'), acc.toFixed(1) + '%'],
+                [T('maxCombo'), 'x' + maxCombo],
+            ] });
+        }
+
+        function killInvader(inv, idx) {
+            invaders.splice(idx, 1);
+            kills++; combo++; maxCombo = Math.max(maxCombo, combo);
+            score += Math.round(100 * (1 + Math.min(combo, 30) * 0.1));
+            elScore.textContent = fmtN(score);
+            elCombo.textContent = 'x' + combo;
+            elCombo.classList.toggle('combo-hot', combo >= 8);
+            api.burst(inv.x, inv.y, { n: 16, power: 0.9, accent: inv.band === 0 ? 2 : 1 });
+        }
+
+        function drawShip(ctx, x, y, r, rgb, beat, flip, gkey) {
+            glow(ctx, x, y, r * 1.9, gkey, 0.45 + beat * 0.3);
+            ctx.save();
+            ctx.translate(x, y);
+            const s = flip ? -1 : 1;
+            ctx.beginPath();
+            ctx.moveTo(0, -r * s);
+            ctx.lineTo(r * 0.85, r * 0.7 * s);
+            ctx.lineTo(0, r * 0.35 * s);
+            ctx.lineTo(-r * 0.85, r * 0.7 * s);
+            ctx.closePath();
+            ctx.fillStyle = rgbStr(rgb, 0.95);
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        return {
+            frame(dt) {
+                t += dt;
+                if (invuln > 0) invuln -= dt;
+                if (shake > 0) shake -= dt;
+                const ctx = api.ctx, W = api.W(), H = api.H();
+                const now = api.songNow();
+                const beat = api.beat();
+                const a1 = accentRgb(1), a2 = accentRgb(2);
+                ctx.clearRect(0, 0, W, H);
+                ctx.save();
+                if (shake > 0) ctx.translate((Math.random() - 0.5) * shake * 22, (Math.random() - 0.5) * shake * 22);
+
+                // starfield reactivo (warp en los golpes)
+                for (const st of stars) {
+                    st.y += st.z * (40 + beat * 240) * dt;
+                    if (st.y > H) { st.y = 0; st.x = Math.random() * W; }
+                    ctx.beginPath();
+                    ctx.arc(st.x, st.y % H, st.r * (1 + beat * 0.5), 0, Math.PI * 2);
+                    ctx.fillStyle = ink(0.10 + st.z * 0.16 + beat * 0.18);
+                    ctx.fill();
+                }
+
+                // ¿drop? → jefe (uno por drop)
+                while (dropIdx < drops.length && now >= drops[dropIdx].t0) {
+                    if (!boss && now < drops[dropIdx].t1) startBoss(drops[dropIdx]);
+                    dropIdx++;
+                }
+                if (boss && now >= boss.t1) boss = null; // el drop acaba sin matarlo
+
+                // naves en los golpes reales
+                while (bIdx < events.length && events[bIdx].t <= now) {
+                    const e = events[bIdx++];
+                    if (now - e.t > 0.25) continue;
+                    if (invaders.length < 22) spawnInvader(e);
+                }
+
+                // jugador
+                if (keyLeft.on) targetX -= 520 * dt;
+                if (keyRight.on) targetX += 520 * dt;
+                targetX = clamp(targetX, 24, W - 24);
+                px += (targetX - px) * Math.min(1, dt * 14);
+                py = H - 46;
+
+                // disparo automático
+                fireT -= dt;
+                if (fireT <= 0) { fireT = CFG.bulletGap; bullets.push({ x: px, y: py - 18 }); blip(880, 0.016, 0.05); }
+
+                // balas del jugador
+                for (let i = bullets.length - 1; i >= 0; i--) {
+                    const b = bullets[i];
+                    b.y -= 720 * dt;
+                    if (b.y < -10) { bullets.splice(i, 1); continue; }
+                    if (boss && Math.abs(b.x - boss.x) < 34 && Math.abs(b.y - boss.y) < 26) {
+                        bullets.splice(i, 1); boss.hp--; score += 20;
+                        api.burst(b.x, b.y, { n: 4, power: 0.5, accent: 1 });
+                        if (boss.hp <= 0) {
+                            api.burst(boss.x, boss.y, { n: 60, power: 1.8, accent: 2 });
+                            score += 2500; api.addFloat(boss.x, boss.y, '+2500', accentRgb(1));
+                            boss = null; shake = 0.4; haptic(120);
+                        }
+                        continue;
+                    }
+                    let hit = -1;
+                    for (let j = 0; j < invaders.length; j++) {
+                        const dx = invaders[j].x - b.x, dy = invaders[j].y - b.y, rr = invaders[j].r + 4;
+                        if (dx * dx + dy * dy < rr * rr) { hit = j; break; } // distancia al cuadrado: sin sqrt
+                    }
+                    if (hit >= 0) {
+                        bullets.splice(i, 1);
+                        const inv = invaders[hit];
+                        if (--inv.hp <= 0) killInvader(inv, hit);
+                        else api.burst(b.x, b.y, { n: 4, power: 0.5, accent: 1 });
+                    }
+                }
+                // todas las balas en UN solo path + fill (sin shadowBlur)
+                if (bullets.length) {
+                    ctx.beginPath();
+                    for (const b of bullets) {
+                        if (ctx.roundRect) ctx.roundRect(b.x - 1.6, b.y - 8, 3.2, 12, 1.6); else ctx.rect(b.x - 1.6, b.y - 8, 3.2, 12);
+                    }
+                    ctx.fillStyle = rgbStr(a1, 0.95);
+                    ctx.fill();
+                }
+
+                // naves: mover, colisión, dibujar
+                for (let i = invaders.length - 1; i >= 0; i--) {
+                    const inv = invaders[i];
+                    inv.y += inv.vy * dt;
+                    const dx = inv.x - px, dy = inv.y - py, rr = inv.r + 16;
+                    if (dx * dx + dy * dy < rr * rr) { invaders.splice(i, 1); loseLife(inv.x, inv.y); continue; }
+                    if (inv.y > bottomLine() + 8) { invaders.splice(i, 1); loseLife(inv.x, bottomLine()); continue; }
+                    const rgb = bandColor(inv.band);
+                    drawShip(ctx, inv.x, inv.y, inv.r, rgb, beat, true, inv.band === 0 ? 'a2' : inv.band === 1 ? 'a1' : 'w');
+                    if (inv.hp > 1) {
+                        ctx.beginPath(); ctx.arc(inv.x, inv.y, inv.r + 3, 0, Math.PI * 2);
+                        ctx.strokeStyle = rgbStr(rgb, 0.5); ctx.lineWidth = 1.5; ctx.stroke();
+                    }
+                }
+
+                // jefe
+                if (boss) {
+                    boss.x += boss.vx * dt;
+                    if (boss.x < 60) { boss.x = 60; boss.vx = Math.abs(boss.vx); }
+                    if (boss.x > W - 60) { boss.x = W - 60; boss.vx = -Math.abs(boss.vx); }
+                    const en = clamp(energyAt(now), 0, 1);
+                    boss.fireT -= dt;
+                    if (boss.fireT <= 0) {
+                        boss.fireT = CFG.bossFire * (1.2 - en * 0.6);
+                        const spread = run.diff === 'expert' ? 3 : run.diff === 'hard' ? 2 : 1;
+                        for (let k = 0; k < spread; k++) {
+                            const ang = Math.atan2(py - boss.y, px - boss.x) + (k - (spread - 1) / 2) * 0.26;
+                            const sp = 230 + en * 160;
+                            foeShots.push({ x: boss.x, y: boss.y + 24, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp });
+                        }
+                        blip(120, 0.05, 0.12);
+                    }
+                    const R = 40 + en * 10 + beat * 6;
+                    glow(ctx, boss.x, boss.y, R * 1.8, 'a2', 0.55 + en * 0.3);
+                    ctx.save();
+                    ctx.translate(boss.x, boss.y);
+                    ctx.beginPath();
+                    for (let k = 0; k < 6; k++) { const a = Math.PI / 6 + k * Math.PI / 3; ctx[k ? 'lineTo' : 'moveTo'](Math.cos(a) * R, Math.sin(a) * R * 0.7); }
+                    ctx.closePath();
+                    const g = ctx.createRadialGradient(0, -8, 4, 0, 0, R);
+                    g.addColorStop(0, rgbStr(a1, 0.95));
+                    g.addColorStop(1, rgbStr(a2, 0.9));
+                    ctx.fillStyle = g;
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 2; ctx.stroke();
+                    ctx.restore();
+                    const bw = Math.min(W * 0.6, 320), bx = (W - bw) / 2, by = topLine() - 14;
+                    ctx.fillStyle = ink(0.12); ctx.fillRect(bx, by, bw, 6);
+                    ctx.fillStyle = rgbStr(a1, 0.95); ctx.fillRect(bx, by, bw * (boss.hp / boss.maxHp), 6);
+                }
+
+                // proyectiles del jefe (un solo path + fill, distancia al cuadrado)
+                if (foeShots.length) {
+                    const fr = 5 + beat * 1.5;
+                    ctx.beginPath();
+                    for (let i = foeShots.length - 1; i >= 0; i--) {
+                        const f = foeShots[i];
+                        f.x += f.vx * dt; f.y += f.vy * dt;
+                        if (f.y > H + 12 || f.x < -12 || f.x > W + 12) { foeShots.splice(i, 1); continue; }
+                        const dx = f.x - px, dy = f.y - py;
+                        if (invuln <= 0 && dx * dx + dy * dy < 256) { foeShots.splice(i, 1); loseLife(px, py); continue; }
+                        ctx.moveTo(f.x + fr, f.y);
+                        ctx.arc(f.x, f.y, fr, 0, Math.PI * 2);
+                    }
+                    ctx.fillStyle = rgbStr(a2, 0.95);
+                    ctx.fill();
+                }
+
+                // jugador
+                const blink = invuln > 0 && Math.floor(t * 12) % 2 === 0;
+                if (!blink) {
+                    drawShip(ctx, px, py, 16, a1, beat, false, 'a1');
+                    ctx.beginPath();
+                    ctx.moveTo(px - 5, py + 11);
+                    ctx.lineTo(px, py + 18 + beat * 8 + Math.random() * 4);
+                    ctx.lineTo(px + 5, py + 11);
+                    ctx.closePath();
+                    ctx.fillStyle = rgbStr(a2, 0.7); ctx.fill();
+                }
+
+                ctx.restore();
+                score += dt * 4;
+                elScore.textContent = fmtN(score);
+            },
+            onTap(x) { targetX = x; },
+            onMove(x) { targetX = x; },
+            onKey(ev, down) {
+                const k = ev.key.toLowerCase();
+                if (k === 'arrowleft' || k === 'a') keyLeft.on = down;
+                else if (k === 'arrowright' || k === 'd') keyRight.on = down;
+            },
+            forceEnd() { finish(); },
+            destroy() { invaders.length = 0; bullets.length = 0; foeShots.length = 0; boss = null; },
         };
     },
 });

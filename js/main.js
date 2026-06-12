@@ -859,12 +859,17 @@ function updateAccentColors(v) {
     const l2 = 60 + v * 8;
     const [r1, g1, b1] = hslToRgb(h1, 100, l1);
     const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
-    ROOT.style.setProperty('--accent-1', `hsl(${h1}, 100%, ${l1}%)`);
-    ROOT.style.setProperty('--accent-2', `hsl(${h2}, 90%, ${l2}%)`);
+    // El canvas del arcade lee --accent-*-rgb directamente: esos se actualizan
+    // siempre. Las variables que provocan repintados en CSS (--gradient, glows)
+    // se omiten mientras el arcade está abierto (su página está oculta y los
+    // juegos no las usan): así no se invalida estilo de la web cada frame.
     ROOT.style.setProperty('--accent-1-rgb', `${r1} ${g1} ${b1}`);
     ROOT.style.setProperty('--accent-2-rgb', `${r2} ${g2} ${b2r}`);
-    ROOT.style.setProperty('--gradient', `linear-gradient(135deg, hsl(${h1}, 100%, ${l1}%) 0%, hsl(${h2}, 90%, ${l2}%) 100%)`);
     ROOT.style.setProperty('--beat-alpha', v.toFixed(3));
+    if (ROOT.classList.contains('arcade-lock')) return;
+    ROOT.style.setProperty('--accent-1', `hsl(${h1}, 100%, ${l1}%)`);
+    ROOT.style.setProperty('--accent-2', `hsl(${h2}, 90%, ${l2}%)`);
+    ROOT.style.setProperty('--gradient', `linear-gradient(135deg, hsl(${h1}, 100%, ${l1}%) 0%, hsl(${h2}, 90%, ${l2}%) 100%)`);
     ROOT.style.setProperty('--beat-glow',      v > 0.01 ? `0 0 ${v * 90}px rgb(${r1} ${g1} ${b1} / ${v * 0.95})` : 'none');
     ROOT.style.setProperty('--beat-glow-soft', v > 0.01 ? `0 0 ${v * 60}px rgb(${r2} ${g2} ${b2r} / ${v * 0.75})` : 'none');
 }
