@@ -49,13 +49,13 @@ const GAMES_I18N = {
         tempoHint: 'ESPACIO o botón',
         bossIncoming: '¡JEFE!',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Cada golpe de la canción lanza un círculo: tócalo justo cuando el anillo se cierre.', how: 'El anillo se cierra exactamente en el golpe. Toca en ese instante. 3 vidas.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notas generadas con los golpes reales: graves a la izquierda, voz al centro, agudos a la derecha.', how: 'Pulsa la tecla del carril (o tócalo) cuando la nota cruce la línea.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surfea la onda: mantén pulsado para subir. Las puertas llegan clavadas al ritmo.', how: 'Mantén pulsado (o ESPACIO) para subir. Suelta para caer. 3 vidas.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memoriza la secuencia que se ilumina al pulso de la música y repítela sin fallar.', how: 'Observa la secuencia y repítela tocando los pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Cada golpe detona una onda donde marca el aviso. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
-            tempo:  { name: 'Tap Tempo',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo de la canción. Mínimo 8 toques.' },
-            bass:   { name: 'Bass Invaders', desc: 'Naves que bajan con cada golpe de la canción. En los drops aparece un jefe que crece con la energía.', how: 'Mueve la nave (arrastra, A/D o flechas) para apuntar y esquivar. El disparo es automático. 3 vidas.' },
+            tap:    { name: 'Beat Striker',   desc: 'Cada golpe lanza un círculo: tócalo justo cuando el anillo se cierre.', how: 'El anillo se cierra en el golpe. Toca en ese instante. 3 vidas.' },
+            hero:   { name: 'Hero Mode',      desc: 'Notas generadas con los golpes reales: graves a la izquierda, voz al centro, agudos a la derecha.', how: 'Pulsa la tecla del carril (o tócalo) cuando la nota cruce la línea.' },
+            surfer: { name: 'Wave Rider',     desc: 'Surfea la onda: mantén pulsado para subir. Las puertas llegan clavadas al ritmo.', how: 'Mantén pulsado (o ESPACIO) para subir. Suelta para caer. 3 vidas.' },
+            simon:  { name: 'Echo Sequence',  desc: 'Memoriza la secuencia que se ilumina al pulso de la música y repítela sin fallar.', how: 'Observa la secuencia y repítela tocando los pads.' },
+            dodger: { name: 'Ring Escape',    desc: 'Cada golpe detona una onda expansiva. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
+            tempo:  { name: 'BPM Hunter',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo. Mínimo 8 toques.' },
+            bass:   { name: 'Bass Invaders',  desc: 'Naves que bajan con cada golpe. En los drops aparece un jefe que crece con la energía.', how: 'Mueve la nave (arrastra, A/D o flechas). El disparo es automático. 3 vidas.' },
         },
     },
     en: {
@@ -87,13 +87,13 @@ const GAMES_I18N = {
         tempoHint: 'SPACE or button',
         bossIncoming: 'BOSS!',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Every hit of the song fires a circle: tap it right when the ring closes.', how: 'The ring closes exactly on the hit. Tap at that instant. 3 lives.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notes built from the real hits: bass on the left, vocals center, highs on the right.', how: 'Press the lane key (or tap it) when the note crosses the line.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surf the wave: hold to rise. The gates arrive dead on the beat.', how: 'Hold (or SPACE) to rise. Release to fall. 3 lives.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memorize the sequence that lights up on the pulse of the music and repeat it without failing.', how: 'Watch the sequence, then repeat it by tapping the pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Every hit detonates a wave where the warning marks. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
-            tempo:  { name: 'Tap Tempo',     desc: 'Got real rhythm? Follow the pulse of the song and compare your BPM with the real one.', how: 'Tap the big button (or the space bar) to the beat. At least 8 taps.' },
-            bass:   { name: 'Bass Invaders', desc: 'Ships that descend with every hit of the song. On the drops a boss appears, growing with the energy.', how: 'Move the ship (drag, A/D or arrows) to aim and dodge. Firing is automatic. 3 lives.' },
+            tap:    { name: 'Beat Striker',   desc: 'Every hit fires a circle: tap it right when the ring closes.', how: 'The ring closes on the hit. Tap at that instant. 3 lives.' },
+            hero:   { name: 'Hero Mode',      desc: 'Notes built from real hits: bass on the left, vocals center, highs on the right.', how: 'Press the lane key (or tap it) when the note crosses the line.' },
+            surfer: { name: 'Wave Rider',     desc: 'Surf the wave: hold to rise. The gates arrive dead on the beat.', how: 'Hold (or SPACE) to rise. Release to fall. 3 lives.' },
+            simon:  { name: 'Echo Sequence',  desc: 'Memorize the sequence that lights up on the beat and repeat it without failing.', how: 'Watch the sequence, then repeat it by tapping the pads.' },
+            dodger: { name: 'Ring Escape',    desc: 'Every hit detonates an expanding wave. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
+            tempo:  { name: 'BPM Hunter',     desc: 'Got real rhythm? Follow the pulse and compare your BPM with the real one.', how: 'Tap the big button (or space bar) to the beat. At least 8 taps.' },
+            bass:   { name: 'Bass Invaders',  desc: 'Ships descend with every hit. On drops a boss appears, growing with the energy.', how: 'Move the ship (drag, A/D or arrows). Firing is automatic. 3 lives.' },
         },
     },
     val: {
@@ -125,13 +125,13 @@ const GAMES_I18N = {
         tempoHint: 'ESPAI o botó',
         bossIncoming: 'CAP!',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Cada colp de la cançó llança un cercle: toca’l just quan l’anell es tanque.', how: 'L’anell es tanca exactament en el colp. Toca en eixe instant. 3 vides.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notes generades amb els colps reals: greus a l’esquerra, veu al centre, aguts a la dreta.', how: 'Polsa la tecla del carril (o toca’l) quan la nota creue la línia.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surfeja l’ona: mantín polsat per a pujar. Les portes arriben clavades al ritme.', how: 'Mantín polsat (o ESPAI) per a pujar. Solta per a caure. 3 vides.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memoritza la seqüència que s’il·lumina al pols de la música i repeteix-la sense fallar.', how: 'Observa la seqüència i repeteix-la tocant els pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Cada colp detona una ona on marca l’avís. Arrossega el teu orbe i sobreviu.', how: 'Arrossega l’orbe per a esquivar les ones. 3 vides.' },
-            tempo:  { name: 'Tap Tempo',     desc: 'Tens ritme de veritat? Segueix el pols de la cançó i compara el teu BPM amb el real.', how: 'Toca el botó gran (o la barra d’espai) al ritme de la cançó. Mínim 8 tocs.' },
-            bass:   { name: 'Bass Invaders', desc: 'Naus que baixen amb cada colp de la cançó. En els drops apareix un cap que creix amb l’energia.', how: 'Mou la nau (arrossega, A/D o fletxes) per a apuntar i esquivar. El tret és automàtic. 3 vides.' },
+            tap:    { name: "Beat Striker",   desc: "Cada colp llança un cercle: toca’l just quan l’anell es tanque.", how: "L’anell es tanca en el colp. Toca en eixe instant. 3 vides." },
+            hero:   { name: "Hero Mode",      desc: "Notes generades amb els colps reals: greus a l’esquerra, veu al centre, aguts a la dreta.", how: "Polsa la tecla del carril (o toca’l) quan la nota creue la línia." },
+            surfer: { name: "Wave Rider",     desc: "Surfeja l’ona: mantín polsat per a pujar. Les portes arriben clavades al ritme.", how: "Mantín polsat (o ESPAI) per a pujar. Solta per a caure. 3 vides." },
+            simon:  { name: "Echo Sequence",  desc: "Memoritza la seqüència que s’il·lumina al pols de la música i repeteix-la sense fallar.", how: "Observa la seqüència i repeteix-la tocant els pads." },
+            dodger: { name: "Ring Escape",    desc: "Cada colp detona una ona expansiva. Arrossega el teu orbe i sobreviu.", how: "Arrossega l’orbe per a esquivar les ones. 3 vides." },
+            tempo:  { name: "BPM Hunter",     desc: "Tens ritme de veritat? Segueix el pols i compara el teu BPM amb el real.", how: "Toca el botó gran (o l’espai) al ritme. Mínim 8 tocs." },
+            bass:   { name: "Bass Invaders",  desc: "Naus que baixen amb cada colp. En els drops apareix un cap que creix amb l’energia.", how: "Mou la nau (arrossega, A/D o fletxes). El tret és automàtic. 3 vides." },
         },
     },
 };
@@ -627,67 +627,542 @@ const Arcade = {
         el.id = 'arcadeOverlay';
         el.setAttribute('aria-hidden', 'true');
         el.innerHTML = `
-            <header class="arcade-top">
-                <button class="arcade-back" id="arcadeBack" hidden><i class="fa-solid fa-arrow-left"></i> <span data-i18n="games.back">${T('back')}</span></button>
-                <h2 class="arcade-title"><i class="fa-solid fa-gamepad"></i> <span data-i18n="games.title">${T('title')}</span></h2>
-                <div class="arcade-now"><i class="fa-solid fa-music"></i> <span id="arcadeNowTitle">—</span></div>
-                <button class="arcade-iconbtn" id="arcadeRestart" hidden aria-label="Reiniciar" title="${T('restartRun')}" data-i18n-title="games.restartRun"><i class="fa-solid fa-rotate-left"></i></button>
-                <button class="arcade-iconbtn" id="arcadeSongBtn" aria-label="Cambiar canción" title="${T('changeSong')}" data-i18n-title="games.changeSong"><i class="fa-solid fa-music"></i></button>
-                <button class="arcade-close" id="arcadeClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
-            </header>
+            <canvas class="arcade-bg-canvas" id="arcadeBgCanvas" aria-hidden="true"></canvas>
+            <div id="arcCursor" class="arc-cursor" hidden aria-hidden="true">
+                <div class="arc-cursor-dot"></div><div class="arc-cursor-ring"></div>
+            </div>
+            <!-- HUB — pantalla de selección de juego -->
             <div class="arcade-hub" id="arcadeHub">
-                <div class="arcade-hub-inner">
-                    <div class="arcade-marquee">
-                        <span class="over">Danielux presents</span>
-                        <span class="ttl">Arcade</span>
+                <!-- HUD superior: logo + música + jugador + salir -->
+                <div class="arc-hud-top">
+                    <div class="arc-logo">
+                        <span class="arc-logo-1">ARCADE</span>
+                        <span class="arc-logo-2">DANIELUX</span>
                     </div>
-                    <p class="arcade-sub" data-i18n="games.subtitle">${T('subtitle')}</p>
-                    <div class="arcade-tiles" id="arcadeGrid"></div>
-                    <p class="arcade-hint" data-i18n="games.hint">${T('hint')}</p>
+                    <div class="arc-music-hud">
+                        <button class="arc-music-btn" id="arcMusicPrev" aria-label="Anterior"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="arc-music-btn arc-music-play" id="arcMusicPlay" aria-label="Play/Pausa"><i class="fa-solid fa-play" id="arcMusicPlayIcon"></i></button>
+                        <div class="arc-music-info" id="arcMusicInfoBtn" role="button" tabindex="-1" title="Cambiar canción">
+                            <i class="fa-solid fa-music"></i><span id="arcMusicTitle">—</span>
+                        </div>
+                        <button class="arc-music-btn" id="arcMusicNext" aria-label="Siguiente"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    <div class="arc-hud-right">
+                        <div class="arc-player-hud">
+                            <div class="arc-player-info">
+                                <div class="arc-player-lvl">NVL <span id="arcLvl">1</span></div>
+                                <div class="arc-xp-wrap">
+                                    <div class="arc-xp-bar"><div class="arc-xp-fill" id="arcXpFill" style="width:0%"></div></div>
+                                    <span class="arc-xp-txt" id="arcXpTxt">0 / 1.000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="arc-exit-btn" id="arcadeClose" aria-label="Salir">
+                            <i class="fa-solid fa-power-off"></i><span>SALIR</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Área central: título + carrusel + controles -->
+                <div class="arc-main-area">
+                    <!-- Flechas fuera del scene, posicionadas desde el centro de pantalla -->
+                    <button class="arc-arrow arc-arrow-l" id="arcadeArrowL"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="arc-arrow arc-arrow-r" id="arcadeArrowR"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="arc-title-block">
+                        <h1 class="arc-main-title">MINIJUEGOS</h1>
+                        <p class="arc-main-sub">ELIGE TU DESAFÍO</p>
+                    </div>
+                    <div class="arc-scene" id="arcScene">
+                        <div class="arc-track" id="arcTrack"></div>
+                    </div>
+                    <div class="arc-below">
+                        <button class="arc-launch-btn" id="arcadePlayBtn">
+                            <span class="alb-glow"></span>
+                            <i class="fa-solid fa-play"></i>
+                            <span class="alb-label">LAUNCH GAME</span>
+                        </button>
+                        <p class="arc-launch-hint">ENTER PARA INICIAR</p>
+                        <div class="arc-dots" id="arcadeDots"></div>
+                    </div>
+                </div>
+                <!-- Logros flotantes (derecha) -->
+                <div class="arc-ach-float" id="arcAchPanel"></div>
+                <!-- Estadísticas flotantes (abajo-izquierda) -->
+                <div class="arc-stats-float">
+                    <div class="arc-stat-item"><i class="fa-regular fa-clock"></i><div><div class="arc-stat-lbl">TIEMPO</div><div class="arc-stat-val" id="arcTimePlayed">0H 0M</div></div></div>
+                    <div class="arc-stat-item"><i class="fa-regular fa-star"></i><div><div class="arc-stat-lbl">JUEGOS</div><div class="arc-stat-val" id="arcGamesPlayed">0 / 7</div></div></div>
+                    <div class="arc-stat-item"><i class="fa-solid fa-trophy"></i><div><div class="arc-stat-lbl">LOGROS</div><div class="arc-stat-val" id="arcAchCount">0 / 5</div></div></div>
+                </div>
+                <!-- Hints de navegación (abajo-centro) -->
+                <div class="arc-nav-hints">
+                    <kbd>←</kbd><kbd>→</kbd> Navegar &nbsp;·&nbsp; <kbd>ENTER</kbd> Seleccionar &nbsp;·&nbsp; <kbd>ESC</kbd> Salir
+                </div>
+                <!-- Pantalla de carga cinemática -->
+                <div class="arc-loading" id="arcLoading" hidden>
+                    <div class="arl-inner">
+                        <div class="arl-title" id="arlTitle"></div>
+                        <div class="arl-log" id="arlLog"></div>
+                        <div class="arl-bar-wrap"><div class="arl-bar" id="arlBar"></div></div>
+                    </div>
                 </div>
             </div>
+            <!-- Cabecera del juego (solo visible durante la partida) -->
+            <header class="arcade-top" id="arcadeTop" hidden>
+                <button class="arcade-back" id="arcadeBack" hidden><i class="fa-solid fa-arrow-left"></i> <span>${T('back')}</span></button>
+                <div class="arcade-title"><i class="fa-solid fa-gamepad"></i> <span>${T('title')}</span></div>
+                <button class="arcade-song-pill" id="arcadeSongBtn" title="${T('changeSong')}">
+                    <i class="fa-solid fa-music"></i><span id="arcadeNowTitle">—</span><i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <button class="arcade-iconbtn" id="arcadeRestart" hidden><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="arcade-close" id="arcadeCloseStage" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <!-- Escenario del juego -->
             <div class="arcade-stage" id="arcadeStage" hidden>
                 <canvas id="arcadeCanvas"></canvas>
                 <div class="arcade-hud" id="arcadeHud"></div>
                 <div class="arcade-msg" id="arcadeMsg" hidden></div>
             </div>`;
         document.body.appendChild(el);
-        this.overlay = el;
-        this.hub = el.querySelector('#arcadeHub');
-        this.grid = el.querySelector('#arcadeGrid');
-        this.stage = el.querySelector('#arcadeStage');
-        this.canvas = el.querySelector('#arcadeCanvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.hud = el.querySelector('#arcadeHud');
-        this.msg = el.querySelector('#arcadeMsg');
-        this.backBtn = el.querySelector('#arcadeBack');
+        this.overlay    = el;
+        this.hub        = el.querySelector('#arcadeHub');
+        this.topBar     = el.querySelector('#arcadeTop');
+        this.stage      = el.querySelector('#arcadeStage');
+        this.canvas     = el.querySelector('#arcadeCanvas');
+        this.ctx        = this.canvas.getContext('2d');
+        this.hud        = el.querySelector('#arcadeHud');
+        this.msg        = el.querySelector('#arcadeMsg');
+        this.backBtn    = el.querySelector('#arcadeBack');
         this.restartBtn = el.querySelector('#arcadeRestart');
-        this.songBtn = el.querySelector('#arcadeSongBtn');
-        this.nowTitle = el.querySelector('#arcadeNowTitle');
+        this.songBtn    = el.querySelector('#arcadeSongBtn');
+        this.nowTitle   = el.querySelector('#arcadeNowTitle');
 
-        // Tarjetas-cartucho del hub
+        // ---- Custom cursor ----
+        const cursorEl = el.querySelector('#arcCursor');
+        el.addEventListener('mousemove', (e) => {
+            cursorEl.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+        });
+        el.addEventListener('mouseenter', () => { cursorEl.hidden = false; });
+        el.addEventListener('mouseleave', () => { cursorEl.hidden = true; });
+
+        // ---- Carrusel 3D ----
+        this._carIdx   = 0;
+        this._carArtRaf = null;
+        Arcade._drawArt._staticNext = false;
+        this._currentGameColors = this.games[0]?.colors || ['0 200 255', '139 92 246'];
+
+        const track   = el.querySelector('#arcTrack');
+        const dotsEl  = el.querySelector('#arcadeDots');
+        const playBtn = el.querySelector('#arcadePlayBtn');
+        const bgCv    = el.querySelector('#arcadeBgCanvas');
+        const bgCtx   = bgCv.getContext('2d');
+
+        // Tarjetas 3D — una por juego
+        const GAME_CATS = { tap:'RHYTHM', hero:'HERO MODE', surfer:'SURF', simon:'MEMORY', dodger:'ESCAPE', tempo:'TEMPO', bass:'SHOOTER' };
         this.games.forEach((g, i) => {
-            const card = document.createElement('button');
-            card.className = 'arcade-tile';
-            card.dataset.game = g.id;
-            card.style.setProperty('--g1', g.colors[0]);
-            card.style.setProperty('--g2', g.colors[1]);
-            card.innerHTML = `
-                <span class="arcade-tile-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
-                <span class="arcade-tile-icon"><i class="${g.icon}"></i></span>
-                <h3 class="arcade-tile-name" data-i18n="games.g.${g.id}.name">${T('g.' + g.id + '.name')}</h3>
-                <p class="arcade-tile-desc" data-i18n="games.g.${g.id}.desc">${T('g.' + g.id + '.desc')}</p>
-                <span class="arcade-tile-foot">
-                    <span class="arcade-card-best" id="arcadeBest-${g.id}" hidden>
-                        <i class="fa-solid fa-trophy"></i> <b>0</b>
-                    </span>
-                    <span class="arcade-tile-play"><i class="fa-solid fa-play"></i> <span data-i18n="games.playNow">${T('playNow')}</span></span>
-                </span>`;
-            card.addEventListener('click', () => this.launch(g.id));
-            this.grid.appendChild(card);
+            const card = document.createElement('div');
+            card.className = 'arc-card';
+            card.dataset.idx = i;
+            const cv = document.createElement('canvas');
+            cv.className = 'arc-card-canvas';
+            cv.setAttribute('aria-hidden', 'true');
+            card.appendChild(cv);
+            const dim = document.createElement('div');
+            dim.className = 'arc-card-dim';
+            card.appendChild(dim);
+            // Nombre arriba
+            const top = document.createElement('div');
+            top.className = 'arc-card-top';
+            top.innerHTML = `<div class="arc-card-cat">${GAME_CATS[g.id] || 'ARCADE'}</div>
+                <div class="arc-card-name">${T('g.' + g.id + '.name')}</div>`;
+            card.appendChild(top);
+            // Récord abajo
+            const bot = document.createElement('div');
+            bot.className = 'arc-card-bottom';
+            bot.innerHTML = `<div class="arc-card-rec" hidden>
+                <span class="arc-card-rec-lbl">RÉCORD</span>
+                <span class="arc-card-rec-val"></span></div>`;
+            card.appendChild(bot);
+            card.addEventListener('click', () => {
+                if (i === this._carIdx) return;
+                const N = this.games.length;
+                const fwd = ((i - this._carIdx) + N) % N;
+                const bwd = ((this._carIdx - i) + N) % N;
+                this._carNav(i, fwd <= bwd ? 1 : -1);
+            });
+            track.appendChild(card);
         });
 
+        // Dots
+        this.games.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'arc-dot';
+            d.setAttribute('aria-label', 'Juego ' + (i + 1));
+            d.addEventListener('click', () => this._carNav(i));
+            dotsEl.appendChild(d);
+        });
+
+        const getSelectedDiff = () => 'medium';
+
+        // Pantalla de carga cinemática
+        this._launchWithLoading = (id, diff) => {
+            const loadEl  = el.querySelector('#arcLoading');
+            const titleEl = el.querySelector('#arlTitle');
+            const logEl   = el.querySelector('#arlLog');
+            const barEl   = el.querySelector('#arlBar');
+            const g = this.games.find(x => x.id === id);
+            titleEl.textContent = (g ? T('g.' + id + '.name') : id).toUpperCase();
+            logEl.innerHTML = '';
+            barEl.style.transition = 'none';
+            barEl.style.width = '0%';
+            loadEl.hidden = false;
+            const steps = [
+                [0,   'INITIALIZING...'],
+                [180, 'LOADING ASSETS...'],
+                [400, 'LOADING SHADERS...'],
+                [650, 'LOADING SYSTEMS...'],
+                [900, 'READY'],
+            ];
+            steps.forEach(([t, txt]) => setTimeout(() => {
+                const ln = document.createElement('div');
+                ln.className = 'arl-line'; ln.textContent = '> ' + txt;
+                logEl.appendChild(ln);
+                barEl.style.transition = 'width 0.2s ease';
+                barEl.style.width = (((steps.indexOf(steps.find(s=>s[1]===txt))+1)/steps.length)*100) + '%';
+            }, t));
+            setTimeout(() => { loadEl.hidden = true; this.launch(id, diff); }, 1150);
+        };
+
+        // Panel lateral: perfil + logros + estadísticas
+        this._updateSidePanel = () => {
+            const ACHS = [
+                { icon:'fa-solid fa-gamepad', name:'PRIMER PASO',       check:() => this.games.some(g => bestOfGame(g.id) > 0) },
+                { icon:'fa-solid fa-music',   name:'MAESTRO DEL RITMO', check:() => bestOfGame('tap') >= 500 },
+                { icon:'fa-solid fa-bolt',    name:'SPEEDRUNNER',       check:() => this.games.filter(g => bestOfGame(g.id) > 0).length >= 5 },
+                { icon:'fa-solid fa-gem',     name:'COLECCIONISTA',     check:() => this.games.every(g => bestOfGame(g.id) > 0) },
+                { icon:'fa-solid fa-star',    name:'MODO HÉROE',        check:() => bestOfGame('hero') >= 2 },
+            ];
+            const unlocked = ACHS.filter(a => a.check());
+            const achPanel = el.querySelector('#arcAchPanel');
+            if (achPanel) {
+                achPanel.innerHTML = ACHS.map(a => {
+                    const on = a.check();
+                    return `<div class="arc-ach-item${on ? ' arc-ach-on' : ''}">
+                        <div class="arc-ach-icon"><i class="${a.icon}"></i></div>
+                        <span class="arc-ach-name">${a.name}</span>
+                        <i class="arc-ach-state ${on ? 'fa-solid fa-check' : 'fa-solid fa-lock'}"></i>
+                    </div>`;
+                }).join('');
+            }
+            const gp   = this.games.filter(g => bestOfGame(g.id) > 0).length;
+            const gpEl = el.querySelector('#arcGamesPlayed'); if (gpEl) gpEl.textContent = gp + ' / ' + this.games.length;
+            const acEl = el.querySelector('#arcAchCount');    if (acEl) acEl.textContent = unlocked.length + ' / ' + ACHS.length;
+            const tmEl = el.querySelector('#arcTimePlayed');
+            if (tmEl) {
+                const ms = parseInt(localStorage.getItem('arcade_time_ms') || '0');
+                const mn = Math.floor(ms / 60000);
+                tmEl.textContent = Math.floor(mn / 60) + 'H ' + (mn % 60) + 'M';
+            }
+            const tot  = this.games.reduce((s, g) => s + (bestOfGame(g.id) || 0), 0);
+            const lvl  = Math.floor(tot / 1000) + 1;
+            const xpIn = tot % 1000;
+            const lvlEl = el.querySelector('#arcLvl');    if (lvlEl) lvlEl.textContent = lvl;
+            const xpFEl = el.querySelector('#arcXpFill'); if (xpFEl) xpFEl.style.width = (xpIn / 10).toFixed(1) + '%';
+            const xpTEl = el.querySelector('#arcXpTxt');  if (xpTEl) xpTEl.textContent = fmtN(xpIn) + ' / 1.000';
+        };
+
+        playBtn.addEventListener('click', () => {
+            const g = this.games[this._carIdx];
+            if (g) this._launchWithLoading(g.id, getSelectedDiff());
+        });
+
+        this._carNav = (idx, dir = 0) => {
+            const N = this.games.length;
+            this._carIdx = ((idx % N) + N) % N;
+            const g = this.games[this._carIdx];
+            this._currentGameColors = g.colors;
+
+            // Posicionar tarjetas en 3D
+            const cards = track.querySelectorAll('.arc-card');
+            cards.forEach((card, i) => {
+                let off = i - this._carIdx;
+                if (off >  N / 2) off -= N;
+                if (off < -N / 2) off += N;
+                const abs = Math.abs(off);
+                const vis = abs <= 2;
+                card.style.display = vis ? '' : 'none';
+                if (!vis) return;
+                const scale = abs === 0 ? 1 : abs === 1 ? 0.66 : 0.44;
+                const tx    = off * 60;
+                const ry    = -off * 25;
+                card.style.transform = `translateX(${tx}%) scale(${scale}) rotateY(${ry}deg)`;
+                card.style.zIndex    = 10 - abs;
+                card.style.filter    = abs === 0 ? 'none' : abs === 1 ? 'blur(1.5px)' : 'blur(3.5px)';
+                card.querySelector('.arc-card-dim').style.opacity = abs === 0 ? 0 : (abs === 1 ? 0.55 : 0.8);
+                card.classList.toggle('active', abs === 0);
+            });
+
+            // Arte del juego activo
+            if (this._carArtRaf) { cancelAnimationFrame(this._carArtRaf); this._carArtRaf = null; }
+            const activeCard = track.querySelector('.arc-card.active');
+            if (activeCard) {
+                const cv = activeCard.querySelector('.arc-card-canvas');
+                const ctx2 = cv.getContext('2d');
+                this._drawArt(ctx2, cv, g.id); // _drawArt ya resetea cv.width/height internamente
+                // Récord en la tarjeta activa
+                const recEl = activeCard.querySelector('.arc-card-rec');
+                const bv = bestOfGame(g.id);
+                recEl.hidden = bv <= 0;
+                if (bv > 0) recEl.querySelector('.arc-card-rec-val').textContent = g.fmtBest ? g.fmtBest(bv) : fmtN(bv);
+            }
+
+            // Dots
+            dotsEl.querySelectorAll('.arc-dot').forEach((d, i) => d.classList.toggle('active', i === this._carIdx));
+        };
+
+        el.querySelector('#arcadeArrowL').addEventListener('click', () => this._carNav(this._carIdx - 1, -1));
+        el.querySelector('#arcadeArrowR').addEventListener('click', () => this._carNav(this._carIdx + 1, 1));
+
+        // Flechas: position:fixed medido en JS sobre el track real
+        const _arrowL = el.querySelector('#arcadeArrowL');
+        const _arrowR = el.querySelector('#arcadeArrowR');
+        this._positionArrows = () => {
+            if (!track || !_arrowL || !_arrowR) return;
+            const r = track.getBoundingClientRect();
+            if (r.width === 0) return;
+            const gap = 16, hw = 21;
+            const top = r.top + r.height / 2 - hw;
+            // Quitar transición antes de mover para que no "vuelen" desde fuera de pantalla
+            [_arrowL, _arrowR].forEach(a => { a.style.transition = 'none'; a.style.opacity = '0'; });
+            _arrowL.style.cssText += `;position:fixed;top:${top}px;left:${r.left - 42 - gap}px;right:auto;transform:none`;
+            _arrowR.style.cssText += `;position:fixed;top:${top}px;left:${r.right + gap}px;right:auto;transform:none`;
+            // Fade-in en el siguiente frame, ya en posición correcta
+            requestAnimationFrame(() => {
+                const t = 'border-color 0.18s, color 0.18s, background 0.18s, box-shadow 0.18s, opacity 0.15s';
+                _arrowL.style.transition = t; _arrowR.style.transition = t;
+                _arrowL.style.opacity = '1'; _arrowR.style.opacity = '1';
+                _arrowL.style.pointerEvents = 'auto'; _arrowR.style.pointerEvents = 'auto';
+            });
+        };
+
+        // Teclado
+        this._hubKeyHandler = (e) => {
+            if (!this.hub || this.hub.hidden) return;
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); this._carNav(this._carIdx - 1, -1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); this._carNav(this._carIdx + 1, 1); }
+            if (e.key === 'Enter') playBtn.click();
+        };
+        document.addEventListener('keydown', this._hubKeyHandler);
+
+        // Swipe táctil
+        let _swipeX = null;
+        const scene = el.querySelector('#arcScene');
+        scene.addEventListener('pointerdown', (e) => { _swipeX = e.clientX; });
+        scene.addEventListener('pointerup', (e) => {
+            if (_swipeX === null) return;
+            const dx = e.clientX - _swipeX;
+            if (Math.abs(dx) > 40) this._carNav(this._carIdx + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+            _swipeX = null;
+        });
+
+        // Fondo multicapa: nebulosa + partículas + brillo por juego + olas
+        this._bgRaf = null;
+        const _nebulae = [
+            { x: 0.20, y: 0.40, vx:  0.000030, vy:  0.000022, cr: 1 },
+            { x: 0.75, y: 0.55, vx: -0.000025, vy:  0.000030, cr: 2 },
+            { x: 0.50, y: 0.22, vx:  0.000018, vy: -0.000025, cr: 2 },
+            { x: 0.12, y: 0.80, vx:  0.000038, vy: -0.000020, cr: 1 },
+        ];
+        const _ptcls = Array.from({length: 170}, () => ({
+            x: Math.random(), y: Math.random(),
+            vx: (Math.random() - 0.5) * 0.00015,
+            vy: (Math.random() - 0.5) * 0.00012,
+            r:  Math.random() * 1.6 + 0.4,
+            a:  Math.random() * 0.38 + 0.08,
+            c:  Math.random() > 0.55 ? 1 : 2,
+        }));
+        this._drawBg = (ts) => {
+            if (!this.isOpen()) return;
+            this._bgRaf = requestAnimationFrame(this._drawBg);
+            const W = bgCv.width, H = bgCv.height;
+            if (!W || !H) return;
+            const beat = typeof _visualBeat === 'number' ? _visualBeat : 0;
+            const t = ts / 1000;
+            const a1r = (window._accent1Rgb || '0 200 255').split(/\s+/).map(Number);
+            const a2r = (window._accent2Rgb || '139 92 246').split(/\s+/).map(Number);
+            const gcols = (this._currentGameColors || ['0 200 255','139 92 246'])
+                .map(c => c.split(/\s+/).map(Number));
+
+            // Base oscura
+            bgCtx.fillStyle = '#010008';
+            bgCtx.fillRect(0, 0, W, H);
+
+            // Capa 1: Nebulosas (gradientes radiales lentos)
+            for (const nb of _nebulae) {
+                nb.x += nb.vx; nb.y += nb.vy;
+                if (nb.x < -0.15 || nb.x > 1.15) nb.vx *= -1;
+                if (nb.y < -0.15 || nb.y > 1.15) nb.vy *= -1;
+                const cr = nb.cr === 1 ? a1r : a2r;
+                const rad = Math.min(W, H) * (0.42 + beat * 0.06);
+                const grd = bgCtx.createRadialGradient(nb.x*W, nb.y*H, 0, nb.x*W, nb.y*H, rad);
+                grd.addColorStop(0, `rgba(${cr[0]},${cr[1]},${cr[2]},${0.055 + beat * 0.04})`);
+                grd.addColorStop(1, 'rgba(0,0,0,0)');
+                bgCtx.fillStyle = grd;
+                bgCtx.fillRect(0, 0, W, H);
+            }
+
+            // Capa 2: Partículas flotantes
+            for (const p of _ptcls) {
+                p.x += p.vx * (1 + beat * 0.9);
+                p.y += p.vy * (1 + beat * 0.5);
+                if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+                if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+                const cr = p.c === 1 ? a1r : a2r;
+                bgCtx.beginPath();
+                bgCtx.arc(p.x * W, p.y * H, p.r * (1 + beat * 0.9), 0, Math.PI * 2);
+                bgCtx.fillStyle = `rgba(${cr[0]},${cr[1]},${cr[2]},${p.a * (0.45 + beat * 0.55)})`;
+                bgCtx.fill();
+            }
+
+            // Capa 3: Brillo radial del juego (color del juego activo)
+            const gc0 = gcols[0] || a1r;
+            const gg = bgCtx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, Math.min(W,H)*(0.5+beat*0.1));
+            gg.addColorStop(0, `rgba(${gc0[0]},${gc0[1]},${gc0[2]},${0.1+beat*0.12})`);
+            gg.addColorStop(1, 'rgba(0,0,0,0)');
+            bgCtx.fillStyle = gg;
+            bgCtx.fillRect(0, 0, W, H);
+
+            // Capa 4+5A: Círculo completo + espectro circular integrado
+            // Un único radio compartido para que barras y círculo sean perfectamente coincidentes
+            const arcCX = W * 0.5, arcCY = H * 0.52;
+            const arcR  = Math.min(W, H) * (0.34 + beat * 0.03);
+            const arcLW = 2; // grosor de la línea del círculo
+
+            bgCtx.save();
+            // Glow radial alrededor del círculo
+            for (let pass = 0; pass < 4; pass++) {
+                const rOuter = arcR + pass * 8 + 4;
+                const rInner = Math.max(0, arcR - pass * 6);
+                const glowG = bgCtx.createRadialGradient(arcCX, arcCY, rInner, arcCX, arcCY, rOuter);
+                const alpha = (0.12 + beat * 0.15) * Math.pow(0.5, pass);
+                glowG.addColorStop(0, `rgba(${a1r[0]},${a1r[1]},${a1r[2]},0)`);
+                glowG.addColorStop(0.5, `rgba(${a1r[0]},${a1r[1]},${a1r[2]},${alpha})`);
+                glowG.addColorStop(1, `rgba(${a1r[0]},${a1r[1]},${a1r[2]},0)`);
+                bgCtx.fillStyle = glowG;
+                bgCtx.fillRect(0, 0, W, H);
+            }
+
+            // Espectro circular — barras arrancan desde el borde exterior del círculo (arcR + arcLW/2)
+            const specBars = 80;
+            const specStart = arcR + arcLW / 2; // borde exterior del trazo
+            for (let i = 0; i < specBars; i++) {
+                const ang  = (i / specBars) * Math.PI * 2 - Math.PI / 2;
+                const ph   = t * 1.2 + i * (Math.PI * 2 / specBars) * 2.5;
+                const bh   = arcR * (0.04 + 0.18 * Math.abs(Math.sin(ph)) * (0.15 + beat * 0.85));
+                const x1   = arcCX + Math.cos(ang) * specStart;
+                const y1   = arcCY + Math.sin(ang) * specStart;
+                const x2   = arcCX + Math.cos(ang) * (specStart + bh);
+                const y2   = arcCY + Math.sin(ang) * (specStart + bh);
+                const frac = i / specBars;
+                // Degradado suave cyan→morado a lo largo del círculo
+                const cr   = frac < 0.5
+                    ? [a1r[0] + (a2r[0]-a1r[0])*frac*2, a1r[1] + (a2r[1]-a1r[1])*frac*2, a1r[2] + (a2r[2]-a1r[2])*frac*2]
+                    : [a2r[0] + (a1r[0]-a2r[0])*(frac-0.5)*2, a2r[1] + (a1r[1]-a2r[1])*(frac-0.5)*2, a2r[2] + (a1r[2]-a2r[2])*(frac-0.5)*2];
+                bgCtx.beginPath();
+                bgCtx.moveTo(x1, y1);
+                bgCtx.lineTo(x2, y2);
+                bgCtx.strokeStyle = `rgba(${cr[0]|0},${cr[1]|0},${cr[2]|0},${0.18 + beat * 0.32})`;
+                bgCtx.lineWidth = 1.5;
+                bgCtx.stroke();
+            }
+
+            // Círculo principal (encima de las barras para que tape cualquier solapamiento)
+            bgCtx.beginPath();
+            bgCtx.arc(arcCX, arcCY, arcR, 0, Math.PI * 2);
+            bgCtx.strokeStyle = `rgba(${a1r[0]},${a1r[1]},${a1r[2]},${0.22 + beat * 0.25})`;
+            bgCtx.lineWidth = arcLW;
+            bgCtx.stroke();
+            // Círculo interior secundario (color 2)
+            bgCtx.beginPath();
+            bgCtx.arc(arcCX, arcCY, arcR * 0.88, 0, Math.PI * 2);
+            bgCtx.strokeStyle = `rgba(${a2r[0]},${a2r[1]},${a2r[2]},${0.10 + beat * 0.12})`;
+            bgCtx.lineWidth = 1;
+            bgCtx.stroke();
+            bgCtx.restore();
+
+            // Capa 5B: Flow lines — líneas de onda horizontales sutiles
+            const flowLines = 6;
+            bgCtx.save();
+            for (let li = 0; li < flowLines; li++) {
+                const yBase = H * (0.22 + li * 0.12);
+                const amp   = (12 + li * 6) * (1 + beat * 1.2);
+                const freq  = 0.008 + li * 0.002;
+                const phase = t * (0.4 + li * 0.15) + li * 1.1;
+                const cr    = li % 2 === 0 ? a1r : a2r;
+                const alpha = (0.04 + beat * 0.07) * (1 - li * 0.1);
+                bgCtx.beginPath();
+                for (let x = 0; x <= W; x += 4) {
+                    const y = yBase + Math.sin(x * freq + phase) * amp
+                                    + Math.sin(x * freq * 0.5 + phase * 1.3) * amp * 0.4;
+                    x === 0 ? bgCtx.moveTo(x, y) : bgCtx.lineTo(x, y);
+                }
+                bgCtx.strokeStyle = `rgba(${cr[0]},${cr[1]},${cr[2]},${alpha})`;
+                bgCtx.lineWidth = 1;
+                bgCtx.stroke();
+            }
+            bgCtx.restore();
+
+            // Scanlines sutiles
+            bgCtx.save();
+            bgCtx.globalAlpha = 0.04;
+            bgCtx.fillStyle = '#000';
+            for (let y = 0; y < H; y += 3) bgCtx.fillRect(0, y, W, 1);
+            bgCtx.restore();
+
+            // Viñeta perimetral
+            const vg = bgCtx.createRadialGradient(W/2, H/2, Math.min(W,H)*0.12, W/2, H/2, Math.max(W,H)*0.72);
+            vg.addColorStop(0, 'rgba(1,0,8,0)');
+            vg.addColorStop(1, 'rgba(1,0,8,0.88)');
+            bgCtx.fillStyle = vg;
+            bgCtx.fillRect(0, 0, W, H);
+        };
+
+        this._resizeBg = () => {
+            bgCv.width  = this.overlay?.offsetWidth  || window.innerWidth;
+            bgCv.height = this.overlay?.offsetHeight || window.innerHeight;
+        };
+
         el.querySelector('#arcadeClose').addEventListener('click', () => this.close());
+        el.querySelector('#arcadeCloseStage').addEventListener('click', () => this.close());
+
+        // ---- HUD de música (reemplaza la barra de reproducción) ----
+        const _mPlayIcon = el.querySelector('#arcMusicPlayIcon');
+        const _updateMusicIcon = () => {
+            if (_mPlayIcon) _mPlayIcon.className = audio.paused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+        };
+        audio.addEventListener('play', _updateMusicIcon);
+        audio.addEventListener('pause', _updateMusicIcon);
+
+        el.querySelector('#arcMusicPlay').addEventListener('click', () => {
+            if (audio.paused) { try { const p = audio.play(); if (p) p.catch(() => {}); } catch (e) {} }
+            else audio.pause();
+            syncPlayIcons();
+        });
+        el.querySelector('#arcMusicPrev').addEventListener('click', () => {
+            if (typeof TRACKS !== 'undefined' && window._playerLoadTrack) {
+                const n = TRACKS.length;
+                window._playerLoadTrack(((window._currentIdx || 0) - 1 + n) % n, !audio.paused);
+                this.updateNowTitle();
+            }
+        });
+        el.querySelector('#arcMusicNext').addEventListener('click', () => {
+            if (typeof TRACKS !== 'undefined' && window._playerLoadTrack) {
+                const n = TRACKS.length;
+                window._playerLoadTrack(((window._currentIdx || 0) + 1) % n, !audio.paused);
+                this.updateNowTitle();
+            }
+        });
+        el.querySelector('#arcMusicInfoBtn').addEventListener('click', () => {
+            if (this._picker) this.closeSongPicker(); else this.openSongPicker();
+        });
         this.backBtn.addEventListener('click', () => this.toHub());
         this.restartBtn.addEventListener('click', () => {
             if (this.sessionGame) this.startRun(this.sessionGame.id);
@@ -751,7 +1226,11 @@ const Arcade = {
             if (this.session && !this.showingResults) this.session.forceEnd?.();
         });
 
-        window.addEventListener('resize', () => { if (this.isOpen()) this.resize(); }, { passive: true });
+        window.addEventListener('resize', () => {
+            if (!this.isOpen()) return;
+            this.resize();
+            if (!this.hub?.hidden) requestAnimationFrame(() => this._positionArrows?.());
+        }, { passive: true });
     },
 
     isOpen() { return this.overlay && this.overlay.classList.contains('open'); },
@@ -759,31 +1238,27 @@ const Arcade = {
     updateNowTitle() {
         try {
             const idx = window._currentIdx || 0;
-            if (this.nowTitle && typeof TRACKS !== 'undefined' && TRACKS[idx]) this.nowTitle.textContent = TRACKS[idx].title;
+            const title = typeof TRACKS !== 'undefined' && TRACKS[idx] ? TRACKS[idx].title : null;
+            if (title) {
+                if (this.nowTitle) this.nowTitle.textContent = title;
+                const mtEl = document.getElementById('arcMusicTitle');
+                if (mtEl) mtEl.textContent = title;
+            }
         } catch (e) {}
     },
 
     refreshBests() {
-        this.games.forEach((g) => {
-            const elB = document.getElementById('arcadeBest-' + g.id);
-            if (!elB) return;
-            const v = bestOfGame(g.id);
-            if (v > 0) {
-                elB.hidden = false;
-                elB.querySelector('b').textContent = g.fmtBest ? g.fmtBest(v) : fmtN(v);
-            } else {
-                elB.hidden = true;
-            }
-        });
+        // Refresca el récord del juego actualmente visible en el carrusel
+        if (this._carNav) this._carNav(this._carIdx || 0);
     },
 
     open() {
         if (!this.overlay) this.build();
-        // Foto de lo que estaba sonando, para restaurarlo al cerrar
         this.snapshot = audio.getAttribute('src')
             ? { idx: window._currentIdx || 0, time: audio.currentTime || 0, playing: !audio.paused }
             : null;
-        this._dirty = false; // aún no hemos tocado la música
+        this._dirty    = false;
+        this._openTime = Date.now();
         this.updateNowTitle();
         this.refreshBests();
         this.overlay.classList.add('open');
@@ -793,6 +1268,12 @@ const Arcade = {
     },
 
     close() {
+        if (this._openTime) {
+            const elapsed = Date.now() - this._openTime;
+            const prev = parseInt(localStorage.getItem('arcade_time_ms') || '0');
+            localStorage.setItem('arcade_time_ms', String(prev + elapsed));
+            this._openTime = null;
+        }
         const dirty = this._dirty;
         const wasPlayingNow = !audio.paused;
         this.abortSession();
@@ -823,10 +1304,19 @@ const Arcade = {
         this.overlay.classList.remove('open');
         this.overlay.setAttribute('aria-hidden', 'true');
         document.documentElement.classList.remove('arcade-lock');
+        document.documentElement.classList.remove('arcade-hub-active');
+        document.documentElement.classList.remove('arcade-game-active');
+        if (this._bgRaf) { cancelAnimationFrame(this._bgRaf); this._bgRaf = null; }
+        if (this._carArtRaf) { cancelAnimationFrame(this._carArtRaf); this._carArtRaf = null; }
+        if (this._hubKeyHandler) { document.removeEventListener('keydown', this._hubKeyHandler); this._hubKeyHandler = null; }
     },
 
     toHub() {
         this.abortSession();
+        // Volvemos al hub: resetear dirty para que la música del usuario siga sonando
+        this._dirty = false;
+        try { const p = audio.play(); if (p) p.catch(() => {}); } catch (e) {}
+        syncPlayIcons();
         this.refreshBests();
         this.showHubView();
     },
@@ -834,15 +1324,52 @@ const Arcade = {
     showHubView() {
         this.hub.hidden = false;
         this.stage.hidden = true;
+        if (this.topBar) this.topBar.hidden = true;
         this.backBtn.hidden = true;
         this.restartBtn.hidden = true;
+        document.documentElement.classList.add('arcade-hub-active');
+        document.documentElement.classList.remove('arcade-game-active');
         this.hideMsg();
+        if (this._carNav) this._carNav(this._carIdx || 0);
+        this._updateSidePanel?.();
+        this._resizeBg?.();
+        if (!this._bgRaf) this._bgRaf = requestAnimationFrame(this._drawBg);
+        // Pre-render de un frame estático para todas las tarjetas no activas
+        setTimeout(() => {
+            if (this.hub?.hidden) return; // el usuario ya salió del hub
+            const track = this.hub?.querySelector('#arcTrack');
+            if (!track) return;
+            const cards = track.querySelectorAll('.arc-card');
+            const activeIdx = this._carIdx;
+            cards.forEach((card, i) => {
+                if (i === activeIdx) return; // la activa ya tiene su loop animado
+                const cv = card.querySelector('.arc-card-canvas');
+                if (!cv) return;
+                const g = this.games[i];
+                if (!g) return;
+                Arcade._drawArt._staticNext = true; // capturado por el closure del loop
+                this._drawArt(cv.getContext('2d'), cv, g.id);
+            });
+        }, 80);
+        // Posicionar flechas tras el layout (2 frames: 1 para que el hub sea visible, 1 para medir)
+        requestAnimationFrame(() => requestAnimationFrame(() => this._positionArrows?.()));
     },
 
     showStageView() {
         this.hub.hidden = true;
         this.stage.hidden = false;
+        if (this.topBar) this.topBar.hidden = false;
         this.backBtn.hidden = false;
+        document.documentElement.classList.remove('arcade-hub-active');
+        document.documentElement.classList.add('arcade-game-active');
+        // Ocultar flechas del hub
+        const aL = this.overlay?.querySelector('#arcadeArrowL');
+        const aR = this.overlay?.querySelector('#arcadeArrowR');
+        if (aL) { aL.style.opacity = '0'; aL.style.pointerEvents = 'none'; }
+        if (aR) { aR.style.opacity = '0'; aR.style.pointerEvents = 'none'; }
+        // Asegurar que el fondo sigue animándose en la vista de juego
+        this._resizeBg?.();
+        if (!this._bgRaf) this._bgRaf = requestAnimationFrame(this._drawBg);
         this.resize();
     },
 
@@ -953,9 +1480,10 @@ const Arcade = {
     },
 
     /* ---- panel previo: dificultad y opciones ---- */
-    launch(id) {
+    launch(id, presetDiff) {
         const game = this.games.find((g) => g.id === id);
         if (!game) return;
+        if (presetDiff && DIFFS.includes(presetDiff)) { OPTS.diff[id] = presetDiff; saveOpts(); }
         this.abortSession();
         this._dirty = true; // a partir de aquí la música es del juego
         warmBlip();         // crea el AudioContext de los pitidos dentro del gesto
@@ -2862,10 +3390,172 @@ Arcade.register({
     },
 });
 
+/* ---- Arte canvas animado por juego ---- */
+Arcade._drawArt = function(ctx, cv, id) {
+    const W = cv.offsetWidth || 340, H = cv.offsetHeight || 260;
+    cv.width = W; cv.height = H;
+    const beat = () => (typeof _visualBeat === 'number' ? _visualBeat : 0);
+    const a1 = () => window._accent1Rgb || '0 200 255';
+    const a2 = () => window._accent2Rgb || '139 92 246';
+    const PI2 = Math.PI * 2;
+    const cx = W / 2, cy = H / 2;
+    let t = 0, raf = null;
+    const artists = {
+        tap(ctx, t) { // Beat Striker: círculos concéntricos + ripple
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            for (let i = 5; i > 0; i--) {
+                const phase = (t * 0.55 + i * 0.22) % 1;
+                const r = phase * Math.min(W, H) * 0.45;
+                const a = (1 - phase) * (0.5 + b * 0.4);
+                ctx.beginPath(); ctx.arc(cx, cy, r, 0, PI2);
+                ctx.strokeStyle = rgbStr(a1(), a); ctx.lineWidth = 2.5 - phase * 1.5; ctx.stroke();
+            }
+            const pr = 14 + b * 10;
+            ctx.beginPath(); ctx.arc(cx, cy, pr, 0, PI2);
+            ctx.fillStyle = rgbStr(a2(), 0.9 + b * 0.1); ctx.fill();
+            ctx.beginPath(); ctx.arc(cx, cy, pr + 6 + b * 8, 0, PI2);
+            ctx.strokeStyle = rgbStr(a1(), 0.6 + b * 0.3); ctx.lineWidth = 2; ctx.stroke();
+        },
+        hero(ctx, t) { // Hero Mode: notas cayendo en carriles
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            const lanes = 4, lw = W / (lanes + 2), x0 = lw;
+            for (let l = 0; l < lanes; l++) {
+                const x = x0 + l * lw + lw / 2;
+                ctx.fillStyle = rgbStr(l % 2 ? a2() : a1(), 0.07);
+                ctx.fillRect(x - lw * 0.38, 0, lw * 0.76, H);
+            }
+            ctx.fillStyle = rgbStr(a1(), 0.5 + b * 0.4);
+            ctx.fillRect(x0 - 10, H - 18, lanes * lw + 20, 4);
+            const notes = [
+                { l: 0, y: ((t * 0.38) % 1.2) }, { l: 2, y: ((t * 0.38 + 0.3) % 1.2) },
+                { l: 1, y: ((t * 0.38 + 0.6) % 1.2) }, { l: 3, y: ((t * 0.38 + 0.9) % 1.2) },
+                { l: 0, y: ((t * 0.38 + 0.15) % 1.2) }, { l: 3, y: ((t * 0.38 + 0.75) % 1.2) },
+            ];
+            notes.forEach(n => {
+                const ny = n.y * H; if (ny > H) return;
+                const nx = x0 + n.l * lw + lw / 2;
+                const col = n.l % 2 ? a2() : a1();
+                const nh = 14; const nw = lw * 0.7;
+                ctx.beginPath();
+                if (ctx.roundRect) ctx.roundRect(nx - nw/2, ny - nh/2, nw, nh, 6);
+                else ctx.rect(nx - nw/2, ny - nh/2, nw, nh);
+                ctx.fillStyle = rgbStr(col, 0.9); ctx.fill();
+            });
+        },
+        surfer(ctx, t) { // Wave Rider: forma de onda + nave
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            ctx.beginPath();
+            for (let x = 0; x <= W; x += 2) {
+                const y = cy + Math.sin((x / W) * Math.PI * 5 + t * 1.8) * (30 + b * 28)
+                         + Math.sin((x / W) * Math.PI * 2 + t * 0.9) * (14 + b * 10);
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = rgbStr(a1(), 0.7 + b * 0.25); ctx.lineWidth = 2.5; ctx.stroke();
+            // nave
+            const shipX = W * 0.22, shipY = cy + Math.sin(t * 1.8) * (30 + b * 28) + Math.sin(t * 0.9) * 14;
+            ctx.save(); ctx.translate(shipX, shipY);
+            ctx.beginPath(); ctx.moveTo(0, -12); ctx.lineTo(10, 8); ctx.lineTo(0, 3); ctx.lineTo(-10, 8); ctx.closePath();
+            ctx.fillStyle = rgbStr(a2(), 0.95); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 1.5; ctx.stroke();
+            ctx.restore();
+        },
+        simon(ctx, t) { // Echo Sequence: pads iluminados en secuencia
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            const pads = [
+                { x: cx - 40, y: cy - 38, col: a1() }, { x: cx + 40, y: cy - 38, col: a2() },
+                { x: cx - 40, y: cy + 38, col: a2() }, { x: cx + 40, y: cy + 38, col: a1() },
+            ];
+            const active = Math.floor(t * 1.1) % 4;
+            pads.forEach((p, i) => {
+                const on = i === active;
+                const pr = 28 + (on ? b * 8 : 0);
+                ctx.beginPath(); ctx.arc(p.x, p.y, pr, 0, PI2);
+                ctx.fillStyle = rgbStr(p.col, on ? 0.9 + b * 0.1 : 0.18); ctx.fill();
+                ctx.strokeStyle = rgbStr(p.col, on ? 1 : 0.35); ctx.lineWidth = 2; ctx.stroke();
+            });
+        },
+        dodger(ctx, t) { // Ring Escape: ondas expansivas
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            for (let i = 0; i < 4; i++) {
+                const phase = ((t * 0.4 + i * 0.25) % 1);
+                const r = phase * Math.min(W, H) * 0.48;
+                const a = (1 - phase) * (0.55 + b * 0.35);
+                ctx.beginPath(); ctx.arc(cx, cy, r, 0, PI2);
+                ctx.strokeStyle = rgbStr(i % 2 ? a2() : a1(), a); ctx.lineWidth = 3 - phase * 2; ctx.stroke();
+            }
+            // orbe del jugador
+            const ox = cx + Math.cos(t * 0.7) * 55, oy = cy + Math.sin(t * 0.5) * 40;
+            ctx.beginPath(); ctx.arc(ox, oy, 10 + b * 5, 0, PI2);
+            ctx.fillStyle = rgbStr(a1(), 0.95); ctx.fill();
+        },
+        tempo(ctx, t) { // BPM Hunter: metrónomo + número
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            const swing = Math.sin(t * 2.4) * 0.52;
+            // péndulo
+            const px = cx + Math.sin(swing) * 70, py = cy - 20;
+            ctx.strokeStyle = rgbStr(a1(), 0.7); ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(cx, cy - 80); ctx.lineTo(px, py); ctx.stroke();
+            ctx.beginPath(); ctx.arc(px, py, 12 + b * 8, 0, PI2);
+            ctx.fillStyle = rgbStr(a2(), 0.9 + b * 0.1); ctx.fill();
+            // BPM
+            ctx.font = `900 ${28 + b * 8}px Montserrat, sans-serif`;
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillStyle = rgbStr(a1(), 0.85 + b * 0.15);
+            ctx.fillText('BPM', cx, cy + 50);
+        },
+        bass(ctx, t) { // Bass Invaders: naves en formación
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            const rows = 2, cols = 5;
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const sx = W * 0.18 + c * (W * 0.16) + Math.sin(t * 0.6 + r) * 4;
+                    const sy = 48 + r * 44 + Math.sin(t * 0.4 + c * 0.5) * 5;
+                    const col = r % 2 ? a2() : a1();
+                    ctx.save(); ctx.translate(sx, sy);
+                    ctx.beginPath(); ctx.moveTo(0, -10); ctx.lineTo(9, 7); ctx.lineTo(0, 3); ctx.lineTo(-9, 7); ctx.closePath();
+                    ctx.fillStyle = rgbStr(col, 0.85 + b * 0.1); ctx.fill();
+                    ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 1.2; ctx.stroke();
+                    ctx.restore();
+                }
+            }
+            // jugador abajo
+            ctx.save(); ctx.translate(cx, H - 36);
+            ctx.beginPath(); ctx.moveTo(0, -14); ctx.lineTo(12, 10); ctx.lineTo(0, 4); ctx.lineTo(-12, 10); ctx.closePath();
+            ctx.fillStyle = rgbStr(a1(), 0.95 + b * 0.05); ctx.fill();
+            ctx.restore();
+            // bala
+            const by2 = H - 36 - ((t * 90) % (H - 36));
+            ctx.fillStyle = rgbStr(a2(), 0.9); ctx.fillRect(cx - 2, by2, 4, 12);
+        },
+    };
+    const artFns = { tap: artists.tap, hero: artists.hero, surfer: artists.surfer, simon: artists.simon, dodger: artists.dodger, tempo: artists.tempo, bass: artists.bass };
+    const fn = artFns[id] || artFns.tap;
+    // staticOnly se captura en el closure — funciona aunque el flag externo cambie después
+    const _once = !!Arcade._drawArt._staticNext;
+    Arcade._drawArt._staticNext = false;
+    const loop = (ts) => {
+        t = ts / 1000;
+        fn(ctx, t);
+        if (!_once) {
+            raf = requestAnimationFrame(loop);
+            Arcade._carArtRaf = raf;
+        }
+    };
+    raf = requestAnimationFrame(loop);
+    if (!_once) Arcade._carArtRaf = raf;
+};
+
 Arcade.init();
 
 /* ==========================================================================
-   ARCADE PROMO — canvas reactivo con partículas que pulsan al beat
+   ARCADE PROMO — malla hexagonal reactiva (superficie de agua + beat ripples)
    ========================================================================== */
 (function initArcadePromo() {
     const promo = document.getElementById('arcadePromo');
@@ -2873,7 +3563,6 @@ Arcade.init();
     const cv    = document.getElementById('arcadePromoCanvas');
     if (!promo || !btn || !cv) return;
 
-    // Abrir arcade al pulsar cualquier zona del banner o el botón
     const openArcade = (e) => { e.stopPropagation(); Arcade.open(); };
     btn.addEventListener('click', openArcade);
     promo.addEventListener('click', (e) => {
@@ -2881,62 +3570,121 @@ Arcade.init();
         openArcade(e);
     });
 
-    // Canvas reactivo
-    const ctx2 = cv.getContext('2d');
-    let W = 0, H = 0, raf = null;
-    const COLS = 16, ROWS = 6;
-    let dots = [];
+    const gc = cv.getContext('2d');
+    let raf = null;
+    const S = 36; // hex radius
+    let hexes = [], W = 0, H = 0;
 
-    function resize() {
-        const r = promo.getBoundingClientRect();
-        W = cv.width  = Math.round(r.width);
-        H = cv.height = Math.round(r.height);
-        dots = [];
-        for (let c = 0; c < COLS; c++) {
-            for (let r2 = 0; r2 < ROWS; r2++) {
-                dots.push({
-                    x: (c + 0.5) / COLS * W,
-                    y: (r2 + 0.5) / ROWS * H,
-                    base: Math.random() * 0.35 + 0.05,
-                    phase: Math.random() * Math.PI * 2,
-                    speed: 0.6 + Math.random() * 1.1,
-                    size: 1.4 + Math.random() * 1.8,
-                    hue: Math.random() > 0.5 ? 1 : 2,
-                });
+    function buildGrid(w, h) {
+        hexes = [];
+        const cw = S * Math.sqrt(3), rh = S * 1.5;
+        const cols = Math.ceil(w / cw) + 2, rows = Math.ceil(h / rh) + 2;
+        const cx = w / 2, cy = h / 2;
+        for (let row = -1; row < rows; row++) {
+            for (let col = -1; col < cols; col++) {
+                const x = col * cw + (row % 2 !== 0 ? cw / 2 : 0);
+                const y = row * rh;
+                const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
+                hexes.push({ x, y, dist, phase: Math.random() * Math.PI * 2, glow: 0 });
             }
         }
     }
 
-    let t2 = 0;
+    // Ripple pool — spawned on beat
+    const ripples = [];
+    let prevBeat = 0, lastRipT = 0;
+
+    function hexPath(x, y, r) {
+        gc.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const a = Math.PI / 3 * i - Math.PI / 6;
+            i === 0 ? gc.moveTo(x + r * Math.cos(a), y + r * Math.sin(a))
+                    : gc.lineTo(x + r * Math.cos(a), y + r * Math.sin(a));
+        }
+        gc.closePath();
+    }
+
     function frame(ts) {
         raf = requestAnimationFrame(frame);
-        t2 = ts / 1000;
+        const nW = promo.offsetWidth, nH = promo.offsetHeight;
+        if (!nW || !nH) return;
+        if (nW !== W || nH !== H) {
+            W = nW; H = nH;
+            cv.width = W; cv.height = H;
+            buildGrid(W, H);
+        }
+
+        const t    = ts / 1000;
         const beat = typeof _visualBeat === 'number' ? _visualBeat : 0;
-        ctx2.clearRect(0, 0, W, H);
-        const a1 = accentRgb(1), a2p = accentRgb(2);
-        for (let i = 0; i < dots.length; i++) {
-            const d = dots[i];
-            const pulse = Math.sin(t2 * d.speed + d.phase) * 0.5 + 0.5;
-            const alpha = d.base + pulse * 0.3 + beat * 0.45;
-            const rgb = d.hue === 1 ? a1 : a2p;
-            const r = d.size * (1 + beat * 1.8);
-            ctx2.beginPath();
-            ctx2.arc(d.x, d.y, r, 0, Math.PI * 2);
-            ctx2.fillStyle = rgbStr(rgb, Math.min(alpha, 0.95));
-            ctx2.fill();
+
+        // Parse accent strings to numeric arrays once per frame
+        const pa1  = accentRgb(1).split(/\s+/).map(Number);
+        const pa2  = accentRgb(2).split(/\s+/).map(Number);
+        const rgba = (r, g, b, a) => `rgba(${r|0},${g|0},${b|0},${a})`;
+
+        // Spawn ripple on beat hit
+        if (beat > 0.22 && prevBeat < beat && t - lastRipT > 0.18) {
+            ripples.push({ r: 0, speed: 260 + beat * 140, str: 0.4 + beat * 0.6 });
+            lastRipT = t;
         }
-        // Líneas horizontales que pulsan al beat
-        if (beat > 0.06) {
-            const lineA = beat * 0.22;
-            ctx2.lineWidth = 0.8;
-            for (let row = 1; row < ROWS; row++) {
-                const y = row / ROWS * H;
-                ctx2.beginPath();
-                ctx2.moveTo(0, y); ctx2.lineTo(W, y);
-                ctx2.strokeStyle = rgbStr(a1, lineA);
-                ctx2.stroke();
+        prevBeat = beat;
+
+        // Advance & cull ripples
+        const maxR = Math.sqrt(W * W + H * H) * 0.6;
+        for (let i = ripples.length - 1; i >= 0; i--) {
+            ripples[i].r += ripples[i].speed / 60;
+            if (ripples[i].r > maxR) ripples.splice(i, 1);
+        }
+
+        gc.clearRect(0, 0, W, H);
+
+        const inner = S - 1.8;
+
+        hexes.forEach(h => {
+            // Ambient idle shimmer + beat ambient
+            let glow = (Math.sin(t * 0.6 + h.phase) * 0.5 + 0.5) * 0.035 + beat * 0.06;
+
+            // Ripple contribution
+            for (let i = 0; i < ripples.length; i++) {
+                const delta = Math.abs(h.dist - ripples[i].r);
+                const width = 55 + ripples[i].r * 0.15;
+                if (delta < width) glow += (1 - delta / width) * ripples[i].str * 0.75;
             }
-        }
+
+            glow = Math.min(glow, 1);
+            if (glow < 0.012) return;
+
+            // Color: cyan near centre → purple at edges
+            const frac = Math.min(h.dist / (Math.min(W, H) * 0.55), 1);
+            const cr = pa1[0] + (pa2[0] - pa1[0]) * frac;
+            const cg = pa1[1] + (pa2[1] - pa1[1]) * frac;
+            const cb = pa1[2] + (pa2[2] - pa1[2]) * frac;
+
+            // ── Hex fill: depth gradient (water tile) ─────────────────────
+            hexPath(h.x, h.y, inner);
+            const tg = gc.createRadialGradient(h.x - inner * 0.25, h.y - inner * 0.25, 0, h.x, h.y, inner);
+            tg.addColorStop(0,    rgba(cr, cg, cb, glow * 0.55));
+            tg.addColorStop(0.65, rgba(cr, cg, cb, glow * 0.18));
+            tg.addColorStop(1,    rgba(cr, cg, cb, 0.02));
+            gc.fillStyle = tg;
+            gc.fill();
+
+            // ── Hex border glow ───────────────────────────────────────────
+            hexPath(h.x, h.y, inner);
+            gc.strokeStyle = rgba(cr, cg, cb, Math.min(glow * 1.1, 0.9));
+            gc.lineWidth   = 0.7 + glow * 1.4;
+            gc.stroke();
+
+            // ── Specular shimmer on bright tiles ──────────────────────────
+            if (glow > 0.18) {
+                hexPath(h.x, h.y, inner * 0.78);
+                const sg = gc.createLinearGradient(h.x - inner, h.y - inner, h.x + inner * 0.4, h.y + inner * 0.4);
+                sg.addColorStop(0, `rgba(255,255,255,${glow * 0.22})`);
+                sg.addColorStop(1, `rgba(255,255,255,0)`);
+                gc.fillStyle = sg;
+                gc.fill();
+            }
+        });
     }
 
     const obs = new IntersectionObserver((entries) => {
@@ -2945,11 +3693,8 @@ Arcade.init();
         } else {
             if (raf) { cancelAnimationFrame(raf); raf = null; }
         }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
     obs.observe(promo);
-
-    window.addEventListener('resize', resize);
-    resize();
 })();
 
 })();

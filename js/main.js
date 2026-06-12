@@ -15,6 +15,47 @@
         }
     });
 })();
+function getGreeting(lang) {
+    const h = new Date().getHours();
+    const G = {
+        es: [
+            [0,  4,  '¿Todavía despierto? Soy'],
+            [5,  7,  'Madrugador/a, ¿eh? Soy'],
+            [8,  11, 'Buenos días, soy'],
+            [12, 13, '¿Sin comer aún? Soy'],
+            [14, 16, 'Buenas tardes, soy'],
+            [17, 19, '¡Pillándote la tarde! Soy'],
+            [20, 22, 'Buenas noches, soy'],
+            [23, 23, 'Mañana te arrepentirás... Soy'],
+        ],
+        en: [
+            [0,  4,  'Up this late? I am'],
+            [5,  7,  'Early bird! I am'],
+            [8,  11, 'Good morning, I am'],
+            [12, 13, 'Lunch break? I am'],
+            [14, 16, 'Good afternoon, I am'],
+            [17, 19, 'Golden hour! I am'],
+            [20, 22, 'Good evening, I am'],
+            [23, 23, "Tomorrow you'll regret this. I am"],
+        ],
+        val: [
+            [0,  4,  'Encara despert/a? Soc'],
+            [5,  7,  'Matiner/a, eh? Soc'],
+            [8,  11, 'Bon dia, soc'],
+            [12, 13, 'Sense dinar encara? Soc'],
+            [14, 16, 'Bona vesprada, soc'],
+            [17, 19, 'Pillant-te la vesprada! Soc'],
+            [20, 22, 'Bona nit, soc'],
+            [23, 23, "Demà te'n penediràs... Soc"],
+        ],
+    };
+    const rows = G[lang] || G.es;
+    for (const [lo, hi, msg] of rows) {
+        if (h >= lo && h <= hi) return msg;
+    }
+    return G.es[2][2]; // fallback
+}
+
 const translations = {
     es: {
         meta: {
@@ -657,7 +698,9 @@ function applyTranslations(language) {
     document.querySelectorAll('[data-i18n]').forEach((element) => {
         const value = getTranslation(element.dataset.i18n, language);
         if (typeof value === 'string') {
-            element.textContent = value;
+            element.textContent = element.dataset.i18n === 'hero.eyebrow'
+                ? getGreeting(language)
+                : value;
         }
     });
     document.querySelectorAll('[data-i18n-html]').forEach((element) => {
@@ -908,6 +951,7 @@ function animateParticles() {
     drawConnections(_visualBeat);
 }
 animateParticles();
+
 const sections = document.querySelectorAll('section[id], footer[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 const hashAnchors = document.querySelectorAll('a[href^="#"]');
@@ -1108,6 +1152,9 @@ const TRACKS = [
     let currentIdx = 0;
     audio.volume = 0.8;
     volBar.style.setProperty('--vol', volBar.value + '%');
+    function volIconCls(v) {
+        return v < 0.01 ? 'fa-solid fa-volume-xmark' : v < 0.5 ? 'fa-solid fa-volume-low' : 'fa-solid fa-volume-high';
+    }
     function fmt(s) {
         const m = Math.floor(s / 60);
         const sec = Math.floor(s % 60);
@@ -1202,27 +1249,16 @@ const TRACKS = [
         audio.volume = volBar.value / 100;
         audio.muted = false;
         volBar.style.setProperty('--vol', volBar.value + '%');
-        muteBtn.querySelector('i').className = audio.volume < 0.1
-            ? 'fa-solid fa-volume-xmark'
-            : audio.volume < 0.5
-            ? 'fa-solid fa-volume-low'
-            : 'fa-solid fa-volume-high';
+        muteBtn.querySelector('i').className = volIconCls(audio.volume);
         const npbVol = document.getElementById('npbVol');
         if (npbVol) { npbVol.value = volBar.value; npbVol.style.setProperty('--vol', volBar.value + '%'); }
         const npbVolIcon = document.getElementById('npbVolIcon');
-        if (npbVolIcon) {
-            const v = audio.volume;
-            npbVolIcon.className = v < 0.01 ? 'fa-solid fa-volume-xmark npb-vol-icon'
-                : v < 0.5 ? 'fa-solid fa-volume-low npb-vol-icon'
-                : 'fa-solid fa-volume-high npb-vol-icon';
-        }
+        if (npbVolIcon) npbVolIcon.className = volIconCls(audio.volume) + ' npb-vol-icon';
     });
     muteBtn.addEventListener('click', () => {
         audio.muted = !audio.muted;
         volBar.style.setProperty('--vol', audio.muted ? '0%' : volBar.value + '%');
-        muteBtn.querySelector('i').className = audio.muted
-            ? 'fa-solid fa-volume-xmark'
-            : 'fa-solid fa-volume-low';
+        muteBtn.querySelector('i').className = audio.muted ? 'fa-solid fa-volume-xmark' : volIconCls(audio.volume);
     });
     const searchInput = document.getElementById('trackSearch');
     const searchClear = document.getElementById('trackSearchClear');
@@ -1365,11 +1401,7 @@ const TRACKS = [
         function updateVolIcon() {
             const v = audio.muted ? 0 : audio.volume;
             npbVol.style.setProperty('--vol', (audio.muted ? 0 : npbVol.value) + '%');
-            npbVolIcon.className = v < 0.01
-                ? 'fa-solid fa-volume-xmark npb-vol-icon'
-                : v < 0.5
-                ? 'fa-solid fa-volume-low npb-vol-icon'
-                : 'fa-solid fa-volume-high npb-vol-icon';
+            npbVolIcon.className = volIconCls(v) + ' npb-vol-icon';
         }
         npbVol.style.setProperty('--vol', npbVol.value + '%');
         const sectionNavEl = document.querySelector('.section-nav');
