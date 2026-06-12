@@ -457,24 +457,57 @@ async function buildBeatmap(src) {
     return map;
 }
 
-/* La dificultad decide qué capas del análisis se convierten en eventos.
-   band: 0 graves · 1 medios/voz · 2 agudos · 3 pulso de rejilla */
-function eventsFor(map, diff) {
-    const GATE = 0.12;
-    const gridOn = map.grid
-        .filter((g) => map.energyAt(g) > GATE)
-        .map((g) => ({ t: g, s: Math.min(map.energyAt(g), 1), band: 3 }));
-    const halfGrid = [];
-    for (let i = 0; i + 1 < map.grid.length; i++) {
-        const m = (map.grid[i] + map.grid[i + 1]) / 2;
-        if (map.energyAt(m) > 0.45) halfGrid.push({ t: m, s: 0.5, band: 3 });
+/* REJILLA ANCLADA: el "esqueleto" de un mapa es el pulso 4x4, pero un beat
+   SOLO se conserva si hay un golpe REAL (grave > medio > agudo, a ±90 ms) y se
+   coloca en el instante exacto de ese golpe. Si no hay golpe cerca, el beat se
+   descarta. Así nunca se inventa una nota: todo cae sobre sonido real.
+   Cada evento lleva su banda real (0 graves · 1 medios/voz · 2 agudos), que los
+   juegos usan para colocar carriles, ondas, etc. de forma musicalmente fiel. */
+function anchorGrid(map) {
+    const bands = [map.low, map.mid, map.high];
+    const ptr = [0, 0, 0];
+    const out = [];
+    const WIN = 0.09;
+    for (const g of map.grid) {
+        let best = null;
+        for (let b = 0; b < 3 && !best; b++) {
+            const arr = bands[b];
+            let i = ptr[b];
+            while (i < arr.length && arr[i].t < g - WIN) i++;
+            ptr[b] = i;
+            let bestD = WIN;
+            for (let j = i; j < arr.length && arr[j].t <= g + WIN; j++) {
+                const d = Math.abs(arr[j].t - g);
+                if (d < bestD) { bestD = d; best = { t: arr[j].t, s: arr[j].s, band: b }; }
+            }
+        }
+        if (best) out.push(best);
     }
-    const tagged = (arr, band) => arr.map((o) => ({ t: o.t, s: o.s, band }));
+    return out;
+}
+
+function eventsFor(map, diff) {
+    if (!map._anchored) map._anchored = anchorGrid(map);
+    const anchored = map._anchored;
+    const tag = (arr, band) => arr.map((o) => ({ t: o.t, s: o.s, band }));
     let pool, minGap;
-    if (diff === 'easy') { pool = gridOn.filter((e, i) => i % 2 === 0); minGap = 0.45; }
-    else if (diff === 'medium') { pool = [...gridOn, ...tagged(map.low.filter((o) => o.s > 0.8), 0)]; minGap = 0.28; }
-    else if (diff === 'hard') { pool = [...gridOn, ...tagged(map.low, 0), ...tagged(map.mid.filter((o) => o.s > 0.45), 1)]; minGap = 0.18; }
-    else { pool = [...gridOn, ...halfGrid, ...tagged(map.low, 0), ...tagged(map.mid, 1), ...tagged(map.high.filter((o) => o.s > 0.5), 2)]; minGap = 0.12; }
+    if (diff === 'easy') {
+        // beats anclados alternos, eligiendo la mitad con golpes más fuertes
+        const evens = anchored.filter((_, i) => i % 2 === 0);
+        const odds = anchored.filter((_, i) => i % 2 === 1);
+        const sumS = (a) => a.reduce((s, e) => s + e.s, 0);
+        pool = sumS(evens) >= sumS(odds) ? evens : odds;
+        minGap = 0.45;
+    } else if (diff === 'medium') {
+        pool = [...anchored, ...tag(map.low.filter((o) => o.s > 0.75), 0)];
+        minGap = 0.28;
+    } else if (diff === 'hard') {
+        pool = [...anchored, ...tag(map.low, 0), ...tag(map.mid.filter((o) => o.s > 0.45), 1)];
+        minGap = 0.18;
+    } else {
+        pool = [...anchored, ...tag(map.low, 0), ...tag(map.mid, 1), ...tag(map.high.filter((o) => o.s > 0.5), 2)];
+        minGap = 0.12;
+    }
     pool.sort((a, b) => a.t - b.t);
     const out = [];
     let last = -9;
@@ -1496,37 +1529,21 @@ Arcade.register({
         let nPerfect = 0, nGood = 0, nOk = 0, nMiss = 0;
         const laneFlash = new Array(LANES).fill(0);
 
-        // Generador de patrones por compás: las notas del pulso forman "streams"
-        // (escaleras, zigzag, saltos) que recorren TODOS los carriles; los onsets
-        // van por zonas: graves→izquierda, voz→centro, agudos→derecha.
-        const beatT = run.map.beatT;
-        const gridPhase = run.map.grid.length ? run.map.grid[0] : 0;
-        const PATTERNS = [
-            (i, L) => i % L,                                                          // escalera ↑
-            (i, L) => (L - 1) - (i % L),                                              // escalera ↓
-            (i, L) => { const z = i % (2 * L - 2 || 1); return z < L ? z : (2 * L - 2) - z; }, // zigzag
-            (i, L) => (i * 2) % L,                                                    // saltos
-        ];
+        // El carril refleja la BANDA REAL del golpe: graves→izquierda,
+        // voz/caja→centro, agudos→derecha. Dentro de cada zona las notas se
+        // reparten para usar todos los carriles, pero siempre sobre sonido real:
+        // nada inventado, cada nota cae cuando suena su golpe.
         const ZONES = LANES === 3 ? [[0], [1], [2]]
             : LANES === 4 ? [[0, 1], [1, 2], [2, 3]]
-            : [[0, 1], [2], [3, 4]];
-        let prevLane = -1, prevT = -9, lastMeasure = -1, patFn = PATTERNS[0], patIdx = 0;
+            : [[0, 1], [1, 2, 3], [3, 4]];
+        const zoneIdx = [0, 0, 0]; // rota dentro de cada zona para esparcir las notas
+        let prevLane = -1, prevT = -9;
         const notes = [];
         events.forEach((e, i) => {
-            const measure = Math.floor((e.t - gridPhase) / (beatT * 4));
-            if (measure !== lastMeasure) {
-                lastMeasure = measure;
-                patFn = PATTERNS[Math.abs(measure * 31 + LANES * 7) % PATTERNS.length];
-                patIdx = 0;
-            }
-            let lane;
-            if (e.band === 3) {
-                lane = clamp(patFn(patIdx++, LANES), 0, LANES - 1); // el pulso sigue el patrón del compás
-            } else {
-                const zl = ZONES[e.band === 0 ? 0 : e.band === 1 ? 1 : 2];
-                lane = zl[(i * 7 + Math.floor(e.t * 13)) % zl.length];
-            }
-            if (lane === prevLane && e.t - prevT < 0.22) lane = (lane + 1) % LANES;
+            const zone = e.band; // 0 graves · 1 medios/voz · 2 agudos
+            const zl = ZONES[zone];
+            let lane = zl[zoneIdx[zone]++ % zl.length];
+            if (lane === prevLane && e.t - prevT < 0.22) lane = zl[zoneIdx[zone]++ % zl.length];
             notes.push({ t: e.t, lane, s: e.s });
             // acordes en golpes fuertes (solo difícil y experto)
             if ((run.diff === 'hard' || run.diff === 'expert') && e.s > 0.85 && e.t - prevT > 0.4) {
