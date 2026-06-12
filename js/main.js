@@ -752,6 +752,7 @@ function particleColors() { return isLight() ? COLORS_LIGHT : COLORS_DARK; }
 // un latido marcado pero fluido. Bins 0 (rumble) y agudos quedan fuera, así no va random.
 // Validado sobre audio real de 8+ estilos: cobertura de golpes 88–100%, brillo ~0 en silencio.
 let _bassEnv = 0;
+let _bassBuf = null; // buffer reusado: evita crear un Uint8Array nuevo cada frame (presión de GC)
 function getBassEnergy() {
     const analyser = window._audioAnalyser;
     if (!analyser) {
@@ -760,7 +761,8 @@ function getBassEnergy() {
         return _bassEnv;
     }
     const n = analyser.frequencyBinCount;
-    const data = new Uint8Array(n);
+    if (!_bassBuf || _bassBuf.length !== n) _bassBuf = new Uint8Array(n);
+    const data = _bassBuf;
     analyser.getByteFrequencyData(data);
 
     let bass = (data[1] + data[2] + data[3]) / (3 * 255); // sub-bass medio 0..1
@@ -866,19 +868,28 @@ function updateAccentColors(v) {
     ROOT.style.setProperty('--beat-glow',      v > 0.01 ? `0 0 ${v * 90}px rgb(${r1} ${g1} ${b1} / ${v * 0.95})` : 'none');
     ROOT.style.setProperty('--beat-glow-soft', v > 0.01 ? `0 0 ${v * 60}px rgb(${r2} ${g2} ${b2r} / ${v * 0.75})` : 'none');
 }
+// Las partículas solo se animan cuando se ven: ni con el hero fuera de
+// pantalla ni con el arcade abierto (drawConnections es O(n²) por frame).
+// El beat y los colores de acento se actualizan siempre: son baratos y los
+// usa toda la web (NPB, arcade, brillos).
+let _heroVisible = true;
+try {
+    new IntersectionObserver((entries) => { _heroVisible = entries[0].isIntersecting; }).observe(canvas);
+} catch (e) { /* navegador sin IntersectionObserver: se anima siempre */ }
 function animateParticles() {
+    requestAnimationFrame(animateParticles);
     // El release suave ya lo hace getBassEnergy; en la subida vamos directos (sin retraso).
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
     updateAccentColors(_visualBeat);
+    if (!_heroVisible || document.documentElement.classList.contains('arcade-lock')) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((particle) => {
         particle.update(_visualBeat);
         particle.draw(_visualBeat);
     });
     drawConnections(_visualBeat);
-    requestAnimationFrame(animateParticles);
 }
 animateParticles();
 const sections = document.querySelectorAll('section[id], footer[id]');
@@ -1267,6 +1278,8 @@ const TRACKS = [
         }
         function draw() {
             animId = requestAnimationFrame(draw);
+            // Con el arcade abierto este canvas no se ve: no gastar CPU en él
+            if (document.documentElement.classList.contains('arcade-lock')) return;
             const cw = canvas.parentElement.clientWidth;
             if (cw > 0 && canvas.width !== cw) canvas.width = cw;
             const W = canvas.width, H = canvas.height;

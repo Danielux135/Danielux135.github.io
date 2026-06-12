@@ -2,6 +2,15 @@
    ARCADE — minijuegos musicales del portfolio
    Depende de main.js (translations, getTranslation, TRACKS, _visualBeat,
    window._audioAnalyser, window._playerLoadTrack). Vanilla JS, sin librerías.
+
+   Análisis musical (calibrado con las canciones reales del portfolio):
+   STFT 1024/512 sobre mono ~22 kHz → flujo espectral en 3 bandas
+   (graves/bombo, medios/voz-caja, agudos/hats) → onsets con umbral de
+   mediana local → BPM por autocorrelación armónica afinado con "vector
+   strength" sobre los kicks → rejilla de pulso + energía por sección.
+   La dificultad decide qué capas se convierten en eventos de juego:
+   Fácil = pulso 4x4 · Medio = todos los beats · Difícil = + bajo y
+   percusión media · Experto = + agudos y corcheas.
    ========================================================================== */
 (function () {
 'use strict';
@@ -14,16 +23,23 @@ const GAMES_I18N = {
     es: {
         open: 'Minijuegos',
         title: 'Arcade',
-        subtitle: 'Minijuegos que se juegan con la música que está sonando. Dale al play y demuestra tu ritmo.',
-        hint: 'ESC para salir · La música sigue sonando mientras juegas',
+        subtitle: 'Minijuegos sincronizados con los golpes reales de la canción. Elige juego y dificultad: la canción empieza de cero y cada golpe cuenta.',
+        hint: 'ESC para salir · Al cerrar, tu música vuelve donde estaba',
         back: 'Juegos',
         bestLabel: 'Récord',
+        playNow: 'JUGAR',
         score: 'Puntos', combo: 'Combo', maxCombo: 'Combo máx.', accuracy: 'Precisión',
         time: 'Tiempo', round: 'Ronda', lives: 'Vidas', hits: 'Aciertos', notes: 'Notas',
         gates: 'Puertas', taps: 'Toques',
-        retry: 'Reintentar', hubBtn: 'Más juegos', resume: 'Reanudar',
+        retry: 'Reintentar', hubBtn: 'Más juegos', resume: 'Reanudar', cancel: 'Cancelar',
+        restartRun: 'Reiniciar partida', changeSong: 'Cambiar canción',
+        pickSong: 'Elige una canción', searchSong: 'Buscar canción…',
+        difficulty: 'Dificultad',
+        dEasy: 'Fácil', dMedium: 'Medio', dHard: 'Difícil', dExpert: 'Experto',
+        lanes: 'Carriles', keys: 'Teclas', changeKeys: 'Cambiar',
+        pressKey: 'Pulsa la tecla del carril',
         paused: 'Música en pausa', pausedSub: 'Reanuda la música para seguir jugando.',
-        analyzing: 'Analizando la canción…', analyzingSub: 'Generando el beatmap con los golpes reales de la canción.',
+        analyzing: 'Analizando la canción…', analyzingSub: 'Detectando bombo, percusión, voz y BPM de la canción.',
         analyzeError: 'No se pudo analizar la canción. Prueba con otra.',
         go: '¡YA!', gameOver: 'Fin de la partida', newRecord: '¡Nuevo récord!',
         perfect: 'Perfecto', good: 'Bien', miss: 'Fallo',
@@ -32,27 +48,34 @@ const GAMES_I18N = {
         tempoSpot: '¡Clavado!', tempoClose: 'Muy cerca', tempoFar: 'Sigue el bombo…',
         tempoHint: 'ESPACIO o botón',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Revienta los círculos que nacen con cada golpe de la canción antes de que se cierren.', how: 'Toca los círculos cuando el anillo se cierre sobre el centro. 3 vidas.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notas generadas con los golpes reales de la canción que suena. Acierta al cruzar la línea.', how: 'PC: teclas D · F · J (o flechas). Móvil: toca los carriles.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surfea la onda: mantén pulsado para subir y cruza las puertas que nacen con el ritmo.', how: 'Mantén pulsado (o ESPACIO) para subir. Suelta para caer. 3 vidas.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memoriza la secuencia que se ilumina al ritmo de la música y repítela sin fallar.', how: 'Observa la secuencia y repítela tocando los pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Cada golpe de bass lanza ondas expansivas. Arrastra tu orbe y sobrevive al caos.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
+            tap:    { name: 'Beat Tap',      desc: 'Cada golpe de la canción lanza un círculo: tócalo justo cuando el anillo se cierre.', how: 'El anillo se cierra exactamente en el golpe. Toca en ese instante. 3 vidas.' },
+            hero:   { name: 'Danielux Hero', desc: 'Notas generadas con los golpes reales: graves a la izquierda, voz al centro, agudos a la derecha.', how: 'Pulsa la tecla del carril (o tócalo) cuando la nota cruce la línea.' },
+            surfer: { name: 'Bass Surfer',   desc: 'Surfea la onda: mantén pulsado para subir. Las puertas llegan clavadas al ritmo.', how: 'Mantén pulsado (o ESPACIO) para subir. Suelta para caer. 3 vidas.' },
+            simon:  { name: 'Simon Beat',    desc: 'Memoriza la secuencia que se ilumina al pulso de la música y repítela sin fallar.', how: 'Observa la secuencia y repítela tocando los pads.' },
+            dodger: { name: 'Beat Dodger',   desc: 'Cada golpe detona una onda donde marca el aviso. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
             tempo:  { name: 'Tap Tempo',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo de la canción. Mínimo 8 toques.' },
         },
     },
     en: {
         open: 'Mini-games',
         title: 'Arcade',
-        subtitle: 'Mini-games driven by the music that is playing. Press play and show your rhythm.',
-        hint: 'ESC to exit · The music keeps playing while you play',
+        subtitle: 'Mini-games synced to the real hits of the song. Pick a game and difficulty: the track starts from zero and every hit counts.',
+        hint: 'ESC to exit · On close, your music resumes where it was',
         back: 'Games',
         bestLabel: 'Best',
+        playNow: 'PLAY',
         score: 'Score', combo: 'Combo', maxCombo: 'Max combo', accuracy: 'Accuracy',
         time: 'Time', round: 'Round', lives: 'Lives', hits: 'Hits', notes: 'Notes',
         gates: 'Gates', taps: 'Taps',
-        retry: 'Retry', hubBtn: 'More games', resume: 'Resume',
+        retry: 'Retry', hubBtn: 'More games', resume: 'Resume', cancel: 'Cancel',
+        restartRun: 'Restart run', changeSong: 'Change song',
+        pickSong: 'Pick a song', searchSong: 'Search song…',
+        difficulty: 'Difficulty',
+        dEasy: 'Easy', dMedium: 'Medium', dHard: 'Hard', dExpert: 'Expert',
+        lanes: 'Lanes', keys: 'Keys', changeKeys: 'Change',
+        pressKey: 'Press the key for lane',
         paused: 'Music paused', pausedSub: 'Resume the music to keep playing.',
-        analyzing: 'Analyzing the song…', analyzingSub: 'Building the beatmap from the song’s real hits.',
+        analyzing: 'Analyzing the song…', analyzingSub: 'Detecting the kick, percussion, vocals and BPM of the song.',
         analyzeError: 'Could not analyze this song. Try another one.',
         go: 'GO!', gameOver: 'Game over', newRecord: 'New record!',
         perfect: 'Perfect', good: 'Good', miss: 'Miss',
@@ -61,27 +84,34 @@ const GAMES_I18N = {
         tempoSpot: 'Spot on!', tempoClose: 'So close', tempoFar: 'Follow the kick…',
         tempoHint: 'SPACE or button',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Pop the circles that spawn with every hit of the song before they close.', how: 'Tap the circles when the ring closes on the center. 3 lives.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notes generated from the real hits of the playing song. Nail them on the line.', how: 'PC: D · F · J keys (or arrows). Mobile: tap the lanes.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surf the wave: hold to rise and fly through the gates born from the rhythm.', how: 'Hold (or SPACE) to rise. Release to fall. 3 lives.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memorize the sequence that lights up with the music and repeat it without failing.', how: 'Watch the sequence, then repeat it by tapping the pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Every bass hit fires expanding shockwaves. Drag your orb and survive the chaos.', how: 'Drag the orb to dodge the waves. 3 lives.' },
+            tap:    { name: 'Beat Tap',      desc: 'Every hit of the song fires a circle: tap it right when the ring closes.', how: 'The ring closes exactly on the hit. Tap at that instant. 3 lives.' },
+            hero:   { name: 'Danielux Hero', desc: 'Notes built from the real hits: bass on the left, vocals center, highs on the right.', how: 'Press the lane key (or tap it) when the note crosses the line.' },
+            surfer: { name: 'Bass Surfer',   desc: 'Surf the wave: hold to rise. The gates arrive dead on the beat.', how: 'Hold (or SPACE) to rise. Release to fall. 3 lives.' },
+            simon:  { name: 'Simon Beat',    desc: 'Memorize the sequence that lights up on the pulse of the music and repeat it without failing.', how: 'Watch the sequence, then repeat it by tapping the pads.' },
+            dodger: { name: 'Beat Dodger',   desc: 'Every hit detonates a wave where the warning marks. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
             tempo:  { name: 'Tap Tempo',     desc: 'Got real rhythm? Follow the pulse of the song and compare your BPM with the real one.', how: 'Tap the big button (or the space bar) to the beat. At least 8 taps.' },
         },
     },
     val: {
         open: 'Minijocs',
         title: 'Arcade',
-        subtitle: 'Minijocs que es juguen amb la música que està sonant. Dona-li al play i demostra el teu ritme.',
-        hint: 'ESC per a eixir · La música continua sonant mentre jugues',
+        subtitle: 'Minijocs sincronitzats amb els colps reals de la cançó. Tria joc i dificultat: la cançó comença de zero i cada colp compta.',
+        hint: 'ESC per a eixir · En tancar, la teua música torna on estava',
         back: 'Jocs',
         bestLabel: 'Rècord',
+        playNow: 'JUGAR',
         score: 'Punts', combo: 'Combo', maxCombo: 'Combo màx.', accuracy: 'Precisió',
         time: 'Temps', round: 'Ronda', lives: 'Vides', hits: 'Encerts', notes: 'Notes',
         gates: 'Portes', taps: 'Tocs',
-        retry: 'Reintentar', hubBtn: 'Més jocs', resume: 'Reprendre',
+        retry: 'Reintentar', hubBtn: 'Més jocs', resume: 'Reprendre', cancel: 'Cancel·lar',
+        restartRun: 'Reiniciar partida', changeSong: 'Canviar cançó',
+        pickSong: 'Tria una cançó', searchSong: 'Buscar cançó…',
+        difficulty: 'Dificultat',
+        dEasy: 'Fàcil', dMedium: 'Mitjà', dHard: 'Difícil', dExpert: 'Expert',
+        lanes: 'Carrils', keys: 'Tecles', changeKeys: 'Canviar',
+        pressKey: 'Polsa la tecla del carril',
         paused: 'Música en pausa', pausedSub: 'Reprén la música per a continuar jugant.',
-        analyzing: 'Analitzant la cançó…', analyzingSub: 'Generant el beatmap amb els colps reals de la cançó.',
+        analyzing: 'Analitzant la cançó…', analyzingSub: 'Detectant el bombo, la percussió, la veu i el BPM de la cançó.',
         analyzeError: 'No s’ha pogut analitzar la cançó. Prova amb una altra.',
         go: 'JA!', gameOver: 'Fi de la partida', newRecord: 'Nou rècord!',
         perfect: 'Perfecte', good: 'Bé', miss: 'Errada',
@@ -90,11 +120,11 @@ const GAMES_I18N = {
         tempoSpot: 'Clavat!', tempoClose: 'Molt a prop', tempoFar: 'Segueix el bombo…',
         tempoHint: 'ESPAI o botó',
         g: {
-            tap:    { name: 'Beat Tap',      desc: 'Rebenta els cercles que naixen amb cada colp de la cançó abans que es tanquen.', how: 'Toca els cercles quan l’anell es tanque sobre el centre. 3 vides.' },
-            hero:   { name: 'Danielux Hero', desc: 'Notes generades amb els colps reals de la cançó que sona. Encerta-les sobre la línia.', how: 'PC: tecles D · F · J (o fletxes). Mòbil: toca els carrils.' },
-            surfer: { name: 'Bass Surfer',   desc: 'Surfeja l’ona: mantín polsat per a pujar i creua les portes que naixen amb el ritme.', how: 'Mantín polsat (o ESPAI) per a pujar. Solta per a caure. 3 vides.' },
-            simon:  { name: 'Simon Beat',    desc: 'Memoritza la seqüència que s’il·lumina al ritme de la música i repeteix-la sense fallar.', how: 'Observa la seqüència i repeteix-la tocant els pads.' },
-            dodger: { name: 'Beat Dodger',   desc: 'Cada colp de bass llança ones expansives. Arrossega el teu orbe i sobreviu al caos.', how: 'Arrossega l’orbe per a esquivar les ones. 3 vides.' },
+            tap:    { name: 'Beat Tap',      desc: 'Cada colp de la cançó llança un cercle: toca’l just quan l’anell es tanque.', how: 'L’anell es tanca exactament en el colp. Toca en eixe instant. 3 vides.' },
+            hero:   { name: 'Danielux Hero', desc: 'Notes generades amb els colps reals: greus a l’esquerra, veu al centre, aguts a la dreta.', how: 'Polsa la tecla del carril (o toca’l) quan la nota creue la línia.' },
+            surfer: { name: 'Bass Surfer',   desc: 'Surfeja l’ona: mantín polsat per a pujar. Les portes arriben clavades al ritme.', how: 'Mantín polsat (o ESPAI) per a pujar. Solta per a caure. 3 vides.' },
+            simon:  { name: 'Simon Beat',    desc: 'Memoritza la seqüència que s’il·lumina al pols de la música i repeteix-la sense fallar.', how: 'Observa la seqüència i repeteix-la tocant els pads.' },
+            dodger: { name: 'Beat Dodger',   desc: 'Cada colp detona una ona on marca l’avís. Arrossega el teu orbe i sobreviu.', how: 'Arrossega l’orbe per a esquivar les ones. 3 vides.' },
             tempo:  { name: 'Tap Tempo',     desc: 'Tens ritme de veritat? Segueix el pols de la cançó i compara el teu BPM amb el real.', how: 'Toca el botó gran (o la barra d’espai) al ritme de la cançó. Mínim 8 tocs.' },
         },
     },
@@ -121,46 +151,350 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const fmtN = (n) => Math.round(n).toLocaleString('es-ES'); // separador de miles
 function haptic(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
 
-// Detector de golpes en tiempo real (mismo espíritu que getBassEnergy de main.js:
-// energía del sub-bass con flanco de subida + refractario para no disparar doble).
-function makeOnsets(opts = {}) {
-    const minGap = opts.minGap ?? 0.16;
-    const floor = opts.floor ?? 0.16;
-    const ratio = opts.ratio ?? 1.28;
-    let slow = 0, prevFast = 0, last = -9, buf = null;
-    return function sample(tSec) {
-        const a = window._audioAnalyser;
-        if (!a) return 0;
-        if (!buf || buf.length !== a.frequencyBinCount) buf = new Uint8Array(a.frequencyBinCount);
-        a.getByteFrequencyData(buf);
-        const fast = Math.pow(Math.min((buf[1] + buf[2] + buf[3]) / (3 * 255), 1), 2.0);
-        slow += (fast - slow) * 0.055;
-        let strength = 0;
-        if (fast > Math.max(floor, slow * ratio) && fast >= prevFast && tSec - last >= minGap) {
-            strength = fast;
-            last = tSec;
-        }
-        prevFast = fast;
-        return strength;
+// Reloj de canción: interpola audio.currentTime (que avanza a saltos) con performance.now
+function makeSongClock(a) {
+    let lastCT = a.currentTime, lastPerf = performance.now() / 1000;
+    return () => {
+        const ct = a.currentTime;
+        const p = performance.now() / 1000;
+        if (ct !== lastCT) { lastCT = ct; lastPerf = p; return ct; }
+        return a.paused ? ct : lastCT + (p - lastPerf);
     };
 }
 
-/* ===================== Récords ===================== */
-const LS_KEY = 'dlxArcadeBest';
+// El icono de play del reproductor principal no escucha eventos del audio:
+// lo sincronizamos a mano cuando el arcade pausa/reproduce por su cuenta.
+function syncPlayIcons() {
+    const playing = !audio.paused;
+    const pi = document.getElementById('playIcon');
+    if (pi) pi.className = playing ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+    const ni = document.getElementById('npbPlayIcon');
+    if (ni) ni.className = playing ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+}
+
+/* ===================== Opciones y récords ===================== */
+const LS_BEST = 'dlxArcadeBest';
+const LS_OPTS = 'dlxArcadeOpts';
 let bests = {};
-try { bests = JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { bests = {}; }
-function saveBest(id, v) {
-    bests[id] = v;
-    try { localStorage.setItem(LS_KEY, JSON.stringify(bests)); } catch (e) {}
+try { bests = JSON.parse(localStorage.getItem(LS_BEST)) || {}; } catch (e) { bests = {}; }
+function saveBest(key, v) {
+    bests[key] = v;
+    try { localStorage.setItem(LS_BEST, JSON.stringify(bests)); } catch (e) {}
+}
+const DIFFS = ['easy', 'medium', 'hard', 'expert'];
+const DIFF_LABEL = { easy: 'dEasy', medium: 'dMedium', hard: 'dHard', expert: 'dExpert' };
+let OPTS = { diff: {}, heroLanes: 3, tapKeys: ['z', 'x'], heroKeys: { 3: ['d', 'f', 'j'], 4: ['d', 'f', 'j', 'k'], 5: ['d', 'f', ' ', 'j', 'k'] } };
+try {
+    const saved = JSON.parse(localStorage.getItem(LS_OPTS));
+    if (saved && typeof saved === 'object') OPTS = { ...OPTS, ...saved, heroKeys: { ...OPTS.heroKeys, ...(saved.heroKeys || {}) } };
+} catch (e) {}
+function saveOpts() { try { localStorage.setItem(LS_OPTS, JSON.stringify(OPTS)); } catch (e) {} }
+function diffOf(id) { return DIFFS.includes(OPTS.diff[id]) ? OPTS.diff[id] : 'medium'; }
+function bestKeyFor(id) {
+    const d = diffOf(id);
+    return id === 'hero' ? `${id}|${d}|${OPTS.heroLanes}k` : `${id}|${d}`;
+}
+function bestOfGame(id) {
+    let max = 0;
+    for (const [k, v] of Object.entries(bests)) {
+        if ((k === id || k.startsWith(id + '|')) && v > max) max = v;
+    }
+    return max;
+}
+const keyLabel = (k) => (k === ' ' ? '␣' : k.length === 1 ? k.toUpperCase() : k.replace('arrow', '').toUpperCase());
+
+/* ===================== Análisis musical (STFT multibanda, calibrado) =====================
+   Validado con un auto-test sintético (BPM exacto, 100% de kicks en rejilla) y
+   calibrado con 8 canciones reales del portfolio de estilos distintos. */
+const BEATMAP_CACHE = new Map(); // src → mapa
+
+function fftRadix2(re, im) {
+    const n = re.length;
+    for (let i = 1, j = 0; i < n; i++) {
+        let bit = n >> 1;
+        for (; j & bit; bit >>= 1) j ^= bit;
+        j ^= bit;
+        if (i < j) {
+            let t = re[i]; re[i] = re[j]; re[j] = t;
+            t = im[i]; im[i] = im[j]; im[j] = t;
+        }
+    }
+    for (let len = 2; len <= n; len <<= 1) {
+        const ang = -2 * Math.PI / len;
+        const wr = Math.cos(ang), wi = Math.sin(ang);
+        for (let i = 0; i < n; i += len) {
+            let cwr = 1, cwi = 0;
+            for (let k = 0; k < len / 2; k++) {
+                const ur = re[i + k], ui = im[i + k];
+                const vr = re[i + k + len / 2] * cwr - im[i + k + len / 2] * cwi;
+                const vi = re[i + k + len / 2] * cwi + im[i + k + len / 2] * cwr;
+                re[i + k] = ur + vr; im[i + k] = ui + vi;
+                re[i + k + len / 2] = ur - vr; im[i + k + len / 2] = ui - vi;
+                const nwr = cwr * wr - cwi * wi;
+                cwi = cwr * wi + cwi * wr; cwr = nwr;
+            }
+        }
+    }
+}
+
+async function analyzeBuffer(decoded) {
+    const N = 1024, HOP = 512;
+    // mezclar a mono + remuestrear a ~22050 promediando
+    const srcRate = decoded.sampleRate;
+    const factor = Math.max(1, Math.round(srcRate / 22050));
+    const srEff = srcRate / factor;
+    const chs = [];
+    for (let c = 0; c < decoded.numberOfChannels; c++) chs.push(decoded.getChannelData(c));
+    const len = Math.floor(chs[0].length / factor);
+    const mono = new Float32Array(len);
+    for (let i = 0; i < len; i++) {
+        let s = 0;
+        for (let j = 0; j < factor; j++) {
+            for (let c = 0; c < chs.length; c++) s += chs[c][i * factor + j];
+        }
+        mono[i] = s / (factor * chs.length);
+    }
+
+    const hopT = HOP / srEff;
+    const frames = Math.floor((mono.length - N) / HOP);
+    if (frames < 100) throw new Error('canción demasiado corta');
+    const binHz = srEff / N;
+    const bands = [
+        { lo: Math.round(30 / binHz), hi: Math.round(160 / binHz) },     // graves: bombo y bajo
+        { lo: Math.round(300 / binHz), hi: Math.round(2500 / binHz) },   // medios: caja, voz
+        { lo: Math.round(4000 / binHz), hi: Math.min(Math.round(10000 / binHz), N / 2 - 1) }, // agudos: hats
+    ];
+    const win = new Float32Array(N);
+    for (let i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / (N - 1));
+
+    const flux = [new Float32Array(frames), new Float32Array(frames), new Float32Array(frames)];
+    const lowEnergy = new Float32Array(frames);
+    const prevMag = new Float32Array(N / 2);
+    const re = new Float32Array(N), im = new Float32Array(N);
+    const mag = new Float32Array(N / 2);
+    for (let f = 0; f < frames; f++) {
+        const base = f * HOP;
+        for (let i = 0; i < N; i++) { re[i] = mono[base + i] * win[i]; im[i] = 0; }
+        fftRadix2(re, im);
+        for (let i = 0; i < N / 2; i++) mag[i] = Math.hypot(re[i], im[i]);
+        for (let b = 0; b < 3; b++) {
+            let s = 0;
+            for (let i = bands[b].lo; i <= bands[b].hi; i++) {
+                const d = mag[i] - prevMag[i];
+                if (d > 0) s += d;
+            }
+            flux[b][f] = s;
+        }
+        for (let i = bands[0].lo; i <= bands[0].hi; i++) lowEnergy[f] += mag[i];
+        prevMag.set(mag);
+        if (f % 1200 === 1199) await new Promise((r) => setTimeout(r, 0)); // no congelar la UI
+    }
+
+    // normalizar energía low por p95
+    {
+        const sorted = [...lowEnergy].sort((a, b) => a - b);
+        const p95 = sorted[Math.floor(sorted.length * 0.95)] || 1;
+        for (let i = 0; i < frames; i++) lowEnergy[i] = Math.min(lowEnergy[i] / p95, 1.5);
+    }
+    // normalizar cada banda de flux por p95 + suavizar 3 frames
+    const norm = flux.map((fl) => {
+        const sorted = [...fl].sort((a, b) => a - b);
+        const p95 = sorted[Math.floor(sorted.length * 0.95)] || 1;
+        const out = new Float32Array(fl.length);
+        for (let i = 1; i < fl.length - 1; i++) out[i] = Math.min((fl[i - 1] + fl[i] + fl[i + 1]) / 3 / p95, 2);
+        return out;
+    });
+
+    // onsets por banda: pico + mediana local * alpha + delta + refractario
+    function onsets(env, alpha, delta, refract) {
+        const W = Math.round(0.7 / hopT);
+        const out = [];
+        let lastT = -9;
+        for (let i = 2; i < env.length - 2; i++) {
+            const v = env[i];
+            if (v < delta) continue;
+            if (v < env[i - 1] || v < env[i + 1]) continue;
+            const nLo = Math.max(0, i - W), nHi = Math.min(env.length - 1, i + W);
+            const slice = Array.from(env.slice(nLo, nHi + 1)).sort((a, b) => a - b);
+            const med = slice[Math.floor(slice.length / 2)];
+            if (v < med * alpha + delta) continue;
+            const t = i * hopT;
+            if (t - lastT < refract) continue;
+            out.push({ t, s: Math.min(v, 1) });
+            lastT = t;
+        }
+        return out;
+    }
+    const low = onsets(norm[0], 1.4, 0.05, 0.12);
+    const mid = onsets(norm[1], 1.5, 0.06, 0.09);
+    const high = onsets(norm[2], 1.5, 0.06, 0.07);
+    if (low.length + mid.length < 20) throw new Error('beatmap vacío');
+
+    // BPM por autocorrelación (low + 0.5·mid) con apoyo de armónicos
+    const env = new Float32Array(frames);
+    for (let i = 0; i < frames; i++) env[i] = norm[0][i] + 0.5 * norm[1][i];
+    const acCache = new Map();
+    const corr = (p) => {
+        if (p < 1 || p >= frames) return 0;
+        if (acCache.has(p)) return acCache.get(p);
+        let s = 0;
+        for (let i = 0; i < frames - p; i++) s += env[i] * env[i + p];
+        s /= (frames - p);
+        acCache.set(p, s);
+        return s;
+    };
+    const minP = Math.round(60 / 200 / hopT), maxP = Math.round(60 / 60 / hopT);
+    let bestP = minP, bestScore = -1;
+    for (let p = minP; p <= maxP; p++) {
+        const s = corr(p) + 0.5 * corr(2 * p) + 0.3 * corr(Math.round(p / 2));
+        if (s > bestScore) { bestScore = s; bestP = p; }
+    }
+    let bpm0 = 60 / (bestP * hopT);
+    while (bpm0 < 70) bpm0 *= 2;
+    while (bpm0 >= 180) bpm0 /= 2;
+
+    // BPM fino + fase por "vector strength" sobre los kicks (sin deriva)
+    function vectorFit(testBpm) {
+        let best = null;
+        for (let b = testBpm * 0.97; b <= testBpm * 1.03; b += 0.02) {
+            const beatT = 60 / b;
+            let sumRe = 0, sumIm = 0;
+            for (const o of low) {
+                const ang = 2 * Math.PI * (o.t / beatT);
+                sumRe += o.s * Math.cos(ang);
+                sumIm += o.s * Math.sin(ang);
+            }
+            const R = Math.hypot(sumRe, sumIm);
+            if (!best || R > best.R) {
+                let phase = (Math.atan2(sumIm, sumRe) / (2 * Math.PI)) * beatT;
+                while (phase < 0) phase += beatT;
+                best = { R, bpm: b, phase };
+            }
+        }
+        return best;
+    }
+    const dur = mono.length / srEff;
+    const cands = [];
+    for (const mult of [1, 2, 0.5]) {
+        const b = bpm0 * mult;
+        if (b >= 70 && b < 180) cands.push(vectorFit(b));
+    }
+    cands.sort((a, b) => b.R - a.R);
+    const fit = cands[0];
+    const beatT = 60 / fit.bpm;
+    const grid = [];
+    for (let g = fit.phase; g < dur; g += beatT) grid.push(g);
+
+    return { dur, bpm: fit.bpm, beatT, grid, low, mid, high, energy: lowEnergy, hopT };
+}
+
+function hydrateMap(m) {
+    const e = m.energy, hopT = m.hopT, frames = e.length;
+    m.energyAt = (t) => e[clamp(Math.round(t / hopT), 0, frames - 1)];
+    return m;
+}
+
+/* Caché persistente en IndexedDB: el análisis de cada canción sobrevive recargas */
+function idbOpen() {
+    return new Promise((res) => {
+        try {
+            const rq = indexedDB.open('dlxArcade', 1);
+            rq.onupgradeneeded = () => rq.result.createObjectStore('beatmaps');
+            rq.onsuccess = () => res(rq.result);
+            rq.onerror = () => res(null);
+        } catch (e) { res(null); }
+    });
+}
+async function idbGet(key) {
+    const db = await idbOpen();
+    if (!db) return null;
+    return new Promise((res) => {
+        try {
+            const rq = db.transaction('beatmaps', 'readonly').objectStore('beatmaps').get(key);
+            rq.onsuccess = () => res(rq.result || null);
+            rq.onerror = () => res(null);
+        } catch (e) { res(null); }
+    });
+}
+async function idbSet(key, val) {
+    const db = await idbOpen();
+    if (!db) return;
+    try { db.transaction('beatmaps', 'readwrite').objectStore('beatmaps').put(val, key); } catch (e) {}
+}
+
+async function buildBeatmap(src) {
+    if (BEATMAP_CACHE.has(src)) return BEATMAP_CACHE.get(src);
+    const cached = await idbGet(src);
+    if (cached && cached.energy && cached.grid) {
+        const m = hydrateMap(cached);
+        BEATMAP_CACHE.set(src, m);
+        return m;
+    }
+    const resp = await fetch(src);
+    if (!resp.ok) throw new Error('fetch ' + resp.status);
+    const raw = await resp.arrayBuffer();
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const dctx = new AC();
+    let decoded;
+    try {
+        decoded = await new Promise((res, rej) => {
+            const p = dctx.decodeAudioData(raw, res, rej);
+            if (p && p.then) p.then(res, rej); // forma promesa o callback según navegador
+        });
+    } finally {
+        dctx.close().catch(() => {});
+    }
+    const data0 = await analyzeBuffer(decoded);
+    // copia limpia para IndexedDB: la closure de hydrateMap no es serializable
+    idbSet(src, {
+        dur: data0.dur, bpm: data0.bpm, beatT: data0.beatT, grid: data0.grid,
+        low: data0.low, mid: data0.mid, high: data0.high,
+        energy: data0.energy, hopT: data0.hopT,
+    });
+    const map = hydrateMap(data0);
+    BEATMAP_CACHE.set(src, map);
+    if (BEATMAP_CACHE.size > 6) BEATMAP_CACHE.delete(BEATMAP_CACHE.keys().next().value);
+    return map;
+}
+
+/* La dificultad decide qué capas del análisis se convierten en eventos.
+   band: 0 graves · 1 medios/voz · 2 agudos · 3 pulso de rejilla */
+function eventsFor(map, diff) {
+    const GATE = 0.12;
+    const gridOn = map.grid
+        .filter((g) => map.energyAt(g) > GATE)
+        .map((g) => ({ t: g, s: Math.min(map.energyAt(g), 1), band: 3 }));
+    const halfGrid = [];
+    for (let i = 0; i + 1 < map.grid.length; i++) {
+        const m = (map.grid[i] + map.grid[i + 1]) / 2;
+        if (map.energyAt(m) > 0.45) halfGrid.push({ t: m, s: 0.5, band: 3 });
+    }
+    const tagged = (arr, band) => arr.map((o) => ({ t: o.t, s: o.s, band }));
+    let pool, minGap;
+    if (diff === 'easy') { pool = gridOn.filter((e, i) => i % 2 === 0); minGap = 0.45; }
+    else if (diff === 'medium') { pool = [...gridOn, ...tagged(map.low.filter((o) => o.s > 0.8), 0)]; minGap = 0.28; }
+    else if (diff === 'hard') { pool = [...gridOn, ...tagged(map.low, 0), ...tagged(map.mid.filter((o) => o.s > 0.45), 1)]; minGap = 0.18; }
+    else { pool = [...gridOn, ...halfGrid, ...tagged(map.low, 0), ...tagged(map.mid, 1), ...tagged(map.high.filter((o) => o.s > 0.5), 2)]; minGap = 0.12; }
+    pool.sort((a, b) => a.t - b.t);
+    const out = [];
+    let last = -9;
+    for (const e of pool) {
+        if (e.t - last < minGap) continue;
+        out.push(e);
+        last = e.t;
+    }
+    return out;
 }
 
 /* ===================== Motor del arcade ===================== */
 const Arcade = {
     games: [],
     overlay: null, hub: null, grid: null, stage: null, canvas: null, ctx: null,
-    hud: null, msg: null, backBtn: null, nowTitle: null,
+    hud: null, msg: null, backBtn: null, restartBtn: null, songBtn: null, nowTitle: null,
     W: 0, H: 0, dpr: 1,
     session: null, sessionGame: null, paused: false, showingResults: false,
+    holdFrames: false, _picker: false, _prep: false, _dirty: false, _pregame: false,
+    snapshot: null, songClock: null, runBestKey: null,
     rafId: null, lastTs: 0,
     countToken: 0,
     sparks: [], floats: [],
@@ -178,12 +512,20 @@ const Arcade = {
                 <button class="arcade-back" id="arcadeBack" hidden><i class="fa-solid fa-arrow-left"></i> <span data-i18n="games.back">${T('back')}</span></button>
                 <h2 class="arcade-title"><i class="fa-solid fa-gamepad"></i> <span data-i18n="games.title">${T('title')}</span></h2>
                 <div class="arcade-now"><i class="fa-solid fa-music"></i> <span id="arcadeNowTitle">—</span></div>
+                <button class="arcade-iconbtn" id="arcadeRestart" hidden aria-label="Reiniciar" title="${T('restartRun')}" data-i18n-title="games.restartRun"><i class="fa-solid fa-rotate-left"></i></button>
+                <button class="arcade-iconbtn" id="arcadeSongBtn" aria-label="Cambiar canción" title="${T('changeSong')}" data-i18n-title="games.changeSong"><i class="fa-solid fa-music"></i></button>
                 <button class="arcade-close" id="arcadeClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
             </header>
             <div class="arcade-hub" id="arcadeHub">
-                <p class="arcade-sub" data-i18n="games.subtitle">${T('subtitle')}</p>
-                <div class="arcade-grid" id="arcadeGrid"></div>
-                <p class="arcade-hint" data-i18n="games.hint">${T('hint')}</p>
+                <div class="arcade-hub-inner">
+                    <div class="arcade-marquee">
+                        <span class="over">Danielux presents</span>
+                        <span class="ttl">Arcade</span>
+                    </div>
+                    <p class="arcade-sub" data-i18n="games.subtitle">${T('subtitle')}</p>
+                    <div class="arcade-tiles" id="arcadeGrid"></div>
+                    <p class="arcade-hint" data-i18n="games.hint">${T('hint')}</p>
+                </div>
             </div>
             <div class="arcade-stage" id="arcadeStage" hidden>
                 <canvas id="arcadeCanvas"></canvas>
@@ -200,19 +542,27 @@ const Arcade = {
         this.hud = el.querySelector('#arcadeHud');
         this.msg = el.querySelector('#arcadeMsg');
         this.backBtn = el.querySelector('#arcadeBack');
+        this.restartBtn = el.querySelector('#arcadeRestart');
+        this.songBtn = el.querySelector('#arcadeSongBtn');
         this.nowTitle = el.querySelector('#arcadeNowTitle');
 
-        // Tarjetas del hub
-        this.games.forEach((g) => {
+        // Tarjetas-cartucho del hub
+        this.games.forEach((g, i) => {
             const card = document.createElement('button');
-            card.className = 'arcade-card';
+            card.className = 'arcade-tile';
             card.dataset.game = g.id;
+            card.style.setProperty('--g1', g.colors[0]);
+            card.style.setProperty('--g2', g.colors[1]);
             card.innerHTML = `
-                <span class="arcade-card-icon"><i class="${g.icon}"></i></span>
-                <h3 class="arcade-card-name" data-i18n="games.g.${g.id}.name">${T('g.' + g.id + '.name')}</h3>
-                <p class="arcade-card-desc" data-i18n="games.g.${g.id}.desc">${T('g.' + g.id + '.desc')}</p>
-                <span class="arcade-card-best" id="arcadeBest-${g.id}" hidden>
-                    <i class="fa-solid fa-trophy"></i> <span data-i18n="games.bestLabel">${T('bestLabel')}</span>: <b>0</b>
+                <span class="arcade-tile-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+                <span class="arcade-tile-icon"><i class="${g.icon}"></i></span>
+                <h3 class="arcade-tile-name" data-i18n="games.g.${g.id}.name">${T('g.' + g.id + '.name')}</h3>
+                <p class="arcade-tile-desc" data-i18n="games.g.${g.id}.desc">${T('g.' + g.id + '.desc')}</p>
+                <span class="arcade-tile-foot">
+                    <span class="arcade-card-best" id="arcadeBest-${g.id}" hidden>
+                        <i class="fa-solid fa-trophy"></i> <b>0</b>
+                    </span>
+                    <span class="arcade-tile-play"><i class="fa-solid fa-play"></i> <span data-i18n="games.playNow">${T('playNow')}</span></span>
                 </span>`;
             card.addEventListener('click', () => this.launch(g.id));
             this.grid.appendChild(card);
@@ -220,6 +570,13 @@ const Arcade = {
 
         el.querySelector('#arcadeClose').addEventListener('click', () => this.close());
         this.backBtn.addEventListener('click', () => this.toHub());
+        this.restartBtn.addEventListener('click', () => {
+            if (this.sessionGame) this.startRun(this.sessionGame.id);
+        });
+        this.songBtn.addEventListener('click', () => {
+            if (this._picker) this.closeSongPicker();
+            else this.openSongPicker();
+        });
 
         // Entrada por puntero (se delega al juego activo)
         const pos = (ev) => {
@@ -232,12 +589,12 @@ const Arcade = {
             try { this.stage.setPointerCapture(ev.pointerId); } catch (e) {}
             const p = pos(ev);
             this.pointer.x = p.x; this.pointer.y = p.y; this.pointer.down = true;
-            if (this.session && !this.paused && !this.showingResults) this.session.onTap?.(p.x, p.y, ev);
+            if (this.session && !this.paused && !this.holdFrames && !this.showingResults) this.session.onTap?.(p.x, p.y, ev);
         });
         this.stage.addEventListener('pointermove', (ev) => {
             const p = pos(ev);
             this.pointer.x = p.x; this.pointer.y = p.y;
-            if (this.session && !this.paused && !this.showingResults) this.session.onMove?.(p.x, p.y, ev);
+            if (this.session && !this.paused && !this.holdFrames && !this.showingResults) this.session.onMove?.(p.x, p.y, ev);
         });
         const up = (ev) => {
             this.pointer.down = false;
@@ -250,27 +607,29 @@ const Arcade = {
         // Teclado
         document.addEventListener('keydown', (ev) => {
             if (!this.isOpen()) return;
+            if (this._keyCapture) { this._keyCapture(ev); return; }
             if (ev.key === 'Escape') {
                 ev.preventDefault();
-                if (this.session || this.showingResults) this.toHub();
+                if (this._picker) { this.closeSongPicker(); return; }
+                if (this.session || this.showingResults || this._pregame) this.toHub();
                 else this.close();
                 return;
             }
-            if (this.session && !this.showingResults) {
+            if (this.session && !this.showingResults && !this._picker) {
                 if ([' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(ev.key)) ev.preventDefault();
                 if (!this.paused && !ev.repeat) this.session.onKey?.(ev, true);
             }
         });
         document.addEventListener('keyup', (ev) => {
-            if (this.session && this.isOpen() && !this.showingResults) this.session.onKey?.(ev, false);
+            if (this.session && this.isOpen() && !this.showingResults && !this._picker) this.session.onKey?.(ev, false);
         });
 
         // Pausa ligada a la música
-        audio.addEventListener('pause', () => { if (this.session && !this.showingResults) this.setPaused(true); });
+        audio.addEventListener('pause', () => { if (this.session && !this.showingResults && !this._prep) this.setPaused(true); });
         audio.addEventListener('play', () => { if (this.session && this.paused) this.setPaused(false); });
         document.addEventListener('trackchanged', () => {
             this.updateNowTitle();
-            if (this.session && this.sessionGame?.endOnTrackChange && !this.showingResults) this.session.forceEnd?.();
+            if (this.session && !this.showingResults) this.session.forceEnd?.();
         });
 
         window.addEventListener('resize', () => { if (this.isOpen()) this.resize(); }, { passive: true });
@@ -289,7 +648,7 @@ const Arcade = {
         this.games.forEach((g) => {
             const elB = document.getElementById('arcadeBest-' + g.id);
             if (!elB) return;
-            const v = bests[g.id];
+            const v = bestOfGame(g.id);
             if (v > 0) {
                 elB.hidden = false;
                 elB.querySelector('b').textContent = g.fmtBest ? g.fmtBest(v) : fmtN(v);
@@ -301,6 +660,11 @@ const Arcade = {
 
     open() {
         if (!this.overlay) this.build();
+        // Foto de lo que estaba sonando, para restaurarlo al cerrar
+        this.snapshot = audio.getAttribute('src')
+            ? { idx: window._currentIdx || 0, time: audio.currentTime || 0, playing: !audio.paused }
+            : null;
+        this._dirty = false; // aún no hemos tocado la música
         this.updateNowTitle();
         this.refreshBests();
         this.overlay.classList.add('open');
@@ -310,7 +674,33 @@ const Arcade = {
     },
 
     close() {
+        const dirty = this._dirty;
+        const wasPlayingNow = !audio.paused;
         this.abortSession();
+        const s = this.snapshot;
+        this.snapshot = null;
+        if (dirty && s) {
+            // Una partida tocó la música: restaurar canción, posición y estado previos
+            try {
+                const cur = window._currentIdx || 0;
+                if (s.idx !== cur && window._playerLoadTrack) {
+                    window._playerLoadTrack(s.idx, s.playing);
+                    const seek = () => {
+                        try { audio.currentTime = s.time; } catch (e) {}
+                        audio.removeEventListener('loadedmetadata', seek);
+                    };
+                    audio.addEventListener('loadedmetadata', seek);
+                } else {
+                    try { audio.currentTime = s.time; } catch (e) {}
+                    if (s.playing) { const p = audio.play(); if (p) p.catch(() => {}); }
+                }
+            } catch (e) {}
+            setTimeout(syncPlayIcons, 60);
+        } else if (!dirty && wasPlayingNow) {
+            // Solo se visitó el hub: la música sigue como estaba
+            try { const p = audio.play(); if (p) p.catch(() => {}); } catch (e) {}
+            syncPlayIcons();
+        }
         this.overlay.classList.remove('open');
         this.overlay.setAttribute('aria-hidden', 'true');
         document.documentElement.classList.remove('arcade-lock');
@@ -326,6 +716,7 @@ const Arcade = {
         this.hub.hidden = false;
         this.stage.hidden = true;
         this.backBtn.hidden = true;
+        this.restartBtn.hidden = true;
         this.hideMsg();
     },
 
@@ -339,7 +730,9 @@ const Arcade = {
     resize() {
         const r = this.stage.getBoundingClientRect();
         if (r.width === 0 || r.height === 0) return;
-        this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+        // en táctil limitamos la resolución del canvas: gran ahorro de GPU
+        const coarse = window.matchMedia('(pointer:coarse)').matches;
+        this.dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.6 : 2);
         this.canvas.width = Math.round(r.width * this.dpr);
         this.canvas.height = Math.round(r.height * this.dpr);
         this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
@@ -350,8 +743,9 @@ const Arcade = {
 
     ensureMusic() {
         try {
-            if (!audio.getAttribute('src') && window._playerLoadTrack) { window._playerLoadTrack(window._currentIdx || 0, true); return; }
-            if (audio.paused) audio.play().catch(() => {});
+            const p = audio.play();
+            if (p) p.catch(() => {});
+            syncPlayIcons();
         } catch (e) {}
     },
 
@@ -381,47 +775,235 @@ const Arcade = {
         }
     },
 
-    /* ---- lanzamiento de juego ---- */
-    async launch(id) {
+    /* ---- selector de canción (disponible en hub y en partida) ---- */
+    openSongPicker() {
+        if (typeof TRACKS === 'undefined' || !window._playerLoadTrack) return;
+        this._picker = true;
+        this.holdFrames = !!this.session; // congela la partida mientras eliges
+        const cur = window._currentIdx || 0;
+        const rows = TRACKS.map((t, i) =>
+            `<button class="songpick-row${i === cur ? ' active' : ''}" data-i="${i}"><span class="n">${i + 1}</span><span class="t">${t.title}</span></button>`
+        ).join('');
+        this.showMsg(`
+            <div class="arcade-results songpick">
+                <h3 class="arcade-msg-title" style="font-size:1.25rem;">${T('pickSong')}</h3>
+                <input type="search" class="songpick-search" id="songPickSearch" placeholder="${T('searchSong')}" autocomplete="off" spellcheck="false">
+                <div class="songpick-list" id="songPickList">${rows}</div>
+                <div class="arcade-results-actions" style="margin-top:14px;">
+                    <button class="arcade-btn" id="songPickClose"><i class="fa-solid fa-xmark"></i> ${T('cancel')}</button>
+                </div>
+            </div>`, true);
+        const list = this.msg.querySelector('#songPickList');
+        const input = this.msg.querySelector('#songPickSearch');
+        input.addEventListener('input', () => {
+            const q = input.value.toLowerCase();
+            [...list.children].forEach((row) => {
+                row.style.display = row.querySelector('.t').textContent.toLowerCase().includes(q) ? '' : 'none';
+            });
+        });
+        list.addEventListener('click', (ev) => {
+            const row = ev.target.closest('.songpick-row');
+            if (!row) return;
+            const i = parseInt(row.dataset.i, 10);
+            const gameId = this.sessionGame ? this.sessionGame.id : null;
+            const wasRunning = !!this.session || this.showingResults;
+            this._picker = false;
+            this.holdFrames = false;
+            this.hideMsg();
+            this.abortSession();
+            try { window._playerLoadTrack(i, false); audio.pause(); } catch (e) {}
+            syncPlayIcons();
+            this.updateNowTitle();
+            if (gameId && wasRunning) this.startRun(gameId);
+            else if (gameId) this.launch(gameId);
+        });
+        this.msg.querySelector('#songPickClose').addEventListener('click', () => this.closeSongPicker());
+        const active = list.querySelector('.songpick-row.active');
+        if (active) active.scrollIntoView({ block: 'center' });
+        if (window.matchMedia('(pointer:fine)').matches) input.focus();
+    },
+    closeSongPicker() {
+        this._picker = false;
+        this.holdFrames = false;
+        this.hideMsg();
+        this.lastTs = 0;
+        if (this.session && this.paused) this.setPaused(true);
+        else if (this._pregame && this.sessionGame) this.showPregame(this.sessionGame.id);
+    },
+
+    /* ---- panel previo: dificultad y opciones ---- */
+    launch(id) {
         const game = this.games.find((g) => g.id === id);
         if (!game) return;
         this.abortSession();
-        this.ensureMusic();
-        warmBlip(); // crea el AudioContext de los pitidos dentro del gesto del usuario
-        this.showStageView();
+        this._dirty = true; // a partir de aquí la música es del juego
+        warmBlip();         // crea el AudioContext de los pitidos dentro del gesto
         this.sessionGame = game;
+        this.showStageView();
+        this.restartBtn.hidden = true;
+        this.ctx.clearRect(0, 0, this.W, this.H);
+        // desbloquear la reproducción dentro del gesto (iOS exige play() por gesto)
+        try {
+            if (!audio.getAttribute('src') && window._playerLoadTrack) window._playerLoadTrack(window._currentIdx || 0, false);
+            const p = audio.play();
+            if (p && p.then) p.then(() => { if (!this.session) { audio.pause(); syncPlayIcons(); } }).catch(() => {});
+        } catch (e) {}
+        this.showPregame(id);
+    },
+
+    showPregame(id) {
+        const game = this.games.find((g) => g.id === id);
+        this._pregame = true;
+        const diff = diffOf(id);
+        const diffChips = DIFFS.map((d) =>
+            `<button class="arcade-chip${d === diff ? ' active' : ''}" data-diff="${d}">${T(DIFF_LABEL[d])}</button>`
+        ).join('');
+        const hasKeys = id === 'hero' || id === 'tap';
+        const getKeys = () => (id === 'tap' ? OPTS.tapKeys : OPTS.heroKeys[OPTS.heroLanes]) || [];
+        const setKeys = (ks) => { if (id === 'tap') OPTS.tapKeys = ks; else OPTS.heroKeys[OPTS.heroLanes] = ks; };
+        const keyCount = () => (id === 'tap' ? 2 : OPTS.heroLanes);
+        const lanesRow = id === 'hero' ? `
+            <div class="pregame-row">
+                <span class="pregame-label">${T('lanes')}</span>
+                <div class="arcade-chips">${[3, 4, 5].map((n) =>
+                    `<button class="arcade-chip${n === OPTS.heroLanes ? ' active' : ''}" data-lanes="${n}">${n}</button>`).join('')}</div>
+            </div>` : '';
+        const heroExtra = lanesRow + (hasKeys ? `
+            <div class="pregame-row">
+                <span class="pregame-label">${T('keys')}</span>
+                <div class="pregame-keys" id="pregameKeys"></div>
+                <button class="arcade-btn mini" id="pregameKeysBtn">${T('changeKeys')}</button>
+            </div>` : '');
+        this.showMsg(`
+            <div class="arcade-results pregame" style="--g1:${game.colors[0]};--g2:${game.colors[1]}">
+                <span class="pregame-icon"><i class="${game.icon}"></i></span>
+                <h3 class="arcade-msg-title" style="font-size:1.5rem;">${T('g.' + id + '.name')}</h3>
+                <p class="arcade-msg-sub" style="font-size:0.84rem;">${T('g.' + id + '.how')}</p>
+                <div class="pregame-row">
+                    <span class="pregame-label">${T('difficulty')}</span>
+                    <div class="arcade-chips" id="pregameDiffs">${diffChips}</div>
+                </div>
+                ${heroExtra}
+                <div class="pregame-best" id="pregameBest"></div>
+                <div class="arcade-results-actions" style="margin-top:16px;">
+                    <button class="arcade-btn primary" id="pregamePlay"><i class="fa-solid fa-play"></i> ${T('playNow')}</button>
+                    <button class="arcade-btn" id="pregameCancel"><i class="fa-solid fa-xmark"></i> ${T('cancel')}</button>
+                </div>
+            </div>`, true);
+
+        const refreshBest = () => {
+            const v = bests[bestKeyFor(id)] || 0;
+            const elB = this.msg.querySelector('#pregameBest');
+            elB.innerHTML = v > 0 ? `<i class="fa-solid fa-trophy"></i> ${T('bestLabel')}: <b>${(game.fmtBest || fmtN)(v)}</b>` : '';
+        };
+        const refreshKeys = () => {
+            const elK = this.msg.querySelector('#pregameKeys');
+            if (elK) elK.innerHTML = getKeys().map((k) => `<kbd>${keyLabel(k)}</kbd>`).join('');
+        };
+        refreshBest();
+        refreshKeys();
+
+        this.msg.querySelectorAll('[data-diff]').forEach((chip) => {
+            chip.addEventListener('click', () => {
+                OPTS.diff[id] = chip.dataset.diff;
+                saveOpts();
+                this.msg.querySelectorAll('[data-diff]').forEach((c) => c.classList.toggle('active', c === chip));
+                refreshBest();
+            });
+        });
+        this.msg.querySelectorAll('[data-lanes]').forEach((chip) => {
+            chip.addEventListener('click', () => {
+                OPTS.heroLanes = parseInt(chip.dataset.lanes, 10);
+                saveOpts();
+                this.msg.querySelectorAll('[data-lanes]').forEach((c) => c.classList.toggle('active', c === chip));
+                refreshKeys();
+                refreshBest();
+            });
+        });
+        const keysBtn = this.msg.querySelector('#pregameKeysBtn');
+        if (keysBtn) {
+            keysBtn.addEventListener('click', () => {
+                const total = keyCount();
+                const newKeys = [];
+                const elK = this.msg.querySelector('#pregameKeys');
+                let lane = 0;
+                elK.innerHTML = `<em>${T('pressKey')} 1…</em>`;
+                this._keyCapture = (ev) => {
+                    ev.preventDefault();
+                    if (ev.key === 'Escape') { this._keyCapture = null; refreshKeys(); return; }
+                    const k = ev.key.toLowerCase();
+                    if (newKeys.includes(k)) return; // sin teclas repetidas
+                    newKeys.push(k);
+                    lane++;
+                    if (lane >= total) {
+                        setKeys(newKeys);
+                        saveOpts();
+                        this._keyCapture = null;
+                        refreshKeys();
+                    } else {
+                        elK.innerHTML = newKeys.map((x) => `<kbd>${keyLabel(x)}</kbd>`).join('') + ` <em>${T('pressKey')} ${lane + 1}…</em>`;
+                    }
+                };
+            });
+        }
+        this.msg.querySelector('#pregamePlay').addEventListener('click', () => this.startRun(id));
+        this.msg.querySelector('#pregameCancel').addEventListener('click', () => this.toHub());
+    },
+
+    /* ---- lanzamiento de la partida ---- */
+    async startRun(id) {
+        const game = this.games.find((g) => g.id === id);
+        if (!game) return;
+        const keepDirty = true;
+        this.abortSession();
+        this._dirty = keepDirty;
+        this.sessionGame = game;
+        this._pregame = false;
+        this.showStageView();
+        this.restartBtn.hidden = false;
         const token = ++this.countToken;
         this.ctx.clearRect(0, 0, this.W, this.H);
         this.hud.innerHTML = '';
+        this._prep = true;
+        this.runBestKey = bestKeyFor(id);
+        const diff = diffOf(id);
 
-        // Fase opcional de preparación (p. ej. análisis del beatmap)
-        let prep = null;
-        if (game.prepare) {
-            this.showMsg(`
-                <div class="arcade-spinner"></div>
-                <h3 class="arcade-msg-title">${T('analyzing')}</h3>
-                <p class="arcade-msg-sub">${T('analyzingSub')}</p>`);
-            try {
-                prep = await game.prepare(this.api());
-            } catch (e) {
-                if (token !== this.countToken) return;
-                this.showMsg(`
-                    <h3 class="arcade-msg-title">:(</h3>
-                    <p class="arcade-msg-sub">${T('analyzeError')}</p>
-                    <button class="arcade-btn primary" id="arcadeErrBack">${T('hubBtn')}</button>`, true);
-                this.msg.querySelector('#arcadeErrBack').addEventListener('click', () => this.toHub());
-                return;
+        try { audio.pause(); } catch (e) {}
+        syncPlayIcons();
+
+        // Análisis SIEMPRE: todos los juegos se sincronizan con los golpes reales
+        this.showMsg(`
+            <div class="arcade-spinner"></div>
+            <h3 class="arcade-msg-title">${T('analyzing')}</h3>
+            <p class="arcade-msg-sub">${T('analyzingSub')}</p>`);
+        let map = null;
+        try {
+            for (let i = 0; i < 40 && !audio.currentSrc; i++) await new Promise((r) => setTimeout(r, 100));
+            for (let i = 0; i < 3 && !map; i++) {
+                const src = audio.currentSrc;
+                if (!src) throw new Error('sin canción');
+                const m = await buildBeatmap(src);
+                if (audio.currentSrc === src) map = m; // si cambió la canción, re-analiza
             }
+            if (!map) throw new Error('la canción no deja de cambiar');
+        } catch (e) {
             if (token !== this.countToken) return;
+            this.showMsg(`
+                <h3 class="arcade-msg-title">:(</h3>
+                <p class="arcade-msg-sub">${T('analyzeError')}</p>
+                <button class="arcade-btn primary" id="arcadeErrBack">${T('hubBtn')}</button>`, true);
+            this.msg.querySelector('#arcadeErrBack').addEventListener('click', () => this.toHub());
+            return;
         }
+        if (token !== this.countToken) return;
 
         // Intro + cuenta atrás 3·2·1
         const name = T('g.' + id + '.name');
-        const how = T('g.' + id + '.how');
+        const diffName = T(DIFF_LABEL[diff]);
         for (let i = 3; i >= 1; i--) {
             this.showMsg(`
                 <h3 class="arcade-msg-title">${name}</h3>
-                <p class="arcade-msg-sub">${how}</p>
+                <p class="arcade-msg-sub">${diffName} · ${Math.round(map.bpm)} BPM</p>
                 <div class="arcade-count" style="animation:none;">${i}</div>`);
             const cnt = this.msg.querySelector('.arcade-count');
             void cnt.offsetWidth;
@@ -429,15 +1011,22 @@ const Arcade = {
             await new Promise((r) => setTimeout(r, 800));
             if (token !== this.countToken) return;
         }
+
+        // GO: la canción arranca DESDE CERO, alineada con el análisis
+        this._prep = false;
+        try { audio.currentTime = 0; } catch (e) {}
+        this.songClock = makeSongClock(audio);
+        try { const pp = audio.play(); if (pp) pp.catch(() => {}); } catch (e) {}
+        syncPlayIcons();
         this.showMsg(`<div class="arcade-count">${T('go')}</div>`);
-        setTimeout(() => { if (token === this.countToken && !this.paused && !this.showingResults) this.hideMsg(); }, 600);
+        setTimeout(() => { if (token === this.countToken && !this.paused && !this.showingResults && !this._picker) this.hideMsg(); }, 600);
 
         // Arrancar sesión
         this.sparks = [];
         this.floats = [];
         this.paused = false;
         this.showingResults = false;
-        this.session = game.createSession(this.api(), prep);
+        this.session = game.createSession(this.api(), { map, events: eventsFor(map, diff), diff });
         this.lastTs = 0;
         if (!this.rafId) this.rafId = requestAnimationFrame((ts) => this.loop(ts));
         if (audio.paused) this.setPaused(true);
@@ -452,11 +1041,22 @@ const Arcade = {
         this.sessionGame = null;
         this.paused = false;
         this.showingResults = false;
+        this.holdFrames = false;
+        this._picker = false;
+        this._prep = false;
+        this._pregame = false;
+        this._keyCapture = null;
         this.sparks = [];
         this.floats = [];
         this.hud.innerHTML = '';
         this.hideMsg();
         if (this.rafId) { cancelAnimationFrame(this.rafId); this.rafId = null; }
+        // Al salir de una partida la música se detiene (se restaura al cerrar el arcade);
+        // si solo se ha visitado el hub, la música del usuario no se toca
+        if (this._dirty) {
+            try { audio.pause(); } catch (e) {}
+            syncPlayIcons();
+        }
     },
 
     /* ---- bucle principal ---- */
@@ -466,7 +1066,7 @@ const Arcade = {
         let dt = (ts - this.lastTs) / 1000;
         this.lastTs = ts;
         if (dt > 0.05) dt = 0.05;
-        if (!this.session || this.paused) return;
+        if (!this.session || this.paused || this.holdFrames) return;
         if (!this.showingResults) this.session.frame?.(dt, ts / 1000);
         this.drawSparks(dt);
         this.drawFloats(dt);
@@ -558,10 +1158,11 @@ const Arcade = {
         this.sparks = [];
         this.floats = [];
         const game = this.sessionGame;
+        const key = this.runBestKey || game.id;
         const value = bestValue !== null ? bestValue : score;
-        const prev = bests[game.id] || 0;
+        const prev = bests[key] || 0;
         const isRecord = value > prev;
-        if (isRecord) saveBest(game.id, value);
+        if (isRecord) saveBest(key, value);
         const fmt = fmtBest || game.fmtBest || fmtN;
         const rows = stats.map((s) => `<div class="arcade-results-row"><span>${s[0]}</span><b>${s[1]}</b></div>`).join('');
         this.showMsg(`
@@ -569,14 +1170,14 @@ const Arcade = {
                 ${grade ? `<div class="arcade-results-grade">${grade}</div>` : ''}
                 <div class="arcade-results-score">${fmt(score)}</div>
                 ${isRecord ? `<span class="arcade-results-record"><i class="fa-solid fa-trophy"></i> ${T('newRecord')}</span>`
-                           : `<div class="arcade-results-row" style="justify-content:center;margin-top:6px;"><span>${T('bestLabel')}: <b>${fmt(Math.max(prev, value))}</b></span></div>`}
+                           : `<div class="arcade-results-row" style="justify-content:center;margin-top:6px;"><span>${T('bestLabel')} (${T(DIFF_LABEL[diffOf(game.id)])}): <b>${fmt(Math.max(prev, value))}</b></span></div>`}
                 <div class="arcade-results-stats">${rows}</div>
                 <div class="arcade-results-actions">
                     <button class="arcade-btn primary" id="arcadeRetry"><i class="fa-solid fa-rotate-right"></i> ${T('retry')}</button>
                     <button class="arcade-btn" id="arcadeToHub"><i class="fa-solid fa-table-cells-large"></i> ${T('hubBtn')}</button>
                 </div>
             </div>`, true);
-        this.msg.querySelector('#arcadeRetry').addEventListener('click', () => { const id = game.id; this.abortSession(); this.launch(id); });
+        this.msg.querySelector('#arcadeRetry').addEventListener('click', () => { const id = game.id; this.startRun(id); });
         this.msg.querySelector('#arcadeToHub').addEventListener('click', () => this.toHub());
         haptic(30);
     },
@@ -592,8 +1193,8 @@ const Arcade = {
             W: () => A.W,
             H: () => A.H,
             beat: beatNow,
+            songNow: () => (A.songClock ? A.songClock() : (audio.currentTime || 0)),
             pointer: () => A.pointer,
-            makeOnsets,
             burst: (x, y, o) => A.burst(x, y, o),
             addFloat: (x, y, t, rgb) => A.addFloat(x, y, t, rgb),
             buildHud: (p) => A.buildHud(p),
@@ -615,18 +1216,73 @@ const Arcade = {
     },
 };
 
+/* ===================== Pitidos UI (Simon, Tap Tempo) ===================== */
+let blipCtx = null;
+function warmBlip() {
+    try {
+        if (!blipCtx) blipCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (blipCtx.state === 'suspended') blipCtx.resume().catch(() => {});
+    } catch (e) {}
+}
+function blip(freq, vol = 0.14, dur = 0.18) {
+    try {
+        if (!blipCtx) blipCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (blipCtx.state === 'suspended') blipCtx.resume().catch(() => {});
+        const o = blipCtx.createOscillator();
+        const g = blipCtx.createGain();
+        o.type = 'sine';
+        o.frequency.value = freq;
+        g.gain.setValueAtTime(vol, blipCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, blipCtx.currentTime + dur);
+        o.connect(g);
+        g.connect(blipCtx.destination);
+        o.start();
+        o.stop(blipCtx.currentTime + dur);
+    } catch (e) {}
+}
+
 /* ==========================================================================
-   JUEGO 1 — BEAT TAP (círculos al ritmo)
+   JUEGO 1 — BEAT TAP (el anillo se cierra exactamente en el golpe)
    ========================================================================== */
 Arcade.register({
     id: 'tap',
-    icon: 'fa-solid fa-bullseye',
-    createSession(api) {
-        const onsets = api.makeOnsets({ minGap: 0.22 });
+    icon: 'fa-solid fa-meteor',
+    colors: ['0 200 255', '0 102 255'],
+    createSession(api, run) {
+        const isMobile = Math.min(api.W(), api.H()) < 560;
+        const CFG = {
+            easy:   { approach: 1.8, maxOn: 3, r: isMobile ? 32 : 38 },
+            medium: { approach: 1.5, maxOn: 5, r: isMobile ? 29 : 34 },
+            hard:   { approach: 1.25, maxOn: 6, r: isMobile ? 26 : 30 },
+            expert: { approach: 1.05, maxOn: 8, r: isMobile ? 23 : 27 },
+        }[run.diff];
+        const W_P = 0.08, W_G = 0.16, W_X = 0.24;
+        const events = run.events;
+        const KEYS = (OPTS.tapKeys || ['z', 'x']).map((k) => k.toLowerCase());
+        let bIdx = 0;
         const circles = [];
         let score = 0, combo = 0, maxCombo = 0, lives = 3;
         let spawned = 0, hits = 0;
-        let t = 0, lastSpawn = -9;
+        let lastPos = null;
+
+        // Ráfagas estilo osu!: 3+ eventos muy seguidos se colocan en línea/arco
+        // numerados, no vagando al azar por el mapa
+        const chainOf = new Array(events.length).fill(-1);
+        const chainPos = new Array(events.length).fill(0);
+        {
+            let cId = -1, start = 0;
+            for (let i = 1; i <= events.length; i++) {
+                const linked = i < events.length && events[i].t - events[i - 1].t < 0.30;
+                if (!linked) {
+                    if (i - start >= 3) {
+                        cId++;
+                        for (let j = start; j < i; j++) { chainOf[j] = cId; chainPos[j] = j - start; }
+                    }
+                    start = i;
+                }
+            }
+        }
+        const chainState = new Map(); // cadena → posición/ángulo del último eslabón
 
         api.buildHud([
             { label: T('score'), id: 'tapScore', value: '0' },
@@ -636,33 +1292,59 @@ Arcade.register({
         const elScore = document.getElementById('tapScore');
         const elCombo = document.getElementById('tapCombo');
 
-        const isMobile = Math.min(api.W(), api.H()) < 560;
-        const coreR = () => clamp((isMobile ? 30 : 36) - score / 2200, isMobile ? 23 : 27, isMobile ? 30 : 36);
-        const lifeFor = () => clamp(1.7 - score / 14000, 1.0, 1.7);
-
-        function spawn(strength) {
-            const r = coreR();
-            const outer = r * 2.7;
-            const mTop = 86, mEdge = Math.max(20, api.W() * 0.05);
-            let best = null, bestD = -1;
-            for (let i = 0; i < 10; i++) {
-                const x = mEdge + outer + Math.random() * (api.W() - 2 * (mEdge + outer));
-                const y = mTop + outer + Math.random() * (api.H() - mTop - 2 * outer - 20);
-                let dMin = Infinity;
-                circles.forEach((c) => { dMin = Math.min(dMin, Math.hypot(c.x - x, c.y - y)); });
-                if (dMin > bestD) { bestD = dMin; best = { x, y }; }
-                if (dMin === Infinity) break;
-            }
-            circles.push({ x: best.x, y: best.y, born: t, life: lifeFor(), r, strength, dead: false });
-            spawned++;
+        function area() {
+            const outer = CFG.r * 2.9;
+            const mEdge = Math.max(20, api.W() * 0.05);
+            return { minX: mEdge + outer, maxX: api.W() - mEdge - outer, minY: 86 + outer, maxY: api.H() - outer - 20 };
         }
 
-        function rate(c) {
-            // 0 = anillo tocando el centro (perfecto), 1 = recién nacido
-            const k = 1 - (t - c.born) / c.life;
-            if (k <= 0.22) return { pts: 300, label: T('perfect'), accent: 1 };
-            if (k <= 0.55) return { pts: 150, label: T('good'), accent: 2 };
-            return { pts: 50, label: T('good'), accent: 2 };
+        // Posiciones con "flow": el siguiente círculo nace a una distancia
+        // alcanzable del anterior, formando un camino jugable (estilo osu!)
+        function spawnPos() {
+            const b = area();
+            for (let tries = 0; tries < 12; tries++) {
+                let x, y;
+                if (!lastPos || tries > 7) {
+                    x = b.minX + Math.random() * (b.maxX - b.minX);
+                    y = b.minY + Math.random() * (b.maxY - b.minY);
+                } else {
+                    const ang = Math.random() * Math.PI * 2;
+                    const dist = 150 + Math.random() * 220;
+                    x = clamp(lastPos.x + Math.cos(ang) * dist, b.minX, b.maxX);
+                    y = clamp(lastPos.y + Math.sin(ang) * dist, b.minY, b.maxY);
+                }
+                let ok = true;
+                for (const c of circles) {
+                    if (Math.hypot(c.x - x, c.y - y) < CFG.r * 2.4) { ok = false; break; }
+                }
+                if (ok) return { x, y };
+            }
+            return lastPos || { x: api.W() / 2, y: api.H() / 2 };
+        }
+
+        function spawn(e, i) {
+            const cId = chainOf[i];
+            let p;
+            if (cId >= 0 && chainState.has(cId)) {
+                // siguiente eslabón de la ráfaga: en línea con curva suave
+                const st = chainState.get(cId);
+                const b = area();
+                const step = CFG.r * 2.55;
+                st.ang += st.turn;
+                p = {
+                    x: clamp(st.x + Math.cos(st.ang) * step, b.minX, b.maxX),
+                    y: clamp(st.y + Math.sin(st.ang) * step, b.minY, b.maxY),
+                };
+                if (p.x === b.minX || p.x === b.maxX) st.ang = Math.PI - st.ang; // rebote en bordes
+                if (p.y === b.minY || p.y === b.maxY) st.ang = -st.ang;
+                st.x = p.x; st.y = p.y;
+            } else {
+                p = spawnPos();
+                if (cId >= 0) chainState.set(cId, { x: p.x, y: p.y, ang: Math.random() * Math.PI * 2, turn: (Math.random() - 0.5) * 0.5 });
+            }
+            lastPos = p;
+            circles.push({ x: p.x, y: p.y, hitT: e.t, r: CFG.r, s: e.s, num: cId >= 0 ? chainPos[i] + 1 : 0 });
+            spawned++;
         }
 
         function miss(c, idx) {
@@ -693,12 +1375,11 @@ Arcade.register({
 
         return {
             frame(dt) {
-                t += dt;
                 const ctx = api.ctx, W = api.W(), H = api.H();
-                ctx.clearRect(0, 0, W, H);
+                const now = api.songNow();
                 const beat = api.beat();
+                ctx.clearRect(0, 0, W, H);
 
-                // Fondo: halo sutil que respira con el bass
                 if (beat > 0.02) {
                     const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.6);
                     g.addColorStop(0, rgbStr(accentRgb(2), 0.05 + beat * 0.08));
@@ -707,23 +1388,21 @@ Arcade.register({
                     ctx.fillRect(0, 0, W, H);
                 }
 
-                // Generación en los golpes
-                const strength = onsets(t);
-                if (strength > 0 && circles.length < 6 && t - lastSpawn > 0.12) {
-                    spawn(strength);
-                    lastSpawn = t;
-                    if (strength > 0.55 && circles.length < 6 && score > 3000) spawn(strength);
+                while (bIdx < events.length && events[bIdx].t - now <= CFG.approach) {
+                    const e = events[bIdx++];
+                    if (e.t <= now + 0.12) continue;
+                    if (circles.length >= CFG.maxOn) continue;
+                    spawn(e, bIdx - 1);
                 }
 
-                // Dibujo + expiración
                 for (let i = circles.length - 1; i >= 0; i--) {
                     const c = circles[i];
-                    const age = (t - c.born) / c.life;
-                    if (age >= 1) { miss(c, i); continue; }
-                    const ringR = c.r + (c.r * 2.7 - c.r) * (1 - age);
+                    const remain = c.hitT - now;
+                    if (remain < -W_X) { miss(c, i); continue; }
+                    const k = clamp(remain / CFG.approach, 0, 1);
+                    const ringR = c.r + c.r * 1.9 * k;
                     const a1 = accentRgb(1), a2 = accentRgb(2);
 
-                    // núcleo
                     const grad = ctx.createRadialGradient(c.x - c.r * 0.3, c.y - c.r * 0.3, c.r * 0.1, c.x, c.y, c.r);
                     grad.addColorStop(0, rgbStr(a1, 0.95));
                     grad.addColorStop(1, rgbStr(a2, 0.82));
@@ -735,22 +1414,31 @@ Arcade.register({
                     ctx.fill();
                     ctx.shadowBlur = 0;
 
-                    // borde del núcleo
                     ctx.beginPath();
                     ctx.arc(c.x, c.y, c.r * (1 + beat * 0.08), 0, Math.PI * 2);
                     ctx.strokeStyle = 'rgba(255,255,255,0.85)';
                     ctx.lineWidth = 2;
                     ctx.stroke();
 
-                    // anillo de aproximación
+                    // número de orden dentro de la ráfaga
+                    if (c.num > 0) {
+                        ctx.font = `800 ${Math.round(c.r * 0.85)}px Montserrat, sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = 'rgba(255,255,255,0.95)';
+                        ctx.fillText(c.num, c.x, c.y + 1);
+                        ctx.textBaseline = 'alphabetic';
+                    }
+
                     ctx.beginPath();
                     ctx.arc(c.x, c.y, ringR, 0, Math.PI * 2);
-                    ctx.strokeStyle = rgbStr(a1, 0.35 + (1 - age) * 0.25 + beat * 0.3);
+                    ctx.strokeStyle = rgbStr(a1, 0.4 + (1 - k) * 0.35 + beat * 0.2);
                     ctx.lineWidth = 2.5;
                     ctx.stroke();
                 }
             },
             onTap(x, y) {
+                const now = api.songNow();
                 let bestIdx = -1, bestD = Infinity;
                 circles.forEach((c, i) => {
                     const d = Math.hypot(c.x - x, c.y - y);
@@ -758,191 +1446,98 @@ Arcade.register({
                 });
                 if (bestIdx < 0) return;
                 const c = circles[bestIdx];
-                const r = rate(c);
+                const dtHit = Math.abs(now - c.hitT);
+                let pts, label, accent;
+                if (dtHit <= W_P) { pts = 300; label = T('perfect'); accent = 1; }
+                else if (dtHit <= W_G) { pts = 150; label = T('good'); accent = 2; }
+                else { pts = 50; label = T('good'); accent = 2; }
                 circles.splice(bestIdx, 1);
                 hits++;
                 combo++;
                 maxCombo = Math.max(maxCombo, combo);
-                const mult = 1 + Math.min(combo, 30) * 0.1;
-                score += Math.round(r.pts * mult);
+                score += Math.round(pts * (1 + Math.min(combo, 30) * 0.1));
                 elScore.textContent = fmtN(score);
                 elCombo.textContent = 'x' + combo;
                 elCombo.classList.toggle('combo-hot', combo >= 8);
-                api.burst(c.x, c.y, { n: r.pts >= 300 ? 30 : 18, power: r.pts >= 300 ? 1.25 : 0.9, accent: r.accent });
-                api.addFloat(c.x, c.y, r.label, r.accent === 1 ? accentRgb(1) : accentRgb(2));
+                api.burst(c.x, c.y, { n: pts >= 300 ? 30 : 18, power: pts >= 300 ? 1.25 : 0.9, accent });
+                api.addFloat(c.x, c.y, label, accent === 1 ? accentRgb(1) : accentRgb(2));
                 haptic(12);
             },
+            onKey(ev, down) {
+                // teclas de tap (estilo osu!): pulsan donde está el cursor
+                if (!down) return;
+                if (KEYS.includes(ev.key.toLowerCase())) {
+                    const pt = api.pointer();
+                    this.onTap(pt.x, pt.y);
+                }
+            },
+            forceEnd() { finish(); },
             destroy() { circles.length = 0; },
         };
     },
 });
 
 /* ==========================================================================
-   JUEGO 2 — DANIELUX HERO (carriles con beatmap real de la canción)
-   Analiza el MP3 entero offline (lowpass 150 Hz) y extrae los golpes reales,
-   así las notas llegan a la línea EXACTAMENTE cuando suena el golpe.
+   JUEGO 2 — DANIELUX HERO (carriles por banda: graves ⟵ · voz · ⟶ agudos)
    ========================================================================== */
-const HERO_CACHE = new Map(); // src → beatmap [{t, s, lanes:[..]}]
-
-async function heroBuildBeatmap(src) {
-    if (HERO_CACHE.has(src)) return HERO_CACHE.get(src);
-
-    const resp = await fetch(src);
-    if (!resp.ok) throw new Error('fetch ' + resp.status);
-    const raw = await resp.arrayBuffer();
-
-    const AC = window.AudioContext || window.webkitAudioContext;
-    const dctx = new AC();
-    let decoded;
-    try {
-        decoded = await new Promise((res, rej) => {
-            const p = dctx.decodeAudioData(raw, res, rej);
-            if (p && p.then) p.then(res, rej); // forma promesa o callback según navegador
-        });
-    } finally {
-        dctx.close().catch(() => {});
-    }
-
-    // Render offline: mono, 11025 Hz, lowpass en el bombo
-    const SR = 11025;
-    const off = new OfflineAudioContext(1, Math.ceil(decoded.duration * SR), SR);
-    const srcNode = off.createBufferSource();
-    srcNode.buffer = decoded;
-    const lp = off.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.value = 150;
-    lp.Q.value = 0.9;
-    srcNode.connect(lp);
-    lp.connect(off.destination);
-    srcNode.start();
-    const rendered = await off.startRendering();
-    const data = rendered.getChannelData(0);
-
-    // Envolvente de energía por ventanas de ~23 ms
-    const HOP = 256;
-    const frames = Math.floor(data.length / HOP);
-    const env = new Float32Array(frames);
-    let maxE = 0;
-    for (let i = 0; i < frames; i++) {
-        let sum = 0;
-        const base = i * HOP;
-        for (let j = 0; j < HOP; j++) { const v = data[base + j]; sum += v * v; }
-        env[i] = Math.sqrt(sum / HOP);
-        if (env[i] > maxE) maxE = env[i];
-    }
-    if (maxE > 0) for (let i = 0; i < frames; i++) env[i] /= maxE;
-
-    // Media local (~0.93 s) para umbral adaptativo
-    const HALF = 20;
-    const avg = new Float32Array(frames);
-    let acc = 0, lo = 0, hi = -1;
-    for (let i = 0; i < frames; i++) {
-        const nLo = Math.max(0, i - HALF), nHi = Math.min(frames - 1, i + HALF);
-        while (hi < nHi) acc += env[++hi];
-        while (lo < nLo) acc -= env[lo++];
-        avg[i] = acc / (nHi - nLo + 1);
-    }
-
-    const frameT = HOP / SR;
-    function pick(mult) {
-        const out = [];
-        let lastT = -9;
-        for (let i = 2; i < frames - 2; i++) {
-            const e = env[i];
-            if (e < 0.09) continue;
-            if (e < avg[i] * mult) continue;
-            if (e < env[i - 1] || e < env[i + 1]) continue; // máximo local
-            const t = i * frameT;
-            if (t - lastT < 0.18) continue;
-            out.push({ t, s: e });
-            lastT = t;
-        }
-        return out;
-    }
-
-    // Sensibilidad adaptativa: densidad objetivo 0.8–2.4 notas/s
-    const dur = decoded.duration;
-    let onsets = null;
-    let bestDiff = Infinity, bestList = [];
-    for (const mult of [2.1, 1.8, 1.55, 1.35, 1.18, 1.05]) {
-        const list = pick(mult);
-        const d = list.length / dur;
-        if (d >= 0.8 && d <= 2.4) { onsets = list; break; }
-        const diff = Math.abs(d - 1.5);
-        if (diff < bestDiff) { bestDiff = diff; bestList = list; }
-    }
-    if (!onsets) onsets = bestList;
-    if (onsets.length < 12) throw new Error('beatmap vacío');
-
-    // Carriles deterministas + acordes en los golpes top
-    const strengths = [...onsets].map(o => o.s).sort((a, b) => a - b);
-    const p88 = strengths[Math.floor(strengths.length * 0.88)] || 1;
-    let prevLane = -1, prevT = -9;
-    const notes = [];
-    onsets.forEach((o, i) => {
-        let lane = (i * 7 + Math.floor(o.t * 13)) % 3;
-        if (lane === prevLane && o.t - prevT < 0.22) lane = (lane + 1) % 3;
-        const lanes = [lane];
-        if (o.s >= p88 && o.t - prevT > 0.35) lanes.push((lane + 1 + (i % 2)) % 3);
-        notes.push({ t: o.t, s: o.s, lanes });
-        prevLane = lane;
-        prevT = o.t;
-    });
-
-    HERO_CACHE.set(src, notes);
-    if (HERO_CACHE.size > 6) HERO_CACHE.delete(HERO_CACHE.keys().next().value); // no acumular memoria
-    return notes;
-}
-
 Arcade.register({
     id: 'hero',
-    icon: 'fa-solid fa-grip-lines-vertical',
-    endOnTrackChange: true,
-    async prepare(api) {
-        // Espera a que el reproductor tenga src (ensureMusic ya lo ha pedido)
-        for (let i = 0; i < 40 && !api.audio.currentSrc; i++) await new Promise(r => setTimeout(r, 100));
-        // Si el usuario cambia de canción durante el análisis, re-analiza la nueva
-        for (let i = 0; i < 3; i++) {
-            const src = api.audio.currentSrc;
-            if (!src) throw new Error('sin canción');
-            const map = await heroBuildBeatmap(src);
-            if (api.audio.currentSrc === src) return map;
-        }
-        throw new Error('la canción no deja de cambiar');
-    },
-    createSession(api, beatmap) {
-        const audioEl = api.audio;
+    icon: 'fa-solid fa-guitar',
+    colors: ['139 92 246', '236 72 153'],
+    createSession(api, run) {
         const isTouch = window.matchMedia('(pointer:coarse)').matches;
-        const LEAD = isTouch ? 1.65 : 1.85;          // s que tarda la nota en bajar
+        const LANES = OPTS.heroLanes;
+        const KEYS = (OPTS.heroKeys[LANES] || ['d', 'f', 'j']).slice(0, LANES);
+        const LEAD = { easy: 2.0, medium: 1.75, hard: 1.5, expert: 1.3 }[run.diff] * (isTouch ? 0.92 : 1);
         const W_PERFECT = 0.07, W_GOOD = 0.145, W_OK = 0.19;
-        const KEYS = { d: 0, f: 1, j: 2, arrowleft: 0, arrowdown: 1, arrowright: 2 };
+        const events = run.events;
 
         let score = 0, combo = 0, maxCombo = 0;
         let nPerfect = 0, nGood = 0, nOk = 0, nMiss = 0;
-        const laneFlash = [0, 0, 0];
-        const lanePress = [false, false, false];
+        const laneFlash = new Array(LANES).fill(0);
 
-        // Reloj interpolado sobre audio.currentTime (que se actualiza a saltos)
-        let lastCT = audioEl.currentTime, lastPerf = performance.now() / 1000;
-        function now() {
-            const ct = audioEl.currentTime;
-            const perf = performance.now() / 1000;
-            if (ct !== lastCT) { lastCT = ct; lastPerf = perf; return ct; }
-            if (audioEl.paused) return ct;
-            return lastCT + (perf - lastPerf);
-        }
+        // Generador de patrones por compás: las notas del pulso forman "streams"
+        // (escaleras, zigzag, saltos) que recorren TODOS los carriles; los onsets
+        // van por zonas: graves→izquierda, voz→centro, agudos→derecha.
+        const beatT = run.map.beatT;
+        const gridPhase = run.map.grid.length ? run.map.grid[0] : 0;
+        const PATTERNS = [
+            (i, L) => i % L,                                                          // escalera ↑
+            (i, L) => (L - 1) - (i % L),                                              // escalera ↓
+            (i, L) => { const z = i % (2 * L - 2 || 1); return z < L ? z : (2 * L - 2) - z; }, // zigzag
+            (i, L) => (i * 2) % L,                                                    // saltos
+        ];
+        const ZONES = LANES === 3 ? [[0], [1], [2]]
+            : LANES === 4 ? [[0, 1], [1, 2], [2, 3]]
+            : [[0, 1], [2], [3, 4]];
+        let prevLane = -1, prevT = -9, lastMeasure = -1, patFn = PATTERNS[0], patIdx = 0;
+        const notes = [];
+        events.forEach((e, i) => {
+            const measure = Math.floor((e.t - gridPhase) / (beatT * 4));
+            if (measure !== lastMeasure) {
+                lastMeasure = measure;
+                patFn = PATTERNS[Math.abs(measure * 31 + LANES * 7) % PATTERNS.length];
+                patIdx = 0;
+            }
+            let lane;
+            if (e.band === 3) {
+                lane = clamp(patFn(patIdx++, LANES), 0, LANES - 1); // el pulso sigue el patrón del compás
+            } else {
+                const zl = ZONES[e.band === 0 ? 0 : e.band === 1 ? 1 : 2];
+                lane = zl[(i * 7 + Math.floor(e.t * 13)) % zl.length];
+            }
+            if (lane === prevLane && e.t - prevT < 0.22) lane = (lane + 1) % LANES;
+            notes.push({ t: e.t, lane, s: e.s });
+            // acordes en golpes fuertes (solo difícil y experto)
+            if ((run.diff === 'hard' || run.diff === 'expert') && e.s > 0.85 && e.t - prevT > 0.4) {
+                notes.push({ t: e.t, lane: (lane + 1 + (i % (LANES - 1))) % LANES, s: e.s });
+            }
+            prevLane = lane;
+            prevT = e.t;
+        });
 
-        // Notas activas: puntero sobre el beatmap desde la posición actual
-        // (si queda poco de canción, volvemos al principio para que haya partida)
-        const t0 = now();
-        let idx = beatmap.findIndex(n => n.t > t0 + 1.4);
-        if (idx === -1 || beatmap.length - idx < 25) {
-            try { audioEl.currentTime = 0; } catch (e) {}
-            idx = 0;
-            lastCT = 0; lastPerf = performance.now() / 1000;
-        }
-        const startIdx = idx;
-        const active = []; // {t, lane, hit:false}
+        let idx = 0;
+        const active = [];
         let totalSpawned = 0;
 
         api.buildHud([
@@ -956,10 +1551,10 @@ Arcade.register({
 
         function layout() {
             const W = api.W(), H = api.H();
-            const areaW = Math.min(W * 0.88, 520);
+            const areaW = Math.min(W * 0.92, 170 * LANES);
             return {
                 x0: (W - areaW) / 2,
-                laneW: areaW / 3,
+                laneW: areaW / LANES,
                 topY: 64,
                 hitY: H - (isTouch ? 116 : 96),
             };
@@ -978,7 +1573,7 @@ Arcade.register({
         }
 
         function judge(lane) {
-            const t = now();
+            const t = api.songNow();
             const L = layout();
             laneFlash[lane] = 1;
             let best = -1, bestDt = Infinity;
@@ -987,7 +1582,7 @@ Arcade.register({
                 const dt = Math.abs(n.t - t);
                 if (dt < bestDt) { bestDt = dt; best = i; }
             });
-            if (best === -1 || bestDt > W_OK) return; // golpe al aire: solo flash
+            if (best === -1 || bestDt > W_OK) return;
             const n = active[best];
             n.hit = true;
             let pts, label, accent;
@@ -1034,26 +1629,24 @@ Arcade.register({
         return {
             frame(dt) {
                 const ctx = api.ctx, W = api.W(), H = api.H();
-                const t = now();
+                const t = api.songNow();
                 const L = layout();
                 const beat = api.beat();
                 ctx.clearRect(0, 0, W, H);
 
-                // Alimentar notas activas
-                while (idx < beatmap.length && beatmap[idx].t - t < LEAD + 0.2) {
-                    beatmap[idx].lanes.forEach((lane) => {
-                        active.push({ t: beatmap[idx].t, lane, hit: false });
-                        totalSpawned++;
-                    });
+                while (idx < notes.length && notes[idx].t - t < LEAD + 0.2) {
+                    const n = notes[idx];
+                    if (n.t - t < -0.1) { idx++; continue; }
+                    active.push({ t: n.t, lane: n.lane, hit: false });
+                    totalSpawned++;
                     idx++;
                 }
 
-                // Carriles
-                for (let l = 0; l < 3; l++) {
+                for (let l = 0; l < LANES; l++) {
                     const x = L.x0 + l * L.laneW;
                     const g = ctx.createLinearGradient(0, L.topY, 0, L.hitY);
                     g.addColorStop(0, ink(0.015));
-                    g.addColorStop(1, rgbStr(accentRgb(l === 1 ? 2 : 1), 0.05 + laneFlash[l] * 0.13));
+                    g.addColorStop(1, rgbStr(accentRgb(l % 2 === 1 ? 2 : 1), 0.05 + laneFlash[l] * 0.13));
                     ctx.fillStyle = g;
                     ctx.fillRect(x + 2, L.topY, L.laneW - 4, L.hitY - L.topY + 26);
                     ctx.strokeStyle = ink(0.09);
@@ -1062,16 +1655,15 @@ Arcade.register({
                     if (laneFlash[l] > 0) laneFlash[l] = Math.max(0, laneFlash[l] - dt * 5);
                 }
 
-                // Línea de acierto + receptores
                 ctx.fillStyle = rgbStr(accentRgb(1), 0.5 + beat * 0.5);
                 ctx.shadowColor = rgbStr(accentRgb(1), 0.9);
                 ctx.shadowBlur = 8 + beat * 26;
-                ctx.fillRect(L.x0 - 8, L.hitY - 2, L.laneW * 3 + 16, 4);
+                ctx.fillRect(L.x0 - 8, L.hitY - 2, L.laneW * LANES + 16, 4);
                 ctx.shadowBlur = 0;
-                const noteH = Math.max(20, L.laneW * 0.22);
-                for (let l = 0; l < 3; l++) {
+                const noteH = Math.max(18, Math.min(L.laneW * 0.22, 26));
+                for (let l = 0; l < LANES; l++) {
                     const x = L.x0 + l * L.laneW;
-                    roundRect(ctx, x + 7, L.hitY - noteH / 2, L.laneW - 14, noteH, 9);
+                    roundRect(ctx, x + 6, L.hitY - noteH / 2, L.laneW - 12, noteH, 8);
                     ctx.strokeStyle = ink(0.25 + laneFlash[l] * 0.55);
                     ctx.lineWidth = 2;
                     ctx.stroke();
@@ -1079,16 +1671,15 @@ Arcade.register({
                         ctx.font = '700 12px Montserrat, sans-serif';
                         ctx.textAlign = 'center';
                         ctx.fillStyle = ink(0.3 + laneFlash[l] * 0.5);
-                        ctx.fillText(['D', 'F', 'J'][l], x + L.laneW / 2, L.hitY + noteH / 2 + 22);
+                        ctx.fillText(keyLabel(KEYS[l] || ''), x + L.laneW / 2, L.hitY + noteH / 2 + 22);
                     }
                 }
 
-                // Notas
                 for (let i = active.length - 1; i >= 0; i--) {
                     const n = active[i];
                     if (n.hit) { active.splice(i, 1); continue; }
                     const dtN = n.t - t;
-                    if (dtN < -W_OK) { // fallo
+                    if (dtN < -W_OK) {
                         active.splice(i, 1);
                         nMiss++;
                         combo = 0;
@@ -1099,14 +1690,14 @@ Arcade.register({
                         continue;
                     }
                     const p = 1 - dtN / LEAD;
-                    if (p < -0.02) continue; // aún fuera del carril (no dibujar sobre la cabecera)
+                    if (p < -0.02) continue;
                     const y = L.topY + p * (L.hitY - L.topY);
                     const x = L.x0 + n.lane * L.laneW;
-                    const a1 = accentRgb(n.lane === 1 ? 2 : 1);
+                    const a1 = accentRgb(n.lane % 2 === 1 ? 2 : 1);
                     const grad = ctx.createLinearGradient(x, y - noteH / 2, x, y + noteH / 2);
                     grad.addColorStop(0, rgbStr(accentRgb(1), 0.95));
                     grad.addColorStop(1, rgbStr(accentRgb(2), 0.95));
-                    roundRect(ctx, x + 7, y - noteH / 2, L.laneW - 14, noteH, 9);
+                    roundRect(ctx, x + 6, y - noteH / 2, L.laneW - 12, noteH, 8);
                     ctx.fillStyle = grad;
                     ctx.shadowColor = rgbStr(a1, 0.75);
                     ctx.shadowBlur = 10 + beat * 14;
@@ -1117,7 +1708,6 @@ Arcade.register({
                     ctx.stroke();
                 }
 
-                // Combo grande centrado
                 if (combo >= 5) {
                     ctx.font = `900 ${34 + beat * 8}px Montserrat, sans-serif`;
                     ctx.textAlign = 'center';
@@ -1125,20 +1715,19 @@ Arcade.register({
                     ctx.fillText('x' + combo, W / 2, (L.topY + L.hitY) / 2);
                 }
 
-                // Fin de la canción / beatmap agotado
-                if (idx >= beatmap.length && active.length === 0 && totalSpawned > 0) finish();
+                if (idx >= notes.length && active.length === 0 && totalSpawned > 0) finish();
             },
             onTap(x) {
                 const L = layout();
-                if (x < L.x0 - 30 || x > L.x0 + L.laneW * 3 + 30) return;
-                const lane = clamp(Math.floor((x - L.x0) / L.laneW), 0, 2);
+                if (x < L.x0 - 30 || x > L.x0 + L.laneW * LANES + 30) return;
+                const lane = clamp(Math.floor((x - L.x0) / L.laneW), 0, LANES - 1);
                 judge(lane);
             },
             onKey(ev, down) {
-                const lane = KEYS[ev.key.toLowerCase()];
-                if (lane === undefined) return;
-                lanePress[lane] = down;
-                if (down) judge(lane);
+                if (!down) return;
+                const lane = KEYS.indexOf(ev.key.toLowerCase());
+                if (lane === -1) return;
+                judge(lane);
             },
             forceEnd() { if (totalSpawned > 0) finish(); else api.end({ score: 0, stats: [] }); },
             destroy() { active.length = 0; },
@@ -1147,19 +1736,27 @@ Arcade.register({
 });
 
 /* ==========================================================================
-   JUEGO 3 — BASS SURFER (runner de un botón sobre la onda)
+   JUEGO 3 — BASS SURFER (las puertas cruzan al jugador en el golpe)
    ========================================================================== */
 Arcade.register({
     id: 'surfer',
-    icon: 'fa-solid fa-wave-square',
-    createSession(api) {
-        const onsets = api.makeOnsets({ minGap: 0.24 });
+    icon: 'fa-solid fa-rocket',
+    colors: ['0 229 195', '0 162 255'],
+    createSession(api, run) {
+        const CFG = {
+            easy:   { gap: 0.40, gapMin: 0.30, spacing: 0.85, speed: 0.85 },
+            medium: { gap: 0.36, gapMin: 0.26, spacing: 0.60, speed: 1.0 },
+            hard:   { gap: 0.32, gapMin: 0.22, spacing: 0.45, speed: 1.12 },
+            expert: { gap: 0.28, gapMin: 0.19, spacing: 0.34, speed: 1.25 },
+        }[run.diff];
+        const events = run.events;
         let t = 0, score = 0, gates = 0, lives = 3, invuln = 1.6;
         let holding = false, keyHold = false;
+        let bIdx = 0;
         const playerX = () => api.W() * 0.24;
         let py = api.H() * 0.45, vy = 0;
         const trail = [];
-        const gatesArr = []; // {x, gapY, gapH, w, passed}
+        const gatesArr = [];
         let waveBuf = null;
 
         api.buildHud([
@@ -1171,7 +1768,6 @@ Arcade.register({
         const elGates = document.getElementById('sfGates');
 
         function waveY(baseY, amp) {
-            // forma de onda real (dominio temporal) como “suelo” visual y de colisión
             const a = window._audioAnalyser;
             const W = api.W();
             const pts = [];
@@ -1216,6 +1812,7 @@ Arcade.register({
                 t += dt;
                 if (invuln > 0) invuln -= dt;
                 const ctx = api.ctx, W = api.W(), H = api.H();
+                const now = api.songNow();
                 const beat = api.beat();
                 ctx.clearRect(0, 0, W, H);
 
@@ -1223,15 +1820,13 @@ Arcade.register({
                 const floorBase = H - 74;
                 const px = playerX();
 
-                // Física del jugador (mantener = subir)
-                const k = H / 640; // escala con la altura de pantalla
+                const k = H / 640;
                 const thrust = holding || keyHold || api.pointer().down;
                 vy += (thrust ? -2500 : 1700) * k * dt;
                 vy = clamp(vy, -560 * k, 620 * k);
                 py += vy * dt;
                 if (py < topY + 14) { py = topY + 14; vy = Math.max(vy, 0); }
 
-                // Suelo: onda real
                 const wavePts = waveY(floorBase + 18, 26 + beat * 30);
                 const floorAt = (x) => {
                     const i = clamp(Math.round((x / W) * (wavePts.length - 1)), 0, wavePts.length - 1);
@@ -1239,23 +1834,32 @@ Arcade.register({
                 };
                 if (py > floorAt(px) - 12) { py = floorAt(px) - 12; vy = -Math.abs(vy) * 0.4; hit(); }
 
-                // Velocidad del mundo
-                const speed = (W / 3.4) * (1 + Math.min(gates, 50) * 0.012) * (1 + beat * 0.08);
+                const speed = (W / 3.4) * CFG.speed * (1 + Math.min(gates, 50) * 0.008);
 
-                // Generar puertas en los golpes
-                const strength = onsets(t);
-                const lastGate = gatesArr[gatesArr.length - 1];
-                if (strength > 0 && (!lastGate || lastGate.x < W - Math.max(230, speed * 0.6))) {
-                    const gapH = clamp(H * (0.36 - Math.min(gates, 40) * 0.0034), H * 0.21, H * 0.36);
-                    const gapY = topY + 40 + gapH / 2 + Math.random() * (floorBase - topY - 90 - gapH);
-                    gatesArr.push({ x: W + 50, gapY, gapH, w: 26 + strength * 22, passed: false });
+                const lead = (W + 50 - px) / speed;
+                while (bIdx < events.length && events[bIdx].t - now <= lead) {
+                    const e = events[bIdx++];
+                    if (e.t <= now + 0.25) continue;
+                    const last = gatesArr[gatesArr.length - 1];
+                    if (last && e.t - last.hitT < CFG.spacing) continue;
+                    const gapH = clamp(H * (CFG.gap - Math.min(gates, 40) * 0.002), H * CFG.gapMin, H * CFG.gap);
+                    const yMin = topY + 40 + gapH / 2;
+                    const yMax = floorBase - 50 - gapH / 2;
+                    let gapY = yMin + Math.random() * Math.max(1, yMax - yMin);
+                    // hueco siempre ALCANZABLE: limitar el salto vertical respecto a la
+                    // puerta anterior según el tiempo disponible entre ambas
+                    if (last) {
+                        const reach = 360 * k * Math.max(0.25, e.t - last.hitT);
+                        gapY = clamp(gapY, last.gapY - reach, last.gapY + reach);
+                    }
+                    gapY = clamp(gapY, yMin, yMax);
+                    gatesArr.push({ x: W + 50, vx: speed, gapY, gapH, w: 26 + e.s * 22, hitT: e.t, passed: false });
                 }
 
-                // Puertas: mover, dibujar, colisión, contar
                 const a1 = accentRgb(1), a2 = accentRgb(2);
                 for (let i = gatesArr.length - 1; i >= 0; i--) {
                     const g = gatesArr[i];
-                    g.x -= speed * dt;
+                    g.x -= g.vx * dt;
                     if (g.x + g.w < -10) { gatesArr.splice(i, 1); continue; }
                     const yTop = g.gapY - g.gapH / 2;
                     const yBot = g.gapY + g.gapH / 2;
@@ -1269,26 +1873,22 @@ Arcade.register({
                     ctx.fillRect(g.x, topY, g.w, yTop - topY);
                     ctx.fillRect(g.x, yBot, g.w, floorBase - yBot + 18);
                     ctx.shadowBlur = 0;
-                    // bordes del hueco
                     ctx.fillStyle = 'rgba(255,255,255,0.85)';
                     ctx.fillRect(g.x, yTop - 3, g.w, 3);
                     ctx.fillRect(g.x, yBot, g.w, 3);
 
-                    // colisión con el orbe (r 12)
                     const pr = 12;
                     if (px + pr > g.x && px - pr < g.x + g.w && (py - pr < yTop || py + pr > yBot)) hit();
                     if (!g.passed && g.x + g.w < px - pr) {
                         g.passed = true;
                         gates++;
                         score += 100 + Math.min(gates, 30) * 5;
-                        elScore.textContent = fmtN(score);
                         elGates.textContent = gates;
                         api.burst(px, py, { n: 16, power: 0.9, accent: 1 });
                         haptic(10);
                     }
                 }
 
-                // Dibujar el suelo (onda rellena)
                 ctx.beginPath();
                 ctx.moveTo(0, H);
                 wavePts.forEach((p) => ctx.lineTo(p.x, p.y));
@@ -1308,7 +1908,6 @@ Arcade.register({
                 ctx.stroke();
                 ctx.shadowBlur = 0;
 
-                // Estela
                 trail.push({ x: px, y: py });
                 if (trail.length > 22) trail.shift();
                 trail.forEach((p, i) => {
@@ -1320,7 +1919,6 @@ Arcade.register({
                     ctx.fill();
                 });
 
-                // Orbe del jugador
                 const blink = invuln > 0 && Math.floor(t * 10) % 2 === 0;
                 if (!blink) {
                     const grad = ctx.createRadialGradient(px - 4, py - 4, 2, px, py, 13);
@@ -1353,44 +1951,29 @@ Arcade.register({
             onKey(ev, down) {
                 if (ev.key === ' ' || ev.key === 'ArrowUp') keyHold = down;
             },
+            forceEnd() { finish(); },
             destroy() { gatesArr.length = 0; trail.length = 0; },
         };
     },
 });
 
 /* ==========================================================================
-   JUEGO 4 — SIMON BEAT (secuencia que se ilumina al ritmo)
+   JUEGO 4 — SIMON BEAT (la secuencia se ilumina al pulso de la rejilla)
    ========================================================================== */
-let blipCtx = null;
-function warmBlip() {
-    try {
-        if (!blipCtx) blipCtx = new (window.AudioContext || window.webkitAudioContext)();
-        if (blipCtx.state === 'suspended') blipCtx.resume().catch(() => {});
-    } catch (e) {}
-}
-function blip(freq, vol = 0.14, dur = 0.18) {
-    try {
-        if (!blipCtx) blipCtx = new (window.AudioContext || window.webkitAudioContext)();
-        if (blipCtx.state === 'suspended') blipCtx.resume().catch(() => {});
-        const o = blipCtx.createOscillator();
-        const g = blipCtx.createGain();
-        o.type = 'sine';
-        o.frequency.value = freq;
-        g.gain.setValueAtTime(vol, blipCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.001, blipCtx.currentTime + dur);
-        o.connect(g);
-        g.connect(blipCtx.destination);
-        o.start();
-        o.stop(blipCtx.currentTime + dur);
-    } catch (e) {}
-}
-
 Arcade.register({
     id: 'simon',
-    icon: 'fa-solid fa-braille',
+    icon: 'fa-solid fa-brain',
+    colors: ['244 114 182', '139 92 246'],
     fmtBest: (v) => T('round') + ' ' + v,
-    createSession(api) {
-        const onsets = api.makeOnsets({ minGap: 0.2 });
+    createSession(api, run) {
+        const CFG = {
+            easy:   { sub: 2, grow: 1, lit: 360 }, // paso cada 2 beats
+            medium: { sub: 1, grow: 1, lit: 300 }, // cada beat
+            hard:   { sub: 0.5, grow: 1, lit: 220 }, // cada corchea
+            expert: { sub: 0.5, grow: 2, lit: 190 }, // corcheas y +2 pasos por ronda
+        }[run.diff];
+        const map = run.map;
+        const stepT = map.beatT * CFG.sub;
         const PADS = [
             { color: '0 200 255', freq: 392 },
             { color: '139 92 246', freq: 494 },
@@ -1398,9 +1981,8 @@ Arcade.register({
             { color: '59 130 246', freq: 330 },
         ];
         let seq = [], inputIdx = 0, round = 0;
-        let state = 'show'; // show | input | dead
-        let showIdx = 0, sinceStep = 0, litUntil = 0, t = 0;
-        let waitOnset = false;
+        let state = 'show';
+        let showIdx = 0, stepDue = null;
 
         const board = document.createElement('div');
         board.className = 'simon-board';
@@ -1415,21 +1997,27 @@ Arcade.register({
         const elRound = board.querySelector('#simonRound');
         const elStatus = board.querySelector('#simonStatus');
 
-        function light(i, ms = 320) {
+        function light(i, ms = CFG.lit) {
             pads[i].classList.add('lit');
             blip(PADS[i].freq);
             setTimeout(() => pads[i].classList.remove('lit'), ms);
         }
 
+        // siguiente instante de la rejilla (o sub-rejilla) después de "after"
+        function nextStep(after) {
+            const phase = map.grid.length ? map.grid[0] : 0;
+            const n = Math.ceil((after - phase) / stepT);
+            return phase + n * stepT;
+        }
+
         function nextRound() {
             round++;
             elRound.textContent = round;
-            seq.push(Math.floor(Math.random() * 4));
+            for (let i = 0; i < CFG.grow; i++) seq.push(Math.floor(Math.random() * 4));
             inputIdx = 0;
             showIdx = 0;
-            sinceStep = 0;
-            waitOnset = true;
             state = 'show';
+            stepDue = nextStep(api.songNow() + 0.5);
             elStatus.textContent = T('watch');
             elStatus.classList.remove('your-turn');
         }
@@ -1448,7 +2036,7 @@ Arcade.register({
             pad.addEventListener('pointerdown', (ev) => {
                 ev.stopPropagation();
                 if (state !== 'input') return;
-                light(i, 240);
+                light(i, 220);
                 haptic(12);
                 if (seq[inputIdx] === i) {
                     inputIdx++;
@@ -1470,8 +2058,8 @@ Arcade.register({
 
         return {
             frame(dt) {
-                t += dt;
                 const ctx = api.ctx, W = api.W(), H = api.H();
+                const now = api.songNow();
                 const beat = api.beat();
                 ctx.clearRect(0, 0, W, H);
                 const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.55);
@@ -1480,21 +2068,12 @@ Arcade.register({
                 ctx.fillStyle = g;
                 ctx.fillRect(0, 0, W, H);
 
-                if (state !== 'show') { onsets(t); return; }
-
-                // La secuencia avanza con los golpes de la música
-                // (si no llega golpe en 0.65 s, avanza sola para no atascarse)
-                sinceStep += dt;
-                const strength = onsets(t);
-                const advance = waitOnset
-                    ? (sinceStep > 0.25 && (strength > 0 || sinceStep > 0.8))
-                    : (strength > 0 && sinceStep > 0.3) || sinceStep > 0.65;
-                if (advance) {
+                if (state !== 'show') return;
+                if (now >= stepDue) {
                     if (showIdx < seq.length) {
                         light(seq[showIdx]);
                         showIdx++;
-                        sinceStep = 0;
-                        waitOnset = false;
+                        stepDue = nextStep(now + stepT * 0.5);
                     } else {
                         state = 'input';
                         inputIdx = 0;
@@ -1503,24 +2082,35 @@ Arcade.register({
                     }
                 }
             },
+            forceEnd() { finish(); },
             destroy() { board.remove(); },
         };
     },
 });
 
 /* ==========================================================================
-   JUEGO 5 — BEAT DODGER (esquiva las ondas que nacen con cada golpe)
+   JUEGO 5 — BEAT DODGER (ondas legibles que detonan en el golpe)
    ========================================================================== */
 Arcade.register({
     id: 'dodger',
-    icon: 'fa-solid fa-burst',
-    createSession(api) {
-        const onsets = api.makeOnsets({ minGap: 0.2 });
+    icon: 'fa-solid fa-shield-halved',
+    colors: ['255 77 109', '255 159 28'],
+    createSession(api, run) {
+        // La dificultad es sobre todo VELOCIDAD de expansión; también la
+        // separación entre ondas, cuántas hay a la vez y su radio máximo
+        const CFG = {
+            easy:   { speed: 105, maxOn: 3, band: 11, maxR: 0.25, gap: 1.10 },
+            medium: { speed: 155, maxOn: 4, band: 12, maxR: 0.29, gap: 0.80 },
+            hard:   { speed: 215, maxOn: 6, band: 13, maxR: 0.33, gap: 0.55 },
+            expert: { speed: 285, maxOn: 8, band: 14, maxR: 0.36, gap: 0.40 },
+        }[run.diff];
+        const events = run.events;
         let t = 0, score = 0, lives = 3, invuln = 1.4, dodged = 0, shake = 0;
         let px = api.W() / 2, py = api.H() * 0.55, tx = px, ty = py;
-        const rings = []; // {cx, cy, r, speed, band, age, inward, maxR, done}
-        const TELEGRAPH = 0.34;
-        const PR = 11; // radio del orbe
+        const rings = [];
+        const TELEGRAPH = 0.6; // el aviso dura más de medio segundo: siempre legible
+        const PR = 11;
+        let bIdx = 0, lastSpawnT = -9;
 
         api.buildHud([
             { label: T('score'), id: 'dgScore', value: '0' },
@@ -1530,24 +2120,23 @@ Arcade.register({
         const elScore = document.getElementById('dgScore');
         const elTime = document.getElementById('dgTime');
 
-        function spawn(strength) {
-            if (rings.length >= 9) return;
+        function spawn(e) {
+            if (rings.length >= CFG.maxOn) return;
             const W = api.W(), H = api.H();
-            const maxR = Math.hypot(W, H) * 0.72;
+            // las ondas mueren a un % de la diagonal según dificultad: esquivables alejándose
+            const maxR = Math.hypot(W, H) * CFG.maxR;
             let cx, cy;
             for (let i = 0; i < 12; i++) {
                 cx = 30 + Math.random() * (W - 60);
                 cy = 86 + Math.random() * (H - 120);
-                if (Math.hypot(cx - px, cy - py) > 180) break;
+                if (Math.hypot(cx - px, cy - py) > 200) break;
             }
-            const inward = t > 22 && strength > 0.5 && Math.random() < 0.35;
             rings.push({
                 cx, cy,
-                r: inward ? maxR * 0.7 : 6,
-                speed: (215 + strength * 250 + Math.min(t, 70) * 2.6) * (inward ? 0.85 : 1),
-                band: 13,
-                age: 0,
-                inward,
+                r: 0,
+                speed: CFG.speed + e.s * 90 + Math.min(t, 90) * 1.1,
+                band: CFG.band,
+                hitT: e.t,
                 maxR,
                 done: false,
             });
@@ -1561,15 +2150,17 @@ Arcade.register({
             api.setLives('dgLives', lives, 3);
             api.burst(px, py, { n: 34, power: 1.4, accent: 2 });
             haptic(80);
-            if (lives <= 0) {
-                api.end({
-                    score: Math.round(score),
-                    stats: [
-                        [T('time'), Math.floor(t) + 's'],
-                        ['💨', dodged],
-                    ],
-                });
-            }
+            if (lives <= 0) finish();
+        }
+
+        function finish() {
+            api.end({
+                score: Math.round(score),
+                stats: [
+                    [T('time'), Math.floor(t) + 's'],
+                    ['💨', dodged],
+                ],
+            });
         }
 
         return {
@@ -1579,25 +2170,26 @@ Arcade.register({
                 if (shake > 0) shake -= dt;
                 score += dt * 10;
                 const ctx = api.ctx, W = api.W(), H = api.H();
+                const now = api.songNow();
                 const beat = api.beat();
                 ctx.clearRect(0, 0, W, H);
                 ctx.save();
                 if (shake > 0) ctx.translate((Math.random() - 0.5) * shake * 26, (Math.random() - 0.5) * shake * 26);
 
-                // halo de fondo
                 const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.6);
                 g.addColorStop(0, rgbStr(accentRgb(2), 0.04 + beat * 0.07));
                 g.addColorStop(1, 'rgba(0,0,0,0)');
                 ctx.fillStyle = g;
                 ctx.fillRect(0, 0, W, H);
 
-                const strength = onsets(t);
-                if (strength > 0) {
-                    spawn(strength);
-                    if (strength > 0.6 && t > 35) spawn(strength * 0.8);
+                while (bIdx < events.length && events[bIdx].t - now <= TELEGRAPH) {
+                    const e = events[bIdx++];
+                    if (e.t <= now + 0.05) continue;
+                    if (e.t - lastSpawnT < CFG.gap) continue; // ritmo de aparición según dificultad
+                    lastSpawnT = e.t;
+                    spawn(e);
                 }
 
-                // mover el orbe hacia el puntero
                 px += (tx - px) * Math.min(1, dt * 11);
                 py += (ty - py) * Math.min(1, dt * 11);
                 px = clamp(px, PR, W - PR);
@@ -1605,37 +2197,40 @@ Arcade.register({
 
                 const a1 = accentRgb(1), a2 = accentRgb(2);
 
-                // anillos
                 for (let i = rings.length - 1; i >= 0; i--) {
                     const r = rings[i];
-                    r.age += dt;
-                    const live = r.age > TELEGRAPH;
-                    if (live) r.r += (r.inward ? -1 : 1) * r.speed * dt;
-                    if ((!r.inward && r.r > r.maxR) || (r.inward && r.r < 8)) {
+                    const live = now >= r.hitT;
+                    if (live) r.r = (now - r.hitT) * r.speed + 10;
+                    if (r.r > r.maxR) {
                         if (!r.done) { dodged++; score += 25; }
                         rings.splice(i, 1);
                         continue;
                     }
-                    const alpha = live ? 0.75 : 0.18;
+                    if (!live) {
+                        const prog = clamp(1 - (r.hitT - now) / TELEGRAPH, 0, 1);
+                        ctx.beginPath();
+                        ctx.arc(r.cx, r.cy, 10 + prog * 20, 0, Math.PI * 2);
+                        ctx.strokeStyle = rgbStr(a2, 0.18 + prog * 0.42);
+                        ctx.lineWidth = 2;
+                        ctx.setLineDash([6, 8]);
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                        ctx.beginPath();
+                        ctx.arc(r.cx, r.cy, 4 + prog * 3, 0, Math.PI * 2);
+                        ctx.fillStyle = rgbStr(a2, 0.4 + prog * 0.5);
+                        ctx.fill();
+                        continue;
+                    }
+                    const fade = 1 - (r.r / r.maxR) * 0.45; // se desvanece al expandirse
                     ctx.beginPath();
                     ctx.arc(r.cx, r.cy, Math.max(r.r, 1), 0, Math.PI * 2);
-                    ctx.strokeStyle = rgbStr(r.inward ? a2 : a1, alpha);
-                    ctx.lineWidth = live ? r.band : 2;
-                    if (!live) ctx.setLineDash([6, 8]);
-                    ctx.shadowColor = rgbStr(r.inward ? a2 : a1, 0.6);
-                    ctx.shadowBlur = live ? 10 + beat * 14 : 0;
+                    ctx.strokeStyle = rgbStr(a1, 0.78 * fade);
+                    ctx.lineWidth = r.band;
+                    ctx.shadowColor = rgbStr(a1, 0.6 * fade);
+                    ctx.shadowBlur = 10 + beat * 14;
                     ctx.stroke();
-                    ctx.setLineDash([]);
                     ctx.shadowBlur = 0;
-                    // punto de origen durante el aviso
-                    if (!live) {
-                        ctx.beginPath();
-                        ctx.arc(r.cx, r.cy, 4, 0, Math.PI * 2);
-                        ctx.fillStyle = rgbStr(a2, 0.6);
-                        ctx.fill();
-                    }
-                    // colisión
-                    if (live && !r.done && invuln <= 0) {
+                    if (!r.done && invuln <= 0) {
                         const d = Math.hypot(px - r.cx, py - r.cy);
                         if (Math.abs(d - r.r) < r.band / 2 + PR) {
                             r.done = true;
@@ -1644,7 +2239,6 @@ Arcade.register({
                     }
                 }
 
-                // orbe del jugador
                 const blink = invuln > 0 && Math.floor(t * 10) % 2 === 0;
                 if (!blink) {
                     const grad = ctx.createRadialGradient(px - 4, py - 4, 2, px, py, PR + 2);
@@ -1666,67 +2260,40 @@ Arcade.register({
             },
             onTap(x, y) { tx = x; ty = y; },
             onMove(x, y) { tx = x; ty = y; },
+            forceEnd() { finish(); },
             destroy() { rings.length = 0; },
         };
     },
 });
 
 /* ==========================================================================
-   JUEGO 6 — TAP TEMPO (sigue el pulso y compara tu BPM con el real)
-   El BPM objetivo sale del MISMO análisis offline que Danielux Hero
-   (cacheado por canción), así es estable y no cambia entre partidas.
+   JUEGO 6 — TAP TEMPO (el BPM objetivo sale del análisis: estable y exacto)
    ========================================================================== */
-const tempoFold = (bpm) => {
-    if (!bpm || !isFinite(bpm)) return null;
-    while (bpm < 70) bpm *= 2;
-    while (bpm >= 180) bpm /= 2;
-    return bpm;
-};
-function estimateBpm(times) {
-    // BPM por moda de los intervalos entre golpes (plegados a una octava 70–180)
-    const cand = [];
-    for (let i = 1; i < times.length; i++) {
-        const iv = times[i] - times[i - 1];
-        if (iv < 0.18 || iv > 2.2) continue;
-        const b = tempoFold(60 / iv);
-        if (b) cand.push(b);
-    }
-    if (cand.length < 6) return null;
-    let best = 0, bestScore = -1;
-    for (const b of cand) {
-        let score = 0;
-        for (const o of cand) if (Math.abs(o - b) < 1.5) score++;
-        if (score > bestScore) { bestScore = score; best = b; }
-    }
-    const near = cand.filter((b) => Math.abs(b - best) < 2.5);
-    return near.reduce((a, b) => a + b, 0) / near.length;
-}
-
 Arcade.register({
     id: 'tempo',
-    icon: 'fa-solid fa-hand-pointer',
+    icon: 'fa-solid fa-drum',
+    colors: ['163 230 53', '0 200 255'],
     fmtBest: (v) => v + '%',
-    endOnTrackChange: true,
-    async prepare(api) {
-        for (let i = 0; i < 40 && !api.audio.currentSrc; i++) await new Promise(r => setTimeout(r, 100));
-        const src = api.audio.currentSrc;
-        if (!src) throw new Error('sin canción');
-        const notes = await heroBuildBeatmap(src);
-        const bpm = estimateBpm(notes.map(n => n.t));
-        if (!bpm) throw new Error('bpm no detectable');
-        return bpm;
-    },
-    createSession(api, targetBpm) {
+    createSession(api, run) {
+        const targetBpm = run.map.bpm;
+        // Dificultad real: más toques, puntuación más estricta y menos ayudas
+        // (Difícil: sin feedback en vivo · Experto: además, BPM objetivo oculto)
+        const CFG = {
+            easy:   { taps: 10, prec: 2.5, live: true,  showTarget: true },
+            medium: { taps: 14, prec: 4,   live: true,  showTarget: true },
+            hard:   { taps: 14, prec: 5.5, live: false, showTarget: true },
+            expert: { taps: 16, prec: 7,   live: false, showTarget: false },
+        }[run.diff];
         let t = 0;
         const tapTimes = [];
-        const MAX_TAPS = 14;
+        const MAX_TAPS = CFG.taps;
         let ended = false;
 
         const board = document.createElement('div');
         board.className = 'tempo-board';
         board.innerHTML = `
             <div class="tempo-readout">
-                <div class="t-block"><span class="t-label">${T('target')} BPM</span><span class="t-value" id="tpTarget">${Math.round(targetBpm)}</span></div>
+                <div class="t-block"><span class="t-label">${T('target')} BPM</span><span class="t-value" id="tpTarget">${CFG.showTarget ? Math.round(targetBpm) : '???'}</span></div>
                 <div class="t-block"><span class="t-label">${T('you')} BPM</span><span class="t-value you" id="tpYou">—</span></div>
             </div>
             <button class="tempo-tap-btn" id="tpBtn">TAP</button>
@@ -1738,32 +2305,37 @@ Arcade.register({
         const elCount = board.querySelector('#tpCount');
         const btn = board.querySelector('#tpBtn');
 
+        const fold = (bpm) => {
+            if (!bpm || !isFinite(bpm)) return null;
+            while (bpm < 70) bpm *= 2;
+            while (bpm >= 180) bpm /= 2;
+            return bpm;
+        };
         function userBpm() {
             if (tapTimes.length < 4) return null;
             const iv = [];
             const recent = tapTimes.slice(-9);
             for (let i = 1; i < recent.length; i++) iv.push(recent[i] - recent[i - 1]);
             iv.sort((a, b) => a - b);
-            return tempoFold(60 / iv[Math.floor(iv.length / 2)]);
+            return fold(60 / iv[Math.floor(iv.length / 2)]);
         }
 
         function match() {
             const ub = userBpm();
             if (!ub) return null;
-            // acepta también medio tempo / doble tempo (musicalmente correcto)
             const diff = Math.min(
                 Math.abs(targetBpm - ub),
                 Math.abs(targetBpm - ub * 2),
                 Math.abs(targetBpm - ub / 2)
             );
-            return Math.max(0, Math.round(100 - diff * 4));
+            return Math.max(0, Math.round(100 - diff * CFG.prec));
         }
 
         function refresh() {
             const ub = userBpm(), m = match();
-            elYou.textContent = ub ? Math.round(ub) : '—';
+            elYou.textContent = CFG.live ? (ub ? Math.round(ub) : '—') : (ub ? '?' : '—');
             elCount.textContent = Math.min(tapTimes.length, MAX_TAPS) + ' / ' + MAX_TAPS;
-            if (m === null) elFeed.textContent = '';
+            if (!CFG.live || m === null) elFeed.textContent = '';
             else if (m >= 92) elFeed.textContent = T('tempoSpot') + ' · ' + m + '%';
             else if (m >= 75) elFeed.textContent = T('tempoClose') + ' · ' + m + '%';
             else elFeed.textContent = T('tempoFar') + ' · ' + m + '%';
@@ -1788,7 +2360,6 @@ Arcade.register({
 
         function doTap() {
             if (ended) return;
-            // si deja de tocar >2.5 s, empezamos serie nueva
             if (tapTimes.length && t - tapTimes[tapTimes.length - 1] > 2.5) tapTimes.length = 0;
             tapTimes.push(t);
             btn.style.transform = 'scale(0.93)';
@@ -1825,8 +2396,6 @@ Arcade.register({
         };
     },
 });
-
-/* === Los demás juegos se registran aquí debajo === */
 
 Arcade.init();
 })();
