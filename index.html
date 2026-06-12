@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/fosky.png">
+    <link rel="apple-touch-icon" href="assets/fosky.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/games.css">
     <script>if(localStorage.getItem('portfolioTheme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
@@ -18,8 +20,10 @@
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo" aria-label="Daniel Bort Guzmán">
-                <span class="nav-logo-short">DBG<span class="dot">.</span></span>
+            <a href="#" class="nav-logo" aria-label="Daniel Bort Guzmán" id="navLogo">
+                <div class="fosky-wrap" id="foskyWrap">
+                    <img src="assets/fosky.png" alt="Fosky" class="fosky-layer" id="foskyImg">
+                </div>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
@@ -49,6 +53,15 @@
             </button>
         </div>
     </nav>
+
+    <!-- Fosky expanded overlay -->
+    <div id="foskyExpanded" class="fosky-expanded" aria-hidden="true">
+        <div class="fosky-exp-circle">
+            <video id="foskyExpVid" class="fosky-exp-vid" muted playsinline></video>
+        </div>
+        <div class="fosky-exp-bubble" id="foskyBubble"></div>
+    </div>
+
     <section id="hero">
         <canvas id="particles"></canvas>
         <div class="bg-switcher" id="bgSwitcher">

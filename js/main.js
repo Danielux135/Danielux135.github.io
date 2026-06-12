@@ -634,6 +634,91 @@ const languageButtons = document.querySelectorAll('.lang-btn');
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
+// Fosky logo — se expande con vídeo aleatorio + frase divertida al hacer click
+const FOSKY_VIDS = [
+    'assets/fosky-1.mp4', 'assets/fosky-2.mp4', 'assets/fosky-3.mp4',
+    'assets/fosky-4.mp4', 'assets/fosky-5.mp4', 'assets/fosky-6.mp4',
+];
+const FOSKY_PHRASES = [
+    '¡Meow!',
+    'Probablemente quiera un café.',
+    'La página web es reactiva,\n¡prueba a poner música!',
+    '¿Me estás mirando a mí?',
+    'Soy el verdadero programador aquí.',
+    '...¿tienes croquetas?',
+    'He revisado el código. Está bien.',
+    '¡Bonito portfolio, lo sé!',
+    'Pspsps...',
+    'Ctrl+C, Ctrl+V.\nAsí es como se programa.',
+    'No soy un gato cualquiera.\nSoy un gato con portfolio.',
+    'Error 404: croquetas no encontradas.',
+];
+const foskyWrap    = document.getElementById('foskyWrap');
+const foskyExpEl   = document.getElementById('foskyExpanded');
+const foskyExpVid  = document.getElementById('foskyExpVid');
+const foskyBubble  = document.getElementById('foskyBubble');
+let _foskyOpen  = false;
+let _foskyLast  = -1;
+let _foskyPhrLast = -1;
+
+function foskyClose() {
+    if (!_foskyOpen) return;
+    _foskyOpen = false;
+    foskyExpEl.classList.add('closing');
+    foskyExpEl.classList.remove('open');
+    foskyWrap.classList.remove('fosky-playing');
+    foskyExpEl.addEventListener('transitionend', () => {
+        foskyExpEl.classList.remove('closing');
+        foskyExpEl.setAttribute('aria-hidden', 'true');
+        foskyExpVid.pause();
+        foskyExpVid.src = '';
+    }, { once: true });
+}
+
+function foskyOpen() {
+    // Vídeo aleatorio (no repetir el anterior)
+    let idx;
+    do { idx = Math.floor(Math.random() * FOSKY_VIDS.length); } while (idx === _foskyLast && FOSKY_VIDS.length > 1);
+    _foskyLast = idx;
+
+    // Frase aleatoria (no repetir la anterior)
+    let pi;
+    do { pi = Math.floor(Math.random() * FOSKY_PHRASES.length); } while (pi === _foskyPhrLast && FOSKY_PHRASES.length > 1);
+    _foskyPhrLast = pi;
+
+    foskyBubble.textContent = FOSKY_PHRASES[pi];
+    foskyExpVid.src = FOSKY_VIDS[idx];
+    foskyExpVid.load();
+    foskyExpEl.setAttribute('aria-hidden', 'false');
+    foskyExpEl.classList.remove('closing');
+
+    foskyExpVid.play().catch(() => {});
+
+    // Abre tras un frame para que la transición CSS se aplique
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        foskyExpEl.classList.add('open');
+        _foskyOpen = true;
+        foskyWrap.classList.add('fosky-playing');
+        foskyWrap.classList.remove('fosky-bounce');
+        void foskyWrap.offsetWidth;
+        foskyWrap.classList.add('fosky-bounce');
+    }));
+
+    foskyExpVid.onended = foskyClose;
+}
+
+if (foskyWrap && foskyExpEl) {
+    foskyWrap.addEventListener('click', e => {
+        e.preventDefault();
+        _foskyOpen ? foskyClose() : foskyOpen();
+    });
+    foskyWrap.addEventListener('animationend', () => foskyWrap.classList.remove('fosky-bounce'));
+
+    // Click fuera del overlay también cierra
+    foskyExpEl.addEventListener('click', foskyClose);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') foskyClose(); });
+}
+
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
