@@ -859,14 +859,25 @@ function updateAccentColors(v) {
     const l2 = 60 + v * 8;
     const [r1, g1, b1] = hslToRgb(h1, 100, l1);
     const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
-    // El canvas del arcade lee --accent-*-rgb directamente: esos se actualizan
-    // siempre. Las variables que provocan repintados en CSS (--gradient, glows)
-    // se omiten mientras el arcade está abierto (su página está oculta y los
-    // juegos no las usan): así no se invalida estilo de la web cada frame.
+    // Escribir una custom property en :root INVALIDA el estilo de TODO el documento
+    // (también las partes ocultas). Hacerlo cada frame durante el arcade provoca un
+    // recalc periódico que se nota como lag aunque el juego dibuje poquísimo. El pulso
+    // del beat dentro de los juegos NO viene del CSS sino de la variable JS _visualBeat
+    // (la lee games.js directamente), así que aquí basta refrescar el color de acento
+    // a ~12 Hz: el viraje de tono es lento y el ahorro de recalc es enorme.
+    if (ROOT.classList.contains('arcade-lock')) {
+        // CERO escrituras al DOM durante el juego: cada setProperty en :root fuerza un
+        // recalc de estilo de TODO el documento, y ese hitch se ve justo en lo único que
+        // se mueve (las notas). El canvas del arcade lee el color de estas globales JS.
+        window._accent1Rgb = `${r1} ${g1} ${b1}`;
+        window._accent2Rgb = `${r2} ${g2} ${b2r}`;
+        return;
+    }
+    window._accent1Rgb = `${r1} ${g1} ${b1}`;
+    window._accent2Rgb = `${r2} ${g2} ${b2r}`;
     ROOT.style.setProperty('--accent-1-rgb', `${r1} ${g1} ${b1}`);
     ROOT.style.setProperty('--accent-2-rgb', `${r2} ${g2} ${b2r}`);
     ROOT.style.setProperty('--beat-alpha', v.toFixed(3));
-    if (ROOT.classList.contains('arcade-lock')) return;
     ROOT.style.setProperty('--accent-1', `hsl(${h1}, 100%, ${l1}%)`);
     ROOT.style.setProperty('--accent-2', `hsl(${h2}, 90%, ${l2}%)`);
     ROOT.style.setProperty('--gradient', `linear-gradient(135deg, hsl(${h1}, 100%, ${l1}%) 0%, hsl(${h2}, 90%, ${l2}%) 100%)`);

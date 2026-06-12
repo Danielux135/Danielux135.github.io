@@ -146,6 +146,10 @@ let beatNow = () => 0;
 try { if (typeof _visualBeat === 'number') beatNow = () => Math.max(0, Math.min(1, _visualBeat)); } catch (e) { /* main.js no disponible */ }
 
 function accentRgb(which) {
+    // main.js publica el color de acento del beat en estas globales JS (sin tocar el DOM
+    // durante el juego: una escritura en :root forzaría recalc y se vería como tirón).
+    const g = which === 2 ? window._accent2Rgb : window._accent1Rgb;
+    if (g) return g;
     const s = document.documentElement.style.getPropertyValue(which === 2 ? '--accent-2-rgb' : '--accent-1-rgb').trim();
     return s || (which === 2 ? '139 92 246' : '0 200 255');
 }
@@ -193,15 +197,54 @@ function glow(ctx, x, y, r, key, alpha) {
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
 }
+// Glow por lotes: cambiar globalCompositeOperation por objeto rompe el batching del
+// canvas y fuerza flushes en la GPU. Con muchos halos (notas de Hero) eso es el lag.
+// glowBegin/glowAt/glowEnd fijan el modo aditivo UNA vez y dibujan todos los halos juntos.
+function glowBegin(ctx) {
+    if (!_glow.a1 || _glow.theme !== document.documentElement.getAttribute('data-theme')) _buildGlow();
+    ctx.globalCompositeOperation = 'lighter';
+}
+function glowAt(ctx, x, y, r, key, alpha) {
+    ctx.globalAlpha = alpha;
+    ctx.drawImage(_glow[key] || _glow.a1, x - r, y - r, r * 2, r * 2);
+}
+function glowEnd(ctx) {
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+}
 
-// Reloj de canción: interpola audio.currentTime (que avanza a saltos) con performance.now
+// Reloj de canción suave. audio.currentTime solo se refresca a saltos (cada ~150-250ms,
+// una vez por bloque de audio). Si saltáramos al nuevo valor en cuanto llega, las notas
+// darían un tirón visible hacia atrás o adelante cada pocos frames. En su lugar mantenemos
+// un estimado propio que avanza con el tiempo real (performance.now) frame a frame y SOLO
+// corrige la deriva poco a poco cuando llega una muestra fresca de audio. Resultado: reloj
+// monótono y fluido, sincronizado con el audio sin saltos perceptibles.
 function makeSongClock(a) {
-    let lastCT = a.currentTime, lastPerf = performance.now() / 1000;
+    let perfPrev = performance.now() / 1000;
+    let targetOffset = (a.currentTime || 0) - perfPrev; // offset audio↔reloj-de-pared
+    let offset = targetOffset;
+    let lastCT = a.currentTime || 0;
     return () => {
-        const ct = a.currentTime;
-        const p = performance.now() / 1000;
-        if (ct !== lastCT) { lastCT = ct; lastPerf = p; return ct; }
-        return a.paused ? ct : lastCT + (p - lastPerf);
+        const perf = performance.now() / 1000;
+        let dt = perf - perfPrev;
+        perfPrev = perf;
+        if (dt < 0) dt = 0; else if (dt > 0.1) dt = 0.1; // protege ante pestañas en segundo plano
+        const ct = a.currentTime || 0;
+        if (a.paused) { offset = targetOffset = ct - perf; lastCT = ct; return ct; }
+        // El offset SOLO se recalibra cuando audio.currentTime cambia de verdad (cada
+        // ~0.2 s). Entre tics el reloj es perf + offset = tiempo real puro, sin nada que
+        // lo empuje: esto elimina la oscilación de velocidad que daba el tirón en las notas.
+        if (ct !== lastCT) { lastCT = ct; targetOffset = ct - perf; }
+        const d = targetOffset - offset;
+        if (Math.abs(d) > 0.18) {
+            offset = targetOffset; // seek o desincronización grande: saltar
+        } else {
+            // Acercamos el offset al objetivo limitando su variación a ±6% de dt: así el
+            // reloj nunca retrocede ni pega acelerones, y la corrección de deriva es suave.
+            const maxStep = dt * 0.06;
+            offset += clamp(d * 0.08, -maxStep, maxStep);
+        }
+        return perf + offset;
     };
 }
 
@@ -1341,6 +1384,7 @@ Arcade.register({
         const KEYS = (OPTS.tapKeys || ['z', 'x']).map((k) => k.toLowerCase());
         let bIdx = 0;
         const circles = [];
+        const vis = []; // círculos visibles del frame (reusado, sin asignar por frame)
         let score = 0, combo = 0, maxCombo = 0, lives = 3;
         let spawned = 0, hits = 0;
         let lastPos = null;
@@ -1475,30 +1519,42 @@ Arcade.register({
                     spawn(e, bIdx - 1);
                 }
 
+                // accentRgb cacheado una vez por frame (antes: por círculo)
+                const a1 = accentRgb(1), a2 = accentRgb(2);
+                const a1c = a1.split(/\s+/).join(','), a2c = a2.split(/\s+/).join(',');
+
+                // PASO 1: resolver fallos/splice y recoger los círculos visibles
+                vis.length = 0;
                 for (let i = circles.length - 1; i >= 0; i--) {
                     const c = circles[i];
                     const remain = c.hitT - now;
                     if (remain < -W_X) { miss(c, i); continue; }
-                    const k = clamp(remain / CFG.approach, 0, 1);
-                    const ringR = c.r + c.r * 1.9 * k;
-                    const a1 = accentRgb(1), a2 = accentRgb(2);
+                    c._k = clamp(remain / CFG.approach, 0, 1);
+                    vis.push(c);
+                }
 
-                    glow(ctx, c.x, c.y, c.r * 2.1, 'a2', 0.5 + beat * 0.3);
+                // PASO 2: todos los halos en un único bloque aditivo (sin alternar modo por círculo)
+                glowBegin(ctx);
+                const gA = 0.5 + beat * 0.3;
+                for (let i = 0; i < vis.length; i++) { const c = vis[i]; glowAt(ctx, c.x, c.y, c.r * 2.1, 'a2', gA); }
+                glowEnd(ctx);
+
+                // PASO 3: cuerpos, números y anillos de aproximación
+                for (let i = 0; i < vis.length; i++) {
+                    const c = vis[i];
+                    const k = c._k;
+                    const rr = c.r * (1 + beat * 0.08);
                     const grad = ctx.createRadialGradient(c.x - c.r * 0.3, c.y - c.r * 0.3, c.r * 0.1, c.x, c.y, c.r);
-                    grad.addColorStop(0, rgbStr(a1, 0.95));
-                    grad.addColorStop(1, rgbStr(a2, 0.82));
+                    grad.addColorStop(0, `rgba(${a1c},0.95)`);
+                    grad.addColorStop(1, `rgba(${a2c},0.82)`);
                     ctx.beginPath();
-                    ctx.arc(c.x, c.y, c.r * (1 + beat * 0.08), 0, Math.PI * 2);
+                    ctx.arc(c.x, c.y, rr, 0, Math.PI * 2);
                     ctx.fillStyle = grad;
                     ctx.fill();
-
-                    ctx.beginPath();
-                    ctx.arc(c.x, c.y, c.r * (1 + beat * 0.08), 0, Math.PI * 2);
                     ctx.strokeStyle = 'rgba(255,255,255,0.85)';
                     ctx.lineWidth = 2;
                     ctx.stroke();
 
-                    // número de orden dentro de la ráfaga
                     if (c.num > 0) {
                         ctx.font = `800 ${Math.round(c.r * 0.85)}px Montserrat, sans-serif`;
                         ctx.textAlign = 'center';
@@ -1509,8 +1565,8 @@ Arcade.register({
                     }
 
                     ctx.beginPath();
-                    ctx.arc(c.x, c.y, ringR, 0, Math.PI * 2);
-                    ctx.strokeStyle = rgbStr(a1, 0.4 + (1 - k) * 0.35 + beat * 0.2);
+                    ctx.arc(c.x, c.y, c.r + c.r * 1.9 * k, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(${a1c},${0.4 + (1 - k) * 0.35 + beat * 0.2})`;
                     ctx.lineWidth = 2.5;
                     ctx.stroke();
                 }
@@ -1600,6 +1656,7 @@ Arcade.register({
 
         let idx = 0;
         const active = [];
+        const vis = []; // notas visibles de este frame (reusado, sin asignar por frame)
         let totalSpawned = 0;
 
         api.buildHud([
@@ -1696,6 +1753,8 @@ Arcade.register({
                 const beat = api.beat();
                 // accentRgb lee del DOM: lo cacheamos UNA vez por frame (antes ~40 lecturas)
                 const a1 = accentRgb(1), a2 = accentRgb(2);
+                // versiones ya separadas por comas: evita partir el string en cada nota
+                const a1c = a1.split(/\s+/).join(','), a2c = a2.split(/\s+/).join(',');
                 const inkLane = ink(0.02), inkBorder = ink(0.09);
                 const fh = L.hitY - L.topY + 26;
                 const noteH = Math.max(18, Math.min(L.laneW * 0.22, 26));
@@ -1716,7 +1775,7 @@ Arcade.register({
                     ctx.fillStyle = inkLane;
                     ctx.fillRect(x + 2, L.topY, L.laneW - 4, fh);
                     if (laneFlash[l] > 0.002) {
-                        ctx.fillStyle = rgbStr(l % 2 === 1 ? a2 : a1, laneFlash[l] * 0.16);
+                        ctx.fillStyle = `rgba(${l % 2 === 1 ? a2c : a1c},${laneFlash[l] * 0.16})`;
                         ctx.fillRect(x + 2, L.topY, L.laneW - 4, fh);
                         laneFlash[l] = Math.max(0, laneFlash[l] - dt * 5);
                     }
@@ -1725,7 +1784,7 @@ Arcade.register({
                     ctx.strokeRect(x + 2, L.topY, L.laneW - 4, fh);
                 }
 
-                ctx.fillStyle = rgbStr(a1, 0.5 + beat * 0.5);
+                ctx.fillStyle = `rgba(${a1c},${0.5 + beat * 0.5})`;
                 ctx.fillRect(L.x0 - 8, L.hitY - 2, L.laneW * LANES + 16, 4);
                 for (let l = 0; l < LANES; l++) {
                     const x = L.x0 + l * L.laneW;
@@ -1741,9 +1800,10 @@ Arcade.register({
                     }
                 }
 
-                // notas: relleno sólido por banda (sin gradiente por nota) + glow cacheado
-                ctx.lineWidth = 1.5;
-                ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+                // PASO 1: recorrer activas, resolver fallos/splice y recoger las visibles.
+                // Sin dibujar todavía: así separamos los halos (modo aditivo) de los cuerpos
+                // y no alternamos globalCompositeOperation por nota (eso rompía el batching).
+                vis.length = 0;
                 for (let i = active.length - 1; i >= 0; i--) {
                     const n = active[i];
                     if (n.hit) { active.splice(i, 1); continue; }
@@ -1760,12 +1820,27 @@ Arcade.register({
                     }
                     const p = 1 - dtN / LEAD;
                     if (p < -0.02) continue;
-                    const y = L.topY + p * (L.hitY - L.topY);
-                    const x = L.x0 + n.lane * L.laneW;
-                    const odd = n.lane % 2 === 1;
-                    glow(ctx, x + L.laneW / 2, y, noteH * 1.7, odd ? 'a2' : 'a1', 0.4 + beat * 0.22);
-                    roundRect(ctx, x + 6, y - noteH / 2, L.laneW - 12, noteH, 8);
-                    ctx.fillStyle = rgbStr(odd ? a2 : a1, 0.96);
+                    n._y = L.topY + p * (L.hitY - L.topY);
+                    n._x = L.x0 + n.lane * L.laneW;
+                    vis.push(n);
+                }
+
+                // PASO 2: todos los halos en un único bloque aditivo (un solo cambio de modo)
+                glowBegin(ctx);
+                const gAlpha = 0.4 + beat * 0.22;
+                for (let i = 0; i < vis.length; i++) {
+                    const n = vis[i];
+                    glowAt(ctx, n._x + L.laneW / 2, n._y, noteH * 1.7, n.lane % 2 === 1 ? 'a2' : 'a1', gAlpha);
+                }
+                glowEnd(ctx);
+
+                // PASO 3: cuerpos sólidos + un único trazo blanco para todos
+                ctx.lineWidth = 1.5;
+                ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+                for (let i = 0; i < vis.length; i++) {
+                    const n = vis[i];
+                    roundRect(ctx, n._x + 6, n._y - noteH / 2, L.laneW - 12, noteH, 8);
+                    ctx.fillStyle = `rgba(${n.lane % 2 === 1 ? a2c : a1c},0.96)`;
                     ctx.fill();
                     ctx.stroke();
                 }
@@ -1773,7 +1848,7 @@ Arcade.register({
                 if (combo >= 5) {
                     ctx.font = `900 ${34 + beat * 8}px Montserrat, sans-serif`;
                     ctx.textAlign = 'center';
-                    ctx.fillStyle = rgbStr(a1, 0.16 + beat * 0.2);
+                    ctx.fillStyle = `rgba(${a1c},${0.16 + beat * 0.2})`;
                     ctx.fillText('x' + combo, W / 2, (L.topY + L.hitY) / 2);
                 }
 
@@ -2497,6 +2572,7 @@ Arcade.register({
         let score = 0, combo = 0, maxCombo = 0, lives = 3, invuln = 1.2;
         let kills = 0, spawned = 0, shake = 0, t = 0, fireT = 0;
         const invaders = [];   // {x,y,vy,r,hp,band,s}
+        const visInv = [];     // naves vivas del frame (reusado, sin asignar por frame)
         const bullets = [];    // balas del jugador (suben)
         const foeShots = [];   // proyectiles del jefe
         let boss = null;       // {x,y,vx,hp,maxHp,fireT,t1}
@@ -2570,8 +2646,8 @@ Arcade.register({
             api.burst(inv.x, inv.y, { n: 16, power: 0.9, accent: inv.band === 0 ? 2 : 1 });
         }
 
-        function drawShip(ctx, x, y, r, rgb, beat, flip, gkey) {
-            glow(ctx, x, y, r * 1.9, gkey, 0.45 + beat * 0.3);
+        // cuerpo de la nave sin el halo (el halo se dibuja por lotes aparte)
+        function drawShipBody(ctx, x, y, r, rgb, flip) {
             ctx.save();
             ctx.translate(x, y);
             const s = flip ? -1 : 1;
@@ -2674,15 +2750,29 @@ Arcade.register({
                     ctx.fill();
                 }
 
-                // naves: mover, colisión, dibujar
+                // naves: PASO 1 mover/colisión/splice y recoger las vivas
+                visInv.length = 0;
                 for (let i = invaders.length - 1; i >= 0; i--) {
                     const inv = invaders[i];
                     inv.y += inv.vy * dt;
                     const dx = inv.x - px, dy = inv.y - py, rr = inv.r + 16;
                     if (dx * dx + dy * dy < rr * rr) { invaders.splice(i, 1); loseLife(inv.x, inv.y); continue; }
                     if (inv.y > bottomLine() + 8) { invaders.splice(i, 1); loseLife(inv.x, bottomLine()); continue; }
+                    visInv.push(inv);
+                }
+                // PASO 2: todos los halos de las naves en un único bloque aditivo
+                const shipGA = 0.45 + beat * 0.3;
+                glowBegin(ctx);
+                for (let i = 0; i < visInv.length; i++) {
+                    const inv = visInv[i];
+                    glowAt(ctx, inv.x, inv.y, inv.r * 1.9, inv.band === 0 ? 'a2' : inv.band === 1 ? 'a1' : 'w', shipGA);
+                }
+                glowEnd(ctx);
+                // PASO 3: cuerpos + aro de blindaje
+                for (let i = 0; i < visInv.length; i++) {
+                    const inv = visInv[i];
                     const rgb = bandColor(inv.band);
-                    drawShip(ctx, inv.x, inv.y, inv.r, rgb, beat, true, inv.band === 0 ? 'a2' : inv.band === 1 ? 'a1' : 'w');
+                    drawShipBody(ctx, inv.x, inv.y, inv.r, rgb, true);
                     if (inv.hp > 1) {
                         ctx.beginPath(); ctx.arc(inv.x, inv.y, inv.r + 3, 0, Math.PI * 2);
                         ctx.strokeStyle = rgbStr(rgb, 0.5); ctx.lineWidth = 1.5; ctx.stroke();
@@ -2745,7 +2835,8 @@ Arcade.register({
                 // jugador
                 const blink = invuln > 0 && Math.floor(t * 12) % 2 === 0;
                 if (!blink) {
-                    drawShip(ctx, px, py, 16, a1, beat, false, 'a1');
+                    glow(ctx, px, py, 16 * 1.9, 'a1', 0.45 + beat * 0.3);
+                    drawShipBody(ctx, px, py, 16, a1, false);
                     ctx.beginPath();
                     ctx.moveTo(px - 5, py + 11);
                     ctx.lineTo(px, py + 18 + beat * 8 + Math.random() * 4);
