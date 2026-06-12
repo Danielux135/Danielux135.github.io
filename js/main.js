@@ -19,7 +19,7 @@ function getGreeting(lang) {
     const h = new Date().getHours();
     const G = {
         es: [
-            [0,  4,  '¿Todavía despierto? Soy'],
+            [0,  4,  '¿Todavía despierto/a? Soy'],
             [5,  7,  'Madrugador/a, ¿eh? Soy'],
             [8,  11, 'Buenos días, soy'],
             [12, 13, '¿Sin comer aún? Soy'],
