@@ -733,6 +733,7 @@ function applyTranslations(language) {
         button.setAttribute('aria-pressed', isActive);
     });
     localStorage.setItem('portfolioLanguage', language);
+    if (window._bgUpdateLabel) window._bgUpdateLabel();
     resetTypewriter();
 }
 languageButtons.forEach((button) => {
@@ -885,6 +886,333 @@ function drawConnections(beat) {
         }
     }
 }
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// DAY-BASED HERO BACKGROUND THEMES
+// Cada día de la semana (getDay() 0=Dom…6=Sáb) activa un modo visual distinto.
+// El usuario puede sobreescribir con el switcher — se persiste en localStorage.
+// ═══════════════════════════════════════════════════════════════════════════════
+const HERO_THEMES = [
+    { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
+    { id: 1, es: 'Matrix',         en: 'Matrix',           val: 'Matrix',            icon: 'fa-terminal'     },
+    { id: 2, es: 'Geometría',      en: 'Geometry',         val: 'Geometria',         icon: 'fa-shapes'       },
+    { id: 3, es: 'Aurora',         en: 'Aurora',           val: 'Aurora',            icon: 'fa-wind'         },
+    { id: 4, es: 'Órbitas',        en: 'Orbits',           val: 'Òrbites',           icon: 'fa-circle-nodes' },
+    { id: 5, es: 'Lluvia Neón',    en: 'Neon Rain',        val: 'Pluja Neó',         icon: 'fa-droplet'      },
+    { id: 6, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'         },
+];
+let _bgTheme = (() => {
+    const s = localStorage.getItem('heroBgTheme');
+    return s !== null ? parseInt(s) : new Date().getDay();
+})();
+function _heroAccent(w) {
+    const s = w === 2 ? (window._accent2Rgb || '139 92 246') : (window._accent1Rgb || '0 200 255');
+    return s.split(/\s+/).map(Number);
+}
+function setBgTheme(id) {
+    _bgTheme = ((id % 7) + 7) % 7;
+    localStorage.setItem('heroBgTheme', _bgTheme);
+    _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0;
+    _fwBursts.length = 0; _fwLastT = 0; _fwPrevBeat = 0;
+}
+
+// ── Theme 0 – Constellation ───────────────────────────────────────────────────
+function drawConstellation(beat) {
+    particles.forEach(p => { p.update(beat); p.draw(beat); });
+    drawConnections(beat);
+}
+
+// ── Theme 1 – Matrix Rain ─────────────────────────────────────────────────────
+const _MAT_SRC = 'アイウエオカキクケコサシスセソタナニヌハヒフマミムヤラリルロン0123456789ABCDEF<>/\\|{}[]';
+const _MAT_CW  = 16;
+let _matCols = [], _matBuiltW = 0;
+function _buildMatCols() {
+    _matBuiltW = canvas.width;
+    _matCols = Array.from({ length: Math.ceil(canvas.width / _MAT_CW) + 1 }, (_, i) => ({
+        x:      i * _MAT_CW,
+        y:      Math.random() * -canvas.height * 1.5,
+        speed:  80 + Math.random() * 110,
+        len:    12 + Math.floor(Math.random() * 18),
+        glyphs: Array.from({ length: 32 }, () => _MAT_SRC[Math.floor(Math.random() * _MAT_SRC.length)]),
+        tick:   0,
+    }));
+}
+function drawMatrix(beat, dt) {
+    if (canvas.width !== _matBuiltW) _buildMatCols();
+    const [r, g, b] = _heroAccent(1);
+    ctx.font      = `${_MAT_CW}px monospace`;
+    ctx.textAlign = 'left';
+    const spd = 1 + beat * 4;
+    _matCols.forEach(col => {
+        col.y += col.speed * spd * dt;
+        if (++col.tick % 5 === 0) {
+            col.glyphs[Math.floor(Math.random() * col.glyphs.length)] =
+                _MAT_SRC[Math.floor(Math.random() * _MAT_SRC.length)];
+        }
+        if (col.y > canvas.height + col.len * _MAT_CW) {
+            col.y     = -col.len * _MAT_CW - Math.random() * canvas.height * 0.5;
+            col.speed = 80 + Math.random() * 110;
+        }
+        for (let i = 0; i < col.len; i++) {
+            const cy = col.y - i * _MAT_CW;
+            if (cy < -_MAT_CW || cy > canvas.height) continue;
+            if (i === 0) {
+                ctx.shadowColor = `rgba(${r},${g},${b},0.9)`;
+                ctx.shadowBlur  = 8 + beat * 20;
+                ctx.fillStyle   = `rgba(255,255,255,${0.88 + beat * 0.12})`;
+            } else {
+                const frac     = 1 - i / col.len;
+                ctx.shadowBlur = 0;
+                ctx.fillStyle  = `rgba(${r},${g},${b},${frac * (0.07 + beat * 0.12)})`;
+            }
+            ctx.fillText(col.glyphs[i % col.glyphs.length], col.x + 1, cy);
+        }
+    });
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 2 – Floating Geometry ───────────────────────────────────────────────
+let _geoShapes = [], _geoBuiltW = 0;
+function _buildGeoShapes() {
+    _geoBuiltW = canvas.width;
+    _geoShapes = Array.from({ length: 28 }, () => ({
+        x:      Math.random() * canvas.width,
+        y:      Math.random() * canvas.height,
+        vx:     (Math.random() - 0.5) * 0.38,
+        vy:     (Math.random() - 0.5) * 0.38,
+        sides:  [3, 4, 5, 6][Math.floor(Math.random() * 4)],
+        size:   18 + Math.random() * 52,
+        rot:    Math.random() * Math.PI * 2,
+        rotSpd: (Math.random() - 0.5) * 0.009,
+        ci:     Math.random() < 0.5 ? 1 : 2,
+        alpha:  0.06 + Math.random() * 0.09,
+    }));
+}
+function _drawPoly(x, y, sides, r, rot) {
+    ctx.beginPath();
+    for (let i = 0; i < sides; i++) {
+        const a = rot + (Math.PI * 2 / sides) * i;
+        i ? ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r)
+          : ctx.moveTo(x + Math.cos(a) * r, y + Math.sin(a) * r);
+    }
+    ctx.closePath();
+}
+function drawGeometry(beat, dt) {
+    if (canvas.width !== _geoBuiltW) _buildGeoShapes();
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const bst = 1 + beat * 2.5;
+    _geoShapes.forEach(s => {
+        s.rot += s.rotSpd * (1 + beat * 3);
+        s.x    = (s.x + s.vx * bst + canvas.width  * 2) % canvas.width;
+        s.y    = (s.y + s.vy * bst + canvas.height * 2) % canvas.height;
+        const [r, g, b] = s.ci === 1 ? a1 : a2;
+        const al = s.alpha + beat * 0.13;
+        const sz = s.size * (1 + beat * 0.35);
+        _drawPoly(s.x, s.y, s.sides, sz, s.rot);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.lineWidth   = 1 + beat * 1.5;
+        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
+        ctx.shadowBlur  = beat > 0.18 ? 6 + beat * 18 : 0;
+        ctx.stroke();
+        ctx.fillStyle   = `rgba(${r},${g},${b},${al * 0.12})`;
+        ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 3 – Aurora Borealis ─────────────────────────────────────────────────
+const _AUR_BANDS = Array.from({ length: 5 }, (_, i) => ({
+    phase: Math.random() * Math.PI * 2,
+    spd:   0.14 + Math.random() * 0.22,
+    freq:  0.0025 + Math.random() * 0.003,
+    amp:   45 + Math.random() * 65,
+    thick: 55 + Math.random() * 80,
+    fi:    i / 4,
+}));
+function drawAurora(beat, dt, t) {
+    const W = canvas.width, H = canvas.height;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    _AUR_BANDS.forEach((band, i) => {
+        band.phase += band.spd * dt;
+        const yBase = H * (0.15 + i * 0.16);
+        const amp   = band.amp * (1 + beat * 2.8);
+        const r = a1[0] + (a2[0] - a1[0]) * band.fi | 0;
+        const g = a1[1] + (a2[1] - a1[1]) * band.fi | 0;
+        const b = a1[2] + (a2[2] - a1[2]) * band.fi | 0;
+        const al = 0.045 + beat * 0.09 + Math.sin(t * 0.4 + i * 1.2) * 0.012;
+
+        ctx.beginPath();
+        ctx.moveTo(0, yBase + Math.sin(band.phase) * amp);
+        for (let x = 2; x <= W; x += 4) {
+            ctx.lineTo(x, yBase + Math.sin(x * band.freq + band.phase) * amp);
+        }
+        ctx.lineTo(W, yBase + band.thick + amp * 0.4);
+        for (let x = W - 2; x >= 0; x -= 4) {
+            ctx.lineTo(x, yBase + band.thick + Math.sin(x * band.freq * 1.4 + band.phase + 1.5) * amp * 0.55);
+        }
+        ctx.closePath();
+
+        const grad = ctx.createLinearGradient(0, yBase - amp, 0, yBase + band.thick + amp);
+        grad.addColorStop(0,    `rgba(${r},${g},${b},0)`);
+        grad.addColorStop(0.25, `rgba(${r},${g},${b},${al})`);
+        grad.addColorStop(0.65, `rgba(${r},${g},${b},${al * 0.75})`);
+        grad.addColorStop(1,    `rgba(${r},${g},${b},0)`);
+        ctx.fillStyle = grad;
+        ctx.fill();
+    });
+}
+
+// ── Theme 4 – Orbital System ──────────────────────────────────────────────────
+const _ORB_RINGS = [
+    { rfrac: 0.09, n: 3,  spd: 0.85,  sz: 4.5, phase: 0   },
+    { rfrac: 0.18, n: 6,  spd: 0.48,  sz: 3.5, phase: 1.1 },
+    { rfrac: 0.29, n: 9,  spd: 0.27,  sz: 2.8, phase: 0.4 },
+    { rfrac: 0.42, n: 14, spd: 0.155, sz: 2.2, phase: 2.0 },
+];
+function drawOrbital(beat, dt, t) {
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    const base = Math.min(canvas.width, canvas.height) * 0.44;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+
+    const cgr = ctx.createRadialGradient(cx, cy, 0, cx, cy, 20 + beat * 30);
+    cgr.addColorStop(0, `rgba(${a1[0]},${a1[1]},${a1[2]},${0.5 + beat * 0.5})`);
+    cgr.addColorStop(1, `rgba(${a1[0]},${a1[1]},${a1[2]},0)`);
+    ctx.beginPath(); ctx.arc(cx, cy, 20 + beat * 30, 0, Math.PI * 2);
+    ctx.fillStyle = cgr; ctx.fill();
+
+    _ORB_RINGS.forEach((ring, ri) => {
+        ring.phase += ring.spd * dt * (1 + beat * 2);
+        const R  = ring.rfrac * base * (1 + beat * 0.1);
+        const fi = ri / (_ORB_RINGS.length - 1);
+        const r  = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g  = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b  = a1[2] + (a2[2] - a1[2]) * fi | 0;
+
+        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${0.07 + beat * 0.09})`;
+        ctx.lineWidth   = 0.6; ctx.stroke();
+
+        for (let d = 0; d < ring.n; d++) {
+            const angle = ring.phase + (Math.PI * 2 / ring.n) * d;
+            const dx = cx + Math.cos(angle) * R;
+            const dy = cy + Math.sin(angle) * R;
+            ctx.beginPath(); ctx.arc(dx, dy, ring.sz * (1 + beat * 0.7), 0, Math.PI * 2);
+            ctx.fillStyle   = `rgba(${r},${g},${b},${0.55 + beat * 0.45})`;
+            ctx.shadowColor = `rgba(${r},${g},${b},0.85)`;
+            ctx.shadowBlur  = 5 + beat * 18;
+            ctx.fill();
+        }
+    });
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 5 – Neon Rain ───────────────────────────────────────────────────────
+const _NEON_PAL = [[0,200,255],[200,0,255],[0,255,130],[255,50,200],[255,180,0],[100,255,100]];
+let _neonDrops = [], _neonBuiltW = 0;
+function _mkNeonDrop() {
+    const [r, g, b] = _NEON_PAL[Math.floor(Math.random() * _NEON_PAL.length)];
+    return {
+        x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
+        len: 60 + Math.random() * 110,   spd: 230 + Math.random() * 340,
+        r, g, b,                          w: 1 + Math.random() * 1.5,
+    };
+}
+function _buildNeonDrops() {
+    _neonBuiltW = canvas.width;
+    _neonDrops  = Array.from({ length: 65 }, _mkNeonDrop);
+}
+function drawNeonRain(beat, dt) {
+    if (canvas.width !== _neonBuiltW) _buildNeonDrops();
+    const sm = 1 + beat * 3.5;
+    _neonDrops.forEach(d => {
+        d.y += d.spd * sm * dt;
+        if (d.y > canvas.height + d.len) { Object.assign(d, _mkNeonDrop()); d.y = -d.len - 10; }
+        const gr = ctx.createLinearGradient(d.x, d.y - d.len, d.x, d.y);
+        gr.addColorStop(0,   `rgba(${d.r},${d.g},${d.b},0)`);
+        gr.addColorStop(0.6, `rgba(${d.r},${d.g},${d.b},${0.04 + beat * 0.07})`);
+        gr.addColorStop(1,   `rgba(${d.r},${d.g},${d.b},${0.13 + beat * 0.16})`);
+        ctx.beginPath(); ctx.moveTo(d.x, d.y - d.len); ctx.lineTo(d.x, d.y);
+        ctx.strokeStyle = gr; ctx.lineWidth = d.w;
+        ctx.shadowColor = `rgba(${d.r},${d.g},${d.b},0.7)`; ctx.shadowBlur = 5 + beat * 14;
+        ctx.stroke();
+        ctx.beginPath(); ctx.arc(d.x, d.y, d.w * 1.4 + beat * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle   = `rgba(255,255,255,${0.55 + beat * 0.45})`;
+        ctx.shadowColor = `rgba(${d.r},${d.g},${d.b},1)`; ctx.shadowBlur = 10 + beat * 22;
+        ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 6 – Fireworks ───────────────────────────────────────────────────────
+const _FW_PAL = [[255,60,100],[0,200,255],[255,200,0],[200,80,255],[0,255,150],[255,120,0]];
+const _fwBursts = [];
+let _fwPrevBeat = 0, _fwLastT = 0;
+function _spawnBurst(beat) {
+    if (_fwBursts.length >= 7) return;
+    const [r, g, b] = _FW_PAL[Math.floor(Math.random() * _FW_PAL.length)];
+    const x = canvas.width  * (0.15 + Math.random() * 0.7);
+    const y = canvas.height * (0.08 + Math.random() * 0.65);
+    const n = 45 + Math.floor(Math.random() * 25);
+    _fwBursts.push({
+        x, y, r, g, b,
+        parts: Array.from({ length: n }, (_, i) => {
+            const angle = (Math.PI * 2 / n) * i + (Math.random() - 0.5) * 0.4;
+            const spd   = 60 + Math.random() * 180 + beat * 80;
+            return { vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd, life: 1, trail: [] };
+        }),
+    });
+}
+function drawFireworks(beat, dt, t) {
+    if (beat > 0.22 && _fwPrevBeat < beat && t - _fwLastT > 0.35) {
+        _spawnBurst(beat); _fwLastT = t;
+    }
+    if (_fwBursts.length === 0 && t - _fwLastT > 3) {
+        _spawnBurst(0.3); _fwLastT = t;
+    }
+    _fwPrevBeat = beat;
+    const G = 55;
+    for (let bi = _fwBursts.length - 1; bi >= 0; bi--) {
+        const bst = _fwBursts[bi];
+        let alive = false;
+        bst.parts.forEach(p => {
+            if (p.life <= 0) return;
+            alive = true;
+            p.life -= dt * (0.5 + Math.random() * 0.12);
+            const prog = 1 - p.life;
+            const px = bst.x + p.vx * prog;
+            const py = bst.y + p.vy * prog + G * prog * prog;
+            p.trail.push({ x: px, y: py });
+            if (p.trail.length > 9) p.trail.shift();
+            const al = Math.max(p.life, 0);
+            if (p.trail.length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(p.trail[0].x, p.trail[0].y);
+                for (let k = 1; k < p.trail.length; k++) ctx.lineTo(p.trail[k].x, p.trail[k].y);
+                ctx.strokeStyle = `rgba(${bst.r},${bst.g},${bst.b},${al * 0.28})`;
+                ctx.lineWidth = al * 1.8; ctx.shadowBlur = 0; ctx.stroke();
+            }
+            ctx.beginPath(); ctx.arc(px, py, al * 2.8, 0, Math.PI * 2);
+            ctx.fillStyle   = `rgba(${bst.r},${bst.g},${bst.b},${al})`;
+            ctx.shadowColor = `rgba(${bst.r},${bst.g},${bst.b},0.9)`;
+            ctx.shadowBlur  = 5 + al * 16; ctx.fill();
+        });
+        if (!alive) _fwBursts.splice(bi, 1);
+    }
+    ctx.shadowBlur = 0;
+}
+
+function heroThemeDraw(beat, dt, t) {
+    switch (_bgTheme) {
+        case 1: drawMatrix(beat, dt);       break;
+        case 2: drawGeometry(beat, dt);     break;
+        case 3: drawAurora(beat, dt, t);    break;
+        case 4: drawOrbital(beat, dt, t);   break;
+        case 5: drawNeonRain(beat, dt);     break;
+        case 6: drawFireworks(beat, dt, t); break;
+        default: drawConstellation(beat);   break;
+    }
+}
+
 const ROOT = document.documentElement;
 let _visualBeat = 0;
 function hslToRgb(h, s, l) {
@@ -935,22 +1263,68 @@ let _heroVisible = true;
 try {
     new IntersectionObserver((entries) => { _heroVisible = entries[0].isIntersecting; }).observe(canvas);
 } catch (e) { /* navegador sin IntersectionObserver: se anima siempre */ }
-function animateParticles() {
+let _lastFrameTs = 0;
+function animateParticles(ts = 0) {
     requestAnimationFrame(animateParticles);
-    // El release suave ya lo hace getBassEnergy; en la subida vamos directos (sin retraso).
+    const dt = _lastFrameTs ? Math.min((ts - _lastFrameTs) / 1000, 0.05) : 0.016;
+    _lastFrameTs = ts;
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
     updateAccentColors(_visualBeat);
     if (!_heroVisible || document.documentElement.classList.contains('arcade-lock')) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((particle) => {
-        particle.update(_visualBeat);
-        particle.draw(_visualBeat);
-    });
-    drawConnections(_visualBeat);
+    heroThemeDraw(_visualBeat, dt, ts / 1000);
 }
 animateParticles();
+
+function initBgSwitcher() {
+    const toggle = document.getElementById('bgSwitcherToggle');
+    const panel  = document.getElementById('bgSwitcherPanel');
+    const label  = document.getElementById('bgSwitcherLabel');
+    if (!toggle || !panel || !label) return;
+
+    const todayAuto = new Date().getDay();
+
+    function updateLabel() {
+        const theme = HERO_THEMES[_bgTheme] || HERO_THEMES[0];
+        const lang  = typeof currentLanguage !== 'undefined' ? currentLanguage : 'es';
+        label.textContent = theme[lang] || theme.es;
+    }
+    window._bgUpdateLabel = updateLabel;
+
+    HERO_THEMES.forEach(theme => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'bg-sw-day-btn' + (_bgTheme === theme.id ? ' active' : '');
+        btn.dataset.bgId = theme.id;
+        const todayDot = theme.id === todayAuto ? '<span class="bg-sw-today-dot" title="Hoy"></span>' : '';
+        btn.innerHTML = `<i class="fa-solid ${theme.icon}"></i><span>${theme.es}</span>${todayDot}`;
+        btn.addEventListener('click', () => {
+            setBgTheme(theme.id);
+            panel.querySelectorAll('.bg-sw-day-btn').forEach(b => {
+                b.classList.toggle('active', parseInt(b.dataset.bgId) === _bgTheme);
+            });
+            updateLabel();
+        });
+        panel.appendChild(btn);
+    });
+
+    const arrow = toggle.querySelector('.bg-sw-arrow');
+    toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = panel.classList.toggle('open');
+        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+    });
+    document.addEventListener('click', () => {
+        panel.classList.remove('open');
+        if (arrow) arrow.style.transform = '';
+    });
+    panel.addEventListener('click', e => e.stopPropagation());
+
+    updateLabel();
+}
+initBgSwitcher();
 
 const sections = document.querySelectorAll('section[id], footer[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');

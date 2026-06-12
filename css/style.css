@@ -731,6 +731,120 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
     50%       { transform: translateX(-50%) translateY(7px); opacity: 0.5; }
 }
+
+/* ── Hero background switcher ──────────────────────────────────────────────── */
+.bg-switcher {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    z-index: 2;
+}
+.bg-switcher-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px 6px 11px;
+    border: 1px solid rgba(var(--accent-1-rgb) / 0.3);
+    border-radius: 999px;
+    background: rgba(8, 8, 20, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.bg-switcher-pill:hover {
+    background: rgba(var(--accent-1-rgb) / 0.15);
+    border-color: rgba(var(--accent-1-rgb) / 0.55);
+    color: #fff;
+}
+.bg-sw-arrow {
+    font-size: 0.6rem;
+    opacity: 0.5;
+    transition: transform 0.22s ease;
+}
+.bg-switcher-panel {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    background: rgba(8, 8, 22, 0.84);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(var(--accent-1-rgb) / 0.22);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    min-width: 268px;
+    max-width: calc(100vw - 56px);
+}
+.bg-switcher-panel.open { display: flex; }
+.bg-sw-day-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+    min-width: 60px;
+}
+.bg-sw-day-btn i { font-size: 1.05rem; }
+.bg-sw-day-btn:hover {
+    background: rgba(var(--accent-1-rgb) / 0.12);
+    color: rgba(255, 255, 255, 0.82);
+}
+.bg-sw-day-btn.active {
+    background: rgba(var(--accent-1-rgb) / 0.22);
+    border-color: rgba(var(--accent-1-rgb) / 0.5);
+    color: #fff;
+}
+.bg-sw-today-dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 5px rgb(var(--accent-1-rgb));
+    animation: bgSwPulse 2s ease-in-out infinite;
+}
+@keyframes bgSwPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+}
+html[data-theme="light"] .bg-switcher-pill {
+    background: rgba(255, 255, 255, 0.62);
+    border-color: rgba(var(--accent-1-rgb) / 0.35);
+    color: rgba(10, 10, 30, 0.62);
+}
+html[data-theme="light"] .bg-switcher-pill:hover {
+    background: rgba(255, 255, 255, 0.88);
+    color: rgba(10, 10, 30, 0.9);
+}
+html[data-theme="light"] .bg-switcher-panel {
+    background: rgba(238, 240, 255, 0.92);
+    border-color: rgba(var(--accent-1-rgb) / 0.28);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+html[data-theme="light"] .bg-sw-day-btn        { color: rgba(10, 10, 30, 0.42); }
+html[data-theme="light"] .bg-sw-day-btn:hover  { color: rgba(10, 10, 30, 0.78); }
+html[data-theme="light"] .bg-sw-day-btn.active { color: rgba(10, 10, 30, 0.95); }
+
 .about-grid {
     display: grid;
     grid-template-columns: 220px 1fr 1.2fr;
@@ -1800,6 +1914,9 @@ body.npb-visible #footer {
     .hero-name { font-size: clamp(2.6rem, 11vw, 3.5rem); }
     .hero-content { padding-inline: 20px; }
     .hero-cta  { flex-direction: column; align-items: stretch; }
+    .bg-switcher { bottom: 70px; left: 12px; }
+    .bg-sw-day-btn { min-width: 52px; padding: 7px 7px; font-size: 0.58rem; }
+    .bg-sw-day-btn i { font-size: 0.9rem; }
     .btn-primary,
     .btn-outline { justify-content: center; }
     .song-highlight,
