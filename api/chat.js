@@ -1,4 +1,4 @@
-const MODEL = 'meta-llama/llama-4-scout-17b-16e-instruct';
+const MODEL = 'llama-3.1-8b-instant';
 const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
 
 const CONTEXT = `
@@ -87,7 +87,7 @@ export default async function handler(req, res) {
 
         const groqMessages = [
             { role: 'system', content: SYSTEM_PROMPT(lang) },
-            ...messages.slice(-12).map((m) => ({
+            ...messages.slice(-6).map((m) => ({
                 role: m.role === 'assistant' ? 'assistant' : 'user',
                 content: String(m.content || '').slice(0, 4000),
             })),
