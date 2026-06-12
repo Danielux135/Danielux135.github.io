@@ -1,4 +1,4 @@
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = 'meta-llama/llama-4-scout-17b-16e-instruct';
 const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
 
 const CONTEXT = `
