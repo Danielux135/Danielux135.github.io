@@ -1,4 +1,4 @@
-const MODEL = 'gemini-2.0-flash';
+const MODEL = 'gemini-2.0-flash-lite';
 
 const SYSTEM_RULES = (lang) => `
 Eres el asistente del portfolio de Daniel Bort Guzmán (alias artístico "Danielux").

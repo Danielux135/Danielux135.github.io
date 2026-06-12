@@ -1743,7 +1743,7 @@ const TRACKS = [
 })();
 (function initAIChat() {
     // ▼▼ CONFIGURA AQUÍ la URL de tu función en Vercel (déjala así si sirves la web desde Vercel).
-    const AI_ENDPOINT = location.hostname.endsWith('vercel.app')
+    const AI_ENDPOINT = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
         ? '/api/chat'
         : 'https://danielux135-github-io.vercel.app/api/chat';
     // ▲▲
