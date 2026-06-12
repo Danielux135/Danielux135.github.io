@@ -894,3 +894,215 @@ html[data-theme="light"] .simon-pad::after { opacity: 0.3; }
 @media (prefers-reduced-motion: reduce) {
     .arcade-overlay, .arcade-card, .arcade-count { transition: none; animation: none; }
 }
+
+/* ==========================================================================
+   ARCADE PROMO — banner entre el reproductor y Legado
+   ========================================================================== */
+.arcade-promo {
+    position: relative;
+    overflow: hidden;
+    padding: 72px 24px;
+    text-align: center;
+    isolation: isolate;
+    cursor: pointer;
+    background:
+        radial-gradient(ellipse 80% 70% at 50% 50%, rgb(var(--accent-1-rgb) / 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgb(var(--accent-2-rgb) / 0.08) 0%, transparent 65%),
+        var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+/* Canvas reactivo con scanlines gamer */
+.arcade-promo-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.55;
+}
+/* Scanlines sobre todo */
+.arcade-promo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.07) 3px,
+        rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+html[data-theme="light"] .arcade-promo::before {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.04) 3px,
+        rgba(0,0,0,0.04) 4px
+    );
+}
+.arcade-promo-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* Badge "7 minijuegos" */
+.arcade-promo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgb(var(--accent-2-rgb) / 0.14);
+    border: 1px solid rgb(var(--accent-2-rgb) / 0.35);
+    color: var(--accent-2);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.arcade-promo:hover .arcade-promo-badge {
+    background: rgb(var(--accent-2-rgb) / 0.22);
+    box-shadow: 0 0 18px rgb(var(--accent-2-rgb) / 0.28);
+}
+.arcade-promo-badge i { font-size: 0.9rem; }
+
+/* Título */
+.arcade-promo-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.arcade-promo-line1 {
+    display: block;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text);
+}
+.arcade-promo-line2 {
+    display: block;
+    font-size: clamp(2.2rem, 6vw, 3.9rem);
+    font-weight: 900;
+    /* Gradiente reactivo al beat vía CSS var */
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 calc(var(--beat-alpha, 0) * 22px) rgb(var(--accent-1-rgb) / calc(var(--beat-alpha, 0) * 0.85)));
+}
+
+/* Subtítulo */
+.arcade-promo-sub {
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.62;
+    max-width: 440px;
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* Botón principal */
+.arcade-promo-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background: var(--gradient);
+    box-shadow: 0 4px 28px rgb(var(--accent-1-rgb) / 0.28), 0 0 0 0 rgb(var(--accent-1-rgb) / 0.3);
+    transition: transform 0.18s, box-shadow 0.18s;
+    overflow: hidden;
+}
+.arcade-promo-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 40px rgb(var(--accent-1-rgb) / 0.42), 0 0 0 5px rgb(var(--accent-1-rgb) / 0.12);
+}
+.arcade-promo-btn:active { transform: scale(0.98); }
+/* Brillo deslizante sobre el botón */
+.arcade-promo-btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.22) 50%, transparent 65%);
+    background-size: 200% 100%;
+    background-position: 200% center;
+    border-radius: inherit;
+    transition: background-position 0.55s ease;
+    pointer-events: none;
+}
+.arcade-promo-btn:hover .arcade-promo-btn-glow {
+    background-position: -50% center;
+}
+.arcade-promo-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.18s;
+}
+.arcade-promo-btn:hover .arcade-promo-arrow { transform: translateX(3px); }
+
+/* Lista de juegos (chips pequeños) */
+.arcade-promo-games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.arcade-promo-games span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 8px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    opacity: 0.7;
+    transition: opacity 0.2s, background 0.2s;
+}
+.arcade-promo:hover .arcade-promo-games span { opacity: 0.9; }
+.arcade-promo-games span i { font-size: 0.68rem; color: var(--accent-1); }
+
+/* Pulso beat en el borde inferior */
+.arcade-promo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient);
+    opacity: calc(0.4 + var(--beat-alpha, 0) * 0.6);
+    transition: opacity 0.05s linear;
+}
+
+@media (max-width: 600px) {
+    .arcade-promo { padding: 52px 20px; }
+    .arcade-promo-btn { padding: 12px 26px; font-size: 0.95rem; }
+    .arcade-promo-games { gap: 6px; }
+    .arcade-promo-games span { font-size: 0.68rem; padding: 4px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .arcade-promo-btn, .arcade-promo-btn-glow, .arcade-promo-arrow { transition: none; }
+}

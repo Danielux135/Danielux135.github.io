@@ -2863,4 +2863,93 @@ Arcade.register({
 });
 
 Arcade.init();
+
+/* ==========================================================================
+   ARCADE PROMO — canvas reactivo con partículas que pulsan al beat
+   ========================================================================== */
+(function initArcadePromo() {
+    const promo = document.getElementById('arcadePromo');
+    const btn   = document.getElementById('arcadePromoBtn');
+    const cv    = document.getElementById('arcadePromoCanvas');
+    if (!promo || !btn || !cv) return;
+
+    // Abrir arcade al pulsar cualquier zona del banner o el botón
+    const openArcade = (e) => { e.stopPropagation(); Arcade.open(); };
+    btn.addEventListener('click', openArcade);
+    promo.addEventListener('click', (e) => {
+        if (e.target === btn || btn.contains(e.target)) return;
+        openArcade(e);
+    });
+
+    // Canvas reactivo
+    const ctx2 = cv.getContext('2d');
+    let W = 0, H = 0, raf = null;
+    const COLS = 16, ROWS = 6;
+    let dots = [];
+
+    function resize() {
+        const r = promo.getBoundingClientRect();
+        W = cv.width  = Math.round(r.width);
+        H = cv.height = Math.round(r.height);
+        dots = [];
+        for (let c = 0; c < COLS; c++) {
+            for (let r2 = 0; r2 < ROWS; r2++) {
+                dots.push({
+                    x: (c + 0.5) / COLS * W,
+                    y: (r2 + 0.5) / ROWS * H,
+                    base: Math.random() * 0.35 + 0.05,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: 0.6 + Math.random() * 1.1,
+                    size: 1.4 + Math.random() * 1.8,
+                    hue: Math.random() > 0.5 ? 1 : 2,
+                });
+            }
+        }
+    }
+
+    let t2 = 0;
+    function frame(ts) {
+        raf = requestAnimationFrame(frame);
+        t2 = ts / 1000;
+        const beat = typeof _visualBeat === 'number' ? _visualBeat : 0;
+        ctx2.clearRect(0, 0, W, H);
+        const a1 = accentRgb(1), a2p = accentRgb(2);
+        for (let i = 0; i < dots.length; i++) {
+            const d = dots[i];
+            const pulse = Math.sin(t2 * d.speed + d.phase) * 0.5 + 0.5;
+            const alpha = d.base + pulse * 0.3 + beat * 0.45;
+            const rgb = d.hue === 1 ? a1 : a2p;
+            const r = d.size * (1 + beat * 1.8);
+            ctx2.beginPath();
+            ctx2.arc(d.x, d.y, r, 0, Math.PI * 2);
+            ctx2.fillStyle = rgbStr(rgb, Math.min(alpha, 0.95));
+            ctx2.fill();
+        }
+        // Líneas horizontales que pulsan al beat
+        if (beat > 0.06) {
+            const lineA = beat * 0.22;
+            ctx2.lineWidth = 0.8;
+            for (let row = 1; row < ROWS; row++) {
+                const y = row / ROWS * H;
+                ctx2.beginPath();
+                ctx2.moveTo(0, y); ctx2.lineTo(W, y);
+                ctx2.strokeStyle = rgbStr(a1, lineA);
+                ctx2.stroke();
+            }
+        }
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            if (!raf) raf = requestAnimationFrame(frame);
+        } else {
+            if (raf) { cancelAnimationFrame(raf); raf = null; }
+        }
+    }, { threshold: 0.1 });
+    obs.observe(promo);
+
+    window.addEventListener('resize', resize);
+    resize();
+})();
+
 })();
