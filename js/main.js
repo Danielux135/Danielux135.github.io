@@ -643,6 +643,7 @@ const FOSKY_VIDS = [
     'assets/fosky-4.mp4', 'assets/fosky-5.mp4', 'assets/fosky-6.mp4',
 ];
 const FOSKY_PHRASES = [
+    // Clásicos
     '¡Meow!',
     'Probablemente quiera un café.',
     'La página web es reactiva,\n¡prueba a poner música!',
@@ -655,6 +656,27 @@ const FOSKY_PHRASES = [
     'Ctrl+C, Ctrl+V.\nAsí es como se programa.',
     'No soy un gato cualquiera.\nSoy un gato con portfolio.',
     'Error 404: croquetas no encontradas.',
+    // Nuevas
+    '*se lame la pata*\n...¿qué mirabas?',
+    'He tirado algo de la mesa.\nFue necesario.',
+    'Miau significa\n"dame atención ahora".',
+    'Los lunes los inventó\nalguien sin gato.',
+    'Técnicamente soy\nel director creativo.',
+    'He pisado el teclado\ny he mejorado el código.',
+    'Si falla, echa la culpa al perro.',
+    '*ronronea en binario*',
+    'El 99% del tiempo duermo.\nEl 1% lo dedico a esto.',
+    '¿Tienes ratón? Pregunto por un amigo.',
+    'Stack Overflow está\nbien, pero yo estoy mejor.',
+    'Abrir 47 pestañas\nes completamente normal.',
+    'He auditado la web.\nNecesita más gatos.',
+    'Null pointer? Yo nunca fallo.\nSoy un gato.',
+    '*te juzga en silencio*',
+    'El café es para los débiles.\nYo tomo leche.',
+    'Bug encontrado.\nEra feature. Sigo.',
+    '¿Commits a las 3am?\nYo también estoy despierto.',
+    'Mi repo secreto\ntiene 0 bugs y 100% tests.\n(No existe.)',
+    'Mew.',
 ];
 const foskyWrap    = document.getElementById('foskyWrap');
 const foskyExpEl   = document.getElementById('foskyExpanded');
