@@ -636,7 +636,15 @@ let currentRoles = translations[currentLanguage].hero.roles;
 let typeTimeoutId;
 const navbar = document.getElementById('navbar');
 const metaDescription = document.querySelector('meta[name="description"]');
-const languageButtons = document.querySelectorAll('.lang-btn');
+const languageButtons = document.querySelectorAll('#langSwitcher .lang-btn');
+const langSwitcher   = document.getElementById('langSwitcher');
+const langPillLabel  = document.getElementById('langPillLabel');
+langSwitcher.addEventListener('click', () => {
+    if (!langSwitcher.classList.contains('open')) langSwitcher.classList.add('open');
+});
+document.addEventListener('click', (e) => {
+    if (!langSwitcher.contains(e.target)) langSwitcher.classList.remove('open');
+});
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
@@ -856,6 +864,8 @@ function applyTranslations(language) {
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-pressed', isActive);
     });
+    if (langPillLabel) langPillLabel.textContent = language.toUpperCase();
+    langSwitcher.classList.remove('open');
     localStorage.setItem('portfolioLanguage', language);
     if (window._bgUpdateLabel) window._bgUpdateLabel();
     resetTypewriter();
@@ -1882,11 +1892,16 @@ function hslToRgb(h, s, l) {
     return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
 }
 function updateAccentColors(v) {
-    // Reposo: cyan(195)/púrpura(262). En el golpe barren con fuerza hacia violeta/magenta.
-    const h1 = 195 + v * 95;  // cyan → violeta intenso (290)
-    const h2 = 262 + v * 48;  // púrpura → magenta (310)
-    const l1 = 50 + v * 12;   // luminosidad casi constante (cambio de color, no de brillo)
-    const l2 = 60 + v * 8;
+    if (window._colorDragging) return;
+    // Base hues: come from the active palette (set by applyPalette) or default cyan/purple.
+    const _h1base = window._paletteH1 !== undefined ? window._paletteH1 : 195;
+    const _h2base = window._paletteH2 !== undefined ? window._paletteH2 : 262;
+    const _l1base = window._paletteL1 !== undefined ? window._paletteL1 : 50;
+    const _l2base = window._paletteL2 !== undefined ? window._paletteL2 : 60;
+    const h1 = _h1base + v * 30;
+    const h2 = _h2base + v * 20;
+    const l1 = _l1base + v * 10;
+    const l2 = _l2base + v * 8;
     const [r1, g1, b1] = hslToRgb(h1, 100, l1);
     const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
     // Escribir una custom property en :root INVALIDA el estilo de TODO el documento
@@ -1943,53 +1958,221 @@ function animateParticles(ts = 0) {
 }
 animateParticles();
 
-function initBgSwitcher() {
-    const toggle = document.getElementById('bgSwitcherToggle');
-    const panel  = document.getElementById('bgSwitcherPanel');
-    const label  = document.getElementById('bgSwitcherLabel');
-    if (!toggle || !panel || !label) return;
+// Applies hue-based accent colors and updates all CSS vars + canvas globals
+function applyHueColors(h1, h2) {
+    h1 = ((h1 % 360) + 360) % 360;
+    h2 = ((h2 % 360) + 360) % 360;
+    const [r1,g1,b1] = hslToRgb(h1, 100, 55);
+    const [r2,g2,b2] = hslToRgb(h2, 90, 60);
+    const c1 = `rgb(${r1},${g1},${b1})`;
+    const c2 = `rgb(${r2},${g2},${b2})`;
+    const root = document.documentElement;
+    root.style.setProperty('--accent-1',     c1);
+    root.style.setProperty('--accent-2',     c2);
+    root.style.setProperty('--accent-1-rgb', `${r1} ${g1} ${b1}`);
+    root.style.setProperty('--accent-2-rgb', `${r2} ${g2} ${b2}`);
+    root.style.setProperty('--gradient',     `linear-gradient(135deg,${c1} 0%,${c2} 100%)`);
+    window._accent1Rgb  = [r1, g1, b1];
+    window._accent2Rgb  = [r2, g2, b2];
+    window._paletteH1   = h1;
+    window._paletteH2   = h2;
+    window._paletteL1   = 55;
+    window._paletteL2   = 60;
+    localStorage.setItem('portfolioH1', h1);
+    localStorage.setItem('portfolioH2', h2);
+}
 
-    const todayAuto = new Date().getDay();
+const COLOR_PRESETS = [
+    { id: 'cyber',    name: 'Cibernético', h1: 195, h2: 270 },
+    { id: 'fuego',    name: 'Fuego',       h1: 22,  h2: 0   },
+    { id: 'bosque',   name: 'Bosque',      h1: 145, h2: 195 },
+    { id: 'aurora',   name: 'Aurora',      h1: 330, h2: 268 },
+    { id: 'oro',      name: 'Oro',         h1: 43,  h2: 22  },
+    { id: 'neon',     name: 'Neón',        h1: 84,  h2: 190 },
+    { id: 'amatista', name: 'Amatista',    h1: 280, h2: 340 },
+];
 
-    function updateLabel() {
-        const theme = HERO_THEMES[_bgTheme] || HERO_THEMES[0];
-        const lang  = typeof currentLanguage !== 'undefined' ? currentLanguage : 'es';
-        label.textContent = theme[lang] || theme.es;
+function createHueStrip(canvas, initialH1, hueOffset, onChange) {
+    const ctx = canvas.getContext('2d');
+    const TH  = canvas.height; // track height in CSS px
+    let h1       = initialH1;
+    let offset   = hueOffset;
+    let dragging = false;
+    const DPR    = window.devicePixelRatio || 1;
+
+    function syncSize() {
+        const W = canvas.parentElement ? canvas.parentElement.clientWidth : 244;
+        canvas.width  = W * DPR;
+        canvas.height = TH * DPR;
+        canvas.style.width  = W  + 'px';
+        canvas.style.height = TH + 'px';
+        ctx.scale(DPR, DPR);
     }
-    window._bgUpdateLabel = updateLabel;
 
+    function draw() {
+        const W  = canvas.width  / DPR;
+        const H  = canvas.height / DPR;
+        const R  = H / 2;
+        ctx.clearRect(0, 0, W, H);
+
+        // — Rainbow track —
+        const grad = ctx.createLinearGradient(0, 0, W, 0);
+        for (let i = 0; i <= 12; i++) grad.addColorStop(i / 12, `hsl(${i * 30},92%,56%)`);
+        ctx.save();
+        ctx.beginPath();
+        ctx.roundRect(0, 0, W, H, R);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.restore();
+
+        // — Thumb —
+        const tx = Math.max(R, Math.min(W - R, (h1 / 360) * W));
+        const ty = H / 2;
+        const tr = H * 0.82;
+
+        // Drop shadow
+        ctx.save();
+        ctx.shadowColor = 'rgba(0,0,0,0.45)';
+        ctx.shadowBlur  = 6;
+        ctx.shadowOffsetY = 2;
+        ctx.beginPath();
+        ctx.arc(tx, ty, tr, 0, Math.PI * 2);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+        ctx.restore();
+
+        // Colored inner
+        ctx.beginPath();
+        ctx.arc(tx, ty, tr - 3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${h1},100%,55%)`;
+        ctx.fill();
+    }
+
+    function hueFromEvent(e) {
+        const rect = canvas.getBoundingClientRect();
+        const cx   = e.touches ? e.touches[0].clientX : e.clientX;
+        const x    = Math.max(0, Math.min(cx - rect.left, rect.width));
+        return (x / rect.width) * 360;
+    }
+
+    let rafPending = false;
+    function scheduleApply() {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => { rafPending = false; onChange(h1, offset); });
+    }
+
+    canvas.addEventListener('mousedown', e => {
+        dragging = true; window._colorDragging = true;
+        h1 = hueFromEvent(e); draw(); onChange(h1, offset);
+    });
+    canvas.addEventListener('touchstart', e => {
+        e.preventDefault(); dragging = true; window._colorDragging = true;
+        h1 = hueFromEvent(e); draw(); onChange(h1, offset);
+    }, { passive: false });
+    window.addEventListener('mousemove', e => {
+        if (!dragging) return; h1 = hueFromEvent(e); draw(); scheduleApply();
+    });
+    window.addEventListener('touchmove', e => {
+        if (!dragging) return; e.preventDefault(); h1 = hueFromEvent(e); draw(); scheduleApply();
+    }, { passive: false });
+    window.addEventListener('mouseup',  () => { dragging = false; window._colorDragging = false; });
+    window.addEventListener('touchend', () => { dragging = false; window._colorDragging = false; });
+
+    syncSize();
+    draw();
+
+    return {
+        update(newH1, newOffset) { h1 = newH1; offset = newOffset; syncSize(); draw(); }
+    };
+}
+
+function initStudio() {
+    const wrap      = document.getElementById('studioWrap');
+    const fab       = document.getElementById('studioFab');
+    const panel     = document.getElementById('studioPanel');
+    const bgGrid    = document.getElementById('studioBgGrid');
+    const presetsEl = document.getElementById('studioPresets');
+    const stripCv   = document.getElementById('studioHueStrip');
+    if (!wrap || !fab || !bgGrid || !presetsEl || !stripCv) return;
+
+    // — Restore saved state —
+    let savedId = localStorage.getItem('portfolioPreset') || 'cyber';
+    let savedH1 = parseFloat(localStorage.getItem('portfolioH1') || '195');
+    let savedH2 = parseFloat(localStorage.getItem('portfolioH2') || '262');
+    let activePreset = COLOR_PRESETS.find(p => p.id === savedId) || COLOR_PRESETS[0];
+    let hueOffset = savedH2 - savedH1; // preserve gradient spread
+    applyHueColors(savedH1, savedH2);
+
+    // — Hue strip —
+    const strip = createHueStrip(stripCv, savedH1, hueOffset, (newH1, offset) => {
+        const newH2 = newH1 + offset;
+        applyHueColors(newH1, newH2);
+        // Deselect preset if user drags away from it
+        presetsEl.querySelectorAll('.studio-preset-btn').forEach(b => {
+            const match = Math.abs(parseFloat(b.dataset.h1) - newH1) < 6;
+            b.classList.toggle('active', match);
+        });
+    });
+
+    // — Preset swatches —
+    COLOR_PRESETS.forEach(p => {
+        const btn  = document.createElement('button');
+        btn.type   = 'button';
+        btn.className   = 'studio-preset-btn' + (p.id === activePreset.id ? ' active' : '');
+        btn.dataset.h1  = p.h1;
+        btn.dataset.id  = p.id;
+        btn.dataset.name = p.name;
+        btn.title = p.name;
+        btn.style.background = `linear-gradient(135deg,hsl(${p.h1},92%,56%) 0%,hsl(${p.h2},88%,60%) 100%)`;
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            hueOffset = p.h2 - p.h1;
+            applyHueColors(p.h1, p.h2);
+            localStorage.setItem('portfolioPreset', p.id);
+            strip.update(p.h1, hueOffset);
+            presetsEl.querySelectorAll('.studio-preset-btn').forEach(b =>
+                b.classList.toggle('active', b.dataset.id === p.id));
+        });
+        presetsEl.appendChild(btn);
+    });
+
+    // — Bg theme buttons —
+    const todayAuto = new Date().getDay();
     HERO_THEMES.forEach(theme => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'bg-sw-day-btn' + (_bgTheme === theme.id ? ' active' : '');
+        btn.className = 'studio-bg-btn' + (_bgTheme === theme.id ? ' active' : '');
         btn.dataset.bgId = theme.id;
-        const todayDot = theme.id === todayAuto ? '<span class="bg-sw-today-dot" title="Hoy"></span>' : '';
-        btn.innerHTML = `<i class="fa-solid ${theme.icon}"></i><span>${theme.es}</span>${todayDot}`;
-        btn.addEventListener('click', () => {
+        const dot = theme.id === todayAuto ? '<span class="studio-today-dot" title="Hoy"></span>' : '';
+        btn.innerHTML = `<i class="fa-solid ${theme.icon}"></i>${theme.es}${dot}`;
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
             setBgTheme(theme.id);
-            panel.querySelectorAll('.bg-sw-day-btn').forEach(b => {
-                b.classList.toggle('active', parseInt(b.dataset.bgId) === _bgTheme);
-            });
-            updateLabel();
+            bgGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
+                b.classList.toggle('active', parseInt(b.dataset.bgId) === _bgTheme));
         });
-        panel.appendChild(btn);
+        bgGrid.appendChild(btn);
     });
 
-    const arrow = toggle.querySelector('.bg-sw-arrow');
-    toggle.addEventListener('click', e => {
+    // — Toggle panel —
+    fab.addEventListener('click', e => {
         e.stopPropagation();
-        const open = panel.classList.toggle('open');
-        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+        const open = wrap.classList.toggle('open');
+        fab.setAttribute('aria-expanded', open);
+        if (open) strip.update(parseFloat(localStorage.getItem('portfolioH1') || '195'), hueOffset);
     });
-    document.addEventListener('click', () => {
-        panel.classList.remove('open');
-        if (arrow) arrow.style.transform = '';
+    document.addEventListener('click', e => {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('open');
+            fab.setAttribute('aria-expanded', 'false');
+        }
     });
     panel.addEventListener('click', e => e.stopPropagation());
 
-    updateLabel();
+    window._bgUpdateLabel = () => {};
 }
-initBgSwitcher();
+initStudio();
 
 const sections = document.querySelectorAll('section[id], footer[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');

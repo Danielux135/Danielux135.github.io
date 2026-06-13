@@ -55,7 +55,8 @@
                 <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
                 <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
             </ul>
-            <div class="lang-switcher" aria-label="Language selector" data-i18n-aria-label="lang.selector">
+            <div class="lang-switcher" id="langSwitcher" aria-label="Language selector" data-i18n-aria-label="lang.selector">
+                <span class="lang-pill-label" id="langPillLabel" aria-hidden="true">ES</span>
                 <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
                 <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
                 <button type="button" class="lang-btn" data-lang="val" aria-pressed="false">VAL</button>
@@ -87,14 +88,6 @@
 
     <section id="hero">
         <canvas id="particles"></canvas>
-        <div class="bg-switcher" id="bgSwitcher">
-            <div class="bg-switcher-panel" id="bgSwitcherPanel"></div>
-            <button type="button" class="bg-switcher-pill" id="bgSwitcherToggle" aria-label="Cambiar fondo del hero">
-                <i class="fa-solid fa-palette"></i>
-                <span id="bgSwitcherLabel">Constelaciones</span>
-                <i class="fa-solid fa-angle-up bg-sw-arrow"></i>
-            </button>
-        </div>
         <div class="hero-content">
             <p class="hero-eyebrow fade-up" data-i18n="hero.eyebrow">Hola, soy</p>
             <h1 class="hero-name fade-up">Daniel Bort<br><span>Guzmán</span></h1>
@@ -673,6 +666,26 @@
             <input type="text" class="ai-chat-input" id="aiChatInput" data-i18n-placeholder="ai.placeholder" placeholder="Pregúntame sobre la web…" autocomplete="off" maxlength="500">
             <button type="submit" class="ai-chat-send" id="aiChatSend" aria-label="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
+    </div>
+    <!-- Studio FAB: customize background & colors -->
+    <div class="studio-wrap" id="studioWrap">
+        <div class="studio-panel" id="studioPanel">
+            <div class="studio-section">
+                <span class="studio-label">Fondo</span>
+                <div class="studio-bg-grid" id="studioBgGrid"></div>
+            </div>
+            <div class="studio-sep"></div>
+            <div class="studio-section">
+                <span class="studio-label">Color</span>
+                <div class="studio-strip-wrap">
+                    <canvas id="studioHueStrip" class="studio-hue-strip" height="22"></canvas>
+                </div>
+                <div class="studio-presets" id="studioPresets"></div>
+            </div>
+        </div>
+        <button class="studio-fab" id="studioFab" aria-label="Personalizar" aria-expanded="false">
+            <i class="fa-solid fa-sliders"></i>
+        </button>
     </div>
     <script src="js/main.js"></script>
     <script src="js/games.js"></script>
