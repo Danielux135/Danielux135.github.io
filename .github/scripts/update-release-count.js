@@ -50,7 +50,11 @@ async function getTrackCount(token) {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` },
     });
-    return data.track_count;
+    console.log('User data keys:', Object.keys(data));
+    console.log('track_count:', data.track_count, '| public_favorites_count:', data.public_favorites_count);
+    const count = data.track_count ?? data.public_tracks_count ?? data.track_count;
+    if (count === undefined || count === null) throw new Error(`track_count no encontrado en respuesta: ${JSON.stringify(data).slice(0, 300)}`);
+    return count;
 }
 
 async function main() {
@@ -61,8 +65,9 @@ async function main() {
     const htmlPath = 'index.html';
     let html = fs.readFileSync(htmlPath, 'utf8');
 
+    // Busca el stat4 (Lanzamientos) y actualiza el data-target
     const updated = html.replace(
-        /(<span class="music-stat-num" data-target=")\d+(">[^<]*<\/span><span class="music-stat-unit"><\/span>\s*\n\s*<span class="music-stat-label" data-i18n="music\.stat4")/,
+        /(<span class="music-stat-num" data-target=")[^"]*("[^<]*<\/span><span class="music-stat-unit"><\/span>\s*\n\s*<span class="music-stat-label" data-i18n="music\.stat4")/,
         `$1${count}$2`
     );
 
