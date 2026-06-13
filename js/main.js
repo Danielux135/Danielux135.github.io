@@ -15,45 +15,48 @@
         }
     });
 })();
+// Índice fijo por sesión: la misma variante en los 3 idiomas (coherencia al cambiar idioma)
+const _greetIdx = Math.floor(Math.random() * 3);
 function getGreeting(lang) {
     const h = new Date().getHours();
     const G = {
         es: [
-            [0,  4,  '¿Todavía despierto/a? Soy'],
-            [5,  7,  'Madrugador/a, ¿eh? Soy'],
-            [8,  11, 'Buenos días, soy'],
-            [12, 13, '¿Sin comer aún? Soy'],
-            [14, 16, 'Buenas tardes, soy'],
-            [17, 19, '¡Pillándote la tarde! Soy'],
-            [20, 22, 'Buenas noches, soy'],
-            [23, 23, 'Mañana te arrepentirás... Soy'],
+            // [lo, hi, [opción0, opción1, opción2]]
+            [0,  4,  ['¿Todavía despierto/a? Soy',        '¿A estas horas? Soy',                  'El insomnio mola. Soy']],
+            [5,  7,  ['Madrugador/a, ¿eh? Soy',           'El café aún está caliente. Soy',        '¡Vaya energía tan temprano! Soy']],
+            [8,  11, ['Buenos días, soy',                  '¡Buen provecho si desayunas! Soy',      'Mañana productiva por delante. Soy']],
+            [12, 13, ['¿Sin comer aún? Soy',               '¿Menú del día o tupper? Soy',           'Hora del bocata. Soy']],
+            [14, 16, ['Buenas tardes, soy',                'Hora de la siesta... o no. Soy',        'La tarde es tuya. Soy']],
+            [17, 19, ['¡Pillándote la tarde! Soy',         'El sol ya baja. Soy',                   'Hora del afterwork. Soy']],
+            [20, 22, ['Buenas noches, soy',                '¿Scrolleando antes de dormir? Soy',     'Noche tranquila. Soy']],
+            [23, 23, ['Mañana te arrepentirás... Soy',     '¿Seguro que no es mejor dormir? Soy',  'El sueño puede esperar. Soy']],
         ],
         en: [
-            [0,  4,  'Up this late? I am'],
-            [5,  7,  'Early bird! I am'],
-            [8,  11, 'Good morning, I am'],
-            [12, 13, 'Lunch break? I am'],
-            [14, 16, 'Good afternoon, I am'],
-            [17, 19, 'Golden hour! I am'],
-            [20, 22, 'Good evening, I am'],
-            [23, 23, "Tomorrow you'll regret this. I am"],
+            [0,  4,  ['Up this late? I am',               'Can\'t sleep? I am',                    'Night owl detected. I am']],
+            [5,  7,  ['Early bird! I am',                  'Coffee\'s still hot. I am',             'Rise and shine! I am']],
+            [8,  11, ['Good morning, I am',                'Hope you had breakfast. I am',          'Productive morning ahead. I am']],
+            [12, 13, ['Lunch break? I am',                 'Sandwich or leftovers? I am',           'Time to eat. I am']],
+            [14, 16, ['Good afternoon, I am',              'Siesta time? Not for me. I am',         'The afternoon is yours. I am']],
+            [17, 19, ['Golden hour! I am',                 'Sun\'s going down. I am',               'Afterwork time. I am']],
+            [20, 22, ['Good evening, I am',                'Scrolling before bed? I am',            'Quiet night. I am']],
+            [23, 23, ['Tomorrow you\'ll regret this. I am','Sleep is overrated. I am',              'Just five more minutes? I am']],
         ],
         val: [
-            [0,  4,  'Encara despert/a? Soc'],
-            [5,  7,  'Matiner/a, eh? Soc'],
-            [8,  11, 'Bon dia, soc'],
-            [12, 13, 'Sense dinar encara? Soc'],
-            [14, 16, 'Bona vesprada, soc'],
-            [17, 19, 'Pillant-te la vesprada! Soc'],
-            [20, 22, 'Bona nit, soc'],
-            [23, 23, "Demà te'n penediràs... Soc"],
+            [0,  4,  ['Encara despert/a? Soc',            'A aquestes hores? Soc',                 'L\'insomni mola. Soc']],
+            [5,  7,  ['Matiner/a, eh? Soc',               'El cafè encara és calent. Soc',         'Quina energia tan prompte! Soc']],
+            [8,  11, ['Bon dia, soc',                      'Bon profit si esmorzes! Soc',           'Bon matí productiu per davant. Soc']],
+            [12, 13, ['Sense dinar encara? Soc',           'Menú o tupper? Soc',                    'Hora del pa. Soc']],
+            [14, 16, ['Bona vesprada, soc',                'Hora de la migdiada... o no. Soc',      'La vesprada és teua. Soc']],
+            [17, 19, ['Pillant-te la vesprada! Soc',      'El sol ja baixa. Soc',                  'Hora de l\'afterwork. Soc']],
+            [20, 22, ['Bona nit, soc',                     'Fent scroll abans de dormir? Soc',      'Nit tranquil·la. Soc']],
+            [23, 23, ['Demà te\'n penediràs... Soc',       'Segur que no és millor dormir? Soc',    'El son pot esperar. Soc']],
         ],
     };
     const rows = G[lang] || G.es;
-    for (const [lo, hi, msg] of rows) {
-        if (h >= lo && h <= hi) return msg;
+    for (const [lo, hi, opts] of rows) {
+        if (h >= lo && h <= hi) return opts[_greetIdx % opts.length];
     }
-    return G.es[2][2]; // fallback
+    return G.es[2][0];
 }
 
 const translations = {
