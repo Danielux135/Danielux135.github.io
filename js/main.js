@@ -707,6 +707,17 @@ function foskyOpen() {
     foskyExpVid.onended = foskyClose;
 }
 
+const foskyHint = document.getElementById('foskyHint');
+function foskyShowHint() {
+    if (_foskyOpen || !foskyHint) return;
+    foskyHint.classList.add('visible');
+    setTimeout(() => foskyHint.classList.remove('visible'), 3000);
+    // Siguiente aparición: entre 25 y 45 segundos
+    setTimeout(foskyShowHint, 25000 + Math.random() * 20000);
+}
+// Primera aparición a los 8 segundos
+setTimeout(foskyShowHint, 8000);
+
 if (foskyWrap && foskyExpEl) {
     foskyWrap.addEventListener('click', e => {
         e.preventDefault();

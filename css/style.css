@@ -281,6 +281,38 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
 .fosky-wrap.fosky-bounce {
     animation: foskyBounce 0.55s cubic-bezier(.36,.07,.19,.97) both;
 }
+.fosky-hint {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(8, 8, 20, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--accent-1-rgb) / 0.45);
+    border-radius: 999px;
+    padding: 5px 12px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.fosky-hint::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(var(--accent-1-rgb) / 0.45);
+}
+.fosky-hint.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
 @keyframes foskyBounce {
     0%   { transform: scale(1)    rotate(0deg);  }
     18%  { transform: scale(1.18) rotate(-8deg); }
