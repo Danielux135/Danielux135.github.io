@@ -36,7 +36,12 @@
     <link rel="apple-touch-icon" href="assets/fosky.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/games.css">
-    <script>if(localStorage.getItem('portfolioTheme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+    <link rel="stylesheet" href="css/retro.css">
+    <link rel="stylesheet" href="css/gamer.css">
+    <script>
+        if(localStorage.getItem('portfolioTheme')==='light')document.documentElement.setAttribute('data-theme','light');
+        if(localStorage.getItem('portfolioStyleTheme'))document.documentElement.setAttribute('data-style-theme',localStorage.getItem('portfolioStyleTheme'));
+    </script>
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -98,7 +103,7 @@
                 </div>
             </div>
             <p class="hero-subtitle fade-up">
-                <span id="typewriter"></span><span class="cursor">|</span>
+                <span id="typewriter"></span>
             </p>
             <div class="hero-cta fade-up">
                 <a href="#sobre-mi" class="btn-outline hero-cta-link" data-section-target="sobre-mi">
@@ -678,6 +683,11 @@
                     <canvas id="studioHueStrip" class="studio-hue-strip" height="22"></canvas>
                 </div>
                 <div class="studio-presets" id="studioPresets"></div>
+            </div>
+            <div class="studio-sep"></div>
+            <div class="studio-section">
+                <span class="studio-label">Tema</span>
+                <div class="studio-theme-grid" id="studioThemeGrid"></div>
             </div>
         </div>
         <button class="studio-fab" id="studioFab" aria-label="Personalizar" aria-expanded="false">

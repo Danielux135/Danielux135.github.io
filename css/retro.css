@@ -1,0 +1,509 @@
+/* tema retro — CRT terminal en verde fósforo */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* variables de fondo del tema — los acentos no se sobreescriben para respetar el selector de color */
+html[data-style-theme="retro"] {
+    --bg:            #050a00;
+    --bg-alt:        #0a1200;
+    --surface:       rgba(0, 255, 65, 0.04);
+    --surface-hover: rgba(0, 255, 65, 0.09);
+    --border:        rgba(0, 255, 65, 0.35);
+    --text:          #c8ffcc;
+    --muted:         #4a8c5c;
+    --white:         #c8ffcc;
+    --font-head:     'Press Start 2P', monospace;
+    --font-body:     'VT323', monospace;
+    --radius:        0px;
+    --radius-sm:     0px;
+    --ease:          0.1s steps(4);
+}
+
+/* flicker de pantalla CRT */
+@keyframes crt-flicker {
+    0%,89%,91%,93%,100% { opacity: 1; }
+    90%,92% { opacity: 0.96; }
+}
+
+/* fondo y tipografía base */
+html[data-style-theme="retro"] body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'VT323', monospace;
+    font-size: 1.1em;
+    animation: crt-flicker 14s infinite;
+}
+
+/* scanlines — la opacidad crece levemente con el beat */
+html[data-style-theme="retro"] body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, calc(0.14 + var(--beat-alpha, 0) * 0.12)) 2px,
+        rgba(0, 0, 0, calc(0.14 + var(--beat-alpha, 0) * 0.12)) 4px
+    );
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* viñeta oscura en los bordes de la pantalla */
+html[data-style-theme="retro"] body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.55),
+                inset 0 0 220px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 10001;
+}
+
+/* tipografía de títulos con glow del acento */
+html[data-style-theme="retro"] h1,
+html[data-style-theme="retro"] h2,
+html[data-style-theme="retro"] h3,
+html[data-style-theme="retro"] h4 {
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.8), 0 0 30px rgb(var(--accent-1-rgb) / 0.3);
+    line-height: 1.8;
+}
+
+/* navbar */
+html[data-style-theme="retro"] #navbar {
+    background: rgba(5, 10, 0, 0.97) !important;
+    border-bottom: 2px solid rgb(var(--accent-1-rgb) / 0.5) !important;
+    box-shadow: 0 0 18px rgb(var(--accent-1-rgb) / 0.2) !important;
+}
+html[data-style-theme="retro"] #navbar.scrolled {
+    background: rgba(5, 10, 0, 0.99) !important;
+}
+
+/* links de navegación */
+html[data-style-theme="retro"] .nav-links a {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+    color: var(--text);
+}
+html[data-style-theme="retro"] .nav-links a:hover,
+html[data-style-theme="retro"] .nav-links a.active {
+    color: rgb(var(--accent-1-rgb));
+    text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.8);
+}
+
+/* botones del nav */
+html[data-style-theme="retro"] .theme-toggle,
+html[data-style-theme="retro"] .cmd-palette-trigger {
+    border-radius: 0 !important;
+    border-color: var(--border) !important;
+    color: var(--muted) !important;
+}
+html[data-style-theme="retro"] .theme-toggle:hover,
+html[data-style-theme="retro"] .cmd-palette-trigger:hover {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+}
+
+/* botón CV con efecto pixel press al hover */
+html[data-style-theme="retro"] .btn-cv {
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.6) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.48rem !important;
+    box-shadow: 3px 3px 0 rgb(var(--accent-1-rgb) / 0.25);
+    transition: all 0.06s !important;
+}
+html[data-style-theme="retro"] .btn-cv:hover {
+    box-shadow: none !important;
+    transform: translate(3px, 3px);
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+}
+
+/* selector de idioma */
+html[data-style-theme="retro"] .lang-switcher {
+    border-radius: 0 !important;
+    border-color: var(--border) !important;
+}
+html[data-style-theme="retro"] .lang-btn {
+    border-radius: 0 !important;
+    color: var(--muted) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.45rem !important;
+}
+html[data-style-theme="retro"] .lang-btn.active {
+    background: rgb(var(--accent-1-rgb) / 0.12) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+}
+html[data-style-theme="retro"] .lang-pill-label {
+    color: var(--muted) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.45rem !important;
+}
+
+/* hero — fondo y degradado reactivo al beat */
+html[data-style-theme="retro"] #hero {
+    background: var(--bg) !important;
+}
+html[data-style-theme="retro"] #hero::before {
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgb(var(--accent-1-rgb) / calc(0.07 + var(--beat-alpha, 0) * 0.13)) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 70% 70%, rgb(var(--accent-2-rgb) / calc(0.05 + var(--beat-alpha, 0) * 0.10)) 0%, transparent 60%);
+}
+
+/* eyebrow del hero */
+html[data-style-theme="retro"] .hero-eyebrow {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--muted);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+/* nombre principal — glow que crece con el beat */
+html[data-style-theme="retro"] .hero-name {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: clamp(1rem, 3.2vw, 2.2rem) !important;
+    color: var(--text) !important;
+    text-shadow:
+        0 0 10px rgb(var(--accent-1-rgb) / calc(0.8 + var(--beat-alpha, 0) * 0.2)),
+        0 0 30px rgb(var(--accent-1-rgb) / calc(0.4 + var(--beat-alpha, 0) * 0.3)) !important;
+    line-height: 2 !important;
+}
+html[data-style-theme="retro"] .hero-name span {
+    color: rgb(var(--accent-1-rgb)) !important;
+}
+
+/* subtítulo del hero */
+html[data-style-theme="retro"] .hero-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+/* cursor parpadeante estilo terminal en el typewriter */
+html[data-style-theme="retro"] #typewriter::after {
+    content: '_';
+    animation: retro-blink 0.75s step-end infinite;
+    color: rgb(var(--accent-1-rgb));
+}
+@keyframes retro-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* pill de estado */
+html[data-style-theme="retro"] .hero-status-pill {
+    border-radius: 0 !important;
+    background: rgb(var(--accent-1-rgb) / 0.06) !important;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.35) !important;
+    color: var(--text) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+}
+html[data-style-theme="retro"] .hero-status-dot {
+    background: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 0 0 8px rgb(var(--accent-1-rgb)) !important;
+}
+
+/* botones CTA — VT323 para legibilidad a este tamaño */
+html[data-style-theme="retro"] .btn-primary,
+html[data-style-theme="retro"] .btn-outline {
+    border-radius: 0 !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 2px !important;
+    transition: all 0.06s !important;
+    text-transform: uppercase;
+}
+html[data-style-theme="retro"] .btn-primary {
+    background: rgb(var(--accent-1-rgb)) !important;
+    color: #050a00 !important;
+    border: 2px solid rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 4px 4px 0 rgb(var(--accent-1-rgb) / 0.3) !important;
+    text-shadow: none !important;
+}
+html[data-style-theme="retro"] .btn-primary:hover {
+    box-shadow: none !important;
+    transform: translate(4px, 4px) !important;
+}
+html[data-style-theme="retro"] .btn-outline {
+    background: transparent !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.5) !important;
+    box-shadow: 4px 4px 0 rgb(var(--accent-1-rgb) / 0.15) !important;
+    text-shadow: none !important;
+}
+html[data-style-theme="retro"] .btn-outline:hover {
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: none !important;
+    transform: translate(4px, 4px) !important;
+}
+
+/* iconos de redes sociales */
+html[data-style-theme="retro"] .hero-social a {
+    color: var(--muted) !important;
+}
+html[data-style-theme="retro"] .hero-social a:hover {
+    color: rgb(var(--accent-1-rgb)) !important;
+    text-shadow: 0 0 12px rgb(var(--accent-1-rgb) / 0.8) !important;
+}
+
+/* avatar — se mantiene circular para no romper el recorte del ::after */
+html[data-style-theme="retro"] .about-avatar {
+    border-radius: 50% !important;
+}
+html[data-style-theme="retro"] .about-avatar::before {
+    border-radius: 50% !important;
+}
+html[data-style-theme="retro"] .about-avatar::after {
+    border-radius: 50% !important;
+    background: var(--bg) !important;
+}
+
+/* filtro sutil para integrar la foto en la paleta verde */
+html[data-style-theme="retro"] .about-avatar-img {
+    border-radius: 50% !important;
+    filter: sepia(0.2) hue-rotate(90deg) saturate(0.8) brightness(0.95) !important;
+}
+
+/* etiquetas del avatar */
+html[data-style-theme="retro"] .about-avatar-tag {
+    border-radius: 0 !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1.05rem !important;
+}
+html[data-style-theme="retro"] .about-avatar-tag i {
+    color: rgb(var(--accent-1-rgb)) !important;
+}
+
+/* fondo de secciones */
+html[data-style-theme="retro"] section {
+    background: var(--bg) !important;
+}
+
+/* etiqueta de sección */
+html[data-style-theme="retro"] .section-tag {
+    border-radius: 0 !important;
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.35) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.4rem !important;
+}
+
+/* project cards — borde reactivo al beat, sombra pixel */
+html[data-style-theme="retro"] .project-card {
+    border-radius: 0 !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / calc(0.30 + var(--beat-alpha, 0) * 0.4)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.03) !important;
+    box-shadow: 4px 4px 0 rgb(var(--accent-1-rgb) / 0.15), var(--beat-glow-soft, none) !important;
+    transition: all 0.06s !important;
+}
+html[data-style-theme="retro"] .project-card:hover {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.06) !important;
+    box-shadow: none, none !important;
+    transform: translate(4px, 4px) !important;
+}
+
+/* cards de legacy y contacto */
+html[data-style-theme="retro"] .eduardo-card,
+html[data-style-theme="retro"] .legacy-card,
+html[data-style-theme="retro"] .legacy-roles-card,
+html[data-style-theme="retro"] .contact-card {
+    border-radius: 0 !important;
+    border: 2px solid rgb(var(--accent-2-rgb) / calc(0.25 + var(--beat-alpha, 0) * 0.35)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.02) !important;
+    box-shadow: 4px 4px 0 rgb(var(--accent-1-rgb) / 0.12), var(--beat-glow-soft, none) !important;
+}
+
+/* platform cards */
+html[data-style-theme="retro"] .platform-card {
+    border-radius: 0 !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.25) !important;
+    background: rgb(var(--accent-1-rgb) / 0.02) !important;
+    box-shadow: 3px 3px 0 rgb(var(--accent-1-rgb) / 0.1) !important;
+    transition: all 0.06s !important;
+}
+html[data-style-theme="retro"] .platform-card:hover {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: none !important;
+    transform: translate(3px, 3px) !important;
+}
+
+/* tags y enlaces de proyectos */
+html[data-style-theme="retro"] .project-tag {
+    border-radius: 0 !important;
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.25) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+}
+html[data-style-theme="retro"] .project-links a {
+    border-radius: 0 !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.35) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+}
+html[data-style-theme="retro"] .project-links a:hover {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+}
+
+/* número de stats de música — glow beat-reactivo */
+html[data-style-theme="retro"] .music-stat-num {
+    color: rgb(var(--accent-1-rgb)) !important;
+    text-shadow: 0 0 calc(10px + var(--beat-alpha, 0) * 20px) rgb(var(--accent-1-rgb) / calc(0.6 + var(--beat-alpha, 0) * 0.4)) !important;
+    font-family: 'Press Start 2P', monospace !important;
+}
+
+/* etiquetas de habilidades */
+html[data-style-theme="retro"] .skill-tag,
+html[data-style-theme="retro"] .badge {
+    border-radius: 0 !important;
+    background: rgb(var(--accent-1-rgb) / 0.06) !important;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.25) !important;
+    color: var(--text) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+}
+
+/* barra de progreso de scroll */
+html[data-style-theme="retro"] .scroll-progress {
+    background: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 0 0 8px rgb(var(--accent-1-rgb) / 0.8) !important;
+}
+
+/* botones de navegación entre secciones */
+html[data-style-theme="retro"] .section-nav-btn {
+    border-radius: 0 !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.35) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    background: rgba(5, 10, 0, 0.85) !important;
+}
+html[data-style-theme="retro"] .section-nav-btn:hover:not(:disabled) {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.08) !important;
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.35) !important;
+}
+
+/* studio FAB de personalización */
+html[data-style-theme="retro"] .studio-fab {
+    border-radius: 0 !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.5) !important;
+    background: rgba(5, 10, 0, 0.92) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 3px 3px 0 rgb(var(--accent-1-rgb) / 0.15) !important;
+}
+html[data-style-theme="retro"] .studio-fab:hover {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 0 0 12px rgb(var(--accent-1-rgb) / 0.4) !important;
+}
+
+/* panel del studio */
+html[data-style-theme="retro"] .studio-panel {
+    border-radius: 0 !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.4) !important;
+    background: rgba(5, 10, 0, 0.97) !important;
+    box-shadow: 4px 4px 0 rgb(var(--accent-1-rgb) / 0.1) !important;
+}
+html[data-style-theme="retro"] .studio-label {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.5rem !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+    letter-spacing: 2px;
+}
+html[data-style-theme="retro"] .studio-bg-btn {
+    border-radius: 0 !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 0.95rem !important;
+    border-color: var(--border) !important;
+}
+html[data-style-theme="retro"] .studio-bg-btn.active {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    background: rgb(var(--accent-1-rgb) / 0.1) !important;
+    color: rgb(var(--accent-1-rgb)) !important;
+}
+html[data-style-theme="retro"] .studio-preset-btn {
+    border-radius: 0 !important;
+}
+html[data-style-theme="retro"] .studio-hue-strip {
+    border-radius: 0 !important;
+}
+
+/* panel de chat IA */
+html[data-style-theme="retro"] .ai-chat-panel {
+    border-radius: 0 !important;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.4) !important;
+    background: rgba(5, 10, 0, 0.97) !important;
+}
+html[data-style-theme="retro"] .ai-chat-panel-header {
+    border-bottom-color: rgb(var(--accent-1-rgb) / 0.2) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 0.5rem !important;
+}
+html[data-style-theme="retro"] .ai-message-bubble {
+    border-radius: 0 !important;
+}
+html[data-style-theme="retro"] .ai-chat-input {
+    border-radius: 0 !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.3) !important;
+    background: rgb(var(--accent-1-rgb) / 0.04) !important;
+    color: var(--text) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1.1rem !important;
+}
+html[data-style-theme="retro"] .ai-chat-input:focus {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.25) !important;
+}
+
+/* campos de formulario */
+html[data-style-theme="retro"] input:not(.ai-chat-input),
+html[data-style-theme="retro"] textarea {
+    border-radius: 0 !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.3) !important;
+    background: rgb(var(--accent-1-rgb) / 0.03) !important;
+    color: var(--text) !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1.1rem !important;
+}
+html[data-style-theme="retro"] input:focus,
+html[data-style-theme="retro"] textarea:focus {
+    border-color: rgb(var(--accent-1-rgb)) !important;
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.25) !important;
+    outline: none !important;
+}
+
+/* footer y sección de contacto */
+html[data-style-theme="retro"] footer,
+html[data-style-theme="retro"] #contacto {
+    border-top: 2px solid rgb(var(--accent-1-rgb) / 0.2) !important;
+}
+
+/* barra de reproducción */
+html[data-style-theme="retro"] .now-playing-bar {
+    border-radius: 0 !important;
+    border-top: 2px solid rgb(var(--accent-1-rgb) / 0.3) !important;
+    background: rgba(5, 10, 0, 0.97) !important;
+}
+
+/* cuando el tema light está activo, retro toma precedencia sobre el fondo */
+html[data-theme="light"][data-style-theme="retro"] {
+    --bg:     #050a00;
+    --bg-alt: #0a1200;
+    --text:   #c8ffcc;
+    --muted:  #4a8c5c;
+}
+html[data-theme="light"][data-style-theme="retro"] body {
+    background: #050a00;
+    color: #c8ffcc;
+}

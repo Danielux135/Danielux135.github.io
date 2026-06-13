@@ -1,11 +1,13 @@
-﻿/* Elimina el outline de foco al hacer click, lo mantiene para teclado */
+﻿/* oculta el outline al hacer clic, lo preserva para navegación por teclado */
 *:focus:not(:focus-visible) { outline: none !important; }
 
+/* propiedad personalizada animable para la opacidad del beat */
 @property --beat-alpha {
     syntax: '<number>';
     initial-value: 0;
     inherits: true;
 }
+/* transiciones de entrada/salida para view transitions api */
 @keyframes vt-slide-in-up {
     from { opacity: 0; transform: translateY(40px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -22,18 +24,21 @@
     from { opacity: 1; transform: translateY(0); }
     to   { opacity: 0; transform: translateY(40px); }
 }
+/* asignación de animaciones a la raíz en transición de página */
 ::view-transition-old(root) {
     animation: 280ms cubic-bezier(0.4, 0, 0.2, 1) both vt-slide-out-up;
 }
 ::view-transition-new(root) {
     animation: 280ms cubic-bezier(0.4, 0, 0.2, 1) both vt-slide-in-up;
 }
+/* dirección inversa cuando se navega hacia arriba */
 html[data-vt-dir="up"] ::view-transition-old(root) {
     animation-name: vt-slide-out-down;
 }
 html[data-vt-dir="up"] ::view-transition-new(root) {
     animation-name: vt-slide-in-down;
 }
+/* variables del tema — modo oscuro por defecto */
 :root {
     --bg:            #080d1a;
     --bg-alt:        #0c1120;
@@ -58,6 +63,7 @@ html[data-vt-dir="up"] ::view-transition-new(root) {
     --nav-h:         68px;
     --ease:          0.3s ease;
 }
+/* tema claro */
 html[data-theme="light"] {
     --bg:            #f0f4fa;
     --bg-alt:        #e6ecf5;
@@ -71,31 +77,40 @@ html[data-theme="light"] {
     --muted:         #6b7a99;
     --white:         #1a2035;
 }
+/* ajustes de body en tema claro */
 html[data-theme="light"] body { background: var(--bg); color: var(--text); }
+/* navbar con fondo claro al hacer scroll */
 html[data-theme="light"] #navbar.scrolled {
     background: rgba(240, 244, 250, 0.92);
     border-bottom-color: var(--border);
 }
+/* menú móvil abierto en tema claro */
 html[data-theme="light"] .nav-links.open {
     background: rgba(240, 244, 250, 0.97);
     border-bottom-color: var(--border);
 }
+/* botón de navegación de sección en tema claro */
 html[data-theme="light"] .section-nav-btn {
     background: rgba(240, 244, 250, 0.92);
     color: var(--text);
 }
+/* barra now playing en tema claro */
 html[data-theme="light"] .now-playing-bar {
     background: rgba(230, 236, 245, 0.96);
     box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
 }
+/* relleno del anillo del avatar en tema claro */
 html[data-theme="light"] .about-avatar::after { background: var(--bg); }
+/* fondo de la barra de habilidades en tema claro */
 html[data-theme="light"] .bar-track { background: rgba(0,0,0,0.08); }
+/* ajustes de la barra de volumen en tema claro */
 html[data-theme="light"] .player-vol-range {
     background: linear-gradient(90deg,
         rgb(var(--accent-1-rgb)) 0%,
         rgb(var(--accent-2-rgb)) var(--vol, 0%),
         rgba(0,0,0,0.10) var(--vol, 0%));
 }
+/* barra de progreso de reproducción en tema claro */
 html[data-theme="light"] .player-seek,
 html[data-theme="light"] .npb-seek {
     background: linear-gradient(90deg,
@@ -103,27 +118,38 @@ html[data-theme="light"] .npb-seek {
         rgb(var(--accent-2-rgb)) var(--seek, 0%),
         rgba(0,0,0,0.12) var(--seek, 0%));
 }
+/* fondo del iframe de video en tema claro */
 html[data-theme="light"] .song-video-frame { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.10); }
+/* campos de formulario en tema claro */
 html[data-theme="light"] .form-group input,
 html[data-theme="light"] .form-group textarea { background: rgba(0,0,0,0.03); }
+/* fondo con acento en campos enfocados en tema claro */
 html[data-theme="light"] .form-group input:focus,
 html[data-theme="light"] .form-group textarea:focus { background: rgba(0, 153, 204, 0.04); }
+/* gradiente radial del hero en tema claro */
 html[data-theme="light"] #hero::before {
     background:
         radial-gradient(ellipse 70% 60% at 50% 40%, rgb(var(--accent-1-rgb) / calc(0.09 + var(--beat-alpha) * 0.13)) 0%, transparent 70%),
         radial-gradient(ellipse 50% 50% at 70% 70%, rgb(var(--accent-2-rgb) / calc(0.07 + var(--beat-alpha) * 0.11)) 0%, transparent 60%);
 }
+/* sección del reproductor musical en tema claro */
 html[data-theme="light"] .music-player-section {
     background: linear-gradient(135deg, rgba(109, 53, 217, 0.07), rgba(0, 153, 204, 0.04));
     border-color: rgba(109, 53, 217, 0.2);
 }
+/* borde de la lista de pistas en tema claro */
 html[data-theme="light"] .tracklist { border-right-color: rgba(0,0,0,0.08); }
-html[data-theme="light"] .lang-pill-label { color: var(--white); }
+/* color de la etiqueta del idioma en tema claro */
+html[data-theme="light"] .lang-pill-label { color: var(--text); }
+/* switcher de idioma abierto en tema claro */
 html[data-theme="light"] .lang-switcher.open { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); }
 html[data-theme="light"] .lang-switcher.open .lang-btn { color: rgba(10,10,30,0.55); }
 html[data-theme="light"] .lang-switcher.open .lang-btn.active { color: var(--white); }
+/* reset base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* scroll suave global */
 html  { scroll-behavior: smooth; }
+/* estilos de body */
 body  {
     background: var(--bg);
     color: var(--text);
@@ -132,17 +158,23 @@ body  {
     line-height: 1.75;
     overflow-x: hidden;
 }
+/* reset de enlaces, listas e imágenes */
 a   { text-decoration: none; color: inherit; }
 ul  { list-style: none; }
 img { max-width: 100%; display: block; }
+/* contenedor centrado */
 .container {
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 28px;
 }
+/* sección genérica con padding vertical */
 .section     { padding: 110px 0; }
+/* sección con fondo alternativo */
 .section-alt { background: var(--bg-alt); }
+/* margen para que el ancla no quede oculto bajo la navbar */
 section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
+/* título de sección con gradiente de acento */
 .section-title {
     font-family: var(--font-head);
     font-size: clamp(2rem, 4vw, 2.7rem);
@@ -153,9 +185,10 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* Glow que late con el beat — drop-shadow sí afecta al texto con relleno transparente */
+    /* drop-shadow en lugar de text-shadow porque el texto tiene fill transparente */
     filter: drop-shadow(0 0 calc(var(--beat-alpha) * 16px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.55)));
 }
+/* descripción centrada bajo el título de sección */
 .section-desc {
     text-align: center;
     color: var(--muted);
@@ -164,6 +197,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     margin: 0 auto 64px;
 }
 .section-desc strong { color: var(--text); }
+/* botón primario con gradiente de acento */
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -186,7 +220,9 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgb(var(--accent-1-rgb) / 0.38);
 }
+/* variante a ancho completo del botón primario */
 .btn-primary.full-width { width: 100%; }
+/* botón secundario con borde */
 .btn-outline {
     display: inline-flex;
     align-items: center;
@@ -207,17 +243,20 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     transform: translateY(-2px);
     background: rgb(var(--accent-2-rgb) / 0.06);
 }
+/* animación de entrada al hacer scroll */
 .reveal,
 .fade-up {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
+/* estado visible tras intersección */
 .reveal.visible,
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
 }
+/* navbar fijo con transición de fondo */
 #navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -226,12 +265,14 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     transition: background var(--ease), backdrop-filter var(--ease), border-color var(--ease);
     border-bottom: 1px solid transparent;
 }
+/* estado con fondo al hacer scroll */
 #navbar.scrolled {
     background: rgba(8, 13, 26, 0.88);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
     border-bottom-color: var(--border);
 }
+/* contenedor interno de la navbar */
 .nav-container {
     max-width: 1120px;
     margin: 0 auto;
@@ -241,12 +282,14 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     align-items: center;
     gap: 12px;
 }
+/* logo de la navbar */
 .nav-logo {
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
     text-decoration: none;
 }
+/* contenedor circular del avatar fosky en la navbar */
 .fosky-wrap {
     position: relative;
     width: 38px;
@@ -259,15 +302,18 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     cursor: pointer;
     overflow: hidden;
 }
+/* hover del avatar fosky */
 .fosky-wrap:hover {
     border-color: rgba(var(--accent-1-rgb) / 0.9);
     box-shadow: 0 0 14px rgba(var(--accent-1-rgb) / 0.5);
     transform: scale(1.07);
 }
+/* estado de reproducción activa del avatar fosky */
 .fosky-wrap.fosky-playing {
     border-color: rgb(var(--accent-1-rgb));
     box-shadow: 0 0 18px rgba(var(--accent-1-rgb) / 0.7);
 }
+/* capa de imagen base del avatar fosky */
 .fosky-layer {
     position: absolute;
     inset: 0;
@@ -277,16 +323,20 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     border-radius: 50%;
     display: block;
 }
+/* video del avatar fosky, oculto hasta que carga */
 .fosky-vid {
     opacity: 0;
     transition: opacity 0.2s;
 }
+/* video visible cuando está listo */
 .fosky-vid.visible {
     opacity: 1;
 }
+/* animación de rebote al hacer clic en el avatar */
 .fosky-wrap.fosky-bounce {
     animation: foskyBounce 0.55s cubic-bezier(.36,.07,.19,.97) both;
 }
+/* tooltip del avatar fosky */
 .fosky-hint {
     position: absolute;
     bottom: calc(100% + 10px);
@@ -305,6 +355,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     opacity: 0;
     transition: opacity 0.35s ease, transform 0.35s ease;
 }
+/* punta de flecha del tooltip */
 .fosky-hint::after {
     content: '';
     position: absolute;
@@ -315,10 +366,12 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     border-right: 5px solid transparent;
     border-top: 5px solid rgba(var(--accent-1-rgb) / 0.45);
 }
+/* tooltip visible */
 .fosky-hint.visible {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+/* keyframes del rebote del avatar fosky */
 @keyframes foskyBounce {
     0%   { transform: scale(1)    rotate(0deg);  }
     18%  { transform: scale(1.18) rotate(-8deg); }
@@ -328,7 +381,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     100% { transform: scale(1)    rotate(0deg);  }
 }
 
-/* ── Fosky expanded overlay ─────────────────────────────────────────────────── */
+/* fosky — overlay expandido al hacer click en el logo */
 .fosky-expanded {
     position: fixed;
     top: calc(var(--nav-h) + 12px);
@@ -345,15 +398,18 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
                 opacity   0.3s  ease;
 }
+/* panel fosky abierto */
 .fosky-expanded.open {
     transform: scale(1);
     opacity: 1;
     pointer-events: auto;
 }
+/* animación de cierre del panel fosky */
 .fosky-expanded.closing {
     transform: scale(0);
     opacity: 0;
 }
+/* círculo grande del panel expandido de fosky */
 .fosky-exp-circle {
     width: 230px;
     height: 230px;
@@ -364,16 +420,19 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
                 0 12px 48px rgba(0, 0, 0, 0.5);
     animation: foskyGlow 2.5s ease-in-out infinite alternate;
 }
+/* pulso de brillo del anillo del panel fosky */
 @keyframes foskyGlow {
     from { box-shadow: 0 0 0 6px rgba(var(--accent-1-rgb) / 0.15), 0 12px 48px rgba(0,0,0,0.5); }
     to   { box-shadow: 0 0 0 10px rgba(var(--accent-1-rgb) / 0.35), 0 12px 48px rgba(0,0,0,0.5); }
 }
+/* video del panel expandido de fosky */
 .fosky-exp-vid {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+/* burbuja de texto del panel fosky */
 .fosky-exp-bubble {
     position: relative;
     background: rgba(8, 8, 20, 0.82);
@@ -392,10 +451,12 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     transform: translateY(6px);
     transition: opacity 0.35s ease 0.25s, transform 0.35s ease 0.25s;
 }
+/* burbuja visible cuando el panel está abierto */
 .fosky-expanded.open .fosky-exp-bubble {
     opacity: 1;
     transform: translateY(0);
 }
+/* borde superior de la burbuja (triángulo exterior) */
 .fosky-exp-bubble::before {
     content: '';
     position: absolute;
@@ -406,6 +467,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     border-right: 7px solid transparent;
     border-bottom: 7px solid rgba(var(--accent-1-rgb) / 0.35);
 }
+/* relleno interior del triángulo de la burbuja */
 .fosky-exp-bubble::after {
     content: '';
     position: absolute;
@@ -416,23 +478,28 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     border-right: 6px solid transparent;
     border-bottom: 6px solid rgba(8, 8, 20, 0.82);
 }
+/* burbuja en tema claro */
 html[data-theme="light"] .fosky-exp-bubble {
     background: rgba(240, 242, 255, 0.92);
     color: rgba(10, 10, 30, 0.9);
     border-color: rgba(var(--accent-1-rgb) / 0.4);
 }
+/* color del relleno del triángulo en tema claro */
 html[data-theme="light"] .fosky-exp-bubble::after {
     border-bottom-color: rgba(240, 242, 255, 0.92);
 }
+/* panel fosky reducido en móvil */
 @media (max-width: 580px) {
     .fosky-exp-circle { width: 180px; height: 180px; }
     .fosky-exp-bubble { width: 180px; font-size: 0.76rem; }
 }
+/* enlaces de navegación */
 .nav-links {
     display: flex;
     gap: 2px;
     margin-left: auto;
 }
+/* enlace individual de la navbar */
 .nav-links a {
     padding: 7px 11px;
     border-radius: var(--radius-sm);
@@ -442,8 +509,10 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     transition: var(--ease);
     white-space: nowrap;
 }
+/* enlace activo o en hover */
 .nav-links a:hover,
 .nav-links a.active { color: var(--white); background: var(--surface-hover); }
+/* selector de idioma colapsable */
 .lang-switcher {
     position: relative;
     display: inline-flex;
@@ -451,41 +520,52 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     border-radius: 999px;
     overflow: hidden;
     flex-shrink: 0;
-    height: 38px;
-    max-width: 38px;
-    background: var(--gradient);
-    transition: max-width 0.4s cubic-bezier(0.34, 1.15, 0.64, 1),
-                background 0.3s ease,
-                border-color 0.3s ease;
-    border: 1px solid transparent;
+    height: 44px;
+    max-width: 44px;
+    background: rgba(255,255,255,0.03);
+    will-change: max-width;
+    transition: max-width 0.6s cubic-bezier(0.25, 0, 0, 1),
+                background 0.45s ease,
+                border-color 0.45s ease;
+    border: 1px solid var(--border);
     cursor: pointer;
 }
+/* switcher desplegado */
 .lang-switcher.open {
-    max-width: 170px;
+    max-width: 175px;
     background: rgba(255,255,255,0.05);
     border-color: var(--border);
     cursor: default;
 }
-/* Label overlay shown when collapsed */
+/* hover del switcher colapsado */
+.lang-switcher:not(.open):hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.07);
+}
+/* etiqueta visible cuando el switcher está colapsado */
 .lang-pill-label {
     position: absolute;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--muted);
     font-family: var(--font-head);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     pointer-events: none;
     opacity: 1;
-    transition: opacity 0.15s ease;
+    transition: opacity 0.2s ease, filter 0.2s ease;
     z-index: 1;
     user-select: none;
 }
-.lang-switcher.open .lang-pill-label { opacity: 0; }
-/* Buttons */
+.lang-switcher.open .lang-pill-label {
+    opacity: 0;
+    filter: blur(4px);
+}
+/* botón individual de idioma */
 .lang-btn {
     flex-shrink: 0;
     min-width: 38px;
@@ -494,32 +574,48 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     border: 0;
     border-radius: 0;
     background: transparent;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.45);
     font-family: var(--font-head);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: color 0.2s, background 0.2s;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: color 0.2s, background 0.2s,
+                opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
 }
+/* botones de idioma inaccesibles cuando el switcher está cerrado */
 .lang-switcher:not(.open) .lang-btn { pointer-events: none; }
-.lang-switcher.open .lang-btn       { pointer-events: auto; }
+/* botones de idioma accesibles y visibles cuando está abierto */
+.lang-switcher.open .lang-btn {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateX(0);
+}
+/* entrada escalonada de cada botón de idioma */
+.lang-switcher.open .lang-btn:nth-child(2) { transition-delay: 0.06s; }
+.lang-switcher.open .lang-btn:nth-child(3) { transition-delay: 0.12s; }
+.lang-switcher.open .lang-btn:nth-child(4) { transition-delay: 0.18s; }
+/* hover de botón de idioma */
 .lang-switcher.open .lang-btn:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.09);
     color: var(--white);
 }
+/* botón del idioma activo */
 .lang-switcher.open .lang-btn.active {
     background: var(--gradient);
     color: var(--white);
 }
-/* ── Hero Status Pill ────────────────────────────────────────── */
+/* contenedor de la pill de disponibilidad en el hero */
 .hero-status {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: -4px 0 18px;
 }
+/* pill de estado con fondo translúcido */
 .hero-status-pill {
     display: inline-flex;
     align-items: center;
@@ -532,11 +628,13 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
+/* variante de disponibilidad (verde) */
 .hero-status-available {
     background: rgba(0, 200, 100, 0.1);
     border: 1px solid rgba(0, 200, 100, 0.25);
     color: #4ade80;
 }
+/* punto pulsante de estado */
 .hero-status-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
@@ -544,17 +642,20 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     flex-shrink: 0;
     animation: statusPulse 2s ease-in-out infinite;
 }
+/* keyframes del pulso del punto de estado */
 @keyframes statusPulse {
     0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
     50%       { opacity: 0.8; transform: scale(1.15); box-shadow: 0 0 0 5px rgba(74,222,128,0); }
 }
+/* pill de disponibilidad en tema claro */
 html[data-theme="light"] .hero-status-available {
     background: rgba(0,160,80,0.08);
     border-color: rgba(0,160,80,0.2);
     color: #16a34a;
 }
+/* punto de estado en tema claro */
 html[data-theme="light"] .hero-status-dot { background: #16a34a; }
-/* ── Scroll Progress Bar ─────────────────────────────────────── */
+/* barra de progreso de scroll */
 .scroll-progress {
     position: fixed;
     top: 0; left: 0;
@@ -570,41 +671,43 @@ html[data-theme="light"] .hero-status-dot { background: #16a34a; }
     transition: width 0.1s linear;
     pointer-events: none;
 }
-/* ── Command Palette ─────────────────────────────────────────── */
+/* botón disparador de la paleta de comandos */
 .cmd-palette-trigger {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
+    width: 44px;
     height: 44px;
-    padding: 0 20px;
+    padding: 0;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 50%;
     background: rgba(255,255,255,0.03);
     color: var(--muted);
     cursor: pointer;
-    font-size: 0.80rem;
+    font-size: 0.88rem;
     font-family: var(--font-head);
     font-weight: 700;
     flex-shrink: 0;
     transition: var(--ease);
 }
+/* hover del botón de la paleta */
 .cmd-palette-trigger:hover {
     border-color: var(--accent-1);
     color: var(--accent-1);
     background: rgb(var(--accent-1-rgb) / 0.07);
 }
-.cmd-palette-trigger-label {
-    font-size: 0.66rem;
-    opacity: 0.55;
-    letter-spacing: 0.01em;
-}
+/* etiqueta del botón oculta visualmente */
+.cmd-palette-trigger-label { display: none; }
+/* tamaño reducido en pantallas medianas */
 @media (max-width: 860px) {
-    .cmd-palette-trigger-label { display: none; }
-    .cmd-palette-trigger { padding: 5px 8px; }
+    .cmd-palette-trigger { width: 40px; height: 40px; }
 }
+/* botón de paleta en tema claro */
 html[data-theme="light"] .cmd-palette-trigger { background: rgba(0,0,0,0.03); }
 html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204,0.08); }
 
+/* overlay oscuro que cubre la página cuando la paleta está abierta */
 .cmd-palette-overlay {
     position: fixed;
     inset: 0;
@@ -620,10 +723,12 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     pointer-events: none;
     transition: opacity 0.18s ease;
 }
+/* overlay visible */
 .cmd-palette-overlay.open {
     opacity: 1;
     pointer-events: all;
 }
+/* panel de la paleta de comandos */
 .cmd-palette {
     width: 100%;
     max-width: 580px;
@@ -636,9 +741,11 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
     margin: 0 16px;
 }
+/* panel en posición normal cuando el overlay está abierto */
 .cmd-palette-overlay.open .cmd-palette {
     transform: translateY(0) scale(1);
 }
+/* cabecera con el input de búsqueda */
 .cmd-palette-header {
     display: flex;
     align-items: center;
@@ -646,11 +753,13 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     padding: 14px 18px;
     border-bottom: 1px solid var(--border);
 }
+/* icono de lupa de la paleta */
 .cmd-palette-icon {
     color: var(--muted);
     font-size: 0.9rem;
     flex-shrink: 0;
 }
+/* campo de texto de búsqueda */
 .cmd-palette-input {
     flex: 1;
     background: none;
@@ -660,7 +769,9 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     font-size: 1rem;
     font-family: inherit;
 }
+/* placeholder del input */
 .cmd-palette-input::placeholder { color: var(--muted); }
+/* tecla esc decorativa */
 .cmd-palette-esc {
     font-size: 0.68rem;
     padding: 2px 7px;
@@ -671,11 +782,13 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     flex-shrink: 0;
     font-family: inherit;
 }
+/* lista de resultados con scroll */
 .cmd-palette-results {
     max-height: 360px;
     overflow-y: auto;
     padding: 8px;
 }
+/* mensaje cuando no hay resultados */
 .cmd-palette-results:empty::after {
     content: attr(data-empty);
     display: block;
@@ -684,6 +797,7 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     font-size: 0.9rem;
     padding: 24px 0;
 }
+/* etiqueta de grupo dentro de la paleta */
 .cmd-group-label {
     font-size: 0.68rem;
     font-weight: 700;
@@ -692,6 +806,7 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     color: var(--muted);
     padding: 8px 10px 4px;
 }
+/* ítem individual de la paleta */
 .cmd-item {
     display: flex;
     align-items: center;
@@ -702,15 +817,18 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     transition: background 0.12s ease;
     color: var(--text);
 }
+/* ítem en hover o seleccionado con teclado */
 .cmd-item:hover,
 .cmd-item.active {
     background: var(--surface-hover);
 }
+/* ítem activo con acento lateral */
 .cmd-item.active {
     background: linear-gradient(90deg, rgb(var(--accent-1-rgb) / 0.12), rgba(109,53,217,0.1));
     border-left: 2px solid var(--accent-1);
     padding-left: 10px;
 }
+/* icono cuadrado del ítem */
 .cmd-item-icon {
     width: 32px; height: 32px;
     border-radius: 8px;
@@ -720,8 +838,11 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     color: var(--accent-1);
     flex-shrink: 0;
 }
+/* icono de ítem de tipo pista usa acento secundario */
 .cmd-item.cmd-type-track .cmd-item-icon { color: var(--accent-2); }
+/* cuerpo de texto del ítem */
 .cmd-item-body { flex: 1; min-width: 0; }
+/* título del ítem con truncado */
 .cmd-item-title {
     font-size: 0.9rem;
     font-weight: 600;
@@ -729,21 +850,25 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* texto marcado en la búsqueda */
 .cmd-item-title mark {
     background: none;
     color: var(--accent-1);
     font-weight: 700;
 }
+/* subtítulo del ítem */
 .cmd-item-sub {
     font-size: 0.75rem;
     color: var(--muted);
     margin-top: 1px;
 }
+/* flecha decorativa al final del ítem */
 .cmd-item-arrow {
     color: var(--muted);
     font-size: 0.7rem;
     flex-shrink: 0;
 }
+/* pie de la paleta con atajos de teclado */
 .cmd-palette-footer {
     display: flex;
     gap: 16px;
@@ -752,6 +877,7 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     font-size: 0.7rem;
     color: var(--muted);
 }
+/* tecla de atajo con estilo de teclado */
 .cmd-palette-footer kbd {
     display: inline-block;
     padding: 1px 5px;
@@ -762,8 +888,8 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     font-size: 0.68rem;
     margin-right: 2px;
 }
-/* ─────────────────────────────────────────────────────────────── */
 
+/* botón de cambio de tema claro/oscuro */
 .theme-toggle {
     width: 44px;
     height: 44px;
@@ -780,20 +906,25 @@ html[data-theme="light"] .cmd-palette-trigger:hover { background: rgba(0,153,204
     transition: var(--ease);
     position: relative;
 }
+/* hover del botón de tema con rotación */
 .theme-toggle:hover {
     border-color: var(--accent-1);
     color: var(--accent-1);
     background: rgb(var(--accent-1-rgb) / 0.07);
     transform: rotate(20deg);
 }
+/* iconos de sol y luna con transición cruzada */
 .theme-icon-light,
 .theme-icon-dark { position: absolute; transition: opacity 0.25s ease, transform 0.25s ease; }
 .theme-icon-light { opacity: 0; transform: rotate(90deg) scale(0.7); }
 .theme-icon-dark  { opacity: 1; transform: rotate(0deg) scale(1); }
+/* inversión de visibilidad de iconos en tema claro */
 html[data-theme="light"] .theme-icon-light { opacity: 1; transform: rotate(0deg) scale(1); }
 html[data-theme="light"] .theme-icon-dark  { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+/* botón de tema en modo claro */
 html[data-theme="light"] .theme-toggle { background: rgba(0,0,0,0.03); }
 html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.08); }
+/* botón de descarga del cv en la navbar */
 .btn-cv {
     display: inline-flex;
     align-items: center;
@@ -809,7 +940,9 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     transition: var(--ease);
     flex-shrink: 0;
 }
+/* hover del botón cv */
 .btn-cv:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgb(var(--accent-1-rgb) / 0.3); }
+/* botón hamburguesa para menú móvil */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -820,6 +953,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     padding: 8px;
     margin-left: auto;
 }
+/* líneas del hamburguesa */
 .nav-toggle span {
     display: block;
     width: 24px; height: 2px;
@@ -827,9 +961,11 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     border-radius: 2px;
     transition: var(--ease);
 }
+/* animación de las líneas al estado x cuando está abierto */
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* sección hero a pantalla completa */
 #hero {
     position: relative;
     min-height: 100vh;
@@ -850,11 +986,13 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     pointer-events: none;
     z-index: 0;
 }
+/* canvas de partículas del hero */
 #particles {
     position: absolute;
     inset: 0;
     z-index: 0;
 }
+/* contenido central del hero */
 .hero-content {
     position: relative;
     z-index: 1;
@@ -862,6 +1000,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     padding: calc(var(--nav-h) + 40px) 28px 100px;
     max-width: 760px;
 }
+/* texto pequeño sobre el título del hero */
 .hero-eyebrow {
     color: var(--accent-1);
     font-size: 0.95rem;
@@ -870,6 +1009,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     text-transform: uppercase;
     margin-bottom: 18px;
 }
+/* nombre en el hero */
 .hero-name {
     font-family: var(--font-head);
     font-size: clamp(3.2rem, 9vw, 6rem);
@@ -879,12 +1019,14 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     margin-bottom: 20px;
     letter-spacing: -0.02em;
 }
+/* parte del nombre con gradiente de acento */
 .hero-name span {
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+/* subtítulo animado con efecto de escritura */
 .hero-subtitle {
     font-size: clamp(1.05rem, 2.5vw, 1.35rem);
     color: var(--muted);
@@ -892,14 +1034,11 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     min-height: 2.1em;
     letter-spacing: 0.01em;
 }
-.cursor {
-    display: inline-block;
-    margin-left: 2px;
-    animation: blink 0.85s infinite;
-    color: var(--accent-1);
-    font-weight: 200;
-}
+/* cursor del efecto de escritura (desactivado visualmente) */
+.cursor { display: none; }
+/* parpadeo del cursor */
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+/* botones de llamada a la acción del hero */
 .hero-cta {
     display: flex;
     gap: 16px;
@@ -907,15 +1046,18 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     flex-wrap: wrap;
     margin-bottom: 52px;
 }
+/* ancho mínimo de los botones del hero */
 .hero-cta .btn-primary,
 .hero-cta .btn-outline {
     min-width: 170px;
 }
+/* iconos de redes sociales del hero */
 .hero-social {
     display: flex;
     gap: 14px;
     justify-content: center;
 }
+/* enlace individual de red social */
 .hero-social a {
     width: 58px; height: 58px;
     border-radius: 50%;
@@ -925,6 +1067,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     color: var(--muted);
     transition: var(--ease);
 }
+/* hover de icono social con glow */
 .hero-social a:hover {
     border-color: var(--accent-2);
     color: var(--accent-2);
@@ -932,6 +1075,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     background: rgb(var(--accent-2-rgb) / 0.1);
     box-shadow: 0 0 18px rgb(var(--accent-2-rgb) / 0.2);
 }
+/* indicador animado de scroll hacia abajo */
 .hero-scroll {
     position: absolute;
     bottom: 36px; left: 50%;
@@ -944,12 +1088,13 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     animation: heroScroll 2.2s ease-in-out infinite;
     z-index: 1;
 }
+/* keyframes del movimiento del indicador de scroll */
 @keyframes heroScroll {
     0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
     50%       { transform: translateX(-50%) translateY(7px); opacity: 0.5; }
 }
 
-/* ── Studio FAB ─────────────────────────────────────────────────────────────── */
+/* studio FAB — botón flotante de personalización */
 .studio-wrap {
     position: fixed;
     bottom: 28px;
@@ -978,17 +1123,20 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
     flex-shrink: 0;
 }
+/* hover del fab del studio */
 .studio-fab:hover {
     background: rgba(var(--accent-1-rgb) / 0.18);
     border-color: rgba(var(--accent-1-rgb) / 0.6);
     color: #fff;
 }
+/* fab girado 45° cuando el panel está abierto */
 .studio-wrap.open .studio-fab {
     transform: rotate(45deg);
     background: rgba(var(--accent-1-rgb) / 0.2);
     border-color: rgba(var(--accent-1-rgb) / 0.55);
     color: #fff;
 }
+/* panel flotante del studio de personalización */
 .studio-panel {
     display: flex;
     flex-direction: column;
@@ -1009,13 +1157,17 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     transition: transform 0.38s cubic-bezier(0.34, 1.15, 0.64, 1), opacity 0.25s ease;
     transform-origin: bottom left;
 }
+/* ocultar scrollbar del panel */
 .studio-panel::-webkit-scrollbar { display: none; }
+/* panel visible cuando el studio está abierto */
 .studio-wrap.open .studio-panel {
     transform: translateY(0) scale(1);
     opacity: 1;
     pointer-events: auto;
 }
+/* sección interna del panel del studio */
 .studio-section { padding: 14px 14px 12px; }
+/* etiqueta de sección dentro del studio */
 .studio-label {
     display: block;
     font-family: var(--font-head);
@@ -1026,17 +1178,25 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     color: rgba(255, 255, 255, 0.3);
     margin-bottom: 10px;
 }
+/* separador sutil entre secciones del studio */
 .studio-sep {
     height: 1px;
     background: rgba(255, 255, 255, 0.06);
     margin: 0 14px;
 }
-/* Bg grid */
+/* cuadrícula de fondos del studio */
 .studio-bg-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
 }
+/* cuadrícula de temas del studio */
+.studio-theme-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+}
+/* botón de selección de fondo */
 .studio-bg-btn {
     display: flex;
     flex-direction: column;
@@ -1057,16 +1217,20 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     text-align: center;
     line-height: 1.2;
 }
+/* icono del botón de fondo */
 .studio-bg-btn i { font-size: 0.95rem; margin-bottom: 1px; }
+/* hover del botón de fondo */
 .studio-bg-btn:hover {
     background: rgba(var(--accent-1-rgb) / 0.12);
     color: rgba(255, 255, 255, 0.82);
 }
+/* fondo activo seleccionado */
 .studio-bg-btn.active {
     background: rgba(var(--accent-1-rgb) / 0.2);
     border-color: rgba(var(--accent-1-rgb) / 0.5);
     color: #fff;
 }
+/* punto indicador del fondo del día */
 .studio-today-dot {
     position: absolute;
     top: 4px;
@@ -1078,15 +1242,17 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     box-shadow: 0 0 5px rgb(var(--accent-1-rgb));
     animation: studioPulse 2.2s ease-in-out infinite;
 }
+/* pulso del punto indicador */
 @keyframes studioPulse {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0.3; }
 }
-/* Hue strip */
+/* franja de selección de tono de color */
 .studio-strip-wrap {
     margin-bottom: 14px;
     position: relative;
 }
+/* svg de la franja de tono */
 .studio-hue-strip {
     display: block;
     width: 100%;
@@ -1094,12 +1260,13 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     border-radius: 999px;
     overflow: visible;
 }
-/* Presets */
+/* fila de colores preestablecidos */
 .studio-presets {
     display: flex;
     gap: 7px;
     flex-wrap: wrap;
 }
+/* botón circular de color preestablecido */
 .studio-preset-btn {
     flex: 1;
     min-width: 28px;
@@ -1114,6 +1281,7 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     box-shadow: 0 2px 8px rgba(0,0,0,0.35);
     position: relative;
 }
+/* tooltip con el nombre del preset */
 .studio-preset-btn::after {
     content: attr(data-name);
     position: absolute;
@@ -1133,18 +1301,21 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     opacity: 0;
     transition: opacity 0.15s, transform 0.15s;
 }
+/* tooltip visible en hover */
 .studio-preset-btn:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+/* escala al hacer hover */
 .studio-preset-btn:hover { transform: scale(1.18); }
+/* preset actualmente seleccionado */
 .studio-preset-btn.active {
     border-color: rgba(255,255,255,0.9);
     outline-color: rgba(255,255,255,0.18);
     transform: scale(1.12);
     box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
-/* Light theme */
+/* ajustes del studio en tema claro */
 html[data-theme="light"] .studio-fab {
     background: rgba(255, 255, 255, 0.82);
     border-color: rgba(var(--accent-1-rgb) / 0.3);
@@ -1165,6 +1336,7 @@ html[data-theme="light"] .studio-bg-btn:hover  { color: rgba(10, 10, 30, 0.78); 
 html[data-theme="light"] .studio-bg-btn.active { color: rgba(10, 10, 30, 0.95); }
 html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
 
+/* cuadrícula de tres columnas de la sección about */
 .about-grid {
     display: grid;
     grid-template-columns: 220px 1fr 1.2fr;
@@ -1172,6 +1344,7 @@ html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
     align-items: start;
     margin-top: 56px;
 }
+/* columna de foto sticky en about */
 .about-photo-col {
     display: flex;
     flex-direction: column;
@@ -1186,9 +1359,10 @@ html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
     display: flex; align-items: center; justify-content: center;
     position: relative;
     flex-shrink: 0;
-    /* Pulso sutil de tamaño con cada golpe */
+    /* escala levemente con el beat */
     transform: scale(calc(1 + var(--beat-alpha) * 0.045));
 }
+/* anillo giratorio de gradiente alrededor del avatar */
 .about-avatar::before {
     content: '';
     position: absolute;
@@ -1202,9 +1376,10 @@ html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
         var(--accent-1) 360deg);
     z-index: 0;
     animation: avatarSpin 3s linear infinite;
-    /* Glow que late con el beat (el tono ya viene de las variables de acento) */
+    /* glow beat-reactivo, color heredado del acento activo */
     box-shadow: 0 0 calc(var(--beat-alpha) * 30px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.7));
 }
+/* relleno oscuro que tapa el interior del anillo */
 .about-avatar::after {
     content: '';
     position: absolute;
@@ -1213,7 +1388,9 @@ html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
     background: var(--bg);
     z-index: 1;
 }
+/* rotación continua del anillo */
 @keyframes avatarSpin { to { transform: rotate(360deg); } }
+/* imagen de perfil */
 .about-avatar-img {
     position: relative;
     z-index: 2;
@@ -1223,9 +1400,11 @@ html[data-theme="light"] .studio-wheel-tag { color: rgba(10,10,30,0.38); }
     object-position: center 20%;
     border-radius: 50%;
 }
+/* pequeño ajuste de brillo de la foto en tema claro */
 html[data-theme="light"] .about-avatar-img {
     filter: brightness(1.04) contrast(1.02);
 }
+/* iniciales como fallback del avatar */
 .about-avatar-initials {
     position: relative;
     z-index: 2;
@@ -1239,12 +1418,14 @@ html[data-theme="light"] .about-avatar-img {
     line-height: 1;
     user-select: none;
 }
+/* columna de etiquetas bajo el avatar */
 .about-avatar-tags {
     display: flex;
     flex-direction: column;
     gap: 8px;
     width: 100%;
 }
+/* etiqueta individual de dato personal */
 .about-avatar-tag {
     display: flex;
     align-items: center;
@@ -1259,20 +1440,26 @@ html[data-theme="light"] .about-avatar-img {
     transition: var(--ease);
     cursor: default;
 }
+/* icono de la etiqueta */
 .about-avatar-tag i { color: var(--accent-2); font-size: 0.85rem; width: 16px; text-align: center; }
+/* hover de la etiqueta */
 .about-avatar-tag:hover { border-color: rgb(var(--accent-2-rgb) / 0.4); color: var(--text); }
+/* párrafos de texto en la sección about */
 .about-text p {
     color: var(--muted);
     font-size: 1.05rem;
     margin-bottom: 20px;
 }
+/* énfasis en el texto about */
 .about-text strong { color: var(--text); font-weight: 600; }
+/* fila de chips de habilidades en about */
 .about-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 30px;
 }
+/* chip individual de habilidad */
 .chip {
     display: inline-flex;
     align-items: center;
@@ -1287,12 +1474,15 @@ html[data-theme="light"] .about-avatar-img {
     transition: var(--ease);
     cursor: default;
 }
+/* icono del chip */
 .chip i { color: var(--accent-1); font-size: 0.85rem; }
+/* hover del chip */
 .chip:hover {
     background: rgb(var(--accent-2-rgb) / 0.1);
     border-color: rgb(var(--accent-2-rgb) / 0.45);
     color: var(--accent-2);
 }
+/* panel de barras de habilidades con borde beat-reactivo */
 .skills-panel {
     background: var(--surface);
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.10 + var(--beat-alpha) * 0.55));
@@ -1300,6 +1490,7 @@ html[data-theme="light"] .about-avatar-img {
     padding: 30px;
     box-shadow: var(--beat-glow-soft, none);
 }
+/* título del panel de habilidades */
 .skills-panel h3 {
     font-family: var(--font-head);
     font-weight: 700;
@@ -1309,7 +1500,9 @@ html[data-theme="light"] .about-avatar-img {
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
+/* columna de barras de habilidad */
 .skill-bars { display: flex; flex-direction: column; gap: 18px; }
+/* fila de información de cada habilidad */
 .skill-info {
     display: flex;
     justify-content: space-between;
@@ -1317,17 +1510,20 @@ html[data-theme="light"] .about-avatar-img {
     margin-bottom: 7px;
     color: var(--text);
 }
+/* porcentaje de la habilidad en cursiva */
 .skill-info span:last-child {
     color: var(--muted);
     font-size: 0.8rem;
     font-style: italic;
 }
+/* pista de fondo de la barra de habilidad */
 .bar-track {
     height: 5px;
     background: rgba(255,255,255,0.06);
     border-radius: 999px;
     overflow: hidden;
 }
+/* relleno animado de la barra de habilidad */
 .bar-fill {
     height: 100%;
     width: 0;
@@ -1336,26 +1532,32 @@ html[data-theme="light"] .about-avatar-img {
     box-shadow: 0 0 calc(var(--beat-alpha) * 26px) rgb(var(--accent-1-rgb) / calc(var(--beat-alpha) * 0.95));
     transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* cuadrícula de dos columnas de la sección música */
 .music-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: start;
 }
+/* iframe de spotify con bordes redondeados */
 .spotify-embed iframe {
     border-radius: var(--radius);
     display: block;
 }
+/* columna derecha de la sección música */
 .music-right { display: flex; flex-direction: column; gap: 28px; }
+/* cuadrícula del legado musical */
 .legacy-shell {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     margin: 56px auto 0;
 }
+/* tarjeta base del legado */
 .legacy-card {
     align-items: flex-start;
 }
+/* tarjeta de roles pasados con borde beat-reactivo */
 .legacy-roles-card {
     background: var(--surface);
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.18 + var(--beat-alpha) * 0.50));
@@ -1366,6 +1568,7 @@ html[data-theme="light"] .about-avatar-img {
     flex-direction: column;
     gap: 20px;
 }
+/* título de la tarjeta de roles */
 .legacy-roles-card h4 {
     font-family: var(--font-head);
     font-size: 1rem;
@@ -1374,11 +1577,13 @@ html[data-theme="light"] .about-avatar-img {
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
+/* fila de un rol individual */
 .legacy-role-item {
     display: flex;
     align-items: flex-start;
     gap: 14px;
 }
+/* icono cuadrado del rol */
 .legacy-role-icon {
     width: 38px; height: 38px;
     flex-shrink: 0;
@@ -1389,6 +1594,7 @@ html[data-theme="light"] .about-avatar-img {
     color: var(--accent-2);
     font-size: 0.9rem;
 }
+/* nombre del rol */
 .legacy-role-text strong {
     display: block;
     color: var(--text);
@@ -1396,11 +1602,13 @@ html[data-theme="light"] .about-avatar-img {
     font-weight: 600;
     margin-bottom: 2px;
 }
+/* descripción del rol */
 .legacy-role-text span {
     color: var(--muted);
     font-size: 0.82rem;
     line-height: 1.5;
 }
+/* tarjeta de canción destacada con gradiente radial */
 .song-highlight {
     padding: 24px;
     border-radius: var(--radius);
@@ -1410,6 +1618,7 @@ html[data-theme="light"] .about-avatar-img {
     border: 1px solid rgb(var(--accent-1-rgb) / calc(0.15 + var(--beat-alpha) * 0.50));
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
 }
+/* etiqueta superior de la canción destacada */
 .song-kicker {
     display: inline-block;
     margin-bottom: 10px;
@@ -1419,17 +1628,20 @@ html[data-theme="light"] .about-avatar-img {
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
+/* título de la canción destacada */
 .song-highlight h3 {
     font-family: var(--font-head);
     font-size: 1.35rem;
     color: var(--white);
     margin-bottom: 8px;
 }
+/* descripción de la canción destacada */
 .song-highlight p {
     color: var(--muted);
     font-size: 0.94rem;
     line-height: 1.65;
 }
+/* contenedor del iframe de video con aspect ratio 16:9 */
 .song-video-frame {
     position: relative;
     width: 100%;
@@ -1441,6 +1653,7 @@ html[data-theme="light"] .about-avatar-img {
     aspect-ratio: 16 / 9;
     min-height: 0;
 }
+/* iframe a tamaño completo del contenedor */
 .song-video-frame iframe {
     position: absolute;
     top: 0; left: 0;
@@ -1449,18 +1662,22 @@ html[data-theme="light"] .about-avatar-img {
     display: block;
     border: 0;
 }
+/* fila de acciones bajo la canción destacada */
 .song-highlight-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 18px;
 }
+/* enlace secundario con padding extra */
 .song-link-secondary {
     padding-inline: 22px;
 }
+/* sección completa de plataformas de streaming */
 .platforms-full {
     margin-top: 40px;
 }
+/* título de la sección de plataformas */
 .platforms h3 {
     font-family: var(--font-head);
     font-weight: 700;
@@ -1471,27 +1688,34 @@ html[data-theme="light"] .about-avatar-img {
     margin-bottom: 16px;
     text-align: center;
 }
+/* contenedor del carrusel de plataformas */
 .platform-cards {
     overflow: hidden;
     position: relative;
 }
+/* pista de marquesina que desplaza las tarjetas */
 .platform-cards-track {
     display: flex;
     width: max-content;
     animation: platformMarquee 20s linear infinite;
 }
+/* pausa la animación al hacer hover */
 .platform-cards-track:hover { animation-play-state: paused; }
+/* keyframes del movimiento de la marquesina */
 @keyframes platformMarquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
+/* ancho fijo de cada tarjeta de plataforma en el carrusel */
 .platform-cards .platform-card { flex-shrink: 0; width: 182px; margin-right: 10px; }
+/* cuadrícula de estadísticas musicales */
 .music-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-top: 16px;
 }
+/* tarjeta de estadística musical con borde beat-reactivo */
 .music-stat-item {
     background: linear-gradient(135deg, rgb(var(--accent-2-rgb) / 0.1), rgb(var(--accent-1-rgb) / 0.07));
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.15 + var(--beat-alpha) * 0.50));
@@ -1502,7 +1726,9 @@ html[data-theme="light"] .about-avatar-img {
     gap: 4px;
     transition: var(--ease);
 }
+/* hover de la estadística */
 .music-stat-item:hover { border-color: rgb(var(--accent-2-rgb) / 0.45); transform: translateY(-2px); }
+/* número grande de la estadística con gradiente */
 .music-stat-num {
     font-family: var(--font-head);
     font-size: 1.8rem;
@@ -1513,6 +1739,7 @@ html[data-theme="light"] .about-avatar-img {
     background-clip: text;
     line-height: 1;
 }
+/* unidad de la estadística con gradiente */
 .music-stat-unit {
     font-family: var(--font-head);
     font-size: 1.1rem;
@@ -1522,12 +1749,14 @@ html[data-theme="light"] .about-avatar-img {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+/* etiqueta descriptiva de la estadística */
 .music-stat-label {
     font-size: 0.75rem;
     color: var(--muted);
     line-height: 1.3;
     margin-top: 2px;
 }
+/* tarjeta de plataforma de streaming */
 .platform-card {
     display: flex;
     align-items: center;
@@ -1541,26 +1770,34 @@ html[data-theme="light"] .about-avatar-img {
     font-size: 0.95rem;
     transition: var(--ease);
 }
+/* hover de la tarjeta desplazada a la derecha */
 .platform-card:hover { transform: translateX(5px); }
+/* icono de la plataforma */
 .platform-card i:first-child { font-size: 1.35rem; width: 24px; text-align: center; }
+/* flecha que aparece en hover */
 .platform-card .arrow {
     margin-left: auto;
     font-size: 0.72rem;
     opacity: 0;
     transition: var(--ease);
 }
+/* flecha visible en hover */
 .platform-card:hover .arrow { opacity: 1; }
+/* colores de marca de cada plataforma */
 .platform-card.spotify    { --c: #1db954; }
 .platform-card.apple      { --c: #fa2d48; }
 .platform-card.youtube    { --c: #ff0000; }
 .platform-card.soundcloud { --c: #ff5500; }
 .platform-card.tidal      { --c: #00ffff; }
+/* svg de tidal a la misma escala que los iconos de font awesome */
 .tidal-svg { width: 1.35rem; height: 1.35rem; flex-shrink: 0; color: var(--c); }
+/* icono de cada plataforma coloreado con su marca */
 .platform-card.spotify    i:first-child,
 .platform-card.apple      i:first-child,
 .platform-card.youtube    i:first-child,
 .platform-card.soundcloud i:first-child,
 .platform-card.tidal      i:first-child { color: var(--c); }
+/* hover de cada plataforma en su color de marca */
 .platform-card.spotify:hover,
 .platform-card.apple:hover,
 .platform-card.youtube:hover,
@@ -1569,6 +1806,7 @@ html[data-theme="light"] .about-avatar-img {
     border-color: var(--c);
     color: var(--c);
 }
+/* tarjeta del artista eduardo con efecto 3d */
 .eduardo-card {
     display: flex;
     gap: 18px;
@@ -1580,7 +1818,9 @@ html[data-theme="light"] .about-avatar-img {
     border-radius: var(--radius);
     box-shadow: var(--beat-glow-soft, none);
 }
+/* hover de la tarjeta de eduardo */
 .eduardo-card:hover { border-color: rgb(var(--accent-2-rgb) / calc(0.45 + var(--beat-alpha) * 0.40)); }
+/* insignia circular del artista */
 .eduardo-badge {
     flex-shrink: 0;
     width: 50px; height: 50px;
@@ -1590,6 +1830,7 @@ html[data-theme="light"] .about-avatar-img {
     font-size: 1.25rem;
     color: var(--white);
 }
+/* título de la tarjeta del artista */
 .eduardo-text h4 {
     font-family: var(--font-head);
     font-weight: 700;
@@ -1597,12 +1838,14 @@ html[data-theme="light"] .about-avatar-img {
     color: var(--white);
     margin-bottom: 6px;
 }
+/* descripción del artista */
 .eduardo-text p {
     color: var(--muted);
     font-size: 0.86rem;
     line-height: 1.55;
     margin-bottom: 10px;
 }
+/* enlaces en línea con estilo de píldora */
 .section-desc a,
 .song-highlight-copy p a,
 .eduardo-text p a,
@@ -1618,6 +1861,7 @@ html[data-theme="light"] .about-avatar-img {
     transition: var(--ease);
     white-space: nowrap;
 }
+/* hover de los enlaces en línea */
 .section-desc a:hover,
 .song-highlight-copy p a:hover,
 .eduardo-text p a:hover,
@@ -1626,6 +1870,7 @@ html[data-theme="light"] .about-avatar-img {
     border-color: rgb(var(--accent-1-rgb) / 0.45);
     box-shadow: 0 10px 24px rgb(var(--accent-1-rgb) / 0.18);
 }
+/* enlace discreto con flecha animada */
 .link-subtle {
     color: var(--accent-1);
     font-size: 0.86rem;
@@ -1633,7 +1878,10 @@ html[data-theme="light"] .about-avatar-img {
     display: inline-flex; align-items: center; gap: 5px;
     transition: var(--ease);
 }
+/* hover amplía el gap para simular movimiento de la flecha */
 .link-subtle:hover { gap: 9px; }
+/* sección del reproductor musical integrado */
+/* cuerpo del reproductor con fondo reactivo al beat */
 .music-player-section {
     margin-top: 56px;
     background: linear-gradient(135deg,
@@ -1644,6 +1892,7 @@ html[data-theme="light"] .about-avatar-img {
     box-shadow: var(--beat-glow-soft, none);
     overflow: hidden;
 }
+/* cabecera del reproductor con título e icono */
 .music-player-header {
     padding: 5px 28px 0;
     display: flex;
@@ -1651,18 +1900,21 @@ html[data-theme="light"] .about-avatar-img {
     gap: 10px;
 }
 .music-player-header .song-kicker { margin-bottom: 0; }
+/* título del reproductor */
 .music-player-header h3 {
     font-family: var(--font-head);
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--white);
 }
+/* cuerpo del reproductor: tracklist a la izquierda, controles a la derecha */
 .music-player-body {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 0;
     align-items: start;
 }
+/* lista de canciones con scroll */
 .tracklist {
     padding: 20px 0 24px 28px;
     max-height: 260px;
@@ -1673,6 +1925,7 @@ html[data-theme="light"] .about-avatar-img {
 .tracklist::-webkit-scrollbar { width: 4px; }
 .tracklist::-webkit-scrollbar-track { background: transparent; }
 .tracklist::-webkit-scrollbar-thumb { background: rgb(var(--accent-2-rgb) / 0.5); border-radius: 2px; }
+/* fila individual de una canción en el tracklist */
 .track-item {
     display: flex;
     align-items: center;
@@ -1682,12 +1935,14 @@ html[data-theme="light"] .about-avatar-img {
     cursor: pointer;
     transition: var(--ease);
 }
+/* hover y estado activo del item del tracklist */
 .track-item:hover,
 .track-item.active {
     background: rgb(var(--accent-2-rgb) / 0.12);
     padding-left: 10px;
 }
 .track-item.active .track-num { color: var(--accent-2); }
+/* número de orden de la canción */
 .track-num {
     width: 20px;
     text-align: center;
@@ -1696,7 +1951,9 @@ html[data-theme="light"] .about-avatar-img {
     font-weight: 600;
     flex-shrink: 0;
 }
+/* contenedor del título de la canción */
 .track-info { flex: 1; min-width: 0; }
+/* título truncado de la canción */
 .track-title {
     display: block;
     font-size: 0.88rem;
@@ -1706,10 +1963,12 @@ html[data-theme="light"] .about-avatar-img {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* duración de la canción */
 .track-duration {
     font-size: 0.75rem;
     color: var(--muted);
 }
+/* icono de nota musical que reemplaza el número cuando la pista está activa */
 .track-playing-icon {
     color: var(--accent-2);
     font-size: 0.7rem;
@@ -1721,6 +1980,7 @@ html[data-theme="light"] .about-avatar-img {
 }
 .track-item.active .track-playing-icon { opacity: 1; }
 .track-item.active .track-num { display: none; }
+/* panel derecho con controles de reproducción */
 .player-controls-panel {
     padding: 24px 28px;
     display: flex;
@@ -1731,11 +1991,13 @@ html[data-theme="light"] .about-avatar-img {
 .player-now-playing { display: flex; flex-direction: column; gap: 4px; }
 .player-now-playing .track-title { font-size: 1.05rem; white-space: normal; }
 .player-now-playing .track-artist { font-size: 0.85rem; color: var(--muted); }
+/* fila de botones prev/play/next */
 .player-buttons {
     display: flex;
     align-items: center;
     gap: 16px;
 }
+/* botón genérico del reproductor */
 .player-btn {
     background: none;
     border: none;
@@ -1747,6 +2009,7 @@ html[data-theme="light"] .about-avatar-img {
     line-height: 1;
 }
 .player-btn:hover { color: var(--text); transform: scale(1.1); }
+/* botón de play/pause con glow reactivo al beat */
 .player-btn-play {
     width: 46px; height: 46px;
     border-radius: 50%;
@@ -1760,11 +2023,13 @@ html[data-theme="light"] .about-avatar-img {
     box-shadow: 0 4px 18px rgb(var(--accent-2-rgb) / calc(0.35 + var(--beat-alpha) * 0.5));
 }
 .player-btn-play:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgb(var(--accent-2-rgb) / 0.5); }
+/* fila de progreso con tiempos y barra de seek */
 .player-progress-row {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+/* texto de tiempo actual y total */
 .player-time {
     font-size: 0.76rem;
     color: var(--muted);
@@ -1772,6 +2037,7 @@ html[data-theme="light"] .about-avatar-img {
     font-variant-numeric: tabular-nums;
 }
 .player-time.right { text-align: right; }
+/* estilos base de los rangos del reproductor */
 .player-seek,
 .player-vol-range {
     -webkit-appearance: none;
@@ -1807,6 +2073,7 @@ html[data-theme="light"] .about-avatar-img {
     cursor: pointer;
     border: none;
 }
+/* fila de volumen con icono y rango */
 .player-vol-row {
     display: flex;
     align-items: center;
@@ -1816,7 +2083,7 @@ html[data-theme="light"] .about-avatar-img {
 .player-vol-range {
     width: 90px;
     height: 4px;
-    /* Relleno de acentos (reactivo al beat) hasta el nivel de volumen. */
+    /* relleno de color hasta el nivel de volumen, reactivo al beat */
     background: linear-gradient(90deg,
         rgb(var(--accent-1-rgb)) 0%,
         rgb(var(--accent-2-rgb)) var(--vol, 0%),
@@ -1833,12 +2100,14 @@ html[data-theme="light"] .about-avatar-img {
     .music-player-body { grid-template-columns: 1fr; }
     .player-controls-panel { padding: 20px; }
 }
+/* cuadrícula de tres columnas para los proyectos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 56px;
 }
+/* tarjeta de proyecto con borde reactivo al beat y efecto 3d */
 .project-card {
     background: var(--surface);
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.10 + var(--beat-alpha) * 0.55));
@@ -1854,6 +2123,7 @@ html[data-theme="light"] .about-avatar-img {
     transform-style: preserve-3d;
     will-change: transform;
 }
+/* línea de acento superior que aparece al hacer hover */
 .project-card::before {
     content: '';
     position: absolute;
@@ -1863,12 +2133,14 @@ html[data-theme="light"] .about-avatar-img {
     opacity: 0;
     transition: var(--ease);
 }
+/* hover de la tarjeta de proyecto: sube y añade sombra */
 .project-card:hover {
     border-color: rgb(var(--accent-1-rgb) / 0.28);
     transform: translateY(-5px);
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 .project-card:hover::before { opacity: 1; }
+/* icono cuadrado del proyecto con el degradado de acento */
 .project-icon {
     width: 58px; height: 58px;
     border-radius: var(--radius-sm);
@@ -1878,6 +2150,7 @@ html[data-theme="light"] .about-avatar-img {
     color: var(--white);
     flex-shrink: 0;
 }
+/* etiqueta de categoría del proyecto */
 .project-tag {
     font-size: 0.74rem;
     font-weight: 700;
@@ -1885,18 +2158,21 @@ html[data-theme="light"] .about-avatar-img {
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
+/* título del proyecto */
 .project-card h3 {
     font-family: var(--font-head);
     font-weight: 800;
     font-size: 1.22rem;
     color: var(--white);
 }
+/* descripción del proyecto */
 .project-card p {
     color: var(--muted);
     font-size: 0.9rem;
     line-height: 1.65;
     flex: 1;
 }
+/* enlace del proyecto con flecha animada al hover */
 .project-link {
     display: inline-flex;
     align-items: center;
@@ -1908,13 +2184,16 @@ html[data-theme="light"] .about-avatar-img {
     transition: var(--ease);
 }
 .project-link:hover { gap: 11px; }
+/* cuadrícula de dos columnas para la sección de contacto */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 52px;
     align-items: start;
 }
+/* columna izquierda: lista de enlaces de contacto */
 .contact-links { display: flex; flex-direction: column; gap: 10px; }
+/* fila de un medio de contacto con icono y datos */
 .contact-item {
     display: flex;
     align-items: center;
@@ -1926,16 +2205,19 @@ html[data-theme="light"] .about-avatar-img {
     color: var(--text);
     transition: var(--ease);
 }
+/* hover: desliza a la derecha y resalta el borde */
 .contact-item:hover {
     border-color: var(--accent-1);
     transform: translateX(5px);
 }
+/* icono del medio de contacto */
 .contact-item > i {
     font-size: 1.2rem;
     color: var(--accent-1);
     width: 22px; text-align: center;
     flex-shrink: 0;
 }
+/* etiqueta pequeña en mayúsculas del tipo de contacto */
 .contact-label {
     display: block;
     font-size: 0.72rem;
@@ -1945,12 +2227,14 @@ html[data-theme="light"] .about-avatar-img {
     letter-spacing: 0.09em;
     margin-bottom: 2px;
 }
+/* valor del dato de contacto */
 .contact-value {
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text);
 }
+/* formulario de contacto a la derecha */
 .contact-form {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -1960,13 +2244,16 @@ html[data-theme="light"] .about-avatar-img {
     flex-direction: column;
     gap: 22px;
 }
+/* grupo de campo de formulario: label + input en columna */
 .form-group { display: flex; flex-direction: column; gap: 7px; }
+/* etiqueta del campo de formulario */
 .form-group label {
     font-size: 0.84rem;
     font-weight: 600;
     color: var(--text);
     letter-spacing: 0.04em;
 }
+/* input y textarea del formulario */
 .form-group input,
 .form-group textarea {
     background: rgba(255,255,255,0.04);
@@ -1980,15 +2267,17 @@ html[data-theme="light"] .about-avatar-img {
     transition: var(--ease);
     outline: none;
 }
+/* foco en campos del formulario */
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--accent-1);
     background: rgb(var(--accent-1-rgb) / 0.04);
     box-shadow: 0 0 0 3px rgb(var(--accent-1-rgb) / 0.08);
 }
+/* placeholder atenuado en los campos del formulario */
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--muted); }
-/* ── Hire Band ───────────────────────────────────────────────── */
+/* sección hire band */
 .hire-band {
     padding: 80px 28px;
     background: linear-gradient(135deg,
@@ -1999,6 +2288,7 @@ html[data-theme="light"] .about-avatar-img {
     border-bottom: 1px solid var(--border);
     text-align: center;
 }
+/* interior de hire-band centrado con ancho máximo */
 .hire-band-inner {
     max-width: 680px;
     margin: 0 auto;
@@ -2007,6 +2297,7 @@ html[data-theme="light"] .about-avatar-img {
     align-items: center;
     gap: 28px;
 }
+/* eyebrow del hire-band */
 .hire-band-kicker {
     font-size: 0.75rem;
     font-weight: 700;
@@ -2015,6 +2306,7 @@ html[data-theme="light"] .about-avatar-img {
     color: var(--accent-1);
     margin-bottom: 6px;
 }
+/* título principal del hire-band */
 .hire-band-title {
     font-family: var(--font-head);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
@@ -2023,12 +2315,14 @@ html[data-theme="light"] .about-avatar-img {
     line-height: 1.1;
     margin-bottom: 10px;
 }
+/* subtítulo del hire-band */
 .hire-band-sub {
     font-size: 1.05rem;
     color: var(--muted);
     max-width: 480px;
     line-height: 1.6;
 }
+/* botón de llamada a la acción del hire-band */
 .hire-band-cta {
     display: inline-flex;
     align-items: center;
@@ -2053,7 +2347,7 @@ html[data-theme="light"] .hire-band {
         rgba(109,53,217,0.08) 50%,
         rgba(0,153,204,0.04) 100%);
 }
-/* ── Shuffle FAB (eliminado) ─────────────────────────────────── */
+/* shuffle FAB — oculto */
 .shuffle-fab {
     display: none !important;
     position: fixed;
@@ -2083,7 +2377,7 @@ html[data-theme="light"] .hire-band {
 }
 .shuffle-fab:active { transform: scale(0.95); }
 body.npb-visible .shuffle-fab { bottom: calc(22px + 64px); }
-/* ─────────────────────────────────────────────────────────────── */
+/* pie de página con borde superior */
 #footer {
     padding: 36px 0;
     border-top: 1px solid var(--border);
@@ -2092,12 +2386,15 @@ body.npb-visible .shuffle-fab { bottom: calc(22px + 64px); }
     font-size: 0.9rem;
     transition: padding-bottom 0.35s ease;
 }
+/* padding extra cuando el now-playing bar está visible */
 body.npb-visible #footer {
     padding-bottom: calc(36px + 64px);
 }
+/* enlace y corazón del footer */
 #footer a { color: var(--accent-1); font-weight: 600; transition: var(--ease); }
 #footer a:hover { color: var(--white); }
 #footer .fa-heart { color: #ef4444; }
+/* navegación fija de secciones (botones prev/next) */
 .section-nav {
     position: fixed;
     right: 22px;
@@ -2108,9 +2405,11 @@ body.npb-visible #footer {
     gap: 10px;
     transition: bottom 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+/* sube la nav cuando el reproductor está activo */
 .section-nav.player-active {
     bottom: calc(64px + 22px);
 }
+/* botón individual de la navegación de secciones */
 .section-nav-btn {
     width: 48px;
     height: 48px;
@@ -2126,15 +2425,18 @@ body.npb-visible #footer {
     -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
 }
+/* hover del botón de navegación */
 .section-nav-btn:hover:not(:disabled) {
     transform: translateY(-2px);
     border-color: rgb(var(--accent-1-rgb) / 0.45);
     color: var(--accent-1);
 }
+/* botón desactivado cuando no hay sección anterior o siguiente */
 .section-nav-btn:disabled {
     opacity: 0.45;
     cursor: not-allowed;
 }
+/* responsive: pantallas anchas medianas */
 @media (max-width: 1180px) {
     .section { padding: 96px 0; }
     .about-grid { grid-template-columns: 180px 1fr 1.2fr; }
@@ -2149,6 +2451,7 @@ body.npb-visible #footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* responsive: pantallas cortas */
 @media (max-height: 860px) {
     #hero {
         min-height: 100svh;
@@ -2168,6 +2471,7 @@ body.npb-visible #footer {
         bottom: 18px;
     }
 }
+/* responsive: tablet y móvil grande */
 @media (max-width: 920px) {
     .fosky-wrap { width: 34px; height: 34px; }
     .nav-container {
@@ -2210,6 +2514,7 @@ body.npb-visible #footer {
     .projects-grid { grid-template-columns: repeat(2, 1fr); }
     .about-grid { margin-top: 40px; }
 }
+/* responsive: móvil pequeño */
 @media (max-width: 580px) {
     .section { padding: 80px 0; }
     .container,
@@ -2217,7 +2522,7 @@ body.npb-visible #footer {
         padding: 0 20px;
     }
     .fosky-wrap { width: 32px; height: 32px; }
-    .lang-switcher { max-width: 38px; height: 36px; }
+    .lang-switcher { max-width: 40px; height: 40px; }
     .lang-switcher.open { max-width: 160px; }
     .lang-btn { min-width: 36px; height: 34px; padding: 0 8px; font-size: 0.7rem; }
     .hero-name { font-size: clamp(2.6rem, 11vw, 3.5rem); }
@@ -2248,7 +2553,7 @@ body.npb-visible #footer {
     .ai-chat-panel { right: 14px; bottom: 184px; height: min(480px, calc(100vh - 220px)); }
     body.npb-visible .ai-chat-panel { bottom: calc(184px + 64px); }
 }
-/* ── Tracklist search ── */
+/* búsqueda en tracklist */
 .tracklist-col {
     display: flex;
     flex-direction: column;
@@ -2256,6 +2561,7 @@ body.npb-visible #footer {
     min-height: 0;
 }
 html[data-theme="light"] .tracklist-col { border-right-color: rgba(0,0,0,0.08); }
+/* barra de búsqueda en la cabecera del tracklist */
 .tracklist-search-wrap {
     position: relative;
     display: flex;
@@ -2263,12 +2569,14 @@ html[data-theme="light"] .tracklist-col { border-right-color: rgba(0,0,0,0.08); 
     padding: 12px 14px 8px 28px;
     gap: 8px;
 }
+/* icono de lupa en la búsqueda del tracklist */
 .tracklist-search-icon {
     color: var(--muted);
     font-size: 0.75rem;
     flex-shrink: 0;
     pointer-events: none;
 }
+/* input de búsqueda de canciones */
 .tracklist-search {
     flex: 1;
     background: transparent;
@@ -2282,6 +2590,7 @@ html[data-theme="light"] .tracklist-col { border-right-color: rgba(0,0,0,0.08); 
 }
 .tracklist-search::placeholder { color: var(--muted); opacity: 0.7; }
 .tracklist-search::-webkit-search-cancel-button { display: none; }
+/* botón de limpiar la búsqueda */
 .tracklist-search-clear {
     background: none;
     border: none;
@@ -2295,6 +2604,7 @@ html[data-theme="light"] .tracklist-col { border-right-color: rgba(0,0,0,0.08); 
     flex-shrink: 0;
 }
 .tracklist-search-clear:hover { color: var(--text); }
+/* línea inferior de la barra de búsqueda que resalta al tener foco */
 .tracklist-search-wrap::after {
     content: '';
     position: absolute;
@@ -2307,11 +2617,13 @@ html[data-theme="light"] .tracklist-col { border-right-color: rgba(0,0,0,0.08); 
 }
 .tracklist-search-wrap:focus-within::after { background: rgb(var(--accent-1-rgb) / 0.35); }
 html[data-theme="light"] .tracklist-search-wrap:focus-within::after { background: rgba(0, 153, 204, 0.4); }
+/* resalta el texto coincidente con la búsqueda */
 .tracklist .track-title mark {
     background: transparent;
     color: var(--accent-1);
     font-weight: 700;
 }
+/* mensaje cuando no hay resultados en la búsqueda */
 .tracklist-no-results {
     padding: 24px 28px;
     font-size: 0.82rem;
@@ -2322,10 +2634,10 @@ html[data-theme="light"] .tracklist-search-wrap:focus-within::after { background
     flex: 1;
     border-right: none;
 }
-/* ── Share button ── */
+/* botón de compartir */
 .player-share-btn { margin-left: auto; font-size: 0.9rem !important; }
 .player-share-btn.copied { color: var(--accent-1) !important; }
-/* ── Share toast ── */
+/* toast de confirmación al compartir */
 .share-toast {
     position: absolute;
     bottom: 14px;
@@ -2349,7 +2661,7 @@ html[data-theme="light"] .share-toast {
     border-color: rgba(0, 153, 204, 0.3);
 }
 .music-player-section { position: relative; }
-/* ── Responsive: search on mobile ── */
+/* búsqueda en móvil */
 @media (max-width: 720px) {
     .tracklist-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
     html[data-theme="light"] .tracklist-col { border-bottom-color: rgba(0,0,0,0.08); }
@@ -2357,6 +2669,7 @@ html[data-theme="light"] .share-toast {
     .tracklist-search-wrap::after { left: 20px; right: 20px; }
     .tracklist { border-right: none; border-bottom: none; padding: 8px 20px 16px; }
 }
+/* canvas del visualizador de frecuencias del reproductor */
 .player-visualizer {
     display: block;
     width: 100%;
@@ -2364,6 +2677,7 @@ html[data-theme="light"] .share-toast {
     opacity: 0.7;
     margin-bottom: -4px;
 }
+/* barra de reproducción en curso, fija en la parte inferior */
 .now-playing-bar {
     position: fixed;
     bottom: 0; left: 0; right: 0;
@@ -2380,6 +2694,7 @@ html[data-theme="light"] .share-toast {
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.5);
 }
+/* línea superior animada con el degradado de acento */
 .now-playing-bar::before {
     content: '';
     position: absolute;
@@ -2400,9 +2715,11 @@ html[data-theme="light"] .share-toast {
     0%   { background-position: 0% 0%; }
     100% { background-position: 300% 0%; }
 }
+/* estado visible de la barra: desliza hacia arriba */
 .now-playing-bar.visible {
     transform: translateY(0);
 }
+/* contenedor interno de la barra con ancho máximo */
 .npb-inner {
     display: flex;
     align-items: center;
@@ -2410,6 +2727,7 @@ html[data-theme="light"] .share-toast {
     width: 100%;
     max-width: 960px;
 }
+/* zona de título de la pista en la barra */
 .npb-track {
     display: flex;
     align-items: center;
@@ -2418,6 +2736,7 @@ html[data-theme="light"] .share-toast {
     flex: 1;
     max-width: 280px;
 }
+/* mini visualizador de barras animadas en la barra de reproducción */
 .npb-visualizer-mini {
     display: flex;
     align-items: center;
@@ -2436,6 +2755,7 @@ html[data-theme="light"] .share-toast {
     height: 4px;
     transition: height 0.15s ease;
 }
+/* animación escalonada de las barras del mini visualizador */
 .now-playing-bar.playing .npb-visualizer-mini span:nth-child(1) { animation: npbBar 0.8s ease-in-out infinite alternate; }
 .now-playing-bar.playing .npb-visualizer-mini span:nth-child(2) { animation: npbBar 0.6s ease-in-out 0.1s infinite alternate; }
 .now-playing-bar.playing .npb-visualizer-mini span:nth-child(3) { animation: npbBar 0.9s ease-in-out 0.2s infinite alternate; }
@@ -2445,12 +2765,14 @@ html[data-theme="light"] .share-toast {
     from { height: 4px; }
     to   { height: 18px; }
 }
+/* contenedor del nombre de la pista y artista */
 .npb-info {
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
+/* nombre de la pista en la barra */
 .npb-title {
     font-size: 0.85rem;
     font-weight: 700;
@@ -2460,16 +2782,19 @@ html[data-theme="light"] .share-toast {
     text-overflow: ellipsis;
     max-width: 180px;
 }
+/* nombre del artista en la barra */
 .npb-artist {
     font-size: 0.73rem;
     color: var(--muted);
 }
+/* fila de botones de control del reproductor en la barra */
 .npb-controls {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
 }
+/* botón genérico de la barra */
 .npb-btn {
     background: none;
     border: none;
@@ -2481,6 +2806,7 @@ html[data-theme="light"] .share-toast {
     line-height: 1;
 }
 .npb-btn:hover { color: var(--text); transform: scale(1.1); }
+/* botón de reproducción con degradado destacado */
 .npb-btn-play {
     width: 38px; height: 38px;
     border-radius: 50%;
@@ -2492,6 +2818,7 @@ html[data-theme="light"] .share-toast {
     transform: none !important;
 }
 .npb-btn-play:hover { box-shadow: 0 4px 20px rgb(var(--accent-2-rgb) / 0.6) !important; filter: brightness(1.1); }
+/* barra de progreso de la reproducción en la barra inferior */
 .npb-seek-wrap {
     flex: 1;
     min-width: 80px;
@@ -2505,7 +2832,7 @@ html[data-theme="light"] .share-toast {
     appearance: none;
     height: 3px;
     border-radius: 999px;
-    /* Mismo truco que .player-seek: relleno de acentos (reactivo al beat) en lo reproducido. */
+    /* mismo truco que .player-seek: relleno de color en lo reproducido */
     background: linear-gradient(90deg,
         rgb(var(--accent-1-rgb)) 0%,
         rgb(var(--accent-2-rgb)) var(--seek, 0%),
@@ -2528,6 +2855,7 @@ html[data-theme="light"] .share-toast {
     border: none;
     cursor: pointer;
 }
+/* control de volumen en la barra inferior */
 .npb-vol-wrap {
     display: flex;
     align-items: center;
@@ -2535,6 +2863,7 @@ html[data-theme="light"] .share-toast {
     flex-shrink: 0;
     width: 110px;
 }
+/* icono del volumen, clickable para silenciar */
 .npb-vol-icon {
     color: var(--muted);
     font-size: 0.8rem;
@@ -2549,7 +2878,7 @@ html[data-theme="light"] .share-toast {
     appearance: none;
     height: 3px;
     border-radius: 999px;
-    /* Relleno de acentos (reactivo al beat) hasta el nivel de volumen. */
+    /* relleno de color hasta el nivel de volumen, reactivo al beat */
     background: linear-gradient(90deg,
         rgb(var(--accent-1-rgb)) 0%,
         rgb(var(--accent-2-rgb)) var(--vol, 0%),
@@ -2578,6 +2907,7 @@ html[data-theme="light"] .npb-vol {
         rgb(var(--accent-2-rgb)) var(--vol, 0%),
         rgba(0,0,0,0.12) var(--vol, 0%));
 }
+/* botón de cerrar la barra de reproducción */
 .npb-close {
     background: none;
     border: none;
@@ -2589,13 +2919,14 @@ html[data-theme="light"] .npb-vol {
     flex-shrink: 0;
 }
 .npb-close:hover { color: var(--text); }
+/* responsive: oculta seek y volumen en móvil */
 @media (max-width: 580px) {
     .npb-seek-wrap { display: none; }
     .npb-vol-wrap { display: none; }
     .npb-title { max-width: 120px; }
     .now-playing-bar { padding: 0 12px; gap: 10px; }
 }
-/* ── Asistente IA ────────────────────────────────────────────── */
+/* panel del asistente IA */
 .section-nav-ai {
     background: rgba(8, 8, 22, 0.72) !important;
     border-color: rgba(var(--accent-1-rgb) / 0.35) !important;
@@ -2634,6 +2965,7 @@ html[data-theme="light"] .npb-vol {
 }
 body.npb-visible .ai-chat-panel { bottom: calc(204px + 64px); }
 html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98); }
+/* cabecera del chat con título y botón de cierre */
 .ai-chat-header {
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 16px;
@@ -2653,6 +2985,7 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
     cursor: pointer; font-size: 1rem; padding: 4px; transition: var(--ease);
 }
 .ai-chat-close:hover { color: var(--text); }
+/* área de mensajes con scroll */
 .ai-chat-messages {
     flex: 1;
     overflow-y: auto;
@@ -2665,6 +2998,7 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
 }
 .ai-chat-messages::-webkit-scrollbar { width: 5px; }
 .ai-chat-messages::-webkit-scrollbar-thumb { background: rgb(var(--accent-2-rgb) / 0.5); border-radius: 3px; }
+/* burbuja de mensaje del chat */
 .ai-msg {
     max-width: 85%;
     padding: 10px 13px;
@@ -2674,12 +3008,14 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+/* burbuja del usuario alineada a la derecha */
 .ai-msg.user {
     align-self: flex-end;
     background: var(--gradient);
     color: #fff;
     border-bottom-right-radius: 4px;
 }
+/* burbuja del bot alineada a la izquierda */
 .ai-msg.bot {
     align-self: flex-start;
     background: rgb(var(--accent-2-rgb) / 0.12);
@@ -2689,6 +3025,7 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
 }
 .ai-msg.bot.error { background: rgba(220, 60, 60, 0.12); border-color: rgba(220,60,60,0.3); }
 .ai-msg.typing { color: var(--muted); font-style: italic; }
+/* fila inferior con el input y el botón de enviar */
 .ai-chat-input-row {
     display: flex;
     gap: 8px;
@@ -2696,6 +3033,7 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
     border-top: 1px solid var(--border);
     flex-shrink: 0;
 }
+/* campo de texto del chat */
 .ai-chat-input {
     flex: 1;
     background: rgba(255,255,255,0.05);
@@ -2710,6 +3048,7 @@ html[data-theme="light"] .ai-chat-panel { background: rgba(240, 244, 250, 0.98);
 }
 html[data-theme="light"] .ai-chat-input { background: rgba(0,0,0,0.04); }
 .ai-chat-input:focus { border-color: var(--accent-1); }
+/* botón de enviar mensaje */
 .ai-chat-send {
     width: 40px; height: 40px;
     flex-shrink: 0;

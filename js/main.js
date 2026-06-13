@@ -1,4 +1,5 @@
 ﻿'use strict';
+// aplica el tema guardado antes de que el navegador pinte, evitando el flash de contenido
 (function initTheme() {
     const saved = localStorage.getItem('portfolioTheme');
     if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
@@ -15,13 +16,14 @@
         }
     });
 })();
-// Índice fijo por sesión: la misma variante en los 3 idiomas (coherencia al cambiar idioma)
+// variante de saludo fija durante la sesión
 const _greetIdx = Math.floor(Math.random() * 3);
+// devuelve el saludo según la hora del día e idioma activo
 function getGreeting(lang) {
     const h = new Date().getHours();
     const G = {
         es: [
-            // [lo, hi, [opción0, opción1, opción2]]
+            // patrón: [hora inicio, hora fin, [variante0, variante1, variante2]]
             [0,  4,  ['¿Todavía despierto/a? Soy',        '¿A estas horas? Soy',                  'El insomnio mola. Soy']],
             [5,  7,  ['Madrugador/a, ¿eh? Soy',           'El café aún está caliente. Soy',        '¡Vaya energía tan temprano! Soy']],
             [8,  11, ['Buenos días, soy',                  '¡Buen provecho si desayunas! Soy',      'Mañana productiva por delante. Soy']],
@@ -59,6 +61,7 @@ function getGreeting(lang) {
     return G.es[2][0];
 }
 
+// tabla de traducciones por idioma (es, en, val)
 const translations = {
     es: {
         meta: {
@@ -631,7 +634,9 @@ const translations = {
         }
     }
 };
+// idioma activo, persistido en localStorage
 let currentLanguage = localStorage.getItem('portfolioLanguage') || 'es';
+// roles del typewriter para el idioma actual
 let currentRoles = translations[currentLanguage].hero.roles;
 let typeTimeoutId;
 const navbar = document.getElementById('navbar');
@@ -639,27 +644,32 @@ const metaDescription = document.querySelector('meta[name="description"]');
 const languageButtons = document.querySelectorAll('#langSwitcher .lang-btn');
 const langSwitcher   = document.getElementById('langSwitcher');
 const langPillLabel  = document.getElementById('langPillLabel');
+// abre el selector de idioma al hacer clic en la pastilla
 langSwitcher.addEventListener('click', () => {
     if (!langSwitcher.classList.contains('open')) langSwitcher.classList.add('open');
 });
+// cierra el selector al hacer clic fuera
 document.addEventListener('click', (e) => {
     if (!langSwitcher.contains(e.target)) langSwitcher.classList.remove('open');
 });
+// añade la clase scrolled al navbar cuando el usuario baja de 40px
 window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
-// Fosky logo — se expande con vídeo aleatorio + frase divertida al hacer click
+// vídeos disponibles para el overlay del logo fosky
 const FOSKY_VIDS = [
     'assets/fosky-1.mp4', 'assets/fosky-2.mp4', 'assets/fosky-3.mp4',
     'assets/fosky-4.mp4', 'assets/fosky-5.mp4', 'assets/fosky-6.mp4',
 ];
+// frases aleatorias que muestra la burbuja del gato
 const FOSKY_PHRASES = [
-    // Clásicos
+    // clásicos
     '¡Meow!',
     'Probablemente quiera un café.',
     'La página web es reactiva,\n¡prueba a poner música!',
     '¿Me estás mirando a mí?',
     'Soy el verdadero programador aquí.',
+    // nuevas
     '...¿tienes croquetas?',
     'He revisado el código. Está bien.',
     '¡Bonito portfolio, lo sé!',
@@ -667,7 +677,7 @@ const FOSKY_PHRASES = [
     'Ctrl+C, Ctrl+V.\nAsí es como se programa.',
     'No soy un gato cualquiera.\nSoy un gato con portfolio.',
     'Error 404: croquetas no encontradas.',
-    // Nuevas
+    // adicionales
     '*se lame la pata*\n...¿qué mirabas?',
     'He tirado algo de la mesa.\nFue necesario.',
     'Miau significa\n"dame atención ahora".',
@@ -682,6 +692,7 @@ const FOSKY_PHRASES = [
     'Abrir 47 pestañas\nes completamente normal.',
     'He auditado la web.\nNecesita más gatos.',
     'Null pointer? Yo nunca fallo.\nSoy un gato.',
+    // juicios y bugs
     '*te juzga en silencio*',
     'El café es para los débiles.\nYo tomo leche.',
     'Bug encontrado.\nEra feature. Sigo.',
@@ -689,14 +700,16 @@ const FOSKY_PHRASES = [
     'Mi repo secreto\ntiene 0 bugs y 100% tests.\n(No existe.)',
     'Mew.',
 ];
+// referencias al dom del logo fosky y su overlay
 const foskyWrap    = document.getElementById('foskyWrap');
 const foskyExpEl   = document.getElementById('foskyExpanded');
 const foskyExpVid  = document.getElementById('foskyExpVid');
 const foskyBubble  = document.getElementById('foskyBubble');
 let _foskyOpen  = false;
-let _foskyLast  = -1;
-let _foskyPhrLast = -1;
+let _foskyLast  = -1;    // índice del último vídeo reproducido
+let _foskyPhrLast = -1;  // índice de la última frase mostrada
 
+// cierra el overlay del logo con transición y detiene el vídeo
 function foskyClose() {
     if (!_foskyOpen) return;
     _foskyOpen = false;
@@ -711,13 +724,14 @@ function foskyClose() {
     }, { once: true });
 }
 
+// abre el overlay del logo con vídeo y frase aleatorios sin repetir el anterior
 function foskyOpen() {
-    // Vídeo aleatorio (no repetir el anterior)
+    // vídeo aleatorio sin repetir el anterior
     let idx;
     do { idx = Math.floor(Math.random() * FOSKY_VIDS.length); } while (idx === _foskyLast && FOSKY_VIDS.length > 1);
     _foskyLast = idx;
 
-    // Frase aleatoria (no repetir la anterior)
+    // frase aleatoria sin repetir la anterior
     let pi;
     do { pi = Math.floor(Math.random() * FOSKY_PHRASES.length); } while (pi === _foskyPhrLast && FOSKY_PHRASES.length > 1);
     _foskyPhrLast = pi;
@@ -730,7 +744,7 @@ function foskyOpen() {
 
     foskyExpVid.play().catch(() => {});
 
-    // Abre tras un frame para que la transición CSS se aplique
+    // abre tras un frame para que la transición css se aplique
     requestAnimationFrame(() => requestAnimationFrame(() => {
         foskyExpEl.classList.add('open');
         _foskyOpen = true;
@@ -744,16 +758,18 @@ function foskyOpen() {
 }
 
 const foskyHint = document.getElementById('foskyHint');
+// muestra el hint de "haz click" brevemente y programa la siguiente aparición
 function foskyShowHint() {
     if (_foskyOpen || !foskyHint) return;
     foskyHint.classList.add('visible');
     setTimeout(() => foskyHint.classList.remove('visible'), 3000);
-    // Siguiente aparición: entre 25 y 45 segundos
+    // siguiente aparición: entre 25 y 45 segundos
     setTimeout(foskyShowHint, 25000 + Math.random() * 20000);
 }
-// Primera aparición a los 8 segundos
+// primera aparición a los 8 segundos tras cargar la página
 setTimeout(foskyShowHint, 8000);
 
+// eventos de interacción con el logo y el overlay
 if (foskyWrap && foskyExpEl) {
     foskyWrap.addEventListener('click', e => {
         e.preventDefault();
@@ -761,11 +777,12 @@ if (foskyWrap && foskyExpEl) {
     });
     foskyWrap.addEventListener('animationend', () => foskyWrap.classList.remove('fosky-bounce'));
 
-    // Click fuera del overlay también cierra
+    // clic fuera del overlay también cierra
     foskyExpEl.addEventListener('click', foskyClose);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') foskyClose(); });
 }
 
+// toggle del menú hamburguesa en móvil
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
@@ -773,6 +790,7 @@ navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', open);
 });
+// cierra el menú móvil al pulsar cualquier enlace de navegación
 navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -780,14 +798,18 @@ navLinks.querySelectorAll('a').forEach(a => {
         navToggle.setAttribute('aria-expanded', false);
     });
 });
+// resuelve una clave anidada de traducciones para el idioma dado
 function getTranslation(key, language = currentLanguage) {
     return key.split('.').reduce((value, part) => value?.[part], translations[language]);
 }
+// estado del typewriter: índice de rol, carácter y dirección
 let roleIdx = 0, charIdx = 0, deleting = false;
 const typeEl = document.getElementById('typewriter');
+// programa el siguiente tick del typewriter con el delay indicado
 function queueTypeWriter(delay) {
     typeTimeoutId = window.setTimeout(typeWriter, delay);
 }
+// escribe y borra el rol actual letra a letra en el elemento typewriter
 function typeWriter() {
     if (!typeEl || !currentRoles?.length) return;
     const current = currentRoles[roleIdx];
@@ -809,6 +831,7 @@ function typeWriter() {
     }
     queueTypeWriter(deleting ? 38 : 78);
 }
+// reinicia el typewriter desde el principio (se llama al cambiar de idioma)
 function resetTypewriter() {
     window.clearTimeout(typeTimeoutId);
     roleIdx = 0;
@@ -819,6 +842,7 @@ function resetTypewriter() {
         typeWriter();
     }
 }
+// actualiza todos los textos, atributos aria y metadatos al idioma elegido
 function applyTranslations(language) {
     currentLanguage = language;
     currentRoles = getTranslation('hero.roles', language);
@@ -870,16 +894,21 @@ function applyTranslations(language) {
     if (window._bgUpdateLabel) window._bgUpdateLabel();
     resetTypewriter();
 }
+// conecta cada botón de idioma con applyTranslations
 languageButtons.forEach((button) => {
     button.addEventListener('click', () => applyTranslations(button.dataset.lang));
 });
+// aplica el idioma inicial al cargar
 applyTranslations(currentLanguage);
+// animaciones de entrada escalonadas al hacer scroll (scroll reveal)
 const revealEls = document.querySelectorAll('.reveal');
+// asigna delays de transición escalonados a los elementos reveal de cada sección
 document.querySelectorAll('.section, #hero').forEach(section => {
     section.querySelectorAll('.reveal').forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.09}s`;
     });
 });
+// observa los elementos reveal y los marca visible al entrar en pantalla
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -889,11 +918,13 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.12 });
 revealEls.forEach(el => revealObserver.observe(el));
+// anima las entradas del hero al cargar la página con retardo escalonado
 window.addEventListener('load', () => {
     document.querySelectorAll('.hero-content .fade-up').forEach((el, i) => {
         setTimeout(() => el.classList.add('visible'), 180 + i * 140);
     });
 });
+// anima las barras de habilidades cuando el panel entra en pantalla
 const skillsPanel = document.querySelector('.skills-panel');
 if (skillsPanel) {
     const barObserver = new IntersectionObserver((entries) => {
@@ -910,27 +941,27 @@ if (skillsPanel) {
     }, { threshold: 0.3 });
     barObserver.observe(skillsPanel);
 }
+// canvas de partículas del fondo del hero
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
+// ajusta el canvas al tamaño de la ventana
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas, { passive: true });
+// paletas de color de partículas para tema oscuro y claro
 const COLORS_DARK  = ['rgba(0,200,255,',  'rgba(139,92,246,',  'rgba(255,255,255,'];
 const COLORS_LIGHT = ['rgba(0,120,200,',  'rgba(100,40,210,',  'rgba(30,50,120,'];
 function isLight() { return document.documentElement.getAttribute('data-theme') === 'light'; }
+// devuelve la paleta activa según el tema
 function particleColors() { return isLight() ? COLORS_LIGHT : COLORS_DARK; }
-// --- Reactividad al bombo: seguidor de envelope del sub-bass ---
-// En vez de "disparar/no disparar" (que perdía golpes y brillaba sin música), seguimos
-// la ENERGÍA del sub-bass (bins 1..3, ~86–344 Hz, el thump del bombo) de forma continua
-// y proporcional: kick fuerte → pulso grande, kick flojo → pequeño, sin bass → oscuro.
-// La gamma realza los picos del bombo sobre el resto; ataque rápido + release suave dan
-// un latido marcado pero fluido. Bins 0 (rumble) y agudos quedan fuera, así no va random.
-// Validado sobre audio real de 8+ estilos: cobertura de golpes 88–100%, brillo ~0 en silencio.
+// seguimiento de energía del sub-bass (bins 1-3, ~86-344 hz) para el pulso visual
+// usa envelope en vez de threshold: más cobertura, sin ruido en silencio
 let _bassEnv = 0;
-let _bassBuf = null; // buffer reusado: evita crear un Uint8Array nuevo cada frame (presión de GC)
+let _bassBuf = null; // buffer reusado: evita crear un uint8array nuevo cada frame (presión de gc)
+// calcula la energía del sub-bass con envelope de ataque instantáneo y release suave
 function getBassEnergy() {
     const analyser = window._audioAnalyser;
     if (!analyser) {
@@ -943,14 +974,15 @@ function getBassEnergy() {
     const data = _bassBuf;
     analyser.getByteFrequencyData(data);
 
-    let bass = (data[1] + data[2] + data[3]) / (3 * 255); // sub-bass medio 0..1
-    const shaped = Math.pow(Math.min(bass, 1), 2.3);      // realza el kick, oscurece lo flojo
+    let bass = (data[1] + data[2] + data[3]) / (3 * 255); // sub-bass medio normalizado 0..1
+    const shaped = Math.pow(Math.min(bass, 1), 2.3);      // realza el kick, atenúa lo flojo
 
-    if (shaped > _bassEnv) _bassEnv = shaped;                       // ataque instantáneo (sin retraso)
-    else                   _bassEnv += (shaped - _bassEnv) * 0.14;  // release suave (fluido)
+    if (shaped > _bassEnv) _bassEnv = shaped;                       // ataque instantáneo
+    else                   _bassEnv += (shaped - _bassEnv) * 0.14;  // release suave
     if (_bassEnv < 0.004) _bassEnv = 0;
     return _bassEnv;
 }
+// partícula del fondo de constelaciones
 class Particle {
     constructor() { this.init(); }
     init() {
@@ -997,6 +1029,7 @@ class Particle {
 }
 const PARTICLE_COUNT = 55;
 const particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
+// dibuja las líneas entre partículas cercanas con opacidad proporcional a la distancia
 function drawConnections(beat) {
     const MAX_DIST = 115 + beat * 70;
     const light = isLight();
@@ -1021,13 +1054,9 @@ function drawConnections(beat) {
     }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// DAY-BASED HERO BACKGROUND THEMES
-// Cada día de la semana (getDay() 0=Dom…6=Sáb) activa un modo visual distinto.
-// El usuario puede sobreescribir con el switcher — se persiste en localStorage.
-// ═══════════════════════════════════════════════════════════════════════════════
+// fondos del hero: un tema por día de la semana (getday() 0=dom…6=sáb), sobreescribible desde el studio
 const HERO_THEMES = [
-    // ── Diarios (0–6, mapeados a día de la semana) ──
+    // temas diarios (0-6 corresponden a domingo-sábado)
     { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
     { id: 1, es: 'Matrix',         en: 'Matrix',           val: 'Matrix',            icon: 'fa-terminal'     },
     { id: 2, es: 'Geometría',      en: 'Geometry',         val: 'Geometria',         icon: 'fa-shapes'       },
@@ -1035,7 +1064,7 @@ const HERO_THEMES = [
     { id: 4, es: 'Órbitas',        en: 'Orbits',           val: 'Òrbites',           icon: 'fa-circle-nodes' },
     { id: 5, es: 'Lluvia Neón',    en: 'Neon Rain',        val: 'Pluja Neó',         icon: 'fa-droplet'      },
     { id: 6, es: 'Confetti',       en: 'Confetti',         val: 'Confetti',          icon: 'fa-wand-magic-sparkles' },
-    // ── Opcionales (7+, solo manual) ──
+    // temas adicionales, solo seleccionables desde el studio
     { id:  7, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'              },
     { id:  8, es: 'Vórtice',        en: 'Vortex',           val: 'Vòrtex',            icon: 'fa-circle-notch'      },
     { id:  9, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'              },
@@ -1046,14 +1075,17 @@ const HERO_THEMES = [
     { id: 14, es: 'Magnético',      en: 'Magnetic',         val: 'Magnètic',          icon: 'fa-magnet'            },
     { id: 15, es: 'Topografía',     en: 'Topography',       val: 'Topografia',        icon: 'fa-mountain'          },
 ];
+// tema de fondo activo: recuperado de localStorage o día de la semana por defecto
 let _bgTheme = (() => {
     const s = localStorage.getItem('heroBgTheme');
     return s !== null ? parseInt(s) : new Date().getDay();
 })();
+// devuelve los componentes rgb del acento 1 o 2 según el parámetro
 function _heroAccent(w) {
     const s = w === 2 ? (window._accent2Rgb || '139 92 246') : (window._accent1Rgb || '0 200 255');
     return s.split(/\s+/).map(Number);
 }
+// cambia el fondo activo y resetea el estado interno de todos los temas
 function setBgTheme(id) {
     _bgTheme = Math.max(0, Math.min(id, HERO_THEMES.length - 1));
     localStorage.setItem('heroBgTheme', _bgTheme);
@@ -1062,16 +1094,17 @@ function setBgTheme(id) {
     _fwBursts.length = 0; _fwLastT = 0; _fwPrevBeat = 0;
 }
 
-// ── Theme 0 – Constellation ───────────────────────────────────────────────────
+// tema 0: dibuja las partículas como constelaciones con conexiones entre ellas
 function drawConstellation(beat) {
     particles.forEach(p => { p.update(beat); p.draw(beat); });
     drawConnections(beat);
 }
 
-// ── Theme 1 – Matrix Rain ─────────────────────────────────────────────────────
+// tema 1: lluvia de caracteres estilo matrix
 const _MAT_SRC = 'アイウエオカキクケコサシスセソタナニヌハヒフマミムヤラリルロン0123456789ABCDEF<>/\\|{}[]';
-const _MAT_CW  = 16;
+const _MAT_CW  = 16; // ancho en px de cada columna de caracteres
 let _matCols = [], _matBuiltW = 0;
+// construye las columnas de la lluvia matrix según el ancho actual del canvas
 function _buildMatCols() {
     _matBuiltW = canvas.width;
     _matCols = Array.from({ length: Math.ceil(canvas.width / _MAT_CW) + 1 }, (_, i) => ({
@@ -1083,6 +1116,7 @@ function _buildMatCols() {
         tick:   0,
     }));
 }
+// renderiza un frame de la lluvia matrix con velocidad reactiva al beat
 function drawMatrix(beat, dt) {
     if (canvas.width !== _matBuiltW) _buildMatCols();
     const [r, g, b] = _heroAccent(1);
@@ -1114,8 +1148,9 @@ function drawMatrix(beat, dt) {
     });
 }
 
-// ── Theme 2 – Floating Geometry ───────────────────────────────────────────────
+// tema 2: polígonos geométricos flotantes
 let _geoShapes = [], _geoBuiltW = 0;
+// genera los polígonos con posición, velocidad y rotación aleatorias
 function _buildGeoShapes() {
     _geoBuiltW = canvas.width;
     _geoShapes = Array.from({ length: 28 }, () => ({
@@ -1131,6 +1166,7 @@ function _buildGeoShapes() {
         alpha:  0.06 + Math.random() * 0.09,
     }));
 }
+// dibuja un polígono regular de n lados centrado en (x, y)
 function _drawPoly(x, y, sides, r, rot) {
     ctx.beginPath();
     for (let i = 0; i < sides; i++) {
@@ -1140,6 +1176,7 @@ function _drawPoly(x, y, sides, r, rot) {
     }
     ctx.closePath();
 }
+// renderiza un frame de geometría flotante con rotación y tamaño reactivos al beat
 function drawGeometry(beat, dt) {
     if (canvas.width !== _geoBuiltW) _buildGeoShapes();
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
@@ -1163,7 +1200,7 @@ function drawGeometry(beat, dt) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 3 – Aurora Borealis ─────────────────────────────────────────────────
+// tema 3: bandas de aurora boreal animadas con gradiente
 const _AUR_BANDS = Array.from({ length: 5 }, (_, i) => ({
     phase: Math.random() * Math.PI * 2,
     spd:   0.14 + Math.random() * 0.22,
@@ -1172,6 +1209,7 @@ const _AUR_BANDS = Array.from({ length: 5 }, (_, i) => ({
     thick: 55 + Math.random() * 80,
     fi:    i / 4,
 }));
+// renderiza un frame de aurora con bandas ondulantes y opacidad reactiva al beat
 function drawAurora(beat, dt, t) {
     const W = canvas.width, H = canvas.height;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
@@ -1205,13 +1243,15 @@ function drawAurora(beat, dt, t) {
     });
 }
 
-// ── Theme 4 – Orbital System ──────────────────────────────────────────────────
+// tema 4: sistema de anillos orbitales con puntos giratorios
+// patrón: [fracción del radio base, num. puntos, velocidad angular, tamaño del punto, fase inicial]
 const _ORB_RINGS = [
     { rfrac: 0.09, n: 3,  spd: 0.85,  sz: 4.5, phase: 0   },
     { rfrac: 0.18, n: 6,  spd: 0.48,  sz: 3.5, phase: 1.1 },
     { rfrac: 0.29, n: 9,  spd: 0.27,  sz: 2.8, phase: 0.4 },
     { rfrac: 0.42, n: 14, spd: 0.155, sz: 2.2, phase: 2.0 },
 ];
+// renderiza un frame del sistema orbital con núcleo central y anillos reactivos
 function drawOrbital(beat, dt, t) {
     const cx = canvas.width / 2, cy = canvas.height / 2;
     const base = Math.min(canvas.width, canvas.height) * 0.44;
@@ -1240,7 +1280,7 @@ function drawOrbital(beat, dt, t) {
             const dx = cx + Math.cos(angle) * R;
             const dy = cy + Math.sin(angle) * R;
             const osz = ring.sz * (1 + beat * 0.7);
-            // Glow falso
+            // glow falso: círculo extra semitransparente sin shadowblur
             if (beat > 0.2) {
                 ctx.beginPath(); ctx.arc(dx, dy, osz * 3.5, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.1})`;
@@ -1254,9 +1294,10 @@ function drawOrbital(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 5 – Neon Rain ───────────────────────────────────────────────────────
+// tema 5: gotas de lluvia neón con paleta de colores vivos
 const _NEON_PAL = [[0,200,255],[200,0,255],[0,255,130],[255,50,200],[255,180,0],[100,255,100]];
 let _neonDrops = [], _neonBuiltW = 0;
+// crea una gota de lluvia neón con color y parámetros aleatorios
 function _mkNeonDrop() {
     const [r, g, b] = _NEON_PAL[Math.floor(Math.random() * _NEON_PAL.length)];
     return {
@@ -1265,10 +1306,12 @@ function _mkNeonDrop() {
         r, g, b,                          w: 1 + Math.random() * 1.5,
     };
 }
+// inicializa el array de gotas según el ancho del canvas
 function _buildNeonDrops() {
     _neonBuiltW = canvas.width;
     _neonDrops  = Array.from({ length: 65 }, _mkNeonDrop);
 }
+// renderiza un frame de lluvia neón con estela degradada y cabeza brillante
 function drawNeonRain(beat, dt) {
     if (canvas.width !== _neonBuiltW) _buildNeonDrops();
     const sm = 1 + beat * 3.5;
@@ -1279,11 +1322,11 @@ function drawNeonRain(beat, dt) {
         gr.addColorStop(0,   `rgba(${d.r},${d.g},${d.b},0)`);
         gr.addColorStop(0.6, `rgba(${d.r},${d.g},${d.b},${0.04 + beat * 0.07})`);
         gr.addColorStop(1,   `rgba(${d.r},${d.g},${d.b},${0.13 + beat * 0.16})`);
-        // Estela — sin shadowBlur
+        // estela: degradado de transparente a visible, sin shadowblur
         ctx.beginPath(); ctx.moveTo(d.x, d.y - d.len); ctx.lineTo(d.x, d.y);
         ctx.strokeStyle = gr; ctx.lineWidth = d.w; ctx.shadowBlur = 0;
         ctx.stroke();
-        // Cabeza — glow falso
+        // cabeza: glow falso con círculo extra semitransparente
         const dr = d.w * 1.4 + beat * 2.5;
         if (beat > 0.2) {
             ctx.beginPath(); ctx.arc(d.x, d.y, dr * 4, 0, Math.PI * 2);
@@ -1294,10 +1337,11 @@ function drawNeonRain(beat, dt) {
     });
 }
 
-// ── Theme 6 – Fireworks ───────────────────────────────────────────────────────
+// tema 6: fuegos artificiales con partículas y estelas
 const _FW_PAL = [[255,60,100],[0,200,255],[255,200,0],[200,80,255],[0,255,150],[255,120,0]];
 const _fwBursts = [];
 let _fwPrevBeat = 0, _fwLastT = 0;
+// lanza una explosión de fuegos artificiales con partículas radiales
 function _spawnBurst(beat) {
     if (_fwBursts.length >= 7) return;
     const [r, g, b] = _FW_PAL[Math.floor(Math.random() * _FW_PAL.length)];
@@ -1313,6 +1357,7 @@ function _spawnBurst(beat) {
         }),
     });
 }
+// renderiza un frame de fuegos artificiales con gravedad y estelas con historial de posiciones
 function drawFireworks(beat, dt, t) {
     if (beat > 0.22 && _fwPrevBeat < beat && t - _fwLastT > 0.35) {
         _spawnBurst(beat); _fwLastT = t;
@@ -1352,8 +1397,9 @@ function drawFireworks(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 6 – Confetti ────────────────────────────────────────────────────────
+// tema 6b: confeti con rectángulos, círculos y ribbons de colores hsv
 let _confetti = [], _confW = 0;
+// crea una pieza de confeti con forma, color y movimiento aleatorios
 function _mkConfetto() {
     const hue = Math.random() * 360;
     const [r, g, b] = hslToRgb(hue, 90, 60);
@@ -1370,12 +1416,14 @@ function _mkConfetto() {
         r, g, b, hue, shape,
     };
 }
+// inicializa el array de confeti y sitúa las primeras 80 piezas en pantalla
 function _buildConfetti() {
     _confW = canvas.width;
     _confetti = Array.from({ length: 130 }, _mkConfetto);
-    // Seed some on-screen already
+    // coloca algunas piezas ya en pantalla para que aparezcan desde el primer frame
     _confetti.forEach((p, i) => { if (i < 80) p.y = Math.random() * canvas.height; });
 }
+// renderiza un frame de confeti con rotación y color reactivos al beat
 function drawConfetti(beat, dt) {
     if (canvas.width !== _confW) _buildConfetti();
     const spd = 1 + beat * 2.2;
@@ -1392,7 +1440,7 @@ function drawConfetti(beat, dt) {
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
-        // Glow falso (sin shadowBlur): círculo extra semitransparente
+        // glow falso: círculo extra semitransparente sin shadowblur
         if (beat > 0.3) {
             ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`;
             ctx.beginPath(); ctx.arc(0, 0, p.w * 2.5, 0, Math.PI * 2); ctx.fill();
@@ -1409,8 +1457,9 @@ function drawConfetti(beat, dt) {
     });
 }
 
-// ── Theme 7 – Laser Show (colores reactivos al beat) ─────────────────────────
+// tema 7: partículas de láser con estela y tono reactivo al beat
 let _lasers = [], _laserBuiltW = 0;
+// crea una partícula láser con posición, velocidad y tono aleatorios
 function _mkLaser() {
     const angle = Math.random() * Math.PI * 2;
     return {
@@ -1423,10 +1472,12 @@ function _mkLaser() {
         w:    1.2 + Math.random() * 1.4,
     };
 }
+// inicializa las partículas láser según el ancho del canvas
 function _buildLasers() {
     _laserBuiltW = canvas.width;
     _lasers = Array.from({ length: 18 }, _mkLaser);
 }
+// renderiza un frame de láseres con estela y tono cíclico reactivo al beat
 function drawLaser(beat, dt, t) {
     if (canvas.width !== _laserBuiltW) _buildLasers();
     const W = canvas.width, H = canvas.height;
@@ -1440,7 +1491,7 @@ function drawLaser(beat, dt, t) {
         if (l.y < 0) { l.y = 0;  l.vy =  Math.abs(l.vy); }
         if (l.y > H) { l.y = H;  l.vy = -Math.abs(l.vy); }
 
-        // Color reactivo: cicla lento + explosión de tono en cada beat
+        // color reactivo: cicla lento más explosión de tono en cada beat
         const hue = (l.hue + t * 28 + beat * 160) % 360;
         const sat = 85 + beat * 15;
         const lum = 52 + beat * 18;
@@ -1450,7 +1501,7 @@ function drawLaser(beat, dt, t) {
         if (l.trail.length > 28) l.trail.shift();
         if (l.trail.length < 2) return;
 
-        // Una sola stroke por bola con gradiente — en vez de 28 strokes individuales
+        // una sola stroke por bola con gradiente para evitar 28 strokes individuales
         const t0 = l.trail[0], tN = l.trail[l.trail.length - 1];
         const grad = ctx.createLinearGradient(t0.x, t0.y, tN.x, tN.y);
         grad.addColorStop(0, `rgba(${r},${g},${b},0)`);
@@ -1463,7 +1514,7 @@ function drawLaser(beat, dt, t) {
         ctx.shadowBlur  = 0;
         ctx.stroke();
 
-        // Cabeza — glow falso + núcleo
+        // cabeza: glow falso más núcleo blanco
         const hr = l.w * 2 + beat * 3.5;
         if (beat > 0.2) {
             ctx.beginPath(); ctx.arc(l.x, l.y, hr * 4, 0, Math.PI * 2);
@@ -1475,7 +1526,7 @@ function drawLaser(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 8 – Vórtice ────────────────────────────────────────────────────────
+// tema 8: anillos concéntricos que se contraen hacia el centro como un vórtice
 function drawVortex(beat, dt, t) {
     const cx = canvas.width / 2, cy = canvas.height / 2;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
@@ -1483,7 +1534,7 @@ function drawVortex(beat, dt, t) {
     const maxR  = Math.min(canvas.width, canvas.height) * 0.56;
 
     for (let ri = 0; ri < RINGS; ri++) {
-        // Anillos zoom hacia el centro — la fase avanza con t
+        // anillos que avanzan hacia el centro con la fase progresando en el tiempo
         const phase = (t * 0.7 + ri / RINGS) % 1;   // 0..1, 0=exterior, 1=centro
         const R     = maxR * (1 - phase);
         if (R < 2) continue;
@@ -1492,10 +1543,10 @@ function drawVortex(beat, dt, t) {
         const r    = a1[0] + (a2[0] - a1[0]) * fi | 0;
         const g    = a1[1] + (a2[1] - a1[1]) * fi | 0;
         const b    = a1[2] + (a2[2] - a1[2]) * fi | 0;
-        // Opacidad: máxima en anillos medios, casi nula en extremos
+        // opacidad máxima en anillos medios, casi nula en los extremos
         const al   = Math.sin(phase * Math.PI) * (0.18 + beat * 0.28);
 
-        // Anillo
+        // dibuja el anillo
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
@@ -1504,7 +1555,7 @@ function drawVortex(beat, dt, t) {
         ctx.shadowBlur  = 6 + beat * 18;
         ctx.stroke();
 
-        // Puntos giratorios sobre cada anillo
+        // puntos orbitando sobre cada anillo
         const dotCount  = 3 + Math.floor(fi * 5);
         const spinSpeed = 0.4 + fi * 0.6;
         for (let d = 0; d < dotCount; d++) {
@@ -1521,7 +1572,7 @@ function drawVortex(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 10 – Ondas Sonoras ─────────────────────────────────────────────────
+// tema 10: capas de ondas sinusoidales compuestas reactivas al beat
 function drawWaves(beat, dt, t) {
     const W = canvas.width, H = canvas.height;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
@@ -1555,8 +1606,9 @@ function drawWaves(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 11 – Meteoros ───────────────────────────────────────────────────────
+// tema 11: meteoros que caen en diagonal con estela degradada
 let _meteors = [], _metW = 0;
+// crea un meteoro con ángulo y velocidad aleatorios; seeded lo coloca ya en pantalla
 function _mkMeteor(seeded) {
     const angle = Math.PI * 0.32 + (Math.random() - 0.5) * 0.35;
     const spd   = 280 + Math.random() * 320;
@@ -1573,14 +1625,16 @@ function _mkMeteor(seeded) {
     if (seeded) m.y = Math.random() * canvas.height;
     return m;
 }
+// inicializa los meteoros; los primeros 9 aparecen ya dentro del canvas
 function _buildMeteors() {
     _metW    = canvas.width;
     _meteors = Array.from({ length: 16 }, (_, i) => _mkMeteor(i < 9));
 }
+// renderiza un frame de meteoros; el beat lanza meteoros extra
 function drawMeteors(beat, dt) {
     if (canvas.width !== _metW) _buildMeteors();
 
-    // Beat lanza meteoros extra
+    // lanza meteoros extra cuando hay beat fuerte
     if (beat > 0.45 && Math.random() < beat * 0.35) _meteors.push(_mkMeteor(false));
     if (_meteors.length > 45) _meteors.splice(0, _meteors.length - 45);
 
@@ -1607,7 +1661,7 @@ function drawMeteors(beat, dt) {
         grad.addColorStop(0.6, `rgba(${r},${g},${b},${m.al * (0.25 + beat * 0.3)})`);
         grad.addColorStop(1,   `rgba(255,255,255,${m.al * (0.5 + beat * 0.4)})`);
 
-        // Estela — sin shadowBlur (demasiadas llamadas)
+        // estela: sin shadowblur para evitar demasiadas llamadas costosas
         ctx.beginPath();
         ctx.moveTo(tx, ty);
         ctx.lineTo(m.x, m.y);
@@ -1616,7 +1670,7 @@ function drawMeteors(beat, dt) {
         ctx.shadowBlur  = 0;
         ctx.stroke();
 
-        // Cabeza — glow falso + núcleo blanco
+        // cabeza: glow falso más núcleo blanco
         const hr = m.w * 1.8 + beat * 3.5;
         ctx.beginPath();
         ctx.arc(m.x, m.y, hr * 4, 0, Math.PI * 2);
@@ -1630,7 +1684,7 @@ function drawMeteors(beat, dt) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 12 – ADN ────────────────────────────────────────────────────────────
+// tema 12: doble hélice de adn con peldaños y nodos reactivos al beat
 function drawDNA(beat, dt, t) {
     const W = canvas.width, H = canvas.height;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
@@ -1639,7 +1693,7 @@ function drawDNA(beat, dt, t) {
     const freq = 1.8;
     const spd  = t * 0.7;
 
-    // Dos hélices
+    // dibuja las dos hélices con los colores de acento
     [0, Math.PI].forEach((offset, si) => {
         const nc = si === 0 ? a1 : a2;
         ctx.beginPath();
@@ -1655,7 +1709,7 @@ function drawDNA(beat, dt, t) {
         ctx.stroke();
     });
 
-    // Peldaños
+    // dibuja los peldaños entre hélices y nodos en posiciones clave
     const RUNGS = Math.floor(H / 22);
     for (let i = 0; i <= RUNGS; i++) {
         const y     = (i / RUNGS) * H;
@@ -1688,8 +1742,9 @@ function drawDNA(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 13 – Galaxia ────────────────────────────────────────────────────────
+// tema 13: galaxia espiral de tres brazos con rotación lenta
 let _galaxyStars = [], _galW = 0;
+// genera las estrellas de la galaxia distribuidas en tres brazos espirales
 function _buildGalaxy() {
     _galW = canvas.width;
     _galaxyStars = Array.from({ length: 700 }, () => {
@@ -1707,6 +1762,7 @@ function _buildGalaxy() {
         };
     });
 }
+// renderiza un frame de la galaxia con rotación diferencial por radio y glow reactivo
 function drawGalaxy(beat, dt, t) {
     if (canvas.width !== _galW) _buildGalaxy();
     const cx = canvas.width / 2, cy = canvas.height / 2;
@@ -1726,7 +1782,7 @@ function drawGalaxy(beat, dt, t) {
         const al    = s.alpha * (0.35 + beat * 0.5);
         const sz    = s.size * (1 + beat * 2);
 
-        // Glow falso: círculo más grande y transparente, sin shadowBlur
+        // glow falso: círculo grande y semitransparente sin shadowblur
         if (beat > 0.3 && sz > 1.2) {
             ctx.beginPath();
             ctx.arc(x, y, sz * 3, 0, Math.PI * 2);
@@ -1740,8 +1796,9 @@ function drawGalaxy(beat, dt, t) {
     });
 }
 
-// ── Theme 14 – Campo Magnético ────────────────────────────────────────────────
+// tema 14: partículas atraídas/repelidas por polos magnéticos móviles
 let _magParts = [], _magPoles = [], _magW = 0;
+// genera las partículas y la configuración inicial de los tres polos
 function _buildMagnetic() {
     _magW = canvas.width;
     _magParts = Array.from({ length: 220 }, () => ({
@@ -1758,10 +1815,11 @@ function _buildMagnetic() {
         { bx: 0.50, by: 0.22, sign:  1 },
     ];
 }
+// renderiza un frame del campo magnético con polos que se desplazan lentamente
 function drawMagnetic(beat, dt, t) {
     if (canvas.width !== _magW) _buildMagnetic();
     const W = canvas.width, H = canvas.height;
-    // Poles drift slowly
+    // polos con posición que oscila suavemente con el tiempo
     const poles = [
         { x: W * (0.28 + 0.12 * Math.sin(t * 0.28)),     y: H * (0.40 + 0.12 * Math.cos(t * 0.35)),     sign:  1 },
         { x: W * (0.72 + 0.12 * Math.sin(t * 0.41 + 1)), y: H * (0.60 + 0.12 * Math.cos(t * 0.29 + 2)), sign: -1 },
@@ -1804,7 +1862,7 @@ function drawMagnetic(beat, dt, t) {
             ctx.stroke();
         }
         const pr = 1.2 + beat * 2.5;
-        // Glow falso
+        // glow falso: círculo extra semitransparente sin shadowblur
         if (beat > 0.25) {
             ctx.beginPath();
             ctx.arc(p.x, p.y, pr * 3.5, 0, Math.PI * 2);
@@ -1819,7 +1877,7 @@ function drawMagnetic(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 15 – Topografía ─────────────────────────────────────────────────────
+// tema 15: curvas de nivel topográficas con distorsión senoidal y glow
 function drawTopo(beat, dt, t) {
     const W = canvas.width, H = canvas.height;
     const cx = W / 2, cy = H / 2;
@@ -1861,6 +1919,7 @@ function drawTopo(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
+// dispatcher: llama a la función de dibujado del fondo activo
 function heroThemeDraw(beat, dt, t) {
     switch (_bgTheme) {
         case 1:  drawMatrix(beat, dt);        break;
@@ -1883,7 +1942,8 @@ function heroThemeDraw(beat, dt, t) {
 }
 
 const ROOT = document.documentElement;
-let _visualBeat = 0;
+let _visualBeat = 0; // energía visual del beat, suavizada para las animaciones css
+// convierte un color hsl a componentes rgb [0-255]
 function hslToRgb(h, s, l) {
     s /= 100; l /= 100;
     const k = n => (n + h / 30) % 12;
@@ -1891,9 +1951,10 @@ function hslToRgb(h, s, l) {
     const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
     return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
 }
+// actualiza las custom properties de acento en :root según la energía del beat
 function updateAccentColors(v) {
     if (window._colorDragging) return;
-    // Base hues: come from the active palette (set by applyPalette) or default cyan/purple.
+    // tonos base: vienen de la paleta activa (applyHueColors) o del valor por defecto cian/morado
     const _h1base = window._paletteH1 !== undefined ? window._paletteH1 : 195;
     const _h2base = window._paletteH2 !== undefined ? window._paletteH2 : 262;
     const _l1base = window._paletteL1 !== undefined ? window._paletteL1 : 50;
@@ -1904,16 +1965,11 @@ function updateAccentColors(v) {
     const l2 = _l2base + v * 8;
     const [r1, g1, b1] = hslToRgb(h1, 100, l1);
     const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
-    // Escribir una custom property en :root INVALIDA el estilo de TODO el documento
-    // (también las partes ocultas). Hacerlo cada frame durante el arcade provoca un
-    // recalc periódico que se nota como lag aunque el juego dibuje poquísimo. El pulso
-    // del beat dentro de los juegos NO viene del CSS sino de la variable JS _visualBeat
-    // (la lee games.js directamente), así que aquí basta refrescar el color de acento
-    // a ~12 Hz: el viraje de tono es lento y el ahorro de recalc es enorme.
+    // escribir en :root invalida el estilo de todo el documento; hacerlo cada frame
+    // durante el arcade causa lag visible; el beat del arcade viene de _visualBeat en js,
+    // no de css, así que basta refrescar a ~12 hz
     if (ROOT.classList.contains('arcade-lock')) {
-        // CERO escrituras al DOM durante el juego: cada setProperty en :root fuerza un
-        // recalc de estilo de TODO el documento, y ese hitch se ve justo en lo único que
-        // se mueve (las notas). El canvas del arcade lee el color de estas globales JS.
+        // cero escrituras al dom durante el juego: el canvas del arcade lee las globales js
         window._accent1Rgb = `${r1} ${g1} ${b1}`;
         window._accent2Rgb = `${r2} ${g2} ${b2r}`;
         return;
@@ -1929,16 +1985,15 @@ function updateAccentColors(v) {
     ROOT.style.setProperty('--beat-glow',      v > 0.01 ? `0 0 ${v * 90}px rgb(${r1} ${g1} ${b1} / ${v * 0.95})` : 'none');
     ROOT.style.setProperty('--beat-glow-soft', v > 0.01 ? `0 0 ${v * 60}px rgb(${r2} ${g2} ${b2r} / ${v * 0.75})` : 'none');
 }
-// Las partículas solo se animan cuando se ven: ni con el hero fuera de
-// pantalla ni con el arcade abierto (drawConnections es O(n²) por frame).
-// El beat y los colores de acento se actualizan siempre: son baratos y los
-// usa toda la web (NPB, arcade, brillos).
+// las partículas solo se dibujan cuando el hero es visible: drawconnections es o(n²)
+// el beat y los colores de acento se actualizan siempre porque los usa toda la web
 let _heroVisible = true;
 try {
     new IntersectionObserver((entries) => { _heroVisible = entries[0].isIntersecting; }).observe(canvas);
-} catch (e) { /* navegador sin IntersectionObserver: se anima siempre */ }
+} catch (e) { /* navegador sin intersectionobserver: se anima siempre */ }
 let _lastFrameTs = 0;
 let _lastAccentTs = 0;
+// bucle principal de animación del hero: actualiza el beat y dibuja el fondo activo
 function animateParticles(ts = 0) {
     requestAnimationFrame(animateParticles);
     const dt = _lastFrameTs ? Math.min((ts - _lastFrameTs) / 1000, 0.05) : 0.016;
@@ -1946,8 +2001,7 @@ function animateParticles(ts = 0) {
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
-    // Throttle a ~12 Hz: cada setProperty en :root fuerza recalc de estilo en todo
-    // el documento. A 60 fps son 360 recalcs/s cuando hay música → lag visible.
+    // throttle a ~12 hz: a 60 fps serían 360 recalcs/s con música, causando lag
     if (ts - _lastAccentTs > 80) {
         updateAccentColors(_visualBeat);
         _lastAccentTs = ts;
@@ -1958,7 +2012,7 @@ function animateParticles(ts = 0) {
 }
 animateParticles();
 
-// Applies hue-based accent colors and updates all CSS vars + canvas globals
+// aplica dos tonos hsl como colores de acento y actualiza las custom properties css y las globales del canvas
 function applyHueColors(h1, h2) {
     h1 = ((h1 % 360) + 360) % 360;
     h2 = ((h2 % 360) + 360) % 360;
@@ -1982,6 +2036,7 @@ function applyHueColors(h1, h2) {
     localStorage.setItem('portfolioH2', h2);
 }
 
+// presets de paleta de color predefinidos para el studio
 const COLOR_PRESETS = [
     { id: 'cyber',    name: 'Cibernético', h1: 195, h2: 270 },
     { id: 'fuego',    name: 'Fuego',       h1: 22,  h2: 0   },
@@ -1992,6 +2047,7 @@ const COLOR_PRESETS = [
     { id: 'amatista', name: 'Amatista',    h1: 280, h2: 340 },
 ];
 
+// crea y gestiona el selector de tono (franja arcoíris con thumb arrastrable)
 function createHueStrip(canvas, initialH1, hueOffset, onChange) {
     const ctx = canvas.getContext('2d');
     const TH  = canvas.height; // track height in CSS px
@@ -2000,6 +2056,7 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
     let dragging = false;
     const DPR    = window.devicePixelRatio || 1;
 
+    // ajusta las dimensiones del canvas al contenedor y escala por dpr
     function syncSize() {
         const W = canvas.parentElement ? canvas.parentElement.clientWidth : 244;
         canvas.width  = W * DPR;
@@ -2009,13 +2066,14 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
         ctx.scale(DPR, DPR);
     }
 
+    // dibuja la franja arcoíris y el thumb en la posición del tono actual
     function draw() {
         const W  = canvas.width  / DPR;
         const H  = canvas.height / DPR;
         const R  = H / 2;
         ctx.clearRect(0, 0, W, H);
 
-        // — Rainbow track —
+        // franja degradada de 360° de tono
         const grad = ctx.createLinearGradient(0, 0, W, 0);
         for (let i = 0; i <= 12; i++) grad.addColorStop(i / 12, `hsl(${i * 30},92%,56%)`);
         ctx.save();
@@ -2025,12 +2083,12 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
         ctx.fill();
         ctx.restore();
 
-        // — Thumb —
+        // thumb circular con sombra y color del tono seleccionado
         const tx = Math.max(R, Math.min(W - R, (h1 / 360) * W));
         const ty = H / 2;
         const tr = H * 0.82;
 
-        // Drop shadow
+        // sombra del thumb
         ctx.save();
         ctx.shadowColor = 'rgba(0,0,0,0.45)';
         ctx.shadowBlur  = 6;
@@ -2041,13 +2099,14 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
         ctx.fill();
         ctx.restore();
 
-        // Colored inner
+        // relleno interior con el color del tono
         ctx.beginPath();
         ctx.arc(tx, ty, tr - 3, 0, Math.PI * 2);
         ctx.fillStyle = `hsl(${h1},100%,55%)`;
         ctx.fill();
     }
 
+    // calcula el tono (0-360) a partir de la posición del puntero sobre el canvas
     function hueFromEvent(e) {
         const rect = canvas.getBoundingClientRect();
         const cx   = e.touches ? e.touches[0].clientX : e.clientX;
@@ -2056,6 +2115,7 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
     }
 
     let rafPending = false;
+    // agrupa las llamadas a onChange en un requestanimationframe para evitar recalcs continuos
     function scheduleApply() {
         if (rafPending) return;
         rafPending = true;
@@ -2087,6 +2147,7 @@ function createHueStrip(canvas, initialH1, hueOffset, onChange) {
     };
 }
 
+// inicializa el panel de personalización visual (studio): presets, fondo y selector de tema
 function initStudio() {
     const wrap      = document.getElementById('studioWrap');
     const fab       = document.getElementById('studioFab');
@@ -2096,26 +2157,26 @@ function initStudio() {
     const stripCv   = document.getElementById('studioHueStrip');
     if (!wrap || !fab || !bgGrid || !presetsEl || !stripCv) return;
 
-    // — Restore saved state —
+    // restaura el preset y los tonos guardados en localstorage
     let savedId = localStorage.getItem('portfolioPreset') || 'cyber';
     let savedH1 = parseFloat(localStorage.getItem('portfolioH1') || '195');
     let savedH2 = parseFloat(localStorage.getItem('portfolioH2') || '262');
     let activePreset = COLOR_PRESETS.find(p => p.id === savedId) || COLOR_PRESETS[0];
-    let hueOffset = savedH2 - savedH1; // preserve gradient spread
+    let hueOffset = savedH2 - savedH1; // separación entre los dos tonos del degradado
     applyHueColors(savedH1, savedH2);
 
-    // — Hue strip —
+    // franja de tono: al arrastrar actualiza los colores y deselecciona el preset si se aleja
     const strip = createHueStrip(stripCv, savedH1, hueOffset, (newH1, offset) => {
         const newH2 = newH1 + offset;
         applyHueColors(newH1, newH2);
-        // Deselect preset if user drags away from it
+        // deselecciona el preset si el tono se aleja de su valor
         presetsEl.querySelectorAll('.studio-preset-btn').forEach(b => {
             const match = Math.abs(parseFloat(b.dataset.h1) - newH1) < 6;
             b.classList.toggle('active', match);
         });
     });
 
-    // — Preset swatches —
+    // crea un botón por cada preset de color y lo conecta con applyHueColors
     COLOR_PRESETS.forEach(p => {
         const btn  = document.createElement('button');
         btn.type   = 'button';
@@ -2137,7 +2198,7 @@ function initStudio() {
         presetsEl.appendChild(btn);
     });
 
-    // — Bg theme buttons —
+    // crea un botón por cada tema de fondo; marca con punto el tema automático del día
     const todayAuto = new Date().getDay();
     HERO_THEMES.forEach(theme => {
         const btn = document.createElement('button');
@@ -2155,7 +2216,7 @@ function initStudio() {
         bgGrid.appendChild(btn);
     });
 
-    // — Toggle panel —
+    // abre/cierra el panel al clicar el botón flotante
     fab.addEventListener('click', e => {
         e.stopPropagation();
         const open = wrap.classList.toggle('open');
@@ -2170,24 +2231,66 @@ function initStudio() {
     });
     panel.addEventListener('click', e => e.stopPropagation());
 
+    // selector de tema visual (default, retro, gamer)
+    const themeGrid = document.getElementById('studioThemeGrid');
+    if (themeGrid) {
+        const STYLE_THEMES = [
+            { id: null,    label: 'Default', icon: 'fa-wand-magic-sparkles', defaultBg: null },
+            { id: 'retro', label: 'Retro',   icon: 'fa-terminal',            defaultBg: 1    },
+            { id: 'gamer', label: 'Gamer',   icon: 'fa-gamepad',             defaultBg: 7    },
+        ];
+        const currentStyle = document.documentElement.getAttribute('data-style-theme') || null;
+        STYLE_THEMES.forEach(t => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'studio-bg-btn' + (currentStyle === t.id ? ' active' : '');
+            btn.dataset.styleId = t.id || '';
+            btn.innerHTML = `<i class="fa-solid ${t.icon}"></i>${t.label}`;
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                if (t.id) {
+                    document.documentElement.setAttribute('data-style-theme', t.id);
+                    localStorage.setItem('portfolioStyleTheme', t.id);
+                    // aplica el fondo sugerido por el tema si el usuario no había elegido uno
+                    if (t.defaultBg !== null && t.defaultBg !== undefined && !localStorage.getItem('heroBgTheme')) {
+                        setBgTheme(t.defaultBg);
+                        bgGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
+                            b.classList.toggle('active', parseInt(b.dataset.bgId) === t.defaultBg));
+                    }
+                } else {
+                    document.documentElement.removeAttribute('data-style-theme');
+                    localStorage.removeItem('portfolioStyleTheme');
+                }
+                themeGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
+                    b.classList.toggle('active', b.dataset.styleId === (t.id || '')));
+            });
+            themeGrid.appendChild(btn);
+        });
+    }
+
     window._bgUpdateLabel = () => {};
 }
 initStudio();
 
+// navegación entre secciones: scroll suave, activación del enlace activo y botones prev/next
 const sections = document.querySelectorAll('section[id], footer[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 const hashAnchors = document.querySelectorAll('a[href^="#"]');
+// marca como activo el enlace de navegación que apunta al id dado
 function setActiveNav(targetId) {
     navAnchors.forEach((anchor) => {
         anchor.classList.toggle('active', anchor.getAttribute('href') === `#${targetId}`);
     });
 }
+// devuelve la altura del navbar más un margen de 16px
 function getNavOffset() {
     return (navbar?.offsetHeight || 0) + 16;
 }
+// devuelve el elemento de contenido principal de una sección para calcular su posición
 function getSectionContent(section) {
     return section.querySelector('.about-grid, .music-grid, .legacy-shell, .projects-grid, .contact-grid, .container') || section;
 }
+// calcula el scrollTop óptimo para centrar visualmente el contenido de la sección
 function getSectionScrollTop(section) {
     if (!section || section.id === 'hero') {
         return 0;
@@ -2203,6 +2306,7 @@ function getSectionScrollTop(section) {
     }
     return Math.max(0, targetTop);
 }
+// hace scroll hasta la sección con view transition si está disponible
 function scrollToSectionElement(section) {
     if (!section) return;
     const top = getSectionScrollTop(section);
@@ -2217,6 +2321,7 @@ function scrollToSectionElement(section) {
     });
     t.finished.finally(() => delete document.documentElement.dataset.vtDir);
 }
+// intercepta los clics en anclas hash para usar el scroll suave personalizado
 hashAnchors.forEach((anchor) => {
     const targetId = anchor.getAttribute('href');
     if (!targetId || targetId === '#') return;
@@ -2228,6 +2333,7 @@ hashAnchors.forEach((anchor) => {
         history.replaceState(null, '', targetId);
     });
 });
+// observa las secciones y actualiza el enlace activo del navbar al entrar en pantalla
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -2236,9 +2342,11 @@ const sectionObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.45 });
 sections.forEach((section) => sectionObserver.observe(section));
+// botones prev/next para navegar entre secciones
 const orderedSections = Array.from(document.querySelectorAll('section[id]'));
 const sectionPrev = document.getElementById('sectionPrev');
 const sectionNext = document.getElementById('sectionNext');
+// devuelve el índice de la sección más cercana al punto de pivote actual
 function getCurrentSectionIndex() {
     const pivot = window.scrollY + (window.innerHeight * 0.35);
     let currentIndex = 0;
@@ -2249,9 +2357,11 @@ function getCurrentSectionIndex() {
     });
     return currentIndex;
 }
+// hace scroll a la sección del índice dado
 function scrollToSection(index) {
     scrollToSectionElement(orderedSections[index]);
 }
+// actualiza el estado disabled de los botones prev/next según la sección actual
 function updateSectionNav() {
     if (!sectionPrev || !sectionNext || orderedSections.length === 0) return;
     const currentIndex = getCurrentSectionIndex();
@@ -2271,6 +2381,7 @@ if (sectionPrev && sectionNext) {
     window.addEventListener('scroll', updateSectionNav, { passive: true });
     window.addEventListener('resize', updateSectionNav, { passive: true });
 }
+// lista de canciones del reproductor con título y nombre de archivo
 const TRACKS = [
     { title: 'Borrowed Colors', file: 'Borrowed Colors.mp3' },
     { title: 'Eastern Gate', file: 'Eastern Gate.mp3' },
@@ -2357,6 +2468,7 @@ const TRACKS = [
     { title: 'Noosa - Walk On By (Deep House Remix)', file: 'Noosa - Walk On By (Deep House Remix).mp3' },
     { title: "World's End, Girl's Rondo (Remix)", file: "World's End, Girl's Rondo (Remix).mp3" },
 ];
+// inicializa el reproductor de música: controles, lista, barra de progreso y compartir
 (function initPlayer() {
     const audio      = document.getElementById('audioEl');
     const trackList  = document.getElementById('trackList');
@@ -2374,15 +2486,18 @@ const TRACKS = [
     let currentIdx = 0;
     audio.volume = 0.8;
     volBar.style.setProperty('--vol', volBar.value + '%');
+    // devuelve la clase del icono de volumen según el nivel
     function volIconCls(v) {
         return v < 0.01 ? 'fa-solid fa-volume-xmark' : v < 0.5 ? 'fa-solid fa-volume-low' : 'fa-solid fa-volume-high';
     }
+    // formatea segundos como m:ss
     function fmt(s) {
         const m = Math.floor(s / 60);
         const sec = Math.floor(s % 60);
         return `${m}:${sec.toString().padStart(2, '0')}`;
     }
     let trackFilter = '';
+    // renderiza la lista de canciones filtrada por el texto de búsqueda
     function renderTracks() {
         trackList.innerHTML = '';
         const q = trackFilter.toLowerCase();
@@ -2408,6 +2523,7 @@ const TRACKS = [
             trackList.appendChild(div);
         });
     }
+    // carga la canción del índice dado y la reproduce si autoplay es true
     function loadTrack(idx, autoplay = false) {
         currentIdx = idx;
         window._currentIdx = idx;
@@ -2501,6 +2617,7 @@ const TRACKS = [
     const shareBtn = document.getElementById('shareBtn');
     const shareToast = document.getElementById('shareToast');
     let shareToastTimer;
+    // muestra un toast de confirmación al compartir un enlace
     function showShareToast(msg) {
         clearTimeout(shareToastTimer);
         shareToast.textContent = msg;
@@ -2518,6 +2635,7 @@ const TRACKS = [
             }).catch(() => showShareToast(getTranslation('player.linkError')));
         });
     }
+    // si viene el parámetro ?track= en la url, carga esa canción directamente
     const paramTrack = new URLSearchParams(location.search).get('track');
     const startIdx = paramTrack
         ? TRACKS.findIndex(t => t.title.toLowerCase() === paramTrack.toLowerCase())
@@ -2532,27 +2650,30 @@ const TRACKS = [
         }, 200);
     }
     const sharedTrackArrival = startIdx >= 0;
+    // inicializa el visualizador de frecuencias del reproductor
     (function initVisualizer() {
         const canvas = document.getElementById('visualizerCanvas');
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         let audioCtx, analyser, source, animId;
         let connected = false;
+        // crea el audiocontext y conecta la cadena de análisis solo la primera vez
         function ensureAudioCtx() {
             if (connected) return;
             audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 512;                 // 256 bins: resolución para detectar cambios de tono
-            analyser.smoothingTimeConstant = 0.3;   // poco suavizado interno = el golpe llega sin retraso
+            analyser.fftSize = 512;                 // 256 bins: suficiente resolución para detectar tono
+            analyser.smoothingTimeConstant = 0.3;   // poco suavizado: el golpe llega sin retraso
             source = audioCtx.createMediaElementSource(audio);
             source.connect(analyser);
             analyser.connect(audioCtx.destination);
             connected = true;
             window._audioAnalyser = analyser;
         }
+        // dibuja un frame del visualizador de barras con gradiente reactivo al beat
         function draw() {
             animId = requestAnimationFrame(draw);
-            // Con el arcade abierto este canvas no se ve: no gastar CPU en él
+            // con el arcade abierto este canvas no se ve: se omite para no gastar cpu
             if (document.documentElement.classList.contains('arcade-lock')) return;
             const cw = canvas.parentElement.clientWidth;
             if (cw > 0 && canvas.width !== cw) canvas.width = cw;
@@ -2566,7 +2687,7 @@ const TRACKS = [
             const drawW = W - pad * 2;
             const step = drawW / usedBins;
             const barW = step * 0.75;
-            // Colores de la paleta global reactiva (viran de tono con el beat)
+            // colores de la paleta reactiva global, que viran de tono con el beat
             const rootStyle = document.documentElement.style;
             const a2 = (rootStyle.getPropertyValue('--accent-2-rgb') || '139 92 246').trim().replace(/\s+/g, ',');
             const a1 = (rootStyle.getPropertyValue('--accent-1-rgb') || '0 200 255').trim().replace(/\s+/g, ',');
@@ -2607,6 +2728,7 @@ const TRACKS = [
         audio.addEventListener('pause', stopViz);
         audio.addEventListener('ended', stopViz);
     })();
+    // barra de reproducción en curso fija en la parte inferior
     (function initNowPlayingBar() {
         const bar      = document.getElementById('nowPlayingBar');
         const npbTitle = document.getElementById('npbTitle');
@@ -2716,6 +2838,7 @@ const TRACKS = [
         }
     })();
 })();
+// anima los contadores de estadísticas al entrar en pantalla
 (function initCounters() {
     const items = document.querySelectorAll('.music-stat-num[data-target]');
     if (!items.length) return;
@@ -2740,6 +2863,7 @@ const TRACKS = [
     }, { threshold: 0.4 });
     items.forEach(el => observer.observe(el));
 })();
+// shuffle FAB: reproduce una canción aleatoria al pulsar
 (function initShuffleFab() {
     const fab = document.getElementById('shuffleFab');
     if (!fab) return;
@@ -2755,6 +2879,7 @@ const TRACKS = [
         setTimeout(() => { fab.style.transform = ''; }, 400);
     });
 })();
+// barra de progreso de scroll en la parte superior de la página
 (function initScrollProgress() {
     const bar = document.getElementById('scrollProgress');
     if (!bar) return;
@@ -2763,6 +2888,7 @@ const TRACKS = [
         bar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
     }, { passive: true });
 })();
+// efecto tilt 3d al mover el ratón sobre tarjetas y paneles
 (function initTilt() {
     const SELECTORS = '.project-card, .eduardo-card, .legacy-roles-card, .skills-panel';
     const MAX_TILT = 8;
@@ -2786,6 +2912,7 @@ const TRACKS = [
     }
     document.querySelectorAll(SELECTORS).forEach(attach);
 })();
+// paleta de comandos: búsqueda rápida de secciones, canciones y acciones
 (function initCommandPalette() {
     const overlay  = document.getElementById('cmdPaletteOverlay');
     const input    = document.getElementById('cmdPaletteInput');
@@ -2950,6 +3077,7 @@ const TRACKS = [
         if (e.key === 'Escape' && overlay.classList.contains('open')) close();
     });
 })();
+// teclas de acceso rápido: flechas para navegar y ajustar volumen, m para silenciar
 (function initMediaKeys() {
     const audio = document.getElementById('audioEl');
     if (!audio) return;
@@ -2995,6 +3123,7 @@ const TRACKS = [
         }
     });
 })();
+// chat con IA: envía mensajes al endpoint de vercel y muestra la respuesta
 (function initAIChat() {
     // ▼▼ CONFIGURA AQUÍ la URL de tu función en Vercel (déjala así si sirves la web desde Vercel).
     const AI_ENDPOINT = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
