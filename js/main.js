@@ -1014,14 +1014,24 @@ function drawConnections(beat) {
 // El usuario puede sobreescribir con el switcher — se persiste en localStorage.
 // ═══════════════════════════════════════════════════════════════════════════════
 const HERO_THEMES = [
+    // ── Diarios (0–6, mapeados a día de la semana) ──
     { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
     { id: 1, es: 'Matrix',         en: 'Matrix',           val: 'Matrix',            icon: 'fa-terminal'     },
     { id: 2, es: 'Geometría',      en: 'Geometry',         val: 'Geometria',         icon: 'fa-shapes'       },
     { id: 3, es: 'Aurora',         en: 'Aurora',           val: 'Aurora',            icon: 'fa-wind'         },
     { id: 4, es: 'Órbitas',        en: 'Orbits',           val: 'Òrbites',           icon: 'fa-circle-nodes' },
     { id: 5, es: 'Lluvia Neón',    en: 'Neon Rain',        val: 'Pluja Neó',         icon: 'fa-droplet'      },
-    { id: 6, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'         },
-    { id: 7, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'         },
+    { id: 6, es: 'Confetti',       en: 'Confetti',         val: 'Confetti',          icon: 'fa-wand-magic-sparkles' },
+    // ── Opcionales (7+, solo manual) ──
+    { id:  7, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'              },
+    { id:  8, es: 'Vórtice',        en: 'Vortex',           val: 'Vòrtex',            icon: 'fa-circle-notch'      },
+    { id:  9, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'              },
+    { id: 10, es: 'Ondas',          en: 'Waves',            val: 'Ones',              icon: 'fa-water'             },
+    { id: 11, es: 'Meteoros',        en: 'Meteors',          val: 'Meteors',           icon: 'fa-meteor'            },
+    { id: 12, es: 'ADN',            en: 'DNA',              val: 'ADN',               icon: 'fa-dna'               },
+    { id: 13, es: 'Galaxia',        en: 'Galaxy',           val: 'Galàxia',           icon: 'fa-rotate'            },
+    { id: 14, es: 'Magnético',      en: 'Magnetic',         val: 'Magnètic',          icon: 'fa-magnet'            },
+    { id: 15, es: 'Topografía',     en: 'Topography',       val: 'Topografia',        icon: 'fa-mountain'          },
 ];
 let _bgTheme = (() => {
     const s = localStorage.getItem('heroBgTheme');
@@ -1032,9 +1042,10 @@ function _heroAccent(w) {
     return s.split(/\s+/).map(Number);
 }
 function setBgTheme(id) {
-    _bgTheme = ((id % 7) + 7) % 7;
+    _bgTheme = Math.max(0, Math.min(id, HERO_THEMES.length - 1));
     localStorage.setItem('heroBgTheme', _bgTheme);
-    _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0; _laserBuiltW = 0;
+    _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0; _laserBuiltW = 0; _confW = 0;
+    _metW = 0; _galW = 0; _magW = 0;
     _fwBursts.length = 0; _fwLastT = 0; _fwPrevBeat = 0;
 }
 
@@ -1064,13 +1075,14 @@ function drawMatrix(beat, dt) {
     const [r, g, b] = _heroAccent(1);
     ctx.font      = `${_MAT_CW}px monospace`;
     ctx.textAlign = 'left';
+    ctx.shadowBlur = 0;
     const spd = 1 + beat * 4;
+
     _matCols.forEach(col => {
         col.y += col.speed * spd * dt;
-        if (++col.tick % 5 === 0) {
+        if (++col.tick % 5 === 0)
             col.glyphs[Math.floor(Math.random() * col.glyphs.length)] =
                 _MAT_SRC[Math.floor(Math.random() * _MAT_SRC.length)];
-        }
         if (col.y > canvas.height + col.len * _MAT_CW) {
             col.y     = -col.len * _MAT_CW - Math.random() * canvas.height * 0.5;
             col.speed = 80 + Math.random() * 110;
@@ -1079,18 +1091,14 @@ function drawMatrix(beat, dt) {
             const cy = col.y - i * _MAT_CW;
             if (cy < -_MAT_CW || cy > canvas.height) continue;
             if (i === 0) {
-                ctx.shadowColor = `rgba(${r},${g},${b},0.9)`;
-                ctx.shadowBlur  = 8 + beat * 20;
-                ctx.fillStyle   = `rgba(255,255,255,${0.88 + beat * 0.12})`;
+                ctx.fillStyle = `rgba(255,255,255,${0.9 + beat * 0.1})`;
             } else {
-                const frac     = 1 - i / col.len;
-                ctx.shadowBlur = 0;
-                ctx.fillStyle  = `rgba(${r},${g},${b},${frac * (0.07 + beat * 0.12)})`;
+                const frac = 1 - i / col.len;
+                ctx.fillStyle = `rgba(${r},${g},${b},${frac * (0.08 + beat * 0.12)})`;
             }
             ctx.fillText(col.glyphs[i % col.glyphs.length], col.x + 1, cy);
         }
     });
-    ctx.shadowBlur = 0;
 }
 
 // ── Theme 2 – Floating Geometry ───────────────────────────────────────────────
@@ -1218,10 +1226,15 @@ function drawOrbital(beat, dt, t) {
             const angle = ring.phase + (Math.PI * 2 / ring.n) * d;
             const dx = cx + Math.cos(angle) * R;
             const dy = cy + Math.sin(angle) * R;
-            ctx.beginPath(); ctx.arc(dx, dy, ring.sz * (1 + beat * 0.7), 0, Math.PI * 2);
-            ctx.fillStyle   = `rgba(${r},${g},${b},${0.55 + beat * 0.45})`;
-            ctx.shadowColor = `rgba(${r},${g},${b},0.85)`;
-            ctx.shadowBlur  = 5 + beat * 18;
+            const osz = ring.sz * (1 + beat * 0.7);
+            // Glow falso
+            if (beat > 0.2) {
+                ctx.beginPath(); ctx.arc(dx, dy, osz * 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.1})`;
+                ctx.fill();
+            }
+            ctx.beginPath(); ctx.arc(dx, dy, osz, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${0.6 + beat * 0.4})`;
             ctx.fill();
         }
     });
@@ -1253,16 +1266,19 @@ function drawNeonRain(beat, dt) {
         gr.addColorStop(0,   `rgba(${d.r},${d.g},${d.b},0)`);
         gr.addColorStop(0.6, `rgba(${d.r},${d.g},${d.b},${0.04 + beat * 0.07})`);
         gr.addColorStop(1,   `rgba(${d.r},${d.g},${d.b},${0.13 + beat * 0.16})`);
+        // Estela — sin shadowBlur
         ctx.beginPath(); ctx.moveTo(d.x, d.y - d.len); ctx.lineTo(d.x, d.y);
-        ctx.strokeStyle = gr; ctx.lineWidth = d.w;
-        ctx.shadowColor = `rgba(${d.r},${d.g},${d.b},0.7)`; ctx.shadowBlur = 5 + beat * 14;
+        ctx.strokeStyle = gr; ctx.lineWidth = d.w; ctx.shadowBlur = 0;
         ctx.stroke();
-        ctx.beginPath(); ctx.arc(d.x, d.y, d.w * 1.4 + beat * 2.5, 0, Math.PI * 2);
-        ctx.fillStyle   = `rgba(255,255,255,${0.55 + beat * 0.45})`;
-        ctx.shadowColor = `rgba(${d.r},${d.g},${d.b},1)`; ctx.shadowBlur = 10 + beat * 22;
-        ctx.fill();
+        // Cabeza — glow falso
+        const dr = d.w * 1.4 + beat * 2.5;
+        if (beat > 0.2) {
+            ctx.beginPath(); ctx.arc(d.x, d.y, dr * 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${d.r},${d.g},${d.b},${beat * 0.1})`; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(d.x, d.y, dr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.6 + beat * 0.4})`; ctx.fill();
     });
-    ctx.shadowBlur = 0;
 }
 
 // ── Theme 6 – Fireworks ───────────────────────────────────────────────────────
@@ -1323,84 +1339,533 @@ function drawFireworks(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
-// ── Theme 6 – Laser Show ──────────────────────────────────────────────────────
-const _LASER_PAL = [
-    [0,200,255],[200,0,255],[0,255,150],[255,50,180],[255,200,0],[100,180,255],
-];
+// ── Theme 6 – Confetti ────────────────────────────────────────────────────────
+let _confetti = [], _confW = 0;
+function _mkConfetto() {
+    const hue = Math.random() * 360;
+    const [r, g, b] = hslToRgb(hue, 90, 60);
+    const shape = Math.random();   // 0-0.6 rect, 0.6-0.8 circle, 0.8-1 ribbon
+    return {
+        x: Math.random() * (canvas.width  + 100) - 50,
+        y: Math.random() * -canvas.height,
+        w: shape < 0.6 ? 7 + Math.random() * 7 : 5 + Math.random() * 5,
+        h: shape < 0.6 ? 3 + Math.random() * 5 : (shape < 0.8 ? 5 + Math.random() * 5 : 2 + Math.random() * 2),
+        rot: Math.random() * Math.PI * 2,
+        rotSpd: (Math.random() - 0.5) * 5,
+        vx: (Math.random() - 0.5) * 50,
+        vy: 70 + Math.random() * 110,
+        r, g, b, hue, shape,
+    };
+}
+function _buildConfetti() {
+    _confW = canvas.width;
+    _confetti = Array.from({ length: 130 }, _mkConfetto);
+    // Seed some on-screen already
+    _confetti.forEach((p, i) => { if (i < 80) p.y = Math.random() * canvas.height; });
+}
+function drawConfetti(beat, dt) {
+    if (canvas.width !== _confW) _buildConfetti();
+    const spd = 1 + beat * 2.2;
+    _confetti.forEach(p => {
+        p.rot += p.rotSpd * spd * dt;
+        p.x   += p.vx * dt + Math.sin(p.rot * 0.5) * 0.4;
+        p.y   += p.vy * spd * dt;
+        if (p.y > canvas.height + 20) { Object.assign(p, _mkConfetto()); }
+        if (p.x < -60) p.x = canvas.width  + 50;
+        if (p.x > canvas.width  + 60) p.x = -50;
+
+        const al = 0.55 + beat * 0.35;
+        const [r, g, b] = hslToRgb((p.hue + beat * 60) % 360, 88, 58 + beat * 14);
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        // Glow falso (sin shadowBlur): círculo extra semitransparente
+        if (beat > 0.3) {
+            ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`;
+            ctx.beginPath(); ctx.arc(0, 0, p.w * 2.5, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.fillStyle = `rgba(${r},${g},${b},${al})`;
+        if (p.shape < 0.6) {
+            ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        } else if (p.shape < 0.8) {
+            ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill();
+        } else {
+            ctx.beginPath(); ctx.ellipse(0, 0, p.w, p.h / 2, 0, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.restore();
+    });
+}
+
+// ── Theme 7 – Laser Show (colores reactivos al beat) ─────────────────────────
 let _lasers = [], _laserBuiltW = 0;
 function _mkLaser() {
-    const [r, g, b] = _LASER_PAL[Math.floor(Math.random() * _LASER_PAL.length)];
     const angle = Math.random() * Math.PI * 2;
     return {
-        x:     Math.random() * canvas.width,
-        y:     Math.random() * canvas.height,
-        vx:    Math.cos(angle) * (120 + Math.random() * 80),
-        vy:    Math.sin(angle) * (120 + Math.random() * 80),
-        r, g, b,
+        x:    Math.random() * canvas.width,
+        y:    Math.random() * canvas.height,
+        vx:   Math.cos(angle) * (110 + Math.random() * 90),
+        vy:   Math.sin(angle) * (110 + Math.random() * 90),
+        hue:  Math.random() * 360,   // hue base individual
         trail: [],
-        w:     1.2 + Math.random() * 1.2,
+        w:    1.2 + Math.random() * 1.4,
     };
 }
 function _buildLasers() {
     _laserBuiltW = canvas.width;
     _lasers = Array.from({ length: 18 }, _mkLaser);
 }
-function drawLaser(beat, dt) {
+function drawLaser(beat, dt, t) {
     if (canvas.width !== _laserBuiltW) _buildLasers();
-    const spd  = 1 + beat * 2.8;
     const W = canvas.width, H = canvas.height;
+    const spd = 1 + beat * 3;
 
     _lasers.forEach(l => {
-        // Mover
         l.x += l.vx * spd * dt;
         l.y += l.vy * spd * dt;
+        if (l.x < 0) { l.x = 0;  l.vx =  Math.abs(l.vx); }
+        if (l.x > W) { l.x = W;  l.vx = -Math.abs(l.vx); }
+        if (l.y < 0) { l.y = 0;  l.vy =  Math.abs(l.vy); }
+        if (l.y > H) { l.y = H;  l.vy = -Math.abs(l.vy); }
 
-        // Rebotar en bordes
-        if (l.x < 0)   { l.x = 0;  l.vx =  Math.abs(l.vx); }
-        if (l.x > W)   { l.x = W;  l.vx = -Math.abs(l.vx); }
-        if (l.y < 0)   { l.y = 0;  l.vy =  Math.abs(l.vy); }
-        if (l.y > H)   { l.y = H;  l.vy = -Math.abs(l.vy); }
+        // Color reactivo: cicla lento + explosión de tono en cada beat
+        const hue = (l.hue + t * 28 + beat * 160) % 360;
+        const sat = 85 + beat * 15;
+        const lum = 52 + beat * 18;
+        const [r, g, b] = hslToRgb(hue, sat, lum);
 
-        // Estela: guardar posición
         l.trail.push({ x: l.x, y: l.y });
-        if (l.trail.length > 38) l.trail.shift();
-
+        if (l.trail.length > 28) l.trail.shift();
         if (l.trail.length < 2) return;
 
-        // Dibujar estela con degradado de opacidad
-        for (let i = 1; i < l.trail.length; i++) {
-            const frac = i / l.trail.length;
-            const al   = frac * (0.055 + beat * 0.08);
+        // Una sola stroke por bola con gradiente — en vez de 28 strokes individuales
+        const t0 = l.trail[0], tN = l.trail[l.trail.length - 1];
+        const grad = ctx.createLinearGradient(t0.x, t0.y, tN.x, tN.y);
+        grad.addColorStop(0, `rgba(${r},${g},${b},0)`);
+        grad.addColorStop(1, `rgba(${r},${g},${b},${0.35 + beat * 0.45})`);
+        ctx.beginPath();
+        ctx.moveTo(t0.x, t0.y);
+        for (let i = 1; i < l.trail.length; i++) ctx.lineTo(l.trail[i].x, l.trail[i].y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth   = l.w * 1.8;
+        ctx.shadowBlur  = 0;
+        ctx.stroke();
+
+        // Cabeza — glow falso + núcleo
+        const hr = l.w * 2 + beat * 3.5;
+        if (beat > 0.2) {
+            ctx.beginPath(); ctx.arc(l.x, l.y, hr * 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(l.x, l.y, hr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.75 + beat * 0.25})`; ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 8 – Vórtice ────────────────────────────────────────────────────────
+function drawVortex(beat, dt, t) {
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const RINGS = 14;
+    const maxR  = Math.min(canvas.width, canvas.height) * 0.56;
+
+    for (let ri = 0; ri < RINGS; ri++) {
+        // Anillos zoom hacia el centro — la fase avanza con t
+        const phase = (t * 0.7 + ri / RINGS) % 1;   // 0..1, 0=exterior, 1=centro
+        const R     = maxR * (1 - phase);
+        if (R < 2) continue;
+
+        const fi   = ri / (RINGS - 1);
+        const r    = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g    = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b    = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        // Opacidad: máxima en anillos medios, casi nula en extremos
+        const al   = Math.sin(phase * Math.PI) * (0.18 + beat * 0.28);
+
+        // Anillo
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.lineWidth   = 1.5 + beat * 2.5 + (1 - phase) * 1.5;
+        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
+        ctx.shadowBlur  = 6 + beat * 18;
+        ctx.stroke();
+
+        // Puntos giratorios sobre cada anillo
+        const dotCount  = 3 + Math.floor(fi * 5);
+        const spinSpeed = 0.4 + fi * 0.6;
+        for (let d = 0; d < dotCount; d++) {
+            const angle = t * spinSpeed + (Math.PI * 2 / dotCount) * d;
+            const dx = cx + Math.cos(angle) * R;
+            const dy = cy + Math.sin(angle) * R;
             ctx.beginPath();
-            ctx.moveTo(l.trail[i - 1].x, l.trail[i - 1].y);
-            ctx.lineTo(l.trail[i].x,     l.trail[i].y);
-            ctx.strokeStyle = `rgba(${l.r},${l.g},${l.b},${al})`;
-            ctx.lineWidth   = l.w * frac;
+            ctx.arc(dx, dy, 1.5 + beat * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle   = `rgba(${r},${g},${b},${al * 2})`;
+            ctx.shadowBlur  = 4 + beat * 12;
+            ctx.fill();
+        }
+    }
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 10 – Ondas Sonoras ─────────────────────────────────────────────────
+function drawWaves(beat, dt, t) {
+    const W = canvas.width, H = canvas.height;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const LAYERS = 8;
+    ctx.shadowBlur = 0;
+    for (let li = 0; li < LAYERS; li++) {
+        const fi    = li / (LAYERS - 1);
+        const r     = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g     = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b     = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        const amp   = (22 + fi * 70) * (1 + beat * 3);
+        const freq  = 0.005 + fi * 0.003;
+        const phase = t * (0.4 + fi * 0.5) + li * 1.1;
+        const yBase = H * 0.1 + (H * 0.8) * fi;
+        const al    = 0.10 + fi * 0.07 + beat * 0.18;
+
+        ctx.beginPath();
+        for (let x = 0; x <= W; x += 2) {
+            const y = yBase
+                + Math.sin(x * freq       + phase)         * amp
+                + Math.sin(x * freq * 2.1 + phase * 1.4)   * amp * 0.35
+                + Math.sin(x * freq * 0.5 + phase * 0.7)   * amp * 0.2;
+            x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.lineWidth   = 1.2 + fi * 1.8 + beat * 3.5;
+        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
+        ctx.shadowBlur  = beat > 0.15 ? 6 + beat * 22 : 0;
+        ctx.stroke();
+    }
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 11 – Meteoros ───────────────────────────────────────────────────────
+let _meteors = [], _metW = 0;
+function _mkMeteor(seeded) {
+    const angle = Math.PI * 0.32 + (Math.random() - 0.5) * 0.35;
+    const spd   = 280 + Math.random() * 320;
+    const m = {
+        x:    Math.random() * canvas.width * 1.4 - canvas.width * 0.2,
+        y:    -30 - Math.random() * canvas.height * 0.6,
+        vx:   Math.cos(angle) * spd,
+        vy:   Math.sin(angle) * spd,
+        len:  55 + Math.random() * 130,
+        w:    0.8 + Math.random() * 2,
+        hue:  Math.random() * 360,
+        al:   0.45 + Math.random() * 0.55,
+    };
+    if (seeded) m.y = Math.random() * canvas.height;
+    return m;
+}
+function _buildMeteors() {
+    _metW    = canvas.width;
+    _meteors = Array.from({ length: 16 }, (_, i) => _mkMeteor(i < 9));
+}
+function drawMeteors(beat, dt) {
+    if (canvas.width !== _metW) _buildMeteors();
+
+    // Beat lanza meteoros extra
+    if (beat > 0.45 && Math.random() < beat * 0.35) _meteors.push(_mkMeteor(false));
+    if (_meteors.length > 45) _meteors.splice(0, _meteors.length - 45);
+
+    const spd = 1 + beat * 2.8;
+
+    for (let i = _meteors.length - 1; i >= 0; i--) {
+        const m = _meteors[i];
+        m.x += m.vx * spd * dt;
+        m.y += m.vy * spd * dt;
+
+        if (m.y > canvas.height + 60 || m.x > canvas.width + 120) {
+            _meteors[i] = _mkMeteor(false);
+            continue;
+        }
+
+        const [r, g, b] = hslToRgb((m.hue + beat * 70) % 360, 88, 62);
+        const mag  = Math.sqrt(m.vx * m.vx + m.vy * m.vy);
+        const nx   = m.vx / mag, ny = m.vy / mag;
+        const tail = m.len * (0.7 + beat * 0.6);
+        const tx   = m.x - nx * tail, ty = m.y - ny * tail;
+
+        const grad = ctx.createLinearGradient(tx, ty, m.x, m.y);
+        grad.addColorStop(0, `rgba(${r},${g},${b},0)`);
+        grad.addColorStop(0.6, `rgba(${r},${g},${b},${m.al * (0.25 + beat * 0.3)})`);
+        grad.addColorStop(1,   `rgba(255,255,255,${m.al * (0.5 + beat * 0.4)})`);
+
+        // Estela — sin shadowBlur (demasiadas llamadas)
+        ctx.beginPath();
+        ctx.moveTo(tx, ty);
+        ctx.lineTo(m.x, m.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth   = m.w + beat * 2.5;
+        ctx.shadowBlur  = 0;
+        ctx.stroke();
+
+        // Cabeza — glow falso + núcleo blanco
+        const hr = m.w * 1.8 + beat * 3.5;
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, hr * 4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, hr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.72 + beat * 0.28})`;
+        ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 12 – ADN ────────────────────────────────────────────────────────────
+function drawDNA(beat, dt, t) {
+    const W = canvas.width, H = canvas.height;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const cx   = W / 2;
+    const amp  = W * 0.22 * (1 + beat * 0.25);
+    const freq = 1.8;
+    const spd  = t * 0.7;
+
+    // Dos hélices
+    [0, Math.PI].forEach((offset, si) => {
+        const nc = si === 0 ? a1 : a2;
+        ctx.beginPath();
+        for (let yi = 0; yi <= H; yi += 2) {
+            const phase = (yi / H) * Math.PI * 2 * freq + spd + offset;
+            const x = cx + Math.cos(phase) * amp;
+            yi === 0 ? ctx.moveTo(x, yi) : ctx.lineTo(x, yi);
+        }
+        ctx.strokeStyle = `rgba(${nc[0]},${nc[1]},${nc[2]},${0.35 + beat * 0.3})`;
+        ctx.lineWidth   = 2 + beat * 3;
+        ctx.shadowColor = `rgba(${nc[0]},${nc[1]},${nc[2]},0.9)`;
+        ctx.shadowBlur  = 8 + beat * 22;
+        ctx.stroke();
+    });
+
+    // Peldaños
+    const RUNGS = Math.floor(H / 22);
+    for (let i = 0; i <= RUNGS; i++) {
+        const y     = (i / RUNGS) * H;
+        const phase = (y / H) * Math.PI * 2 * freq + spd;
+        const x1    = cx + Math.cos(phase) * amp;
+        const x2    = cx + Math.cos(phase + Math.PI) * amp;
+        const fi    = (Math.sin(phase) + 1) / 2;
+        const r     = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g     = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b     = a1[2] + (a2[2] - a1[2]) * fi | 0;
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${0.09 + beat * 0.14})`;
+        ctx.lineWidth   = 1 + beat;
+        ctx.shadowBlur  = 0;
+        ctx.stroke();
+
+        if (i % 3 === 0) {
+            [[x1, a1], [x2, a2]].forEach(([nx, nc]) => {
+                ctx.beginPath();
+                ctx.arc(nx, y, 3 + beat * 4.5, 0, Math.PI * 2);
+                ctx.fillStyle   = `rgba(${nc[0]},${nc[1]},${nc[2]},${0.5 + beat * 0.5})`;
+                ctx.shadowColor = `rgba(${nc[0]},${nc[1]},${nc[2]},1)`;
+                ctx.shadowBlur  = 6 + beat * 18;
+                ctx.fill();
+            });
+        }
+    }
+    ctx.shadowBlur = 0;
+}
+
+// ── Theme 13 – Galaxia ────────────────────────────────────────────────────────
+let _galaxyStars = [], _galW = 0;
+function _buildGalaxy() {
+    _galW = canvas.width;
+    _galaxyStars = Array.from({ length: 700 }, () => {
+        const arm   = Math.floor(Math.random() * 3);
+        const d     = Math.pow(Math.random(), 0.55) * 0.5;
+        const base  = (arm / 3) * Math.PI * 2;
+        const angle = base + d * Math.PI * 3.2 + (Math.random() - 0.5) * 0.5;
+        return {
+            dx:    Math.cos(angle) * d,
+            dy:    Math.sin(angle) * d,
+            size:  0.4 + Math.random() * 1.8,
+            spd:   0.08 + (1 - d * 2) * 0.25,
+            alpha: 0.25 + Math.random() * 0.75,
+            fi:    d * 2,
+        };
+    });
+}
+function drawGalaxy(beat, dt, t) {
+    if (canvas.width !== _galW) _buildGalaxy();
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const R   = Math.min(canvas.width, canvas.height) * 0.44;
+    const rot = t * 0.07;
+
+    _galaxyStars.forEach(s => {
+        const angle = Math.atan2(s.dy, s.dx) + rot * s.spd;
+        const d     = Math.sqrt(s.dx * s.dx + s.dy * s.dy);
+        const x     = cx + Math.cos(angle) * d * R;
+        const y     = cy + Math.sin(angle) * d * R * 0.42;
+        const fi    = Math.min(s.fi, 1);
+        const r     = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g     = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b     = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        const al    = s.alpha * (0.35 + beat * 0.5);
+        const sz    = s.size * (1 + beat * 2);
+
+        // Glow falso: círculo más grande y transparente, sin shadowBlur
+        if (beat > 0.3 && sz > 1.2) {
+            ctx.beginPath();
+            ctx.arc(x, y, sz * 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${al * beat * 0.25})`;
+            ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(x, y, sz, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.fill();
+    });
+}
+
+// ── Theme 14 – Campo Magnético ────────────────────────────────────────────────
+let _magParts = [], _magPoles = [], _magW = 0;
+function _buildMagnetic() {
+    _magW = canvas.width;
+    _magParts = Array.from({ length: 220 }, () => ({
+        x:     Math.random() * canvas.width,
+        y:     Math.random() * canvas.height,
+        vx:    (Math.random() - 0.5) * 20,
+        vy:    (Math.random() - 0.5) * 20,
+        hue:   Math.random() * 360,
+        trail: [],
+    }));
+    _magPoles = [
+        { bx: 0.28, by: 0.40, sign:  1 },
+        { bx: 0.72, by: 0.60, sign: -1 },
+        { bx: 0.50, by: 0.22, sign:  1 },
+    ];
+}
+function drawMagnetic(beat, dt, t) {
+    if (canvas.width !== _magW) _buildMagnetic();
+    const W = canvas.width, H = canvas.height;
+    // Poles drift slowly
+    const poles = [
+        { x: W * (0.28 + 0.12 * Math.sin(t * 0.28)),     y: H * (0.40 + 0.12 * Math.cos(t * 0.35)),     sign:  1 },
+        { x: W * (0.72 + 0.12 * Math.sin(t * 0.41 + 1)), y: H * (0.60 + 0.12 * Math.cos(t * 0.29 + 2)), sign: -1 },
+        { x: W * (0.50 + 0.18 * Math.sin(t * 0.19 + 3)), y: H * (0.28 + 0.12 * Math.cos(t * 0.55)),     sign:  1 },
+    ];
+
+    _magParts.forEach(p => {
+        let fx = 0, fy = 0;
+        poles.forEach(pole => {
+            const dx = pole.x - p.x;
+            const dy = pole.y - p.y;
+            const d  = Math.sqrt(dx * dx + dy * dy) + 1;
+            const f  = pole.sign * 7500 / (d * d) * (1 + beat * 2.5);
+            fx += (dx / d) * f;
+            fy += (dy / d) * f;
+        });
+        p.vx = p.vx * 0.90 + fx * dt;
+        p.vy = p.vy * 0.90 + fy * dt;
+        const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        const max = 90 + beat * 70;
+        if (spd > max) { p.vx = p.vx / spd * max; p.vy = p.vy / spd * max; }
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+
+        p.trail.push({ x: p.x, y: p.y });
+        if (p.trail.length > 14) p.trail.shift();
+        if (p.trail.length < 2) return;
+
+        const [r, g, b] = hslToRgb((p.hue + beat * 90) % 360, 82, 55);
+        for (let i = 1; i < p.trail.length; i++) {
+            const frac = i / p.trail.length;
+            ctx.beginPath();
+            ctx.moveTo(p.trail[i - 1].x, p.trail[i - 1].y);
+            ctx.lineTo(p.trail[i].x,     p.trail[i].y);
+            ctx.strokeStyle = `rgba(${r},${g},${b},${frac * (0.07 + beat * 0.1)})`;
+            ctx.lineWidth   = frac * 1.6;
             ctx.shadowBlur  = 0;
             ctx.stroke();
         }
-
-        // Cabeza brillante
+        const pr = 1.2 + beat * 2.5;
+        // Glow falso
+        if (beat > 0.25) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, pr * 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.1})`;
+            ctx.fill();
+        }
         ctx.beginPath();
-        ctx.arc(l.x, l.y, l.w * 1.8 + beat * 3, 0, Math.PI * 2);
-        ctx.fillStyle   = `rgba(255,255,255,${0.7 + beat * 0.3})`;
-        ctx.shadowColor = `rgba(${l.r},${l.g},${l.b},1)`;
-        ctx.shadowBlur  = 10 + beat * 28;
+        ctx.arc(p.x, p.y, pr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${0.55 + beat * 0.45})`;
         ctx.fill();
     });
     ctx.shadowBlur = 0;
 }
 
+// ── Theme 15 – Topografía ─────────────────────────────────────────────────────
+function drawTopo(beat, dt, t) {
+    const W = canvas.width, H = canvas.height;
+    const cx = W / 2, cy = H / 2;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const LINES = 22;
+    const maxR  = Math.min(W, H) * 0.50;
+
+    for (let li = 0; li < LINES; li++) {
+        const fi    = li / (LINES - 1);
+        const R     = (0.08 + fi * 0.92) * maxR;
+        const phase = t * (0.15 + fi * 0.18) + li * 0.35;
+        const r     = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g     = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b     = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        const al    = (1 - fi * 0.5) * (0.07 + beat * 0.18);
+
+        ctx.beginPath();
+        const PTS = 140;
+        for (let i = 0; i <= PTS; i++) {
+            const angle = (i / PTS) * Math.PI * 2;
+            const dist  = R * (
+                1
+                + 0.22 * Math.sin(angle * 3 + phase)
+                + 0.13 * Math.sin(angle * 7 - phase * 1.5)
+                + 0.07 * Math.sin(angle * 13 + phase * 0.8)
+                + beat  * 0.18 * Math.sin(angle * 5 + t * 2)
+            );
+            const x = cx + Math.cos(angle) * dist;
+            const y = cy + Math.sin(angle) * dist * 0.58;
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.lineWidth   = 0.9 + beat * 2.2;
+        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
+        ctx.shadowBlur  = beat > 0.18 ? 4 + beat * 14 : 0;
+        ctx.stroke();
+    }
+    ctx.shadowBlur = 0;
+}
+
 function heroThemeDraw(beat, dt, t) {
     switch (_bgTheme) {
-        case 1: drawMatrix(beat, dt);       break;
-        case 2: drawGeometry(beat, dt);     break;
-        case 3: drawAurora(beat, dt, t);    break;
-        case 4: drawOrbital(beat, dt, t);   break;
-        case 5: drawNeonRain(beat, dt);     break;
-        case 6: drawLaser(beat, dt);        break;
-        case 7: drawFireworks(beat, dt, t); break;
-        default: drawConstellation(beat);   break;
+        case 1:  drawMatrix(beat, dt);        break;
+        case 2:  drawGeometry(beat, dt);      break;
+        case 3:  drawAurora(beat, dt, t);     break;
+        case 4:  drawOrbital(beat, dt, t);    break;
+        case 5:  drawNeonRain(beat, dt);      break;
+        case 6:  drawConfetti(beat, dt);      break;
+        case 7:  drawLaser(beat, dt, t);      break;
+        case 8:  drawVortex(beat, dt, t);     break;
+        case 9:  drawFireworks(beat, dt, t);  break;
+        case 10: drawWaves(beat, dt, t);      break;
+        case 11: drawMeteors(beat, dt);       break;
+        case 12: drawDNA(beat, dt, t);        break;
+        case 13: drawGalaxy(beat, dt, t);     break;
+        case 14: drawMagnetic(beat, dt, t);   break;
+        case 15: drawTopo(beat, dt, t);       break;
+        default: drawConstellation(beat);     break;
     }
 }
 
@@ -1455,6 +1920,7 @@ try {
     new IntersectionObserver((entries) => { _heroVisible = entries[0].isIntersecting; }).observe(canvas);
 } catch (e) { /* navegador sin IntersectionObserver: se anima siempre */ }
 let _lastFrameTs = 0;
+let _lastAccentTs = 0;
 function animateParticles(ts = 0) {
     requestAnimationFrame(animateParticles);
     const dt = _lastFrameTs ? Math.min((ts - _lastFrameTs) / 1000, 0.05) : 0.016;
@@ -1462,7 +1928,12 @@ function animateParticles(ts = 0) {
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
-    updateAccentColors(_visualBeat);
+    // Throttle a ~12 Hz: cada setProperty en :root fuerza recalc de estilo en todo
+    // el documento. A 60 fps son 360 recalcs/s cuando hay música → lag visible.
+    if (ts - _lastAccentTs > 80) {
+        updateAccentColors(_visualBeat);
+        _lastAccentTs = ts;
+    }
     if (!_heroVisible || document.documentElement.classList.contains('arcade-lock')) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     heroThemeDraw(_visualBeat, dt, ts / 1000);

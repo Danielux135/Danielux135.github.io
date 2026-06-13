@@ -10,7 +10,18 @@ function request(options, body = null) {
         const req = https.request(options, (res) => {
             let data = '';
             res.on('data', chunk => data += chunk);
-            res.on('end', () => resolve(JSON.parse(data)));
+            res.on('end', () => {
+                console.log(`HTTP ${res.statusCode} ${options.path}`);
+                if (res.statusCode >= 400) {
+                    reject(new Error(`HTTP ${res.statusCode}: ${data}`));
+                    return;
+                }
+                try {
+                    resolve(JSON.parse(data));
+                } catch (e) {
+                    reject(new Error(`JSON parse error: ${data.slice(0, 300)}`));
+                }
+            });
         });
         req.on('error', reject);
         if (body) req.write(body);
