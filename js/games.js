@@ -22,6 +22,10 @@ if (!audio) return;
 const GAMES_I18N = {
     es: {
         open: 'Minijuegos',
+        promoBadge: '7 minijuegos',
+        promoLine1: '¡Prueba mis', promoLine2: 'minijuegos musicales!',
+        promoSub: 'Generados en tiempo real con los golpes de cada canción. Sin descargas, sin registro.',
+        promoBtn: 'Jugar ahora',
         title: 'Arcade',
         subtitle: 'Minijuegos sincronizados con los golpes reales de la canción. Elige juego y dificultad: la canción empieza de cero y cada golpe cuenta.',
         hint: 'ESC para salir · Al cerrar, tu música vuelve donde estaba',
@@ -60,6 +64,10 @@ const GAMES_I18N = {
     },
     en: {
         open: 'Mini-games',
+        promoBadge: '7 mini-games',
+        promoLine1: 'Try my', promoLine2: 'music mini-games!',
+        promoSub: 'Generated in real time from the beats of each song. No downloads, no sign-up.',
+        promoBtn: 'Play now',
         title: 'Arcade',
         subtitle: 'Mini-games synced to the real hits of the song. Pick a game and difficulty: the track starts from zero and every hit counts.',
         hint: 'ESC to exit · On close, your music resumes where it was',
@@ -98,6 +106,10 @@ const GAMES_I18N = {
     },
     val: {
         open: 'Minijocs',
+        promoBadge: '7 minijocs',
+        promoLine1: 'Prova els meus', promoLine2: 'minijocs musicals!',
+        promoSub: 'Generats en temps real amb els colps de cada cançó. Sense descàrregues, sense registre.',
+        promoBtn: 'Jugar ara',
         title: 'Arcade',
         subtitle: 'Minijocs sincronitzats amb els colps reals de la cançó. Tria joc i dificultat: la cançó comença de zero i cada colp compta.',
         hint: 'ESC per a eixir · En tancar, la teua música torna on estava',
