@@ -225,7 +225,8 @@ const translations = {
                 linkedin: 'LinkedIn',
                 github: 'GitHub',
                 twitch: 'Twitch',
-                youtube: 'YouTube'
+                youtube: 'YouTube',
+                discord: 'Discord'
             },
             form: {
                 nameLabel: 'Nombre',
@@ -414,7 +415,8 @@ const translations = {
                 linkedin: 'LinkedIn',
                 github: 'GitHub',
                 twitch: 'Twitch',
-                youtube: 'YouTube'
+                youtube: 'YouTube',
+                discord: 'Discord'
             },
             form: {
                 nameLabel: 'Name',
@@ -603,7 +605,8 @@ const translations = {
                 linkedin: 'LinkedIn',
                 github: 'GitHub',
                 twitch: 'Twitch',
-                youtube: 'YouTube'
+                youtube: 'YouTube',
+                discord: 'Discord'
             },
             form: {
                 nameLabel: 'Nom',
