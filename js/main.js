@@ -1020,7 +1020,8 @@ const HERO_THEMES = [
     { id: 3, es: 'Aurora',         en: 'Aurora',           val: 'Aurora',            icon: 'fa-wind'         },
     { id: 4, es: 'Órbitas',        en: 'Orbits',           val: 'Òrbites',           icon: 'fa-circle-nodes' },
     { id: 5, es: 'Lluvia Neón',    en: 'Neon Rain',        val: 'Pluja Neó',         icon: 'fa-droplet'      },
-    { id: 6, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'         },
+    { id: 6, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'         },
+    { id: 7, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'         },
 ];
 let _bgTheme = (() => {
     const s = localStorage.getItem('heroBgTheme');
@@ -1033,7 +1034,7 @@ function _heroAccent(w) {
 function setBgTheme(id) {
     _bgTheme = ((id % 7) + 7) % 7;
     localStorage.setItem('heroBgTheme', _bgTheme);
-    _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0;
+    _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0; _laserBuiltW = 0;
     _fwBursts.length = 0; _fwLastT = 0; _fwPrevBeat = 0;
 }
 
@@ -1322,6 +1323,74 @@ function drawFireworks(beat, dt, t) {
     ctx.shadowBlur = 0;
 }
 
+// ── Theme 6 – Laser Show ──────────────────────────────────────────────────────
+const _LASER_PAL = [
+    [0,200,255],[200,0,255],[0,255,150],[255,50,180],[255,200,0],[100,180,255],
+];
+let _lasers = [], _laserBuiltW = 0;
+function _mkLaser() {
+    const [r, g, b] = _LASER_PAL[Math.floor(Math.random() * _LASER_PAL.length)];
+    const angle = Math.random() * Math.PI * 2;
+    return {
+        x:     Math.random() * canvas.width,
+        y:     Math.random() * canvas.height,
+        vx:    Math.cos(angle) * (120 + Math.random() * 80),
+        vy:    Math.sin(angle) * (120 + Math.random() * 80),
+        r, g, b,
+        trail: [],
+        w:     1.2 + Math.random() * 1.2,
+    };
+}
+function _buildLasers() {
+    _laserBuiltW = canvas.width;
+    _lasers = Array.from({ length: 18 }, _mkLaser);
+}
+function drawLaser(beat, dt) {
+    if (canvas.width !== _laserBuiltW) _buildLasers();
+    const spd  = 1 + beat * 2.8;
+    const W = canvas.width, H = canvas.height;
+
+    _lasers.forEach(l => {
+        // Mover
+        l.x += l.vx * spd * dt;
+        l.y += l.vy * spd * dt;
+
+        // Rebotar en bordes
+        if (l.x < 0)   { l.x = 0;  l.vx =  Math.abs(l.vx); }
+        if (l.x > W)   { l.x = W;  l.vx = -Math.abs(l.vx); }
+        if (l.y < 0)   { l.y = 0;  l.vy =  Math.abs(l.vy); }
+        if (l.y > H)   { l.y = H;  l.vy = -Math.abs(l.vy); }
+
+        // Estela: guardar posición
+        l.trail.push({ x: l.x, y: l.y });
+        if (l.trail.length > 38) l.trail.shift();
+
+        if (l.trail.length < 2) return;
+
+        // Dibujar estela con degradado de opacidad
+        for (let i = 1; i < l.trail.length; i++) {
+            const frac = i / l.trail.length;
+            const al   = frac * (0.055 + beat * 0.08);
+            ctx.beginPath();
+            ctx.moveTo(l.trail[i - 1].x, l.trail[i - 1].y);
+            ctx.lineTo(l.trail[i].x,     l.trail[i].y);
+            ctx.strokeStyle = `rgba(${l.r},${l.g},${l.b},${al})`;
+            ctx.lineWidth   = l.w * frac;
+            ctx.shadowBlur  = 0;
+            ctx.stroke();
+        }
+
+        // Cabeza brillante
+        ctx.beginPath();
+        ctx.arc(l.x, l.y, l.w * 1.8 + beat * 3, 0, Math.PI * 2);
+        ctx.fillStyle   = `rgba(255,255,255,${0.7 + beat * 0.3})`;
+        ctx.shadowColor = `rgba(${l.r},${l.g},${l.b},1)`;
+        ctx.shadowBlur  = 10 + beat * 28;
+        ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+}
+
 function heroThemeDraw(beat, dt, t) {
     switch (_bgTheme) {
         case 1: drawMatrix(beat, dt);       break;
@@ -1329,7 +1398,8 @@ function heroThemeDraw(beat, dt, t) {
         case 3: drawAurora(beat, dt, t);    break;
         case 4: drawOrbital(beat, dt, t);   break;
         case 5: drawNeonRain(beat, dt);     break;
-        case 6: drawFireworks(beat, dt, t); break;
+        case 6: drawLaser(beat, dt);        break;
+        case 7: drawFireworks(beat, dt, t); break;
         default: drawConstellation(beat);   break;
     }
 }
