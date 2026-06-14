@@ -143,6 +143,7 @@ const translations = {
             title: 'Música',
             desc: 'Bajo el nombre artístico <strong>Danielux</strong>, publico música producida profesionalmente con inteligencia artificial en todas las grandes plataformas. El tema <a href="https://www.youtube.com/watch?v=8RBLLrBEJGI" target="_blank" rel="noopener">Nobody New (Danielux Remix)</a> llegó a situarse entre el <strong>top 3 de canciones más reproducidas</strong> en <a href="https://www.siriusxm.com/channels/chill" target="_blank" rel="noopener">SiriusXM Chill</a>, según el seguimiento público del histórico en <a href="https://xmplaylist.com/station/siriusxmchill/track/UM8O-YI7R" target="_blank" rel="noopener">xmplaylist</a>, dentro de una plataforma que comunica una audiencia mensual combinada aproximada de 255 millones de oyentes en Norteamérica.',
             spotifyTitle: 'Danielux en Spotify',
+            spotifyAlbum: 'Escuchar en Spotify',
             highlightKicker: 'Destacado en radio',
             highlightTitle: 'Nobody New (Danielux Remix)',
             highlightText: 'Emitida en <strong>SiriusXM Chill</strong> y situada en el top 3 de canciones más reproducidas según el histórico público del enlace de seguimiento.',
@@ -333,6 +334,7 @@ const translations = {
             title: 'Music',
             desc: 'Under the artist name <strong>Danielux</strong>, I release professionally produced AI-assisted music across the main streaming platforms. The track <a href="https://www.youtube.com/watch?v=8RBLLrBEJGI" target="_blank" rel="noopener">Nobody New (Danielux Remix)</a> reached the <strong>top 3 most-played songs</strong> on <a href="https://www.siriusxm.com/channels/chill" target="_blank" rel="noopener">SiriusXM Chill</a>, according to the public tracking history on <a href="https://xmplaylist.com/station/siriusxmchill/track/UM8O-YI7R" target="_blank" rel="noopener">xmplaylist</a>, within a platform reporting an approximate combined monthly audience of 255 million listeners across North America.',
             spotifyTitle: 'Danielux on Spotify',
+            spotifyAlbum: 'Listen on Spotify',
             highlightKicker: 'Radio highlight',
             highlightTitle: 'Nobody New (Danielux Remix)',
             highlightText: 'Aired on <strong>SiriusXM Chill</strong> and ranked among the top 3 most-played songs according to the public tracking history.',
@@ -523,6 +525,7 @@ const translations = {
             title: 'Música',
             desc: 'Baix el nom artístic <strong>Danielux</strong>, publique música produïda professionalment amb intel·ligència artificial en les principals plataformes. El tema <a href="https://www.youtube.com/watch?v=8RBLLrBEJGI" target="_blank" rel="noopener">Nobody New (Danielux Remix)</a> va arribar a situar-se entre el <strong>top 3 de cançons més reproduïdes</strong> en <a href="https://www.siriusxm.com/channels/chill" target="_blank" rel="noopener">SiriusXM Chill</a>, segons el seguiment públic de l’històric en <a href="https://xmplaylist.com/station/siriusxmchill/track/UM8O-YI7R" target="_blank" rel="noopener">xmplaylist</a>, dins d’una plataforma que comunica una audiència mensual combinada aproximada de 255 milions d’oients a Amèrica del Nord.',
             spotifyTitle: 'Danielux en Spotify',
+            spotifyAlbum: 'Escoltar a Spotify',
             highlightKicker: 'Destacat en ràdio',
             highlightTitle: 'Nobody New (Danielux Remix)',
             highlightText: "Emesa en <strong>SiriusXM Chill</strong> i situada en el top 3 de cançons més reproduïdes segons l’històric públic de seguiment.",
@@ -2570,6 +2573,7 @@ const TRACKS = [
         currentTimeEl.textContent = '0:00';
         totalTimeEl.textContent = '0:00';
         renderTracks();
+        updateMediaSession(t);
         if (autoplay) {
             audio.play().then(() => {
                 playIcon.className = 'fa-solid fa-pause';
@@ -2578,6 +2582,36 @@ const TRACKS = [
             playIcon.className = 'fa-solid fa-play';
         }
     }
+    // actualiza los metadatos que ve android en la pantalla de bloqueo
+    function updateMediaSession(t) {
+        if (!('mediaSession' in navigator)) return;
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: t.title,
+            artist: 'Danielux',
+            album: 'Danielux',
+            artwork: [
+                { src: 'assets/borrowed-colors.webp', sizes: '600x600', type: 'image/webp' }
+            ]
+        });
+    }
+    // registra los controles de siguiente/anterior/play/pausa para la pantalla de bloqueo
+    function setupMediaSession() {
+        if (!('mediaSession' in navigator)) return;
+        navigator.mediaSession.setActionHandler('play', () => {
+            if (window._ensureAudioCtx) window._ensureAudioCtx();
+            audio.play().catch(() => {});
+        });
+        navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+            loadTrack((currentIdx - 1 + TRACKS.length) % TRACKS.length, true);
+        });
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+            loadTrack((currentIdx + 1) % TRACKS.length, true);
+        });
+    }
+    setupMediaSession();
+    audio.addEventListener('play',  () => { if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing'; });
+    audio.addEventListener('pause', () => { if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused'; });
     playBtn.addEventListener('click', () => {
         if (window._ensureAudioCtx) window._ensureAudioCtx();
         if (audio.paused) {
@@ -2623,6 +2657,7 @@ const TRACKS = [
     volBar.addEventListener('input', () => {
         audio.volume = volBar.value / 100;
         audio.muted = false;
+        if (window._setAudioVolume) window._setAudioVolume(audio.volume);
         volBar.style.setProperty('--vol', volBar.value + '%');
         muteBtn.querySelector('i').className = volIconCls(audio.volume);
         const npbVol = document.getElementById('npbVol');
@@ -2632,6 +2667,7 @@ const TRACKS = [
     });
     muteBtn.addEventListener('click', () => {
         audio.muted = !audio.muted;
+        if (window._setAudioVolume) window._setAudioVolume(audio.muted ? 0 : audio.volume);
         volBar.style.setProperty('--vol', audio.muted ? '0%' : volBar.value + '%');
         muteBtn.querySelector('i').className = audio.muted ? 'fa-solid fa-volume-xmark' : volIconCls(audio.volume);
     });
@@ -2692,35 +2728,35 @@ const TRACKS = [
         const canvas = document.getElementById('visualizerCanvas');
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
-        let audioCtx, analyser, source, animId;
+        let audioCtx, analyser, source, gainNode, animId;
         let connected = false;
-        // crea el audiocontext y conecta la cadena de análisis solo la primera vez
+        // crea el audiocontext y conecta la cadena source -> gain -> analyser -> destino
+        // la cadena se crea una sola vez, pero el resume se intenta siempre (iOS suspende el contexto)
         function ensureAudioCtx() {
-            if (connected) return;
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
-            analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 64;
-            analyser.smoothingTimeConstant = 0.05;
-            source = audioCtx.createMediaElementSource(audio);
-            source.connect(analyser);
-            analyser.connect(audioCtx.destination);
-            connected = true;
-            window._audioAnalyser = analyser;
-            // en iOS el AudioContext arranca suspended; hay que resumirlo dentro del gesto del usuario
-            if (audioCtx.state === 'suspended') audioCtx.resume();
+            if (!connected) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 64;
+                analyser.smoothingTimeConstant = 0.05;
+                // nodo de ganancia: iOS ignora audio.volume en <audio>, así que el volumen se controla aquí
+                gainNode = audioCtx.createGain();
+                gainNode.gain.value = audio.muted ? 0 : audio.volume;
+                source = audioCtx.createMediaElementSource(audio);
+                source.connect(gainNode);
+                gainNode.connect(analyser);
+                analyser.connect(audioCtx.destination);
+                connected = true;
+                window._audioAnalyser = analyser;
+            }
+            // siempre reanudar si está suspendido: en iOS hay que hacerlo dentro del gesto del usuario
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
         }
         // permite llamar a ensureAudioCtx desde el click del botón (gesto de usuario en iOS)
         window._ensureAudioCtx = ensureAudioCtx;
-        // desbloqueo de audio para ios/móvil: en el primer gesto del usuario se crea y reanuda
-        // el contexto, de modo que al pulsar play el grafo de web audio ya está activo (mantiene la reactividad)
-        function unlockAudio() {
-            ensureAudioCtx();
-            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-            document.removeEventListener('touchend', unlockAudio);
-            document.removeEventListener('pointerdown', unlockAudio);
-        }
-        document.addEventListener('touchend', unlockAudio);
-        document.addEventListener('pointerdown', unlockAudio);
+        // aplica el volumen al nodo de ganancia (necesario en iOS donde audio.volume no tiene efecto)
+        window._setAudioVolume = function (v) {
+            if (gainNode) gainNode.gain.value = v;
+        };
         // dibuja un frame del visualizador de barras con gradiente reactivo al beat
         function draw() {
             animId = requestAnimationFrame(draw);
@@ -2829,6 +2865,7 @@ const TRACKS = [
         npbVol.addEventListener('input', () => {
             audio.volume = npbVol.value / 100;
             audio.muted = false;
+            if (window._setAudioVolume) window._setAudioVolume(audio.volume);
             updateVolIcon();
             const vb = document.getElementById('volBar');
             if (vb) { vb.value = npbVol.value; vb.style.setProperty('--vol', npbVol.value + '%'); }
@@ -2843,6 +2880,7 @@ const TRACKS = [
         npbVolIcon.addEventListener('click', () => {
             audio.muted = !audio.muted;
             if (!audio.muted) npbVol.value = Math.round(audio.volume * 100);
+            if (window._setAudioVolume) window._setAudioVolume(audio.muted ? 0 : audio.volume);
             updateVolIcon();
         });
         npbPlay.addEventListener('click', () => {

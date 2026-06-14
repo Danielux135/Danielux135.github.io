@@ -10,3 +10,11 @@ assets/INSTRUCCIONES.txt
 .env
 .env.local
 .env.production
+
+# Dependencias y herramientas de imagen
+node_modules/
+package.json
+package-lock.json
+
+# Imagen original sin optimizar (se usa la versión .webp)
+assets/Borrowed Colors.png

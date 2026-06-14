@@ -1125,8 +1125,10 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     align-items: flex-start;
     gap: 10px;
     transition: bottom 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
 }
 .studio-fab {
+    pointer-events: auto;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -1562,11 +1564,46 @@ html[data-theme="light"] .about-avatar-img {
     gap: 48px;
     align-items: start;
 }
-/* iframe de spotify con bordes redondeados */
-.spotify-embed iframe {
-    border-radius: var(--radius);
+.spotify-card {
     display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    background: #121212;
+    box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    transition: transform .25s, box-shadow .25s;
 }
+.spotify-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.spotify-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+.spotify-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s; }
+.spotify-card:hover .spotify-card-img-wrap img { transform: scale(1.04); }
+.spotify-card-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .25s;
+}
+.spotify-card:hover .spotify-card-overlay { opacity: 1; }
+.spotify-play-icon { width: 64px; height: 64px; color: #1db954; filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)); }
+.spotify-card-info {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    background: #121212;
+}
+.spotify-card-badge {
+    display: flex; align-items: center; gap: 5px;
+    background: #1db954; color: #000;
+    font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+    flex-shrink: 0;
+}
+.spotify-card-artist { color: #fff; font-weight: 700; font-size: 1rem; flex: 1; }
+.spotify-card-album { color: #b3b3b3; font-size: .82rem; white-space: nowrap; }
 /* columna derecha de la sección música */
 .music-right { display: flex; flex-direction: column; gap: 28px; }
 /* cuadrícula del legado musical */
@@ -1731,12 +1768,15 @@ html[data-theme="light"] .about-avatar-img {
 }
 /* ancho fijo de cada tarjeta de plataforma en el carrusel */
 .platform-cards .platform-card { flex-shrink: 0; width: 182px; margin-right: 10px; }
-/* cuadrícula de estadísticas musicales */
 .music-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-top: 16px;
+}
+.music-stats-row {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 24px;
 }
 /* tarjeta de estadística musical con borde beat-reactivo */
 .music-stat-item {
@@ -2533,6 +2573,7 @@ body.npb-visible #footer {
     .about-grid,
     .music-grid,
     .contact-grid { grid-template-columns: 1fr; }
+    .music-stats-row { grid-template-columns: repeat(2, 1fr); }
     .about-photo-col { align-items: center; position: static; }
     .legacy-shell { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: repeat(2, 1fr); }
