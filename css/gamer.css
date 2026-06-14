@@ -39,7 +39,7 @@ html[data-style-theme="gamer"] body::before {
     opacity: 0.35;
 }
 
-/* viñeta oscura en los bordes, típica de HUD gaming */
+/* viñeta oscura en los bordes, típica de HUD gaming; se aparta del header para dejar ver los láseres */
 html[data-style-theme="gamer"] body::after {
     content: '';
     position: fixed;
@@ -51,6 +51,8 @@ html[data-style-theme="gamer"] body::after {
     );
     pointer-events: none;
     z-index: 9998;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
+    mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
 }
 
 /* esquina HUD superior izquierda fija */
@@ -135,7 +137,7 @@ html[data-style-theme="gamer"] li {
 
 /* navbar */
 html[data-style-theme="gamer"] #navbar {
-    background: rgba(4, 4, 13, 0.96) !important;
+    background: transparent !important;
     border-bottom: 1px solid rgb(var(--accent-1-rgb) / 0.12) !important;
     box-shadow: 0 1px 0 rgb(var(--accent-1-rgb) / 0.06) !important;
 }
@@ -1075,7 +1077,7 @@ html[data-theme="light"][data-style-theme="gamer"] .studio-fab {
 
 /* navbar en modo claro */
 html[data-theme="light"][data-style-theme="gamer"] #navbar {
-    background: rgba(232, 234, 246, 0.96) !important;
+    background: transparent !important;
     border-bottom-color: rgb(var(--accent-1-rgb) / 0.2) !important;
 }
 html[data-theme="light"][data-style-theme="gamer"] #navbar.scrolled {

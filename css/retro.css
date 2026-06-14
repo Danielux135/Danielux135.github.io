@@ -33,7 +33,7 @@ html[data-style-theme="retro"] body {
     animation: crt-flicker 14s infinite;
 }
 
-/* scanlines — la opacidad crece levemente con el beat */
+/* scanlines — la opacidad crece levemente con el beat; se apartan del header */
 html[data-style-theme="retro"] body::after {
     content: '';
     position: fixed;
@@ -47,9 +47,11 @@ html[data-style-theme="retro"] body::after {
     );
     pointer-events: none;
     z-index: 10000;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
+    mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
 }
 
-/* viñeta oscura en los bordes de la pantalla */
+/* viñeta oscura en los bordes de la pantalla; se aparta del header para dejar ver los láseres */
 html[data-style-theme="retro"] body::before {
     content: '';
     position: fixed;
@@ -58,6 +60,8 @@ html[data-style-theme="retro"] body::before {
                 inset 0 0 220px rgba(0, 0, 0, 0.3);
     pointer-events: none;
     z-index: 10001;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
+    mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
 }
 
 /* tipografía de títulos con glow del acento */
@@ -72,7 +76,7 @@ html[data-style-theme="retro"] h4 {
 
 /* navbar */
 html[data-style-theme="retro"] #navbar {
-    background: rgba(5, 10, 0, 0.97) !important;
+    background: transparent !important;
     border-bottom: 2px solid rgb(var(--accent-1-rgb) / 0.5) !important;
     box-shadow: 0 0 18px rgb(var(--accent-1-rgb) / 0.2) !important;
 }
@@ -543,7 +547,7 @@ html[data-theme="light"][data-style-theme="retro"] .studio-fab {
 
 /* navbar en modo claro */
 html[data-theme="light"][data-style-theme="retro"] #navbar {
-    background: rgba(245, 240, 224, 0.97) !important;
+    background: transparent !important;
     border-bottom-color: rgba(160, 100, 0, 0.35) !important;
     box-shadow: none !important;
 }
