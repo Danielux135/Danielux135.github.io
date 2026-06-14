@@ -1083,14 +1083,14 @@ function drawConnections(beat) {
 
 // fondos del hero: un tema por día de la semana (getday() 0=dom…6=sáb), sobreescribible desde el studio
 const HERO_THEMES = [
-    // temas diarios (0-6 corresponden a domingo-sábado)
-    { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
+    // temas diarios reordenados: lunes-domingo (menú empieza con lunes)
     { id: 1, es: 'Matrix',         en: 'Matrix',           val: 'Matrix',            icon: 'fa-terminal'     },
     { id: 2, es: 'Geometría',      en: 'Geometry',         val: 'Geometria',         icon: 'fa-shapes'       },
     { id: 3, es: 'Aurora',         en: 'Aurora',           val: 'Aurora',            icon: 'fa-wind'         },
     { id: 4, es: 'Órbitas',        en: 'Orbits',           val: 'Òrbites',           icon: 'fa-circle-nodes' },
-    { id: 5, es: 'Lluvia Neón',    en: 'Neon Rain',        val: 'Pluja Neó',         icon: 'fa-droplet'      },
-    { id: 6, es: 'Confetti',       en: 'Confetti',         val: 'Confetti',          icon: 'fa-wand-magic-sparkles' },
+    { id: 5, es: 'Galaxia',        en: 'Galaxy',           val: 'Galàxia',           icon: 'fa-rotate'       },
+    { id: 6, es: 'Circuitos',      en: 'Circuits',         val: 'Circuits',          icon: 'fa-microchip'    },
+    { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
     // temas adicionales, solo seleccionables desde el studio
     { id:  7, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'              },
     { id:  8, es: 'Ecualizador',     en: 'Equalizer',        val: 'Equalitzador',      icon: 'fa-circle-dot'        },
@@ -1098,14 +1098,21 @@ const HERO_THEMES = [
     { id: 10, es: 'Ondas',          en: 'Waves',            val: 'Ones',              icon: 'fa-water'             },
     { id: 11, es: 'Meteoros',        en: 'Meteors',          val: 'Meteors',           icon: 'fa-meteor'            },
     { id: 12, es: 'ADN',            en: 'DNA',              val: 'ADN',               icon: 'fa-dna'               },
-    { id: 13, es: 'Galaxia',        en: 'Galaxy',           val: 'Galàxia',           icon: 'fa-rotate'            },
     { id: 14, es: 'Magnético',      en: 'Magnetic',         val: 'Magnètic',          icon: 'fa-magnet'            },
     { id: 15, es: 'Topografía',     en: 'Topography',       val: 'Topografia',        icon: 'fa-mountain'          },
     { id: 16, es: 'Hexágonos',      en: 'Hexagons',         val: 'Hexàgons',          icon: 'fa-cube'              },
-    { id: 17, es: 'Circuitos',      en: 'Circuits',         val: 'Circuits',          icon: 'fa-microchip'         },
 ];
-// tema de fondo activo: recuperado de localStorage o día de la semana por defecto
+// tema de fondo activo: el fondo del día tiene prioridad una vez al día
+// si es un día nuevo respecto a la última visita, se aplica el fondo del día y se guarda la fecha
 let _bgTheme = (() => {
+    const today = new Date().toDateString();
+    const lastDay = localStorage.getItem('heroBgDay');
+    if (lastDay !== today) {
+        const dayTheme = new Date().getDay();
+        localStorage.setItem('heroBgTheme', dayTheme);
+        localStorage.setItem('heroBgDay', today);
+        return dayTheme;
+    }
     const s = localStorage.getItem('heroBgTheme');
     return s !== null ? parseInt(s) : new Date().getDay();
 })();
@@ -1269,51 +1276,77 @@ function drawAurora(beat, dt, t) {
     });
 }
 
-// tema 4: sistema de anillos orbitales con puntos giratorios
-// patrón: [fracción del radio base, num. puntos, velocidad angular, tamaño del punto, fase inicial]
+// tema 4: sistema solar — órbitas elípticas suaves anidadas que precesan despacio
+// rfrac escalado x1.5 entre anillos + aspecto fijo → nunca se cruzan (anidamiento garantizado)
+// cada anillo: nº planetas, velocidad orbital del planeta, tamaño, fase, precesión de la elipse
+const _ORB_ASP = 0.46;          // achatamiento común de todas las elipses
+const _ORB_PREC = 0.05;         // precesión compartida: todas giran juntas → nunca se cruzan
 const _ORB_RINGS = [
-    { rfrac: 0.09, n: 3,  spd: 0.85,  sz: 4.5, phase: 0   },
-    { rfrac: 0.18, n: 6,  spd: 0.48,  sz: 3.5, phase: 1.1 },
-    { rfrac: 0.29, n: 9,  spd: 0.27,  sz: 2.8, phase: 0.4 },
-    { rfrac: 0.42, n: 14, spd: 0.155, sz: 2.2, phase: 2.0 },
+    { rfrac: 0.13, n: 1, spd: 0.60,  sz: 4.2, phase: 0.0 },
+    { rfrac: 0.21, n: 1, spd: 0.44,  sz: 3.8, phase: 1.4 },
+    { rfrac: 0.30, n: 2, spd: 0.33,  sz: 3.4, phase: 0.6 },
+    { rfrac: 0.41, n: 1, spd: 0.255, sz: 3.1, phase: 2.7 },
+    { rfrac: 0.54, n: 2, spd: 0.195, sz: 2.8, phase: 4.0 },
+    { rfrac: 0.69, n: 1, spd: 0.150, sz: 2.5, phase: 5.1 },
+    { rfrac: 0.86, n: 3, spd: 0.115, sz: 2.3, phase: 0.9 },
+    { rfrac: 1.05, n: 2, spd: 0.090, sz: 2.1, phase: 3.4 },
 ];
-// renderiza un frame del sistema orbital con núcleo central y anillos reactivos
+// punto sobre una elipse suave inclinada (tilt) para un ángulo dado
+function _orbitPoint(cx, cy, rx, ry, cosT, sinT, ang) {
+    const ex = Math.cos(ang) * rx;
+    const ey = Math.sin(ang) * ry;
+    return { x: cx + ex * cosT - ey * sinT, y: cy + ex * sinT + ey * cosT };
+}
+// renderiza el sistema solar: sol central + órbitas elípticas que precesan suave
 function drawOrbital(beat, dt, t) {
     const cx = canvas.width / 2, cy = canvas.height / 2;
-    const base = Math.min(canvas.width, canvas.height) * 0.44;
+    const base = Math.min(canvas.width, canvas.height) * 0.78;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    // inclinación compartida que avanza despacio: todo el sistema gira como un bloque
+    const tilt = _ORB_PREC * t;
+    const cosT = Math.cos(tilt), sinT = Math.sin(tilt);
 
-    const cgr = ctx.createRadialGradient(cx, cy, 0, cx, cy, 20 + beat * 30);
-    cgr.addColorStop(0, `rgba(${a1[0]},${a1[1]},${a1[2]},${0.5 + beat * 0.5})`);
+    // sol central
+    const cgr = ctx.createRadialGradient(cx, cy, 0, cx, cy, 24 + beat * 34);
+    cgr.addColorStop(0, `rgba(${a1[0]},${a1[1]},${a1[2]},${0.55 + beat * 0.45})`);
     cgr.addColorStop(1, `rgba(${a1[0]},${a1[1]},${a1[2]},0)`);
-    ctx.beginPath(); ctx.arc(cx, cy, 20 + beat * 30, 0, Math.PI * 2);
+    ctx.beginPath(); ctx.arc(cx, cy, 24 + beat * 34, 0, Math.PI * 2);
     ctx.fillStyle = cgr; ctx.fill();
 
     _ORB_RINGS.forEach((ring, ri) => {
-        ring.phase += ring.spd * dt * (1 + beat * 2);
-        const R  = ring.rfrac * base * (1 + beat * 0.1);
+        ring.phase += ring.spd * dt * (1 + beat * 1.5);
+        const rx = ring.rfrac * base * (1 + beat * 0.08);
+        const ry = rx * _ORB_ASP;
         const fi = ri / (_ORB_RINGS.length - 1);
         const r  = a1[0] + (a2[0] - a1[0]) * fi | 0;
         const g  = a1[1] + (a2[1] - a1[1]) * fi | 0;
         const b  = a1[2] + (a2[2] - a1[2]) * fi | 0;
 
-        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${r},${g},${b},${0.07 + beat * 0.09})`;
-        ctx.lineWidth   = 0.6; ctx.stroke();
+        // traza la órbita elíptica suave
+        ctx.beginPath();
+        const N = 90;
+        for (let i = 0; i <= N; i++) {
+            const ang = (i / N) * Math.PI * 2;
+            const p = _orbitPoint(cx, cy, rx, ry, cosT, sinT, ang);
+            i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = `rgba(${r},${g},${b},${0.14 + beat * 0.16})`;
+        ctx.lineWidth   = 1 + beat * 1.2;
+        ctx.stroke();
 
+        // planetas orbitando suavemente sobre la elipse
         for (let d = 0; d < ring.n; d++) {
-            const angle = ring.phase + (Math.PI * 2 / ring.n) * d;
-            const dx = cx + Math.cos(angle) * R;
-            const dy = cy + Math.sin(angle) * R;
-            const osz = ring.sz * (1 + beat * 0.7);
-            // glow falso: círculo extra semitransparente sin shadowblur
+            const ang = ring.phase + (Math.PI * 2 / ring.n) * d;
+            const p = _orbitPoint(cx, cy, rx, ry, cosT, sinT, ang);
+            const osz = ring.sz * (1 + beat * 0.6);
             if (beat > 0.2) {
-                ctx.beginPath(); ctx.arc(dx, dy, osz * 3.5, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.1})`;
+                ctx.beginPath(); ctx.arc(p.x, p.y, osz * 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`;
                 ctx.fill();
             }
-            ctx.beginPath(); ctx.arc(dx, dy, osz, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${0.6 + beat * 0.4})`;
+            ctx.beginPath(); ctx.arc(p.x, p.y, osz, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${0.65 + beat * 0.35})`;
             ctx.fill();
         }
     });
@@ -2148,8 +2181,8 @@ function heroThemeDraw(beat, dt, t) {
         case 2:  drawGeometry(beat, dt);      break;
         case 3:  drawAurora(beat, dt, t);     break;
         case 4:  drawOrbital(beat, dt, t);    break;
-        case 5:  drawNeonRain(beat, dt);      break;
-        case 6:  drawConfetti(beat, dt);      break;
+        case 5:  drawGalaxy(beat, dt, t);     break;
+        case 6:  drawCircuits(beat, dt, t);   break;
         case 7:  drawLaser(beat, dt, t);      break;
         case 8:  drawEqualizer(beat, dt, t);   break;
         case 9:  drawFireworks(beat, dt, t);  break;
