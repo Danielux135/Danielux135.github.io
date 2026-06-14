@@ -1232,6 +1232,8 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
     transition: background 0.18s, border-color 0.18s, color 0.18s;
     text-align: center;
     line-height: 1.2;
+    min-width: 0;
+    word-break: break-word;
 }
 /* icono del botón de fondo */
 .studio-bg-btn i { font-size: 0.95rem; margin-bottom: 1px; }
