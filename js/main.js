@@ -2248,21 +2248,36 @@ function initStudio() {
             btn.innerHTML = `<i class="fa-solid ${t.icon}"></i>${t.label}`;
             btn.addEventListener('click', e => {
                 e.stopPropagation();
-                if (t.id) {
-                    document.documentElement.setAttribute('data-style-theme', t.id);
-                    localStorage.setItem('portfolioStyleTheme', t.id);
-                    // aplica el fondo sugerido por el tema si el usuario no había elegido uno
-                    if (t.defaultBg !== null && t.defaultBg !== undefined && !localStorage.getItem('heroBgTheme')) {
-                        setBgTheme(t.defaultBg);
+                // aplica el tema dentro de una view transition para un cambio animado
+                const applyTheme = () => {
+                    if (t.id) {
+                        document.documentElement.setAttribute('data-style-theme', t.id);
+                        localStorage.setItem('portfolioStyleTheme', t.id);
+                                // fuerza el fondo propio del tema al activarlo
+                        if (t.defaultBg !== null && t.defaultBg !== undefined) {
+                            setBgTheme(t.defaultBg);
+                            bgGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
+                                b.classList.toggle('active', parseInt(b.dataset.bgId) === t.defaultBg));
+                        }
+                    } else {
+                        document.documentElement.removeAttribute('data-style-theme');
+                        localStorage.removeItem('portfolioStyleTheme');
+                        // al volver al default, pone el fondo del día
+                        const todayBg = new Date().getDay();
+                        setBgTheme(todayBg);
                         bgGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
-                            b.classList.toggle('active', parseInt(b.dataset.bgId) === t.defaultBg));
+                            b.classList.toggle('active', parseInt(b.dataset.bgId) === todayBg));
                     }
+                    themeGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
+                        b.classList.toggle('active', b.dataset.styleId === (t.id || '')));
+                };
+                if (document.startViewTransition) {
+                    document.documentElement.dataset.vtTheme = '1';
+                    const vt = document.startViewTransition(applyTheme);
+                    vt.finished.finally(() => delete document.documentElement.dataset.vtTheme);
                 } else {
-                    document.documentElement.removeAttribute('data-style-theme');
-                    localStorage.removeItem('portfolioStyleTheme');
+                    applyTheme();
                 }
-                themeGrid.querySelectorAll('.studio-bg-btn').forEach(b =>
-                    b.classList.toggle('active', b.dataset.styleId === (t.id || '')));
             });
             themeGrid.appendChild(btn);
         });

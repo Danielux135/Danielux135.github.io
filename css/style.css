@@ -38,6 +38,22 @@ html[data-vt-dir="up"] ::view-transition-old(root) {
 html[data-vt-dir="up"] ::view-transition-new(root) {
     animation-name: vt-slide-in-down;
 }
+/* transición de cambio de tema: fade cruzado rápido */
+html[data-vt-theme] ::view-transition-old(root) {
+    animation: 150ms ease both fade-out;
+}
+html[data-vt-theme] ::view-transition-new(root) {
+    animation: 200ms ease both fade-in;
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 /* variables del tema — modo oscuro por defecto */
 :root {
     --bg:            #080d1a;
@@ -1187,13 +1203,13 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
 /* cuadrícula de fondos del studio */
 .studio-bg-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 4px;
 }
 /* cuadrícula de temas del studio */
 .studio-theme-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 4px;
 }
 /* botón de selección de fondo */
@@ -2531,7 +2547,7 @@ body.npb-visible #footer {
     .studio-wrap { bottom: 16px; left: 12px; }
     .studio-fab  { width: 42px; height: 42px; font-size: 0.9rem; }
     .studio-panel { width: calc(100vw - 56px); }
-    .studio-bg-grid { grid-template-columns: repeat(4, 1fr); }
+    .studio-bg-grid { grid-template-columns: repeat(3, 1fr); }
     .btn-primary,
     .btn-outline { justify-content: center; }
     .song-highlight,
