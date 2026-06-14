@@ -1113,13 +1113,14 @@ html[data-theme="light"] .theme-toggle:hover { background: rgba(0, 153, 204, 0.0
 /* studio FAB — botón flotante de personalización */
 .studio-wrap {
     position: fixed;
-    bottom: 28px;
-    left: 28px;
+    bottom: 22px;
+    left: 22px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    transition: bottom 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .studio-fab {
     width: 48px;
@@ -2395,6 +2396,7 @@ html[data-theme="light"] .hire-band {
 }
 .shuffle-fab:active { transform: scale(0.95); }
 body.npb-visible .shuffle-fab { bottom: calc(22px + 64px); }
+body.npb-visible .studio-wrap  { bottom: calc(64px + 22px); }
 /* pie de página con borde superior */
 #footer {
     padding: 36px 0;
@@ -2546,7 +2548,7 @@ body.npb-visible #footer {
     .hero-name { font-size: clamp(2.6rem, 11vw, 3.5rem); }
     .hero-content { padding-inline: 20px; }
     .hero-cta  { flex-direction: column; align-items: stretch; }
-    .studio-wrap { bottom: 16px; left: 12px; }
+    .studio-wrap { bottom: 14px; left: 14px; }
     .studio-fab  { width: 42px; height: 42px; font-size: 0.9rem; }
     .studio-panel { width: calc(100vw - 56px); }
     .studio-bg-grid { grid-template-columns: repeat(3, 1fr); }
@@ -2570,6 +2572,7 @@ body.npb-visible #footer {
     }
     .ai-chat-panel { right: 14px; bottom: 184px; height: min(480px, calc(100vh - 220px)); }
     body.npb-visible .ai-chat-panel { bottom: calc(184px + 64px); }
+    body.npb-visible .studio-wrap   { bottom: calc(64px + 14px); }
 }
 /* búsqueda en tracklist */
 .tracklist-col {

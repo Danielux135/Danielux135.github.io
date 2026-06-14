@@ -496,14 +496,59 @@ html[data-style-theme="retro"] .now-playing-bar {
     background: rgba(5, 10, 0, 0.97) !important;
 }
 
-/* cuando el tema light está activo, retro toma precedencia sobre el fondo */
+/* studio-wrap y section-nav por encima de los overlays CRT (z-index 10000) */
+html[data-style-theme="retro"] .studio-wrap  { z-index: 10001 !important; }
+html[data-style-theme="retro"] .section-nav  { z-index: 10001 !important; }
+
+/* botones de fondo inactivos más visibles dentro del panel oscuro */
+html[data-style-theme="retro"] .studio-bg-btn { color: rgba(200, 255, 204, 0.75) !important; }
+
+/* modo claro en tema retro: terminal en fósforo ámbar sobre papel envejecido */
 html[data-theme="light"][data-style-theme="retro"] {
-    --bg:     #050a00;
-    --bg-alt: #0a1200;
-    --text:   #c8ffcc;
-    --muted:  #4a8c5c;
+    --bg:      #f5f0e0;
+    --bg-alt:  #ede8d2;
+    --surface: rgba(180, 120, 0, 0.06);
+    --surface-hover: rgba(180, 120, 0, 0.12);
+    --border:  rgba(160, 100, 0, 0.35);
+    --text:    #3a2800;
+    --muted:   #7a6020;
+    --white:   #3a2800;
 }
 html[data-theme="light"][data-style-theme="retro"] body {
-    background: #050a00;
-    color: #c8ffcc;
+    background: #f5f0e0;
+    color: #3a2800;
 }
+/* scanlines muy suaves en claro */
+html[data-theme="light"][data-style-theme="retro"] body::after {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+}
+html[data-theme="light"][data-style-theme="retro"] body::before { opacity: 0.08; }
+html[data-theme="light"][data-style-theme="retro"] .studio-panel {
+    background: rgba(245, 240, 224, 0.97) !important;
+    border-color: rgba(160, 100, 0, 0.3) !important;
+}
+html[data-theme="light"][data-style-theme="retro"] .studio-bg-btn { color: rgba(58, 40, 0, 0.70) !important; }
+html[data-theme="light"][data-style-theme="retro"] .studio-bg-btn.active { color: var(--accent-1) !important; }
+html[data-theme="light"][data-style-theme="retro"] .studio-label { color: var(--accent-1) !important; }
+html[data-theme="light"][data-style-theme="retro"] .studio-fab {
+    background: rgba(245, 240, 224, 0.92) !important;
+    color: var(--accent-1) !important;
+}
+
+/* navbar en modo claro */
+html[data-theme="light"][data-style-theme="retro"] #navbar {
+    background: rgba(245, 240, 224, 0.97) !important;
+    border-bottom-color: rgba(160, 100, 0, 0.35) !important;
+    box-shadow: none !important;
+}
+html[data-theme="light"][data-style-theme="retro"] #navbar.scrolled {
+    background: rgba(245, 240, 224, 0.99) !important;
+}
+html[data-theme="light"][data-style-theme="retro"] .nav-link,
+html[data-theme="light"][data-style-theme="retro"] .nav-logo { color: #3a2800 !important; }

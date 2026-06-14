@@ -1027,3 +1027,61 @@ html[data-style-theme="gamer"] .npb-title {
     color: var(--accent-1) !important;
     text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.5) !important;
 }
+
+/* studio-wrap y section-nav por encima de la viñeta (body::after z-index:9998) */
+html[data-style-theme="gamer"] .studio-wrap  { z-index: 9999 !important; }
+html[data-style-theme="gamer"] .section-nav  { z-index: 9999 !important; }
+
+/* botones de fondo inactivos más visibles dentro del panel oscuro */
+html[data-style-theme="gamer"] .studio-bg-btn {
+    color: rgba(255, 255, 255, 0.70) !important;
+    font-size: 0.52rem !important;
+}
+
+/* modo claro en tema gamer: paleta clara con acentos neón */
+html[data-theme="light"][data-style-theme="gamer"] {
+    --bg:      #e8eaf6;
+    --bg-alt:  #d8daf0;
+    --surface: rgb(var(--accent-1-rgb) / 0.06);
+    --surface-hover: rgb(var(--accent-1-rgb) / 0.12);
+    --border:  rgb(var(--accent-1-rgb) / 0.25);
+    --text:    #0a0a20;
+    --muted:   #505080;
+    --white:   #0a0a20;
+}
+html[data-theme="light"][data-style-theme="gamer"] body {
+    background: #e8eaf6;
+    color: #0a0a20;
+}
+html[data-theme="light"][data-style-theme="gamer"] body::before { opacity: 0.12; }
+html[data-theme="light"][data-style-theme="gamer"] body::after  { display: none; }
+html[data-theme="light"][data-style-theme="gamer"] .studio-panel {
+    background: rgba(232, 234, 246, 0.97) !important;
+    border-color: rgb(var(--accent-1-rgb) / 0.3) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] .studio-bg-btn {
+    color: rgba(10, 10, 32, 0.70) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] .studio-bg-btn.active {
+    color: var(--accent-1) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] .studio-label {
+    color: var(--accent-1) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] .studio-fab {
+    background: rgba(232, 234, 246, 0.92) !important;
+    color: var(--accent-1) !important;
+}
+
+/* navbar en modo claro */
+html[data-theme="light"][data-style-theme="gamer"] #navbar {
+    background: rgba(232, 234, 246, 0.96) !important;
+    border-bottom-color: rgb(var(--accent-1-rgb) / 0.2) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] #navbar.scrolled {
+    background: rgba(232, 234, 246, 0.99) !important;
+}
+html[data-theme="light"][data-style-theme="gamer"] #navbar::before,
+html[data-theme="light"][data-style-theme="gamer"] #navbar::after { display: none; }
+html[data-theme="light"][data-style-theme="gamer"] .nav-link,
+html[data-theme="light"][data-style-theme="gamer"] .nav-logo { color: #0a0a20 !important; }

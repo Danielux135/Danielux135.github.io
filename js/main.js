@@ -969,16 +969,22 @@ function getBassEnergy() {
         if (_bassEnv < 0.004) _bassEnv = 0;
         return _bassEnv;
     }
-    const n = analyser.frequencyBinCount;
+    // peak + rms combinados: el peak captura transientes cortos que el rms diluye
+    const n = analyser.fftSize;
     if (!_bassBuf || _bassBuf.length !== n) _bassBuf = new Uint8Array(n);
-    const data = _bassBuf;
-    analyser.getByteFrequencyData(data);
-
-    let bass = (data[1] + data[2] + data[3]) / (3 * 255); // sub-bass medio normalizado 0..1
-    const shaped = Math.pow(Math.min(bass, 1), 2.3);      // realza el kick, atenúa lo flojo
+    analyser.getByteTimeDomainData(_bassBuf);
+    let sum = 0, peak = 0;
+    for (let i = 0; i < n; i++) {
+        const v = Math.abs(_bassBuf[i] - 128) / 128;
+        sum += v * v;
+        if (v > peak) peak = v;
+    }
+    const rms  = Math.sqrt(sum / n);
+    const raw  = Math.max(rms * 3.5, peak * 1.2);
+    const shaped = Math.pow(Math.min(raw, 1), 1.6);
 
     if (shaped > _bassEnv) _bassEnv = shaped;                       // ataque instantáneo
-    else                   _bassEnv += (shaped - _bassEnv) * 0.14;  // release suave
+    else                   _bassEnv += (shaped - _bassEnv) * 0.28;  // release rápido sin cola
     if (_bassEnv < 0.004) _bassEnv = 0;
     return _bassEnv;
 }
@@ -1016,41 +1022,59 @@ class Particle {
         const r = this.baseR * rBoost;
         const colors = particleColors();
         const colorIdx = beat > 0.5 ? (this.colorIdx + 1) % colors.length : this.colorIdx;
+        // glow falso: halo semitransparente sin shadowblur
+        if (beat > 0.4) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, r * 4.5, 0, Math.PI * 2);
+            ctx.fillStyle = colors[colorIdx] + (b2 * 0.28) + ')';
+            ctx.fill();
+        }
         ctx.beginPath();
         ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
         ctx.fillStyle = colors[colorIdx] + alpha + ')';
-        if (beat > 0.4) {
-            ctx.shadowColor = colors[colorIdx] + '0.9)';
-            ctx.shadowBlur = b2 * 30;
-        }
         ctx.fill();
-        ctx.shadowBlur = 0;
     }
 }
 const PARTICLE_COUNT = 55;
 const particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
-// dibuja las líneas entre partículas cercanas con opacidad proporcional a la distancia
+// reusable para conexiones entre partículas, evita allocar cada frame
+const _connBuf = [];
+// dibuja las líneas entre partículas cercanas — batching por tier para minimizar flushes de GPU
 function drawConnections(beat) {
     const MAX_DIST = 115 + beat * 70;
     const light = isLight();
+    const baseOpacity = light ? 0.45 : 0.18;
+    const maxOp = baseOpacity + beat * 0.4;
+    const colorBase = beat > 0.25
+        ? (light ? '100,40,210' : '139,92,246')
+        : (light ? '0,120,200'  : '0,200,255');
+    // recolecta conexiones válidas una sola vez
+    _connBuf.length = 0;
     for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
-            const dist = Math.hypot(dx, dy);
-            if (dist > MAX_DIST) continue;
-            const baseOpacity = light ? 0.45 : 0.18;
-            const opacity = (baseOpacity + beat * 0.4) * (1 - dist / MAX_DIST);
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            const color = beat > 0.25
-                ? (light ? `rgba(100,40,210,${opacity})` : `rgba(139,92,246,${opacity})`)
-                : (light ? `rgba(0,120,200,${opacity})` : `rgba(0,200,255,${opacity})`);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.5 + beat * 1.2;
-            ctx.stroke();
+            const d  = Math.sqrt(dx * dx + dy * dy);
+            if (d < MAX_DIST) _connBuf.push(i, j, d);
         }
+    }
+    // 3 tiers de opacidad → 3 stroke() en vez de ~1485
+    const TIERS = 3;
+    ctx.lineWidth = 0.5 + beat * 1.2;
+    for (let ti = 0; ti < TIERS; ti++) {
+        const dLo = (ti / TIERS) * MAX_DIST;
+        const dHi = ((ti + 1) / TIERS) * MAX_DIST;
+        const midFrac = 1 - (dLo + dHi) / 2 / MAX_DIST;
+        ctx.strokeStyle = `rgba(${colorBase},${(maxOp * midFrac).toFixed(3)})`;
+        ctx.beginPath();
+        for (let k = 0; k < _connBuf.length; k += 3) {
+            const d = _connBuf[k + 2];
+            if (d < dLo || d >= dHi) continue;
+            const pi = _connBuf[k], pj = _connBuf[k + 1];
+            ctx.moveTo(particles[pi].x, particles[pi].y);
+            ctx.lineTo(particles[pj].x, particles[pj].y);
+        }
+        ctx.stroke();
     }
 }
 
@@ -1191,13 +1215,10 @@ function drawGeometry(beat, dt) {
         _drawPoly(s.x, s.y, s.sides, sz, s.rot);
         ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
         ctx.lineWidth   = 1 + beat * 1.5;
-        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
-        ctx.shadowBlur  = beat > 0.18 ? 6 + beat * 18 : 0;
         ctx.stroke();
         ctx.fillStyle   = `rgba(${r},${g},${b},${al * 0.12})`;
         ctx.fill();
     });
-    ctx.shadowBlur = 0;
 }
 
 // tema 3: bandas de aurora boreal animadas con gradiente
@@ -1387,14 +1408,14 @@ function drawFireworks(beat, dt, t) {
                 ctx.strokeStyle = `rgba(${bst.r},${bst.g},${bst.b},${al * 0.28})`;
                 ctx.lineWidth = al * 1.8; ctx.shadowBlur = 0; ctx.stroke();
             }
+            // glow falso: halo exterior sin shadowblur
+            ctx.beginPath(); ctx.arc(px, py, al * 9, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${bst.r},${bst.g},${bst.b},${al * 0.2})`; ctx.fill();
             ctx.beginPath(); ctx.arc(px, py, al * 2.8, 0, Math.PI * 2);
-            ctx.fillStyle   = `rgba(${bst.r},${bst.g},${bst.b},${al})`;
-            ctx.shadowColor = `rgba(${bst.r},${bst.g},${bst.b},0.9)`;
-            ctx.shadowBlur  = 5 + al * 16; ctx.fill();
+            ctx.fillStyle = `rgba(${bst.r},${bst.g},${bst.b},${al})`; ctx.fill();
         });
         if (!alive) _fwBursts.splice(bi, 1);
     }
-    ctx.shadowBlur = 0;
 }
 
 // tema 6b: confeti con rectángulos, círculos y ribbons de colores hsv
@@ -1457,71 +1478,66 @@ function drawConfetti(beat, dt) {
     });
 }
 
-// tema 7: partículas de láser con estela y tono reactivo al beat
-let _lasers = [], _laserBuiltW = 0;
-// crea una partícula láser con posición, velocidad y tono aleatorios
-function _mkLaser() {
-    const angle = Math.random() * Math.PI * 2;
-    return {
-        x:    Math.random() * canvas.width,
-        y:    Math.random() * canvas.height,
-        vx:   Math.cos(angle) * (110 + Math.random() * 90),
-        vy:   Math.sin(angle) * (110 + Math.random() * 90),
-        hue:  Math.random() * 360,   // hue base individual
-        trail: [],
-        w:    1.2 + Math.random() * 1.4,
-    };
-}
-// inicializa las partículas láser según el ancho del canvas
+// tema 7: rayos láser que barren desde los bordes con glow y pulseo reactivo al beat
+let _laserEmitters = [], _laserBuiltW = 0;
+// construye los focos en esquinas y bordes; cada uno oscila alrededor de un ángulo central
+// que siempre apunta al interior del canvas, así nunca se salen de pantalla
 function _buildLasers() {
     _laserBuiltW = canvas.width;
-    _lasers = Array.from({ length: 18 }, _mkLaser);
+    const W = canvas.width, H = canvas.height;
+    // center: ángulo base hacia el interior; swing: amplitud de oscilación; phase: desfase
+    _laserEmitters = [
+        { x: 0,     y: 0,     center: Math.PI * 0.25, swing: 0.55, phase: 0.0,  speed: 0.30, hueOff:   0 },
+        { x: W,     y: 0,     center: Math.PI * 0.75, swing: 0.55, phase: 1.3,  speed: 0.24, hueOff:  80 },
+        { x: W,     y: H,     center: Math.PI * 1.25, swing: 0.55, phase: 2.6,  speed: 0.28, hueOff: 160 },
+        { x: 0,     y: H,     center: Math.PI * 1.75, swing: 0.55, phase: 3.9,  speed: 0.22, hueOff: 240 },
+        { x: W / 2, y: 0,     center: Math.PI * 0.50, swing: 0.70, phase: 5.1,  speed: 0.35, hueOff: 310 },
+    ];
 }
-// renderiza un frame de láseres con estela y tono cíclico reactivo al beat
+// calcula el punto donde el rayo desde (ex,ey) en dirección angle toca el borde del canvas
+function _laserEndpoint(ex, ey, angle, W, H) {
+    const dx = Math.cos(angle), dy = Math.sin(angle);
+    let tMin = Infinity;
+    if (dx > 0) tMin = Math.min(tMin, (W - ex) / dx);
+    else if (dx < 0) tMin = Math.min(tMin, -ex / dx);
+    if (dy > 0) tMin = Math.min(tMin, (H - ey) / dy);
+    else if (dy < 0) tMin = Math.min(tMin, -ey / dy);
+    return { x: ex + dx * tMin, y: ey + dy * tMin };
+}
+// dibuja un único rayo láser suave: halo tenue + línea fina + sin destello de origen
+function _drawBeam(ex, ey, angle, r, g, b, beat, W, H) {
+    const end = _laserEndpoint(ex, ey, angle, W, H);
+    const alpha = 0.18 + beat * 0.18;
+    // halo exterior muy difuso
+    ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(end.x, end.y);
+    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha * 0.25})`;
+    ctx.lineWidth = 6 + beat * 4;
+    ctx.shadowBlur = 0; ctx.stroke();
+    // línea principal con glow moderado
+    ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(end.x, end.y);
+    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha * 0.7})`;
+    ctx.lineWidth = 2 + beat * 1.2; ctx.stroke();
+}
+// renderiza el frame completo del tema láser
 function drawLaser(beat, dt, t) {
     if (canvas.width !== _laserBuiltW) _buildLasers();
     const W = canvas.width, H = canvas.height;
-    const spd = 1 + beat * 3;
+    const a1 = _heroAccent(1);
 
-    _lasers.forEach(l => {
-        l.x += l.vx * spd * dt;
-        l.y += l.vy * spd * dt;
-        if (l.x < 0) { l.x = 0;  l.vx =  Math.abs(l.vx); }
-        if (l.x > W) { l.x = W;  l.vx = -Math.abs(l.vx); }
-        if (l.y < 0) { l.y = 0;  l.vy =  Math.abs(l.vy); }
-        if (l.y > H) { l.y = H;  l.vy = -Math.abs(l.vy); }
+    // cuadrícula tenue tipo Tron en el fondo
+    const gridAlpha = 0.025 + beat * 0.02;
+    ctx.strokeStyle = `rgba(${a1[0]},${a1[1]},${a1[2]},${gridAlpha})`;
+    ctx.lineWidth = 1; ctx.shadowBlur = 0;
+    const step = 80;
+    for (let x = 0; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+    for (let y = 0; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
 
-        // color reactivo: cicla lento más explosión de tono en cada beat
-        const hue = (l.hue + t * 28 + beat * 160) % 360;
-        const sat = 85 + beat * 15;
-        const lum = 52 + beat * 18;
-        const [r, g, b] = hslToRgb(hue, sat, lum);
-
-        l.trail.push({ x: l.x, y: l.y });
-        if (l.trail.length > 28) l.trail.shift();
-        if (l.trail.length < 2) return;
-
-        // una sola stroke por bola con gradiente para evitar 28 strokes individuales
-        const t0 = l.trail[0], tN = l.trail[l.trail.length - 1];
-        const grad = ctx.createLinearGradient(t0.x, t0.y, tN.x, tN.y);
-        grad.addColorStop(0, `rgba(${r},${g},${b},0)`);
-        grad.addColorStop(1, `rgba(${r},${g},${b},${0.35 + beat * 0.45})`);
-        ctx.beginPath();
-        ctx.moveTo(t0.x, t0.y);
-        for (let i = 1; i < l.trail.length; i++) ctx.lineTo(l.trail[i].x, l.trail[i].y);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth   = l.w * 1.8;
-        ctx.shadowBlur  = 0;
-        ctx.stroke();
-
-        // cabeza: glow falso más núcleo blanco
-        const hr = l.w * 2 + beat * 3.5;
-        if (beat > 0.2) {
-            ctx.beginPath(); ctx.arc(l.x, l.y, hr * 4, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${beat * 0.12})`; ctx.fill();
-        }
-        ctx.beginPath(); ctx.arc(l.x, l.y, hr, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${0.75 + beat * 0.25})`; ctx.fill();
+    // el ángulo oscila sinusoidalmente alrededor del centro: siempre apunta al interior
+    _laserEmitters.forEach(e => {
+        const angle = e.center + Math.sin(t * e.speed + e.phase) * e.swing;
+        const hue = (t * 12 + e.hueOff) % 360;
+        const [r, g, b] = hslToRgb(hue, 90, 55 + beat * 12);
+        _drawBeam(e.x, e.y, angle, r, g, b, beat, W, H);
     });
     ctx.shadowBlur = 0;
 }
@@ -1551,8 +1567,6 @@ function drawVortex(beat, dt, t) {
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
         ctx.lineWidth   = 1.5 + beat * 2.5 + (1 - phase) * 1.5;
-        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
-        ctx.shadowBlur  = 6 + beat * 18;
         ctx.stroke();
 
         // puntos orbitando sobre cada anillo
@@ -1562,14 +1576,16 @@ function drawVortex(beat, dt, t) {
             const angle = t * spinSpeed + (Math.PI * 2 / dotCount) * d;
             const dx = cx + Math.cos(angle) * R;
             const dy = cy + Math.sin(angle) * R;
-            ctx.beginPath();
-            ctx.arc(dx, dy, 1.5 + beat * 2.5, 0, Math.PI * 2);
-            ctx.fillStyle   = `rgba(${r},${g},${b},${al * 2})`;
-            ctx.shadowBlur  = 4 + beat * 12;
-            ctx.fill();
+            const dr = 1.5 + beat * 2.5;
+            // glow falso: halo sin shadowblur
+            if (beat > 0.2) {
+                ctx.beginPath(); ctx.arc(dx, dy, dr * 4, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${r},${g},${b},${al * beat * 0.5})`; ctx.fill();
+            }
+            ctx.beginPath(); ctx.arc(dx, dy, dr, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r},${g},${b},${al * 2})`; ctx.fill();
         }
     }
-    ctx.shadowBlur = 0;
 }
 
 // tema 10: capas de ondas sinusoidales compuestas reactivas al beat
@@ -1599,11 +1615,8 @@ function drawWaves(beat, dt, t) {
         }
         ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
         ctx.lineWidth   = 1.2 + fi * 1.8 + beat * 3.5;
-        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
-        ctx.shadowBlur  = beat > 0.15 ? 6 + beat * 22 : 0;
         ctx.stroke();
     }
-    ctx.shadowBlur = 0;
 }
 
 // tema 11: meteoros que caen en diagonal con estela degradada
@@ -1704,8 +1717,6 @@ function drawDNA(beat, dt, t) {
         }
         ctx.strokeStyle = `rgba(${nc[0]},${nc[1]},${nc[2]},${0.35 + beat * 0.3})`;
         ctx.lineWidth   = 2 + beat * 3;
-        ctx.shadowColor = `rgba(${nc[0]},${nc[1]},${nc[2]},0.9)`;
-        ctx.shadowBlur  = 8 + beat * 22;
         ctx.stroke();
     });
 
@@ -1730,16 +1741,17 @@ function drawDNA(beat, dt, t) {
 
         if (i % 3 === 0) {
             [[x1, a1], [x2, a2]].forEach(([nx, nc]) => {
-                ctx.beginPath();
-                ctx.arc(nx, y, 3 + beat * 4.5, 0, Math.PI * 2);
-                ctx.fillStyle   = `rgba(${nc[0]},${nc[1]},${nc[2]},${0.5 + beat * 0.5})`;
-                ctx.shadowColor = `rgba(${nc[0]},${nc[1]},${nc[2]},1)`;
-                ctx.shadowBlur  = 6 + beat * 18;
-                ctx.fill();
+                const nr = 3 + beat * 4.5;
+                // glow falso: halo sin shadowblur
+                if (beat > 0.2) {
+                    ctx.beginPath(); ctx.arc(nx, y, nr * 4, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${nc[0]},${nc[1]},${nc[2]},${beat * 0.15})`; ctx.fill();
+                }
+                ctx.beginPath(); ctx.arc(nx, y, nr, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${nc[0]},${nc[1]},${nc[2]},${0.5 + beat * 0.5})`; ctx.fill();
             });
         }
     }
-    ctx.shadowBlur = 0;
 }
 
 // tema 13: galaxia espiral de tres brazos con rotación lenta
@@ -1770,6 +1782,7 @@ function drawGalaxy(beat, dt, t) {
     const R   = Math.min(canvas.width, canvas.height) * 0.44;
     const rot = t * 0.07;
 
+    // sin halos extra: el radio ya crece con el beat
     _galaxyStars.forEach(s => {
         const angle = Math.atan2(s.dy, s.dx) + rot * s.spd;
         const d     = Math.sqrt(s.dx * s.dx + s.dy * s.dy);
@@ -1781,14 +1794,6 @@ function drawGalaxy(beat, dt, t) {
         const b     = a1[2] + (a2[2] - a1[2]) * fi | 0;
         const al    = s.alpha * (0.35 + beat * 0.5);
         const sz    = s.size * (1 + beat * 2);
-
-        // glow falso: círculo grande y semitransparente sin shadowblur
-        if (beat > 0.3 && sz > 1.2) {
-            ctx.beginPath();
-            ctx.arc(x, y, sz * 3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${al * beat * 0.25})`;
-            ctx.fill();
-        }
         ctx.beginPath();
         ctx.arc(x, y, sz, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${r},${g},${b},${al})`;
@@ -1851,16 +1856,17 @@ function drawMagnetic(beat, dt, t) {
         if (p.trail.length < 2) return;
 
         const [r, g, b] = hslToRgb((p.hue + beat * 90) % 360, 82, 55);
-        for (let i = 1; i < p.trail.length; i++) {
-            const frac = i / p.trail.length;
-            ctx.beginPath();
-            ctx.moveTo(p.trail[i - 1].x, p.trail[i - 1].y);
-            ctx.lineTo(p.trail[i].x,     p.trail[i].y);
-            ctx.strokeStyle = `rgba(${r},${g},${b},${frac * (0.07 + beat * 0.1)})`;
-            ctx.lineWidth   = frac * 1.6;
-            ctx.shadowBlur  = 0;
-            ctx.stroke();
-        }
+        // estela como un único trazo con gradiente → 1 stroke por partícula en vez de 13
+        const t0 = p.trail[0], tN = p.trail[p.trail.length - 1];
+        const gr = ctx.createLinearGradient(t0.x, t0.y, tN.x, tN.y);
+        gr.addColorStop(0, `rgba(${r},${g},${b},0)`);
+        gr.addColorStop(1, `rgba(${r},${g},${b},${0.07 + beat * 0.1})`);
+        ctx.beginPath();
+        ctx.moveTo(t0.x, t0.y);
+        for (let i = 1; i < p.trail.length; i++) ctx.lineTo(p.trail[i].x, p.trail[i].y);
+        ctx.strokeStyle = gr;
+        ctx.lineWidth   = 1.2;
+        ctx.stroke();
         const pr = 1.2 + beat * 2.5;
         // glow falso: círculo extra semitransparente sin shadowblur
         if (beat > 0.25) {
@@ -1912,11 +1918,8 @@ function drawTopo(beat, dt, t) {
         ctx.closePath();
         ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
         ctx.lineWidth   = 0.9 + beat * 2.2;
-        ctx.shadowColor = `rgba(${r},${g},${b},${al})`;
-        ctx.shadowBlur  = beat > 0.18 ? 4 + beat * 14 : 0;
         ctx.stroke();
     }
-    ctx.shadowBlur = 0;
 }
 
 // dispatcher: llama a la función de dibujado del fondo activo
@@ -1951,10 +1954,10 @@ function hslToRgb(h, s, l) {
     const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
     return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
 }
-// actualiza las custom properties de acento en :root según la energía del beat
-function updateAccentColors(v) {
+// calcula los colores de acento según el beat y los publica en globals js (cada frame)
+// las css vars se escriben con throttle para evitar reflows continuos
+function updateAccentColors(v, writeCss) {
     if (window._colorDragging) return;
-    // tonos base: vienen de la paleta activa (applyHueColors) o del valor por defecto cian/morado
     const _h1base = window._paletteH1 !== undefined ? window._paletteH1 : 195;
     const _h2base = window._paletteH2 !== undefined ? window._paletteH2 : 262;
     const _l1base = window._paletteL1 !== undefined ? window._paletteL1 : 50;
@@ -1965,17 +1968,10 @@ function updateAccentColors(v) {
     const l2 = _l2base + v * 8;
     const [r1, g1, b1] = hslToRgb(h1, 100, l1);
     const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
-    // escribir en :root invalida el estilo de todo el documento; hacerlo cada frame
-    // durante el arcade causa lag visible; el beat del arcade viene de _visualBeat en js,
-    // no de css, así que basta refrescar a ~12 hz
-    if (ROOT.classList.contains('arcade-lock')) {
-        // cero escrituras al dom durante el juego: el canvas del arcade lee las globales js
-        window._accent1Rgb = `${r1} ${g1} ${b1}`;
-        window._accent2Rgb = `${r2} ${g2} ${b2r}`;
-        return;
-    }
+    // globals js: se leen desde canvas sin tocar el dom
     window._accent1Rgb = `${r1} ${g1} ${b1}`;
     window._accent2Rgb = `${r2} ${g2} ${b2r}`;
+    if (!writeCss || ROOT.classList.contains('arcade-lock')) return;
     ROOT.style.setProperty('--accent-1-rgb', `${r1} ${g1} ${b1}`);
     ROOT.style.setProperty('--accent-2-rgb', `${r2} ${g2} ${b2r}`);
     ROOT.style.setProperty('--beat-alpha', v.toFixed(3));
@@ -2001,11 +1997,10 @@ function animateParticles(ts = 0) {
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
-    // throttle a ~12 hz: a 60 fps serían 360 recalcs/s con música, causando lag
-    if (ts - _lastAccentTs > 80) {
-        updateAccentColors(_visualBeat);
-        _lastAccentTs = ts;
-    }
+    // globals js cada frame (sin dom), css vars con throttle a ~30hz para evitar reflows
+    const writeCss = ts - _lastAccentTs > 33;
+    updateAccentColors(_visualBeat, writeCss);
+    if (writeCss) _lastAccentTs = ts;
     if (!_heroVisible || document.documentElement.classList.contains('arcade-lock')) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     heroThemeDraw(_visualBeat, dt, ts / 1000);
@@ -2534,7 +2529,7 @@ const TRACKS = [
                 <div class="track-info">
                     <span class="track-title">${titleHtml}</span>
                 </div>`;
-            div.addEventListener('click', () => loadTrack(i, true));
+            div.addEventListener('click', () => { if (window._ensureAudioCtx) window._ensureAudioCtx(); loadTrack(i, true); });
             trackList.appendChild(div);
         });
     }
@@ -2560,6 +2555,7 @@ const TRACKS = [
         }
     }
     playBtn.addEventListener('click', () => {
+        if (window._ensureAudioCtx) window._ensureAudioCtx();
         if (audio.paused) {
             if (!audio.src || audio.src === window.location.href) loadTrack(currentIdx, true);
             else audio.play().then(() => { playIcon.className = 'fa-solid fa-pause'; }).catch(() => {});
@@ -2569,9 +2565,11 @@ const TRACKS = [
         }
     });
     prevBtn.addEventListener('click', () => {
+        if (window._ensureAudioCtx) window._ensureAudioCtx();
         loadTrack((currentIdx - 1 + TRACKS.length) % TRACKS.length, !audio.paused);
     });
     nextBtn.addEventListener('click', () => {
+        if (window._ensureAudioCtx) window._ensureAudioCtx();
         loadTrack((currentIdx + 1) % TRACKS.length, !audio.paused);
     });
     const shuffleBtn = document.getElementById('shuffleBtn');
@@ -2675,16 +2673,20 @@ const TRACKS = [
         // crea el audiocontext y conecta la cadena de análisis solo la primera vez
         function ensureAudioCtx() {
             if (connected) return;
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
             analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 512;                 // 256 bins: suficiente resolución para detectar tono
-            analyser.smoothingTimeConstant = 0.3;   // poco suavizado: el golpe llega sin retraso
+            analyser.fftSize = 64;
+            analyser.smoothingTimeConstant = 0.05;
             source = audioCtx.createMediaElementSource(audio);
             source.connect(analyser);
             analyser.connect(audioCtx.destination);
             connected = true;
             window._audioAnalyser = analyser;
+            // en iOS el AudioContext arranca suspended; hay que resumirlo dentro del gesto del usuario
+            if (audioCtx.state === 'suspended') audioCtx.resume();
         }
+        // permite llamar a ensureAudioCtx desde el click del botón (gesto de usuario en iOS)
+        window._ensureAudioCtx = ensureAudioCtx;
         // dibuja un frame del visualizador de barras con gradiente reactivo al beat
         function draw() {
             animId = requestAnimationFrame(draw);
@@ -2810,14 +2812,17 @@ const TRACKS = [
             updateVolIcon();
         });
         npbPlay.addEventListener('click', () => {
+            if (window._ensureAudioCtx) window._ensureAudioCtx();
             if (audio.paused) audio.play().catch(() => {});
             else audio.pause();
         });
         npbPrev.addEventListener('click', () => {
+            if (window._ensureAudioCtx) window._ensureAudioCtx();
             loadTrack((currentIdx - 1 + TRACKS.length) % TRACKS.length, !audio.paused);
             syncTitle();
         });
         npbNext.addEventListener('click', () => {
+            if (window._ensureAudioCtx) window._ensureAudioCtx();
             loadTrack((currentIdx + 1) % TRACKS.length, !audio.paused);
             syncTitle();
         });
