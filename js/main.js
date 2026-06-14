@@ -1093,7 +1093,7 @@ const HERO_THEMES = [
     { id: 6, es: 'Confetti',       en: 'Confetti',         val: 'Confetti',          icon: 'fa-wand-magic-sparkles' },
     // temas adicionales, solo seleccionables desde el studio
     { id:  7, es: 'Láser',          en: 'Laser',            val: 'Làser',             icon: 'fa-bolt'              },
-    { id:  8, es: 'Vórtice',        en: 'Vortex',           val: 'Vòrtex',            icon: 'fa-circle-notch'      },
+    { id:  8, es: 'Ecualizador',     en: 'Equalizer',        val: 'Equalitzador',      icon: 'fa-circle-dot'        },
     { id:  9, es: 'Fuegos',         en: 'Fireworks',        val: 'Focs artificials',  icon: 'fa-fire'              },
     { id: 10, es: 'Ondas',          en: 'Waves',            val: 'Ones',              icon: 'fa-water'             },
     { id: 11, es: 'Meteoros',        en: 'Meteors',          val: 'Meteors',           icon: 'fa-meteor'            },
@@ -1101,6 +1101,8 @@ const HERO_THEMES = [
     { id: 13, es: 'Galaxia',        en: 'Galaxy',           val: 'Galàxia',           icon: 'fa-rotate'            },
     { id: 14, es: 'Magnético',      en: 'Magnetic',         val: 'Magnètic',          icon: 'fa-magnet'            },
     { id: 15, es: 'Topografía',     en: 'Topography',       val: 'Topografia',        icon: 'fa-mountain'          },
+    { id: 16, es: 'Hexágonos',      en: 'Hexagons',         val: 'Hexàgons',          icon: 'fa-cube'              },
+    { id: 17, es: 'Circuitos',      en: 'Circuits',         val: 'Circuits',          icon: 'fa-microchip'         },
 ];
 // tema de fondo activo: recuperado de localStorage o día de la semana por defecto
 let _bgTheme = (() => {
@@ -1117,7 +1119,7 @@ function setBgTheme(id) {
     _bgTheme = Math.max(0, Math.min(id, HERO_THEMES.length - 1));
     localStorage.setItem('heroBgTheme', _bgTheme);
     _matBuiltW = 0; _geoBuiltW = 0; _neonBuiltW = 0; _laserBuiltW = 0; _confW = 0;
-    _metW = 0; _galW = 0; _magW = 0;
+    _metW = 0; _galW = 0; _magW = 0; _hexW = 0; _circW = 0;
     _fwBursts.length = 0; _fwLastT = 0; _fwPrevBeat = 0;
 }
 
@@ -1546,48 +1548,78 @@ function drawLaser(beat, dt, t) {
 }
 
 // tema 8: anillos concéntricos que se contraen hacia el centro como un vórtice
-function drawVortex(beat, dt, t) {
-    const cx = canvas.width / 2, cy = canvas.height / 2;
+function drawEqualizer(beat, dt, t) {
+    const W = canvas.width, H = canvas.height;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
-    const RINGS = 14;
-    const maxR  = Math.min(canvas.width, canvas.height) * 0.56;
+    const cx = W * 0.5, cy = H * 0.5;
+    const arcR = Math.min(W, H) * (0.34 + beat * 0.03);
 
-    for (let ri = 0; ri < RINGS; ri++) {
-        // anillos que avanzan hacia el centro con la fase progresando en el tiempo
-        const phase = (t * 0.7 + ri / RINGS) % 1;   // 0..1, 0=exterior, 1=centro
-        const R     = maxR * (1 - phase);
-        if (R < 2) continue;
+    // glow radial alrededor del círculo (4 pasadas)
+    for (let pass = 0; pass < 4; pass++) {
+        const rOuter = arcR + pass * 8 + 4;
+        const rInner = Math.max(0, arcR - pass * 6);
+        const glowG  = ctx.createRadialGradient(cx, cy, rInner, cx, cy, rOuter);
+        const alpha  = (0.12 + beat * 0.15) * Math.pow(0.5, pass);
+        glowG.addColorStop(0,   `rgba(${a1[0]},${a1[1]},${a1[2]},0)`);
+        glowG.addColorStop(0.5, `rgba(${a1[0]},${a1[1]},${a1[2]},${alpha})`);
+        glowG.addColorStop(1,   `rgba(${a1[0]},${a1[1]},${a1[2]},0)`);
+        ctx.fillStyle = glowG;
+        ctx.fillRect(0, 0, W, H);
+    }
 
-        const fi   = ri / (RINGS - 1);
-        const r    = a1[0] + (a2[0] - a1[0]) * fi | 0;
-        const g    = a1[1] + (a2[1] - a1[1]) * fi | 0;
-        const b    = a1[2] + (a2[2] - a1[2]) * fi | 0;
-        // opacidad máxima en anillos medios, casi nula en los extremos
-        const al   = Math.sin(phase * Math.PI) * (0.18 + beat * 0.28);
-
-        // dibuja el anillo
+    // barras del ecualizador circular (80 barras)
+    const specBars  = 80;
+    const specStart = arcR + 1;
+    for (let i = 0; i < specBars; i++) {
+        const ang  = (i / specBars) * Math.PI * 2 - Math.PI / 2;
+        const ph   = t * 1.2 + i * (Math.PI * 2 / specBars) * 2.5;
+        const bh   = arcR * (0.04 + 0.18 * Math.abs(Math.sin(ph)) * (0.15 + beat * 0.85));
+        const x1   = cx + Math.cos(ang) * specStart;
+        const y1   = cy + Math.sin(ang) * specStart;
+        const x2   = cx + Math.cos(ang) * (specStart + bh);
+        const y2   = cy + Math.sin(ang) * (specStart + bh);
+        const frac = i / specBars;
+        const cr   = frac < 0.5
+            ? [a1[0] + (a2[0]-a1[0])*frac*2, a1[1] + (a2[1]-a1[1])*frac*2, a1[2] + (a2[2]-a1[2])*frac*2]
+            : [a2[0] + (a1[0]-a2[0])*(frac-0.5)*2, a2[1] + (a1[1]-a2[1])*(frac-0.5)*2, a2[2] + (a1[2]-a2[2])*(frac-0.5)*2];
         ctx.beginPath();
-        ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${r},${g},${b},${al})`;
-        ctx.lineWidth   = 1.5 + beat * 2.5 + (1 - phase) * 1.5;
+        ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
+        ctx.strokeStyle = `rgba(${cr[0]|0},${cr[1]|0},${cr[2]|0},${0.18 + beat * 0.55})`;
+        ctx.lineWidth   = 1.8;
         ctx.stroke();
+    }
 
-        // puntos orbitando sobre cada anillo
-        const dotCount  = 3 + Math.floor(fi * 5);
-        const spinSpeed = 0.4 + fi * 0.6;
-        for (let d = 0; d < dotCount; d++) {
-            const angle = t * spinSpeed + (Math.PI * 2 / dotCount) * d;
-            const dx = cx + Math.cos(angle) * R;
-            const dy = cy + Math.sin(angle) * R;
-            const dr = 1.5 + beat * 2.5;
-            // glow falso: halo sin shadowblur
-            if (beat > 0.2) {
-                ctx.beginPath(); ctx.arc(dx, dy, dr * 4, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${r},${g},${b},${al * beat * 0.5})`; ctx.fill();
-            }
-            ctx.beginPath(); ctx.arc(dx, dy, dr, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r},${g},${b},${al * 2})`; ctx.fill();
+    // círculo principal
+    ctx.beginPath();
+    ctx.arc(cx, cy, arcR, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(${a1[0]},${a1[1]},${a1[2]},${0.22 + beat * 0.35})`;
+    ctx.lineWidth   = 2;
+    ctx.stroke();
+
+    // círculo interior secundario
+    ctx.beginPath();
+    ctx.arc(cx, cy, arcR * 0.88, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(${a2[0]},${a2[1]},${a2[2]},${0.10 + beat * 0.18})`;
+    ctx.lineWidth   = 1;
+    ctx.stroke();
+
+    // flow lines horizontales sutiles
+    for (let li = 0; li < 6; li++) {
+        const yBase = H * (0.22 + li * 0.12);
+        const amp   = (12 + li * 6) * (1 + beat * 1.2);
+        const freq  = 0.008 + li * 0.002;
+        const phase = t * (0.4 + li * 0.15) + li * 1.1;
+        const cr    = li % 2 === 0 ? a1 : a2;
+        const alpha = (0.04 + beat * 0.07) * (1 - li * 0.1);
+        ctx.beginPath();
+        for (let x = 0; x <= W; x += 4) {
+            const y = yBase + Math.sin(x * freq + phase) * amp
+                             + Math.sin(x * freq * 0.5 + phase * 1.3) * amp * 0.4;
+            x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
+        ctx.strokeStyle = `rgba(${cr[0]},${cr[1]},${cr[2]},${alpha})`;
+        ctx.lineWidth   = 1;
+        ctx.stroke();
     }
 }
 
@@ -1782,15 +1814,14 @@ function drawGalaxy(beat, dt, t) {
     if (canvas.width !== _galW) _buildGalaxy();
     const cx = canvas.width / 2, cy = canvas.height / 2;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
-    const R   = Math.min(canvas.width, canvas.height) * 0.44;
+    const R   = canvas.width * 0.46;
     const rot = t * 0.07;
 
-    // sin halos extra: el radio ya crece con el beat
     _galaxyStars.forEach(s => {
         const angle = Math.atan2(s.dy, s.dx) + rot * s.spd;
         const d     = Math.sqrt(s.dx * s.dx + s.dy * s.dy);
         const x     = cx + Math.cos(angle) * d * R;
-        const y     = cy + Math.sin(angle) * d * R * 0.42;
+        const y     = cy + Math.sin(angle) * d * R * 0.55;
         const fi    = Math.min(s.fi, 1);
         const r     = a1[0] + (a2[0] - a1[0]) * fi | 0;
         const g     = a1[1] + (a2[1] - a1[1]) * fi | 0;
@@ -1800,6 +1831,191 @@ function drawGalaxy(beat, dt, t) {
         ctx.beginPath();
         ctx.arc(x, y, sz, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${r},${g},${b},${al})`;
+        ctx.fill();
+    });
+}
+
+// tema 16: hexágonos — malla hexagonal con ripples reactivos al beat (igual que la promo del arcade)
+let _hexes = [], _hexRipples = [], _hexW = 0, _hexPrevBeat = 0, _hexLastRipT = 0;
+const _HEX_S = 38;
+function _buildHexGrid() {
+    _hexW = canvas.width;
+    _hexes = [];
+    const cw = _HEX_S * Math.sqrt(3), rh = _HEX_S * 1.5;
+    const cols = Math.ceil(canvas.width / cw) + 2, rows = Math.ceil(canvas.height / rh) + 2;
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    for (let row = -1; row < rows; row++) {
+        for (let col = -1; col < cols; col++) {
+            const x = col * cw + (row % 2 !== 0 ? cw / 2 : 0);
+            const y = row * rh;
+            const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
+            _hexes.push({ x, y, dist, phase: Math.random() * Math.PI * 2 });
+        }
+    }
+}
+function _hexPath(x, y, r) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+        const a = Math.PI / 3 * i - Math.PI / 6;
+        i === 0 ? ctx.moveTo(x + r * Math.cos(a), y + r * Math.sin(a))
+                : ctx.lineTo(x + r * Math.cos(a), y + r * Math.sin(a));
+    }
+    ctx.closePath();
+}
+function drawHexagons(beat, dt, t) {
+    if (canvas.width !== _hexW) _buildHexGrid();
+    const W = canvas.width, H = canvas.height;
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+    const inner = _HEX_S - 2;
+
+    if (beat > 0.22 && _hexPrevBeat < beat && t - _hexLastRipT > 0.18) {
+        _hexRipples.push({ r: 0, speed: 260 + beat * 140, str: 0.4 + beat * 0.6 });
+        _hexLastRipT = t;
+    }
+    _hexPrevBeat = beat;
+    const maxR = Math.sqrt(W * W + H * H) * 0.6;
+    for (let i = _hexRipples.length - 1; i >= 0; i--) {
+        _hexRipples[i].r += _hexRipples[i].speed * dt;
+        if (_hexRipples[i].r > maxR) _hexRipples.splice(i, 1);
+    }
+
+    _hexes.forEach(h => {
+        let glow = (Math.sin(t * 0.6 + h.phase) * 0.5 + 0.5) * 0.035 + beat * 0.06;
+        for (let i = 0; i < _hexRipples.length; i++) {
+            const delta = Math.abs(h.dist - _hexRipples[i].r);
+            const width = 55 + _hexRipples[i].r * 0.15;
+            if (delta < width) glow += (1 - delta / width) * _hexRipples[i].str * 0.75;
+        }
+        glow = Math.min(glow, 1);
+        if (glow < 0.012) return;
+
+        const frac = Math.min(h.dist / (Math.min(W, H) * 0.55), 1);
+        const cr = a1[0] + (a2[0] - a1[0]) * frac | 0;
+        const cg = a1[1] + (a2[1] - a1[1]) * frac | 0;
+        const cb = a1[2] + (a2[2] - a1[2]) * frac | 0;
+
+        _hexPath(h.x, h.y, inner);
+        const tg = ctx.createRadialGradient(h.x - inner * 0.25, h.y - inner * 0.25, 0, h.x, h.y, inner);
+        tg.addColorStop(0,    `rgba(${cr},${cg},${cb},${glow * 0.55})`);
+        tg.addColorStop(0.65, `rgba(${cr},${cg},${cb},${glow * 0.18})`);
+        tg.addColorStop(1,    `rgba(${cr},${cg},${cb},0.02)`);
+        ctx.fillStyle = tg; ctx.fill();
+
+        _hexPath(h.x, h.y, inner);
+        ctx.strokeStyle = `rgba(${cr},${cg},${cb},${Math.min(glow * 1.1, 0.9)})`;
+        ctx.lineWidth   = 0.7 + glow * 1.4;
+        ctx.stroke();
+
+        if (glow > 0.18) {
+            _hexPath(h.x, h.y, inner * 0.78);
+            const sg = ctx.createLinearGradient(h.x - inner, h.y - inner, h.x + inner * 0.4, h.y + inner * 0.4);
+            sg.addColorStop(0, `rgba(255,255,255,${glow * 0.22})`);
+            sg.addColorStop(1, `rgba(255,255,255,0)`);
+            ctx.fillStyle = sg; ctx.fill();
+        }
+    });
+}
+
+// tema 17 se mantiene como plasma — se reemplaza aquí el bloque de crystals
+// tema 16 arriba, tema 17 (plasma) debajo sin cambios
+
+// tema 17: circuitos — pistas de PCB con pulsos de corriente reactivos al beat
+let _circW = 0, _circTraces = [], _circPulses = [], _circLastBeat = 0;
+const _CIRC_GRID = 60;
+function _buildCircuits() {
+    _circW = canvas.width;
+    _circTraces = [];
+    _circPulses = [];
+    const W = canvas.width, H = canvas.height;
+    const cols = Math.ceil(W / _CIRC_GRID) + 1;
+    const rows = Math.ceil(H / _CIRC_GRID) + 1;
+    // genera nodos en la cuadrícula con pequeño offset aleatorio
+    const nodes = [];
+    for (let r = 0; r <= rows; r++) {
+        for (let c = 0; c <= cols; c++) {
+            nodes.push({
+                x: c * _CIRC_GRID + (Math.random() - 0.5) * _CIRC_GRID * 0.3,
+                y: r * _CIRC_GRID + (Math.random() - 0.5) * _CIRC_GRID * 0.3,
+            });
+        }
+    }
+    const stride = cols + 1;
+    // conecta nodos horizontales y verticales como pistas de PCB
+    for (let r = 0; r <= rows; r++) {
+        for (let c = 0; c <= cols; c++) {
+            const idx = r * stride + c;
+            if (c < cols && Math.random() > 0.25) {
+                _circTraces.push({ a: nodes[idx], b: nodes[idx + 1], len: 0 });
+            }
+            if (r < rows && Math.random() > 0.25) {
+                _circTraces.push({ a: nodes[idx], b: nodes[idx + stride], len: 0 });
+            }
+        }
+    }
+    // calcula la longitud de cada traza
+    _circTraces.forEach(tr => {
+        const dx = tr.b.x - tr.a.x, dy = tr.b.y - tr.a.y;
+        tr.len = Math.sqrt(dx * dx + dy * dy);
+    });
+}
+function drawCircuits(beat, dt, t) {
+    if (canvas.width !== _circW) _buildCircuits();
+    const a1 = _heroAccent(1), a2 = _heroAccent(2);
+
+    // lanza pulsos en cada beat
+    if (beat > 0.2 && beat > _circLastBeat && t - (_circPulses[0]?.born || 0) > 0.15) {
+        const tr = _circTraces[Math.floor(Math.random() * _circTraces.length)];
+        _circPulses.push({ tr, pos: 0, speed: 0.8 + beat * 1.4, str: beat, born: t });
+    }
+    _circLastBeat = beat;
+    for (let i = _circPulses.length - 1; i >= 0; i--) {
+        _circPulses[i].pos += _circPulses[i].speed * dt;
+        if (_circPulses[i].pos > 1.2) _circPulses.splice(i, 1);
+    }
+
+    // dibuja las trazas base (dim)
+    ctx.lineWidth = 0.8;
+    _circTraces.forEach(tr => {
+        const fi = tr.a.x / canvas.width;
+        const r = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        ctx.strokeStyle = `rgba(${r},${g},${b},${0.1 + beat * 0.08})`;
+        ctx.beginPath();
+        ctx.moveTo(tr.a.x, tr.a.y);
+        ctx.lineTo(tr.b.x, tr.b.y);
+        ctx.stroke();
+    });
+
+    // dibuja los pulsos de corriente
+    ctx.shadowBlur = 8 + beat * 18;
+    _circPulses.forEach(p => {
+        const { tr, pos, str } = p;
+        const px = tr.a.x + (tr.b.x - tr.a.x) * Math.min(pos, 1);
+        const py = tr.a.y + (tr.b.y - tr.a.y) * Math.min(pos, 1);
+        const fi = px / canvas.width;
+        const r = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        ctx.shadowColor = `rgba(${r},${g},${b},0.9)`;
+        ctx.fillStyle   = `rgba(${r},${g},${b},${Math.max(0, str * (1 - pos * 0.7))})`;
+        ctx.beginPath();
+        ctx.arc(px, py, 3 + str * 4, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+
+    // nodos en las intersecciones
+    const nodes = new Set();
+    _circTraces.forEach(tr => { nodes.add(tr.a); nodes.add(tr.b); });
+    nodes.forEach(n => {
+        const fi = n.x / canvas.width;
+        const r = a1[0] + (a2[0] - a1[0]) * fi | 0;
+        const g = a1[1] + (a2[1] - a1[1]) * fi | 0;
+        const b = a1[2] + (a2[2] - a1[2]) * fi | 0;
+        ctx.fillStyle = `rgba(${r},${g},${b},${0.18 + beat * 0.2})`;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
         ctx.fill();
     });
 }
@@ -1935,15 +2151,17 @@ function heroThemeDraw(beat, dt, t) {
         case 5:  drawNeonRain(beat, dt);      break;
         case 6:  drawConfetti(beat, dt);      break;
         case 7:  drawLaser(beat, dt, t);      break;
-        case 8:  drawVortex(beat, dt, t);     break;
+        case 8:  drawEqualizer(beat, dt, t);   break;
         case 9:  drawFireworks(beat, dt, t);  break;
         case 10: drawWaves(beat, dt, t);      break;
         case 11: drawMeteors(beat, dt);       break;
         case 12: drawDNA(beat, dt, t);        break;
         case 13: drawGalaxy(beat, dt, t);     break;
         case 14: drawMagnetic(beat, dt, t);   break;
-        case 15: drawTopo(beat, dt, t);       break;
-        default: drawConstellation(beat);     break;
+        case 15: drawTopo(beat, dt, t);        break;
+        case 16: drawHexagons(beat, dt, t);    break;
+        case 17: drawCircuits(beat, dt, t);    break;
+        default: drawConstellation(beat);      break;
     }
 }
 
