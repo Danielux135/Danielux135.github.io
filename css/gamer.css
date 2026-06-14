@@ -1057,6 +1057,10 @@ html[data-theme="light"][data-style-theme="gamer"] body {
 }
 html[data-theme="light"][data-style-theme="gamer"] body::before { opacity: 0.12; }
 html[data-theme="light"][data-style-theme="gamer"] body::after  { display: none; }
+/* descripción de sección legible sobre el fondo lavanda claro */
+html[data-theme="light"][data-style-theme="gamer"] .section-desc {
+    color: rgba(20, 20, 50, 0.82) !important;
+}
 html[data-theme="light"][data-style-theme="gamer"] .studio-panel {
     background: rgba(232, 234, 246, 0.97) !important;
     border-color: rgb(var(--accent-1-rgb) / 0.3) !important;
