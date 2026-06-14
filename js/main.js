@@ -2711,6 +2711,16 @@ const TRACKS = [
         }
         // permite llamar a ensureAudioCtx desde el click del botón (gesto de usuario en iOS)
         window._ensureAudioCtx = ensureAudioCtx;
+        // desbloqueo de audio para ios/móvil: en el primer gesto del usuario se crea y reanuda
+        // el contexto, de modo que al pulsar play el grafo de web audio ya está activo (mantiene la reactividad)
+        function unlockAudio() {
+            ensureAudioCtx();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            document.removeEventListener('touchend', unlockAudio);
+            document.removeEventListener('pointerdown', unlockAudio);
+        }
+        document.addEventListener('touchend', unlockAudio);
+        document.addEventListener('pointerdown', unlockAudio);
         // dibuja un frame del visualizador de barras con gradiente reactivo al beat
         function draw() {
             animId = requestAnimationFrame(draw);
@@ -2747,7 +2757,7 @@ const TRACKS = [
         }
         function startViz() {
             ensureAudioCtx();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
             if (!animId) draw();
         }
         function stopViz() {
