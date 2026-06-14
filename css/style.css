@@ -297,6 +297,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
 }
 /* logo de la navbar */
 .nav-logo {
@@ -509,11 +510,13 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     .fosky-exp-circle { width: 180px; height: 180px; }
     .fosky-exp-bubble { width: 180px; font-size: 0.76rem; }
 }
-/* enlaces de navegación */
+/* enlaces de navegación centrados respecto al ancho total de la página */
 .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 2px;
-    margin-left: auto;
 }
 /* enlace individual de la navbar */
 .nav-links a {
@@ -528,7 +531,7 @@ html[data-theme="light"] .fosky-exp-bubble::after {
 /* enlace activo o en hover */
 .nav-links a:hover,
 .nav-links a.active { color: var(--white); background: var(--surface-hover); }
-/* selector de idioma colapsable */
+/* selector de idioma — primer elemento del grupo derecho, empuja los botones al borde */
 .lang-switcher {
     position: relative;
     display: inline-flex;
@@ -537,6 +540,7 @@ html[data-theme="light"] .fosky-exp-bubble::after {
     overflow: hidden;
     flex-shrink: 0;
     height: 44px;
+    margin-left: auto;
     max-width: 44px;
     background: rgba(255,255,255,0.03);
     will-change: max-width;
@@ -1507,7 +1511,7 @@ html[data-theme="light"] .about-avatar-img {
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.10 + var(--beat-alpha) * 0.55));
     border-radius: var(--radius);
     padding: 30px;
-    box-shadow: var(--beat-glow-soft, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
 }
 /* título del panel de habilidades */
 .skills-panel h3 {
@@ -1580,7 +1584,7 @@ html[data-theme="light"] .about-avatar-img {
 .legacy-roles-card {
     background: var(--surface);
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.18 + var(--beat-alpha) * 0.50));
-    box-shadow: var(--beat-glow-soft, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
     border-radius: var(--radius);
     padding: 28px;
     display: flex;
@@ -1835,7 +1839,7 @@ html[data-theme="light"] .about-avatar-img {
     background: var(--surface);
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.14 + var(--beat-alpha) * 0.50));
     border-radius: var(--radius);
-    box-shadow: var(--beat-glow-soft, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
 }
 /* hover de la tarjeta de eduardo */
 .eduardo-card:hover { border-color: rgb(var(--accent-2-rgb) / calc(0.45 + var(--beat-alpha) * 0.40)); }
@@ -1908,7 +1912,7 @@ html[data-theme="light"] .about-avatar-img {
         rgb(var(--accent-1-rgb) / calc(0.06 + var(--beat-alpha) * 0.13)));
     border: 1px solid rgb(var(--accent-2-rgb) / calc(0.18 + var(--beat-alpha) * 0.55));
     border-radius: var(--radius);
-    box-shadow: var(--beat-glow-soft, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
     overflow: hidden;
 }
 /* cabecera del reproductor con título e icono */
@@ -2135,7 +2139,7 @@ html[data-theme="light"] .about-avatar-img {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    box-shadow: var(--beat-glow-soft, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
     transition: border-color var(--ease);
     position: relative;
     overflow: hidden;
@@ -2729,7 +2733,7 @@ html[data-theme="light"] .share-toast {
         var(--accent-1) 100%);
     background-size: 300% 100%;
     animation: npbGradientShift 8s linear infinite;
-    box-shadow: var(--beat-glow, none);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 90px) rgb(var(--accent-1-rgb) / calc(var(--beat-alpha) * 0.95));
     z-index: 1;
 }
 @keyframes npbGradientShift {

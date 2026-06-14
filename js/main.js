@@ -1955,31 +1955,56 @@ function hslToRgb(h, s, l) {
     return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
 }
 // calcula los colores de acento según el beat y los publica en globals js (cada frame)
-// las css vars se escriben con throttle para evitar reflows continuos
-function updateAccentColors(v, writeCss) {
+// igual que el arcade: el beat solo se publica en globals js que lee el canvas
+// nunca se escribe en :root durante la animación (mutar una custom property heredada
+// fuerza recalc de todo el árbol + repaint de cada elemento que la usa = tirón con música)
+function updateAccentColors(v) {
     if (window._colorDragging) return;
     const _h1base = window._paletteH1 !== undefined ? window._paletteH1 : 195;
     const _h2base = window._paletteH2 !== undefined ? window._paletteH2 : 262;
     const _l1base = window._paletteL1 !== undefined ? window._paletteL1 : 50;
     const _l2base = window._paletteL2 !== undefined ? window._paletteL2 : 60;
-    const h1 = _h1base + v * 30;
-    const h2 = _h2base + v * 20;
-    const l1 = _l1base + v * 10;
-    const l2 = _l2base + v * 8;
-    const [r1, g1, b1] = hslToRgb(h1, 100, l1);
-    const [r2, g2, b2r] = hslToRgb(h2, 90, l2);
-    // globals js: se leen desde canvas sin tocar el dom
+    const [r1, g1, b1] = hslToRgb(_h1base + v * 30, 100, _l1base + v * 10);
+    const [r2, g2, b2r] = hslToRgb(_h2base + v * 20, 90, _l2base + v * 8);
     window._accent1Rgb = `${r1} ${g1} ${b1}`;
     window._accent2Rgb = `${r2} ${g2} ${b2r}`;
-    if (!writeCss || ROOT.classList.contains('arcade-lock')) return;
-    ROOT.style.setProperty('--accent-1-rgb', `${r1} ${g1} ${b1}`);
-    ROOT.style.setProperty('--accent-2-rgb', `${r2} ${g2} ${b2r}`);
-    ROOT.style.setProperty('--beat-alpha', v.toFixed(3));
-    ROOT.style.setProperty('--accent-1', `hsl(${h1}, 100%, ${l1}%)`);
-    ROOT.style.setProperty('--accent-2', `hsl(${h2}, 90%, ${l2}%)`);
-    ROOT.style.setProperty('--gradient', `linear-gradient(135deg, hsl(${h1}, 100%, ${l1}%) 0%, hsl(${h2}, 90%, ${l2}%) 100%)`);
-    ROOT.style.setProperty('--beat-glow',      v > 0.01 ? `0 0 ${v * 90}px rgb(${r1} ${g1} ${b1} / ${v * 0.95})` : 'none');
-    ROOT.style.setProperty('--beat-glow-soft', v > 0.01 ? `0 0 ${v * 60}px rgb(${r2} ${g2} ${b2r} / ${v * 0.75})` : 'none');
+}
+// reactividad del dom al beat sin tirones: --beat-alpha se escribe escopado a cada sección
+// (estilo directo del elemento → solo recalcula su subárbol, no todo el documento como :root)
+// y solo en las secciones que están en pantalla; las de fuera no cuestan nada
+let _beatSections = [];
+function _initBeatSections() {
+    const els = Array.from(document.querySelectorAll('section'));
+    const npb = document.getElementById('nowPlayingBar');
+    if (npb) els.push(npb);
+    _beatSections = els.map(el => ({ el, visible: true }));
+    try {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                const s = _beatSections.find(x => x.el === e.target);
+                if (!s) return;
+                s.visible = e.isIntersecting;
+                if (!e.isIntersecting) e.target.style.setProperty('--beat-alpha', '0');
+            });
+        });
+        _beatSections.forEach(s => { s.visible = false; io.observe(s.el); });
+    } catch (e) { /* sin intersectionobserver: se animan todas */ }
+}
+let _beatIdle = false;
+// escribe --beat-alpha solo en secciones visibles; en silencio escribe 0 una vez y para
+function pulseBeatDom(v) {
+    if (!_beatSections.length) _initBeatSections();
+    if (v < 0.005) {
+        if (_beatIdle) return;
+        _beatIdle = true;
+        v = 0;
+    } else {
+        _beatIdle = false;
+    }
+    const a = v.toFixed(3);
+    for (const s of _beatSections) {
+        if (s.visible) s.el.style.setProperty('--beat-alpha', a);
+    }
 }
 // las partículas solo se dibujan cuando el hero es visible: drawconnections es o(n²)
 // el beat y los colores de acento se actualizan siempre porque los usa toda la web
@@ -1988,7 +2013,6 @@ try {
     new IntersectionObserver((entries) => { _heroVisible = entries[0].isIntersecting; }).observe(canvas);
 } catch (e) { /* navegador sin intersectionobserver: se anima siempre */ }
 let _lastFrameTs = 0;
-let _lastAccentTs = 0;
 // bucle principal de animación del hero: actualiza el beat y dibuja el fondo activo
 function animateParticles(ts = 0) {
     requestAnimationFrame(animateParticles);
@@ -1997,11 +2021,11 @@ function animateParticles(ts = 0) {
     const beat = getBassEnergy();
     _visualBeat = beat > _visualBeat ? beat : _visualBeat + (beat - _visualBeat) * 0.6;
     if (_visualBeat < 0.005) _visualBeat = 0;
-    // globals js cada frame (sin dom), css vars con throttle a ~30hz para evitar reflows
-    const writeCss = ts - _lastAccentTs > 33;
-    updateAccentColors(_visualBeat, writeCss);
-    if (writeCss) _lastAccentTs = ts;
-    if (!_heroVisible || document.documentElement.classList.contains('arcade-lock')) return;
+    if (document.documentElement.classList.contains('arcade-lock')) return;
+    // globals js para el canvas + --beat-alpha escopado a las secciones visibles del dom
+    updateAccentColors(_visualBeat);
+    pulseBeatDom(_visualBeat);
+    if (!_heroVisible) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     heroThemeDraw(_visualBeat, dt, ts / 1000);
 }
