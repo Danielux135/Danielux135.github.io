@@ -204,7 +204,9 @@ export const translations = {
             restaurant: { tag: 'Restaurante · Reservas', desc: 'Web para restaurante con carta interactiva por categorías, galería y formulario de reserva.' },
             shop: { tag: 'E-commerce · Tienda', desc: 'Tienda online de mobiliario con catálogo dinámico, carrito funcional y lista de deseos.' },
             agency: { tag: 'Agencia · Landing', desc: 'Landing de estudio creativo con animaciones al hacer scroll, portfolio y diseño moderno.' },
-            meridian: { tag: 'Agencia · Editorial', desc: 'Demo de estudio boutique con identidad visual propia: tipografía serif editorial, imágenes SVG integradas y diseño split-hero de nivel premium.' }
+            meridian: { tag: 'Agencia · Editorial', desc: 'Demo de estudio boutique con identidad visual propia: tipografía serif editorial, imágenes SVG integradas y diseño split-hero de nivel premium.' },
+            eclipse: { tag: 'Festival · Evento', desc: 'Web de festival de música inmersiva: cartel interactivo de artistas, constructor de horario personal, mapa del recinto y compra de entradas.' },
+            orbit: { tag: 'SaaS · Dashboard', desc: 'Demo de CRM con kanban drag & drop, paleta de comandos, gráficas de ingresos, calendario y panel de señales de IA.' }
         },
         contact: {
             title: 'Contacto',
@@ -504,7 +506,9 @@ export const translations = {
             restaurant: { tag: 'Restaurant · Bookings', desc: 'Restaurant website with an interactive menu by category, gallery and a booking form.' },
             shop: { tag: 'E-commerce · Shop', desc: 'Online furniture store with a dynamic catalog, working cart and wishlist.' },
             agency: { tag: 'Agency · Landing', desc: 'Creative studio landing with scroll animations, portfolio and a modern design.' },
-            meridian: { tag: 'Agency · Editorial', desc: 'Boutique studio demo with its own visual identity: editorial serif typography, embedded SVG imagery and a premium split-hero layout.' }
+            meridian: { tag: 'Agency · Editorial', desc: 'Boutique studio demo with its own visual identity: editorial serif typography, embedded SVG imagery and a premium split-hero layout.' },
+            eclipse: { tag: 'Festival · Event', desc: 'Immersive music festival website: interactive artist line-up, personal schedule builder, venue map and ticket purchase.' },
+            orbit: { tag: 'SaaS · Dashboard', desc: 'CRM demo featuring drag & drop kanban, command palette, revenue charts, calendar and AI signal panel.' }
         },
         contact: {
             title: 'Contact',
@@ -804,7 +808,9 @@ export const translations = {
             restaurant: { tag: 'Restaurant · Reserves', desc: 'Web per a restaurant amb carta interactiva per categories, galeria i formulari de reserva.' },
             shop: { tag: 'E-commerce · Botiga', desc: 'Botiga online de mobiliari amb catàleg dinàmic, cistella funcional i llista de desitjos.' },
             agency: { tag: 'Agència · Landing', desc: 'Landing d\'estudi creatiu amb animacions en fer scroll, portfolio i disseny modern.' },
-            meridian: { tag: 'Agència · Editorial', desc: 'Demo d\'estudi boutique amb identitat visual pròpia: tipografia serif editorial, imatges SVG integrades i disseny split-hero de nivell premium.' }
+            meridian: { tag: 'Agència · Editorial', desc: 'Demo d\'estudi boutique amb identitat visual pròpia: tipografia serif editorial, imatges SVG integrades i disseny split-hero de nivell premium.' },
+            eclipse: { tag: 'Festival · Esdeveniment', desc: 'Web de festival de música immersiva: cartell interactiu d\'artistes, constructor d\'horari personal, mapa del recinte i compra d\'entrades.' },
+            orbit: { tag: 'SaaS · Tauler', desc: 'Demo de CRM amb kanban drag & drop, paleta d\'ordres, gràfiques d\'ingressos, calendari i panell de senyals d\'IA.' }
         },
         contact: {
             title: 'Contacte',

@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050711" />
+  <title>Orbit CRM — Polished Frontend SaaS Demo</title>
+  <meta name="description" content="A frontend-only SaaS dashboard demo with CRM data, kanban drag and drop, command palette, charting, calendar, theme and localStorage state." />
+  <style>
+:root{--bg:#060816;--panel:#0d1225;--panel2:#121932;--text:#f7fbff;--muted:#9aa7c7;--line:rgba(255,255,255,.12);--cyan:#6bf4ff;--blue:#7c8cff;--pink:#ff5edb;--green:#83ffba;--amber:#ffd166;--red:#ff7d86;--shadow:0 28px 90px rgba(0,0,0,.42);--radius:26px;--ease:cubic-bezier(.2,.8,.2,1);color-scheme:dark}
+html[data-theme=light]{--bg:#eef3ff;--panel:#ffffff;--panel2:#f7f9ff;--text:#11182b;--muted:#61708e;--line:rgba(16,24,43,.12);--shadow:0 24px 70px rgba(57,76,120,.16);color-scheme:light}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}button,input,select{font:inherit;color:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.ambient{position:fixed;inset:-30%;background:radial-gradient(circle at 15% 20%,rgba(107,244,255,.18),transparent 28%),radial-gradient(circle at 78% 10%,rgba(255,94,219,.16),transparent 26%),radial-gradient(circle at 82% 80%,rgba(124,140,255,.18),transparent 26%);filter:blur(40px);z-index:-2;animation:floatBg 16s ease-in-out infinite alternate}@keyframes floatBg{to{transform:rotate(8deg) scale(1.08)}}
+.app-shell{display:grid;grid-template-columns:270px minmax(0,1fr) 310px;gap:16px;width:min(1500px,calc(100% - 24px));margin:12px auto}.sidebar,.workspace,.right-rail{min-height:calc(100vh - 24px)}.sidebar,.right-rail{position:sticky;top:12px;align-self:start;border:1px solid var(--line);border-radius:32px;background:linear-gradient(180deg,color-mix(in srgb,var(--panel),transparent 0%),color-mix(in srgb,var(--panel2),transparent 0%));box-shadow:var(--shadow);padding:16px}.sidebar{display:flex;flex-direction:column}.logo{display:flex;gap:12px;align-items:center;padding:10px 8px 22px}.logo-mark{width:45px;height:45px;border-radius:17px;position:relative;background:linear-gradient(135deg,var(--cyan),var(--pink));box-shadow:0 0 40px rgba(107,244,255,.25)}.logo-mark i{position:absolute;inset:11px;border:2px solid rgba(0,0,0,.5);border-radius:50%;background:rgba(255,255,255,.52)}.logo strong{display:block;font-size:1.2rem;letter-spacing:-.03em}.logo small{display:block;color:var(--muted);font-size:.75rem}.nav{display:grid;gap:8px}.nav-item,.command-hint,.theme-toggle,.primary-action,.secondary-action,.ghost-action{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.045);padding:12px 13px;color:var(--muted);display:flex;align-items:center;gap:10px;transition:.25s var(--ease);font-weight:800}.nav-item:hover,.nav-item.active{color:var(--text);background:linear-gradient(135deg,rgba(107,244,255,.13),rgba(124,140,255,.1));border-color:color-mix(in srgb,var(--cyan),transparent 58%)}.nav-item span{width:28px;height:28px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.08)}.sidebar-card{margin-top:18px;padding:17px;border-radius:24px;background:radial-gradient(circle at 0 0,rgba(107,244,255,.2),transparent 40%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line)}.sidebar-card p,.eyebrow{margin:0 0 8px;color:var(--muted);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.15em}.sidebar-card strong{display:block;font-size:1.05rem;line-height:1.35}.sidebar-card span{display:block;margin-top:8px;color:var(--muted);line-height:1.5;font-size:.9rem}.command-hint{margin-top:auto;margin-bottom:10px;justify-content:center;font-size:.82rem}.theme-toggle{justify-content:center;color:var(--text)}.workspace{min-width:0}.topbar{position:sticky;top:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;border:1px solid var(--line);border-radius:32px;background:color-mix(in srgb,var(--panel),transparent 8%);backdrop-filter:blur(22px);box-shadow:var(--shadow)}.topbar h1{margin:0;font-size:clamp(1.7rem,3.2vw,3.15rem);letter-spacing:-.08em;line-height:.95}.topbar-actions{display:flex;align-items:center;gap:10px}.search-box{position:relative;min-width:280px}.search-box span{position:absolute;left:14px;top:6px;color:var(--muted);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.search-box input,.filters select,.command-search input{width:100%;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.06);padding:22px 14px 10px;outline:none}.search-box input:focus,.command-search input:focus{border-color:color-mix(in srgb,var(--cyan),transparent 45%);box-shadow:0 0 0 4px rgba(107,244,255,.08)}.primary-action{border:0;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#07111d;box-shadow:0 16px 45px rgba(107,244,255,.18);justify-content:center}.secondary-action{background:linear-gradient(135deg,rgba(107,244,255,.14),rgba(124,140,255,.12));color:var(--text)}.ghost-action{background:transparent;color:var(--muted)}.primary-action:hover,.secondary-action:hover,.ghost-action:hover{transform:translateY(-2px)}
+.view{display:none;padding:16px 0}.view.active{display:block}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}.metric-card,.panel,.rail-card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));box-shadow:var(--shadow)}.metric-card{padding:18px;position:relative;overflow:hidden}.metric-card::before{content:"";position:absolute;inset:-40% -20% auto auto;width:130px;height:130px;border-radius:50%;background:var(--accent);opacity:.18;filter:blur(8px)}.metric-card span{color:var(--muted);font-size:.8rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.metric-card strong{display:block;margin:12px 0 8px;font-size:2.15rem;letter-spacing:-.06em}.metric-card p{margin:0;color:var(--muted);line-height:1.5}.metric-card small{display:inline-flex;margin-top:12px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--accent);font-weight:900}.overview-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:16px;margin-bottom:16px}.panel{padding:18px}.panel-heading{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:18px}.panel h2{margin:0;font-size:clamp(1.35rem,2vw,2.2rem);letter-spacing:-.06em}.segmented,.panel-buttons,.assistant-actions,.filters{display:flex;gap:8px;flex-wrap:wrap}.segmented{padding:4px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04)}.segmented button{border:0;border-radius:12px;background:transparent;color:var(--muted);padding:8px 11px;font-weight:900}.segmented button.active{background:rgba(255,255,255,.11);color:var(--text)}.line-chart{width:100%;height:auto;min-height:260px}.chart-grid{stroke:var(--line);stroke-width:1}.chart-fill{opacity:.16}.chart-line{fill:none;stroke:var(--cyan);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(107,244,255,.55));stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.2s var(--ease) forwards}.chart-dot{fill:var(--panel);stroke:var(--cyan);stroke-width:4}.chart-label{fill:var(--muted);font-size:13px;font-weight:800}.bar{fill:url(#barGradient);opacity:.82}@keyframes draw{to{stroke-dashoffset:0}}.assistant-panel{position:relative;overflow:hidden;min-height:360px}.orbit-orb{position:absolute;right:-58px;top:-58px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--cyan) 18%,var(--blue) 45%,transparent 70%);opacity:.68;filter:blur(.5px);animation:orbitBreath 4s ease-in-out infinite alternate}.assistant-panel h2{position:relative;max-width:300px;margin-top:28px}.assistant-panel p:not(.eyebrow){position:relative;color:var(--muted);line-height:1.7}.assistant-actions{position:relative;margin-top:24px}@keyframes orbitBreath{to{transform:scale(1.08) translate(-14px,10px)}}.mini-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.mini-col{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.04);padding:12px}.mini-col h3{margin:0 0 10px;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.mini-deal{border-radius:16px;background:rgba(255,255,255,.075);padding:10px;margin-top:8px}.mini-deal strong{display:block;font-size:.92rem}.mini-deal span{color:var(--muted);font-size:.8rem}.table-heading{align-items:center}.filters select{padding:12px 14px;min-width:150px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:22px}table{width:100%;border-collapse:collapse;min-width:860px}th,td{text-align:left;padding:15px;border-bottom:1px solid var(--line)}th{position:sticky;top:0;background:var(--panel);color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.13em}tbody tr{transition:.2s var(--ease);cursor:pointer}tbody tr:hover{background:rgba(107,244,255,.07)}.client-name{display:flex;align-items:center;gap:10px;font-weight:900}.avatar{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--pink));color:#08111f;font-weight:900}.status,.health,.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 9px;background:rgba(255,255,255,.07);font-size:.82rem;font-weight:900}.status.Active{color:var(--green)}.status.Proposal{color:var(--cyan)}.status.Lead{color:var(--amber)}.status.At-Risk{color:var(--red)}.health-bar{width:110px;height:9px;border-radius:999px;background:rgba(255,255,255,.09);overflow:hidden}.health-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--red),var(--amber),var(--green))}.kanban{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;align-items:start}.kanban-col{min-height:520px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.035);padding:12px}.kanban-col.drag-over{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(107,244,255,.08)}.kanban-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.kanban-head h3{margin:0;font-size:.85rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}.kanban-head span{color:var(--muted);font-weight:900}.deal-card{border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));padding:14px;margin:10px 0;box-shadow:0 16px 38px rgba(0,0,0,.18);cursor:grab}.deal-card:active{cursor:grabbing}.deal-card h4{margin:0 0 8px;font-size:1rem}.deal-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}.deal-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:14px}.priority{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}.calendar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.day-card{min-height:410px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.04);padding:12px}.day-card h3{margin:0 0 12px}.event-card{border-radius:17px;padding:12px;margin-bottom:10px;background:rgba(255,255,255,.075);border:1px solid var(--line)}.event-card strong{display:block}.event-card span{color:var(--muted);font-size:.82rem}.campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.campaign-card{min-height:350px;position:relative;overflow:hidden}.campaign-icon{width:58px;height:58px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--pink));color:#07111d;font-size:1.4rem;font-weight:900;box-shadow:0 0 38px rgba(107,244,255,.25)}.campaign-card h2{margin:28px 0 12px}.campaign-card p:not(.eyebrow){color:var(--muted);line-height:1.7}.progress{height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin:24px 0 12px}.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--pink))}.right-rail{display:grid;gap:16px;align-content:start}.rail-card{padding:16px}.score-card{text-align:center;position:relative;overflow:hidden}.score-card strong{font-size:4rem;letter-spacing:-.08em;display:block}.score-card span{color:var(--muted)}.score-ring{width:150px;height:150px;border-radius:50%;margin:12px auto 0;background:conic-gradient(var(--cyan) 0 86%,rgba(255,255,255,.08) 86% 100%);padding:12px}.score-ring i{display:block;width:100%;height:100%;border-radius:50%;background:var(--panel)}.rail-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.rail-heading h2{margin:0;font-size:1.2rem;letter-spacing:-.04em}.rail-heading button{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:12px;width:34px;height:34px}.activity-list,.task-list{display:grid;gap:10px}.activity,.task{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.055);padding:12px}.activity strong,.task strong{display:block;font-size:.92rem}.activity span,.task span{color:var(--muted);font-size:.8rem}.task{display:grid;grid-template-columns:auto 1fr;gap:10px}.task input{accent-color:var(--cyan)}.task.done{opacity:.55;text-decoration:line-through}.client-dialog,.command-dialog{width:min(760px,calc(100% - 28px));border:1px solid var(--line);border-radius:30px;background:color-mix(in srgb,var(--panel),transparent 4%);color:var(--text);box-shadow:0 40px 130px rgba(0,0,0,.55);padding:24px;backdrop-filter:blur(22px)}.client-dialog::backdrop,.command-dialog::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}.dialog-close{position:absolute;right:14px;top:14px;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.08);font-size:1.4rem}.client-dialog h2{font-size:3rem;letter-spacing:-.08em;margin:10px 0}.client-dialog p:not(.eyebrow){color:var(--muted);line-height:1.7}.dialog-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.dialog-stats div{border:1px solid var(--line);border-radius:20px;padding:14px;background:rgba(255,255,255,.055)}.dialog-stats span{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.dialog-stats strong{display:block;margin-top:8px;font-size:1.2rem}.dialog-actions{display:flex;gap:10px;flex-wrap:wrap}.command-dialog{padding:12px}.command-search{display:grid;gap:8px}.command-search span{padding:6px 6px 0;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem}.command-search input{padding:17px}.command-list{display:grid;gap:8px;margin-top:10px}.command-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(255,255,255,.05)}.command-item:hover{background:rgba(107,244,255,.1)}.command-item span{color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);opacity:0;border:1px solid var(--line);background:color-mix(in srgb,var(--panel),transparent 4%);backdrop-filter:blur(18px);border-radius:999px;padding:12px 16px;box-shadow:var(--shadow);z-index:50;transition:.3s var(--ease)}.toast.show{opacity:1;transform:translate(-50%,0)}.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.reveal.visible{opacity:1;transform:none}
+@media (max-width:1280px){.app-shell{grid-template-columns:230px minmax(0,1fr)}.right-rail{grid-column:1/-1;grid-template-columns:repeat(3,1fr);min-height:auto;position:relative;top:auto}.score-card strong{font-size:3rem}}@media (max-width:980px){.app-shell{grid-template-columns:1fr}.sidebar{position:relative;top:auto;min-height:auto}.nav{grid-template-columns:repeat(5,1fr)}.nav-item{justify-content:center}.nav-item span{display:none}.topbar{position:relative;top:auto;flex-direction:column;align-items:stretch}.topbar-actions{flex-direction:column;align-items:stretch}.search-box{min-width:0}.metrics-grid,.overview-grid,.campaign-grid,.right-rail{grid-template-columns:1fr}.kanban{grid-template-columns:repeat(2,1fr)}.calendar-grid{grid-template-columns:1fr 1fr}.mini-board{grid-template-columns:repeat(2,1fr)}}@media (max-width:640px){.app-shell{width:min(100% - 16px,1500px);margin:8px auto}.sidebar,.topbar,.panel,.rail-card{border-radius:24px}.nav{grid-template-columns:1fr 1fr}.metrics-grid,.kanban,.calendar-grid,.mini-board{grid-template-columns:1fr}.dialog-stats{grid-template-columns:1fr}.client-dialog h2{font-size:2.2rem}.panel-heading{flex-direction:column}.topbar h1{font-size:2rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+
+.portfolio-footer{width:min(1500px,calc(100% - 32px));margin:28px auto 22px;padding:18px 20px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--panel),transparent 8%);backdrop-filter:blur(18px);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted)}
+.portfolio-footer p{margin:0;font-size:.95rem}.portfolio-footer strong{color:var(--text)}
+.portfolio-footer a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.07);color:var(--cyan);font-weight:900;text-decoration:none;transition:transform .25s var(--ease),background .25s var(--ease)}
+.portfolio-footer a::after{content:"↗";font-size:.9em}.portfolio-footer a:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+@media (max-width:640px){.portfolio-footer{border-radius:26px;justify-content:center;text-align:center}}
+
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="logo" href="#overview" aria-label="Orbit CRM overview">
+        <span class="logo-mark"><i></i></span>
+        <span><strong>Orbit</strong><small>CRM Studio</small></span>
+      </a>
+
+      <nav class="nav" aria-label="Dashboard navigation">
+        <button class="nav-item active" type="button" data-view="overview"><span>⌁</span> Overview</button>
+        <button class="nav-item" type="button" data-view="clients"><span>◈</span> Clients</button>
+        <button class="nav-item" type="button" data-view="pipeline"><span>▦</span> Pipeline</button>
+        <button class="nav-item" type="button" data-view="calendar"><span>□</span> Calendar</button>
+        <button class="nav-item" type="button" data-view="campaigns"><span>✦</span> Campaigns</button>
+      </nav>
+
+      <section class="sidebar-card">
+        <p>AI signal</p>
+        <strong id="signalTitle">Proposal velocity up 18%</strong>
+        <span id="signalCopy">Three warm leads moved faster than usual this week.</span>
+      </section>
+
+      <button class="command-hint" id="openCommand" type="button">⌘K / Ctrl K · Command palette</button>
+      <button class="theme-toggle" id="themeToggle" type="button">Switch theme</button>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Frontend product demo</p>
+          <h1 id="viewTitle">Mission control for client work.</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="search-box">
+            <span>Search</span>
+            <input id="globalSearch" type="search" placeholder="Client, owner, industry..." autocomplete="off" />
+          </label>
+          <button class="primary-action" id="newLeadBtn" type="button">+ New lead</button>
+        </div>
+      </header>
+
+      <section class="view active" id="overview" aria-label="Overview dashboard">
+        <div class="metrics-grid" id="metricsGrid"></div>
+
+        <div class="overview-grid">
+          <section class="panel chart-panel reveal visible">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Revenue pulse</p>
+                <h2>Pipeline value over time</h2>
+              </div>
+              <div class="segmented" id="chartMode">
+                <button class="active" type="button" data-chart="revenue">Revenue</button>
+                <button type="button" data-chart="leads">Leads</button>
+              </div>
+            </div>
+            <svg class="line-chart" id="lineChart" viewBox="0 0 820 320" role="img" aria-label="Animated line chart"></svg>
+          </section>
+
+          <section class="panel assistant-panel reveal visible">
+            <div class="orbit-orb" aria-hidden="true"></div>
+            <p class="eyebrow">Smart assistant</p>
+            <h2 id="assistantHeadline">Protect the Lumina proposal.</h2>
+            <p id="assistantCopy">It is the highest value opportunity in the board and has been idle for two days. A short follow-up today would keep momentum alive.</p>
+            <div class="assistant-actions">
+              <button class="secondary-action" id="generateInsight" type="button">Generate insight</button>
+              <button class="ghost-action" id="turnInsightTask" type="button">Turn into task</button>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel reveal visible">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Live pipeline</p>
+              <h2>Drag deals, update totals.</h2>
+            </div>
+            <button class="secondary-action" data-view-shortcut="pipeline" type="button">Open full board</button>
+          </div>
+          <div class="mini-board" id="miniBoard"></div>
+        </section>
+      </section>
+
+      <section class="view" id="clients" aria-label="Client database">
+        <section class="panel reveal visible">
+          <div class="panel-heading table-heading">
+            <div>
+              <p class="eyebrow">Client database</p>
+              <h2>Search, filter and inspect clients.</h2>
+            </div>
+            <div class="filters">
+              <select id="statusFilter" aria-label="Status filter">
+                <option value="all">All statuses</option>
+                <option value="Active">Active</option>
+                <option value="Proposal">Proposal</option>
+                <option value="Lead">Lead</option>
+                <option value="At Risk">At Risk</option>
+              </select>
+              <select id="budgetFilter" aria-label="Budget filter">
+                <option value="all">All budgets</option>
+                <option value="high">€20k+</option>
+                <option value="mid">€10k–€20k</option>
+                <option value="low">Below €10k</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Client</th><th>Industry</th><th>Status</th><th>Owner</th><th>Budget</th><th>Health</th><th>Next step</th></tr>
+              </thead>
+              <tbody id="clientTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="pipeline" aria-label="CRM pipeline">
+        <section class="panel reveal visible">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Kanban pipeline</p>
+              <h2>A frontend board with memory.</h2>
+            </div>
+            <div class="panel-buttons">
+              <button class="secondary-action" id="addDeal" type="button">Add demo deal</button>
+              <button class="ghost-action" id="resetBoard" type="button">Reset board</button>
+            </div>
+          </div>
+          <div class="kanban" id="kanban"></div>
+        </section>
+      </section>
+
+      <section class="view" id="calendar" aria-label="Weekly planner">
+        <section class="panel reveal visible">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Weekly planner</p>
+              <h2>Tasks that feel like an app.</h2>
+            </div>
+            <button class="secondary-action" id="completeFocus" type="button">Complete focus block</button>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </section>
+      </section>
+
+      <section class="view" id="campaigns" aria-label="Campaign center">
+        <div class="campaign-grid" id="campaignGrid"></div>
+      </section>
+    </main>
+
+    <aside class="right-rail" aria-label="Activity and tasks">
+      <section class="rail-card score-card">
+        <p class="eyebrow">Today</p>
+        <strong id="todayScore">86</strong>
+        <span>Momentum score</span>
+        <div class="score-ring" aria-hidden="true"><i></i></div>
+      </section>
+      <section class="rail-card">
+        <div class="rail-heading"><h2>Activity</h2><button id="addActivity" type="button">+</button></div>
+        <div class="activity-list" id="activityList"></div>
+      </section>
+      <section class="rail-card">
+        <div class="rail-heading"><h2>Tasks</h2><span id="taskCount">0</span></div>
+        <div class="task-list" id="taskList"></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="portfolio-footer" id="portfolio-footer">
+    <p>Demo from <strong>Daniel Bort Guzmán</strong></p>
+    <a href="https://danielux135.github.io/" target="_blank" rel="noopener">Visit Daniel's portfolio</a>
+  </footer>
+
+  <dialog class="client-dialog" id="clientDialog">
+    <button class="dialog-close" id="dialogClose" type="button" aria-label="Close client details">×</button>
+    <p class="eyebrow" id="dialogMeta">Client</p>
+    <h2 id="dialogName">Client name</h2>
+    <p id="dialogDescription">Description</p>
+    <div class="dialog-stats">
+      <div><span>Budget</span><strong id="dialogBudget">€0</strong></div>
+      <div><span>Health</span><strong id="dialogHealth">0%</strong></div>
+      <div><span>Owner</span><strong id="dialogOwner">Owner</strong></div>
+    </div>
+    <div class="dialog-actions">
+      <button class="primary-action" id="dialogTask" type="button">Create follow-up task</button>
+      <button class="ghost-action" id="dialogMove" type="button">Move to proposal</button>
+    </div>
+  </dialog>
+
+  <dialog class="command-dialog" id="commandDialog">
+    <label class="command-search">
+      <span>Command palette</span>
+      <input id="commandInput" placeholder="Type a command, e.g. pipeline, theme, client..." />
+    </label>
+    <div class="command-list" id="commandList"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+const $ = (selector, scope = document) => scope.querySelector(selector);
+const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+const stages = ['New lead', 'Contacted', 'Proposal', 'Won'];
+const clients = [
+  { id:'lumina', name:'Lumina Labs', industry:'AI Tools', status:'Proposal', owner:'Mara', budget:42000, health:86, next:'Send revised scope', desc:'A fast-moving AI tools studio looking for a polished onboarding site and conversion dashboard.' },
+  { id:'northstar', name:'Northstar Hotels', industry:'Hospitality', status:'Active', owner:'Leo', budget:28000, health:91, next:'Review booking flow', desc:'Boutique hotel group redesigning its booking experience and seasonal campaign pages.' },
+  { id:'solace', name:'Solace Coffee', industry:'Food & Beverage', status:'Lead', owner:'Iris', budget:8400, health:62, next:'Book discovery call', desc:'A local coffee brand preparing a product launch and online tasting experience.' },
+  { id:'atelier', name:'Atelier Nova', industry:'Fashion', status:'Active', owner:'Mara', budget:18200, health:78, next:'Approve lookbook', desc:'Independent fashion studio building a premium campaign landing with editorial motion.' },
+  { id:'kindred', name:'Kindred Care', industry:'Healthcare', status:'At Risk', owner:'Jon', budget:23500, health:41, next:'Rescue check-in', desc:'Care provider whose stakeholders have delayed feedback on a patient portal refresh.' },
+  { id:'arcade', name:'Arcade Forge', industry:'Gaming', status:'Proposal', owner:'Iris', budget:31500, health:83, next:'Send prototype', desc:'Indie game team that wants a cinematic marketing page and community hub.' },
+  { id:'terra', name:'TerraGrid', industry:'Energy', status:'Lead', owner:'Leo', budget:14600, health:69, next:'Qualify stakeholders', desc:'Clean energy startup exploring a frontend dashboard for solar site monitoring.' },
+  { id:'paperkite', name:'Paperkite Studio', industry:'Creative', status:'Active', owner:'Jon', budget:12600, health:74, next:'Ship animation pass', desc:'Creative studio needing a refined portfolio system with case-study templates.' }
+];
+const initialDeals = [
+  { id:'d1', client:'Lumina Labs', value:42000, stage:'Proposal', priority:'high', note:'Revision due today' },
+  { id:'d2', client:'Northstar Hotels', value:28000, stage:'Won', priority:'normal', note:'Onboarding started' },
+  { id:'d3', client:'Solace Coffee', value:8400, stage:'New lead', priority:'normal', note:'Warm intro' },
+  { id:'d4', client:'Atelier Nova', value:18200, stage:'Won', priority:'normal', note:'Retainer active' },
+  { id:'d5', client:'Kindred Care', value:23500, stage:'Contacted', priority:'urgent', note:'Needs rescue' },
+  { id:'d6', client:'Arcade Forge', value:31500, stage:'Proposal', priority:'high', note:'Prototype requested' },
+  { id:'d7', client:'TerraGrid', value:14600, stage:'New lead', priority:'normal', note:'Stakeholder mapping' },
+  { id:'d8', client:'Paperkite Studio', value:12600, stage:'Contacted', priority:'low', note:'Animation sprint' }
+];
+const insights = [
+  ['Protect the Lumina proposal.', 'It is the highest value opportunity in the board and has been idle for two days. A short follow-up today would keep momentum alive.'],
+  ['Rescue Kindred before it cools down.', 'Their health score is below 50%. A clear next-step email and a smaller milestone could reduce friction.'],
+  ['Arcade Forge is ready for a wow moment.', 'Send the prototype with a short Loom-style walkthrough. The deal has high value and high creative fit.'],
+  ['Northstar is a referral opportunity.', 'The project is won and healthy. Ask for an introduction while satisfaction is high.']
+];
+const activitiesBase = [
+  ['Lumina opened the proposal', '4 min ago'],
+  ['Northstar approved homepage wireframe', '18 min ago'],
+  ['Arcade Forge requested prototype link', '42 min ago'],
+  ['Kindred missed feedback window', '1h ago']
+];
+const calendarItems = {
+  Mon:[['09:30','Lumina follow-up'],['12:00','Northstar review'],['16:20','Proposal polish']],
+  Tue:[['10:00','Discovery · TerraGrid'],['14:30','Design QA'],['17:00','Send invoices']],
+  Wed:[['09:00','Focus block'],['13:15','Atelier lookbook'],['18:00','Campaign sync']],
+  Thu:[['11:00','Kindred rescue call'],['15:00','Prototype review']],
+  Fri:[['10:30','Weekly recap'],['12:45','Pipeline cleanup'],['16:00','Ship demo build']]
+};
+const campaigns = [
+  { icon:'✦', label:'Launch', title:'Nova onboarding sequence', copy:'A five-email lifecycle campaign for trial users with segmented product tips and soft conversion nudges.', progress:72 },
+  { icon:'◈', label:'Retention', title:'Client health rescue', copy:'Automated tasks for accounts with low activity, delayed approvals or missed follow-up windows.', progress:48 },
+  { icon:'⌁', label:'Growth', title:'Partner referral sprint', copy:'A referral-focused campaign that highlights high-value clients and tracks warm introductions.', progress:86 }
+];
+
+let currentView = 'overview';
+let searchTerm = '';
+let chartMode = 'revenue';
+let activeClientId = null;
+let tasks = JSON.parse(localStorage.getItem('orbitTasksV2') || 'null') || [
+  { id:'t1', text:'Follow up with Lumina Labs', due:'Today 15:00', done:false },
+  { id:'t2', text:'Prepare Arcade Forge prototype notes', due:'Tomorrow', done:false },
+  { id:'t3', text:'Send Northstar launch checklist', due:'Friday', done:true }
+];
+let activities = JSON.parse(localStorage.getItem('orbitActivitiesV2') || 'null') || activitiesBase;
+let deals = JSON.parse(localStorage.getItem('orbitDealsV2') || 'null') || initialDeals;
+
+function euro(value){ return `€${value.toLocaleString('en-US')}`; }
+function save(){
+  localStorage.setItem('orbitTasksV2', JSON.stringify(tasks));
+  localStorage.setItem('orbitActivitiesV2', JSON.stringify(activities));
+  localStorage.setItem('orbitDealsV2', JSON.stringify(deals));
+}
+function toast(message){
+  const node = $('#toast');
+  node.textContent = message;
+  node.classList.add('show');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => node.classList.remove('show'), 2200);
+}
+function clientByName(name){ return clients.find(client => client.name === name); }
+function clientById(id){ return clients.find(client => client.id === id); }
+function filteredClients(){
+  const status = $('#statusFilter')?.value || 'all';
+  const budget = $('#budgetFilter')?.value || 'all';
+  return clients.filter(client => {
+    const q = searchTerm.trim().toLowerCase();
+    const matchesSearch = !q || [client.name, client.industry, client.owner, client.status, client.next].join(' ').toLowerCase().includes(q);
+    const matchesStatus = status === 'all' || client.status === status;
+    const matchesBudget = budget === 'all' || (budget === 'high' && client.budget >= 20000) || (budget === 'mid' && client.budget >= 10000 && client.budget < 20000) || (budget === 'low' && client.budget < 10000);
+    return matchesSearch && matchesStatus && matchesBudget;
+  });
+}
+
+function renderMetrics(){
+  const totalPipeline = deals.reduce((sum, deal) => sum + deal.value, 0);
+  const won = deals.filter(deal => deal.stage === 'Won').reduce((sum, deal) => sum + deal.value, 0);
+  const urgent = tasks.filter(task => !task.done).length;
+  const metrics = [
+    { label:'Pipeline', value:euro(totalPipeline), detail:'+14.2% simulated', accent:'var(--cyan)' },
+    { label:'Won revenue', value:euro(won), detail:'Across active projects', accent:'var(--green)' },
+    { label:'Client health', value:`${Math.round(clients.reduce((s,c)=>s+c.health,0)/clients.length)}%`, detail:'Average account score', accent:'var(--blue)' },
+    { label:'Open tasks', value:urgent, detail:'Due soon', accent:'var(--amber)' }
+  ];
+  $('#metricsGrid').innerHTML = metrics.map(metric => `
+    <article class="metric-card" style="--accent:${metric.accent}">
+      <span>${metric.label}</span><strong>${metric.value}</strong><p>${metric.detail}</p><small>Live frontend state</small>
+    </article>
+  `).join('');
+}
+function renderChart(){
+  const svg = $('#lineChart');
+  const revenue = [42, 48, 46, 56, 62, 70, 68, 82, 86, 98, 108, 124];
+  const leads = [12, 16, 14, 22, 20, 26, 30, 27, 32, 37, 36, 44];
+  const values = chartMode === 'revenue' ? revenue : leads;
+  const labels = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
+  const w = 820, h = 320, pad = 46;
+  const max = Math.max(...values) * 1.12;
+  const min = Math.min(...values) * .72;
+  const points = values.map((value, index) => {
+    const x = pad + index * ((w - pad * 2) / (values.length - 1));
+    const y = h - pad - ((value - min) / (max - min)) * (h - pad * 2);
+    return [x,y,value];
+  });
+  const path = points.map((point, index) => `${index ? 'L' : 'M'} ${point[0].toFixed(1)} ${point[1].toFixed(1)}`).join(' ');
+  const fill = `${path} L ${w-pad} ${h-pad} L ${pad} ${h-pad} Z`;
+  svg.innerHTML = `
+    <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="var(--cyan)"/><stop offset="1" stop-color="var(--cyan)" stop-opacity="0"/></linearGradient><linearGradient id="barGradient" x1="0" x2="1"><stop stop-color="var(--cyan)"/><stop offset="1" stop-color="var(--pink)"/></linearGradient></defs>
+    ${[0,1,2,3].map(i => `<line class="chart-grid" x1="${pad}" x2="${w-pad}" y1="${pad+i*(h-pad*2)/3}" y2="${pad+i*(h-pad*2)/3}"/>`).join('')}
+    <path class="chart-fill" d="${fill}" fill="url(#area)"></path>
+    <path class="chart-line" d="${path}"></path>
+    ${points.map((p,i) => `<circle class="chart-dot" cx="${p[0]}" cy="${p[1]}" r="6"><title>${labels[i]} · ${chartMode === 'revenue' ? '€' : ''}${p[2]}${chartMode === 'revenue' ? 'k' : ' leads'}</title></circle>`).join('')}
+    ${labels.map((label,i)=>`<text class="chart-label" x="${points[i][0]-10}" y="${h-14}">${label}</text>`).join('')}
+  `;
+}
+function renderMiniBoard(){
+  $('#miniBoard').innerHTML = stages.map(stage => {
+    const stageDeals = deals.filter(deal => deal.stage === stage).slice(0,2);
+    return `<div class="mini-col"><h3>${stage}</h3>${stageDeals.map(deal => `<div class="mini-deal"><strong>${deal.client}</strong><span>${euro(deal.value)}</span></div>`).join('') || '<div class="mini-deal"><span>No deals</span></div>'}</div>`;
+  }).join('');
+}
+function renderClients(){
+  const rows = filteredClients().map(client => `
+    <tr data-client="${client.id}">
+      <td><div class="client-name"><span class="avatar">${client.name.slice(0,1)}</span>${client.name}</div></td>
+      <td>${client.industry}</td>
+      <td><span class="status ${client.status.replace(/\s+/g,'-')}">${client.status}</span></td>
+      <td>${client.owner}</td>
+      <td>${euro(client.budget)}</td>
+      <td><div class="health-bar" aria-label="${client.health}% health"><i style="width:${client.health}%"></i></div></td>
+      <td>${client.next}</td>
+    </tr>
+  `).join('');
+  $('#clientTable').innerHTML = rows || `<tr><td colspan="7">No clients found.</td></tr>`;
+}
+function renderKanban(){
+  $('#kanban').innerHTML = stages.map(stage => {
+    const stageDeals = deals.filter(deal => deal.stage === stage);
+    const total = stageDeals.reduce((sum, deal) => sum + deal.value, 0);
+    return `<section class="kanban-col" data-stage="${stage}">
+      <div class="kanban-head"><h3>${stage}</h3><span>${euro(total)}</span></div>
+      ${stageDeals.map(deal => renderDeal(deal)).join('')}
+    </section>`;
+  }).join('');
+}
+function renderDeal(deal){
+  const colors = { urgent:'var(--red)', high:'var(--amber)', normal:'var(--cyan)', low:'var(--muted)' };
+  return `<article class="deal-card" draggable="true" data-deal="${deal.id}">
+    <h4>${deal.client}</h4><p>${deal.note}</p>
+    <div class="deal-bottom"><strong>${euro(deal.value)}</strong><span class="priority" style="--accent:${colors[deal.priority]}"></span></div>
+  </article>`;
+}
+function renderCalendar(){
+  $('#calendarGrid').innerHTML = Object.entries(calendarItems).map(([day, events]) => `
+    <article class="day-card"><h3>${day}</h3>${events.map(event => `<div class="event-card"><strong>${event[1]}</strong><span>${event[0]}</span></div>`).join('')}</article>
+  `).join('');
+}
+function renderCampaigns(){
+  $('#campaignGrid').innerHTML = campaigns.map(campaign => `
+    <article class="panel campaign-card reveal visible"><span class="campaign-icon">${campaign.icon}</span><p class="eyebrow">${campaign.label}</p><h2>${campaign.title}</h2><p>${campaign.copy}</p><div class="progress"><span style="width:${campaign.progress}%"></span></div><strong>${campaign.progress}% ready</strong></article>
+  `).join('');
+}
+function renderRail(){
+  $('#activityList').innerHTML = activities.slice(0,6).map(item => `<article class="activity"><strong>${item[0]}</strong><span>${item[1]}</span></article>`).join('');
+  $('#taskList').innerHTML = tasks.map(task => `<label class="task ${task.done ? 'done' : ''}"><input type="checkbox" data-task="${task.id}" ${task.done ? 'checked' : ''}/><span><strong>${task.text}</strong><span>${task.due}</span></span></label>`).join('');
+  $('#taskCount').textContent = tasks.filter(task => !task.done).length;
+}
+function renderSignal(){
+  const proposal = deals.filter(deal => deal.stage === 'Proposal').reduce((sum, deal) => sum + deal.value, 0);
+  $('#signalTitle').textContent = proposal > 60000 ? 'Proposal room is hot' : 'Momentum is stable';
+  $('#signalCopy').textContent = proposal > 60000 ? `${euro(proposal)} is waiting for a decision. Follow-ups matter today.` : 'Move one lead to proposal to lift the forecast.';
+}
+function renderAll(){
+  renderMetrics(); renderChart(); renderMiniBoard(); renderClients(); renderKanban(); renderCalendar(); renderCampaigns(); renderRail(); renderSignal();
+}
+
+function setView(view){
+  currentView = view;
+  $$('.view').forEach(node => node.classList.toggle('active', node.id === view));
+  $$('.nav-item').forEach(button => button.classList.toggle('active', button.dataset.view === view));
+  const titles = {
+    overview:'Mission control for client work.', clients:'Client database, but make it beautiful.', pipeline:'Move deals with actual frontend state.', calendar:'A weekly planner with product polish.', campaigns:'Campaigns that feel ready to ship.'
+  };
+  $('#viewTitle').textContent = titles[view];
+  scrollTo({ top:0, behavior:'smooth' });
+}
+function openClient(id){
+  const client = clientById(id);
+  if (!client) return;
+  activeClientId = id;
+  $('#dialogMeta').textContent = `${client.status} · ${client.industry}`;
+  $('#dialogName').textContent = client.name;
+  $('#dialogDescription').textContent = client.desc;
+  $('#dialogBudget').textContent = euro(client.budget);
+  $('#dialogHealth').textContent = `${client.health}%`;
+  $('#dialogOwner').textContent = client.owner;
+  $('#clientDialog').showModal();
+}
+function addTask(text, due = 'Today'){
+  tasks.unshift({ id:`t${Date.now()}`, text, due, done:false });
+  activities.unshift([`Task created: ${text}`, 'just now']);
+  save(); renderRail(); toast('Task created');
+}
+function addDemoDeal(){
+  const options = ['Neon Bakery', 'Moonbyte Apps', 'Wildflower Clinic', 'Echo Park Records'];
+  const name = options[Math.floor(Math.random()*options.length)];
+  deals.unshift({ id:`d${Date.now()}`, client:name, value:9000 + Math.floor(Math.random()*26000), stage:'New lead', priority:'normal', note:'Demo deal added' });
+  activities.unshift([`${name} entered the pipeline`, 'just now']);
+  save(); renderAll(); toast('Demo deal added');
+}
+
+const commands = [
+  { title:'Open overview', hint:'Dashboard home', action:() => setView('overview') },
+  { title:'Open clients', hint:'Database', action:() => setView('clients') },
+  { title:'Open pipeline', hint:'Kanban board', action:() => setView('pipeline') },
+  { title:'Open calendar', hint:'Weekly tasks', action:() => setView('calendar') },
+  { title:'Toggle theme', hint:'Dark / light', action:() => toggleTheme() },
+  { title:'Add demo deal', hint:'Pipeline state', action:() => addDemoDeal() },
+  { title:'Generate insight', hint:'Assistant card', action:() => generateInsight() }
+];
+function renderCommands(term = ''){
+  const list = commands.filter(command => command.title.toLowerCase().includes(term.toLowerCase()) || command.hint.toLowerCase().includes(term.toLowerCase()));
+  $('#commandList').innerHTML = list.map((command, index) => `<button class="command-item" type="button" data-command="${commands.indexOf(command)}"><strong>${command.title}</strong><span>${command.hint}</span></button>`).join('') || '<div class="command-item"><strong>No command found</strong><span>Try “theme”</span></div>';
+}
+function openCommand(){
+  renderCommands();
+  $('#commandDialog').showModal();
+  setTimeout(() => $('#commandInput').focus(), 50);
+}
+function toggleTheme(){
+  const html = document.documentElement;
+  const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = next;
+  localStorage.setItem('orbitThemeV2', next);
+  toast(`${next === 'dark' ? 'Dark' : 'Light'} theme enabled`);
+}
+function generateInsight(){
+  const [headline, copy] = insights[Math.floor(Math.random()*insights.length)];
+  $('#assistantHeadline').textContent = headline;
+  $('#assistantCopy').textContent = copy;
+  $('#todayScore').textContent = 78 + Math.floor(Math.random()*17);
+  toast('New simulated insight generated');
+}
+
+function bindEvents(){
+  $$('.nav-item').forEach(button => button.addEventListener('click', () => setView(button.dataset.view)));
+  document.addEventListener('click', event => {
+    const shortcut = event.target.closest('[data-view-shortcut]');
+    if (shortcut) setView(shortcut.dataset.viewShortcut);
+    const row = event.target.closest('tr[data-client]');
+    if (row) openClient(row.dataset.client);
+    const commandItem = event.target.closest('[data-command]');
+    if (commandItem) { commands[Number(commandItem.dataset.command)].action(); $('#commandDialog').close(); }
+  });
+  $('#globalSearch').addEventListener('input', event => { searchTerm = event.target.value; renderClients(); if (currentView !== 'clients' && searchTerm.length > 1) setView('clients'); });
+  $('#statusFilter').addEventListener('change', renderClients);
+  $('#budgetFilter').addEventListener('change', renderClients);
+  $('#chartMode').addEventListener('click', event => {
+    const button = event.target.closest('[data-chart]');
+    if (!button) return;
+    chartMode = button.dataset.chart;
+    $$('#chartMode button').forEach(node => node.classList.toggle('active', node === button));
+    renderChart();
+  });
+  $('#generateInsight').addEventListener('click', generateInsight);
+  $('#turnInsightTask').addEventListener('click', () => addTask($('#assistantHeadline').textContent, 'Today'));
+  $('#newLeadBtn').addEventListener('click', addDemoDeal);
+  $('#addDeal').addEventListener('click', addDemoDeal);
+  $('#resetBoard').addEventListener('click', () => { deals = JSON.parse(JSON.stringify(initialDeals)); save(); renderAll(); toast('Board reset'); });
+  $('#addActivity').addEventListener('click', () => { activities.unshift(['Manual note added', 'just now']); save(); renderRail(); toast('Activity added'); });
+  $('#completeFocus').addEventListener('click', () => addTask('Send focus block recap', 'Friday'));
+  $('#themeToggle').addEventListener('click', toggleTheme);
+  $('#openCommand').addEventListener('click', openCommand);
+  $('#commandInput').addEventListener('input', event => renderCommands(event.target.value));
+  $('#dialogClose').addEventListener('click', () => $('#clientDialog').close());
+  $('#dialogTask').addEventListener('click', () => { const client = clientById(activeClientId); if (client) addTask(`Follow up with ${client.name}`, 'Today'); });
+  $('#dialogMove').addEventListener('click', () => { const client = clientById(activeClientId); if (!client) return; const deal = deals.find(d => d.client === client.name); if (deal) deal.stage = 'Proposal'; save(); renderAll(); toast(`${client.name} moved to Proposal`); });
+  $('#taskList').addEventListener('change', event => {
+    const input = event.target.closest('[data-task]');
+    if (!input) return;
+    const task = tasks.find(t => t.id === input.dataset.task);
+    if (task) task.done = input.checked;
+    save(); renderRail(); renderMetrics();
+  });
+
+  let draggingId = null;
+  $('#kanban').addEventListener('dragstart', event => {
+    const card = event.target.closest('[data-deal]');
+    if (!card) return;
+    draggingId = card.dataset.deal;
+    event.dataTransfer.effectAllowed = 'move';
+  });
+  $('#kanban').addEventListener('dragover', event => {
+    const col = event.target.closest('[data-stage]');
+    if (!col) return;
+    event.preventDefault();
+    $$('.kanban-col').forEach(c => c.classList.toggle('drag-over', c === col));
+  });
+  $('#kanban').addEventListener('drop', event => {
+    const col = event.target.closest('[data-stage]');
+    if (!col || !draggingId) return;
+    const deal = deals.find(d => d.id === draggingId);
+    if (deal) { deal.stage = col.dataset.stage; activities.unshift([`${deal.client} moved to ${deal.stage}`, 'just now']); save(); renderAll(); toast(`${deal.client} moved to ${deal.stage}`); }
+    draggingId = null;
+    $$('.kanban-col').forEach(c => c.classList.remove('drag-over'));
+  });
+  $('#kanban').addEventListener('dragleave', event => {
+    const col = event.target.closest('[data-stage]');
+    if (col) col.classList.remove('drag-over');
+  });
+  document.addEventListener('keydown', event => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openCommand(); }
+    if (event.key === 'Escape' && $('#commandDialog').open) $('#commandDialog').close();
+  });
+}
+
+function boot(){
+  const savedTheme = localStorage.getItem('orbitThemeV2');
+  if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  renderAll(); bindEvents();
+  const io = new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible')), { threshold:.1 });
+  $$('.reveal').forEach(node => io.observe(node));
+}
+boot();
+
+  </script>
+</body>
+</html>
