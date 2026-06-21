@@ -1,0 +1,34 @@
+name: Newsletter FoskIA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/blog/posts/2*.json'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Fecha del post a enviar (YYYY-MM-DD). Vacío = hoy.'
+        required: false
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enviar newsletter
+        run: node .github/scripts/send-newsletter.js
+        env:
+          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          MANUAL_DATE: ${{ github.event.inputs.date }}
