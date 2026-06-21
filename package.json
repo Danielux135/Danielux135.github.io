@@ -8,11 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/ensure-static-pages.mjs",
-    "preview": "vite preview",
-    "check": "npm run build",
-    "render:showcase": "node scripts/render-showcase-60fps.mjs",
-    "preview:video": "node scripts/showcase/recordShowcase.mjs"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "playwright": "^1.61.0",
