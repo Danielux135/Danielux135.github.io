@@ -272,14 +272,15 @@ function buildEmail({ langs, edition, email, isWelcome }) {
 }
 
 async function sendEmail(email, langs, edition, isWelcome) {
-  const brevoKey = cleanEnv(process.env.BREVO_API_KEY);
   const { html, subject } = buildEmail({ langs, edition, email, isWelcome });
-  const r = await fetch('https://api.brevo.com/v3/smtp/email', {
+  // enruta a través del endpoint de Vercel para evitar bloqueos de egress en entornos remotos
+  const r = await fetch('https://danielux135-github-io.vercel.app/api/send-email', {
     method: 'POST',
-    headers: { 'api-key': brevoKey, 'Content-Type': 'application/json', accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-internal-token': cleanEnv(process.env.INTERNAL_TOKEN)
+    },
     body: JSON.stringify({
-      sender: { name: 'FoskIA', email: 'danielux135@gmail.com' },
-      replyTo: { email: 'danielux135@gmail.com' },
       to: [{ email }],
       subject,
       htmlContent: html
