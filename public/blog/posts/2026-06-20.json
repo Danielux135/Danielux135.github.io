@@ -1,0 +1,699 @@
+{
+  "date": "2026-06-20",
+  "title": {
+    "es": "Bitcoin se aferra a los 64.000$, el acuerdo EE.UU.-Irán tambaleante y Citizen Sleeper gratis en Epic",
+    "en": "Bitcoin holds $64,000, the US-Iran deal wobbles, and Citizen Sleeper free on Epic",
+    "val": "Bitcoin s'aferra als 64.000$, l'acord EUA-Iran vacil·la i Citizen Sleeper gratis a Epic"
+  },
+  "intro": {
+    "es": "Sábado 20 de junio: jornada de bajo volumen en cripto con Bitcoin anclado en los 64.000 dólares y un mercado sin convicción. Trump desmiente el fondo de reconstrucción con Irán mientras el Estrecho de Ormuz vuelve a cerrarse. En gaming, el fin de semana llega cargado de juegos gratis; en streaming, House of the Dragon arranca su tercera temporada mañana.",
+    "en": "Saturday June 20: low-volume session in crypto with Bitcoin anchored at $64,000 and a conviction-less market. Trump denies the reconstruction fund with Iran as the Strait of Hormuz closes again. In gaming, the weekend arrives loaded with free games; in streaming, House of the Dragon kicks off its third season tomorrow.",
+    "val": "Dissabte 20 de juny: jornada de baix volum en cripto amb Bitcoin ancorat als 64.000 dòlars i un mercat sense convicció. Trump desmentix el fons de reconstrucció amb l'Iran mentres l'Estret d'Ormuz torna a tancar-se. En gaming, el cap de setmana arriba carregat de jocs gratis; en streaming, House of the Dragon arranca la seua tercera temporada demà."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "GTA 6 sigue sin fecha para PC y confirma lanzamiento en consola para noviembre",
+            "en": "GTA 6 still has no PC date and confirms console launch for November",
+            "val": "GTA 6 seguix sense data per a PC i confirma llançament en consola per a novembre"
+          },
+          "summary": {
+            "es": "Rockstar no ha dado señales de una versión para PC de <a href=\"https://www.rockstargames.com/VI\">GTA 6</a>, confirmando que el lanzamiento en PS5 y Xbox Series X/S llegará en noviembre de 2026. Las reservas abren el 25 de junio junto con la carátula oficial. La comunidad PC sigue sin fecha mientras la versión de consola ya suma millones de pre-órdenes.",
+            "en": "Rockstar has given no indication of a <a href=\"https://www.rockstargames.com/VI\">GTA 6</a> PC version, confirming the PS5 and Xbox Series X/S launch for November 2026. Pre-orders open on June 25 alongside the official cover art. The PC community remains date-less while the console version already has millions of pre-orders.",
+            "val": "Rockstar no ha donat senyals d'una versió per a PC de <a href=\"https://www.rockstargames.com/VI\">GTA 6</a>, confirmant el llançament en PS5 i Xbox Series X/S per a novembre de 2026. Les reserves obrin el 25 de juny junt amb la caràtula oficial. La comunitat PC seguix sense data mentres la versió de consola ja suma milions de pre-ordres."
+          },
+          "source": "PC Gamer",
+          "url": "https://www.pcgamer.com/games/pc-game-release-dates-june-2026/",
+          "links": [
+            { "title": "Web oficial GTA 6", "url": "https://www.rockstargames.com/VI" },
+            { "title": "PC Gamer: estrenos junio 2026", "url": "https://www.pcgamer.com/games/pc-game-release-dates-june-2026/" },
+            { "title": "Games Radar: release dates 2026", "url": "https://www.gamesradar.com/video-game-release-dates/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "EA Sports UFC 6 ya está disponible en PS5 y Xbox Series",
+            "en": "EA Sports UFC 6 is now available on PS5 and Xbox Series",
+            "val": "EA Sports UFC 6 ja està disponible en PS5 i Xbox Series"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.ea.com/games/ea-sports-ufc/ea-sports-ufc-6\">EA Sports UFC 6</a> llegó ayer a PS5 y Xbox Series X/S con un motor de impacto renovado, nuevo sistema de sumisión y el roster de luchadores más amplio de la saga. Las primeras reseñas destacan la fluidez del combate pero critican el modo carrera poco renovado.",
+            "en": "<a href=\"https://www.ea.com/games/ea-sports-ufc/ea-sports-ufc-6\">EA Sports UFC 6</a> arrived yesterday on PS5 and Xbox Series X/S with an overhauled impact engine, a new submission system, and the franchise's widest fighter roster. Early reviews praise combat fluidity but criticise the barely updated career mode.",
+            "val": "<a href=\"https://www.ea.com/games/ea-sports-ufc/ea-sports-ufc-6\">EA Sports UFC 6</a> va arribar ahir a PS5 i Xbox Series X/S amb un motor d'impacte renovat, nou sistema de submissió i el roster de lluitadors més ampli de la saga. Les primeres ressenyes destaquen la fluïdesa del combat però critiquen el mode carrera poc renovat."
+          },
+          "source": "IGN",
+          "url": "https://www.ea.com/games/ea-sports-ufc/ea-sports-ufc-6",
+          "links": [
+            { "title": "EA Sports UFC 6 oficial", "url": "https://www.ea.com/games/ea-sports-ufc/ea-sports-ufc-6" },
+            { "title": "Gamegator: estrenos junio 2026", "url": "https://gamegator.net/calendar/2026/june" },
+            { "title": "Game Informer 2026", "url": "https://gameinformer.com/2026" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Xbox Game Pass sigue sumando: Final Fantasy 6, ESO y Jurassic World Evolution 3 ya disponibles",
+            "en": "Xbox Game Pass keeps growing: Final Fantasy 6, ESO and Jurassic World Evolution 3 now available",
+            "val": "Xbox Game Pass seguix sumant: Final Fantasy 6, ESO i Jurassic World Evolution 3 ja disponibles"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.xbox.com/es-ES/xbox-game-pass\">Xbox Game Pass</a> confirmó la incorporación de Final Fantasy 6, The Elder Scrolls Online y Jurassic World Evolution 3 en junio, con seis títulos adicionales por anunciarse. Microsoft también rebajó el precio de la suscripción tras la subida de finales de 2025 que provocó millones de bajas.",
+            "en": "<a href=\"https://www.xbox.com/en-US/xbox-game-pass\">Xbox Game Pass</a> confirmed the addition of Final Fantasy 6, The Elder Scrolls Online and Jurassic World Evolution 3 in June, with six more titles to be announced. Microsoft also lowered the subscription price after the late 2025 hike that caused millions of cancellations.",
+            "val": "<a href=\"https://www.xbox.com/es-ES/xbox-game-pass\">Xbox Game Pass</a> va confirmar la incorporació de Final Fantasy 6, The Elder Scrolls Online i Jurassic World Evolution 3 al juny, amb sis títols addicionals per anunciar. Microsoft també va rebaixar el preu de la subscripció després de la pujada de finals de 2025 que va provocar milions de baixes."
+          },
+          "source": "NME Gaming",
+          "url": "https://www.nme.com/news/gaming-news/xbox-game-pass-additions-june-2026-premium-ultimate-pc-3951407",
+          "links": [
+            { "title": "NME: Game Pass junio 2026", "url": "https://www.nme.com/news/gaming-news/xbox-game-pass-additions-june-2026-premium-ultimate-pc-3951407" },
+            { "title": "Xbox Game Pass oficial", "url": "https://www.xbox.com/es-ES/xbox-game-pass" },
+            { "title": "Nintendo UK: juegos junio 2026", "url": "https://www.nintendo.com/en-gb/News/2026/June/Upcoming-games-June-2026-3110313.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Citizen Sleeper — Gratis en Epic Games Store",
+            "en": "Citizen Sleeper — Free on Epic Games Store",
+            "val": "Citizen Sleeper — Gratis a Epic Games Store"
+          },
+          "summary": {
+            "es": "RPG narrativo donde juegas como una mente humana atrapada en cuerpo robótico en una estación espacial, huyendo de la corporación que te posee. Mecánicas de dados, conversaciones profundas y múltiples finales.",
+            "en": "Narrative RPG where you play as a human mind trapped in a robot body on a space station, fleeing the corporation that owns you. Dice mechanics, deep conversations and multiple endings.",
+            "val": "RPG narratiu on jugues com una ment humana atrapada en cos robòtic en una estació espacial, fugint de la corporació que et posseïx. Mecàniques de daus, conversacions profundes i múltiples finals."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "25 de junio de 2026 (17:00 CEST)",
+            "en": "June 25, 2026 (8 AM PT)",
+            "val": "25 de juny de 2026 (17:00 CEST)"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/citizen-sleeper",
+          "source": "Epic Games Store",
+          "links": [
+            { "title": "Citizen Sleeper en Epic", "url": "https://store.epicgames.com/p/citizen-sleeper" },
+            { "title": "Game Rant: juegos gratis junio 2026", "url": "https://gamerant.com/free-games-june-2026-steam-epic-amazon-prime-gaming/" },
+            { "title": "PC Gamer: Epic free games", "url": "https://www.pcgamer.com/epic-games-store-free-games-list/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "ROBOBEAT — Gratis en Epic Games Store",
+            "en": "ROBOBEAT — Free on Epic Games Store",
+            "val": "ROBOBEAT — Gratis a Epic Games Store"
+          },
+          "summary": {
+            "es": "Shooter rítmico donde cada disparo y movimiento debe ir al compás de la música. Juegas como cazarrecompensas destruyendo robots al ritmo del beat. Diseño de niveles generativo que cambia con cada canción.",
+            "en": "Rhythm shooter where every shot and movement must go to the beat of the music. You play as a bounty hunter blasting robots to the beat. Generative level design that changes with each song.",
+            "val": "Shooter rítmic on cada tret i moviment ha d'anar al compàs de la música. Jugues com a caçarecompenses destruint robots al ritme del beat. Disseny de nivells generatiu que canvia amb cada cançó."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "25 de junio de 2026 (17:00 CEST)",
+            "en": "June 25, 2026 (8 AM PT)",
+            "val": "25 de juny de 2026 (17:00 CEST)"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/robobeat",
+          "source": "Epic Games Store",
+          "links": [
+            { "title": "ROBOBEAT en Epic", "url": "https://store.epicgames.com/p/robobeat" },
+            { "title": "Game Rant: epic junio 2026", "url": "https://gamerant.com/epic-games-store-free-games-list/" },
+            { "title": "KybersCorner: Epic semana 18-25", "url": "https://kyberscorner.com/epic-games-store-free-games-june-12-2026/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Space Grunts 2 y Wargame Construction Set III — Gratis con Prime Gaming",
+            "en": "Space Grunts 2 and Wargame Construction Set III — Free with Prime Gaming",
+            "val": "Space Grunts 2 i Wargame Construction Set III — Gratis amb Prime Gaming"
+          },
+          "summary": {
+            "es": "La tercera tanda de junio en <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> incluye Space Grunts 2 (roguelike por turnos con construcción de mazos en universo sci-fi) y Wargame Construction Set III: Age of Rifles 1846–1905 (estrategia por turnos sobre conflictos del siglo XIX). Disponibles para todos los suscriptores de Prime.",
+            "en": "The third June batch on <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> includes Space Grunts 2 (turn-based roguelike with deck-building in a sci-fi universe) and Wargame Construction Set III: Age of Rifles 1846–1905 (turn-based strategy on 19th-century conflicts). Available to all Prime subscribers.",
+            "val": "El tercer lot de juny en <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> inclou Space Grunts 2 (roguelike per torns amb construcció de mazos en univers sci-fi) i Wargame Construction Set III: Age of Rifles 1846–1905 (estratègia per torns sobre conflictes del segle XIX). Disponibles per a tots els subscriptors de Prime."
+          },
+          "platform": "Prime Gaming (GOG)",
+          "until": {
+            "es": "Hasta fin de mes (Prime Gaming)",
+            "en": "Until end of month (Prime Gaming)",
+            "val": "Fins a final de mes (Prime Gaming)"
+          },
+          "urgent": false,
+          "url": "https://gaming.amazon.com/",
+          "source": "Amazon Prime Gaming",
+          "links": [
+            { "title": "Prime Gaming junio 2026", "url": "https://gaming.amazon.com/" },
+            { "title": "Game Rant: Prime Gaming junio 2026", "url": "https://gamerant.com/amazon-prime-free-games-june-2026/" },
+            { "title": "AllKeyShop: Prime Gaming junio", "url": "https://www.allkeyshop.com/blog/amazon-prime-gaming-free-games-june-2026-news-n/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "La IA genera ya más del 40% del código en equipos de desarrollo profesionales",
+            "en": "AI already generates over 40% of code in professional development teams",
+            "val": "La IA genera ja més del 40% del codi en equips de desenvolupament professionals"
+          },
+          "summary": {
+            "es": "Según datos de 2026, los asistentes de IA como <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> y herramientas equivalentes generan ya más del 40% del código en equipos profesionales. El perfil del desarrollador evoluciona hacia orquestador de soluciones: quien solo sigue recetas de IA sin entender el porqué corre riesgo de quedarse estancado como «forever junior».",
+            "en": "According to 2026 data, AI assistants like <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> and equivalent tools now generate over 40% of code in professional teams. The developer profile is evolving toward a solution orchestrator: those who only follow AI recipes without understanding the 'why' risk getting stuck as 'forever juniors'.",
+            "val": "Segons dades de 2026, els assistents d'IA com <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> i eines equivalents generen ja més del 40% del codi en equips professionals. El perfil del desenvolupador evoluciona cap a orquestador de solucions: qui sols seguix receptes d'IA sense entendre el perquè corre risc de quedar-se estancat com a «forever junior»."
+          },
+          "source": "Xataka",
+          "url": "https://www.xataka.com/tag/programacion",
+          "links": [
+            { "title": "Dinahosting: lenguajes 2026", "url": "https://dinahosting.com/blog/lenguajes-de-programacion-2026/" },
+            { "title": "Innowise: tendencias desarrollo 2026", "url": "https://innowise.com/blog/top-software-development-trends/" },
+            { "title": "Orienteed: 10 tendencias clave 2026", "url": "https://orienteed.com/en/10-software-development-trends-2026/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Go y Rust consolidan su posición frente a Python y JavaScript en 2026",
+            "en": "Go and Rust consolidate their position against Python and JavaScript in 2026",
+            "val": "Go i Rust consoliden la seua posició davant Python i JavaScript en 2026"
+          },
+          "summary": {
+            "es": "<a href=\"https://go.dev/\">Go</a> lidera el back-end moderno por su velocidad y eficiencia en sistemas concurrentes, mientras <a href=\"https://www.rust-lang.org/\">Rust</a> crece en sistemas críticos por su seguridad de memoria sin recolector de basura. JavaScript sigue siendo imprescindible en front-end. El «green coding» —código eficiente que reduce consumo energético— empieza a convertirse en KPI técnico real.",
+            "en": "<a href=\"https://go.dev/\">Go</a> leads modern back-end for its speed and concurrency efficiency, while <a href=\"https://www.rust-lang.org/\">Rust</a> grows in critical systems for its memory safety without garbage collection. JavaScript remains indispensable in front-end. 'Green coding' — efficient code that reduces energy consumption — is starting to become a real technical KPI.",
+            "val": "<a href=\"https://go.dev/\">Go</a> lidera el back-end modern per la seua velocitat i eficiència en sistemes concurrents, mentres <a href=\"https://www.rust-lang.org/\">Rust</a> creix en sistemes crítics per la seua seguretat de memòria sense recol·lector de brossa. JavaScript seguix sent imprescindible en front-end. El «green coding» comença a convertir-se en un KPI tècnic real."
+          },
+          "source": "Socratech",
+          "url": "https://socratech.es/blog/tendencias-de-programacion-en-2026/",
+          "links": [
+            { "title": "Rust oficial", "url": "https://www.rust-lang.org/" },
+            { "title": "Go oficial", "url": "https://go.dev/" },
+            { "title": "Koud: tendencias hibridación 2026", "url": "https://koud.mx/tendencias-desarrollo-software-2026-futuro-tech/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "España triplica la inversión en salud de la mujer hasta 18 millones de euros anuales",
+            "en": "Spain triples women's health investment to 18 million euros per year",
+            "val": "Espanya triplica la inversió en salut de la dona fins a 18 milions d'euros anuals"
+          },
+          "summary": {
+            "es": "Pedro Sánchez presentó el programa <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">'Somos. Contamos'</a> para acabar con la discriminación de las mujeres en la investigación de salud, triplicando la inversión en I+D específica hasta 18 millones de euros anuales. Entre las líneas de actuación se incluye una vacuna que enseña al cuerpo a identificar células cancerígenas y podría servir contra los 220 tipos de cáncer conocidos.",
+            "en": "Pedro Sánchez presented the <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">'Somos. Contamos'</a> programme to end discrimination against women in health research, tripling specific R&D investment to 18 million euros per year. Among the action lines is a vaccine that teaches the body to identify cancer cells and could work against all 220 known types of cancer.",
+            "val": "Pedro Sánchez va presentar el programa <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">'Som. Comptem'</a> per a acabar amb la discriminació de les dones en la investigació de salut, triplicant la inversió en I+D específica fins a 18 milions d'euros anuals. Entre les línies d'actuació hi ha una vacuna que ensenya el cos a identificar cèl·lules cancerígenes i podria servir contra els 220 tipus de càncer coneguts."
+          },
+          "source": "Ministerio de Ciencia de España",
+          "url": "https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html",
+          "links": [
+            { "title": "Noticia oficial ministerio", "url": "https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html" },
+            { "title": "Consultor Salud: ciencia y salud 2026", "url": "https://consultorsalud.com.mx/la-ciencia-dia-mundial-de-la-salud-2026/" },
+            { "title": "NASA Ciencia junio 2026", "url": "https://ciencia.nasa.gov/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "El telescopio espacial Nancy Grace Roman, listo para cazar exoplanetas y energía oscura",
+            "en": "The Nancy Grace Roman Space Telescope is ready to hunt exoplanets and dark energy",
+            "val": "El telescopi espacial Nancy Grace Roman, llest per a caçar exoplanetes i energia fosca"
+          },
+          "summary": {
+            "es": "El <a href=\"https://roman.gsfc.nasa.gov/\">Telescopio Espacial Nancy Grace Roman</a>, cuyo lanzamiento está previsto antes de finales de 2026, resolverá interrogantes fundamentales sobre energía oscura, materia oscura, estructura del universo y exoplanetas. Apodado «el cazador de planetas», complementará al Hubble y al James Webb en alcance de campo.",
+            "en": "The <a href=\"https://roman.gsfc.nasa.gov/\">Nancy Grace Roman Space Telescope</a>, set to launch before end of 2026, will address fundamental questions about dark energy, dark matter, the structure of the universe and exoplanets. Dubbed the 'planet hunter', it will complement the Hubble and James Webb in field of view.",
+            "val": "El <a href=\"https://roman.gsfc.nasa.gov/\">Telescopi Espacial Nancy Grace Roman</a>, el llançament del qual està previst abans de finals de 2026, resoldrà interrogants fonamentals sobre energia fosca, matèria fosca, estructura de l'univers i exoplanetes. Anomenat «el caçador de planetes», complementarà el Hubble i el James Webb en abast de camp."
+          },
+          "source": "NASA",
+          "url": "https://roman.gsfc.nasa.gov/",
+          "links": [
+            { "title": "NASA Roman Space Telescope", "url": "https://roman.gsfc.nasa.gov/" },
+            { "title": "National Geographic ES: avances 2026", "url": "https://www.nationalgeographic.com.es/ciencia/2024-predijimos-mayores-avances-cientificos-2025-nuestros-aciertos-fallos-y-predicciones-para-2026_27123" },
+            { "title": "N+: exploración espacial 2026", "url": "https://www.nmas.com.mx/ciencia/ciencia-y-exploracion-espacial-2026-que-buenas-noticias-esperar-este-ano/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "El BCE recorta sus previsiones de crecimiento y mantiene el endurecimiento monetario",
+            "en": "The ECB cuts its growth forecasts and maintains monetary tightening",
+            "val": "El BCE retalla les seues previsions de creixement i manté l'enduriment monetari"
+          },
+          "summary": {
+            "es": "La presidenta del <a href=\"https://www.ecb.europa.eu/\">BCE</a> Christine Lagarde defendió la posición restrictiva como «robusta» ante la persistencia del conflicto en Oriente Medio. Los mercados anticipan un nuevo movimiento de tipos en septiembre que llevaría el tipo depo al 2,50%, mientras la vivienda en España acumula una subida interanual del 12,9%.",
+            "en": "ECB President Christine Lagarde defended the restrictive stance as 'robust' given the persistence of the Middle East conflict. Markets are pricing in a fresh rate move in September that would take the deposit rate to 2.50%, while Spanish house prices are up 12.9% year-on-year.",
+            "val": "La presidenta del <a href=\"https://www.ecb.europa.eu/\">BCE</a> Christine Lagarde va defendre la posició restrictiva com «robusta» davant la persistència del conflicte a Orient Mitjà. Els mercats anticipen un nou moviment de tipus al setembre que portaria el tipus depo al 2,50%, mentres l'habitatge a Espanya acumula una pujada interanual del 12,9%."
+          },
+          "source": "CaixaBank Research",
+          "url": "https://www.caixabankresearch.com/es/pulso-economico-semanal/semana-del-5-al-12-junio-2026",
+          "links": [
+            { "title": "BCE oficial", "url": "https://www.ecb.europa.eu/" },
+            { "title": "CaixaBank Research semana junio", "url": "https://www.caixabankresearch.com/es/pulso-economico-semanal/semana-del-5-al-12-junio-2026" },
+            { "title": "SLM-AFI: informe mensual junio 2026", "url": "https://slm-afi.es/en/informe-mensual-mercado-junio-2026/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "La economía global aguanta: IA e infraestructura alemana sostienen el impulso",
+            "en": "The global economy holds up: AI and German infrastructure sustain momentum",
+            "val": "L'economia global aguanta: IA i infraestructura alemanya sostenen l'impuls"
+          },
+          "summary": {
+            "es": "El crecimiento global se mantiene estable en 2026 impulsado por una economía estadounidense con inversión en IA cercana a los 500.000 millones de dólares y por el gasto en infraestructuras alemanas. <a href=\"https://www.mercer.com/es-es/insights/investments/market-outlook-and-trends/economic-and-market-outlook/\">Mercer</a> advierte de que las valoraciones elevadas del mercado y la dependencia de la IA podrían exponer a los inversores si los resultados decepcionan.",
+            "en": "Global growth remains stable in 2026 driven by a US economy with AI investment approaching $500 billion and German infrastructure spending. <a href=\"https://www.mercer.com/en/insights/investments/market-outlook-and-trends/economic-and-market-outlook/\">Mercer</a> warns that high market valuations and AI dependence could expose investors if results disappoint.",
+            "val": "El creixement global es manté estable en 2026 impulsat per una economia estatunidenca amb inversió en IA propera als 500.000 milions de dòlars i per la despesa en infraestructures alemanyes. <a href=\"https://www.mercer.com/es-es/insights/investments/market-outlook-and-trends/economic-and-market-outlook/\">Mercer</a> advertix que les valoracions elevades del mercat i la dependència de la IA podrien exposar els inversors si els resultats decepcionen."
+          },
+          "source": "Mercer",
+          "url": "https://www.mercer.com/es-es/insights/investments/market-outlook-and-trends/economic-and-market-outlook/",
+          "links": [
+            { "title": "Mercer: perspectivas 2026", "url": "https://www.mercer.com/es-es/insights/investments/market-outlook-and-trends/economic-and-market-outlook/" },
+            { "title": "Gestión PE: mercados e indicadores junio", "url": "https://gestion.pe/economia/mercados/mercados-e-indicadores-lunes-1-de-junio-2026-noticia/" },
+            { "title": "El Economista", "url": "https://www.eleconomista.es/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin a 64.000$ en jornada sin convicción: la Fed hawkish y el interés abierto en mínimos de junio",
+            "en": "Bitcoin at $64,000 in a conviction-less session: hawkish Fed and open interest at June lows",
+            "val": "Bitcoin als 64.000$ en jornada sense convicció: la Fed hawkish i l'interès obert en mínims de juny"
+          },
+          "summary": {
+            "es": "Bitcoin cotiza alrededor de los 64.000 dólares (+2,4% en 24h), un 49% por debajo de su ATH de 126.149$ alcanzado en octubre de 2025. El interés abierto cayó a 28.500 millones, mínimo desde principios de junio, y la tasa de financiamiento de perpetuos se mantiene en un neutro 0,01%, señal de mercado sin tendencia clara. Ethereum aguanta en 1.712$ y XRP en 1,19$.",
+            "en": "Bitcoin trades around $64,000 (+2.4% in 24h), 49% below its ATH of $126,149 reached in October 2025. Open interest fell to $28.5 billion, its lowest since early June, and the perpetuals funding rate holds at a neutral 0.01%, a sign of a trendless market. Ethereum holds at $1,712 and XRP at $1.19.",
+            "val": "Bitcoin cotitza al voltant dels 64.000 dòlars (+2,4% en 24h), un 49% per davall del seu ATH de 126.149$ assolit a l'octubre de 2025. L'interès obert va caure a 28.500 milions, mínim des de principis de juny, i la taxa de finançament de perpetuals es manté en un neutre 0,01%, senyal de mercat sense tendència clara. Ethereum aguanta als 1.712$ i XRP als 1,19$."
+          },
+          "shortTerm": {
+            "es": "Soporte clave en 63.000–63.500$. Resistencia inmediata en 65.500$ y luego 67.000$. A vigilar: posible repunte si el cierre semanal supera los 65.000$; si pierde 62.000$ abre camino hacia 58.000$.",
+            "en": "Key support at $63,000–63,500. Immediate resistance at $65,500 and then $67,000. Watch: potential rally if weekly close exceeds $65,000; break below $62,000 opens path to $58,000.",
+            "val": "Suport clau als 63.000–63.500$. Resistència immediata als 65.500$ i després 67.000$. A vigilar: possible repunt si el tancament setmanal supera els 65.000$; si perd 62.000$ obre camí cap als 58.000$."
+          },
+          "longTerm": {
+            "es": "Las medias móviles de 50 y 200 días (72.617$ y 77.035$) confirman estructura bajista. La macro sigue siendo el factor dominante: sin recortes de la Fed a la vista, la fortaleza del dólar castiga a Bitcoin. Potencial alcista a largo plazo si la renegociación del T-MEC abre flujos de capital hacia activos de riesgo.",
+            "en": "The 50 and 200-day moving averages ($72,617 and $77,035) confirm a bearish structure. Macro remains the dominant factor: with no Fed cuts in sight, dollar strength punishes Bitcoin. Long-term upside potential if the USMCA renegotiation opens capital flows toward risk assets.",
+            "val": "Les mitjanes mòbils de 50 i 200 dies (72.617$ i 77.035$) confirmen estructura baixista. La macro seguix sent el factor dominant: sense retallades de la Fed a la vista, la fortalesa del dòlar castiga Bitcoin. Potencial alcista a llarg termini si la renegociació del T-MEC obri fluxos de capital cap a actius de risc."
+          },
+          "source": "DiarioBitcoin",
+          "url": "https://www.diariobitcoin.com/analisis/bitcoin-btc-20-de-junio-de-2026-rebote-tecnico-o-trampa-para-alcistas/",
+          "links": [
+            { "title": "DiarioBitcoin: BTC 20 junio", "url": "https://www.diariobitcoin.com/analisis/bitcoin-btc-20-de-junio-de-2026-rebote-tecnico-o-trampa-para-alcistas/" },
+            { "title": "CriptoNoticias: precio BTC junio 2026", "url": "https://www.criptonoticias.com/mercados/precio-bitcoin-junio-2026-expectativas/" },
+            { "title": "Fracran: cotización cripto 20 junio", "url": "https://www.fracran.com.ar/noticias/2026-06-20-criptomonedas" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "Trump desmiente el fondo de reconstrucción con Irán e Irán vuelve a cerrar Ormuz",
+            "en": "Trump denies the Iran reconstruction fund and Iran closes Hormuz again",
+            "val": "Trump desmentix el fons de reconstrucció amb l'Iran i l'Iran torna a tancar Ormuz"
+          },
+          "summary": {
+            "es": "Tras el memorando de entendimiento firmado el 18 de junio en Versalles, Trump desmiente la existencia de un fondo multimillonario de reconstrucción y advierte de que reanudará los bombardeos si no se cumplen los términos. <a href=\"https://es.euronews.com/noticias/internacional\">Irán</a> cierra nuevamente el Estrecho de Ormuz aduciendo los continuos ataques israelíes en el Líbano, lo que amenaza con reactivar la tensión en el precio del petróleo.",
+            "en": "Following the memorandum of understanding signed on June 18 at Versailles, Trump denies the existence of a multi-billion reconstruction fund and warns he will resume bombing if terms are not met. <a href=\"https://www.euronews.com/news/international\">Iran</a> closes the Strait of Hormuz again, citing continued Israeli strikes in Lebanon, threatening to reignite oil price tension.",
+            "val": "Després del memoràndum d'entesa signat el 18 de juny a Versalles, Trump desmentix l'existència d'un fons multimilionari de reconstrucció i advertix que reprendra els bombardeigs si no es complixen els termes. <a href=\"https://es.euronews.com/noticias/internacional\">L'Iran</a> tanca de nou l'Estret d'Ormuz al·legant els continus atacs israelians al Líban, la qual cosa amenaça amb reactivar la tensió en el preu del petroli."
+          },
+          "source": "Yahoo Noticias",
+          "url": "https://es-us.noticias.yahoo.com/noticias-20-junio-2026-mediod%C3%ADa-100025952.html",
+          "links": [
+            { "title": "Yahoo Noticias: 20 junio 2026", "url": "https://es-us.noticias.yahoo.com/noticias-20-junio-2026-mediod%C3%ADa-100025952.html" },
+            { "title": "Euronews internacional", "url": "https://es.euronews.com/noticias/internacional" },
+            { "title": "The Objective: mundo 18 junio 2026", "url": "https://theobjective.com/internacional/2026-06-18/18-de-junio-de-2026-lo-que-tienes-que-saber-del-mundo/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Keiko Fujimori gana las elecciones de Perú por menos de 40.000 votos",
+            "en": "Keiko Fujimori wins Peru's elections by fewer than 40,000 votes",
+            "val": "Keiko Fujimori guanya les eleccions del Perú per menys de 40.000 vots"
+          },
+          "summary": {
+            "es": "Con más del 99% del escrutinio completado, <a href=\"https://es.wikipedia.org/wiki/Keiko_Fujimori\">Keiko Fujimori</a> supera a Roberto Sánchez por algo más de 39.000 votos en los comicios presidenciales peruanos, convirtiéndose en presidenta electa del país. La ajustada victoria se produce en un contexto de alta polarización y debates sobre el legado del fujimorismo.",
+            "en": "With more than 99% of votes counted, <a href=\"https://en.wikipedia.org/wiki/Keiko_Fujimori\">Keiko Fujimori</a> beats Roberto Sánchez by just over 39,000 votes in Peru's presidential election, becoming president-elect. The narrow victory comes amid high polarisation and debates about the legacy of Fujimorismo.",
+            "val": "Amb més del 99% de l'escrutini completat, <a href=\"https://es.wikipedia.org/wiki/Keiko_Fujimori\">Keiko Fujimori</a> supera Roberto Sánchez per poc més de 39.000 vots en les comicis presidencials peruans, convertint-se en presidenta electa del país. L'ajustada victòria es produïx en un context d'alta polarització i debats sobre el llegat del fujimorisme."
+          },
+          "source": "Yahoo Noticias",
+          "url": "https://es-us.noticias.yahoo.com/noticias-20-junio-2026-mediod%C3%ADa-100025952.html",
+          "links": [
+            { "title": "Yahoo Noticias Perú", "url": "https://es-us.noticias.yahoo.com/noticias-20-junio-2026-mediod%C3%ADa-100025952.html" },
+            { "title": "Wikipedia: Keiko Fujimori", "url": "https://es.wikipedia.org/wiki/Keiko_Fujimori" },
+            { "title": "Euronews: noticias internacionales", "url": "https://es.euronews.com/noticias/internacional" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "Claude Fable 5 ya está disponible: flujos de trabajo autónomos de días sin supervisión",
+            "en": "Claude Fable 5 is now available: autonomous multi-day workflows without supervision",
+            "val": "Claude Fable 5 ja és disponible: fluxos de treball autònoms de dies sense supervisió"
+          },
+          "summary": {
+            "es": "Anthropic lanzó el 9 de junio <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a>, un modelo con alto rendimiento en ingeniería de software e investigación científica capaz de ejecutar flujos de trabajo que duran días sin intervención humana. La compañía, valorada en 350.000 millones de dólares, elevó su proyección de ingresos un 20% gracias al éxito de Claude Code entre equipos de ingeniería y tiene en la mira una posible IPO para finales de 2026.",
+            "en": "Anthropic launched <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a> on June 9, a model with strong performance in software engineering and scientific research capable of running multi-day workflows without human intervention. The company, valued at $350 billion, raised its revenue forecast by 20% driven by Claude Code's success with engineering teams, and has its eye on a potential IPO by end of 2026.",
+            "val": "Anthropic va llançar el 9 de juny <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a>, un model amb alt rendiment en enginyeria de programari i investigació científica capaç d'executar fluxos de treball que duren dies sense intervenció humana. La companyia, valorada en 350.000 milions de dòlars, va elevar la seua projecció d'ingressos un 20% gràcies a l'èxit de Claude Code entre equips d'enginyeria i té en la mira una possible IPO per a finals de 2026."
+          },
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/news",
+          "links": [
+            { "title": "Anthropic Blog", "url": "https://www.anthropic.com/news" },
+            { "title": "Ecosistema Startup: noticias IA 2026", "url": "https://ecosistemastartup.com/las-mayores-noticias-de-ia-en-2026-hasta-ahora/" },
+            { "title": "Multiplicalia: novedades IA junio 2026", "url": "https://www.multiplicalia.com/novedades-ia-junio-2026/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "ChatGPT supera los 800 millones de usuarios semanales y 25.000M$ en ingresos anualizados",
+            "en": "ChatGPT surpasses 800 million weekly users and $25B in annualised revenue",
+            "val": "ChatGPT supera els 800 milions d'usuaris setmanals i 25.000M$ en ingressos anualitzats"
+          },
+          "summary": {
+            "es": "<a href=\"https://chatgpt.com/\">ChatGPT</a> alcanzó los 800 millones de usuarios activos semanales y los 25.000 millones de dólares en ingresos anualizados a finales de febrero, consolidándose como la startup de mayor crecimiento de la historia tecnológica. Mientras tanto, las nuevas regulaciones europeas sobre IA entran en vigor el próximo 2 de agosto de 2026.",
+            "en": "<a href=\"https://chatgpt.com/\">ChatGPT</a> reached 800 million weekly active users and $25 billion in annualised revenue by end of February, cementing its status as the fastest-growing startup in tech history. Meanwhile, new European AI regulations come into force on August 2, 2026.",
+            "val": "<a href=\"https://chatgpt.com/\">ChatGPT</a> va assolir els 800 milions d'usuaris actius setmanals i els 25.000 milions de dòlars en ingressos anualitzats a finals de febrer, consolidant-se com la startup de major creixement de la història tecnològica. Mentrestant, les noves regulacions europees sobre IA entren en vigor el pròxim 2 d'agost de 2026."
+          },
+          "source": "Diario Latina",
+          "url": "https://www.diariolatina.com/nota-la-inteligencia-artificial-ya-no-es-una-promesa-en-2026-se-convirtio-en-infraestructura-invisible-69799",
+          "links": [
+            { "title": "Diario Latina: IA infraestructura 2026", "url": "https://www.diariolatina.com/nota-la-inteligencia-artificial-ya-no-es-una-promesa-en-2026-se-convirtio-en-infraestructura-invisible-69799" },
+            { "title": "Microsoft: 7 tendencias IA 2026", "url": "https://news.microsoft.com/source/emea/features/asi-evolucionara-la-ia-siete-tendencias-a-seguir-en-2026/?lang=es" },
+            { "title": "Infobae: IA empresarial junio", "url": "https://www.infobae.com/america/agencias/2026/06/04/la-ia-entra-en-fase-empresarial-mas-de-5000-ejecutivos-analizaran-su-impacto-en-los-negocios/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Nvidia RTX Spark Superchip transforma Windows en un SO agente con 128GB de RAM unificada",
+            "en": "Nvidia RTX Spark Superchip turns Windows into an agentic OS with 128GB unified RAM",
+            "val": "Nvidia RTX Spark Superchip transforma Windows en un SO agent amb 128GB de RAM unificada"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.nvidia.com/\">Nvidia</a> presentó en Computex el RTX Spark Superchip, que combina CPU Arm, GPU Blackwell y 128GB de memoria unificada en una sola plataforma para portátiles y sobremesa. El primer dispositivo en usarlo es el Microsoft Surface Laptop Ultra, con pantalla mini-LED PixelSense Ultra de 15 pulgadas y 20 núcleos CPU.",
+            "en": "<a href=\"https://www.nvidia.com/\">Nvidia</a> unveiled at Computex the RTX Spark Superchip, combining an Arm CPU, Blackwell GPU and 128GB of unified memory on a single platform for laptops and desktops. The first device to use it is the Microsoft Surface Laptop Ultra, with a 15-inch mini-LED PixelSense Ultra display and 20 CPU cores.",
+            "val": "<a href=\"https://www.nvidia.com/\">Nvidia</a> va presentar a Computex el RTX Spark Superchip, que combina CPU Arm, GPU Blackwell i 128GB de memòria unificada en una sola plataforma per a portàtils i sobretaula. El primer dispositiu en usar-lo és el Microsoft Surface Laptop Ultra, amb pantalla mini-LED PixelSense Ultra de 15 polzades i 20 nuclis CPU."
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/news",
+          "links": [
+            { "title": "Tom's Hardware: news archivo junio", "url": "https://www.tomshardware.com/news/archive" },
+            { "title": "Nvidia oficial", "url": "https://www.nvidia.com/" },
+            { "title": "TechPowerUp: hardware launches 2026", "url": "https://www.techpowerup.com/review/future-hardware-releases/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Intel Xeon 6+ Clearwater Forest: 288 núcleos y 30% más rápido que el EPYC de AMD",
+            "en": "Intel Xeon 6+ Clearwater Forest: 288 cores and 30% faster than AMD's EPYC",
+            "val": "Intel Xeon 6+ Clearwater Forest: 288 nuclis i 30% més ràpid que l'EPYC d'AMD"
+          },
+          "summary": {
+            "es": "El nuevo <a href=\"https://www.intel.com/content/www/us/en/products/details/processors/xeon.html\">Xeon 6+ Clearwater Forest</a> lleva el proceso 18A de Intel al centro de datos con hasta 288 núcleos y 576 MB de caché L3. El Xeon 6990E+ es un 30% más rápido por hilo que el AMD EPYC 9965 de 192 núcleos, según las cifras de Intel. La batalla por el liderazgo en servidores se intensifica.",
+            "en": "The new <a href=\"https://www.intel.com/content/www/us/en/products/details/processors/xeon.html\">Xeon 6+ Clearwater Forest</a> brings Intel's 18A process to the data centre with up to 288 cores and 576MB of L3 cache. The Xeon 6990E+ is claimed to be 30% faster per thread than AMD's 192-core EPYC 9965. The battle for server leadership intensifies.",
+            "val": "El nou <a href=\"https://www.intel.com/content/www/us/en/products/details/processors/xeon.html\">Xeon 6+ Clearwater Forest</a> porta el procés 18A d'Intel al centre de dades amb fins a 288 nuclis i 576 MB de memòria cau L3. El Xeon 6990E+ és un 30% més ràpid per fil que l'AMD EPYC 9965 de 192 nuclis, segons les xifres d'Intel. La batalla pel lideratge en servidors s'intensifica."
+          },
+          "source": "Data Center Knowledge",
+          "url": "https://www.datacenterknowledge.com/data-center-hardware/data-center-hardware-highlights-june-2026",
+          "links": [
+            { "title": "Data Center Knowledge: junio 2026", "url": "https://www.datacenterknowledge.com/data-center-hardware/data-center-hardware-highlights-june-2026" },
+            { "title": "Intel Xeon oficial", "url": "https://www.intel.com/content/www/us/en/products/details/processors/xeon.html" },
+            { "title": "TechRadar: news junio 2026", "url": "https://www.techradar.com/news/archive" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "FortiBleed: 86.644 dispositivos Fortinet comprometidos en campaña activa",
+            "en": "FortiBleed: 86,644 Fortinet devices compromised in active campaign",
+            "val": "FortiBleed: 86.644 dispositius Fortinet compromesos en campanya activa"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> instó a los clientes de Fortinet a asegurar sus dispositivos FortiGate ante una campaña atribuida a actores de habla rusa, bautizada FortiBleed. El número de equipos comprometidos alcanza 86.644 a fecha 19 de junio. Las cuentas de administrador genéricas (35%) y las cuentas integradas de Fortinet (28,3%) son el vector más común.",
+            "en": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> urged Fortinet customers to secure their FortiGate devices against an ongoing campaign attributed to Russian-speaking actors, dubbed FortiBleed. The number of compromised devices stands at 86,644 as of June 19. Generic admin accounts (35%) and built-in Fortinet system accounts (28.3%) are the most common vector.",
+            "val": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> va instar els clients de Fortinet a assegurar els seus dispositius FortiGate davant una campanya atribuïda a actors de parla russa, batejada FortiBleed. El nombre d'equips compromesos arriba a 86.644 a data 19 de juny. Els comptes d'administrador genèrics (35%) i els comptes integrats de Fortinet (28,3%) són el vector més comú."
+          },
+          "source": "ReconShield",
+          "url": "https://reconshield.in/blog/june-2026-cybersecurity-review",
+          "links": [
+            { "title": "ReconShield: cybersecurity review junio 2026", "url": "https://reconshield.in/blog/june-2026-cybersecurity-review" },
+            { "title": "CISA KEV catalog", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog" },
+            { "title": "The Hacker News", "url": "https://thehackernews.com/" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Récord histórico en Patch Tuesday de junio: 200 vulnerabilidades, 33 críticas y 6 zero-days",
+            "en": "Historic June Patch Tuesday record: 200 vulnerabilities, 33 critical and 6 zero-days",
+            "val": "Rècord històric en Patch Tuesday de juny: 200 vulnerabilitats, 33 crítiques i 6 zero-days"
+          },
+          "summary": {
+            "es": "El Patch Tuesday de junio fue el más denso de la historia de Microsoft: 200 vulnerabilidades parcheadas en un solo mes, con 33 clasificadas como Críticas y seis zero-days, cinco de los cuales se divulgaron públicamente antes de tener solución. Entre ellas, <a href=\"https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html\">CVE-2026-42897</a> afecta a Exchange Server (XSS, CVSS 8.1) y permite ejecutar JavaScript arbitrario desde un email manipulado.",
+            "en": "June's Patch Tuesday was the densest in Microsoft's history: 200 vulnerabilities patched in a single month, with 33 rated Critical and six zero-days, five of which were publicly disclosed before a fix existed. Among them, <a href=\"https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html\">CVE-2026-42897</a> affects Exchange Server (XSS, CVSS 8.1) and allows arbitrary JavaScript to run from a crafted email.",
+            "val": "El Patch Tuesday de juny va ser el més dens de la història de Microsoft: 200 vulnerabilitats pegades en un sol mes, amb 33 classificades com a Crítiques i sis zero-days, cinc dels quals es van divulgar públicament abans de tindre solució. Entre ells, <a href=\"https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html\">CVE-2026-42897</a> afecta Exchange Server (XSS, CVSS 8.1) i permet executar JavaScript arbitrari des d'un correu manipulat."
+          },
+          "source": "The Hacker News",
+          "url": "https://thehackernews.com/",
+          "links": [
+            { "title": "CVE-2026-42897 en The Hacker News", "url": "https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html" },
+            { "title": "BleepingComputer", "url": "https://www.bleepingcomputer.com/" },
+            { "title": "ACI Learning: brechas 2026", "url": "https://www.acilearning.com/blog/the-biggest-cybersecurity-breaches-of-2026-so-far-and-the-training-that-could-have-prevented-them/" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Toy Story 5 y Supergirl arrasan en taquilla este fin de semana",
+            "en": "Toy Story 5 and Supergirl dominate the box office this weekend",
+            "val": "Toy Story 5 i Supergirl arrassen en taquilla aquest cap de setmana"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.disney.es/peliculas/toy-story-5\">Toy Story 5</a> marca el regreso de Woody, Buzz y compañía con Bad Bunny en el reparto y una nueva canción de Taylor Swift, mientras Pixar aborda la rivalidad con las pantallas digitales. <a href=\"https://www.dc.com/movies/supergirl-woman-of-tomorrow\">Supergirl</a>, con Milly Alcock y dirección de Craig Gillespie, debuta en el universo DC con una versión más irreverente de Kara Zor-El inspirada en el cómic Woman of Tomorrow.",
+            "en": "<a href=\"https://movies.disney.com/toy-story-5\">Toy Story 5</a> marks the return of Woody, Buzz and company with Bad Bunny in the cast and a new Taylor Swift song, as Pixar tackles the rivalry with digital screens. <a href=\"https://www.dc.com/movies/supergirl-woman-of-tomorrow\">Supergirl</a>, with Milly Alcock and direction from Craig Gillespie, makes its DC universe debut with a more irreverent version of Kara Zor-El inspired by the Woman of Tomorrow comic.",
+            "val": "<a href=\"https://www.disney.es/peliculas/toy-story-5\">Toy Story 5</a> marca el retorn de Woody, Buzz i companyia amb Bad Bunny en el repartiment i una nova cançó de Taylor Swift, mentres Pixar aborda la rivalitat amb les pantalles digitals. <a href=\"https://www.dc.com/movies/supergirl-woman-of-tomorrow\">Supergirl</a>, amb Milly Alcock i direcció de Craig Gillespie, debuta en l'univers DC amb una versió més irreverent de Kara Zor-El inspirada en el còmic Woman of Tomorrow."
+          },
+          "source": "SensaCine",
+          "url": "https://www.sensacine.com/noticias/cine/noticia-1000206407/",
+          "links": [
+            { "title": "SensaCine: estrenos junio 2026", "url": "https://www.sensacine.com/noticias/cine/noticia-1000206407/" },
+            { "title": "Bloomberg Línea: estrenos cine junio 2026", "url": "https://www.bloomberglinea.com/estilo-de-vida/los-principales-estrenos-en-cines-en-junio-de-2026-de-amos-del-universo-a-toy-story-5/" },
+            { "title": "DeCine21: calendario estrenos junio", "url": "https://decine21.com/estrenos/cine" }
+          ]
+        },
+        {
+          "title": {
+            "es": "House of the Dragon T3 estrena mañana en HBO y Avatar: TLAB T2 llega el 25 a Netflix",
+            "en": "House of the Dragon S3 premieres tomorrow on HBO and Avatar: TLAB S2 arrives June 25 on Netflix",
+            "val": "House of the Dragon T3 estrena demà en HBO i Avatar: TLAB T2 arriba el 25 a Netflix"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> estrena su tercera temporada mañana domingo en HBO Max, intensificando la Danza de los Dragones entre los Negros y los Verdes. El 25 de junio, Netflix estrena la segunda temporada de <a href=\"https://www.netflix.com/es/title/80260013\">Avatar: The Last Airbender</a>, donde Aang aprende el control de la tierra en el Reino Ba Sing Se.",
+            "en": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> premieres its third season tomorrow Sunday on HBO Max, intensifying the Dance of the Dragons between the Blacks and the Greens. On June 25, Netflix releases the second season of <a href=\"https://www.netflix.com/title/80260013\">Avatar: The Last Airbender</a>, where Aang learns earthbending in the Ba Sing Se kingdom.",
+            "val": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> estrena la seua tercera temporada demà diumenge en HBO Max, intensificant la Dansa dels Dracs entre els Negres i els Verds. El 25 de juny, Netflix estrena la segona temporada de <a href=\"https://www.netflix.com/es/title/80260013\">Avatar: The Last Airbender</a>, on Aang aprèn el control de la terra en el Regne Ba Sing Se."
+          },
+          "source": "CNN Español",
+          "url": "https://cnnespanol.cnn.com/2026/06/07/entretenimiento/estrenos-junio-2026-netflix-hbo-disney-prime-orix",
+          "links": [
+            { "title": "CNN: estrenos junio 2026", "url": "https://cnnespanol.cnn.com/2026/06/07/entretenimiento/estrenos-junio-2026-netflix-hbo-disney-prime-orix" },
+            { "title": "¡Hola!: series y películas streaming 19 junio", "url": "https://www.hola.com/us-es/entretenimiento/20260619908416/estrenos-series-peliculas-streaming-junio-2026-house-of-dragon-avatar-last-airbender/" },
+            { "title": "Mundiario: estrenos imprescindibles junio 2026", "url": "https://www.mundiario.com/cineseries/articulo/cine-series/estrenos-imprescindibles-junio-2026-fechas-peliculas-donde-verlas/20260604151226053343.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "Las celdas solares de perovskita alcanzan el 34% de eficiencia, superando al silicio convencional",
+            "en": "Perovskite solar cells reach 34% efficiency, surpassing conventional silicon",
+            "val": "Les cèl·lules solars de perovskita assolixen el 34% d'eficiència, superant el silici convencional"
+          },
+          "summary": {
+            "es": "Las nuevas celdas solares de <a href=\"https://es.wikipedia.org/wiki/Perovskita\">tándem de perovskita</a> han superado el 34% de eficiencia de conversión energética, frente al 24% de los paneles de silicio comerciales actuales. Este salto podría reducir drásticamente el coste de la energía solar y acelerar la transición energética mundial.",
+            "en": "New <a href=\"https://en.wikipedia.org/wiki/Perovskite_solar_cell\">perovskite tandem solar cells</a> have exceeded 34% energy conversion efficiency, compared to around 24% for current commercial silicon panels. This leap could drastically cut the cost of solar energy and accelerate the global energy transition.",
+            "val": "Les noves cèl·lules solars de <a href=\"https://es.wikipedia.org/wiki/Perovskita\">tàndem de perovskita</a> han superat el 34% d'eficiència de conversió energètica, davant del 24% dels panells de silici comercials actuals. Aquest salt podria reduir dràsticament el cost de l'energia solar i accelerar la transició energètica mundial."
+          },
+          "source": "CAS Scientific Breakthroughs",
+          "url": "https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch",
+          "links": [
+            { "title": "CAS: avances científicos 2026", "url": "https://www.cas.org/resources/cas-insights/scientific-breakthroughs-2026-emerging-trends-watch" },
+            { "title": "OKDiario: avances científicos 2026", "url": "https://okdiario.com/ciencia/avances-cientificos-2026-16085458" },
+            { "title": "Wikipedia: perovskite solar cell", "url": "https://en.wikipedia.org/wiki/Perovskite_solar_cell" }
+          ]
+        },
+        {
+          "title": {
+            "es": "La IA de Microsoft diagnostica con un 85,5% de acierto casos clínicos que los médicos resuelven al 20%",
+            "en": "Microsoft's AI diagnoses complex clinical cases with 85.5% accuracy, vs 20% for doctors",
+            "val": "La IA de Microsoft diagnostica amb un 85,5% d'encert casos clínics que els metges resolen al 20%"
+          },
+          "summary": {
+            "es": "El <a href=\"https://www.microsoft.com/es-es/ai\">Diagnostic Orchestrator de Microsoft AI (MAI-DxO)</a> resuelve casos clínicos complejos con un 85,5% de precisión, muy por encima del 20% que alcanzan en promedio los médicos en los mismos casos. Copilot y Bing ya responden a más de 50 millones de consultas médicas diarias, lo que abre un debate sobre el rol futuro del médico como validador de diagnósticos.",
+            "en": "The <a href=\"https://www.microsoft.com/en/ai\">Microsoft AI Diagnostic Orchestrator (MAI-DxO)</a> solves complex clinical cases with 85.5% accuracy, far above the 20% average that doctors achieve on the same cases. Copilot and Bing already answer over 50 million medical queries daily, opening a debate about the future role of doctors as diagnosis validators.",
+            "val": "El <a href=\"https://www.microsoft.com/es-es/ai\">Diagnostic Orchestrator de Microsoft AI (MAI-DxO)</a> resol casos clínics complexos amb un 85,5% de precisió, molt per damunt del 20% que assolixen en promig els metges en els mateixos casos. Copilot i Bing ja responen a més de 50 milions de consultes mèdiques diàries, la qual cosa obri un debat sobre el paper futur del metge com a validador de diagnòstics."
+          },
+          "source": "Microsoft AI",
+          "url": "https://www.microsoft.com/es-es/ai",
+          "links": [
+            { "title": "Microsoft AI oficial", "url": "https://www.microsoft.com/es-es/ai" },
+            { "title": "Prensa Mercosur: curiosidades junio 2026", "url": "https://prensamercosur.org/2026/04/08/curiosidades-globales-fenomenos-inesperados-ciencia-sorprendente-y-hechos-insolitos-marcan-los-ultimos-dias/" },
+            { "title": "Debate MX: datos curiosos 2026", "url": "https://www.debate.com.mx/9-datos-curiosos-que-te-volaran-la-cabeza-en-2026-y-casi-nadie-conoce-t202602270015.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": { "es": "ASUS ROG Strix G18 con RTX 5070 Ti — precio mínimo en PcComponentes", "en": "", "val": "" },
+          "summary": { "es": "Portátil gaming de 18 pulgadas WQXGA 240Hz con Intel Core Ultra 9 275HX, 32GB RAM DDR5 y RTX 5070 Ti. Una de las mejores opciones para gaming competitivo en pantalla grande.", "en": "", "val": "" },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/categorias/portatiles",
+          "platform": "PcComponentes",
+          "originalPrice": { "es": "2.499€", "en": "", "val": "" },
+          "salePrice": { "es": "1.999€", "en": "", "val": "" },
+          "discount": { "es": "20% dto.", "en": "", "val": "" },
+          "until": { "es": "Oferta por tiempo limitado", "en": "", "val": "" },
+          "urgent": false,
+          "links": []
+        },
+        {
+          "market": "es",
+          "title": { "es": "Remnant 2 — 75% de descuento en Steam", "en": "", "val": "" },
+          "summary": { "es": "RPG Soulslike en cooperativo con generación de niveles procedural. Premio a la sorpresa del año. A 75% de descuento en Steam es un must-buy para los amantes del género.", "en": "", "val": "" },
+          "source": "Chollometro",
+          "url": "https://store.steampowered.com/app/1282100/Remnant_2/",
+          "platform": "Steam",
+          "originalPrice": { "es": "39,99€", "en": "", "val": "" },
+          "salePrice": { "es": "9,99€", "en": "", "val": "" },
+          "discount": { "es": "75% dto.", "en": "", "val": "" },
+          "until": { "es": "Hasta fin de rebajas Steam", "en": "", "val": "" },
+          "urgent": false,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": { "es": "", "en": "", "val": "Elden Ring Nightreign Seekers Edition per a Xbox — preu ajustat" },
+          "summary": { "es": "", "en": "", "val": "Expansió cooperativa de l'univers Elden Ring amb mecàniques de joc renovades. Disponible a Amazon Espanya amb lleuger descompte respecte al preu de llançament." },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/categorias/consolas-y-videojuegos",
+          "platform": "Amazon Espanya",
+          "originalPrice": { "es": "", "en": "", "val": "59,99€" },
+          "salePrice": { "es": "", "en": "", "val": "49,99€" },
+          "discount": { "es": "", "en": "", "val": "17% dto." },
+          "until": { "es": "", "en": "", "val": "Oferta per temps limitat" },
+          "urgent": false,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": { "es": "", "en": "CyberPowerPC Gamer Supreme Desktop (RX 9060 XT 16GB) — $480 off at Walmart", "val": "" },
+          "summary": { "es": "", "en": "AMD Ryzen 7 9700F, Radeon RX 9060 XT 16GB, 16GB RAM, 1TB SSD gaming desktop. One of the best value complete builds available right now for 1080p–1440p gaming.", "val": "" },
+          "source": "Slickdeals",
+          "url": "https://slickdeals.net/deals/desktop/",
+          "platform": "Walmart",
+          "originalPrice": { "es": "", "en": "$1,680", "val": "" },
+          "salePrice": { "es": "", "en": "$1,199", "val": "" },
+          "discount": { "es": "", "en": "29% off", "val": "" },
+          "until": { "es": "", "en": "Limited time offer", "val": "" },
+          "urgent": false,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": { "es": "", "en": "PS5 Digital Edition Slim (Open Box) — $163 off at Best Buy", "val": "" },
+          "summary": { "es": "", "en": "Open-box 1TB PlayStation 5 Digital Edition Slim console from Best Buy with free shipping. Open-box units from Best Buy are thoroughly tested and come with a 15-day return policy.", "val": "" },
+          "source": "Slickdeals",
+          "url": "https://slickdeals.net/deals/ps5-deals/",
+          "platform": "Best Buy",
+          "originalPrice": { "es": "", "en": "$499.99", "val": "" },
+          "salePrice": { "es": "", "en": "$336.99", "val": "" },
+          "discount": { "es": "", "en": "33% off", "val": "" },
+          "until": { "es": "", "en": "While stock lasts", "val": "" },
+          "urgent": true,
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Primera imagen de Blue Lock Temporada 3 — anuncio oficial",
+            "en": "First image of Blue Lock Season 3 — official announcement",
+            "val": "Primera imatge de Blue Lock Temporada 3 — anunci oficial"
+          },
+          "summary": {
+            "es": "El 9 de junio se publicó la primera imagen oficial de la tercera temporada de <a href=\"https://es.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a>, el fenómeno del manga de fútbol convertido en anime. La serie sigue creciendo en popularidad global. La temporada de verano 2026, ya anunciada por Crunchyroll, promete más estrenos del género deportivo.",
+            "en": "On June 9 the first official image of <a href=\"https://en.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a> Season 3 was released — the football manga phenomenon turned anime hit. The series continues to grow globally. The Summer 2026 season, already announced by Crunchyroll, promises more sports genre releases.",
+            "val": "El 9 de juny es va publicar la primera imatge oficial de la tercera temporada de <a href=\"https://es.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a>, el fenomen del manga de futbol convertit en anime. La sèrie seguix creixent en popularitat global. La temporada d'estiu 2026, ja anunciada per Crunchyroll, promet més estrens del gènere esportiu."
+          },
+          "source": "Ramen Para Dos",
+          "url": "https://ramenparados.com/tag/temporada-anime-verano-2026/",
+          "links": [
+            { "title": "Ramen Para Dos: verano 2026", "url": "https://ramenparados.com/tag/temporada-anime-verano-2026/" },
+            { "title": "Crunchyroll: temporada verano 2026", "url": "https://www.crunchyroll.com/es/news/seasonal-lineup/2026/6/17/anime-verano-2026-crunchyroll" },
+            { "title": "Wikipedia: anime en 2026", "url": "https://es.wikipedia.org/wiki/Anexo:Anime_en_2026" }
+          ]
+        },
+        {
+          "title": {
+            "es": "Jujutsu Kaisen: Hidden Inventory ya en Crunchyroll y My Hero Academia T6 en Netflix",
+            "en": "Jujutsu Kaisen: Hidden Inventory now on Crunchyroll and My Hero Academia S6 on Netflix",
+            "val": "Jujutsu Kaisen: Hidden Inventory ja a Crunchyroll i My Hero Academia T6 a Netflix"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.crunchyroll.com/es/series/G9VHN9PPM/jujutsu-kaisen\">Jujutsu Kaisen: Hidden Inventory / Premature Death</a> llegó a Crunchyroll el 8 de junio, cubriendo el arco previo a la historia principal. En paralelo, <a href=\"https://www.netflix.com/es/title/80234455\">My Hero Academia Temporada 6</a> llegó a Netflix el 1 de junio, con la guerra épica del Frente de Liberación Paranormal animada por el estudio Bones.",
+            "en": "<a href=\"https://www.crunchyroll.com/series/G9VHN9PPM/jujutsu-kaisen\">Jujutsu Kaisen: Hidden Inventory / Premature Death</a> arrived on Crunchyroll on June 8, covering the arc before the main story. In parallel, <a href=\"https://www.netflix.com/title/80234455\">My Hero Academia Season 6</a> landed on Netflix on June 1, with the epic Paranormal Liberation Front war animated by studio Bones.",
+            "val": "<a href=\"https://www.crunchyroll.com/es/series/G9VHN9PPM/jujutsu-kaisen\">Jujutsu Kaisen: Hidden Inventory / Premature Death</a> va arribar a Crunchyroll el 8 de juny, cobrint l'arc previ a la història principal. En paral·lel, <a href=\"https://www.netflix.com/es/title/80234455\">My Hero Academia Temporada 6</a> va arribar a Netflix l'1 de juny, amb la guerra èpica del Front d'Alliberament Paranormal animada per l'estudi Bones."
+          },
+          "source": "El Comercio Perú",
+          "url": "https://elcomercio.pe/respuestas/cual/estrenos-anime-junio-2026-en-crunchyroll-y-netflix-tdpe-noticia/",
+          "links": [
+            { "title": "El Comercio: animes junio 2026 Crunchyroll y Netflix", "url": "https://elcomercio.pe/respuestas/cual/estrenos-anime-junio-2026-en-crunchyroll-y-netflix-tdpe-noticia/" },
+            { "title": "Crunchyroll: Jujutsu Kaisen", "url": "https://www.crunchyroll.com/es/series/G9VHN9PPM/jujutsu-kaisen" },
+            { "title": "MixVale: animes Netflix junio 2026", "url": "https://www.mixvale.com.br/2026/05/31/netflix-lanza-calendario-de-anime-para-junio-de-2026-con-nuevas-temporadas-y-estrenos-de-peliculas-es/" }
+          ]
+        }
+      ]
+    }
+  ]
+}

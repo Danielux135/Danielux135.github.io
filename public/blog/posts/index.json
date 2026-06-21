@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-06-20",
+      "title": {
+        "es": "Bitcoin se aferra a los 64.000$, el acuerdo EE.UU.-Irán tambaleante y Citizen Sleeper gratis en Epic",
+        "en": "Bitcoin holds $64,000, the US-Iran deal wobbles, and Citizen Sleeper free on Epic",
+        "val": "Bitcoin s'aferra als 64.000$, l'acord EUA-Iran vacil·la i Citizen Sleeper gratis a Epic"
+      },
+      "summary": {
+        "es": "Sábado de bajo volumen en cripto con Bitcoin a 64.000$ y un mercado sin convicción. Trump desmiente el fondo de reconstrucción con Irán mientras Ormuz se cierra de nuevo. Toy Story 5 y Supergirl arrasan en taquilla. House of the Dragon estrena mañana su tercera temporada. Citizen Sleeper y ROBOBEAT siguen disponibles gratis en Epic hasta el miércoles.",
+        "en": "A quiet Saturday in crypto with Bitcoin at $64,000 and a directionless market. Trump denies the Iran reconstruction fund as Hormuz closes again. Toy Story 5 and Supergirl dominate at the box office. House of the Dragon premieres its third season tomorrow. Citizen Sleeper and ROBOBEAT remain free on Epic until Wednesday.",
+        "val": "Dissabte de baix volum en cripto amb Bitcoin als 64.000$ i un mercat sense convicció. Trump desmentix el fons de reconstrucció amb l'Iran mentres Ormuz es tanca de nou. Toy Story 5 i Supergirl arrassen en taquilla. House of the Dragon estrena demà la seua tercera temporada. Citizen Sleeper i ROBOBEAT seguixen disponibles gratis a Epic fins al dimecres."
+      },
+      "tags": ["gaming","gratis","codigo","ciencia","economia","cripto","radar","ia","hardware","security","entretenimiento","curiosidades","ofertas","anime"]
+    },
+    {
       "date": "2026-06-19",
       "title": {
         "es": "GTA 6 abre reservas el 25 de junio, la Fed de Warsh sorprende con un giro duro y Epic regala Citizen Sleeper y ROBOBEAT",
