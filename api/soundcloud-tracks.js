@@ -10,10 +10,10 @@ export default async function handler(req, res) {
         const userRes = await fetch(
             `https://api-v2.soundcloud.com/resolve?url=https://soundcloud.com/${SC_USER}&client_id=${CLIENT_ID}`
         );
-        if (!userRes.ok) throw new Error(`soundcloud error ${userRes.status}`);
-        const user = await userRes.json();
+        const body = await userRes.json();
+        if (!userRes.ok) throw new Error(`soundcloud ${userRes.status}: ${JSON.stringify(body)}`);
 
-        res.status(200).json({ tracks: user.track_count ?? 0 });
+        res.status(200).json({ tracks: body.track_count ?? 0 });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
