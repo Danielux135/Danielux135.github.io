@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-06-21",
+      "title": {
+        "es": "Claude Fable 5 choca con los controles de exportación, la Fed dura no frena a Wall Street y Epic regala Citizen Sleeper y ROBOBEAT",
+        "en": "Claude Fable 5 collides with export controls, the hawkish Fed fails to stop Wall Street, and Epic gives away Citizen Sleeper and ROBOBEAT",
+        "val": "Claude Fable 5 xoca amb els controls d'exportació, la Fed dura no frena Wall Street i Epic regala Citizen Sleeper i ROBOBEAT"
+      },
+      "summary": {
+        "es": "Sábado de resaca tecnológica: Anthropic ve cómo una directiva de control de exportaciones de EE. UU. obliga a suspender Claude Fable 5 y Mythos 5 a pocos días de su lanzamiento, mientras Google y OpenAI calientan motores con Gemini 3.5 y GPT-5.5. Wall Street se recupera pese al giro duro de la Fed de Kevin Warsh, Bitcoin resbala hacia los 64.000 dólares y Fox compra Roku por 22.000 millones. En gaming, Epic regala Citizen Sleeper y ROBOBEAT hasta el 25 de junio, y House of the Dragon estrena hoy su tercera temporada.",
+        "en": "A tech-hungover Saturday: Anthropic sees a U.S. export-control directive force the suspension of Claude Fable 5 and Mythos 5 just days after launch, while Google and OpenAI warm up Gemini 3.5 and GPT-5.5. Wall Street rebounds despite Kevin Warsh's hawkish Fed, Bitcoin slides toward $64,000, and Fox buys Roku for $22 billion. In gaming, Epic gives away Citizen Sleeper and ROBOBEAT until June 25, and House of the Dragon premieres its third season today.",
+        "val": "Dissabte de ressaca tecnològica: Anthropic veu com una directiva de control d'exportacions dels EUA obliga a suspendre Claude Fable 5 i Mythos 5 a pocs dies del seu llançament, mentres Google i OpenAI calfen motors amb Gemini 3.5 i GPT-5.5. Wall Street es recupera malgrat el gir dur de la Fed de Kevin Warsh, Bitcoin rellisca cap als 64.000 dòlars i Fox compra Roku per 22.000 milions. En gaming, Epic regala Citizen Sleeper i ROBOBEAT fins al 25 de juny, i House of the Dragon estrena hui la seua tercera temporada."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-06-20",
       "title": {
         "es": "Bitcoin se aferra a los 64.000$, el acuerdo EE.UU.-Irán tambaleante y Citizen Sleeper gratis en Epic",
@@ -12,7 +41,22 @@
         "en": "A quiet Saturday in crypto with Bitcoin at $64,000 and a directionless market. Trump denies the Iran reconstruction fund as Hormuz closes again. Toy Story 5 and Supergirl dominate at the box office. House of the Dragon premieres its third season tomorrow. Citizen Sleeper and ROBOBEAT remain free on Epic until Wednesday.",
         "val": "Dissabte de baix volum en cripto amb Bitcoin als 64.000$ i un mercat sense convicció. Trump desmentix el fons de reconstrucció amb l'Iran mentres Ormuz es tanca de nou. Toy Story 5 i Supergirl arrassen en taquilla. House of the Dragon estrena demà la seua tercera temporada. Citizen Sleeper i ROBOBEAT seguixen disponibles gratis a Epic fins al dimecres."
       },
-      "tags": ["gaming","gratis","codigo","ciencia","economia","cripto","radar","ia","hardware","security","entretenimiento","curiosidades","ofertas","anime"]
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
     },
     {
       "date": "2026-06-19",
@@ -26,7 +70,22 @@
         "en": "Rockstar confirms GTA 6 pre-orders open on June 25 and reveals its official cover art, while EA Sports UFC 6 lands today. Kevin Warsh's first Fed holds rates but scraps the 2026 cut and sinks stocks; Bitcoin slides toward $64,000 as Hyperliquid prints highs. Epic gives away Citizen Sleeper and ROBOBEAT, SpaceX's Dragon splashes down with biomedical research, and the U.S. and Iran sign at Versailles the deal that reopens Hormuz.",
         "val": "Rockstar confirma que les reserves de GTA 6 obrin el 25 de juny i mostra la seua caràtula oficial, mentres EA Sports UFC 6 arriba hui. La primera Fed de Kevin Warsh manté tipus però retira la retallada de 2026 i enfonsa les borses; Bitcoin rellisca cap als 64.000 dòlars i Hyperliquid marca màxims. Epic regala Citizen Sleeper i ROBOBEAT, la Dragon de SpaceX amara amb investigació biomèdica i els EUA i l'Iran firmen a Versalles l'acord que reobri Ormuz."
       },
-      "tags": ["gaming","gratis","codigo","ciencia","economia","cripto","radar","ia","hardware","security","entretenimiento","curiosidades","anime","ofertas"]
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "anime",
+        "ofertas"
+      ]
     },
     {
       "date": "2026-06-18",
@@ -40,7 +99,21 @@
         "en": "Thursday: Fed keeps rates steady. Bitcoin climbs to $67,800. Elden Ring Shadow hits 5 million pre-orders. Xbox Game Pass announces 20 new titles.",
         "val": "Dijous: Fed manté tipus. Bitcoin puja a $67.800. Elden Ring Shadow assoleix 5 milions pre-ordres. Xbox Game Pass anuncia 20 nous títols."
       },
-      "tags": ["gaming", "gratis", "codigo", "ciencia", "economia", "cripto", "radar", "ia", "hardware", "security", "entretenimiento", "curiosidades", "anime"]
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "anime"
+      ]
     },
     {
       "date": "2026-06-17",
@@ -54,7 +127,21 @@
         "en": "Wednesday adrenaline: Nvidia crushes earnings. Helldivers 2 hits 15 million players. Bitcoin watches job data. Fed holds steady.",
         "val": "Dimecres: Nvidia trenca ingressos. Helldivers 2 assoleix 15 milions. Bitcoin observa dades. Fed manté tipus."
       },
-      "tags": ["gaming", "gratis", "codigo", "ciencia", "economia", "cripto", "radar", "ia", "hardware", "security", "entretenimiento", "curiosidades", "anime"]
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "anime"
+      ]
     },
     {
       "date": "2026-06-16",
