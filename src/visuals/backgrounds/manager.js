@@ -65,7 +65,8 @@ function resolveInitialBackground() {
 
 let activeBackgroundId = resolveInitialBackground();
 
-// solo precarga neon-rain y confetti (se usan en el reset de tema, necesitan estar listos)
+// precarga el tema activo y los especiales que se usan en el reset de tema
+loadTheme(activeBackgroundId);
 loadTheme('_neonRain');
 loadTheme('_confetti');
 
