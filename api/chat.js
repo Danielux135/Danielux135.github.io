@@ -22,7 +22,11 @@ export default async function handler(req, res) {
 
     if (!GROQ_API_KEY) return res.status(500).json({ error: 'API key not configured' });
 
-    const { message, history = [] } = req.body || {};
+    let body = req.body;
+    if (!body || typeof body === 'string') {
+        try { body = JSON.parse(body || '{}'); } catch { body = {}; }
+    }
+    const { message, history = [] } = body;
     if (!message || typeof message !== 'string' || message.trim().length === 0) {
         return res.status(400).json({ error: 'missing message' });
     }
