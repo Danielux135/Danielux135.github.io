@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORMA Studio — Agencia de Diseño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #020818;
+  --surface: #0a1128;
+  --surface2: #101830;
+  --border: #1a2240;
+  --text: #f0edff;
+  --muted: #6470a0;
+  --dim: #3a4468;
+  --accent: #7bf7c8;
+  --accent-dim: rgba(123,247,200,.12);
+  --accent-glow: rgba(123,247,200,.25);
+  --coral: #ff6b6b;
+  --gold: #f5c842;
+  --r: 12px;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--dim);border-radius:99px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 48px;
+  border-bottom:1px solid transparent;
+  transition:all .35s var(--ease);
+}
+nav.scrolled{
+  background:rgba(2,8,24,.92);
+  backdrop-filter:blur(20px);
+  border-color:var(--border);
+  padding:14px 48px;
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:700;
+  letter-spacing:.06em;
+  color:var(--text);
+  text-decoration:none;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo-mark{
+  width:32px;height:32px;
+  background:var(--accent);
+  border-radius:6px;
+  display:grid;place-items:center;
+}
+.nav-logo-mark svg{width:20px;height:20px}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{
+  font-size:.875rem;font-weight:500;
+  color:var(--muted);text-decoration:none;
+  transition:color .2s;letter-spacing:.02em;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  padding:10px 24px;
+  border:1px solid var(--accent);
+  border-radius:99px;
+  color:var(--accent);
+  font-size:.875rem;font-weight:500;
+  text-decoration:none;
+  transition:all .2s var(--ease);
+  letter-spacing:.02em;
+}
+.nav-cta:hover{background:var(--accent);color:var(--bg)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:140px 48px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 800px 600px at 70% 40%, rgba(123,247,200,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 10% 80%, rgba(123,247,200,.04) 0%, transparent 70%);
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:80px 80px;
+  opacity:.3;
+  mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,black 0%,transparent 80%);
+}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8rem;color:var(--accent);
+  letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:28px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--accent)}
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,6vw,5.5rem);
+  font-weight:300;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  color:var(--text);
+  margin-bottom:32px;
+}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{
+  font-size:1.05rem;color:var(--muted);
+  line-height:1.75;max-width:460px;
+  margin-bottom:44px;
+}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;
+  background:var(--accent);
+  color:var(--bg);
+  font-weight:600;font-size:.9rem;
+  border-radius:99px;text-decoration:none;
+  transition:all .25s var(--ease);
+  letter-spacing:.02em;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--accent-glow)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;
+  border:1px solid var(--dim);
+  color:var(--text);
+  font-size:.9rem;font-weight:500;
+  border-radius:99px;text-decoration:none;
+  transition:all .25s var(--ease);
+}
+.btn-secondary:hover{border-color:var(--text)}
+
+/* Hero visual right side */
+.hero-visual{position:relative;height:480px}
+.hero-card-grid{
+  position:absolute;inset:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr 1fr;
+  gap:12px;
+}
+.hcard{
+  border-radius:var(--r);
+  border:1px solid var(--border);
+  background:var(--surface);
+  overflow:hidden;position:relative;
+  transition:transform .35s var(--ease),border-color .35s;
+  cursor:pointer;
+}
+.hcard:hover{transform:translateY(-4px) scale(1.02);border-color:var(--dim)}
+.hcard.span2{grid-column:span 2}
+.hcard.tall{grid-row:span 2}
+
+/* CSS-art brand previews */
+.preview-nova{background:linear-gradient(135deg,#0f0028 0%,#1a0050 50%,#0f0028 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.preview-nova::before{content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);width:60px;height:60px;border-radius:50%;background:conic-gradient(#9b5cff,#ff6bdf,#5cffd4,#9b5cff);filter:blur(2px)}
+.preview-nova::after{content:'NOVA';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;letter-spacing:.3em;color:#fff}
+.preview-arc{background:linear-gradient(180deg,#001a10 0%,#003820 100%);display:flex;align-items:center;justify-content:center}
+.arc-logo-css{width:50px;height:50px;border:3px solid #00ff88;border-radius:4px;position:relative;transform:rotate(12deg)}
+.arc-logo-css::before{content:'A';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-weight:700;font-size:1.4rem;color:#00ff88}
+.preview-pulse{background:#0a0010;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.pulse-bars{display:flex;align-items:flex-end;gap:3px;height:40px}
+.pulse-bars span{width:4px;background:var(--coral);border-radius:2px;animation:pulseBar 1.4s ease-in-out infinite alternate}
+.pulse-bars span:nth-child(2){height:60%;animation-delay:.15s}
+.pulse-bars span:nth-child(3){height:90%;animation-delay:.3s}
+.pulse-bars span:nth-child(4){height:45%;animation-delay:.45s}
+.pulse-bars span:nth-child(5){height:80%;animation-delay:.6s}
+.pulse-bars span:nth-child(6){height:30%;animation-delay:.75s}
+.pulse-bars span:nth-child(7){height:70%;animation-delay:.9s}
+@keyframes pulseBar{from{transform:scaleY(.6)}to{transform:scaleY(1)}}
+.preview-mer{background:linear-gradient(160deg,#1a1400 0%,#2d2000 100%);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:12px}
+.preview-mer::before{content:'M';position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(245,200,66,.2)}
+.preview-flux{background:#080820;display:flex;align-items:center;justify-content:center}
+.flux-shape{width:56px;height:56px;background:linear-gradient(135deg,#4f6fff,#a56bff);clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);animation:fluxSpin 8s linear infinite}
+@keyframes fluxSpin{to{transform:rotate(360deg)}}
+.preview-site1{
+  background:linear-gradient(180deg,#0e0e1a 0%,#16162a 100%);
+  padding:10px;
+  display:flex;flex-direction:column;gap:5px;
+}
+.fake-nav{height:10px;background:rgba(255,255,255,.06);border-radius:3px;width:100%}
+.fake-hero{height:40px;background:linear-gradient(90deg,rgba(123,247,200,.15),rgba(123,247,200,.05));border-radius:4px}
+.fake-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;flex:1}
+.fake-card{background:rgba(255,255,255,.04);border-radius:3px}
+.hcard-label{
+  position:absolute;bottom:10px;left:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;color:rgba(255,255,255,.4);
+  letter-spacing:.1em;text-transform:uppercase;
+  z-index:2;
+}
+
+/* Hero scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:40px;left:48px;
+  display:flex;align-items:center;gap:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:var(--dim);
+  letter-spacing:.12em;text-transform:uppercase;
+  animation:scrollBounce 2s ease-in-out infinite;
+}
+.scroll-hint::before{content:'';display:block;width:1px;height:40px;background:var(--dim)}
+@keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  padding:28px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+  background:var(--surface);
+}
+.marquee-track{
+  display:flex;gap:64px;
+  animation:marqueeSroll 30s linear infinite;
+  white-space:nowrap;width:max-content;
+}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused}
+@keyframes marqueeSroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.client-logo{
+  display:flex;align-items:center;gap:10px;
+  opacity:.45;transition:opacity .25s;
+  font-family:'Inter',sans-serif;font-weight:600;
+  font-size:.95rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text);
+  flex-shrink:0;
+  cursor:default;
+}
+.client-logo:hover{opacity:.85}
+.client-logo svg{width:22px;height:22px}
+
+/* ── SECTION BASE ── */
+section{padding:96px 48px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;color:var(--accent);
+  letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-eyebrow::after{content:'';flex:1;height:1px;background:var(--border);max-width:60px}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4.5vw,3.8rem);
+  font-weight:300;line-height:1.1;
+  letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+h2 em{font-style:italic;color:var(--accent)}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:540px;margin-bottom:56px}
+
+/* ── STATS ── */
+#stats{padding:64px 48px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;
+}
+.stat{
+  background:var(--surface);
+  padding:40px 32px;
+  display:flex;flex-direction:column;gap:8px;
+  transition:background .25s;
+}
+.stat:hover{background:var(--surface2)}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;font-weight:600;
+  color:var(--text);line-height:1;
+}
+.stat-num span{color:var(--accent);font-size:2rem}
+.stat-label{font-size:.82rem;color:var(--muted);letter-spacing:.04em}
+
+/* ── SERVICES ── */
+#services{background:var(--bg)}
+.services-bento{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:240px;
+  gap:16px;
+}
+.service-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:32px;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s var(--ease);
+  cursor:default;
+}
+.service-card:hover{border-color:var(--dim);transform:translateY(-3px)}
+.service-card.featured{
+  grid-column:span 2;
+  background:linear-gradient(135deg,var(--surface) 0%,rgba(123,247,200,.05) 100%);
+  border-color:rgba(123,247,200,.2);
+}
+.service-card.featured:hover{border-color:rgba(123,247,200,.4)}
+.service-icon{
+  width:44px;height:44px;
+  border-radius:10px;
+  background:var(--accent-dim);
+  display:grid;place-items:center;
+  color:var(--accent);font-size:1.2rem;
+  margin-bottom:auto;
+}
+.service-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;color:var(--dim);
+  letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.service-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;
+  margin-bottom:8px;
+}
+.service-card p{font-size:.85rem;color:var(--muted);line-height:1.6}
+.service-bg-text{
+  position:absolute;bottom:-20px;right:-10px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:7rem;font-weight:700;
+  color:rgba(255,255,255,.03);
+  line-height:1;pointer-events:none;
+  user-select:none;
+}
+.service-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.tag{
+  padding:3px 10px;border-radius:99px;
+  border:1px solid var(--border);
+  font-size:.72rem;color:var(--dim);
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.05em;
+}
+
+/* ── WORK PANEL ── */
+#work{background:var(--surface);border-top:1px solid var(--border)}
+.work-filters{
+  display:flex;gap:6px;flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.filter-btn{
+  padding:8px 20px;border-radius:99px;
+  border:1px solid var(--border);
+  background:none;color:var(--muted);
+  font-family:'Inter',sans-serif;
+  font-size:.82rem;font-weight:500;
+  cursor:pointer;transition:all .2s;
+  letter-spacing:.03em;
+}
+.filter-btn:hover{border-color:var(--dim);color:var(--text)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.work-item{
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);
+  aspect-ratio:4/3;
+  position:relative;cursor:pointer;
+  transition:transform .35s var(--ease),border-color .35s;
+}
+.work-item:hover{transform:translateY(-5px);border-color:var(--dim)}
+.work-item.large{grid-column:span 2;aspect-ratio:16/9}
+.work-preview{
+  position:absolute;inset:0;
+  transition:transform .5s var(--ease);
+}
+.work-item:hover .work-preview{transform:scale(1.04)}
+.work-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(2,8,24,.95) 0%,rgba(2,8,24,.4) 50%,transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;
+  opacity:0;transition:opacity .3s;
+}
+.work-item:hover .work-overlay{opacity:1}
+.work-cat{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;color:var(--accent);
+  letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:4px;
+}
+.work-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:600;color:var(--text);
+}
+.work-arrow{
+  position:absolute;top:14px;right:14px;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--accent);color:var(--bg);
+  display:grid;place-items:center;
+  font-size:.85rem;
+  transform:translateY(-6px);opacity:0;
+  transition:all .25s var(--ease);
+}
+.work-item:hover .work-arrow{transform:translateY(0);opacity:1}
+
+/* CSS art project previews */
+.wp-branding{background:linear-gradient(135deg,#12002a,#2a0060,#0a1a40);position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.wp-branding-inner{text-align:center}
+.wp-branding-circle{width:80px;height:80px;border-radius:50%;background:conic-gradient(#bf5fff 0deg,#5cffc8 180deg,#bf5fff 360deg);margin:0 auto 12px;animation:slowSpin 12s linear infinite}
+@keyframes slowSpin{to{transform:rotate(360deg)}}
+.wp-branding-word{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;letter-spacing:.3em;color:#fff}
+
+.wp-web{background:#08080f;position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;gap:6px}
+.wp-web-nav{height:12px;background:rgba(255,255,255,.07);border-radius:3px}
+.wp-web-hero{flex:2;background:linear-gradient(120deg,rgba(79,111,255,.2),rgba(165,107,255,.2));border-radius:6px;display:flex;align-items:center;justify-content:center}
+.wp-web-hero-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.6);letter-spacing:.1em}
+.wp-web-cards{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.wp-web-card{background:rgba(255,255,255,.04);border-radius:4px}
+
+.wp-motion{background:#000;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.motion-rings{position:relative;width:100px;height:100px}
+.motion-ring{position:absolute;inset:0;border-radius:50%;border:2px solid;animation:ringPulse 2s ease-in-out infinite}
+.motion-ring:nth-child(1){border-color:rgba(255,107,107,.8);animation-delay:0s}
+.motion-ring:nth-child(2){border-color:rgba(245,200,66,.6);inset:12px;animation-delay:.4s}
+.motion-ring:nth-child(3){border-color:rgba(123,247,200,.4);inset:24px;animation-delay:.8s}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:.4}}
+
+.wp-print{background:linear-gradient(160deg,#f5f0e0,#ede5c8);position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;padding:16px;gap:4px}
+.wp-print-line{height:10px;background:rgba(0,0,0,.15);border-radius:2px}
+.wp-print-line.thick{height:28px;background:rgba(0,0,0,.55)}
+.wp-print-line.accent{height:10px;background:rgba(100,50,0,.4);width:40%}
+.wp-print-line.sm{width:55%}
+
+.wp-ui{background:#0d0d1e;position:absolute;inset:0;padding:10px;display:grid;grid-template-columns:60px 1fr;gap:8px}
+.wp-ui-side{display:flex;flex-direction:column;gap:5px;padding-top:8px}
+.wp-ui-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);margin:0 auto}
+.wp-ui-icon.active{background:rgba(123,247,200,.15)}
+.wp-ui-main{display:flex;flex-direction:column;gap:6px}
+.wp-ui-topbar{height:28px;background:rgba(255,255,255,.06);border-radius:6px}
+.wp-ui-content{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.wp-ui-panel{background:rgba(255,255,255,.04);border-radius:5px}
+
+.wp-photo{background:linear-gradient(180deg,#1a0a00,#0d0500);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo-frame{width:70%;height:70%;border:1px solid rgba(245,200,66,.3);border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center}
+.photo-inner{width:80%;height:80%;background:linear-gradient(135deg,rgba(245,200,66,.1),rgba(245,100,0,.1));border-radius:3px}
+.photo-corner{position:absolute;width:12px;height:12px;border-color:rgba(245,200,66,.6);border-style:solid;border-width:0}
+.photo-corner.tl{top:-1px;left:-1px;border-top-width:2px;border-left-width:2px}
+.photo-corner.tr{top:-1px;right:-1px;border-top-width:2px;border-right-width:2px}
+.photo-corner.bl{bottom:-1px;left:-1px;border-bottom-width:2px;border-left-width:2px}
+.photo-corner.br{bottom:-1px;right:-1px;border-bottom-width:2px;border-right-width:2px}
+
+/* ── CASE STUDIES ── */
+#cases{background:var(--bg)}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case-card{
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
+  background:var(--surface);
+  display:flex;flex-direction:column;
+  transition:transform .3s var(--ease),border-color .3s;
+}
+.case-card:hover{transform:translateY(-5px);border-color:var(--dim)}
+.case-visual{
+  height:200px;position:relative;overflow:hidden;
+  flex-shrink:0;
+}
+.case-badge{
+  position:absolute;top:14px;left:14px;
+  padding:4px 12px;border-radius:99px;
+  background:rgba(2,8,24,.8);
+  backdrop-filter:blur(8px);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;color:var(--accent);
+  letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid rgba(123,247,200,.2);
+}
+.case-body{padding:28px;flex:1;display:flex;flex-direction:column;gap:12px}
+.case-client{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;color:var(--dim);
+  letter-spacing:.15em;text-transform:uppercase;
+}
+.case-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:600;
+  line-height:1.3;color:var(--text);
+}
+.case-card p{font-size:.85rem;color:var(--muted);line-height:1.65;flex:1}
+.case-metrics{
+  display:flex;gap:20px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  margin-top:4px;
+}
+.metric{display:flex;flex-direction:column;gap:2px}
+.metric-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:700;
+  color:var(--accent);line-height:1;
+}
+.metric-label{font-size:.72rem;color:var(--dim);letter-spacing:.04em}
+.case-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--text);font-size:.82rem;font-weight:500;
+  text-decoration:none;margin-top:12px;
+  transition:color .2s;
+}
+.case-link:hover{color:var(--accent)}
+.case-link svg{transition:transform .2s}
+.case-link:hover svg{transform:translateX(4px)}
+
+/* case visuals */
+.cv-nova{background:linear-gradient(135deg,#0f0028,#1a0050);position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.cv-arc{background:linear-gradient(180deg,#001a10,#002810);position:absolute;inset:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.cv-pulse{background:#0a0010;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cv-spectrum{display:flex;align-items:flex-end;gap:2px;height:60%;padding:0 20%}
+.cv-spectrum span{flex:1;background:linear-gradient(to top,var(--coral),rgba(255,107,107,.1));border-radius:2px 2px 0 0}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--surface);border-top:1px solid var(--border)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:32px;
+  display:flex;flex-direction:column;gap:20px;
+  transition:border-color .3s;
+}
+.testi:hover{border-color:var(--dim)}
+.testi-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-style:italic;
+  color:var(--text);line-height:1.6;
+  flex:1;
+}
+.testi-quote::before{content:'\201C';font-size:2rem;color:var(--accent);line-height:0;vertical-align:-.4em;margin-right:4px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;font-size:1rem;color:var(--bg);
+}
+.testi-name{font-size:.9rem;font-weight:500;color:var(--text)}
+.testi-role{font-size:.75rem;color:var(--muted)}
+.testi-stars{color:var(--gold);font-size:.8rem;letter-spacing:2px;margin-top:2px}
+
+/* ── PROCESS ── */
+#process{background:var(--bg)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{
+  content:'';position:absolute;top:28px;left:10%;right:10%;
+  height:1px;background:linear-gradient(90deg,transparent,var(--dim),transparent);
+}
+.process-step{
+  padding:0 24px;
+  display:flex;flex-direction:column;gap:12px;
+  text-align:center;
+  position:relative;
+}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--surface);
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;color:var(--accent);
+  margin:0 auto 16px;
+  transition:background .3s,border-color .3s;
+}
+.process-step:hover .step-num{background:var(--accent-dim);border-color:var(--accent)}
+.process-step h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:600;color:var(--text);
+}
+.process-step p{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* ── CONTACT CTA ── */
+#contact{
+  background:var(--bg);
+  border-top:1px solid var(--border);
+}
+.contact-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.contact-left h2{margin-bottom:16px}
+.contact-left p{color:var(--muted);line-height:1.7;margin-bottom:32px;max-width:400px}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  color:var(--muted);font-size:.9rem;
+}
+.contact-item svg{color:var(--accent);flex-shrink:0}
+.contact-right{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:40px;
+}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-label{font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+.form-input,.form-select,.form-textarea{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:12px 16px;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:.9rem;
+  outline:none;
+  transition:border-color .2s;
+  width:100%;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent)}
+.form-textarea{height:100px;resize:vertical}
+.form-select{appearance:none;cursor:pointer}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{
+  width:100%;padding:14px;
+  background:var(--accent);color:var(--bg);
+  border:none;border-radius:99px;
+  font-family:'Inter',sans-serif;
+  font-size:.9rem;font-weight:600;
+  cursor:pointer;
+  transition:all .25s var(--ease);
+  margin-top:8px;
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--accent-glow)}
+.form-submit:active{transform:none}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:40px 48px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:700;
+  letter-spacing:.08em;color:var(--text);
+  text-decoration:none;
+}
+.footer-copy{font-size:.8rem;color:var(--dim)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--text)}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(2,8,24,.92);
+  backdrop-filter:blur(16px);
+  display:grid;place-items:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:48px;
+  max-width:640px;width:calc(100% - 40px);
+  max-height:80vh;overflow-y:auto;
+  transform:translateY(20px);
+  transition:transform .35s var(--ease);
+  position:relative;
+}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--border);
+  color:var(--muted);cursor:pointer;
+  display:grid;place-items:center;
+  font-size:1rem;transition:all .2s;
+}
+.modal-close:hover{border-color:var(--text);color:var(--text)}
+.modal-badge{
+  display:inline-block;
+  padding:4px 12px;border-radius:99px;
+  background:var(--accent-dim);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;color:var(--accent);
+  letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.modal h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:600;margin-bottom:12px;
+}
+.modal p{color:var(--muted);line-height:1.7;margin-bottom:20px;font-size:.95rem}
+.modal-metrics{display:flex;gap:32px;margin:24px 0;padding:24px;background:var(--bg);border-radius:var(--r);border:1px solid var(--border)}
+.modal-metric{display:flex;flex-direction:column;gap:4px}
+.modal-metric-val{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1}
+.modal-metric-label{font-size:.75rem;color:var(--dim)}
+.modal-tags{display:flex;gap:6px;flex-wrap:wrap}
+.modal-tag{padding:4px 12px;border-radius:99px;border:1px solid var(--border);font-size:.75rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.96);transition:opacity .5s,transform .5s var(--ease)}
+.reveal-scale.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:18px 28px}
+  nav.scrolled{padding:12px 28px}
+  .nav-links{display:none}
+  #hero{padding:120px 28px 60px}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-visual{height:320px}
+  section{padding:72px 28px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .services-bento{grid-template-columns:1fr 1fr}
+  .service-card.featured{grid-column:span 2}
+  .work-grid{grid-template-columns:1fr 1fr}
+  .work-item.large{grid-column:span 2}
+  .cases-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:24px}
+  .process-steps::before{display:none}
+  .contact-inner{grid-template-columns:1fr;gap:40px}
+  footer{padding:32px 28px}
+  #stats{padding:48px 28px}
+}
+@media(max-width:640px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .services-bento,.work-grid,.cases-grid{grid-template-columns:1fr}
+  .service-card.featured,.work-item.large{grid-column:auto}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 4h5v5H4zM4 11h5v5H4zM11 4h5v12H11z" fill="#020818"/>
+      </svg>
+    </div>
+    FORMA
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#work">Proyectos</a></li>
+    <li><a href="#cases">Casos de éxito</a></li>
+    <li><a href="#process">Proceso</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Empezar proyecto</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Studio de diseño · Est. 2018</div>
+      <h1>Identidades que el<br>mundo <em>no olvida</em></h1>
+      <p class="hero-sub">Creamos marcas, experiencias digitales y sistemas visuales para empresas que quieren liderar su categoría. No plantillas: cada proyecto es una decisión.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">
+          Ver nuestro trabajo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-secondary">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-grid">
+        <div class="hcard tall preview-nova">
+          <span class="hcard-label">Brand · NOVA</span>
+        </div>
+        <div class="hcard preview-arc">
+          <div class="arc-logo-css"></div>
+          <span class="hcard-label">Identity · ARKTIK</span>
+        </div>
+        <div class="hcard preview-pulse">
+          <div class="pulse-bars">
+            <span style="height:50%"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span class="hcard-label">Motion · PULSE</span>
+        </div>
+        <div class="hcard span2 preview-site1">
+          <div class="fake-nav"></div>
+          <div class="fake-hero"></div>
+          <div class="fake-cards">
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+          <span class="hcard-label">Web · MERIDIAN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- CLIENTS MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- clients x2 for infinite loop -->
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="currentColor" stroke-width="1.5"/></svg>
+      NOVA GROUP
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M4 18L11 4l7 14H4z" stroke="currentColor" stroke-width="1.5"/></svg>
+      ARKTIK
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><rect x="4" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5"/></svg>
+      PULSE MEDIA
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M11 4l2 5h5l-4 3 1.5 5L11 14l-4.5 3L8 11 4 8h5z" stroke="currentColor" stroke-width="1.5"/></svg>
+      MERIDIAN CO
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M4 11h14M4 7h14M4 15h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      FLUX DIGITAL
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/></svg>
+      ORBIT BRAND
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M11 3v4M11 15v4M3 11h4M15 11h4M5.6 5.6l2.8 2.8M13.6 13.6l2.8 2.8M5.6 16.4l2.8-2.8M13.6 8.4l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      ZENITH
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><rect x="5" y="5" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 11h12" stroke="currentColor" stroke-width="1.5"/></svg>
+      KOVA STUDIO
+    </div>
+    <!-- duplicate -->
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="currentColor" stroke-width="1.5"/></svg>
+      NOVA GROUP
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M4 18L11 4l7 14H4z" stroke="currentColor" stroke-width="1.5"/></svg>
+      ARKTIK
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><rect x="4" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5"/></svg>
+      PULSE MEDIA
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M11 4l2 5h5l-4 3 1.5 5L11 14l-4.5 3L8 11 4 8h5z" stroke="currentColor" stroke-width="1.5"/></svg>
+      MERIDIAN CO
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M4 11h14M4 7h14M4 15h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      FLUX DIGITAL
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/></svg>
+      ORBIT BRAND
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M11 3v4M11 15v4M3 11h4M15 11h4M5.6 5.6l2.8 2.8M13.6 13.6l2.8 2.8M5.6 16.4l2.8-2.8M13.6 8.4l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      ZENITH
+    </div>
+    <div class="client-logo">
+      <svg viewBox="0 0 22 22" fill="none"><rect x="5" y="5" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 11h12" stroke="currentColor" stroke-width="1.5"/></svg>
+      KOVA STUDIO
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <div class="stat-num"><span id="statProj">0</span>+</div>
+      <div class="stat-label">Proyectos entregados</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span id="statClients">0</span></div>
+      <div class="stat-label">Clientes satisfechos</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span id="statAwards">0</span></div>
+      <div class="stat-label">Premios de diseño</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span id="statYears">0</span></div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Lo que hacemos</div>
+    <h2 class="reveal">Diseño sin <em>compromisos</em></h2>
+    <p class="section-sub reveal">Cada disciplina conectada. Cada decisión con intención. Trabajamos desde la estrategia hasta el píxel final.</p>
+    <div class="services-bento">
+      <div class="service-card featured reveal">
+        <div>
+          <div class="service-num">01</div>
+          <h3>Identidad de Marca</h3>
+          <p>Sistemas visuales completos que van más allá del logotipo: tipografía, color, voz, motion y guías de marca que escalan con el negocio.</p>
+          <div class="service-tags">
+            <span class="tag">Logo</span>
+            <span class="tag">Brand Book</span>
+            <span class="tag">Sistema Visual</span>
+            <span class="tag">Naming</span>
+          </div>
+        </div>
+        <div class="service-bg-text">ID</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="service-num">02</div>
+          <h3>Diseño Web</h3>
+          <p>Interfaces que convierten visitantes en clientes. UX riguroso, UI memorable.</p>
+        </div>
+        <div class="service-bg-text">WB</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4l2 4h4l-3 2.5 1 4L10 12l-4 2.5 1-4L4 8h4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="service-num">03</div>
+          <h3>Motion & Video</h3>
+          <p>Animaciones que explican, emocionan y retienen. Desde reels hasta sistemas de motion para redes.</p>
+        </div>
+        <div class="service-bg-text">MV</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="service-num">04</div>
+          <h3>Estrategia Visual</h3>
+          <p>Auditorías de marca, análisis de competidores y hojas de ruta creativas alineadas con el negocio.</p>
+        </div>
+        <div class="service-bg-text">ST</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 5V4a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <div class="service-num">05</div>
+          <h3>Diseño Editorial</h3>
+          <p>Catálogos, revistas, packaging y piezas impresas donde el detalle importa tanto como la gran idea.</p>
+        </div>
+        <div class="service-bg-text">ED</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK PANEL -->
+<section id="work">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Portfolio</div>
+    <h2 class="reveal">Trabajo <em>selecto</em></h2>
+    <p class="section-sub reveal">Proyectos recientes. Haz clic en cualquiera para ver el caso completo.</p>
+    <div class="work-filters reveal" id="workFilters">
+      <button class="filter-btn active" data-filter="all">Todo</button>
+      <button class="filter-btn" data-filter="brand">Branding</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="motion">Motion</button>
+      <button class="filter-btn" data-filter="print">Editorial</button>
+      <button class="filter-btn" data-filter="ui">UI/UX</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+
+      <div class="work-item large" data-cat="brand" data-case="0">
+        <div class="work-preview wp-branding">
+          <div class="wp-branding-inner">
+            <div class="wp-branding-circle"></div>
+            <div class="wp-branding-word">NOVA</div>
+          </div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">Identidad de Marca</div>
+          <div class="work-title">NOVA Group — Sistema de Marca Global</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+      <div class="work-item" data-cat="web" data-case="1">
+        <div class="work-preview wp-web">
+          <div class="wp-web-nav"></div>
+          <div class="wp-web-hero"><div class="wp-web-hero-text">MERIDIAN</div></div>
+          <div class="wp-web-cards">
+            <div class="wp-web-card"></div>
+            <div class="wp-web-card"></div>
+            <div class="wp-web-card"></div>
+          </div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">Diseño Web</div>
+          <div class="work-title">Meridian — Plataforma Corporativa</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+      <div class="work-item" data-cat="motion" data-case="2">
+        <div class="work-preview wp-motion">
+          <div class="motion-rings">
+            <div class="motion-ring"></div>
+            <div class="motion-ring"></div>
+            <div class="motion-ring"></div>
+          </div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">Motion Design</div>
+          <div class="work-title">Pulse Media — Rebranding en Movimiento</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+      <div class="work-item" data-cat="print" data-case="3">
+        <div class="work-preview wp-print">
+          <div class="wp-print-line thick" style="width:80%"></div>
+          <div class="wp-print-line sm"></div>
+          <div class="wp-print-line" style="width:70%"></div>
+          <div class="wp-print-line accent"></div>
+          <div class="wp-print-line sm" style="margin-top:8px"></div>
+          <div class="wp-print-line" style="width:85%"></div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">Editorial</div>
+          <div class="work-title">Kova — Catálogo Anual 2024</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+      <div class="work-item" data-cat="ui" data-case="4">
+        <div class="work-preview wp-ui">
+          <div class="wp-ui-side">
+            <div class="wp-ui-icon active"></div>
+            <div class="wp-ui-icon"></div>
+            <div class="wp-ui-icon"></div>
+            <div class="wp-ui-icon"></div>
+          </div>
+          <div class="wp-ui-main">
+            <div class="wp-ui-topbar"></div>
+            <div class="wp-ui-content">
+              <div class="wp-ui-panel"></div>
+              <div class="wp-ui-panel"></div>
+              <div class="wp-ui-panel"></div>
+              <div class="wp-ui-panel"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">UI/UX</div>
+          <div class="work-title">Zenith — Dashboard de Análisis</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+      <div class="work-item" data-cat="brand" data-case="5">
+        <div class="work-preview wp-photo">
+          <div class="photo-frame">
+            <div class="photo-inner"></div>
+            <div class="photo-corner tl"></div>
+            <div class="photo-corner tr"></div>
+            <div class="photo-corner bl"></div>
+            <div class="photo-corner br"></div>
+          </div>
+        </div>
+        <div class="work-overlay">
+          <div class="work-cat">Branding + Fotografía</div>
+          <div class="work-title">Orbit — Identidad Visual & Art Direction</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Casos de éxito</div>
+    <h2 class="reveal">Resultados que <em>importan</em></h2>
+    <p class="section-sub reveal">El diseño no es decoración. Estos son los números que respaldan cada decisión creativa.</p>
+    <div class="cases-grid">
+
+      <div class="case-card reveal">
+        <div class="case-visual">
+          <div class="cv-nova" style="inset:0;position:absolute">
+            <div style="text-align:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:conic-gradient(#9b5cff,#ff6bdf,#5cffd4,#9b5cff);margin:0 auto 10px;animation:slowSpin 12s linear infinite"></div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:.3em;color:#fff;font-weight:700">NOVA</div>
+            </div>
+          </div>
+          <div class="case-badge">Identidad de Marca</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">NOVA GROUP · Tech Scale-up</div>
+          <h3>De startup a marca que lidera el sector</h3>
+          <p>NOVA necesitaba una identidad que reflejara su ambición global. Diseñamos un sistema completo: logo, tipografía propietaria y guía de 80 páginas.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-val">+340%</div><div class="metric-label">Brand awareness</div></div>
+            <div class="metric"><div class="metric-val">×2.8</div><div class="metric-label">Valoración ronda B</div></div>
+            <div class="metric"><div class="metric-val">12</div><div class="metric-label">Premios obtenidos</div></div>
+          </div>
+          <a href="#" class="case-link" onclick="openModal(0);return false">
+            Ver caso completo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-visual">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#001a40,#003080);display:flex;align-items:center;justify-content:center;padding:16px">
+            <div style="width:90%;background:rgba(255,255,255,.06);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.1)">
+              <div style="height:8px;background:rgba(255,255,255,.08);border-radius:3px;margin-bottom:6px"></div>
+              <div style="height:28px;background:linear-gradient(90deg,rgba(79,111,255,.3),rgba(79,111,255,.1));border-radius:4px;margin-bottom:6px"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+                <div style="height:20px;background:rgba(255,255,255,.05);border-radius:3px"></div>
+                <div style="height:20px;background:rgba(255,255,255,.05);border-radius:3px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="case-badge">Diseño Web</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">MERIDIAN CO · Consultoría</div>
+          <h3>Web que convierte visitantes en clientes</h3>
+          <p>Rediseño completo centrado en conversión. Arquitectura de información nueva, CRO aplicado y sistema de diseño escalable para su equipo interno.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-val">+218%</div><div class="metric-label">Conversión web</div></div>
+            <div class="metric"><div class="metric-val">-64%</div><div class="metric-label">Tasa de rebote</div></div>
+            <div class="metric"><div class="metric-val">4.2s</div><div class="metric-label">→ 0.9s carga</div></div>
+          </div>
+          <a href="#" class="case-link" onclick="openModal(1);return false">
+            Ver caso completo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-visual">
+          <div class="cv-pulse" style="position:absolute;inset:0">
+            <div class="cv-spectrum">
+              <span style="height:40%"></span>
+              <span style="height:70%"></span>
+              <span style="height:55%"></span>
+              <span style="height:90%"></span>
+              <span style="height:45%"></span>
+              <span style="height:80%"></span>
+              <span style="height:35%"></span>
+              <span style="height:65%"></span>
+              <span style="height:50%"></span>
+            </div>
+          </div>
+          <div class="case-badge">Motion + Brand</div>
+        </div>
+        <div class="case-body">
+          <div class="case-client">PULSE MEDIA · Entretenimiento</div>
+          <h3>Rebranding en movimiento para plataforma de audio</h3>
+          <p>Identidad de marca completa con sistema de motion: intro animada, plantillas para redes sociales y guía de animación para el equipo interno.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-val">+190%</div><div class="metric-label">Engagement RRSS</div></div>
+            <div class="metric"><div class="metric-val">×3.1</div><div class="metric-label">Suscriptores nuevos</div></div>
+            <div class="metric"><div class="metric-val">2</div><div class="metric-label">Premios Awwwards</div></div>
+          </div>
+          <a href="#" class="case-link" onclick="openModal(2);return false">
+            Ver caso completo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Lo que dicen</div>
+    <h2 class="reveal">Clientes que <em>confían</em></h2>
+    <div class="testimonials-grid" style="margin-top:48px">
+      <div class="testi reveal">
+        <p class="testi-quote">Forma no solo diseñó nuestra marca: redefinió cómo nos percibe el mercado. La ronda B llegó tres meses después del rebranding.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#9b5cff,#5cffd4)">A</div>
+          <div>
+            <div class="testi-name">Ana Martínez</div>
+            <div class="testi-role">CEO · NOVA Group</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <p class="testi-quote">El nuevo sitio web triplicó nuestras solicitudes de propuesta en el primer trimestre. Trabajo riguroso, proceso claro y resultado impecable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#4f6fff,#a56bff)">C</div>
+          <div>
+            <div class="testi-name">Carlos Ruiz</div>
+            <div class="testi-role">Director de Marketing · Meridian Co</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi reveal">
+        <p class="testi-quote">Llevan nuestras animaciones a un nivel que nunca imaginamos posible. El equipo de Forma tiene un ojo único y saben escuchar.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ff6b6b,#f5c842)">L</div>
+          <div>
+            <div class="testi-name">Laura Vidal</div>
+            <div class="testi-role">Head of Brand · Pulse Media</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Cómo trabajamos</div>
+    <h2 class="reveal">Proceso <em>sin misterios</em></h2>
+    <p class="section-sub reveal">Cuatro fases. Sin sorpresas. Siempre sabes en qué punto estamos y qué viene después.</p>
+    <div class="process-steps" style="margin-top:64px">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h4>Descubrimiento</h4>
+        <p>Entendemos tu negocio, competidores, audiencia y objetivos. La estrategia antes del pixel.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <h4>Concepto</h4>
+        <p>Proponemos 2–3 direcciones creativas distintas. Elegís una y la desarrollamos hasta el límite.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <h4>Producción</h4>
+        <p>Iteramos con feedback real. Sin cambios sorpresa al final: cada decisión se valida contigo.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <h4>Entrega</h4>
+        <p>Archivos listos para usar, guías completas y soporte durante los 30 días posteriores al lanzamiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-eyebrow reveal">Empezar</div>
+      <h2 class="reveal">Tu próxima<br><em>gran marca</em><br>empieza aquí</h2>
+      <p class="reveal">Contamos con disponibilidad limitada cada trimestre. Si tienes un proyecto en mente, cuéntanos: respondemos en 24 horas.</p>
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.5"/></svg>
+          hola@formaestudio.com
+        </div>
+        <div class="contact-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4a1 1 0 011-1h2.5l1 3-1.5 1.5a10 10 0 004.5 4.5L13 10.5l3 1V14a1 1 0 01-1 1C7 15 3 11 3 5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5"/></svg>
+          +34 600 000 000
+        </div>
+        <div class="contact-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 2C5.7 2 3 4.7 3 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Madrid · Barcelona · Remoto
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal">
+      <form onsubmit="handleForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="tu@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Empresa</label>
+          <input type="text" class="form-input" placeholder="Nombre de tu empresa">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tipo de proyecto</label>
+          <select class="form-select form-input">
+            <option value="">Selecciona...</option>
+            <option>Identidad de marca completa</option>
+            <option>Diseño web</option>
+            <option>Motion / Video</option>
+            <option>Editorial / Print</option>
+            <option>UI/UX</option>
+            <option>Proyecto mixto</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cuéntanos tu proyecto</label>
+          <textarea class="form-textarea" placeholder="¿Qué necesitas? ¿Cuándo lo necesitas? ¿Cuál es tu presupuesto aproximado?"></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="formBtn">Enviar mensaje →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">FORMA Studio</a>
+    <div class="footer-copy">© 2024 FORMA Studio. Demo diseñada por Danielux135.</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ── NAV scroll ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', scrollY > 50);
+}, {passive:true});
+
+/* ── REVEAL ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, {threshold:.12});
+document.querySelectorAll('.reveal,.reveal-scale').forEach((el,i) => {
+  el.style.transitionDelay = (i % 4 * .09) + 's';
+  revealObs.observe(el);
+});
+
+/* ── STATS COUNTER ── */
+function animateCounter(el, target, suffix='') {
+  let start = 0;
+  const step = target / 60;
+  const tick = () => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.round(start) + suffix;
+    if (start < target) requestAnimationFrame(tick);
+  };
+  tick();
+}
+const statsObs = new IntersectionObserver(entries => {
+  if (!entries[0].isIntersecting) return;
+  animateCounter(document.getElementById('statProj'), 180);
+  animateCounter(document.getElementById('statClients'), 94);
+  animateCounter(document.getElementById('statAwards'), 31);
+  animateCounter(document.getElementById('statYears'), 7);
+  statsObs.disconnect();
+}, {threshold:.3});
+statsObs.observe(document.getElementById('stats'));
+
+/* ── WORK FILTERS ── */
+const filters = document.querySelectorAll('.filter-btn');
+const workItems = document.querySelectorAll('.work-item');
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filters.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    workItems.forEach(item => {
+      const match = f === 'all' || item.dataset.cat === f;
+      item.style.transition = 'opacity .3s, transform .3s';
+      item.style.opacity = match ? '1' : '0.15';
+      item.style.transform = match ? '' : 'scale(.96)';
+      item.style.pointerEvents = match ? '' : 'none';
+    });
+  });
+});
+
+/* ── WORK ITEMS → MODAL ── */
+workItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const idx = parseInt(item.dataset.case);
+    openModal(idx);
+  });
+});
+
+/* ── MODAL DATA ── */
+const cases = [
+  {
+    badge:'Identidad de Marca',
+    client:'NOVA GROUP',
+    title:'Sistema de Marca Global',
+    desc:'NOVA Group necesitaba una identidad que reflejara su posicionamiento como líder tecnológico a escala internacional. Diseñamos un sistema completo desde cero: estrategia de naming, logotipo con variantes para todos los soportes, tipografía propietaria, paleta de color extensa y una guía de marca de 80 páginas que permite a su equipo interno aplicar la identidad con coherencia.',
+    metrics:[{v:'+340%',l:'Brand awareness'},{v:'×2.8',l:'Valoración ronda B'},{v:'12',l:'Premios'}],
+    tags:['Estrategia','Logo','Brand Book','Tipografía','Iconografía']
+  },
+  {
+    badge:'Diseño Web',
+    client:'MERIDIAN CO',
+    title:'Plataforma Corporativa con CRO',
+    desc:'Rediseño completo del sitio web de Meridian orientado a conversión. Comenzamos con una auditoría de UX y análisis de datos históricos, redefinimos la arquitectura de información y diseñamos una interfaz que guía al visitante hacia la solicitud de propuesta. El sistema de diseño resultante permite al equipo interno crear nuevas páginas sin perder coherencia visual.',
+    metrics:[{v:'+218%',l:'Conversión'},{v:'-64%',l:'Rebote'},{v:'0.9s',l:'Tiempo de carga'}],
+    tags:['UX Research','UI Design','Design System','CRO','Figma']
+  },
+  {
+    badge:'Motion + Brand',
+    client:'PULSE MEDIA',
+    title:'Rebranding en Movimiento',
+    desc:'Pulse Media quería evolucionar su marca sin perder el reconocimiento existente. Diseñamos una identidad en evolución con un sistema de motion completo: intro animada para vídeos, plantillas dinámicas para redes sociales, guía de animación y librería de componentes After Effects lista para que su equipo produzca contenido coherente a escala.',
+    metrics:[{v:'+190%',l:'Engagement'},{v:'×3.1',l:'Nuevos suscriptores'},{v:'2',l:'Awwwards'}],
+    tags:['Brand Identity','Motion Design','After Effects','Social Media','Guía de Animación']
+  },
+  {
+    badge:'Editorial',
+    client:'KOVA STUDIO',
+    title:'Catálogo Anual 2024',
+    desc:'Diseño editorial completo para el catálogo anual de Kova Studio. 120 páginas que equilibran densidad de información con respiro visual. Tipografía de alta jerarquía, sistema de color coherente con la marca y cuadrícula modular que permite flexibilidad dentro del orden.',
+    metrics:[{v:'120',l:'Páginas'},{v:'4',l:'Idiomas'},{v:'5k',l:'Copias impresas'}],
+    tags:['Diseño Editorial','Tipografía','Grid System','Preimpresión','Inglés / Español']
+  },
+  {
+    badge:'UI/UX',
+    client:'ZENITH',
+    title:'Dashboard de Análisis de Datos',
+    desc:'Zenith necesitaba un dashboard que transformara datos complejos en decisiones claras. Diseñamos una interfaz densa pero legible, con un sistema de visualización de datos personalizado, estados vacíos, flujos de onboarding y un design system documentado en Storybook para su equipo de desarrollo.',
+    metrics:[{v:'-45%',l:'Tiempo de análisis'},{v:'+88%',l:'Adopción del producto'},{v:'4.8★',l:'Satisfacción usuario'}],
+    tags:['UX Research','Data Visualization','Design System','Storybook','Figma']
+  },
+  {
+    badge:'Branding + Art Direction',
+    client:'ORBIT BRAND',
+    title:'Identidad Visual & Art Direction',
+    desc:'Orbit es una consultora de marca que nos encargó ser su propia agencia de imagen. El reto: diseñar para quien diseña. Creamos una identidad contenida y precisa, con una dirección de arte fotográfica que mezcla geometría y materia, y un sistema visual que transmite rigor sin frialdad.',
+    metrics:[{v:'+160%',l:'Nuevos clientes'},{v:'8',l:'Premios de diseño'},{v:'3',l:'Países activos'}],
+    tags:['Brand Strategy','Logo Design','Art Direction','Fotografía','Motion']
+  },
+];
+function openModal(idx) {
+  const c = cases[idx];
+  const metricsHTML = c.metrics.map(m =>
+    `<div class="modal-metric"><div class="modal-metric-val">${m.v}</div><div class="modal-metric-label">${m.l}</div></div>`
+  ).join('');
+  const tagsHTML = c.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-badge">${c.badge}</div>
+    <div style="font-size:.8rem;color:var(--dim);font-family:'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px">${c.client}</div>
+    <h3>${c.title}</h3>
+    <p>${c.desc}</p>
+    <div class="modal-metrics">${metricsHTML}</div>
+    <div class="modal-tags">${tagsHTML}</div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+/* ── FORM ── */
+function handleForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('formBtn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '¡Mensaje enviado! Te contactamos en 24h ✓';
+    btn.style.background = '#3a9a70';
+    setTimeout(() => {
+      btn.textContent = 'Enviar mensaje →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }, 1400);
+}
+</script>
+</body>
+</html>

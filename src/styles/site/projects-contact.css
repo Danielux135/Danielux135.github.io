@@ -1,0 +1,475 @@
+/* cuadrícula de proyectos: 6 cols — featured ocupa 3, normales 2 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+.project-card--featured {
+    grid-column: span 3;
+    border-color: rgb(var(--accent-1-rgb) / calc(0.18 + var(--beat-alpha) * 0.55));
+}
+.project-card:not(.project-card--featured) {
+    grid-column: span 2;
+}
+/* tarjeta de proyecto con borde reactivo al beat y efecto 3d */
+.project-card {
+    background: var(--surface);
+    border: 1px solid rgb(var(--accent-2-rgb) / calc(0.10 + var(--beat-alpha) * 0.55));
+    border-radius: var(--radius);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
+    transition: border-color var(--ease);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+/* línea de acento superior que aparece al hacer hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: var(--ease);
+}
+/* hover de la tarjeta de proyecto: sube y añade sombra */
+.project-card:hover {
+    border-color: rgb(var(--accent-1-rgb) / 0.28);
+    transform: translateY(-5px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+.project-card:hover::before { opacity: 1; }
+/* icono cuadrado del proyecto con el degradado de acento */
+.project-icon {
+    width: 58px; height: 58px;
+    border-radius: var(--radius-sm);
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    color: var(--white);
+    flex-shrink: 0;
+}
+/* etiqueta de categoría del proyecto */
+.project-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--accent-1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+/* título del proyecto */
+.project-card h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.22rem;
+    color: var(--white);
+}
+/* descripción del proyecto */
+.project-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    flex: 1;
+}
+/* enlace del proyecto con flecha animada al hover */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--accent-1);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: auto;
+    transition: var(--ease);
+}
+.project-link:hover { gap: 11px; }
+/* cuadrícula de dos columnas para la sección de contacto */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    align-items: start;
+}
+/* columna izquierda: lista de enlaces de contacto */
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+/* fila de un medio de contacto con icono y datos */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    transition: var(--ease);
+}
+/* hover: desliza a la derecha y resalta el borde */
+.contact-item:hover {
+    border-color: var(--accent-1);
+    transform: translateX(5px);
+}
+/* icono del medio de contacto */
+.contact-item > i {
+    font-size: 1.2rem;
+    color: var(--accent-1);
+    width: 22px; text-align: center;
+    flex-shrink: 0;
+}
+/* etiqueta pequeña en mayúsculas del tipo de contacto */
+.contact-label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 2px;
+}
+/* valor del dato de contacto */
+.contact-value {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+/* formulario de contacto a la derecha */
+.contact-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+/* grupo de campo de formulario: label + input en columna */
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+/* etiqueta del campo de formulario */
+.form-group label {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.04em;
+}
+/* input y textarea del formulario */
+.form-group input,
+.form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 13px 16px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    resize: vertical;
+    transition: var(--ease);
+    outline: none;
+}
+/* foco en campos del formulario */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.04);
+    box-shadow: 0 0 0 3px rgb(var(--accent-1-rgb) / 0.08);
+}
+/* placeholder atenuado en los campos del formulario */
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); }
+/* sección hire band */
+.hire-band {
+    padding: 80px 28px;
+    background: linear-gradient(135deg,
+        rgb(var(--accent-1-rgb) / 0.06) 0%,
+        rgba(109,53,217,0.10) 50%,
+        rgb(var(--accent-1-rgb) / 0.05) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+/* interior de hire-band centrado con ancho máximo */
+.hire-band-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+/* eyebrow del hire-band */
+.hire-band-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-1);
+    margin-bottom: 6px;
+}
+/* título principal del hire-band */
+.hire-band-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+/* subtítulo del hire-band */
+.hire-band-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: center;
+}
+/* botón de llamada a la acción del hire-band */
+.hire-band-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    border-radius: 999px;
+    background: var(--gradient);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    transition: var(--ease);
+    box-shadow: 0 4px 24px rgba(109,53,217,0.35);
+}
+.hire-band-cta:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(109,53,217,0.5);
+}
+html.theme-light .hire-band {
+    background: linear-gradient(135deg,
+        rgba(0,153,204,0.06) 0%,
+        rgba(109,53,217,0.08) 50%,
+        rgba(0,153,204,0.04) 100%);
+}
+/* shuffle FAB — desactivado actualmente */
+.shuffle-fab {
+    display: none;
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    z-index: 110;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(109,53,217,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+.shuffle-fab.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+.shuffle-fab:hover {
+    transform: scale(1.12) rotate(20deg);
+    box-shadow: 0 6px 28px rgba(109,53,217,0.6);
+}
+.shuffle-fab:active { transform: scale(0.95); }
+body.npb-visible .shuffle-fab { bottom: calc(22px + 64px); }
+body.npb-visible .studio-wrap       { bottom: calc(64px + 22px); }
+body.npb-visible .studio-cat-panel  { bottom: calc(64px + 22px); }
+body.npb-visible .studio-cta        { bottom: calc(64px + 22px); }
+/* pie de página con borde superior */
+#footer {
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: padding-bottom 0.35s ease;
+}
+/* padding extra cuando el now-playing bar está visible */
+body.npb-visible #footer {
+    padding-bottom: calc(36px + 64px);
+}
+/* enlace y corazón del footer */
+#footer a { color: var(--accent-1); font-weight: 600; transition: var(--ease); }
+#footer a:hover { color: var(--white); }
+#footer .fa-heart { color: #ef4444; }
+/* navegación fija de secciones (botones prev/next) */
+.section-nav {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: bottom 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+/* sube la nav cuando el reproductor está activo */
+.section-nav.player-active {
+    bottom: calc(64px + 22px);
+}
+/* botón individual de la navegación de secciones */
+.section-nav-btn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: rgba(8, 13, 26, 0.88);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: var(--ease);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+}
+/* hover del botón de navegación */
+.section-nav-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: rgb(var(--accent-1-rgb) / 0.45);
+    color: var(--accent-1);
+}
+/* botón desactivado cuando no hay sección anterior o siguiente */
+.section-nav-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+/* responsive: pantallas anchas medianas */
+@media (max-width: 1180px) {
+    .section { padding: 96px 0; }
+    .about-grid { grid-template-columns: 180px 1fr 1.2fr; }
+    .music-grid,
+    .contact-grid {
+        gap: 36px;
+    }
+    .about-grid {
+        gap: 36px;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .project-card--featured,
+    .project-card:not(.project-card--featured) { grid-column: span 1; }
+}
+/* responsive: pantallas cortas */
+@media (max-height: 860px) {
+    #hero {
+        min-height: 100svh;
+    }
+    .hero-content {
+        padding-top: calc(var(--nav-h) + 24px);
+        padding-bottom: 84px;
+    }
+    .hero-name {
+        font-size: clamp(2.9rem, 8vw, 4.8rem);
+    }
+    .hero-cta {
+        gap: 12px;
+        margin-bottom: 34px;
+    }
+    .hero-scroll {
+        bottom: 18px;
+    }
+}
+/* responsive: tablet y móvil grande */
+@media (max-width: 920px) {
+    .fosky-wrap { width: 34px; height: 34px; }
+    .nav-container {
+        gap: 16px;
+    }
+    .nav-links  { display: none; }
+    .nav-toggle { display: flex; }
+    /* sin secciones centradas el logo vuelve a ancho de contenido y las acciones empujan a la derecha */
+    .nav-logo { flex: 0 0 auto; }
+    .btn-cv {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+    }
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--nav-h); left: 0; right: 0;
+        background: rgba(8, 13, 26, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        padding: 20px 28px 28px;
+        border-bottom: 1px solid var(--border);
+        gap: 4px;
+    }
+    .nav-links.open a {
+        display: block;
+        padding: 14px 16px;
+        font-size: 1.05rem;
+        color: var(--text);
+        border-radius: var(--radius-sm);
+    }
+    .about-grid,
+    .music-grid,
+    .contact-grid { grid-template-columns: 1fr; }
+    .music-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .about-photo-col { align-items: center; position: static; }
+    .legacy-shell { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-card--featured,
+    .project-card:not(.project-card--featured) { grid-column: span 1; }
+    .about-grid { margin-top: 40px; }
+}
+/* responsive: móvil pequeño */
+@media (max-width: 580px) {
+    .section { padding: 80px 0; }
+    .container,
+    .nav-container {
+        padding: 0 20px;
+    }
+    .fosky-wrap { width: 32px; height: 32px; }
+    .lang-switcher { width: 40px; height: 40px; }
+    .lang-btn { min-width: 36px; height: 34px; padding: 0 8px; font-size: 0.7rem; }
+    .hero-name { font-size: clamp(2.6rem, 11vw, 3.5rem); }
+    .hero-content { padding-inline: 20px; }
+    .hero-cta  { flex-direction: column; align-items: stretch; }
+    .studio-wrap { bottom: 14px; left: 14px; }
+    .studio-fab  { width: 42px; height: 42px; font-size: 0.9rem; }
+    .studio-sub-fab { height: 42px; font-size: 0.9rem; padding: 0 12px 0 10px; gap: 7px; }
+    .studio-cta { left: calc(14px + 42px + 10px); bottom: 14px; height: 42px; }
+    .studio-cta-long { display: none; }
+    .studio-cta-short { display: inline; }
+    .studio-cat-panel { left: calc(14px + 42px + 10px); bottom: 14px; width: calc(100vw - 86px); }
+    .studio-bg-grid { grid-template-columns: repeat(3, 1fr); }
+    .btn-primary,
+    .btn-outline { justify-content: center; }
+    .song-highlight,
+    .eduardo-card,
+    .skills-panel,
+    .project-card,
+    .contact-form {
+        padding: 22px;
+    }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card--featured,
+    .project-card:not(.project-card--featured) { grid-column: span 1; }
+    .section-nav {
+        right: 14px;
+        bottom: 14px;
+    }
+    .section-nav-btn {
+        width: 44px;
+        height: 44px;
+    }
+    .ai-chat-panel { right: 14px; bottom: 184px; height: min(480px, calc(100vh - 220px)); }
+    body.npb-visible .ai-chat-panel { bottom: calc(184px + 64px); }
+    body.npb-visible .studio-wrap { bottom: calc(64px + 14px); }
+    body.npb-visible .studio-cat-panel { bottom: calc(64px + 14px); }
+}
+/* búsqueda en tracklist */

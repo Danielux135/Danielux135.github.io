@@ -1,0 +1,277 @@
+
+/* Este aviso solo aparece cuando index.html se abre sin Vite y la hoja principal no carga. */
+#viteBootstrapWarning { display: none; }
+/* oculta el outline al hacer clic, lo preserva para navegación por teclado */
+*:focus:not(:focus-visible) { outline: none; }
+
+/* propiedad personalizada animable para la opacidad del beat */
+@property --beat-alpha {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: true;
+}
+/* transiciones de entrada/salida para view transitions api */
+@keyframes vt-slide-in-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vt-slide-out-up {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-40px); }
+}
+@keyframes vt-slide-in-down {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vt-slide-out-down {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(40px); }
+}
+/* asignación de animaciones a la raíz en transición de página */
+::view-transition-old(root) {
+    animation: 280ms cubic-bezier(0.4, 0, 0.2, 1) both vt-slide-out-up;
+}
+::view-transition-new(root) {
+    animation: 280ms cubic-bezier(0.4, 0, 0.2, 1) both vt-slide-in-up;
+}
+/* dirección inversa cuando se navega hacia arriba */
+html[data-vt-dir="up"] ::view-transition-old(root) {
+    animation-name: vt-slide-out-down;
+}
+html[data-vt-dir="up"] ::view-transition-new(root) {
+    animation-name: vt-slide-in-down;
+}
+/* transición de cambio de tema: fade cruzado rápido */
+html[data-vt-theme] ::view-transition-old(root) {
+    animation: 150ms ease both fade-out;
+}
+html[data-vt-theme] ::view-transition-new(root) {
+    animation: 200ms ease both fade-in;
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* variables del tema — modo oscuro por defecto */
+:root {
+    --bg:            #080d1a;
+    --bg-alt:        #0c1120;
+    --surface:       rgba(255, 255, 255, 0.04);
+    --surface-hover: rgba(255, 255, 255, 0.08);
+    --border:        rgba(255, 255, 255, 0.09);
+    --accent-1:      #00c8ff;
+    --accent-2:      #8b5cf6;
+    --accent-1-rgb:  0 200 255;
+    --accent-2-rgb:  139 92 246;
+    --beat-glow:      none;
+    --beat-glow-soft: none;
+    --beat-alpha:     0;
+    --gradient:      linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    --text:          #dde4f0;
+    --muted:         #5a6880;
+    --white:         #ffffff;
+    --font-head:     'Montserrat', sans-serif;
+    --font-body:     'Inter', sans-serif;
+    --radius:        18px;
+    --radius-sm:     11px;
+    --nav-h:         68px;
+    --ease:          0.3s ease;
+}
+/* tema claro */
+html.theme-light {
+    --bg:            #f0f4fa;
+    --bg-alt:        #e6ecf5;
+    --surface:       rgba(0, 0, 0, 0.04);
+    --surface-hover: rgba(0, 0, 0, 0.07);
+    --border:        rgba(0, 0, 0, 0.10);
+    --accent-1:      #0099cc;
+    --accent-2:      #6d35d9;
+    --gradient:      linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    --text:          #1a2035;
+    --muted:         #6b7a99;
+    --white:         #1a2035;
+}
+/* ajustes de body en tema claro */
+html.theme-light body { background: var(--bg); color: var(--text); }
+/* navbar con fondo claro al hacer scroll */
+html.theme-light #navbar.scrolled {
+    background: rgba(240, 244, 250, 0.92);
+    border-bottom-color: var(--border);
+}
+/* menú móvil abierto en tema claro */
+html.theme-light .nav-links.open {
+    background: rgba(240, 244, 250, 0.97);
+    border-bottom-color: var(--border);
+}
+/* botón de navegación de sección en tema claro */
+html.theme-light .section-nav-btn {
+    background: rgba(240, 244, 250, 0.92);
+    color: var(--text);
+}
+/* barra now playing en tema claro */
+html.theme-light .now-playing-bar {
+    background: rgba(230, 236, 245, 0.96);
+    box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
+}
+/* relleno del anillo del avatar en tema claro */
+html.theme-light .about-avatar::after { background: var(--bg); }
+/* fondo de la barra de habilidades en tema claro */
+html.theme-light .bar-track { background: rgba(0,0,0,0.08); }
+/* ajustes de la barra de volumen en tema claro */
+html.theme-light .player-vol-range {
+    background: linear-gradient(90deg,
+        rgb(var(--accent-1-rgb)) 0%,
+        rgb(var(--accent-2-rgb)) var(--vol, 0%),
+        rgba(0,0,0,0.10) var(--vol, 0%));
+}
+/* barra de progreso de reproducción en tema claro */
+html.theme-light .player-seek,
+html.theme-light .npb-seek {
+    background: linear-gradient(90deg,
+        rgb(var(--accent-1-rgb)) 0%,
+        rgb(var(--accent-2-rgb)) var(--seek, 0%),
+        rgba(0,0,0,0.12) var(--seek, 0%));
+}
+/* fondo del iframe de video en tema claro */
+html.theme-light .song-video-frame { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.10); }
+/* campos de formulario en tema claro */
+html.theme-light .form-group input,
+html.theme-light .form-group textarea { background: rgba(0,0,0,0.03); }
+/* fondo con acento en campos enfocados en tema claro */
+html.theme-light .form-group input:focus,
+html.theme-light .form-group textarea:focus { background: rgba(0, 153, 204, 0.04); }
+/* gradiente radial del hero en tema claro */
+html.theme-light #hero::before {
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgb(var(--accent-1-rgb) / calc(0.09 + var(--beat-alpha) * 0.13)) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 70% 70%, rgb(var(--accent-2-rgb) / calc(0.07 + var(--beat-alpha) * 0.11)) 0%, transparent 60%);
+}
+/* sección del reproductor musical en tema claro */
+html.theme-light .music-player-section {
+    background: linear-gradient(135deg, rgba(109, 53, 217, 0.07), rgba(0, 153, 204, 0.04));
+    border-color: rgba(109, 53, 217, 0.2);
+}
+/* borde de la lista de pistas en tema claro */
+html.theme-light .tracklist { border-right-color: rgba(0,0,0,0.08); }
+/* color de la etiqueta del idioma en tema claro */
+html.theme-light .lang-pill-label { color: var(--text); }
+/* switcher de idioma abierto en tema claro */
+html.theme-light .lang-switcher.open { background: transparent; border-color: transparent; }
+html.theme-light .lang-switcher.open .lang-btn { color: rgba(10,10,30,0.55); }
+html.theme-light .lang-switcher.open .lang-btn.active { color: var(--white); }
+/* reset base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* scroll suave global */
+html  { scroll-behavior: smooth; }
+/* estilos de body */
+body  {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+/* reset de enlaces, listas e imágenes */
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
+img { max-width: 100%; display: block; }
+/* contenedor centrado */
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+/* sección genérica con padding vertical */
+.section     { padding: 110px 0; }
+/* sección con fondo alternativo */
+.section-alt { background: var(--bg-alt); }
+/* margen para que el ancla no quede oculto bajo la navbar */
+section[id] { scroll-margin-top: calc(var(--nav-h) + 22px); }
+/* título de sección con gradiente de acento */
+.section-title {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 14px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* drop-shadow en lugar de text-shadow porque el texto tiene fill transparente */
+    filter: drop-shadow(0 0 calc(var(--beat-alpha) * 16px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.55)));
+}
+/* descripción centrada bajo el título de sección */
+.section-desc {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 760px;
+    margin: 0 auto 64px;
+}
+.section-desc strong { color: var(--text); }
+/* botón primario con gradiente de acento */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    background: var(--gradient);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    transition: var(--ease);
+    box-shadow: 0 4px 24px rgb(var(--accent-1-rgb) / 0.22);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgb(var(--accent-1-rgb) / 0.38);
+}
+/* variante a ancho completo del botón primario */
+.btn-primary.full-width { width: 100%; }
+/* botón secundario con borde */
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--border);
+    transition: var(--ease);
+}
+.btn-outline:hover {
+    border-color: var(--accent-2);
+    color: var(--accent-2);
+    transform: translateY(-2px);
+    background: rgb(var(--accent-2-rgb) / 0.06);
+}
+/* animación de entrada al hacer scroll */
+.reveal,
+.fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+/* estado visible tras intersección */
+.reveal.visible,
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

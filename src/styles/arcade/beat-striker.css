@@ -1,0 +1,58 @@
+/* ==========================================================================
+   BEAT STRIKER — osu-like refactor
+   ========================================================================== */
+.arcade-stage.beat-striker-osu canvas {
+    cursor: none;
+}
+
+.arcade-stage.beat-striker-osu .arcade-hud {
+    padding-top: 14px;
+    background: linear-gradient(to bottom, rgba(1, 0, 14, 0.28), transparent 72%);
+}
+
+.arcade-stage.beat-striker-osu .arcade-hud-label {
+    color: rgba(255,255,255,0.42);
+    text-shadow: 0 0 10px rgba(0,200,255,0.25);
+}
+
+.arcade-stage.beat-striker-osu .arcade-hud-value {
+    font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.96);
+    text-shadow:
+        0 0 10px rgb(var(--accent-1-rgb) / 0.35),
+        0 0 calc(var(--beat-alpha, 0) * 24px) rgb(var(--accent-1-rgb) / 0.78);
+}
+
+.arcade-stage.beat-striker-osu .arcade-hud-value.combo-hot {
+    color: var(--accent-1);
+    transform: scale(1.04);
+}
+
+.arcade-stage.beat-striker-osu::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 45%, rgb(var(--accent-1-rgb) / calc(0.025 + var(--beat-alpha, 0) * 0.07)), transparent 58%),
+        repeating-linear-gradient(to bottom, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px);
+    mix-blend-mode: screen;
+    opacity: 0.62;
+    z-index: 1;
+}
+
+html.theme-light .arcade-stage.beat-striker-osu::after {
+    opacity: 0.28;
+    mix-blend-mode: normal;
+}
+
+@media (max-width: 640px) {
+    .arcade-stage.beat-striker-osu .arcade-hud {
+        padding-top: 10px;
+        gap: 8px;
+    }
+    .arcade-stage.beat-striker-osu .arcade-hud-box {
+        min-width: 58px;
+    }
+}

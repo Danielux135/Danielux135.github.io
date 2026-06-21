@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "api/subscribe.js":   { "memory": 128, "maxDuration": 15 },
+    "api/unsubscribe.js": { "memory": 128, "maxDuration": 10 }
+  }
+}

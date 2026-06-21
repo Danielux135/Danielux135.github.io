@@ -1,0 +1,711 @@
+/* ==========================================================================
+   ARCADE — minijuegos musicales (overlay, hub y juegos)
+   Reusa los tokens de style.css: --accent-1/2, --surface, --border, --text…
+   ========================================================================== */
+
+/* ---- Overlay raíz ---- */
+.arcade-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    /* Fondo OPACO (sin backdrop-filter): el blur sobre contenido animado
+       era una de las causas del lag dentro de los juegos */
+    background:
+        radial-gradient(90% 55% at 50% 0%, rgba(0, 200, 255, 0.055), transparent 65%),
+        radial-gradient(80% 60% at 85% 100%, rgba(139, 92, 246, 0.07), transparent 60%),
+        #070b16;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+    overscroll-behavior: contain;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.arcade-overlay.open { opacity: 1; visibility: visible; }
+html.theme-light .arcade-overlay {
+    background:
+        radial-gradient(90% 55% at 50% 0%, rgba(0, 153, 204, 0.06), transparent 65%),
+        radial-gradient(80% 60% at 85% 100%, rgba(109, 53, 217, 0.06), transparent 60%),
+        #eef2f8;
+}
+
+/* Mientras el arcade está abierto, la página de detrás NI SE PINTA (NPB incluida — se sustituye por el HUD de música del hub) */
+html.arcade-lock body > :not(#arcadeOverlay) { visibility: hidden; }
+
+/* El atributo hidden pierde contra cualquier regla con display propio
+   (p. ej. .arcade-hub es flex): forzamos que ocultar SIEMPRE oculte. */
+.arcade-overlay [hidden] { display: none; }
+
+html.arcade-lock, html.arcade-lock body { overflow: hidden; }
+
+/* ---- Cabecera HUD (dentro del overlay, sobre el bg canvas) ---- */
+.arcade-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px clamp(12px, 3vw, 24px);
+    flex: 0 0 auto;
+    min-height: 54px;
+    position: relative;
+    z-index: 10;
+    /* Barra semi-transparente estilo HUD */
+    background: rgba(2, 0, 20, 0.65);
+    border-bottom: 1px solid rgba(var(--accent-1-rgb, 0 200 255), 0.18);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+.arcade-title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-indent: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+.arcade-title i {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 calc(var(--beat-alpha, 0) * 10px) rgb(var(--accent-1-rgb) / 0.9));
+}
+/* Separador decorativo tipo HUD */
+.arcade-title::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 22px;
+    background: rgba(255,255,255,0.12);
+    margin-left: 4px;
+}
+.arcade-now {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.8rem;
+    min-width: 0;
+    max-width: 40%;
+}
+.arcade-now i { color: var(--accent-1); flex: 0 0 auto; }
+.arcade-now span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Botones de control del overlay */
+.arcade-back,
+.arcade-close,
+.arcade-iconbtn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.18s ease;
+    flex: 0 0 auto;
+}
+.arcade-back {
+    width: auto;
+    border-radius: 8px;
+    padding: 0 12px;
+    gap: 7px;
+    font-size: 0.8rem;
+    font-family: var(--font-head);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.arcade-back:hover,
+.arcade-close:hover,
+.arcade-iconbtn:hover {
+    background: rgba(var(--accent-1-rgb), 0.18);
+    border-color: rgba(var(--accent-1-rgb), 0.55);
+    color: var(--accent-1);
+    box-shadow: 0 0 12px rgba(var(--accent-1-rgb), 0.25);
+}
+
+/* ---- Hub (selector de juegos): cartuchos arcade ---- */
+.arcade-hub {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: clamp(18px, 4vh, 44px) clamp(14px, 4vw, 40px) 44px;
+}
+.arcade-hub-inner {
+    width: min(1100px, 100%);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+}
+/* ---- Selector de canción (en hub y en partida) ---- */
+.songpick { width: min(460px, 94vw); }
+.songpick-search {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    margin: 14px 0 10px;
+}
+.songpick-search:focus { border-color: rgb(var(--accent-1-rgb) / 0.6); }
+.songpick-list {
+    max-height: 44vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    overscroll-behavior: contain;
+}
+.songpick-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 10px;
+    border: none;
+    background: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.86rem;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: left;
+}
+.songpick-row:hover { background: var(--surface-hover); }
+.songpick-row.active {
+    color: var(--accent-1);
+    font-weight: 600;
+    background: rgb(var(--accent-1-rgb) / 0.08);
+}
+.songpick-row .n {
+    color: var(--muted);
+    font-size: 0.72rem;
+    min-width: 22px;
+    font-variant-numeric: tabular-nums;
+    flex: 0 0 auto;
+}
+.songpick-row .t {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ---- Panel previo a la partida (dificultad y opciones) ---- */
+.pregame { width: min(440px, 94vw); }
+.pregame-icon {
+    width: 54px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    background: linear-gradient(145deg, rgb(var(--g1, 0 200 255)), rgb(var(--g2, 139 92 246)));
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    filter: drop-shadow(0 6px 16px rgb(var(--g2, 139 92 246) / 0.5));
+    margin-bottom: 10px;
+}
+.pregame-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pregame-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    min-width: 72px;
+    text-align: right;
+}
+.arcade-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.arcade-chip {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    padding: 7px 13px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+.arcade-chip:hover { color: var(--text); border-color: rgb(var(--g1, var(--accent-1-rgb)) / 0.5); }
+.arcade-chip.active {
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(90deg, rgb(var(--g1, 0 200 255)), rgb(var(--g2, 139 92 246)));
+    box-shadow: 0 4px 14px rgb(var(--g2, 139 92 246) / 0.4);
+}
+.pregame-keys {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    min-height: 30px;
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+.pregame-keys kbd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 4px 9px;
+    font-size: 0.78rem;
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--text);
+    min-width: 28px;
+    text-align: center;
+}
+.pregame-keys em { font-style: normal; font-size: 0.74rem; }
+.arcade-btn.mini { padding: 6px 13px; font-size: 0.72rem; }
+.pregame-best {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--accent-1);
+    font-weight: 600;
+    min-height: 1.2em;
+}
+.pregame-best i { margin-right: 5px; }
+
+/* ---- Escenario de juego ---- */
+.arcade-stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.arcade-stage canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+/* ---- HUD ---- */
+.arcade-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px clamp(12px, 3vw, 24px);
+    pointer-events: none;
+    z-index: 3;
+}
+.arcade-hud-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    min-width: 70px;
+}
+.arcade-hud-box.right { align-items: flex-end; }
+.arcade-hud-box.center { align-items: center; }
+.arcade-hud-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+.arcade-hud-value {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    text-shadow: 0 0 calc(var(--beat-alpha, 0) * 14px) rgb(var(--accent-1-rgb) / 0.7);
+}
+.arcade-hud-value.combo-hot { color: var(--accent-1); }
+.arcade-lives { display: flex; gap: 5px; font-size: 0.95rem; }
+.arcade-lives i { color: rgb(var(--accent-2-rgb) / 0.95); transition: all 0.2s ease; }
+.arcade-lives i.lost { color: var(--muted); opacity: 0.3; transform: scale(0.85); }
+
+/* ---- Mensajes centrales (cuenta atrás, pausa, análisis, resultados) ---- */
+.arcade-msg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    z-index: 4;
+    text-align: center;
+    padding: 20px;
+    pointer-events: none;
+}
+.arcade-msg.interactive { pointer-events: auto; }
+.arcade-msg[hidden] { display: none; }
+.arcade-msg-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 9, 18, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+html.theme-light .arcade-msg-backdrop { background: rgba(236, 241, 249, 0.6); }
+.arcade-msg > * { position: relative; }
+.arcade-msg-title {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+.arcade-msg-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    line-height: 1.55;
+    margin: 0;
+}
+.arcade-count {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(4rem, 16vw, 7rem);
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: arcadeCountPop 0.9s ease both;
+}
+@keyframes arcadeCountPop {
+    0%   { transform: scale(1.6); opacity: 0; }
+    25%  { transform: scale(1);   opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: scale(0.92); opacity: 0; }
+}
+.arcade-spinner {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent-1);
+    animation: arcadeSpin 0.8s linear infinite;
+}
+@keyframes arcadeSpin { to { transform: rotate(360deg); } }
+
+/* ---- Resultados ---- */
+.arcade-results {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(22px, 5vw, 38px) clamp(26px, 6vw, 52px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), var(--beat-glow-soft, none);
+    max-width: min(420px, 92vw);
+    width: 100%;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    background-color: rgba(10, 16, 30, 0.82);
+}
+html.theme-light .arcade-results {
+    background-color: rgba(248, 250, 254, 0.9);
+    box-shadow: 0 24px 70px rgba(30, 40, 80, 0.18);
+}
+.arcade-results-grade {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 3.4rem;
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 4px;
+}
+.arcade-results-score {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+.arcade-results-record {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--gradient);
+    box-shadow: 0 4px 16px rgb(var(--accent-2-rgb) / 0.4);
+    animation: arcadeRecordPulse 1.4s ease infinite;
+}
+@keyframes arcadeRecordPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+.arcade-results-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 18px 0 22px;
+}
+.arcade-results-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+.arcade-results-row b {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+.arcade-results-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.arcade-btn {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: all var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+.arcade-btn:hover {
+    background: var(--surface-hover);
+    border-color: rgb(var(--accent-1-rgb) / 0.5);
+    transform: translateY(-2px);
+}
+.arcade-btn.primary {
+    background: var(--gradient);
+    border: none;
+    color: #fff;
+    box-shadow: 0 6px 20px rgb(var(--accent-2-rgb) / 0.38);
+}
+.arcade-btn.primary:hover { box-shadow: 0 10px 28px rgb(var(--accent-2-rgb) / 0.5); }
+
+/* ---- Botones del jugador en reproductor / NPB ---- */
+.player-games-btn i,
+.npb-games-btn i {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---- Simon Beat: pads DOM ---- */
+.simon-board {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 3vh, 26px);
+    z-index: 2;
+    padding: 70px 16px 24px;
+}
+.simon-status {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    min-height: 1.4em;
+    transition: color 0.2s ease;
+}
+.simon-status.your-turn { color: var(--accent-1); }
+.simon-pads {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(110px, 168px));
+    grid-template-rows: repeat(2, minmax(110px, 168px));
+    gap: clamp(12px, 2.5vw, 20px);
+}
+.simon-pad {
+    border-radius: 26px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    background: var(--surface);
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+.simon-pad::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--pad-color);
+    opacity: 0.16;
+    transition: opacity 0.15s ease;
+}
+html.theme-light .simon-pad::after { opacity: 0.3; }
+.simon-pad.lit {
+    transform: scale(1.05);
+    box-shadow: 0 0 34px var(--pad-color), 0 0 80px var(--pad-color);
+    border-color: transparent;
+}
+.simon-pad.lit::after { opacity: 1; }
+.simon-pad:active { transform: scale(0.96); }
+.simon-pad.wrong { animation: simonShake 0.4s ease; }
+@keyframes simonShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(9px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(4px); }
+}
+.simon-round {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Tap Tempo ---- */
+.tempo-board {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 3.5vh, 30px);
+    z-index: 2;
+    padding: 70px 18px 26px;
+    text-align: center;
+}
+.tempo-gauge { position: relative; width: min(320px, 78vw); }
+.tempo-gauge svg { width: 100%; height: auto; display: block; }
+.tempo-readout {
+    display: flex;
+    gap: clamp(20px, 6vw, 46px);
+    align-items: baseline;
+    justify-content: center;
+}
+.tempo-readout .t-block { display: flex; flex-direction: column; gap: 2px; }
+.tempo-readout .t-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+.tempo-readout .t-value {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: clamp(1.7rem, 6vw, 2.6rem);
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+.tempo-readout .t-value.you { color: var(--accent-1); }
+.tempo-tap-btn {
+    width: clamp(150px, 36vw, 210px);
+    height: clamp(150px, 36vw, 210px);
+    border-radius: 50%;
+    border: 2px solid rgb(var(--accent-1-rgb) / 0.55);
+    background: radial-gradient(circle at 35% 30%, rgb(var(--accent-1-rgb) / 0.22), rgb(var(--accent-2-rgb) / 0.12));
+    color: var(--text);
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: transform 0.08s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 calc(18px + var(--beat-alpha, 0) * 40px) rgb(var(--accent-1-rgb) / 0.35);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.tempo-tap-btn:active { transform: scale(0.93); }
+.tempo-feedback {
+    min-height: 1.5em;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-1);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+    .arcade-top { padding: 10px 10px; gap: 8px; min-height: 52px; }
+    .arcade-title { font-size: 0.95rem; }
+    .arcade-now { display: none; }
+    .arcade-back { padding: 0 11px; font-size: 0.78rem; height: 34px; }
+    .arcade-title { margin-right: auto; }
+    .arcade-close, .arcade-iconbtn { width: 34px; height: 34px; font-size: 0.85rem; }
+    .arcade-tiles { grid-template-columns: 1fr; gap: 12px; }
+    .arcade-tile { min-height: 152px; padding: 16px 16px 14px; }
+    .arcade-tile-num { font-size: 4rem; right: 10px; }
+    .arcade-tile-icon { width: 44px; height: 50px; font-size: 1.2rem; top: 14px; left: 16px; }
+    .arcade-tile-name { font-size: 1.05rem; }
+    .arcade-tile-desc { font-size: 0.75rem; max-width: 100%; }
+    .arcade-hud-value { font-size: 1.05rem; }
+    .simon-pads {
+        grid-template-columns: repeat(2, minmax(96px, 42vw));
+        grid-template-rows: repeat(2, minmax(96px, 24vh));
+    }
+    .arcade-results { padding: 20px 22px; }
+    .arcade-results-grade { font-size: 2.6rem; }
+    .arcade-results-score { font-size: 1.6rem; }
+}
+@media (max-width: 430px) {
+    .arcade-title span { display: none; } /* queda el icono del mando */
+}
+/* La NPB en móvil: compactar para que quepa el botón de minijuegos */
+@media (max-width: 480px) {
+    .npb-artist { display: none; }
+    .npb-title { max-width: 84px; }
+    .npb-controls { gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .arcade-overlay, .arcade-card, .arcade-count { transition: none; animation: none; }
+}
+

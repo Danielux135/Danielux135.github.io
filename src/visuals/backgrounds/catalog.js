@@ -1,0 +1,21 @@
+// Catálogo público de fondos. Los ids 0-6 coinciden con getDay().
+export const HERO_BACKGROUNDS = [
+    { id: 1, es: 'Matrix',         en: 'Matrix',          val: 'Matrix',           icon: 'fa-terminal'     },
+    { id: 2, es: 'Geometría',      en: 'Geometry',        val: 'Geometria',        icon: 'fa-shapes'       },
+    { id: 3, es: 'Aurora',         en: 'Aurora',          val: 'Aurora',           icon: 'fa-wind'         },
+    { id: 4, es: 'Órbitas',        en: 'Orbits',          val: 'Òrbites',          icon: 'fa-circle-nodes' },
+    { id: 5, es: 'Galaxia',        en: 'Galaxy',          val: 'Galàxia',          icon: 'fa-rotate'       },
+    { id: 6, es: 'Circuitos',      en: 'Circuits',        val: 'Circuits',         icon: 'fa-microchip'    },
+    { id: 0, es: 'Constelaciones', en: 'Constellations',  val: 'Constel·lacions',  icon: 'fa-star'         },
+    { id: 7,  es: 'Láser',         en: 'Laser',            val: 'Làser',            icon: 'fa-bolt'         },
+    { id: 8,  es: 'Ecualizador',   en: 'Equalizer',        val: 'Equalitzador',     icon: 'fa-circle-dot'   },
+    { id: 9,  es: 'Fuegos',        en: 'Fireworks',        val: 'Focs artificials', icon: 'fa-fire'         },
+    { id: 10, es: 'Ondas',         en: 'Waves',            val: 'Ones',             icon: 'fa-water'        },
+    { id: 11, es: 'Meteoros',      en: 'Meteors',          val: 'Meteors',          icon: 'fa-meteor'       },
+    { id: 12, es: 'ADN',           en: 'DNA',              val: 'ADN',              icon: 'fa-dna'          },
+    { id: 14, es: 'Magnético',     en: 'Magnetic',         val: 'Magnètic',         icon: 'fa-magnet'       },
+    { id: 15, es: 'Topografía',    en: 'Topography',       val: 'Topografia',       icon: 'fa-mountain'     },
+    { id: 16, es: 'Hexágonos',     en: 'Hexagons',         val: 'Hexàgons',         icon: 'fa-cube'         },
+    { id: 18, es: 'Bokeh',         en: 'Bokeh',            val: 'Bokeh',            icon: 'fa-circle'       },
+    { id: 19, es: 'Caleidoscopio', en: 'Kaleidoscope',     val: 'Calidoscopi',      icon: 'fa-snowflake'    },
+];

@@ -1,0 +1,761 @@
+/* navbar fijo con transición de fondo */
+#navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    transition: background var(--ease), backdrop-filter var(--ease), border-color var(--ease);
+    border-bottom: 1px solid transparent;
+}
+/* estado con fondo al hacer scroll */
+#navbar.scrolled {
+    background: rgba(8, 13, 26, 0.88);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-bottom-color: var(--border);
+}
+/* contenedor interno de la navbar */
+.nav-container {
+    max-width: none;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+/* zona izquierda: logo (crece para empujar el centro) */
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
+    text-decoration: none;
+}
+/* zona derecha: acciones (misma proporción que el logo → el centro queda centrado) */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: flex-end;
+}
+/* contenedor circular del avatar fosky en la navbar */
+.fosky-wrap {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(var(--accent-1-rgb) / 0.45);
+    box-shadow: 0 0 0 rgba(var(--accent-1-rgb) / 0);
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+}
+/* hover del avatar fosky */
+.fosky-wrap:hover {
+    border-color: rgba(var(--accent-1-rgb) / 0.9);
+    box-shadow: 0 0 14px rgba(var(--accent-1-rgb) / 0.5);
+    transform: scale(1.07);
+}
+/* estado de reproducción activa del avatar fosky */
+.fosky-wrap.fosky-playing {
+    border-color: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 18px rgba(var(--accent-1-rgb) / 0.7);
+}
+/* capa de imagen base del avatar fosky */
+.fosky-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+/* video del avatar fosky, oculto hasta que carga */
+.fosky-vid {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+/* video visible cuando está listo */
+.fosky-vid.visible {
+    opacity: 1;
+}
+/* animación de rebote al hacer clic en el avatar */
+.fosky-wrap.fosky-bounce {
+    animation: foskyBounce 0.55s cubic-bezier(.36,.07,.19,.97) both;
+}
+/* tooltip del avatar fosky */
+.fosky-hint {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(8, 8, 20, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--accent-1-rgb) / 0.45);
+    border-radius: 999px;
+    padding: 5px 12px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+/* punta de flecha del tooltip */
+.fosky-hint::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(var(--accent-1-rgb) / 0.45);
+}
+/* tooltip visible */
+.fosky-hint.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+/* keyframes del rebote del avatar fosky */
+@keyframes foskyBounce {
+    0%   { transform: scale(1)    rotate(0deg);  }
+    18%  { transform: scale(1.18) rotate(-8deg); }
+    36%  { transform: scale(0.92) rotate(6deg);  }
+    54%  { transform: scale(1.12) rotate(-4deg); }
+    72%  { transform: scale(0.96) rotate(2deg);  }
+    100% { transform: scale(1)    rotate(0deg);  }
+}
+
+/* fosky — overlay expandido al hacer click en el logo */
+.fosky-expanded {
+    position: fixed;
+    top: calc(var(--nav-h) + 12px);
+    left: 28px;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    transform-origin: top left;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity   0.3s  ease;
+}
+/* panel fosky abierto */
+.fosky-expanded.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+/* animación de cierre del panel fosky */
+.fosky-expanded.closing {
+    transform: scale(0);
+    opacity: 0;
+}
+/* círculo grande del panel expandido de fosky */
+.fosky-exp-circle {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 0 6px rgba(var(--accent-1-rgb) / 0.15),
+                0 12px 48px rgba(0, 0, 0, 0.5);
+    animation: foskyGlow 2.5s ease-in-out infinite alternate;
+}
+/* pulso de brillo del anillo del panel fosky */
+@keyframes foskyGlow {
+    from { box-shadow: 0 0 0 6px rgba(var(--accent-1-rgb) / 0.15), 0 12px 48px rgba(0,0,0,0.5); }
+    to   { box-shadow: 0 0 0 10px rgba(var(--accent-1-rgb) / 0.35), 0 12px 48px rgba(0,0,0,0.5); }
+}
+/* video del panel expandido de fosky */
+.fosky-exp-vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* burbuja de texto del panel fosky */
+.fosky-exp-bubble {
+    position: relative;
+    background: rgba(8, 8, 20, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(var(--accent-1-rgb) / 0.35);
+    border-radius: 16px;
+    padding: 11px 16px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    width: 230px;
+    min-height: 2.4em;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease 0.25s, transform 0.35s ease 0.25s;
+}
+/* burbuja visible cuando el panel está abierto */
+.fosky-expanded.open .fosky-exp-bubble {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* borde superior de la burbuja (triángulo exterior) */
+.fosky-exp-bubble::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left:  7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgba(var(--accent-1-rgb) / 0.35);
+}
+/* relleno interior del triángulo de la burbuja */
+.fosky-exp-bubble::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left:  6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(8, 8, 20, 0.82);
+}
+/* burbuja en tema claro */
+html.theme-light .fosky-exp-bubble {
+    background: rgba(240, 242, 255, 0.92);
+    color: rgba(10, 10, 30, 0.9);
+    border-color: rgba(var(--accent-1-rgb) / 0.4);
+}
+/* color del relleno del triángulo en tema claro */
+html.theme-light .fosky-exp-bubble::after {
+    border-bottom-color: rgba(240, 242, 255, 0.92);
+}
+/* panel fosky reducido en móvil */
+@media (max-width: 580px) {
+    .fosky-exp-circle { width: 180px; height: 180px; }
+    .fosky-exp-bubble { width: 180px; font-size: 0.76rem; }
+}
+/* zona central: secciones centradas en flujo (sin position absolute → no se superponen) */
+.nav-links {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+}
+/* enlace individual de la navbar */
+.nav-links a {
+    padding: 7px 11px;
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.88rem;
+    transition: var(--ease);
+    white-space: nowrap;
+}
+/* enlace activo o en hover */
+.nav-links a:hover,
+.nav-links a.active { color: var(--white); background: var(--surface-hover); }
+/* selector de idioma — pastilla fija; el panel se revela a la derecha y empuja los iconos al hueco reservado */
+.lang-switcher {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    flex-shrink: 0;
+    height: 44px;
+    width: 44px;
+    overflow: visible;
+    background: rgba(255,255,255,0.03);
+    transition: background 0.45s ease, border-color 0.45s ease;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+/* switcher desplegado — se oculta el círculo del idioma actual para que solo se vea el panel */
+.lang-switcher.open {
+    background: transparent;
+    border-color: transparent;
+    cursor: default;
+    z-index: 60;
+}
+/* por defecto sin reserva: el grupo va pegado a la derecha y el panel se abre hacia abajo (sin solapar nada) */
+.nav-actions { --lang-shift: 0px; }
+.btn-cv { margin-right: var(--lang-shift); }
+.cmd-palette-trigger,
+.theme-toggle,
+.btn-cv { transition: var(--ease), transform 0.4s cubic-bezier(0.25,0,0,1); }
+.lang-switcher.open ~ .cmd-palette-trigger,
+.lang-switcher.open ~ .theme-toggle,
+.lang-switcher.open ~ .btn-cv {
+    transform: translateX(var(--lang-shift));
+}
+.lang-switcher.open ~ .btn-cv:hover {
+    transform: translateX(var(--lang-shift)) translateY(-1px);
+}
+/* panel de idiomas: hacia abajo alineado a la derecha (comportamiento universal seguro) */
+.lang-options {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: -1px;
+    left: auto;
+    transform: translateY(-8px) scale(0.92);
+    transform-origin: top right;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background: var(--surface, rgba(20,22,40,0.96));
+    border: 1px solid var(--accent-1);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25,0,0,1);
+    z-index: 61;
+}
+.lang-switcher.open .lang-options {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+/* en pantallas anchas hay sitio: reserva hueco y el idioma se expande en horizontal empujando los iconos a la derecha */
+@media (min-width: 1280px) {
+    .nav-actions { --lang-shift: 112px; }
+    .lang-options {
+        top: 50%;
+        left: -1px;
+        right: auto;
+        transform-origin: left center;
+        transform: translateY(-50%) scaleX(0.55);
+    }
+    .lang-switcher.open .lang-options {
+        transform: translateY(-50%) scaleX(1);
+    }
+    /* en horizontal el panel cubre la pastilla: se oculta la etiqueta ES */
+    .lang-switcher.open .lang-pill-label {
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+/* hover del switcher colapsado */
+.lang-switcher:not(.open):hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.07);
+}
+/* etiqueta visible cuando el switcher está colapsado */
+.lang-pill-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: var(--font-head);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+    z-index: 1;
+    user-select: none;
+}
+/* botón individual de idioma */
+.lang-btn {
+    flex-shrink: 0;
+    min-width: 38px;
+    height: 36px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-head);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+/* hover de botón de idioma */
+.lang-btn:hover {
+    background: rgba(255,255,255,0.09);
+    color: var(--white);
+}
+/* botón del idioma activo */
+.lang-btn.active {
+    background: var(--gradient);
+    color: var(--white);
+}
+/* contenedor de la pill de disponibilidad en el hero */
+.hero-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -4px 0 18px;
+}
+/* pill de estado con fondo translúcido */
+.hero-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+/* variante de disponibilidad (verde) */
+.hero-status-available {
+    background: rgba(0, 200, 100, 0.1);
+    border: 1px solid rgba(0, 200, 100, 0.25);
+    color: #4ade80;
+}
+/* punto pulsante de estado */
+.hero-status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+/* keyframes del pulso del punto de estado */
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+    50%       { opacity: 0.8; transform: scale(1.15); box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+}
+/* pill de disponibilidad en tema claro */
+html.theme-light .hero-status-available {
+    background: rgba(0,160,80,0.08);
+    border-color: rgba(0,160,80,0.2);
+    color: #16a34a;
+}
+/* punto de estado en tema claro */
+html.theme-light .hero-status-dot { background: #16a34a; }
+/* barra de progreso de scroll */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg,
+        var(--accent-1) 0%,
+        var(--accent-2) 50%,
+        var(--accent-1) 100%);
+    background-size: 200% 100%;
+    animation: npbGradientShift 4s linear infinite;
+    z-index: 99998;
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
+/* botón disparador de la paleta de comandos */
+.cmd-palette-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-family: var(--font-head);
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: var(--ease);
+}
+/* hover del botón de la paleta */
+.cmd-palette-trigger:hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.07);
+}
+/* etiqueta del botón oculta visualmente */
+.cmd-palette-trigger-label { display: none; }
+/* tamaño reducido en pantallas medianas */
+@media (max-width: 860px) {
+    .cmd-palette-trigger { width: 40px; height: 40px; }
+}
+/* botón de paleta en tema claro */
+html.theme-light .cmd-palette-trigger { background: rgba(0,0,0,0.03); }
+html.theme-light .cmd-palette-trigger:hover { background: rgba(0,153,204,0.08); }
+
+/* overlay oscuro que cubre la página cuando la paleta está abierta */
+.cmd-palette-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 99999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 12vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+}
+/* overlay visible */
+.cmd-palette-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+/* panel de la paleta de comandos */
+.cmd-palette {
+    width: 100%;
+    max-width: 580px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    overflow: hidden;
+    transform: translateY(-12px) scale(0.97);
+    transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    margin: 0 16px;
+}
+/* panel en posición normal cuando el overlay está abierto */
+.cmd-palette-overlay.open .cmd-palette {
+    transform: translateY(0) scale(1);
+}
+/* cabecera con el input de búsqueda */
+.cmd-palette-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+}
+/* icono de lupa de la paleta */
+.cmd-palette-icon {
+    color: var(--muted);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+/* campo de texto de búsqueda */
+.cmd-palette-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 1rem;
+    font-family: inherit;
+}
+/* placeholder del input */
+.cmd-palette-input::placeholder { color: var(--muted); }
+/* tecla esc decorativa */
+.cmd-palette-esc {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--muted);
+    background: var(--surface);
+    flex-shrink: 0;
+    font-family: inherit;
+}
+/* lista de resultados con scroll */
+.cmd-palette-results {
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 8px;
+}
+/* mensaje cuando no hay resultados */
+.cmd-palette-results:empty::after {
+    content: attr(data-empty);
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding: 24px 0;
+}
+/* etiqueta de grupo dentro de la paleta */
+.cmd-group-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 10px 4px;
+}
+/* ítem individual de la paleta */
+.cmd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+    color: var(--text);
+}
+/* ítem en hover o seleccionado con teclado */
+.cmd-item:hover,
+.cmd-item.active {
+    background: var(--surface-hover);
+}
+/* ítem activo con acento lateral */
+.cmd-item.active {
+    background: linear-gradient(90deg, rgb(var(--accent-1-rgb) / 0.12), rgba(109,53,217,0.1));
+    border-left: 2px solid var(--accent-1);
+    padding-left: 10px;
+}
+/* icono cuadrado del ítem */
+.cmd-item-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    color: var(--accent-1);
+    flex-shrink: 0;
+}
+/* icono de ítem de tipo pista usa acento secundario */
+.cmd-item.cmd-type-track .cmd-item-icon { color: var(--accent-2); }
+/* cuerpo de texto del ítem */
+.cmd-item-body { flex: 1; min-width: 0; }
+/* título del ítem con truncado */
+.cmd-item-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* texto marcado en la búsqueda */
+.cmd-item-title mark {
+    background: none;
+    color: var(--accent-1);
+    font-weight: 700;
+}
+/* subtítulo del ítem */
+.cmd-item-sub {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 1px;
+}
+/* flecha decorativa al final del ítem */
+.cmd-item-arrow {
+    color: var(--muted);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+/* pie de la paleta con atajos de teclado */
+.cmd-palette-footer {
+    display: flex;
+    gap: 16px;
+    padding: 8px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--muted);
+}
+/* tecla de atajo con estilo de teclado */
+.cmd-palette-footer kbd {
+    display: inline-block;
+    padding: 1px 5px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    font-family: inherit;
+    font-size: 0.68rem;
+    margin-right: 2px;
+}
+
+/* botón de cambio de tema claro/oscuro */
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    transition: var(--ease);
+    position: relative;
+}
+/* hover del botón de tema con rotación */
+.theme-toggle:hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.07);
+    transform: rotate(20deg);
+}
+/* iconos de sol y luna con transición cruzada */
+.theme-icon-light,
+.theme-icon-dark { position: absolute; transition: opacity 0.25s ease, transform 0.25s ease; }
+.theme-icon-light { opacity: 0; transform: rotate(90deg) scale(0.7); }
+.theme-icon-dark  { opacity: 1; transform: rotate(0deg) scale(1); }
+/* inversión de visibilidad de iconos en tema claro */
+html.theme-light .theme-icon-light { opacity: 1; transform: rotate(0deg) scale(1); }
+html.theme-light .theme-icon-dark  { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+/* botón de tema en modo claro */
+html.theme-light .theme-toggle { background: rgba(0,0,0,0.03); }
+html.theme-light .theme-toggle:hover { background: rgba(0, 153, 204, 0.08); }
+/* botón de descarga del cv en la navbar */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    background: var(--gradient);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: var(--ease);
+    flex-shrink: 0;
+}
+/* hover del botón cv */
+.btn-cv:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgb(var(--accent-1-rgb) / 0.3); }
+/* botón hamburguesa para menú móvil */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+}
+/* líneas del hamburguesa */
+.nav-toggle span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: var(--ease);
+}
+/* animación de las líneas al estado x cuando está abierto */
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }

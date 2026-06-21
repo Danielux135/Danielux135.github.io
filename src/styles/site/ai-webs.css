@@ -1,0 +1,227 @@
+/* panel del asistente IA */
+.section-nav-btn.section-nav-ai {
+    background: rgba(8, 8, 22, 0.72);
+    border-color: rgba(var(--accent-1-rgb) / 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+.section-nav-btn.section-nav-ai:hover:not(:disabled) {
+    background: rgba(var(--accent-1-rgb) / 0.18);
+    border-color: rgba(var(--accent-1-rgb) / 0.6);
+    color: #fff;
+}
+.ai-chat-panel {
+    position: fixed;
+    right: 22px;
+    bottom: 204px;
+    z-index: 111;
+    width: min(380px, calc(100vw - 44px));
+    height: min(520px, calc(100vh - 240px));
+    display: flex;
+    flex-direction: column;
+    background: rgba(12, 17, 32, 0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgb(var(--accent-2-rgb) / 0.3);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
+}
+.ai-chat-panel.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+body.npb-visible .ai-chat-panel { bottom: calc(204px + 64px); }
+html.theme-light .ai-chat-panel { background: rgba(240, 244, 250, 0.98); }
+/* cabecera del chat con título y botón de cierre */
+.ai-chat-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+.ai-chat-title {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--white);
+    display: inline-flex; align-items: center; gap: 8px;
+}
+.ai-chat-title i { color: var(--accent-1); }
+.ai-chat-close {
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 1rem; padding: 4px; transition: var(--ease);
+}
+.ai-chat-close:hover { color: var(--text); }
+/* área de mensajes con scroll */
+.ai-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--accent-2-rgb) / 0.5) transparent;
+}
+.ai-chat-messages::-webkit-scrollbar { width: 5px; }
+.ai-chat-messages::-webkit-scrollbar-thumb { background: rgb(var(--accent-2-rgb) / 0.5); border-radius: 3px; }
+/* burbuja de mensaje del chat */
+.ai-msg {
+    max-width: 85%;
+    padding: 10px 13px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+/* burbuja del usuario alineada a la derecha */
+.ai-msg.user {
+    align-self: flex-end;
+    background: var(--gradient);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+/* burbuja del bot alineada a la izquierda */
+.ai-msg.bot {
+    align-self: flex-start;
+    background: rgb(var(--accent-2-rgb) / 0.12);
+    color: var(--text);
+    border: 1px solid rgb(var(--accent-2-rgb) / 0.18);
+    border-bottom-left-radius: 4px;
+}
+.ai-msg.bot.error { background: rgba(220, 60, 60, 0.12); border-color: rgba(220,60,60,0.3); }
+.ai-msg.typing { color: var(--muted); font-style: italic; }
+/* fila inferior con el input y el botón de enviar */
+.ai-chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+}
+/* campo de texto del chat */
+.ai-chat-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 16px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.88rem;
+    outline: none;
+    transition: var(--ease);
+}
+html.theme-light .ai-chat-input { background: rgba(0,0,0,0.04); }
+.ai-chat-input:focus { border-color: var(--accent-1); }
+/* botón de enviar mensaje */
+.ai-chat-send {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: var(--ease);
+}
+.ai-chat-send:hover { transform: scale(1.08); }
+.ai-chat-send:disabled { opacity: 0.5; cursor: default; transform: none; }
+/* ===== Sección "Ejemplos de mis webs" ===== */
+.webs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+.web-card {
+    background: var(--surface);
+    border: 1px solid rgb(var(--accent-2-rgb) / calc(0.10 + var(--beat-alpha) * 0.55));
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    box-shadow: 0 0 calc(var(--beat-alpha) * 60px) rgb(var(--accent-2-rgb) / calc(var(--beat-alpha) * 0.75));
+}
+.web-card:hover {
+    border-color: rgb(var(--accent-1-rgb) / 0.28);
+    transform: translateY(-5px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+.web-card-media {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background-size: cover;
+    background-position: center;
+}
+.web-card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 55%);
+    opacity: 0;
+    transition: var(--ease);
+}
+.web-card:hover .web-card-media::after { opacity: 1; }
+.web-card-launch {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: var(--ease);
+    z-index: 2;
+}
+.web-card:hover .web-card-launch { opacity: 1; transform: none; }
+.web-card-body {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+.web-card-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--accent-1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.web-card h3 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.22rem;
+    color: var(--white);
+}
+.web-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    flex: 1;
+}
+.web-card-stack {
+    font-size: 0.76rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    font-weight: 600;
+}
+@media (max-width: 640px) {
+    .webs-grid { grid-template-columns: 1fr; }
+}

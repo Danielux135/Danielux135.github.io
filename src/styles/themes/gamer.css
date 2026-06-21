@@ -1,0 +1,1125 @@
+/* tema gamer — esports / sci-fi HUD con paleta propia */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* variables propias del tema — acentos heredados del selector de color */
+html.theme-gamer {
+    --bg:            #04040d;
+    --bg-alt:        #080818;
+    --surface:       rgb(var(--accent-1-rgb) / 0.03);
+    --surface-hover: rgb(var(--accent-1-rgb) / 0.07);
+    --border:        rgb(var(--accent-1-rgb) / 0.15);
+    --text:          #c8e8ff;
+    --muted:         #3a5070;
+    --white:         #c8e8ff;
+    --font-head:     'Orbitron', sans-serif;
+    --font-body:     'Rajdhani', sans-serif;
+    --radius:        0px;
+    --radius-sm:     0px;
+    --ease:          0.18s ease;
+}
+
+/* fondo y tipografía base */
+html.theme-gamer body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+
+/* cuadrícula de puntos — patrón de fondo sci-fi */
+html.theme-gamer body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgb(var(--accent-1-rgb) / 0.18) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+}
+
+/* viñeta oscura en los bordes, típica de HUD gaming; se aparta del header para dejar ver los láseres */
+html.theme-gamer body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 55%,
+        rgba(0, 0, 0, 0.55) 100%
+    );
+    pointer-events: none;
+    z-index: 9998;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
+    mask-image: linear-gradient(to bottom, transparent 0, transparent var(--nav-h), #000 calc(var(--nav-h) + 70px));
+}
+
+/* esquina HUD superior izquierda fija */
+html.theme-gamer #navbar::before {
+    content: '';
+    position: fixed;
+    top: 14px; left: 14px;
+    width: 50px; height: 50px;
+    border-top: 2px solid var(--accent-1);
+    border-left: 2px solid var(--accent-1);
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0.55;
+}
+
+/* esquina HUD inferior derecha fija */
+html.theme-gamer #navbar::after {
+    content: '';
+    position: fixed;
+    bottom: 14px; right: 14px;
+    width: 50px; height: 50px;
+    border-bottom: 2px solid var(--accent-2);
+    border-right: 2px solid var(--accent-2);
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0.55;
+}
+
+/* glitch agresivo en el nombre del hero */
+@keyframes gamer-glitch {
+    0%, 84%, 100% {
+        clip-path: none;
+        transform: none;
+        text-shadow:
+            0 0 20px rgb(var(--accent-1-rgb) / calc(0.5 + var(--beat-alpha, 0) * 0.5)),
+            0 0 60px rgb(var(--accent-1-rgb) / calc(0.2 + var(--beat-alpha, 0) * 0.3));
+    }
+    85% {
+        transform: translateX(-6px) skewX(-2deg);
+        text-shadow: 6px 0 0 rgb(var(--accent-2-rgb) / 0.9), -6px 0 0 rgb(var(--accent-1-rgb) / 0.9);
+        clip-path: polygon(0 8%, 100% 8%, 100% 32%, 0 32%);
+    }
+    86% {
+        transform: translateX(6px);
+        clip-path: polygon(0 50%, 100% 50%, 100% 72%, 0 72%);
+        text-shadow: -4px 0 0 rgb(var(--accent-2-rgb) / 0.7), 4px 0 0 rgb(var(--accent-1-rgb) / 0.7);
+    }
+    87% {
+        transform: translateX(-3px);
+        clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+        text-shadow: 2px 0 0 rgb(var(--accent-2-rgb) / 0.4), -2px 0 0 rgb(var(--accent-1-rgb) / 0.4);
+    }
+    88% {
+        transform: none;
+        clip-path: none;
+    }
+}
+
+/* gradiente RGB animado para la línea del navbar */
+@keyframes rgb-flow {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* tipografía de títulos */
+html.theme-gamer h1,
+html.theme-gamer h2,
+html.theme-gamer h3,
+html.theme-gamer h4 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* tipografía de cuerpo */
+html.theme-gamer p,
+html.theme-gamer li {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* navbar */
+html.theme-gamer #navbar {
+    background: transparent;
+    border-bottom: 1px solid rgb(var(--accent-1-rgb) / 0.12);
+    box-shadow: 0 1px 0 rgb(var(--accent-1-rgb) / 0.06);
+}
+html.theme-gamer #navbar.scrolled {
+    background: rgba(4, 4, 13, 0.99);
+}
+
+/* línea RGB animada bajo el navbar, se intensifica con el beat */
+html.theme-gamer #navbar > .nav-container::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-1), var(--accent-2), var(--accent-1), transparent);
+    background-size: 200% 100%;
+    animation: rgb-flow 5s linear infinite;
+    opacity: calc(0.4 + var(--beat-alpha, 0) * 0.6);
+}
+
+/* links de navegación */
+html.theme-gamer .nav-links a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+html.theme-gamer .nav-links a:hover,
+html.theme-gamer .nav-links a.active {
+    color: var(--accent-1);
+    text-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.8);
+}
+
+/* botones del nav */
+html.theme-gamer .theme-toggle,
+html.theme-gamer .cmd-palette-trigger {
+    border-radius: 0;
+    border-color: rgb(var(--accent-1-rgb) / 0.2);
+    color: var(--muted);
+}
+html.theme-gamer .theme-toggle:hover,
+html.theme-gamer .cmd-palette-trigger:hover {
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+    box-shadow: 0 0 16px rgb(var(--accent-1-rgb) / 0.35);
+}
+
+/* botón CV con esquina cortada estilo sci-fi */
+html.theme-gamer .btn-cv {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.6);
+    color: var(--accent-1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    transition: all 0.18s;
+}
+html.theme-gamer .btn-cv:hover {
+    background: rgb(var(--accent-1-rgb) / 0.1);
+    box-shadow: 0 0 20px rgb(var(--accent-1-rgb) / 0.5);
+}
+
+/* selector de idioma */
+html.theme-gamer .lang-switcher {
+    border-color: rgb(var(--accent-1-rgb) / 0.15);
+}
+html.theme-gamer .lang-switcher.open {
+    border-color: transparent;
+    box-shadow: none;
+}
+html.theme-gamer .lang-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.48rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+html.theme-gamer .lang-btn.active {
+    background: rgb(var(--accent-1-rgb) / 0.1);
+    color: var(--accent-1);
+}
+html.theme-gamer .lang-pill-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+/* hero */
+html.theme-gamer #hero {
+    background: var(--bg);
+}
+
+/* degradado radial del fondo del hero, reactivo al beat */
+html.theme-gamer #hero::before {
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgb(var(--accent-1-rgb) / calc(0.07 + var(--beat-alpha, 0) * 0.13)) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 70% 70%, rgb(var(--accent-2-rgb) / calc(0.05 + var(--beat-alpha, 0) * 0.10)) 0%, transparent 60%);
+}
+
+/* eyebrow con formato PLAYER_001 */
+html.theme-gamer .hero-eyebrow {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgb(var(--accent-1-rgb) / 0.6);
+}
+html.theme-gamer .hero-eyebrow::before { content: '[ PLAYER_001 / '; }
+html.theme-gamer .hero-eyebrow::after  { content: ' ]'; }
+
+/* nombre principal con glitch y glow beat-reactivo */
+html.theme-gamer .hero-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 5.5vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #c8e8ff;
+    animation: gamer-glitch 9s infinite;
+    text-shadow:
+        0 0 20px rgb(var(--accent-1-rgb) / calc(0.5 + var(--beat-alpha, 0) * 0.5)),
+        0 0 60px rgb(var(--accent-1-rgb) / calc(0.2 + var(--beat-alpha, 0) * 0.3));
+    line-height: 1.15;
+}
+
+/* apellido en degradado cyan-pink con drop-shadow beat-reactivo */
+html.theme-gamer .hero-name span {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 0 calc(8px + var(--beat-alpha, 0) * 24px) rgb(var(--accent-1-rgb) / 0.8));
+}
+
+/* subtítulo del hero */
+html.theme-gamer .hero-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text);
+}
+
+/* pill de estado con esquina cortada y glow beat-reactivo */
+html.theme-gamer .hero-status-pill {
+    border-radius: 0;
+    background: rgb(var(--accent-1-rgb) / 0.05);
+    border: 1px solid rgb(var(--accent-1-rgb) / calc(0.25 + var(--beat-alpha, 0) * 0.5));
+    color: var(--text);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    box-shadow: 0 0 calc(var(--beat-alpha, 0) * 20px) rgb(var(--accent-1-rgb) / calc(var(--beat-alpha, 0) * 0.5));
+}
+html.theme-gamer .hero-status-dot {
+    background: var(--accent-1);
+    box-shadow: 0 0 8px var(--accent-1);
+}
+
+/* botones CTA con esquina cortada y glow neon */
+html.theme-gamer .btn-primary,
+html.theme-gamer .btn-outline {
+    border-radius: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    transition: all 0.18s;
+    position: relative;
+    overflow: visible;
+}
+html.theme-gamer .btn-primary {
+    background: linear-gradient(135deg, rgb(var(--accent-1-rgb) / 0.9), rgb(var(--accent-2-rgb) / 0.9));
+    color: #04040d;
+    border: 1px solid var(--accent-1);
+    text-shadow: none;
+    box-shadow: 0 0 24px rgb(var(--accent-1-rgb) / 0.5);
+}
+html.theme-gamer .btn-primary:hover {
+    box-shadow: 0 0 40px rgb(var(--accent-1-rgb) / 0.8), 0 0 80px rgb(var(--accent-1-rgb) / 0.3);
+    transform: translateY(-2px);
+}
+html.theme-gamer .btn-outline {
+    background: transparent;
+    color: var(--accent-1);
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.5);
+    text-shadow: 0 0 8px rgb(var(--accent-1-rgb) / 0.5);
+}
+html.theme-gamer .btn-outline:hover {
+    border-color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.08);
+    box-shadow: 0 0 24px rgb(var(--accent-1-rgb) / 0.4);
+    transform: translateY(-2px);
+}
+
+/* iconos de redes sociales */
+html.theme-gamer .hero-social a {
+    color: var(--muted);
+    transition: all 0.18s;
+}
+html.theme-gamer .hero-social a:hover {
+    color: var(--accent-1);
+    text-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.9);
+    transform: translateY(-3px);
+}
+
+/* avatar — borde conic-gradient rotando con los dos acentos */
+html.theme-gamer .about-avatar { border-radius: 50%; }
+html.theme-gamer .about-avatar::before {
+    border-radius: 50%;
+    background: conic-gradient(var(--accent-1), var(--accent-2), var(--accent-1), var(--accent-2), var(--accent-1));
+    box-shadow: 0 0 calc(10px + var(--beat-alpha, 0) * 30px) rgb(var(--accent-1-rgb) / calc(0.4 + var(--beat-alpha, 0) * 0.6));
+}
+html.theme-gamer .about-avatar::after {
+    border-radius: 50%;
+    background: var(--bg);
+}
+
+/* filtro que integra la foto en la paleta azul del tema */
+html.theme-gamer .about-avatar-img {
+    border-radius: 50%;
+    filter: saturate(0.85) hue-rotate(180deg) brightness(0.95);
+}
+
+/* etiquetas del avatar con esquina cortada */
+html.theme-gamer .about-avatar-tag {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-color: rgb(var(--accent-1-rgb) / 0.18);
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+html.theme-gamer .about-avatar-tag i { color: var(--accent-1); }
+
+/* título de sección con glow beat-reactivo */
+html.theme-gamer .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgb(var(--accent-1-rgb) / calc(0.15 + var(--beat-alpha, 0) * 0.3));
+}
+
+/* etiqueta de sección con esquina cortada */
+html.theme-gamer .section-tag {
+    border-radius: 0;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.4);
+    background: rgb(var(--accent-1-rgb) / 0.06);
+    color: var(--accent-1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+/* fondo de secciones */
+html.theme-gamer section { background: var(--bg); }
+html.theme-gamer .section-alt { background: var(--bg-alt); }
+
+/* project cards con esquina cortada y borde beat-reactivo */
+html.theme-gamer .project-card {
+    border-radius: 0;
+    border: 1px solid rgb(var(--accent-1-rgb) / calc(0.15 + var(--beat-alpha, 0) * 0.4));
+    background: var(--surface);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    box-shadow: var(--beat-glow-soft, none);
+    transition: all 0.18s;
+    overflow: visible;
+}
+html.theme-gamer .project-card::before {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    opacity: 0;
+    transition: opacity 0.18s;
+}
+html.theme-gamer .project-card:hover {
+    border-color: rgb(var(--accent-1-rgb) / 0.5);
+    background: var(--surface-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgb(var(--accent-1-rgb) / 0.2), 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+html.theme-gamer .project-card:hover::before { opacity: 1; }
+
+/* icono de proyecto con esquina cortada */
+html.theme-gamer .project-icon {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* tags de proyecto */
+html.theme-gamer .project-tag {
+    border-radius: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-1);
+    border-color: rgb(var(--accent-1-rgb) / 0.3);
+    background: rgb(var(--accent-1-rgb) / 0.06);
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+}
+
+/* enlaces de proyecto */
+html.theme-gamer .project-links a {
+    border-radius: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: var(--accent-1);
+    border-color: rgb(var(--accent-1-rgb) / 0.35);
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+html.theme-gamer .project-links a:hover {
+    box-shadow: 0 0 16px rgb(var(--accent-1-rgb) / 0.5);
+    border-color: var(--accent-1);
+}
+
+/* stats de música con esquina cortada y glow beat-reactivo */
+html.theme-gamer .music-stat-item {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    border-color: rgb(var(--accent-1-rgb) / calc(0.12 + var(--beat-alpha, 0) * 0.5));
+    background: rgb(var(--accent-1-rgb) / 0.03);
+    box-shadow: var(--beat-glow-soft, none);
+    transition: all 0.18s;
+}
+html.theme-gamer .music-stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    color: var(--accent-1);
+    text-shadow:
+        0 0 calc(10px + var(--beat-alpha, 0) * 30px) rgb(var(--accent-1-rgb) / calc(0.7 + var(--beat-alpha, 0) * 0.3)),
+        0 0 60px rgb(var(--accent-1-rgb) / calc(var(--beat-alpha, 0) * 0.4));
+}
+html.theme-gamer .music-stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* platform cards */
+html.theme-gamer .platform-card {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    transition: all 0.18s;
+}
+html.theme-gamer .platform-card:hover {
+    box-shadow: 0 0 22px rgb(var(--accent-1-rgb) / 0.35);
+    transform: translateY(-3px);
+}
+
+/* cards de legacy y contacto con borde del acento 2 */
+html.theme-gamer .eduardo-card,
+html.theme-gamer .legacy-card,
+html.theme-gamer .legacy-roles-card,
+html.theme-gamer .contact-card {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    border-color: rgb(var(--accent-2-rgb) / calc(0.15 + var(--beat-alpha, 0) * 0.35));
+}
+html.theme-gamer .contact-card:hover {
+    box-shadow: 0 0 24px rgb(var(--accent-2-rgb) / 0.3);
+}
+
+/* etiquetas de habilidades */
+html.theme-gamer .skill-tag,
+html.theme-gamer .badge {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+
+/* barra de progreso de scroll en degradado cyan-pink */
+html.theme-gamer .scroll-progress {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    box-shadow: 0 0 12px rgb(var(--accent-1-rgb) / calc(0.7 + var(--beat-alpha, 0) * 0.3));
+    height: 3px;
+}
+
+/* botones de navegación entre secciones */
+html.theme-gamer .section-nav-btn {
+    border-radius: 0;
+    background: rgba(4, 4, 13, 0.9);
+    border-color: rgb(var(--accent-1-rgb) / 0.25);
+    color: var(--accent-1);
+    transition: all 0.18s;
+}
+html.theme-gamer .section-nav-btn:hover:not(:disabled) {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 16px rgb(var(--accent-1-rgb) / 0.45);
+}
+
+/* studio FAB */
+html.theme-gamer .studio-fab {
+    border-radius: 0;
+    background: rgba(4, 4, 13, 0.95);
+    border-color: rgb(var(--accent-1-rgb) / 0.3);
+    color: var(--accent-1);
+}
+html.theme-gamer .studio-fab:hover {
+    box-shadow: 0 0 18px rgb(var(--accent-1-rgb) / 0.5);
+    border-color: var(--accent-1);
+}
+
+html.theme-gamer .studio-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--accent-1);
+}
+html.theme-gamer .studio-section {
+    padding: 8px 12px 6px;
+}
+html.theme-gamer .studio-bg-btn {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgb(var(--accent-1-rgb) / 0.05);
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.18);
+    padding: 5px 2px;
+}
+html.theme-gamer .studio-bg-btn i {
+    font-size: 0.82rem;
+}
+html.theme-gamer .studio-bg-btn:hover {
+    background: rgb(var(--accent-1-rgb) / 0.14);
+    color: rgba(255, 255, 255, 0.95);
+    border-color: rgb(var(--accent-1-rgb) / 0.45);
+}
+html.theme-gamer .studio-bg-btn.active {
+    border-color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.14);
+    color: var(--accent-1);
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.3);
+}
+html.theme-gamer .studio-hue-strip { border-radius: 0; }
+
+/* panel de chat IA con esquina cortada */
+html.theme-gamer .ai-chat-panel {
+    border-radius: 0;
+    background: rgba(4, 4, 13, 0.99);
+    border-color: rgb(var(--accent-1-rgb) / 0.3);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+html.theme-gamer .ai-chat-header {
+    border-bottom-color: rgb(var(--accent-1-rgb) / 0.2);
+}
+html.theme-gamer .ai-chat-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--accent-1);
+}
+html.theme-gamer .ai-msg {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.45;
+}
+html.theme-gamer .ai-msg.bot {
+    color: #d8eeff;
+    background: rgb(var(--accent-1-rgb) / 0.07);
+    border-color: rgb(var(--accent-1-rgb) / 0.2);
+}
+html.theme-gamer .ai-msg.user {
+    color: #fff;
+}
+html.theme-gamer .ai-chat-input {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-color: rgb(var(--accent-1-rgb) / 0.2);
+    background: rgb(var(--accent-1-rgb) / 0.03);
+}
+html.theme-gamer .ai-chat-input:focus {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.25);
+}
+
+/* barra de reproducción inferior */
+html.theme-gamer .now-playing-bar {
+    border-radius: 0;
+    background: rgba(4, 4, 13, 0.99);
+    border-top: 1px solid rgb(var(--accent-1-rgb) / calc(0.15 + var(--beat-alpha, 0) * 0.5));
+    box-shadow: 0 -6px 30px rgb(var(--accent-1-rgb) / calc(var(--beat-alpha, 0) * 0.25));
+}
+
+/* campos de formulario */
+html.theme-gamer input,
+html.theme-gamer textarea {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-color: rgb(var(--accent-1-rgb) / 0.2);
+}
+html.theme-gamer input:focus,
+html.theme-gamer textarea:focus {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.25);
+}
+
+/* barras de habilidades segmentadas estilo barra de energía */
+html.theme-gamer .bar-fill {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--accent-1) 0px,
+        var(--accent-1) 10px,
+        rgb(var(--accent-1-rgb) / 0.08) 10px,
+        rgb(var(--accent-1-rgb) / 0.08) 12px
+    );
+    border-radius: 0;
+    box-shadow:
+        0 0 calc(6px + var(--beat-alpha, 0) * 18px) rgb(var(--accent-1-rgb) / calc(0.5 + var(--beat-alpha, 0) * 0.5)),
+        inset 0 0 6px rgb(var(--accent-1-rgb) / 0.3);
+    position: relative;
+}
+/* track de la barra con fondo segmentado tenue */
+html.theme-gamer .bar-track {
+    background: repeating-linear-gradient(
+        90deg,
+        rgb(var(--accent-1-rgb) / 0.06) 0px,
+        rgb(var(--accent-1-rgb) / 0.06) 10px,
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0.1) 12px
+    );
+    border-radius: 0;
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.12);
+    height: 8px;
+}
+
+/* panel de habilidades con borde beat-reactivo */
+html.theme-gamer .skills-panel {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    border-color: rgb(var(--accent-1-rgb) / calc(0.15 + var(--beat-alpha, 0) * 0.4));
+    background: rgb(var(--accent-1-rgb) / 0.02);
+    box-shadow: var(--beat-glow-soft, none);
+}
+/* nombre de habilidad en orbitron */
+html.theme-gamer .skill-info span:first-child {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+}
+/* porcentaje de habilidad en cyan */
+html.theme-gamer .skill-info span:last-child {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.52rem;
+    font-weight: 900;
+    color: var(--accent-1);
+    text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.8);
+}
+
+/* chips de habilidad en la sección about */
+html.theme-gamer .chip {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-color: rgb(var(--accent-1-rgb) / 0.2);
+    background: rgb(var(--accent-1-rgb) / 0.04);
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+    transition: all 0.18s;
+}
+html.theme-gamer .chip:hover {
+    border-color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.1);
+    box-shadow: 0 0 12px rgb(var(--accent-1-rgb) / 0.4);
+}
+html.theme-gamer .chip i { color: var(--accent-1); }
+
+/* glitch en títulos de sección al hover */
+html.theme-gamer .section-title:hover {
+    animation: gamer-glitch 0.4s steps(1);
+}
+
+/* prefijo "// " en los section-tag para darles aire de código */
+html.theme-gamer .section-tag::before {
+    content: '// ';
+    color: var(--accent-2);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* descripción de sección con color levemente menos apagado */
+html.theme-gamer .section-desc {
+    color: rgba(200, 232, 255, 0.65);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+/* énfasis en textos con color acento */
+html.theme-gamer .about-text strong,
+html.theme-gamer .section-desc strong {
+    color: var(--accent-1);
+    font-weight: 700;
+}
+
+/* tarjeta de destacado de canción como ficha de misión */
+html.theme-gamer .song-highlight {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+    border-color: rgb(var(--accent-2-rgb) / calc(0.2 + var(--beat-alpha, 0) * 0.5));
+    background: rgb(var(--accent-2-rgb) / 0.03);
+    box-shadow: var(--beat-glow-soft, none);
+}
+html.theme-gamer .song-kicker {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--accent-2);
+}
+html.theme-gamer .song-kicker::before {
+    content: '[ ';
+    opacity: 0.7;
+}
+html.theme-gamer .song-kicker::after {
+    content: ' ]';
+    opacity: 0.7;
+}
+
+/* reproductor de música estilo cockpit */
+html.theme-gamer .music-player-section {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    border-color: rgb(var(--accent-1-rgb) / calc(0.18 + var(--beat-alpha, 0) * 0.5));
+}
+/* ítems del tracklist */
+html.theme-gamer .track-item {
+    border-radius: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+html.theme-gamer .track-item:hover,
+html.theme-gamer .track-item.active {
+    background: rgb(var(--accent-1-rgb) / 0.06);
+    border-left: 2px solid var(--accent-1);
+    padding-left: 10px;
+}
+html.theme-gamer .track-item.active .track-title {
+    color: var(--accent-1);
+    text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.6);
+}
+/* número de canción en orbitron */
+html.theme-gamer .track-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: rgb(var(--accent-1-rgb) / 0.35);
+}
+/* botón de play con glow beat-reactivo */
+html.theme-gamer .player-btn-play {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: 0 0 calc(14px + var(--beat-alpha, 0) * 30px) rgb(var(--accent-1-rgb) / calc(0.4 + var(--beat-alpha, 0) * 0.6));
+}
+/* seek bar del reproductor en degradado reactivo */
+html.theme-gamer .player-seek {
+    height: 6px;
+    border-radius: 0;
+    background: linear-gradient(
+        90deg,
+        var(--accent-1) 0%,
+        var(--accent-2) var(--seek, 0%),
+        rgb(var(--accent-1-rgb) / 0.1) var(--seek, 0%)
+    );
+}
+
+/* items de contacto estilo "canal de transmisión" */
+html.theme-gamer .contact-item {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    border-color: rgb(var(--accent-1-rgb) / 0.18);
+    background: rgb(var(--accent-1-rgb) / 0.02);
+    transition: all 0.18s;
+}
+html.theme-gamer .contact-item:hover {
+    border-color: var(--accent-1);
+    background: rgb(var(--accent-1-rgb) / 0.07);
+    box-shadow: 0 0 20px rgb(var(--accent-1-rgb) / 0.25);
+    transform: translateX(6px);
+}
+html.theme-gamer .contact-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.42rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent-1);
+}
+html.theme-gamer .contact-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+}
+/* prefijo "CHANNEL:" en las etiquetas de contacto */
+html.theme-gamer .contact-label::before {
+    content: '> ';
+    color: var(--accent-2);
+    font-size: 0.7rem;
+}
+
+/* formulario de contacto con esquina cortada */
+html.theme-gamer .contact-form {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    border-color: rgb(var(--accent-2-rgb) / 0.2);
+    background: rgb(var(--accent-2-rgb) / 0.02);
+}
+/* labels del formulario en orbitron */
+html.theme-gamer .form-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent-2);
+}
+/* submit button con glow rosa */
+html.theme-gamer .contact-form .btn-primary {
+    background: linear-gradient(135deg, rgb(var(--accent-2-rgb) / 0.9), rgba(200, 20, 80, 0.9));
+    border-color: var(--accent-2);
+    color: #fff;
+    box-shadow: 0 0 24px rgb(var(--accent-2-rgb) / 0.5);
+}
+html.theme-gamer .contact-form .btn-primary:hover {
+    box-shadow: 0 0 40px rgb(var(--accent-2-rgb) / 0.8);
+}
+
+/* banda de contratación con bordes de acento */
+html.theme-gamer .hire-band {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgb(var(--accent-1-rgb) / 0.15);
+    position: relative;
+}
+html.theme-gamer .hire-band-title {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 30px rgb(var(--accent-1-rgb) / 0.3);
+}
+html.theme-gamer .hire-band-kicker {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent-2);
+}
+html.theme-gamer .hire-band-cta {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    background: linear-gradient(135deg, rgb(var(--accent-1-rgb) / 0.9), rgb(var(--accent-2-rgb) / 0.9));
+    box-shadow: 0 0 30px rgb(var(--accent-1-rgb) / 0.4), 0 0 60px rgb(var(--accent-2-rgb) / 0.2);
+    color: #04040d;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.52rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+html.theme-gamer .hire-band-cta:hover {
+    box-shadow: 0 0 50px rgb(var(--accent-1-rgb) / 0.7), 0 0 100px rgb(var(--accent-2-rgb) / 0.3);
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* pie de página estilo game over */
+html.theme-gamer #footer {
+    border-top-color: rgb(var(--accent-1-rgb) / 0.12);
+    background: rgba(0, 0, 0, 0.3);
+}
+html.theme-gamer #footer a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent-1);
+    text-shadow: 0 0 8px rgb(var(--accent-1-rgb) / 0.5);
+}
+
+/* tarjeta de eduardo con borde degradado beat-reactivo */
+html.theme-gamer .eduardo-card {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+/* barra de progreso de scroll con glow reactivo al beat */
+html.theme-gamer #scrollProgress {
+    box-shadow: 0 0 calc(6px + var(--beat-alpha, 0) * 20px) rgb(var(--accent-1-rgb) / calc(0.6 + var(--beat-alpha, 0) * 0.4));
+}
+
+/* animación de parpadeo para elementos de estado */
+@keyframes gamer-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0.2; }
+}
+
+/* punto de estado disponible parpadeante */
+html.theme-gamer .hero-status-dot {
+    animation: gamer-blink 1.2s step-end infinite;
+}
+
+/* texto del status en orbitron */
+html.theme-gamer .hero-status-pill span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.48rem;
+}
+
+/* enlace sutil con flecha al estilo gamer */
+html.theme-gamer .link-subtle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgb(var(--accent-1-rgb) / 0.5);
+}
+
+/* etiqueta de roles legacy */
+html.theme-gamer .legacy-roles-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.12em;
+    color: var(--accent-1);
+    text-shadow: 0 0 12px rgb(var(--accent-1-rgb) / 0.5);
+}
+html.theme-gamer .legacy-role-text strong {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--text);
+}
+html.theme-gamer .legacy-role-icon {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+
+/* botón de nav toggle en móvil */
+html.theme-gamer .nav-toggle span {
+    background: var(--accent-1);
+    box-shadow: 0 0 6px rgb(var(--accent-1-rgb) / 0.6);
+}
+
+/* menú desplegable en móvil */
+html.theme-gamer .nav-links.open {
+    background: rgba(4, 4, 13, 0.98);
+    border-bottom-color: rgb(var(--accent-1-rgb) / 0.15);
+}
+
+/* texto del hero: párrafo (subtítulo largo) */
+html.theme-gamer .hero-desc {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(200, 232, 255, 0.7);
+}
+
+/* insignia del artista eduardo */
+html.theme-gamer .eduardo-badge {
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+/* número del artista en orbitron */
+html.theme-gamer .eduardo-text h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-2);
+    text-shadow: 0 0 10px rgb(var(--accent-2-rgb) / 0.5);
+}
+
+/* barra ahora en reproducción con glow reactivo */
+html.theme-gamer .now-playing-bar::before {
+    opacity: calc(0.6 + var(--beat-alpha, 0) * 0.4);
+    height: 2px;
+}
+
+/* título de la canción en reproducción */
+html.theme-gamer .npb-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent-1);
+    text-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.5);
+}
+
+/* studio-wrap y section-nav por encima de la viñeta (body::after z-index:9998) */
+html.theme-gamer .studio-wrap  { z-index: 9999; }
+html.theme-gamer .section-nav  { z-index: 9999; }
+
+
+/* modo claro en tema gamer: paleta clara con acentos neón */
+html.theme-light.theme-gamer {
+    --bg:      #e8eaf6;
+    --bg-alt:  #d8daf0;
+    --surface: rgb(var(--accent-1-rgb) / 0.06);
+    --surface-hover: rgb(var(--accent-1-rgb) / 0.12);
+    --border:  rgb(var(--accent-1-rgb) / 0.25);
+    --text:    #0a0a20;
+    --muted:   #505080;
+    --white:   #0a0a20;
+}
+html.theme-light.theme-gamer body {
+    background: #e8eaf6;
+    color: #0a0a20;
+}
+html.theme-light.theme-gamer body::before { opacity: 0.12; }
+html.theme-light.theme-gamer body::after  { display: none; }
+/* descripción de sección legible sobre el fondo lavanda claro */
+html.theme-light.theme-gamer .section-desc {
+    color: rgba(20, 20, 50, 0.82);
+}
+html.theme-light.theme-gamer .studio-preset-name { color: rgba(10, 10, 32, 0.5); }
+html.theme-light.theme-gamer .studio-bg-btn {
+    color: rgba(10, 10, 32, 0.70);
+}
+html.theme-light.theme-gamer .studio-bg-btn.active {
+    color: var(--accent-1);
+}
+html.theme-light.theme-gamer .studio-label {
+    color: var(--accent-1);
+}
+html.theme-light.theme-gamer .studio-fab {
+    background: rgba(232, 234, 246, 0.92);
+    color: var(--accent-1);
+}
+
+/* navbar en modo claro */
+html.theme-light.theme-gamer #navbar {
+    background: transparent;
+    border-bottom-color: rgb(var(--accent-1-rgb) / 0.2);
+}
+html.theme-light.theme-gamer #navbar.scrolled {
+    background: rgba(232, 234, 246, 0.99);
+}
+html.theme-light.theme-gamer #navbar::before,
+html.theme-light.theme-gamer #navbar::after { display: none; }
+html.theme-light.theme-gamer .nav-link,
+html.theme-light.theme-gamer .nav-logo { color: #0a0a20; }
+
+/* chatbot en modo claro gamer */
+html.theme-light.theme-gamer .ai-chat-panel {
+    background: rgba(232, 234, 246, 0.98);
+    border-color: rgb(var(--accent-1-rgb) / 0.3);
+}
+html.theme-light.theme-gamer .ai-chat-title { color: var(--accent-1); }
+html.theme-light.theme-gamer .ai-chat-header { border-bottom-color: rgb(var(--accent-1-rgb) / 0.15); }
+html.theme-light.theme-gamer .ai-msg.bot {
+    color: #0a0a20;
+    background: rgb(var(--accent-1-rgb) / 0.05);
+    border-color: rgb(var(--accent-1-rgb) / 0.18);
+}
+html.theme-light.theme-gamer .ai-chat-input {
+    color: #0a0a20;
+    background: rgb(var(--accent-1-rgb) / 0.03);
+}
+html.theme-light.theme-gamer .ai-chat-input::placeholder { color: rgba(10, 10, 32, 0.4); }
