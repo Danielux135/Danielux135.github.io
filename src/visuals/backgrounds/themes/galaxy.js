@@ -1,8 +1,9 @@
 import { canvas, ctx, getHeroAccent as _heroAccent } from '../context.js';
 
-let _galaxyStars = [], _galW = 0, _galH = 0;
+let _galaxyStars = [], _galW = 0, _galH = 0, _galT = null;
 
 function _buildGalaxy() {
+    _galT = null;
     _galW = canvas.width;
     _galH = canvas.height;
     let seed = 0x6d2b79f5;
@@ -45,10 +46,12 @@ function _buildGalaxy() {
 
 function drawGalaxy(beat, dt, t) {
     if (canvas.width !== _galW || canvas.height !== _galH) _buildGalaxy();
+    // tiempo relativo desde la primera vez que se activa, evita la forma nuclear por acumulación
+    if (_galT === null) _galT = t;
     const cx = canvas.width / 2, cy = canvas.height / 2;
     const a1 = _heroAccent(1), a2 = _heroAccent(2);
     const R = Math.min(canvas.width * 0.62, canvas.height * 0.88);
-    const rot = t * 0.07;
+    const rot = (t - _galT) * 0.07;
     const bBeat = Math.min(beat, 0.82);
 
     const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * (0.08 + bBeat * 0.024));
