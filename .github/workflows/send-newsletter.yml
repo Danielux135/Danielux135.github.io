@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
 
       - name: Enviar newsletter
-        run: node .github/scripts/send-newsletter.js
+        run: node .github/scripts/send-newsletter.cjs
         env:
           FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
