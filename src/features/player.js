@@ -323,7 +323,7 @@ function getTrackCover(track) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' });
                 analyser = audioCtx.createAnalyser();
                 analyser.fftSize = 512;
-                analyser.smoothingTimeConstant = 0.78;
+                analyser.smoothingTimeConstant = 0.60;
                 // nodo de ganancia: iOS ignora audio.volume en <audio>, el volumen va aquí
                 gainNode = audioCtx.createGain();
                 gainNode.gain.value = audio.muted ? 0 : audio.volume;

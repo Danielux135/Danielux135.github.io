@@ -5,28 +5,29 @@ import { hslToRgb } from './color-utils.js';
 
 export const visualState = { beat: 0 };
 
-// seguimiento de energía del sub-bass (bins 1-3, ~86-344 Hz con fftSize 512) para el pulso visual
-// usa envelope en vez de threshold: más cobertura, sin ruido en silencio
 let _bassEnv = 0;
-let _bassFloor = 0.06;
-let _bassCeil = 0.22;
-let _bassBuf = null; // buffer reusado: evita crear un uint8array nuevo cada frame (presión de gc)
+let _bassBuf = null;
+let _prevBuf = null; // frame anterior para calcular flux
+let _peakFlux = 0.04; // pico reciente del flux (normalización adaptativa)
+let _peakRaw  = 0.15; // pico reciente del raw  (componente ambiental)
+const _NOISE = 0.055;
 window._visualVolumeFactor = 0.85;
-// calcula la energía del sub-bass con envelope de ataque instantáneo y release suave
-// (analyser en vivo; el lag del arcade NO era esto, era la promo animándose oculta)
+// detección por spectral flux: mide el CAMBIO de energía entre frames, no el nivel absoluto.
+// esto diferencia kicks/snares (cambio brusco) de sustain (nivel alto pero constante),
+// y funciona igual a cualquier volumen porque solo mide la variación relativa.
 function getBassEnergy() {
     const analyser = window._audioAnalyser;
     if (!analyser) {
-        _bassEnv *= 0.90;
+        _bassEnv *= 0.85;
         if (_bassEnv < 0.004) _bassEnv = 0;
         return _bassEnv;
     }
     const n = analyser.frequencyBinCount;
-    if (!_bassBuf || _bassBuf.length !== n) _bassBuf = new Uint8Array(n);
+    if (!_bassBuf || _bassBuf.length !== n) { _bassBuf = new Uint8Array(n); _prevBuf = null; }
     analyser.getByteFrequencyData(_bassBuf);
 
-    let bassSum = 0;
-    let bassPeak = 0;
+    // energía absoluta (bass + mid) para componente de brillo ambiental
+    let bassSum = 0, bassPeak = 0;
     for (let i = 1; i <= 8 && i < n; i++) {
         const v = _bassBuf[i] / 255;
         bassSum += v;
@@ -35,16 +36,40 @@ function getBassEnergy() {
     let midSum = 0;
     for (let i = 9; i <= 34 && i < n; i++) midSum += _bassBuf[i] / 255;
     const bassAvg = bassSum / Math.min(8, Math.max(1, n - 1));
-    const midAvg = midSum / Math.min(26, Math.max(1, n - 9));
-    const raw = bassAvg * 0.58 + bassPeak * 0.24 + midAvg * 0.18;
-    _bassFloor += (raw - _bassFloor) * 0.012;
-    _bassCeil += (raw - _bassCeil) * (raw > _bassCeil ? 0.035 : 0.006);
-    if (_bassCeil < _bassFloor + 0.08) _bassCeil = _bassFloor + 0.08;
-    const normalized = Math.max(0, Math.min(1, (raw - _bassFloor * 0.72) / (_bassCeil - _bassFloor * 0.72)));
-    const volFactor = Math.max(0, Math.min(1, window._visualVolumeFactor ?? 1));
-    const shaped = Math.pow(normalized, 1.85) * 0.58 * volFactor;
+    const midAvg  = midSum  / Math.min(26, Math.max(1, n - 9));
+    const raw = bassAvg * 0.55 + bassPeak * 0.28 + midAvg * 0.17;
 
-    if (shaped > _bassEnv) _bassEnv += (shaped - _bassEnv) * 0.22;
+    // flux: suma de incrementos positivos respecto al frame anterior (solo onsets, no decaídas)
+    let flux = 0;
+    if (_prevBuf) {
+        for (let i = 1; i <= 34 && i < n; i++) {
+            const diff = (_bassBuf[i] - _prevBuf[i]) / 255;
+            if (diff > 0) flux += diff;
+        }
+        flux /= 34;
+    }
+    if (!_prevBuf || _prevBuf.length !== n) _prevBuf = new Uint8Array(n);
+    _prevBuf.set(_bassBuf);
+
+    // picos adaptativos: suben rápido para no saturar, bajan muy despacio
+    if (raw  > _peakRaw)  _peakRaw  += (raw  - _peakRaw)  * 0.4;
+    else                   _peakRaw  += (0.15  - _peakRaw)  * 0.003;
+    _peakRaw = Math.max(0.15, _peakRaw);
+
+    if (flux > _peakFlux) _peakFlux += (flux - _peakFlux) * 0.4;
+    else                   _peakFlux += (0.04  - _peakFlux) * 0.004;
+    _peakFlux = Math.max(0.04, _peakFlux);
+
+    const volFactor = Math.max(0, Math.min(1, window._visualVolumeFactor ?? 1));
+
+    // componente ambiental: brillo base proporcional al nivel de audio (máx 0.30)
+    const ambient   = raw < _NOISE ? 0 : Math.min(0.30, (raw - _NOISE) / _peakRaw * 0.32);
+    // componente de golpe: flux normalizado contra su propio pico reciente (máx 0.80)
+    const beatPulse = Math.min(0.80, (flux / _peakFlux) * 0.82);
+    const shaped = Math.min(1, (ambient + beatPulse) * volFactor);
+
+    // ataque rápido para clavar el pico del kick; release lento para que el brillo se vea
+    if (shaped > _bassEnv) _bassEnv += (shaped - _bassEnv) * 0.60;
     else                   _bassEnv += (shaped - _bassEnv) * 0.055;
     if (_bassEnv < 0.004) _bassEnv = 0;
     return _bassEnv;
@@ -69,10 +94,10 @@ function updateAccentColors(v) {
 // (estilo directo del elemento → solo recalcula su subárbol, no todo el documento como :root)
 // y solo en las secciones que están en pantalla; las de fuera no cuestan nada
 let _beatSections = [];
+let _npbEl = null;
 function _initBeatSections() {
     const els = Array.from(document.querySelectorAll('section'));
-    const npb = document.getElementById('nowPlayingBar');
-    if (npb) els.push(npb);
+    _npbEl = document.getElementById('nowPlayingBar');
     _beatSections = els.map(el => ({ el, visible: true }));
     try {
         const io = new IntersectionObserver((entries) => {
@@ -87,7 +112,7 @@ function _initBeatSections() {
     } catch (e) { /* sin intersectionobserver: se animan todas */ }
 }
 let _beatIdle = false;
-// escribe --beat-alpha solo en secciones visibles; en silencio escribe 0 una vez y para
+// escribe --beat-alpha solo en secciones visibles; la barra npb (fixed) se escribe siempre
 function pulseBeatDom(v) {
     if (!_beatSections.length) _initBeatSections();
     const stage = document.getElementById('stageMode');
@@ -106,6 +131,8 @@ function pulseBeatDom(v) {
     for (const s of _beatSections) {
         if (s.visible) s.el.style.setProperty('--beat-alpha', a);
     }
+    // el npb es position:fixed — siempre visible cuando está activo, se escribe directo
+    if (_npbEl) _npbEl.style.setProperty('--beat-alpha', a);
     if (stageOpen) stage.style.setProperty('--beat-alpha', a);
 }
 // las partículas solo se dibujan cuando el hero es visible: drawconnections es o(n²)
@@ -146,8 +173,7 @@ function animateParticles(ts = 0) {
     _lastFrameTs = ts;
     if (window._fps) _fpsMeter(ts);
     const beat = getBassEnergy();
-    visualState.beat += (beat - visualState.beat) * (beat > visualState.beat ? 0.18 : 0.08);
-    if (visualState.beat < 0.005) visualState.beat = 0;
+    visualState.beat = beat;
     // Los colores de acento se actualizan SIEMPRE (también con el arcade abierto): el
     // fondo del arcade los lee para virar de tono con el beat. Si se saltaban con
     // arcade-lock, el fondo quedaba congelado de color y solo pulsaba en brillo.
