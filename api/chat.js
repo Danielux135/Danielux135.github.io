@@ -26,15 +26,14 @@ export default async function handler(req, res) {
     if (!body || typeof body === 'string') {
         try { body = JSON.parse(body || '{}'); } catch { body = {}; }
     }
-    const { message, history = [] } = body;
-    if (!message || typeof message !== 'string' || message.trim().length === 0) {
-        return res.status(400).json({ error: 'missing message' });
+    const { messages: clientMessages = [] } = body;
+    if (!clientMessages.length) {
+        return res.status(400).json({ error: 'missing messages' });
     }
 
     const messages = [
         { role: 'system', content: SYSTEM_PROMPT },
-        ...history.slice(-10),
-        { role: 'user', content: message.trim().slice(0, 1000) },
+        ...clientMessages.slice(-12),
     ];
 
     let groqRes;
