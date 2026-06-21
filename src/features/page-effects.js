@@ -7,21 +7,9 @@ import { playerApi } from './player.js';
     const items = document.querySelectorAll('.music-stat-num[data-target]');
     if (!items.length) return;
 
-    // pide el número real de tracks a soundcloud antes de animar
-    const scEl = document.querySelector('.music-stat-num[data-soundcloud]');
-    if (scEl) {
-        const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-            ? 'http://localhost:3000/api/soundcloud-tracks'
-            : '/api/soundcloud-tracks';
-        fetch(endpoint)
-            .then(r => r.ok ? r.json() : null)
-            .then(data => { if (data?.tracks) scEl.dataset.target = data.tracks; })
-            .catch(() => {});
-    }
-
     function animateCounter(el) {
         const target = parseInt(el.dataset.target, 10);
-        if (isNaN(target) || el.dataset.animated) return;
+        if (isNaN(target) || target === 0 || el.dataset.animated) return;
         el.dataset.animated = '1';
         const duration = 1800;
         const start = performance.now();
@@ -35,6 +23,24 @@ import { playerApi } from './player.js';
         }
         requestAnimationFrame(tick);
     }
+
+    // el contador de soundcloud espera la respuesta antes de animarse
+    const scEl = document.querySelector('.music-stat-num[data-soundcloud]');
+    if (scEl) {
+        const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+            ? 'http://localhost:3000/api/soundcloud-tracks'
+            : 'https://danielux135-github-io.vercel.app/api/soundcloud-tracks';
+        fetch(endpoint)
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (data?.tracks) {
+                    scEl.dataset.target = data.tracks;
+                    animateCounter(scEl);
+                }
+            })
+            .catch(() => {});
+    }
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) animateCounter(e.target); });
     }, { threshold: 0.4 });
