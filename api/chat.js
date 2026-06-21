@@ -33,24 +33,30 @@ export default async function handler(req, res) {
         { role: 'user', content: message.trim().slice(0, 1000) },
     ];
 
-    const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${GROQ_API_KEY}`,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            model: 'llama-3.3-70b-versatile',
-            messages,
-            max_tokens: 512,
-            temperature: 0.7,
-        }),
-    });
+    let groqRes;
+    try {
+        groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${GROQ_API_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'llama-3.3-70b-versatile',
+                messages,
+                max_tokens: 512,
+                temperature: 0.7,
+            }),
+        });
+    } catch (err) {
+        console.error('Groq fetch error:', err);
+        return res.status(502).json({ error: 'network error' });
+    }
 
     if (!groqRes.ok) {
         const err = await groqRes.text();
-        console.error('Groq error:', err);
-        return res.status(502).json({ error: 'upstream error' });
+        console.error('Groq error:', groqRes.status, err);
+        return res.status(502).json({ error: 'upstream error', detail: err });
     }
 
     const data = await groqRes.json();

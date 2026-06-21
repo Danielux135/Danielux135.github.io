@@ -5,7 +5,7 @@ import { currentLanguage, getTranslation } from './site-ui.js';
     // ▼▼ CONFIGURA AQUÍ la URL de tu función en Vercel (déjala así si sirves la web desde Vercel).
     const AI_ENDPOINT = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
         ? '/api/chat'
-        : 'https://foskia.vercel.app/api/chat';
+        : 'https://danielux135-github-io.vercel.app/api/chat';
     // ▲▲
 
     const toggle  = document.getElementById('aiChatToggle');
