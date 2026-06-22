@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#17142d"/><stop offset="100%" stop-color="#0f1222"/></linearGradient>
+    <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#aa9bff"/><stop offset="100%" stop-color="#7db2ff"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <path d="M150 126h162v48H203v78h95v47h-95v87h-53z" fill="url(#fg)"/>
+  <rect x="312" y="256" width="56" height="130" rx="20" fill="url(#fg)"/>
+  <circle cx="343" cy="321" r="58" fill="none" stroke="#efeaff" stroke-width="18" opacity=".9"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" fill="#f3efff">FORMA</text>
+</svg>
