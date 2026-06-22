@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es" data-style="estudio" data-palette="oro">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#12110c" />
+<title>Dalí Barber · Tienda — Demo frontend</title>
+<meta name="description" content="Tienda de productos de barbería con cesta funcional. Demo frontend con temas y colores intercambiables. Hecho por Daniel Bort." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>try{var s=localStorage.getItem('dali_style'),p=localStorage.getItem('dali_palette');if(s)document.documentElement.dataset.style=s;if(p)document.documentElement.dataset.palette=p;}catch(e){}</script>
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#12121c;--text:#f7f5ff;--muted:#a6a3c2;--ink:#08080d;
+  --line:rgba(255,255,255,.12);--glass:rgba(255,255,255,.05);
+  --accent:#e7c27d;--accent2:#f5e0a8;--tk-pink:#fe2c55;
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body:Inter,system-ui,sans-serif;--font-cap:'Space Mono',ui-monospace,monospace;
+  --radius:24px;--radius-sm:14px;--h-transform:none;--eye-spacing:.22em;
+  --ease:cubic-bezier(.2,.85,.25,1);--shadow:0 30px 90px rgba(0,0,0,.5);
+  --bg-deco:
+    radial-gradient(circle at 10% -5%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 30%),
+    radial-gradient(circle at 92% 8%,rgba(254,44,85,.12),transparent 28%),
+    radial-gradient(circle at 50% 120%,rgba(37,244,238,.10),transparent 35%),
+    linear-gradient(180deg,var(--bg),#080610 55%,#05040a);
+  color-scheme:dark;
+}
+[data-style="estudio"]{
+  --font-display:'Fraunces',Georgia,serif;--radius:12px;--radius-sm:8px;--eye-spacing:.32em;
+  --bg:#12110c;--bg2:#1a1813;--text:#f1ece1;--muted:#b3ab98;
+  --line:rgba(241,236,225,.14);--glass:rgba(241,236,225,.04);
+  --bg-deco:
+    radial-gradient(circle at 85% -5%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 32%),
+    repeating-linear-gradient(0deg,rgba(241,236,225,.022) 0 1px,transparent 1px 8px),
+    linear-gradient(180deg,#14120d,#0d0b07);
+}
+[data-style="calle"]{
+  --font-display:'Anton',Impact,sans-serif;--radius:6px;--radius-sm:4px;--h-transform:uppercase;--eye-spacing:.16em;
+  --bg:#15161a;--bg2:#1d1f24;--text:#f4f5f7;--muted:#9aa0ad;
+  --line:rgba(255,255,255,.15);--glass:rgba(255,255,255,.045);
+  --bg-deco:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.028) 0 14px,transparent 14px 28px),
+    radial-gradient(circle at 12% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 34%),
+    linear-gradient(180deg,#16171c,#0e0f12);
+}
+[data-palette="rojo"]{--accent:#e8453f;--accent2:#ff8576}
+[data-palette="verde"]{--accent:#2fbf71;--accent2:#7ef0ad}
+[data-palette="azul"]{--accent:#5b8cff;--accent2:#56e0ff}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);overflow-x:hidden;font-family:var(--font-body);background:var(--bg-deco) fixed}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.04;margin:0}
+h1,h2{text-transform:var(--h-transform)}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;font-family:var(--font-cap);
+  text-transform:uppercase;letter-spacing:var(--eye-spacing);color:var(--accent);
+  padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--glass)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:var(--font-body);
+  font-weight:800;padding:12px 18px;border-radius:999px;text-decoration:none;transition:.25s var(--ease)}
+.btn.gold{background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--ink);
+  box-shadow:0 12px 34px color-mix(in srgb,var(--accent) 40%,transparent)}
+.btn.gold:hover{transform:translateY(-2px)}
+.btn.ghost{background:var(--glass);border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
+
+/* header */
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(18px);
+  background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:1.2rem;text-decoration:none}
+.brand .mark{width:40px;height:40px;border-radius:calc(var(--radius-sm) - 2px);display:grid;place-items:center;
+  background:conic-gradient(from 0deg,var(--accent),#b07d2e,var(--accent2),#8a5a1f,var(--accent));
+  color:var(--ink);font-weight:900;font-size:1.05rem}
+.nav-right{display:flex;align-items:center;gap:10px}
+.back-link{color:var(--muted);text-decoration:none;font-weight:600;font-size:.9rem;padding:9px 13px;border-radius:999px;transition:.2s var(--ease)}
+.back-link:hover{color:var(--text);background:var(--glass)}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--glass);
+  color:var(--text);font-family:var(--font-body);font-weight:800;padding:11px 16px;border-radius:999px;cursor:pointer;transition:.2s var(--ease)}
+.cart-btn:hover{border-color:var(--accent)}
+.cart-btn .count{position:absolute;top:-7px;right:-7px;min-width:21px;height:21px;border-radius:999px;
+  background:var(--accent);color:var(--ink);font-size:.72rem;font-weight:900;display:grid;place-items:center;padding:0 5px;
+  transform:scale(0);transition:transform .25s var(--ease)}
+.cart-btn .count.on{transform:scale(1)}
+
+/* intro */
+.intro{padding:54px 0 24px}
+.intro h1{font-size:clamp(2.3rem,5vw,3.6rem);font-weight:900;margin:14px 0 12px}
+.intro p{color:var(--muted);font-size:1.08rem;line-height:1.6;max-width:54ch}
+
+/* grid de productos */
+.shop{padding:24px 0 70px}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:18px}
+.prod{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));transition:.3s var(--ease)}
+.prod:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.prod .ph{aspect-ratio:4/3;display:grid;place-items:center;font-size:3.4rem;position:relative}
+.prod .ph .tag{position:absolute;top:12px;left:12px;font-size:.7rem;font-weight:800;font-family:var(--font-cap);
+  padding:5px 9px;border-radius:999px;background:rgba(8,8,13,.55);backdrop-filter:blur(6px);color:#fff}
+.prod .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod h3{font-size:1.15rem}
+.prod .desc{color:var(--muted);font-size:.9rem;line-height:1.45;flex:1}
+.prod .foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.prod .price{font-family:var(--font-display);font-weight:900;font-size:1.4rem;color:var(--accent2)}
+.prod .add{border:1px solid var(--line);background:var(--glass);color:var(--text);font-family:var(--font-body);
+  font-weight:800;padding:10px 15px;border-radius:999px;cursor:pointer;font-size:.88rem;transition:.2s var(--ease)}
+.prod .add:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+
+/* cesta lateral */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease);z-index:60}
+.overlay.on{opacity:1;pointer-events:auto}
+.cart{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);z-index:70;display:flex;flex-direction:column;
+  background:var(--bg2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .35s var(--ease)}
+.cart.on{transform:none}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-size:1.3rem}
+.cart-close{background:var(--glass);border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:50%;
+  cursor:pointer;font-size:1.1rem;transition:.2s var(--ease)}
+.cart-close:hover{border-color:var(--accent)}
+.cart-items{flex:1;overflow-y:auto;padding:14px 20px;display:flex;flex-direction:column;gap:12px}
+.cart-empty{text-align:center;color:var(--muted);margin:auto;padding:40px 10px;line-height:1.6}
+.cart-empty .big{font-size:2.6rem;margin-bottom:10px}
+.ci{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;background:var(--glass)}
+.ci .ph{width:54px;height:54px;border-radius:var(--radius-sm);display:grid;place-items:center;font-size:1.6rem;flex:0 0 54px}
+.ci .info{flex:1;min-width:0}
+.ci .info b{display:block;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci .info span{color:var(--accent2);font-weight:800;font-size:.9rem}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);
+  color:var(--text);cursor:pointer;font-weight:900;line-height:1;transition:.2s var(--ease)}
+.qty button:hover{border-color:var(--accent);color:var(--accent)}
+.qty b{min-width:20px;text-align:center;font-size:.92rem}
+.ci .rm{background:none;border:0;color:var(--muted);cursor:pointer;font-size:1.1rem;align-self:flex-start;transition:.2s var(--ease)}
+.ci .rm:hover{color:var(--tk-pink)}
+.cart-foot{padding:18px 20px;border-top:1px solid var(--line)}
+.cart-total{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.cart-total span{color:var(--muted);font-size:.9rem}
+.cart-total b{font-family:var(--font-display);font-size:1.8rem;font-weight:900}
+.cart-foot .btn{width:100%;justify-content:center}
+.cart-confirm{margin-bottom:14px;padding:14px;border-radius:var(--radius-sm);font-size:.9rem;display:none;line-height:1.5;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.cart-confirm.show{display:block}
+
+footer.site{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+.portfolio-footer{width:min(1180px,calc(100% - 36px));margin:8px auto 30px;padding:18px 22px;border:1px solid var(--line);
+  border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.03));backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.portfolio-footer p{margin:0;font-size:.95rem}.portfolio-footer strong{color:var(--text)}
+.portfolio-footer a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
+  padding:10px 16px;background:rgba(255,255,255,.07);color:var(--accent2);font-weight:900;text-decoration:none;transition:.25s var(--ease)}
+.portfolio-footer a::after{content:"↗"}.portfolio-footer a:hover{transform:translateY(-2px)}
+
+.theme-fab{position:fixed;left:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px}
+.tfab{display:flex;align-items:center;gap:10px;padding:10px 15px;border-radius:999px;cursor:pointer;border:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);color:var(--text);font-family:var(--font-body);
+  box-shadow:var(--shadow);transition:.25s var(--ease)}
+.tfab:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.tfab .ic{font-size:1.1rem;line-height:1}.tfab .dot{width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.tfab .tf-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.tfab .tf-txt small{font-size:.62rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.tfab .tf-txt b{font-size:.92rem}
+@media (max-width:560px){.tfab .tf-txt small{display:none}}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,140%);z-index:95;padding:13px 20px;border-radius:var(--radius-sm);
+  background:var(--ink);border:1px solid var(--accent);font-weight:700;box-shadow:var(--shadow);transition:transform .4s var(--ease)}
+.toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../"><span class="mark">D</span> Dalí<span style="color:var(--accent)">Barber</span></a>
+    <div class="nav-right">
+      <a class="back-link" href="../">← Volver a la barbería</a>
+      <button class="cart-btn" id="cartBtn">🛒 Cesta<span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="intro wrap">
+  <span class="eyebrow">Tienda · Productos</span>
+  <h1>Llévate el acabado a casa</h1>
+  <p>Los mismos productos que usamos en la silla, para que mantengas el corte y la barba como el primer día. Añade a la cesta y verás cómo se va sumando el total en directo.</p>
+</section>
+
+<section class="shop wrap">
+  <div class="prod-grid" id="prodGrid"></div>
+</section>
+
+<footer class="site">DALÍ BARBER · Tienda demo · Castellón — Productos y precios de ejemplo, sin pasarela de pago real.</footer>
+
+<footer class="portfolio-footer">
+  <p>Demo creada por <strong>Daniel Bort Guzmán</strong></p>
+  <a href="https://danielux135.github.io/" target="_blank" rel="noopener">Ver portfolio de Daniel</a>
+</footer>
+
+<!-- cesta lateral -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart" id="cart" aria-label="Cesta de la compra">
+  <div class="cart-head">
+    <h2>Tu cesta</h2>
+    <button class="cart-close" id="cartClose" aria-label="Cerrar cesta">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-confirm" id="cartConfirm"></div>
+    <div class="cart-total"><span>Total</span><b id="cartTotal">0,00 €</b></div>
+    <button class="btn gold" id="checkout">Tramitar pedido</button>
+  </div>
+</aside>
+
+<!-- controles de estilo y color -->
+<div class="theme-fab">
+  <button class="tfab" id="btnStyle" type="button" aria-label="Cambiar estilo"><span class="ic">🎭</span><span class="tf-txt"><small>Estilo</small><b id="lblStyle">Estudio</b></span></button>
+  <button class="tfab" id="btnColor" type="button" aria-label="Cambiar color"><span class="dot"></span><span class="tf-txt"><small>Color</small><b id="lblColor">Oro</b></span></button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s);
+const $$=(s,e=document)=>[...e.querySelectorAll(s)];
+
+// motor de temas compartido con la home (mismas claves de localStorage)
+const STYLES=[{id:'viral',name:'Viral'},{id:'estudio',name:'Estudio'},{id:'calle',name:'Calle'}];
+const PALETTES=[{id:'oro',name:'Oro'},{id:'rojo',name:'Rojo'},{id:'verde',name:'Verde'},{id:'azul',name:'Azul'}];
+let styleIx=0,palIx=0;
+function applyStyle(i,a){styleIx=(i+STYLES.length)%STYLES.length;const s=STYLES[styleIx];
+  document.documentElement.dataset.style=s.id;$('#lblStyle').textContent=s.name;
+  try{localStorage.setItem('dali_style',s.id);}catch(e){}if(a)toast('Estilo: '+s.name);}
+function applyPalette(i,a){palIx=(i+PALETTES.length)%PALETTES.length;const p=PALETTES[palIx];
+  document.documentElement.dataset.palette=p.id;$('#lblColor').textContent=p.name;
+  try{localStorage.setItem('dali_palette',p.id);}catch(e){}if(a)toast('Color: '+p.name);}
+function initTheme(){
+  const si=STYLES.findIndex(s=>s.id===localStorage.getItem('dali_style'));
+  const pi=PALETTES.findIndex(p=>p.id===localStorage.getItem('dali_palette'));
+  applyStyle(si>=0?si:1);applyPalette(pi>=0?pi:0);
+  $('#btnStyle').addEventListener('click',()=>applyStyle(styleIx+1,true));
+  $('#btnColor').addEventListener('click',()=>applyPalette(palIx+1,true));
+}
+
+// catalogo de productos (precios de ejemplo)
+const PRODUCTS=[
+  {id:'pomada',name:'Pomada mate',ic:'🧴',tag:'Top ventas',g:['#3a2a1a','#e7c27d'],price:12,desc:'Fijación fuerte y acabado seco, sin grasa.'},
+  {id:'cera',name:'Cera moldeadora',ic:'🪧',tag:'Clásico',g:['#241a08','#caa052'],price:11,desc:'Brillo medio y control que aguanta todo el día.'},
+  {id:'aceite',name:'Aceite para barba',ic:'🧔',tag:'Barba',g:['#2a1810','#d68b4a'],price:14,desc:'Hidrata, suaviza y deja un aroma amaderado.'},
+  {id:'champu',name:'Champú fortificante',ic:'🧴',tag:'Cuidado',g:['#10202a','#56b6c8'],price:13,desc:'Limpia en profundidad y refuerza la raíz.'},
+  {id:'after',name:'Bálsamo aftershave',ic:'🪒',tag:'Afeitado',g:['#1c1226','#9a6cd6'],price:10,desc:'Calma la piel justo después de la navaja.'},
+  {id:'kit',name:'Kit barba completo',ic:'🎁',tag:'Pack',g:['#2a1020','#fe6fa0'],price:29,desc:'Aceite, bálsamo y peine en estuche de regalo.'},
+  {id:'peine',name:'Peine de madera',ic:'💈',tag:'Accesorio',g:['#22180c','#b98a44'],price:7,desc:'Antiestático, de bolsillo, hecho a mano.'},
+  {id:'regalo',name:'Tarjeta regalo',ic:'💳',tag:'Regalo',g:['#0d2a1a','#76ffb2'],price:25,desc:'Un corte + barba para quien tú quieras.'},
+];
+const PMAP=Object.fromEntries(PRODUCTS.map(p=>[p.id,p]));
+let cart=JSON.parse(localStorage.getItem('dali_cart')||'{}');
+
+// pinta la cuadricula de productos
+function buildProducts(){
+  $('#prodGrid').innerHTML=PRODUCTS.map(p=>`
+    <article class="prod">
+      <div class="ph" style="background:linear-gradient(150deg,${p.g[0]},${p.g[1]} 165%)">
+        <span class="tag">${p.tag}</span>${p.ic}
+      </div>
+      <div class="body">
+        <h3>${p.name}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="foot">
+          <span class="price">${p.price}€</span>
+          <button class="add" data-id="${p.id}">Añadir +</button>
+        </div>
+      </div>
+    </article>`).join('');
+  $$('.add').forEach(b=>b.addEventListener('click',()=>{addToCart(b.dataset.id);}));
+}
+
+// guarda y refresca la cesta
+function saveCart(){localStorage.setItem('dali_cart',JSON.stringify(cart));renderCart();}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();toast(PMAP[id].name+' añadido a la cesta');openCart();}
+function setQty(id,n){if(n<=0)delete cart[id];else cart[id]=n;saveCart();}
+
+// dibuja el contenido de la cesta y el total
+function renderCart(){
+  const ids=Object.keys(cart);
+  const count=ids.reduce((s,id)=>s+cart[id],0);
+  const badge=$('#cartCount');badge.textContent=count;badge.classList.toggle('on',count>0);
+  const box=$('#cartItems');
+  if(!ids.length){
+    box.innerHTML=`<div class="cart-empty"><div class="big">🪒</div>Tu cesta está vacía.<br>Añade algún producto para empezar.</div>`;
+  }else{
+    box.innerHTML=ids.map(id=>{const p=PMAP[id],q=cart[id];return `
+      <div class="ci">
+        <div class="ph" style="background:linear-gradient(150deg,${p.g[0]},${p.g[1]} 165%)">${p.ic}</div>
+        <div class="info">
+          <b>${p.name}</b>
+          <span>${(p.price*q).toFixed(2)} €</span>
+          <div class="qty">
+            <button data-id="${id}" data-d="-1" aria-label="Quitar uno">−</button>
+            <b>${q}</b>
+            <button data-id="${id}" data-d="1" aria-label="Añadir uno">+</button>
+          </div>
+        </div>
+        <button class="rm" data-rm="${id}" aria-label="Eliminar">🗑</button>
+      </div>`;}).join('');
+    $$('.qty button',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.id,cart[b.dataset.id]+(+b.dataset.d))));
+    $$('.rm',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.rm,0)));
+  }
+  const total=ids.reduce((s,id)=>s+PMAP[id].price*cart[id],0);
+  $('#cartTotal').textContent=total.toFixed(2).replace('.',',')+' €';
+}
+
+// abre / cierra el panel de la cesta
+function openCart(){$('#cart').classList.add('on');$('#overlay').classList.add('on');}
+function closeCart(){$('#cart').classList.remove('on');$('#overlay').classList.remove('on');}
+
+function initCart(){
+  $('#cartBtn').addEventListener('click',openCart);
+  $('#cartClose').addEventListener('click',closeCart);
+  $('#overlay').addEventListener('click',closeCart);
+  $('#checkout').addEventListener('click',()=>{
+    if(!Object.keys(cart).length){toast('La cesta está vacía');return;}
+    const total=$('#cartTotal').textContent;
+    const c=$('#cartConfirm');
+    c.innerHTML=`✅ <b>¡Pedido realizado!</b><br>Total ${total}. <small style="color:var(--muted)">Demostración: sin cobro real. Con backend, aquí entraría la pasarela de pago y el aviso al cliente.</small>`;
+    c.classList.add('show');
+    cart={};saveCart();toast('Pedido confirmado 🎉');
+  });
+  renderCart();
+}
+
+let toastId;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastId);toastId=setTimeout(()=>t.classList.remove('show'),2200);}
+
+// arranque
+initTheme();buildProducts();initCart();
+</script>
+</body>
+</html>
