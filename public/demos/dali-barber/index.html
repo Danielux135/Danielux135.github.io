@@ -99,34 +99,52 @@ section.block{padding:70px 0}
 .head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900}
 .head p{color:var(--muted);font-size:1.05rem;line-height:1.6;margin-top:12px}
 
-/* feed estilo tiktok */
-.feed-scroller{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 22px;scroll-snap-type:x mandatory;
-  scrollbar-width:thin}
-.feed-scroller::-webkit-scrollbar{height:8px}
-.feed-scroller::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:8px}
-.reel{position:relative;flex:0 0 248px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;
-  scroll-snap-align:start;border:1px solid var(--line);user-select:none;
-  box-shadow:0 18px 50px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
-.reel:hover{transform:translateY(-6px)}
-.reel .ph{position:absolute;inset:0;background-size:cover;background-position:center;
-  filter:saturate(1.05)}
-.reel .grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.78))}
-.reel .play{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:50%;
-  display:grid;place-items:center;background:rgba(8,8,13,.55);backdrop-filter:blur(6px);font-size:.8rem}
-.reel .meta{position:absolute;left:14px;right:14px;bottom:14px}
-.reel .meta h4{font-size:1rem;margin-bottom:4px}
-.reel .meta .tags{font-size:.78rem;color:var(--tk-cyan);font-weight:700}
-.reel .likes{position:absolute;right:12px;bottom:60px;display:flex;flex-direction:column;align-items:center;gap:3px}
-.reel .likes .heart{font-size:1.4rem;transition:transform .2s var(--ease)}
-.reel .likes.on .heart{transform:scale(1.15);filter:drop-shadow(0 0 10px var(--tk-pink))}
-.reel .likes small{font-size:.72rem;font-weight:800}
-.reel .pop{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-.reel .pop i{font-style:normal;font-size:5rem;opacity:0;color:var(--tk-pink);
-  filter:drop-shadow(0 0 18px rgba(254,44,85,.7))}
-.reel .pop i.burst{animation:burst .65s var(--ease)}
+/* widget tiktok en directo */
+.tt-widget-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  box-shadow:var(--shadow)}
+.tt-widget-header{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tt-widget-brand{display:flex;align-items:center;gap:12px}
+.tt-widget-brand svg{flex:0 0 22px}
+.tt-widget-brand b{font-size:1rem;display:block}
+.tt-widget-brand small{display:block;font-size:.78rem;color:var(--muted)}
+.tt-widget-body{padding:0;background:#0a0a12;min-height:620px}
+.tt-widget-body .tiktok-embed{margin:0!important;border:0!important}
+
+/* para la animación de burst que aún existe en el slider */
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
-.feed-hint{font-size:.85rem;color:var(--muted);margin-top:-6px}
-.feed-hint b{color:var(--gold)}
+
+/* redes sociales: tiktok en directo + instagram */
+.social-frame{margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.social-frame .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.social-frame .bar b{font-weight:800}.social-frame .bar small{color:var(--muted);font-size:.85rem}
+.tt-live{min-height:300px;display:grid;place-items:center;padding:18px;background:#0a0a12}
+.tt-live .tiktok-embed{margin:0 auto!important}
+.tt-fallback{text-align:center;color:var(--muted);padding:30px;line-height:1.6}
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.ig-cell{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  background:#11111b;display:block;transition:transform .3s var(--ease)}
+.ig-cell:hover{transform:scale(1.02);border-color:rgba(231,194,125,.4)}
+.ig-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-cell .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:1.7rem;
+  background:radial-gradient(circle at 30% 20%,rgba(254,44,85,.16),transparent 52%),
+  radial-gradient(circle at 80% 82%,rgba(231,194,125,.14),transparent 52%),#12121c}
+.ig-cell .tag{position:absolute;left:8px;bottom:8px;font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;
+  background:rgba(8,8,13,.6);backdrop-filter:blur(6px);color:#fff;z-index:2}
+.follow-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.follow-btn{display:inline-flex;align-items:center;gap:11px;padding:12px 18px;border-radius:14px;text-decoration:none;
+  font-weight:800;color:#fff;border:1px solid var(--line);transition:.25s var(--ease)}
+.follow-btn:hover{transform:translateY(-2px)}
+.follow-btn svg{width:22px;height:22px;flex:0 0 22px}
+.follow-btn small{display:block;font-weight:600;opacity:.85;font-size:.72rem}
+.follow-btn.tt{background:linear-gradient(135deg,rgba(37,244,238,.18),rgba(254,44,85,.2))}
+.follow-btn.ig{background:linear-gradient(135deg,#feda75,#fa7e1e 28%,#d62976 58%,#962fbf 80%,#4f5bd5)}
+.gmaps-btn{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:11px 17px;border-radius:12px;
+  text-decoration:none;font-weight:800;color:var(--text);border:1px solid var(--line);background:var(--glass);transition:.25s var(--ease)}
+.gmaps-btn:hover{transform:translateY(-2px);border-color:var(--gold)}
 
 /* servicios */
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
@@ -248,9 +266,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <section class="hero wrap">
   <div class="hero-grid">
     <div>
-      <span class="eyebrow">Barbería · Valencia</span>
+      <span class="eyebrow">Barbería · Castellón</span>
       <h1>Cortes que se <span class="out">vuelven virales</span>.</h1>
-      <p class="lead">La barbería que ya petó en TikTok, ahora con web propia. Mira el feed, elige tu estilo y reserva en 30 segundos. Sin llamadas, sin esperas.</p>
+      <p class="lead">La barbería que petó en TikTok e Instagram, ahora con web propia. Mira el feed, elige tu estilo y reserva en 30 segundos. Sin llamadas, sin esperas.</p>
       <div class="hero-cta">
         <a href="#reservar" class="btn gold">Reservar mi cita</a>
         <a href="#feed" class="btn ghost">▶ Ver el feed</a>
@@ -277,15 +295,54 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   </div>
 </section>
 
-<!-- feed estilo tiktok -->
+<!-- feed tiktok en directo -->
 <section class="block wrap reveal" id="feed">
   <div class="head">
     <span class="eyebrow">Lo que se mueve</span>
-    <h2>El feed, dentro de la web</h2>
-    <p>Tus vídeos de TikTok viven aquí mismo. <b>Doble-tap</b> en cualquier corte para darle like — igual que en la app. En la versión real estos huecos llevan tus reels y fotos.</p>
+    <h2>Sus vídeos, dentro de la web</h2>
+    <p>El feed real de <b>@dalibarber.11</b> integrado en la web. Se actualiza solo cada vez que sube un vídeo nuevo. Sin copiar ni pegar nada.</p>
   </div>
-  <div class="feed-scroller" id="feedScroller"></div>
-  <p class="feed-hint">💡 <b>Truco:</b> haz doble clic / doble toque sobre un corte para darle like.</p>
+
+  <div class="tt-widget-wrap">
+    <div class="tt-widget-header">
+      <div class="tt-widget-brand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="#fff"/></svg>
+        <span><b>@dalibarber.11</b><small>Feed en directo · se actualiza solo</small></span>
+      </div>
+      <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener" style="padding:9px 14px;font-size:.85rem">Seguir en TikTok</a>
+    </div>
+    <div class="tt-widget-body">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@dalibarber.11"
+        data-unique-id="dalibarber.11"
+        data-embed-type="creator"
+        style="max-width:100%;min-width:288px;border:0">
+        <section>
+          <a target="_blank" href="https://www.tiktok.com/@dalibarber.11?refer=creator_embed">@dalibarber.11</a>
+        </section>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- instagram: galería de trabajo -->
+<section class="block wrap reveal" id="instagram">
+  <div class="head">
+    <span class="eyebrow">Instagram</span>
+    <h2>El trabajo, foto a foto</h2>
+    <p>Galería conectada a <b>@dalibarber.11</b>. Aquí van las mejores fotos de cortes; al añadirlas se colocan solas en la cuadrícula.</p>
+  </div>
+  <div class="ig-grid" id="igGrid"></div>
+  <div class="follow-bar">
+    <a class="follow-btn ig" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.4" fill="#fff"/></svg>
+      <span>@dalibarber.11<small>Seguir en Instagram</small></span>
+    </a>
+    <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="#fff"/></svg>
+      <span>@dalibarber.11<small>Seguir en TikTok</small></span>
+    </a>
+  </div>
 </section>
 
 <!-- servicios -->
@@ -363,9 +420,10 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   <div class="head">
     <span class="eyebrow">La gente habla</span>
     <h2>Reseñas reales</h2>
-    <p>Placeholder con opiniones de ejemplo. Se pueden conectar a Google Reviews automáticamente.</p>
+    <p>Opiniones de ejemplo: se pueden conectar a las reseñas reales de Google automáticamente. Mientras, enlazamos a tu ficha.</p>
   </div>
   <div class="reviews" id="reviews"></div>
+  <a class="gmaps-btn" href="https://www.google.com/maps/place/BARBER%C3%8DA+DALI/@39.98006,-0.0393534,17z/data=!4m6!3m5!1s0xd60013383b56371:0x90d2aaf21f2d0973" target="_blank" rel="noopener">⭐ Ver reseñas en Google</a>
 </section>
 
 <!-- cierre -->
@@ -379,7 +437,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 
 <footer class="site wrap">
   <div class="foot-grid">
-    <div><b>DALÍ BARBER</b><br><span style="font-size:.85rem">Demo · Valencia · @dalibarber.11</span></div>
+    <div><b>DALÍ BARBER</b><br><span style="font-size:.85rem">Demo · Castellón · @dalibarber.11</span></div>
     <div style="font-size:.85rem">Lun–Sáb · 10:00–20:30<br>Esta es una demostración sin datos reales.</div>
   </div>
 </footer>
@@ -396,59 +454,14 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 const $=(s,e=document)=>e.querySelector(s);
 const $$=(s,e=document)=>[...e.querySelectorAll(s)];
 
-// genera un degradado de placeholder reproducible a partir de un indice
+// formatea numeros grandes a estilo 12.4k
+const kf=n=>n>=1000?(n/1000).toFixed(1).replace('.0','')+'k':String(n);
+
+// degradado para los placeholders del slider antes/después
 function phGradient(i){
   const palettes=[['#3a2a1a','#e7c27d'],['#2a1020','#fe2c55'],['#06222a','#25f4ee'],['#1a1430','#8f63ff'],['#241a08','#f5e0a8'],['#0d2a1a','#76ffb2']];
   const[a,b]=palettes[i%palettes.length];
   return `linear-gradient(150deg,${a},${b} 160%),radial-gradient(circle at 70% 25%,rgba(255,255,255,.18),transparent 45%)`;
-}
-
-// datos del feed estilo tiktok
-const REELS=[
-  {t:'Fade nítido',tag:'#fade #valencia',likes:12400},
-  {t:'Mid drop + diseño',tag:'#hairdesign',likes:9870},
-  {t:'Texturizado moderno',tag:'#textured',likes:21300},
-  {t:'Barba perfilada',tag:'#beard',likes:7650},
-  {t:'Buzz cut limpio',tag:'#buzzcut',likes:15800},
-  {t:'Mullet renovado',tag:'#mullet',likes:18200},
-];
-// formatea numeros grandes a estilo 12.4k
-const kf=n=>n>=1000?(n/1000).toFixed(1).replace('.0','')+'k':String(n);
-
-// construye el feed
-function buildFeed(){
-  const c=$('#feedScroller');
-  c.innerHTML=REELS.map((r,i)=>`
-    <article class="reel" data-i="${i}">
-      <div class="ph" style="background-image:${phGradient(i)}"></div>
-      <div class="grad"></div>
-      <div class="play">▶</div>
-      <div class="likes" data-likes="${r.likes}">
-        <div class="heart">🤍</div>
-        <small>${kf(r.likes)}</small>
-      </div>
-      <div class="pop"><i>❤</i></div>
-      <div class="meta"><h4>${r.t}</h4><div class="tags">${r.tag}</div></div>
-    </article>`).join('');
-
-  // doble-tap / doble-clic para dar like
-  $$('.reel').forEach(reel=>{
-    let last=0;
-    const like=()=>{
-      const box=$('.likes',reel),pop=$('.pop i',reel);
-      const on=box.classList.toggle('on');
-      const base=+box.dataset.likes;
-      $('.heart',box).textContent=on?'❤️':'🤍';
-      $('small',box).textContent=kf(on?base+1:base);
-      if(on){pop.classList.remove('burst');void pop.offsetWidth;pop.classList.add('burst');}
-    };
-    reel.addEventListener('dblclick',like);
-    reel.addEventListener('touchend',e=>{
-      const now=Date.now();
-      if(now-last<320){e.preventDefault();like();}
-      last=now;
-    },{passive:false});
-  });
 }
 
 // servicios y precios
@@ -498,6 +511,25 @@ function buildReviews(){
         <div><b>${r.n}</b><small>Cliente verificado</small></div>
       </div>
     </div>`).join('');
+}
+
+// galeria de instagram: carga insta/1.jpg..6.jpg si existen, si no deja un placeholder elegante
+const IG_TAGS=['#fade','#barbershop','#dalibarber','#beard','#hairdesign','#almassora'];
+function buildInstagram(){
+  $('#igGrid').innerHTML=IG_TAGS.map((t,i)=>`
+    <a class="ig-cell" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener" aria-label="Ver en Instagram">
+      <div class="ph">📸</div>
+      <span class="tag">${t}</span>
+    </a>`).join('');
+  // intenta sustituir cada placeholder por la foto real si esta disponible
+  $$('.ig-cell').forEach((cell,i)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const el=document.createElement('img');el.src=img.src;el.alt=IG_TAGS[i];el.loading='lazy';
+      cell.insertBefore(el,cell.firstChild);$('.ph',cell).style.display='none';
+    };
+    img.src=`insta/${i+1}.jpg`;
+  });
 }
 
 // slider antes/despues con raton y tactil
@@ -575,7 +607,9 @@ function toast(msg){
 }
 
 // arranque
-buildFeed();buildServices();buildReviews();buildSlots();initBA();initBooking();animateStats();initReveal();
+buildServices();buildReviews();buildInstagram();buildSlots();initBA();initBooking();animateStats();initReveal();
 </script>
+<!-- script oficial de tiktok para renderizar el feed en directo de @dalibarber.11 -->
+<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
