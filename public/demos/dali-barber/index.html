@@ -725,8 +725,9 @@ function buildReels(){
           data-instgrm-permalink="${r.ig}?utm_source=ig_embed&utm_campaign=loading"
           data-instgrm-version="14"
           style="background:#FFF;border:0;border-radius:0;box-shadow:none;margin:0;max-width:100%;min-width:288px;padding:0;width:100%">
+          <a href="${r.ig}" target="_blank" rel="noopener">Ver reel en Instagram</a>
         </blockquote>`;
-        if(window.instgrm)window.instgrm.Embeds.process();
+        loadInstagramEmbed();
       }else{
         wrap.innerHTML=`<div class="reel-ph">
           <div class="big">🎬</div>
@@ -899,6 +900,17 @@ initTheme();buildServices();buildReviews();buildReels();buildSlots();initBA();in
 <!-- script oficial de tiktok para renderizar el feed en directo de @dalibarber.11 -->
 <script async src="https://www.tiktok.com/embed.js"></script>
 <!-- script oficial de instagram para renderizar los embeds de reels -->
-<script async src="//www.instagram.com/embed.js"></script>
+<script>
+// carga embed.js de instagram y llama a process() cuando esté listo
+function loadInstagramEmbed(){
+  if(window.instgrm?.Embeds){window.instgrm.Embeds.process();return;}
+  const url='https://www.instagram.com/embed.js';
+  let s=document.querySelector(`script[src="${url}"]`);
+  if(!s){s=document.createElement('script');s.src=url;s.async=true;
+    s.onload=()=>window.instgrm?.Embeds?.process();document.body.appendChild(s);}
+  else{s.addEventListener('load',()=>window.instgrm?.Embeds?.process());}
+}
+window.addEventListener('load',loadInstagramEmbed);
+</script>
 </body>
 </html>
