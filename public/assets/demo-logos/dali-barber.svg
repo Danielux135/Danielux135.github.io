@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Dalí Barber">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5e0a8"/>
+      <stop offset="1" stop-color="#b07d2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0a0a0f"/>
+  <rect x="26" y="12" width="12" height="40" rx="6" fill="#12121c" stroke="url(#g)" stroke-width="1.5"/>
+  <path d="M26 22 L38 14 M26 32 L38 24 M26 42 L38 34 M26 50 L38 42" stroke="#fe2c55" stroke-width="3" stroke-linecap="round"/>
+  <path d="M26 18 L38 26 M26 28 L38 36 M26 38 L38 46" stroke="#25f4ee" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <rect x="22" y="9" width="20" height="6" rx="3" fill="url(#g)"/>
+  <rect x="22" y="49" width="20" height="6" rx="3" fill="url(#g)"/>
+</svg>

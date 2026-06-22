@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a0a0f" />
+<title>Dalí Barber — Barbería premium · Demo frontend</title>
+<meta name="description" content="Demo frontend premium para barbería: feed estilo TikTok con doble-tap, reserva de cita funcional, antes/después, servicios y estética viral. Hecho por Daniel Bort." />
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#12121c;--text:#f7f5ff;--muted:#a6a3c2;
+  --gold:#e7c27d;--gold2:#f5e0a8;--ink:#08080d;
+  --tk-cyan:#25f4ee;--tk-pink:#fe2c55;
+  --line:rgba(255,255,255,.12);--glass:rgba(255,255,255,.05);
+  --radius:24px;--ease:cubic-bezier(.2,.85,.25,1);
+  --shadow:0 30px 90px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--text);overflow-x:hidden;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 10% -5%,rgba(231,194,125,.14),transparent 30%),
+    radial-gradient(circle at 92% 8%,rgba(254,44,85,.12),transparent 28%),
+    radial-gradient(circle at 50% 120%,rgba(37,244,238,.10),transparent 35%),
+    linear-gradient(180deg,var(--bg),#080610 55%,#05040a);
+}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.02;margin:0}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.22em;color:var(--gold);
+  padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--glass)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+
+/* header */
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(18px);
+  background:linear-gradient(180deg,rgba(10,10,15,.85),rgba(10,10,15,.45));
+  border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.02em;font-size:1.15rem}
+.brand .mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:conic-gradient(from 0deg,var(--gold),#b07d2e,var(--gold2),#8a5a1f,var(--gold));
+  color:var(--ink);font-weight:900;font-size:1.05rem;box-shadow:0 8px 28px rgba(231,194,125,.35);
+  position:relative;overflow:hidden}
+.brand .mark span{position:relative;z-index:2}
+.nav-links{display:flex;gap:6px}
+.nav-links a{padding:9px 13px;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--muted);
+  text-decoration:none;transition:.2s var(--ease)}
+.nav-links a:hover{color:var(--text);background:var(--glass)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;
+  font-weight:800;padding:12px 18px;border-radius:999px;text-decoration:none;transition:.25s var(--ease)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--ink);
+  box-shadow:0 12px 34px rgba(231,194,125,.4)}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(231,194,125,.55)}
+.btn.ghost{background:var(--glass);border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
+
+/* hero */
+.hero{position:relative;padding:64px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900}
+.hero h1 .out{-webkit-text-stroke:1.5px var(--gold);color:transparent;
+  display:inline-block;transition:.3s var(--ease)}
+.hero h1 .out:hover{color:var(--gold);-webkit-text-stroke:0}
+.hero p.lead{color:var(--muted);font-size:1.12rem;line-height:1.6;max-width:46ch;margin:20px 0 26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.stat strong{display:block;font-size:1.7rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--tk-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:.82rem;color:var(--muted)}
+
+/* poste de barbero animado */
+.hero-visual{position:relative;display:grid;place-items:center}
+.pole-stage{position:relative;width:100%;max-width:330px;aspect-ratio:3/4;border-radius:30px;
+  border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  box-shadow:var(--shadow);overflow:hidden;display:grid;place-items:center}
+.pole-stage::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 20%,rgba(231,194,125,.18),transparent 60%)}
+.pole{position:relative;width:74px;height:74%;border-radius:40px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 0 0 4px rgba(255,255,255,.08)}
+.pole-spin{position:absolute;inset:-40% -20%;
+  background:repeating-linear-gradient(45deg,#fff 0 16px,var(--tk-pink) 16px 32px,#fff 32px 48px,var(--tk-cyan) 48px 64px);
+  animation:poleSpin 2.4s linear infinite}
+@keyframes poleSpin{to{transform:translateY(64px)}}
+.pole-cap{position:absolute;left:50%;transform:translateX(-50%);width:90px;height:18px;border-radius:8px;
+  background:linear-gradient(180deg,var(--gold2),#9a6c28);z-index:3}
+.pole-cap.top{top:8%}.pole-cap.bot{bottom:8%}
+.tk-badge{position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:9px;z-index:4;
+  padding:9px 13px;border-radius:999px;background:rgba(8,8,13,.7);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.tk-badge svg{width:20px;height:20px}
+.tk-badge b{font-size:.9rem}.tk-badge small{display:block;color:var(--muted);font-size:.72rem}
+
+/* secciones */
+section.block{padding:70px 0}
+.head{max-width:60ch;margin-bottom:34px}
+.head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900}
+.head p{color:var(--muted);font-size:1.05rem;line-height:1.6;margin-top:12px}
+
+/* feed estilo tiktok */
+.feed-scroller{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 22px;scroll-snap-type:x mandatory;
+  scrollbar-width:thin}
+.feed-scroller::-webkit-scrollbar{height:8px}
+.feed-scroller::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:8px}
+.reel{position:relative;flex:0 0 248px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;
+  scroll-snap-align:start;border:1px solid var(--line);user-select:none;
+  box-shadow:0 18px 50px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
+.reel:hover{transform:translateY(-6px)}
+.reel .ph{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:saturate(1.05)}
+.reel .grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.78))}
+.reel .play{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(8,8,13,.55);backdrop-filter:blur(6px);font-size:.8rem}
+.reel .meta{position:absolute;left:14px;right:14px;bottom:14px}
+.reel .meta h4{font-size:1rem;margin-bottom:4px}
+.reel .meta .tags{font-size:.78rem;color:var(--tk-cyan);font-weight:700}
+.reel .likes{position:absolute;right:12px;bottom:60px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.reel .likes .heart{font-size:1.4rem;transition:transform .2s var(--ease)}
+.reel .likes.on .heart{transform:scale(1.15);filter:drop-shadow(0 0 10px var(--tk-pink))}
+.reel .likes small{font-size:.72rem;font-weight:800}
+.reel .pop{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.reel .pop i{font-style:normal;font-size:5rem;opacity:0;color:var(--tk-pink);
+  filter:drop-shadow(0 0 18px rgba(254,44,85,.7))}
+.reel .pop i.burst{animation:burst .65s var(--ease)}
+@keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
+.feed-hint{font-size:.85rem;color:var(--muted);margin-top:-6px}
+.feed-hint b{color:var(--gold)}
+
+/* servicios */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.svc{position:relative;padding:22px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));transition:.3s var(--ease);overflow:hidden}
+.svc::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:.3s var(--ease);
+  background:radial-gradient(circle at 80% -10%,rgba(231,194,125,.22),transparent 60%)}
+.svc:hover{transform:translateY(-5px);border-color:rgba(231,194,125,.4)}
+.svc:hover::after{opacity:1}
+.svc .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:1.3rem;
+  background:var(--glass);border:1px solid var(--line);margin-bottom:14px}
+.svc h3{font-size:1.18rem;margin-bottom:6px}
+.svc p{color:var(--muted);font-size:.92rem;line-height:1.5;margin:0 0 16px}
+.svc .row{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+.svc .price{font-weight:900;font-size:1.3rem;color:var(--gold2)}
+.svc .pick{border:1px solid var(--line);background:var(--glass);color:var(--text);font-family:inherit;
+  font-weight:700;padding:9px 14px;border-radius:999px;cursor:pointer;font-size:.85rem;transition:.2s var(--ease)}
+.svc .pick:hover{background:var(--gold);color:var(--ink)}
+
+/* antes/despues */
+.ba{position:relative;max-width:680px;margin-inline:auto;aspect-ratio:16/10;border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);cursor:ew-resize;user-select:none;touch-action:none}
+.ba .layer{position:absolute;inset:0;background-size:cover;background-position:center;display:grid;place-items:end start}
+.ba .layer span{margin:14px;padding:6px 12px;border-radius:999px;font-size:.78rem;font-weight:800;
+  background:rgba(8,8,13,.6);backdrop-filter:blur(6px)}
+.ba .after{clip-path:inset(0 0 0 50%)}
+.ba .divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);
+  box-shadow:0 0 18px rgba(231,194,125,.7)}
+.ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;
+  border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-weight:900;
+  box-shadow:0 8px 26px rgba(0,0,0,.5)}
+
+/* reservar */
+.book{display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:start}
+.book-card{padding:26px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:var(--shadow)}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(8,8,13,.5);color:var(--text);font-family:inherit;font-size:.95rem;transition:.2s var(--ease)}
+.field input:focus,.field select:focus{outline:0;border-color:var(--gold);background:rgba(8,8,13,.75)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.slot{border:1px solid var(--line);background:var(--glass);color:var(--text);font-family:inherit;
+  padding:9px 12px;border-radius:11px;cursor:pointer;font-size:.85rem;font-weight:700;transition:.2s var(--ease)}
+.slot.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.slot:hover{border-color:var(--gold)}
+.book-side{padding:26px;border-radius:var(--radius);border:1px solid var(--line);background:var(--glass)}
+.book-side h3{font-size:1.2rem;margin-bottom:14px}
+.book-side ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.book-side li{display:flex;gap:11px;color:var(--muted);font-size:.92rem;line-height:1.4}
+.book-side li b{color:var(--text)}
+.book-side .ic{flex:0 0 30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(231,194,125,.14);color:var(--gold)}
+.confirm{margin-top:14px;padding:14px;border-radius:14px;border:1px solid rgba(37,244,238,.4);
+  background:rgba(37,244,238,.08);font-size:.92rem;display:none}
+.confirm.show{display:block;animation:pop .4s var(--ease)}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+
+/* reseñas */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.review{padding:22px;border-radius:var(--radius);border:1px solid var(--line);background:var(--glass)}
+.review .stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+.review p{margin:0 0 16px;line-height:1.55;font-size:.96rem}
+.review .who{display:flex;align-items:center;gap:11px}
+.review .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:var(--ink)}
+.review .who b{font-size:.92rem}.review .who small{display:block;color:var(--muted);font-size:.78rem}
+
+/* cierre */
+.cta-final{position:relative;text-align:center;padding:60px 26px;border-radius:32px;overflow:hidden;
+  border:1px solid var(--line);background:linear-gradient(135deg,rgba(231,194,125,.14),rgba(254,44,85,.1),rgba(37,244,238,.1))}
+.cta-final h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;margin-bottom:14px}
+.cta-final p{color:var(--muted);max-width:50ch;margin:0 auto 26px;font-size:1.05rem}
+
+footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px;color:var(--muted)}
+.foot-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.92rem}
+
+.portfolio-footer{width:min(1180px,calc(100% - 36px));margin:8px auto 30px;padding:18px 22px;
+  border:1px solid var(--line);border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
+  backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.portfolio-footer p{margin:0;font-size:.95rem}.portfolio-footer strong{color:var(--text)}
+.portfolio-footer a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
+  padding:10px 16px;background:rgba(255,255,255,.07);color:var(--gold2);font-weight:900;text-decoration:none;transition:.25s var(--ease)}
+.portfolio-footer a::after{content:"↗"}.portfolio-footer a:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,140%);z-index:80;
+  padding:13px 20px;border-radius:14px;background:var(--ink);border:1px solid var(--gold);
+  font-weight:700;box-shadow:var(--shadow);transition:transform .4s var(--ease)}
+.toast.show{transform:translate(-50%,0)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:880px){
+  .hero-grid,.book{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-visual{order:-1}
+  .pole-stage{max-width:260px}
+}
+</style>
+</head>
+<body>
+
+<!-- barra de navegación -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="mark"><span>D</span></span> DALÍ<span style="color:var(--gold)">BARBER</span></div>
+    <nav class="nav-links">
+      <a href="#feed">Feed</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajo">Antes / Después</a>
+      <a href="#resenas">Reseñas</a>
+    </nav>
+    <a href="#reservar" class="btn gold">Reservar cita</a>
+  </div>
+</header>
+
+<!-- hero principal -->
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Barbería · Valencia</span>
+      <h1>Cortes que se <span class="out">vuelven virales</span>.</h1>
+      <p class="lead">La barbería que ya petó en TikTok, ahora con web propia. Mira el feed, elige tu estilo y reserva en 30 segundos. Sin llamadas, sin esperas.</p>
+      <div class="hero-cta">
+        <a href="#reservar" class="btn gold">Reservar mi cita</a>
+        <a href="#feed" class="btn ghost">▶ Ver el feed</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong id="stFollow">0</strong><span>seguidores en TikTok</span></div>
+        <div class="stat"><strong id="stCuts">0</strong><span>cortes este mes</span></div>
+        <div class="stat"><strong id="stStars">0.0</strong><span>valoración media</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pole-stage">
+        <div class="pole">
+          <div class="pole-spin"></div>
+          <div class="pole-cap top"></div>
+          <div class="pole-cap bot"></div>
+        </div>
+        <a class="tk-badge" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="#fff"/></svg>
+          <span><b>@dalibarber.11</b><small>Síguenos en TikTok</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- feed estilo tiktok -->
+<section class="block wrap reveal" id="feed">
+  <div class="head">
+    <span class="eyebrow">Lo que se mueve</span>
+    <h2>El feed, dentro de la web</h2>
+    <p>Tus vídeos de TikTok viven aquí mismo. <b>Doble-tap</b> en cualquier corte para darle like — igual que en la app. En la versión real estos huecos llevan tus reels y fotos.</p>
+  </div>
+  <div class="feed-scroller" id="feedScroller"></div>
+  <p class="feed-hint">💡 <b>Truco:</b> haz doble clic / doble toque sobre un corte para darle like.</p>
+</section>
+
+<!-- servicios -->
+<section class="block wrap reveal" id="servicios">
+  <div class="head">
+    <span class="eyebrow">Carta de servicios</span>
+    <h2>Elige tu corte</h2>
+    <p>Precios claros, sin sorpresas. Toca «Reservar» en cualquiera y lo lleva directo al formulario con el servicio ya elegido.</p>
+  </div>
+  <div class="svc-grid" id="svcGrid"></div>
+</section>
+
+<!-- antes / despues -->
+<section class="block wrap reveal" id="trabajo">
+  <div class="head">
+    <span class="eyebrow">El cambio</span>
+    <h2>Antes / Después</h2>
+    <p>Arrastra el control para ver la transformación. En la web real, aquí van fotos reales de tus clientes.</p>
+  </div>
+  <div class="ba" id="ba">
+    <div class="layer before" id="baBefore"><span>Antes</span></div>
+    <div class="layer after" id="baAfter"><span>Después</span></div>
+    <div class="divider" id="baDiv"><div class="knob">⇆</div></div>
+  </div>
+</section>
+
+<!-- reservar -->
+<section class="block wrap reveal" id="reservar">
+  <div class="head">
+    <span class="eyebrow">Reserva en 30s</span>
+    <h2>Pide tu cita</h2>
+    <p>Frontend funcional: elige servicio, día y hora. Se guarda en el navegador como demostración. En la versión con backend, esto envía la reserva real y un aviso por WhatsApp/email.</p>
+  </div>
+  <div class="book">
+    <form class="book-card" id="bookForm">
+      <div class="field">
+        <label>Servicio</label>
+        <select id="fService" required></select>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label>Tu nombre</label>
+          <input id="fName" type="text" placeholder="Nombre y apellido" required />
+        </div>
+        <div class="field">
+          <label>Teléfono</label>
+          <input id="fPhone" type="tel" placeholder="600 000 000" required />
+        </div>
+      </div>
+      <div class="field">
+        <label>Día</label>
+        <input id="fDate" type="date" required />
+      </div>
+      <div class="field">
+        <label>Hora disponible</label>
+        <div class="slots" id="fSlots"></div>
+      </div>
+      <button type="submit" class="btn gold" style="width:100%;justify-content:center;margin-top:6px">Confirmar reserva</button>
+      <div class="confirm" id="bookConfirm"></div>
+    </form>
+    <aside class="book-side">
+      <h3>Cómo funciona</h3>
+      <ul>
+        <li><span class="ic">1</span><div><b>Eliges servicio y hora.</b> Lo ves todo de un vistazo, sin llamar.</div></li>
+        <li><span class="ic">2</span><div><b>Confirmas.</b> En segundos tienes tu cita reservada.</div></li>
+        <li><span class="ic">3</span><div><b>Recibes recordatorio.</b> Con backend: aviso automático para no faltar.</div></li>
+        <li><span class="ic">★</span><div><b>Menos huecos vacíos.</b> Una web que reserva sola mientras tú cortas.</div></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- reseñas -->
+<section class="block wrap reveal" id="resenas">
+  <div class="head">
+    <span class="eyebrow">La gente habla</span>
+    <h2>Reseñas reales</h2>
+    <p>Placeholder con opiniones de ejemplo. Se pueden conectar a Google Reviews automáticamente.</p>
+  </div>
+  <div class="reviews" id="reviews"></div>
+</section>
+
+<!-- cierre -->
+<section class="block wrap reveal">
+  <div class="cta-final">
+    <h2>¿Listo para tu próximo corte?</h2>
+    <p>El mismo estilo que ves en TikTok, ahora a un clic. Reserva ahora y entra ya con cita.</p>
+    <a href="#reservar" class="btn gold">Reservar mi cita</a>
+  </div>
+</section>
+
+<footer class="site wrap">
+  <div class="foot-grid">
+    <div><b>DALÍ BARBER</b><br><span style="font-size:.85rem">Demo · Valencia · @dalibarber.11</span></div>
+    <div style="font-size:.85rem">Lun–Sáb · 10:00–20:30<br>Esta es una demostración sin datos reales.</div>
+  </div>
+</footer>
+
+<footer class="portfolio-footer">
+  <p>Demo creada por <strong>Daniel Bort Guzmán</strong></p>
+  <a href="https://danielux135.github.io/" target="_blank" rel="noopener">Ver portfolio de Daniel</a>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// utilidad corta para seleccionar
+const $=(s,e=document)=>e.querySelector(s);
+const $$=(s,e=document)=>[...e.querySelectorAll(s)];
+
+// genera un degradado de placeholder reproducible a partir de un indice
+function phGradient(i){
+  const palettes=[['#3a2a1a','#e7c27d'],['#2a1020','#fe2c55'],['#06222a','#25f4ee'],['#1a1430','#8f63ff'],['#241a08','#f5e0a8'],['#0d2a1a','#76ffb2']];
+  const[a,b]=palettes[i%palettes.length];
+  return `linear-gradient(150deg,${a},${b} 160%),radial-gradient(circle at 70% 25%,rgba(255,255,255,.18),transparent 45%)`;
+}
+
+// datos del feed estilo tiktok
+const REELS=[
+  {t:'Fade nítido',tag:'#fade #valencia',likes:12400},
+  {t:'Mid drop + diseño',tag:'#hairdesign',likes:9870},
+  {t:'Texturizado moderno',tag:'#textured',likes:21300},
+  {t:'Barba perfilada',tag:'#beard',likes:7650},
+  {t:'Buzz cut limpio',tag:'#buzzcut',likes:15800},
+  {t:'Mullet renovado',tag:'#mullet',likes:18200},
+];
+// formatea numeros grandes a estilo 12.4k
+const kf=n=>n>=1000?(n/1000).toFixed(1).replace('.0','')+'k':String(n);
+
+// construye el feed
+function buildFeed(){
+  const c=$('#feedScroller');
+  c.innerHTML=REELS.map((r,i)=>`
+    <article class="reel" data-i="${i}">
+      <div class="ph" style="background-image:${phGradient(i)}"></div>
+      <div class="grad"></div>
+      <div class="play">▶</div>
+      <div class="likes" data-likes="${r.likes}">
+        <div class="heart">🤍</div>
+        <small>${kf(r.likes)}</small>
+      </div>
+      <div class="pop"><i>❤</i></div>
+      <div class="meta"><h4>${r.t}</h4><div class="tags">${r.tag}</div></div>
+    </article>`).join('');
+
+  // doble-tap / doble-clic para dar like
+  $$('.reel').forEach(reel=>{
+    let last=0;
+    const like=()=>{
+      const box=$('.likes',reel),pop=$('.pop i',reel);
+      const on=box.classList.toggle('on');
+      const base=+box.dataset.likes;
+      $('.heart',box).textContent=on?'❤️':'🤍';
+      $('small',box).textContent=kf(on?base+1:base);
+      if(on){pop.classList.remove('burst');void pop.offsetWidth;pop.classList.add('burst');}
+    };
+    reel.addEventListener('dblclick',like);
+    reel.addEventListener('touchend',e=>{
+      const now=Date.now();
+      if(now-last<320){e.preventDefault();like();}
+      last=now;
+    },{passive:false});
+  });
+}
+
+// servicios y precios
+const SERVICES=[
+  {ic:'✂️',name:'Corte Dalí',desc:'El corte estrella: fade a medida y acabado de revista.',price:14},
+  {ic:'🧔',name:'Corte + Barba',desc:'Combo completo, perfilado de barba con toalla caliente.',price:19},
+  {ic:'🎨',name:'Diseño / Líneas',desc:'Dibujos y líneas personalizadas para destacar.',price:8},
+  {ic:'👦',name:'Corte Junior',desc:'Para los más peques, paciencia incluida.',price:11},
+  {ic:'🪒',name:'Afeitado clásico',desc:'Navaja, ritual completo y piel suave.',price:13},
+  {ic:'💈',name:'Pack Completo',desc:'Corte, barba, cejas y diseño. La experiencia entera.',price:25},
+];
+
+// pinta servicios y rellena el select del formulario
+function buildServices(){
+  $('#svcGrid').innerHTML=SERVICES.map(s=>`
+    <div class="svc">
+      <div class="ic">${s.ic}</div>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <div class="row">
+        <span class="price">${s.price}€</span>
+        <button class="pick" data-svc="${s.name}">Reservar →</button>
+      </div>
+    </div>`).join('');
+  $('#fService').innerHTML=SERVICES.map(s=>`<option value="${s.name}">${s.name} · ${s.price}€</option>`).join('');
+  // al pulsar reservar en una card salta al formulario con el servicio elegido
+  $$('.pick').forEach(b=>b.addEventListener('click',()=>{
+    $('#fService').value=b.dataset.svc;
+    $('#reservar').scrollIntoView({behavior:'smooth'});
+    toast('Servicio elegido: '+b.dataset.svc);
+  }));
+}
+
+// reseñas de ejemplo
+const REVIEWS=[
+  {n:'Marcos R.',c:'#e7c27d',txt:'Lo vi en TikTok y fui. Mejor corte de mi vida, sin exagerar.'},
+  {n:'Iván L.',c:'#fe2c55',txt:'Reservé desde el móvil en un minuto. El fade es una locura.'},
+  {n:'Hugo P.',c:'#25f4ee',txt:'Llevo meses yendo. Diseños top y siempre puntual.'},
+];
+function buildReviews(){
+  $('#reviews').innerHTML=REVIEWS.map(r=>`
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>“${r.txt}”</p>
+      <div class="who">
+        <div class="av" style="background:${r.c}">${r.n[0]}</div>
+        <div><b>${r.n}</b><small>Cliente verificado</small></div>
+      </div>
+    </div>`).join('');
+}
+
+// slider antes/despues con raton y tactil
+function initBA(){
+  const ba=$('#ba'),after=$('#baAfter'),div=$('#baDiv');
+  $('#baBefore').style.backgroundImage=phGradient(0);
+  after.style.backgroundImage=phGradient(2);
+  const move=x=>{
+    const r=ba.getBoundingClientRect();
+    let p=((x-r.left)/r.width)*100;p=Math.max(4,Math.min(96,p));
+    after.style.clipPath=`inset(0 0 0 ${p}%)`;div.style.left=p+'%';
+  };
+  let drag=false;
+  ba.addEventListener('mousedown',e=>{drag=true;move(e.clientX);});
+  window.addEventListener('mousemove',e=>drag&&move(e.clientX));
+  window.addEventListener('mouseup',()=>drag=false);
+  ba.addEventListener('touchstart',e=>move(e.touches[0].clientX),{passive:true});
+  ba.addEventListener('touchmove',e=>move(e.touches[0].clientX),{passive:true});
+}
+
+// huecos de hora disponibles
+const SLOTS=['10:30','11:15','12:00','16:30','17:15','18:00','19:00'];
+function buildSlots(){
+  $('#fSlots').innerHTML=SLOTS.map((s,i)=>`<button type="button" class="slot${i===0?' on':''}" data-h="${s}">${s}</button>`).join('');
+  $$('.slot').forEach(b=>b.addEventListener('click',()=>{
+    $$('.slot').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+  }));
+  // fecha minima hoy
+  const d=$('#fDate');const t=new Date();d.min=t.toISOString().split('T')[0];d.value=d.min;
+}
+
+// gestiona el envio de la reserva en frontend
+function initBooking(){
+  $('#bookForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const slot=$('.slot.on');
+    const data={
+      service:$('#fService').value,name:$('#fName').value,phone:$('#fPhone').value,
+      date:$('#fDate').value,time:slot?slot.dataset.h:'—',ts:Date.now()
+    };
+    // guarda en localStorage como demostracion
+    const all=JSON.parse(localStorage.getItem('dali_bookings')||'[]');
+    all.push(data);localStorage.setItem('dali_bookings',JSON.stringify(all));
+    const c=$('#bookConfirm');
+    c.innerHTML=`✅ <b>¡Cita confirmada!</b><br>${data.service} · ${data.date} a las ${data.time}, a nombre de ${data.name}. <br><small style="color:var(--muted)">Demostración: guardada solo en este navegador.</small>`;
+    c.classList.add('show');
+    toast('Reserva confirmada ✂️');
+  });
+}
+
+// contadores animados del hero
+function animateStats(){
+  const go=(el,to,dec=0,suf='')=>{
+    let s=0;const step=to/60;
+    const id=setInterval(()=>{s+=step;if(s>=to){s=to;clearInterval(id);}
+      el.textContent=(dec?s.toFixed(1):Math.floor(s).toLocaleString('es-ES'))+suf;},18);
+  };
+  go($('#stFollow'),248000);go($('#stCuts'),320);go($('#stStars'),4.9,1);
+  // formatea seguidores a estilo 248k tras animar
+  setTimeout(()=>{$('#stFollow').textContent='248k';},1300);
+}
+
+// revela secciones al hacer scroll
+function initReveal(){
+  const io=new IntersectionObserver(es=>es.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.12});
+  $$('.reveal').forEach(el=>io.observe(el));
+}
+
+// aviso flotante reutilizable
+let toastId;
+function toast(msg){
+  const t=$('#toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastId);toastId=setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+// arranque
+buildFeed();buildServices();buildReviews();buildSlots();initBA();initBooking();animateStats();initReveal();
+</script>
+</body>
+</html>
