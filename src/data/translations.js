@@ -198,8 +198,8 @@ export const translations = {
             }
         },
         webs: {
-            title: 'Ejemplos de mis webs',
-            desc: 'Webs de demostración diseñadas y maquetadas por mí. Cada una con su propia identidad visual, responsive y con interacciones reales.',
+            title: 'Demo Hub',
+            desc: 'Encuentra qué tipo de web necesitas: demos reales, responsive lab, transformación por sector, auditoría inteligente y propuesta lista para contactar.',
             view: 'Ver demo',
             restaurant: { tag: 'Restaurante · Reservas', desc: 'Web para restaurante con carta interactiva por categorías, galería y formulario de reserva.' },
             shop: { tag: 'E-commerce · Tienda', desc: 'Tienda online de mobiliario con catálogo dinámico, carrito funcional y lista de deseos.' },
@@ -500,8 +500,8 @@ export const translations = {
             }
         },
         webs: {
-            title: 'Examples of my websites',
-            desc: 'Demo websites designed and built by me. Each one with its own visual identity, fully responsive and with real interactions.',
+            title: 'Demo Hub',
+            desc: 'Find the kind of website you need: real demos, responsive lab, sector transformation, smart audit and a proposal ready to send.',
             view: 'View demo',
             restaurant: { tag: 'Restaurant · Bookings', desc: 'Restaurant website with an interactive menu by category, gallery and a booking form.' },
             shop: { tag: 'E-commerce · Shop', desc: 'Online furniture store with a dynamic catalog, working cart and wishlist.' },
@@ -802,8 +802,8 @@ export const translations = {
             }
         },
         webs: {
-            title: 'Exemples de les meues webs',
-            desc: 'Webs de demostració dissenyades i maquetades per mi. Cadascuna amb la seua pròpia identitat visual, responsive i amb interaccions reals.',
+            title: 'Demo Hub',
+            desc: 'Troba quin tipus de web necessites: demos reals, responsive lab, transformació per sector, auditoria intel·ligent i proposta llesta per contactar.',
             view: 'Veure demo',
             restaurant: { tag: 'Restaurant · Reserves', desc: 'Web per a restaurant amb carta interactiva per categories, galeria i formulari de reserva.' },
             shop: { tag: 'E-commerce · Botiga', desc: 'Botiga online de mobiliari amb catàleg dinàmic, cistella funcional i llista de desitjos.' },

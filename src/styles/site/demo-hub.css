@@ -1,0 +1,7 @@
+/* Demo Hub refactorizado: cada bloque vive en src/styles/site/demo-hub/.
+   Este archivo mantiene una sola entrada para src/styles/index.css. */
+@import './demo-hub/01-shell-layout.css';
+@import './demo-hub/02-list-preview.css';
+@import './demo-hub/03-panels-tools.css';
+@import './demo-hub/04-theme-responsive.css';
+@import './demo-hub/05-overrides-polish.css';

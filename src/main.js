@@ -5,6 +5,7 @@ import './features/section-navigation.js';
 import './features/player.js';
 import './features/page-effects.js';
 import './features/command-palette.js';
+import './features/demo-hub.js';
 import './features/media-keys.js';
 // Carga diferida: el chat no se necesita hasta que el usuario abre el panel
 import('./features/ai-chat.js');
