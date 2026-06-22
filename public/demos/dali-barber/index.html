@@ -427,9 +427,37 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   <div class="head">
     <span class="eyebrow">Instagram · Reels</span>
     <h2>El trabajo, en vídeo</h2>
-    <p>Su Instagram es puro vídeo, así que aquí van reels, no fotos. Cada hueco reproduce un reel suyo en bucle; al añadir el vídeo se coloca solo en la cuadrícula.</p>
+    <p>Reels reales de <b>@dalibarber.11</b> incrustados desde Instagram. Añade más URLs en el HTML para ampliar la cuadrícula.</p>
   </div>
-  <div class="reels-grid" id="reelsGrid"></div>
+  <div class="reels-grid" id="reelsGrid">
+
+    <!-- reel 1: real -->
+    <div class="reel-wrap">
+      <blockquote class="instagram-media" data-instgrm-captioned
+        data-instgrm-permalink="https://www.instagram.com/reel/DWjZ_kAjRqU/?utm_source=ig_embed&utm_campaign=loading"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;border-radius:0;box-shadow:none;margin:0;max-width:100%;min-width:288px;padding:0;width:100%">
+        <a href="https://www.instagram.com/reel/DWjZ_kAjRqU/" target="_blank" rel="noopener">Ver reel en Instagram</a>
+      </blockquote>
+    </div>
+
+    <!-- reel 2: placeholder — sustituir por otro blockquote cuando haya más URL -->
+    <div class="reel-wrap">
+      <div class="reel-ph">
+        <div class="big">📲</div>
+        <p>Próximo reel.<br>Pega aquí el embed de otro reel de <a href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">@dalibarber.11</a>.</p>
+      </div>
+    </div>
+
+    <!-- reel 3: placeholder -->
+    <div class="reel-wrap">
+      <div class="reel-ph">
+        <div class="big">📲</div>
+        <p>Próximo reel.<br>Pega aquí el embed de otro reel de <a href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">@dalibarber.11</a>.</p>
+      </div>
+    </div>
+
+  </div>
   <div class="follow-bar">
     <a class="follow-btn ig" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.4" fill="#fff"/></svg>
@@ -698,49 +726,7 @@ function buildReviews(){
     </div>`).join('');
 }
 
-// reels: mp4 propio si existe (funciona local + producción), sino embed oficial de instagram (solo https)
-const REELS=[
-  {mp4:'reels/1.mp4',ig:'https://www.instagram.com/reel/DWjZ_kAjRqU/',tag:'#dalibarber'},
-  {mp4:'reels/2.mp4',ig:'https://www.instagram.com/dalibarber.11/',tag:'#fade'},
-  {mp4:'reels/3.mp4',ig:'https://www.instagram.com/dalibarber.11/',tag:'#diseño'},
-  {mp4:'reels/4.mp4',ig:'https://www.instagram.com/dalibarber.11/',tag:'#barba'},
-];
-function buildReels(){
-  const grid=$('#reelsGrid');
-  grid.innerHTML='';
-  REELS.forEach((r,i)=>{
-    const wrap=document.createElement('div');wrap.className='reel-wrap';
-    // intenta cargar el mp4; si carga, muestra el vídeo; si falla, muestra el embed de instagram
-    const v=document.createElement('video');
-    v.muted=true;v.loop=true;v.playsInline=true;v.controls=true;v.preload='metadata';
-    v.style.cssText='width:100%;display:block;background:#000;border-radius:0;max-height:560px;object-fit:cover';
-    v.addEventListener('loadeddata',()=>{
-      wrap.innerHTML='';wrap.appendChild(v);
-      new IntersectionObserver(es=>es.forEach(x=>{x.isIntersecting?v.play().catch(()=>{}):v.pause();}),{threshold:.3}).observe(wrap);
-    });
-    v.addEventListener('error',()=>{
-      // mp4 no disponible: usa el embed de instagram si es https, sino placeholder
-      if(location.protocol==='https:'){
-        wrap.innerHTML=`<blockquote class="instagram-media" data-instgrm-captioned
-          data-instgrm-permalink="${r.ig}?utm_source=ig_embed&utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF;border:0;border-radius:0;box-shadow:none;margin:0;max-width:100%;min-width:288px;padding:0;width:100%">
-          <a href="${r.ig}" target="_blank" rel="noopener">Ver reel en Instagram</a>
-        </blockquote>`;
-        loadInstagramEmbed();
-      }else{
-        wrap.innerHTML=`<div class="reel-ph">
-          <div class="big">🎬</div>
-          <p>${r.tag}<br><small>Añade <b>reels/${i+1}.mp4</b> para reproducirlo aquí,<br>o despliega en HTTPS para el embed de Instagram.</small></p>
-          <a href="${r.ig}" target="_blank" rel="noopener" style="margin-top:10px;color:var(--accent2);font-weight:700">Ver en Instagram ↗</a>
-        </div>`;
-      }
-    });
-    v.src=r.mp4;v.load();
-    // muestra el wrap mientras carga
-    wrap.appendChild(v);grid.appendChild(wrap);
-  });
-}
+// los reels están en el html como blockquotes estáticos; instagram los procesa al cargar
 
 // slider antes/despues con raton y tactil
 function initBA(){
@@ -895,22 +881,11 @@ function initShop(){
 }
 
 // arranque
-initTheme();buildServices();buildReviews();buildReels();buildSlots();initBA();initBooking();initShop();animateStats();initReveal();
+initTheme();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();animateStats();initReveal();
 </script>
+<!-- instagram embed: blockquotes estáticos en el html, process() en onload -->
+<script src="https://www.instagram.com/embed.js" onload="window.instgrm?.Embeds?.process()"></script>
 <!-- script oficial de tiktok para renderizar el feed en directo de @dalibarber.11 -->
 <script async src="https://www.tiktok.com/embed.js"></script>
-<!-- script oficial de instagram para renderizar los embeds de reels -->
-<script>
-// carga embed.js de instagram y llama a process() cuando esté listo
-function loadInstagramEmbed(){
-  if(window.instgrm?.Embeds){window.instgrm.Embeds.process();return;}
-  const url='https://www.instagram.com/embed.js';
-  let s=document.querySelector(`script[src="${url}"]`);
-  if(!s){s=document.createElement('script');s.src=url;s.async=true;
-    s.onload=()=>window.instgrm?.Embeds?.process();document.body.appendChild(s);}
-  else{s.addEventListener('load',()=>window.instgrm?.Embeds?.process());}
-}
-window.addEventListener('load',loadInstagramEmbed);
-</script>
 </body>
 </html>
