@@ -4,11 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0a0a0f" />
-<title>Dalí Barber — Barbería premium · Demo frontend</title>
-<meta name="description" content="Demo frontend premium para barbería: temas y colores intercambiables, TikTok en directo, reels, reserva funcional y tienda con cesta. Hecho por Daniel Bort." />
+<title>Barbería Dali · Barbería en Castellón</title>
+<meta name="description" content="Barbería Dali, en el centro de Castellón. Corte, barba y afeitado a navaja. Reserva tu cita online en segundos." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Rye&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- aplica estilo/color guardados antes de pintar para evitar parpadeo -->
 <script>try{var s=localStorage.getItem('dali_style'),p=localStorage.getItem('dali_palette');if(s)document.documentElement.dataset.style=s;if(p)document.documentElement.dataset.palette=p;}catch(e){}</script>
 <style>
@@ -55,6 +55,17 @@
     radial-gradient(circle at 12% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 34%),
     linear-gradient(180deg,#16171c,#0e0f12);
 }
+[data-style="clasico"]{
+  --font-display:'Rye',Georgia,serif;
+  --radius:3px;--radius-sm:3px;--h-transform:none;--eye-spacing:.34em;
+  --bg:#080706;--bg2:#100d0a;--text:#ece4d6;--muted:#8f8576;--ink:#080706;
+  --line:rgba(236,228,214,.13);--glass:rgba(236,228,214,.035);
+  --shadow:0 30px 90px rgba(0,0,0,.7);
+  --bg-deco:
+    radial-gradient(circle at 50% -2%,color-mix(in srgb,var(--accent) 11%,transparent),transparent 42%),
+    radial-gradient(circle at 50% 50%,transparent 58%,rgba(0,0,0,.6)),
+    linear-gradient(180deg,#0a0907,#050403);
+}
 /* ===== COLORES (eje 2) ===== */
 [data-palette="rojo"]{--accent:#e8453f;--accent2:#ff8576}
 [data-palette="verde"]{--accent:#2fbf71;--accent2:#7ef0ad}
@@ -78,9 +89,8 @@ a{color:inherit}
   background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;letter-spacing:-.01em;font-size:1.2rem}
-.brand .mark{width:40px;height:40px;border-radius:calc(var(--radius-sm) - 2px);display:grid;place-items:center;
-  background:conic-gradient(from 0deg,var(--accent),#b07d2e,var(--accent2),#8a5a1f,var(--accent));
-  color:var(--ink);font-weight:900;font-size:1.05rem;box-shadow:0 8px 28px color-mix(in srgb,var(--accent) 35%,transparent)}
+.brand .blogo{width:44px;height:44px;border-radius:var(--radius-sm);object-fit:cover;flex:0 0 44px;
+  border:1px solid var(--line);box-shadow:0 6px 22px rgba(0,0,0,.5)}
 .nav-links{display:flex;gap:4px}
 .nav-links a{padding:9px 13px;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--muted);
   text-decoration:none;transition:.2s var(--ease)}
@@ -147,17 +157,40 @@ section.block{padding:70px 0}
 .tt-widget-body .tiktok-embed{margin:0!important;border:0!important}
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
 
-/* reels (instagram embeds oficiales) */
-.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-.reel-wrap{border-radius:var(--radius-sm);border:1px solid var(--line);background:#fff;transition:.3s var(--ease)}
-.reel-wrap:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
-.reel-ph{aspect-ratio:9/16;max-height:560px;display:grid;place-items:center;flex-direction:column;gap:12px;
-  background:radial-gradient(circle at 40% 18%,rgba(254,44,85,.18),transparent 55%),
-  radial-gradient(circle at 80% 85%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 55%),#101018;color:var(--muted);padding:24px;text-align:center}
-.reel-ph .big{font-size:2.4rem;margin-bottom:10px}
-.reel-ph p{font-size:.88rem;line-height:1.5;margin:0}
-.reel-ph a{color:var(--accent2);font-weight:700;text-decoration:underline}
-.follow-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+/* emblema del logo (hero del tema clásico) */
+.logo-emblem{display:none}
+[data-style="clasico"] .pole-stage{display:none}
+[data-style="clasico"] .logo-emblem{display:grid;place-items:center;width:100%;max-width:340px;aspect-ratio:1;
+  position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);
+  background:radial-gradient(circle at 50% 36%,rgba(0,0,0,.15),#000);
+  box-shadow:var(--shadow),inset 0 0 70px rgba(0,0,0,.85)}
+[data-style="clasico"] .logo-emblem::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--accent) 26%,transparent),transparent 55%);mix-blend-mode:screen}
+[data-style="clasico"] .logo-emblem img{width:84%;height:84%;object-fit:contain;
+  filter:drop-shadow(0 6px 22px rgba(0,0,0,.6)) contrast(1.08) brightness(1.04)}
+
+/* paneles de vídeo (trabajo grabado) */
+.vid-stage{display:grid;grid-template-columns:minmax(280px,360px) 1fr;gap:24px;align-items:stretch}
+.vid-feature{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  background:#000;box-shadow:var(--shadow);aspect-ratio:9/16;max-height:620px}
+.vid-feature video{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer}
+.vid-feature .vid-cap{position:absolute;left:0;right:0;bottom:0;padding:20px 16px 16px;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.85))}
+.vid-cap b{display:block;font-family:var(--font-display);font-size:1.25rem}
+.vid-cap span{font-size:.8rem;color:var(--accent2);font-weight:700;letter-spacing:.04em}
+.vid-sound{position:absolute;top:14px;right:14px;z-index:3;width:42px;height:42px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.5);backdrop-filter:blur(8px);color:#fff;font-size:1.05rem;transition:.2s var(--ease)}
+.vid-sound:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.vid-specs{display:grid;grid-template-rows:repeat(3,1fr);gap:16px}
+.vspec{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));transition:.3s var(--ease)}
+.vspec:hover{transform:translateX(5px);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.vspec .vic{flex:0 0 48px;height:48px;border-radius:var(--radius-sm);display:grid;place-items:center;font-size:1.4rem;
+  background:color-mix(in srgb,var(--accent) 14%,transparent);border:1px solid var(--line)}
+.vspec h3{font-size:1.15rem;margin-bottom:5px}
+.vspec p{color:var(--muted);font-size:.92rem;line-height:1.5;margin:0}
+@media(max-width:780px){.vid-stage{grid-template-columns:1fr}.vid-feature{max-height:580px;margin-inline:auto;max-width:340px;width:100%}}
+.follow-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .follow-btn{display:inline-flex;align-items:center;gap:11px;padding:12px 18px;border-radius:var(--radius-sm);text-decoration:none;
   font-weight:800;color:#fff;border:1px solid var(--line);transition:.25s var(--ease)}
 .follow-btn:hover{transform:translateY(-2px)}
@@ -350,10 +383,10 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- barra de navegación -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <div class="brand"><span class="mark">D</span> Dalí<span style="color:var(--accent)">Barber</span></div>
+    <div class="brand"><img class="blogo" src="media/dali-logo.jpg" alt="Barbería Dali" /> <span>Barbería <span style="color:var(--accent)">Dali</span></span></div>
     <nav class="nav-links">
-      <a href="#feed">Feed</a>
-      <a href="#reels">Reels</a>
+      <a href="#feed">TikTok</a>
+      <a href="#videos">Vídeos</a>
       <a href="#servicios">Servicios</a>
       <a href="#tienda">Tienda</a>
       <a href="#resenas">Reseñas</a>
@@ -371,7 +404,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
       <p class="lead" id="heroLead">La barbería que petó en TikTok, ahora con web propia. Mira el feed, elige tu estilo y reserva en 30 segundos. Sin llamadas, sin esperas.</p>
       <div class="hero-cta">
         <a href="#reservar" class="btn gold">Reservar mi cita</a>
-        <a href="#feed" class="btn ghost">▶ Ver el feed</a>
+        <a href="#videos" class="btn ghost">▶ Ver vídeos</a>
       </div>
       <div class="stats">
         <div class="stat"><strong id="stFollow">0</strong><span>seguidores en TikTok</span></div>
@@ -391,6 +424,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
           <span><b>@dalibarber.11</b><small>Síguenos en TikTok</small></span>
         </a>
       </div>
+      <div class="logo-emblem"><img src="media/dali-logo.jpg" alt="Barbería Dali" /></div>
     </div>
   </div>
 </section>
@@ -398,9 +432,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- feed tiktok en directo -->
 <section class="block wrap reveal" id="feed">
   <div class="head">
-    <span class="eyebrow">Lo que se mueve</span>
-    <h2>Sus vídeos, dentro de la web</h2>
-    <p>El feed real de <b>@dalibarber.11</b> integrado en la web. Se actualiza solo cada vez que sube un vídeo nuevo. Sin copiar ni pegar nada.</p>
+    <span class="eyebrow" id="feedEye">Lo último</span>
+    <h2 id="feedH2">Directo desde TikTok</h2>
+    <p id="feedP">El feed de Barbería Dali, siempre al día. Cada vídeo nuevo aparece aquí al instante.</p>
   </div>
   <div class="tt-widget-wrap">
     <div class="tt-widget-header">
@@ -423,35 +457,32 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 </section>
 
 <!-- reels: instagram en vídeo -->
-<section class="block wrap reveal" id="reels">
+<section class="block wrap reveal" id="videos">
   <div class="head">
-    <span class="eyebrow">Instagram · Reels</span>
-    <h2>El trabajo, en vídeo</h2>
-    <p>Reels reales de <b>@dalibarber.11</b> incrustados desde Instagram. Añade más URLs en el HTML para ampliar la cuadrícula.</p>
+    <span class="eyebrow" id="vidEye">En movimiento</span>
+    <h2 id="vidH2">Míralo de cerca</h2>
+    <p id="vidP">Fades, barbas y diseños grabados en la silla. Dale al play y descúbrelo.</p>
   </div>
-  <div class="reels-grid" id="reelsGrid">
-
-    <!-- reel 1: embed exacto generado por instagram -->
-    <div class="reel-wrap">
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DWjZ_kAjRqU/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DWjZ_kAjRqU/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Ver esta publicación en Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DWjZ_kAjRqU/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Una publicación compartida de Dali bassem (@dalibarber.11)</a></p></div></blockquote>
+  <div class="vid-stage">
+    <figure class="vid-feature">
+      <video id="reelVideo" src="media/dali1.mp4" muted loop playsinline preload="metadata"></video>
+      <button class="vid-sound" id="vidSound" type="button" aria-label="Activar sonido">🔇</button>
+      <figcaption class="vid-cap"><b>En la silla</b><span>Barbería Dali · Castellón</span></figcaption>
+    </figure>
+    <div class="vid-specs">
+      <article class="vspec">
+        <span class="vic">✂️</span>
+        <div><h3>Corte a tijera y máquina</h3><p>Fundidos limpios y acabados a medida para cada tipo de pelo.</p></div>
+      </article>
+      <article class="vspec">
+        <span class="vic">🪒</span>
+        <div><h3>Barba y afeitado a navaja</h3><p>Perfilado, toalla caliente y navaja para un apurado perfecto.</p></div>
+      </article>
+      <article class="vspec">
+        <span class="vic">🎨</span>
+        <div><h3>Diseños y líneas</h3><p>Rayas, dibujos y detalles que marcan la diferencia.</p></div>
+      </article>
     </div>
-
-    <!-- reel 2: placeholder — sustituir por otro blockquote cuando haya más URL -->
-    <div class="reel-wrap">
-      <div class="reel-ph">
-        <div class="big">📲</div>
-        <p>Próximo reel.<br>Pega aquí el embed de otro reel de <a href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">@dalibarber.11</a>.</p>
-      </div>
-    </div>
-
-    <!-- reel 3: placeholder -->
-    <div class="reel-wrap">
-      <div class="reel-ph">
-        <div class="big">📲</div>
-        <p>Próximo reel.<br>Pega aquí el embed de otro reel de <a href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">@dalibarber.11</a>.</p>
-      </div>
-    </div>
-
   </div>
   <div class="follow-bar">
     <a class="follow-btn ig" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">
@@ -468,9 +499,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- servicios -->
 <section class="block wrap reveal" id="servicios">
   <div class="head">
-    <span class="eyebrow">Carta de servicios</span>
-    <h2>Elige tu corte</h2>
-    <p>Precios claros, sin sorpresas. Toca «Reservar» en cualquiera y lo lleva directo al formulario con el servicio ya elegido.</p>
+    <span class="eyebrow" id="svcEye">La carta</span>
+    <h2 id="svcH2">Elige tu corte</h2>
+    <p id="svcP">Precios claros y sin sorpresas. Toca reservar y lo dejamos listo en el formulario.</p>
   </div>
   <div class="svc-grid" id="svcGrid"></div>
 </section>
@@ -478,9 +509,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- antes / despues -->
 <section class="block wrap reveal" id="trabajo">
   <div class="head">
-    <span class="eyebrow">El cambio</span>
-    <h2>Antes / Después</h2>
-    <p>Arrastra el control para ver la transformación. En la web real, aquí van fotos reales de tus clientes.</p>
+    <span class="eyebrow" id="baEye">El cambio</span>
+    <h2 id="baH2">Antes y después</h2>
+    <p id="baP">Arrastra y comprueba la diferencia. Así sale la gente de la silla.</p>
   </div>
   <div class="ba" id="ba">
     <div class="layer before" id="baBefore"><span>Antes</span></div>
@@ -492,9 +523,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- reservar -->
 <section class="block wrap reveal" id="reservar">
   <div class="head">
-    <span class="eyebrow">Reserva en 30s</span>
-    <h2>Pide tu cita</h2>
-    <p>Frontend funcional: elige servicio, día y hora. Se guarda en el navegador como demostración. En la versión con backend, esto envía la reserva real y un aviso por WhatsApp/email.</p>
+    <span class="eyebrow" id="bookEye">Reserva en 30s</span>
+    <h2 id="bookH2">Pide tu cita</h2>
+    <p id="bookP">Elige servicio, día y hora. Sin llamadas y sin esperas.</p>
   </div>
   <div class="book">
     <form class="book-card" id="bookForm">
@@ -527,9 +558,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
       <h3>Cómo funciona</h3>
       <ul>
         <li><span class="ic">1</span><div><b>Eliges servicio y hora.</b> Lo ves todo de un vistazo, sin llamar.</div></li>
-        <li><span class="ic">2</span><div><b>Confirmas.</b> En segundos tienes tu cita reservada.</div></li>
-        <li><span class="ic">3</span><div><b>Recibes recordatorio.</b> Con backend: aviso automático para no faltar.</div></li>
-        <li><span class="ic">★</span><div><b>Menos huecos vacíos.</b> Una web que reserva sola mientras tú cortas.</div></li>
+        <li><span class="ic">2</span><div><b>Confirmas tu cita.</b> En segundos queda reservada.</div></li>
+        <li><span class="ic">3</span><div><b>Te avisamos.</b> Recibirás un recordatorio antes de tu cita.</div></li>
+        <li><span class="ic">★</span><div><b>Sin esperas.</b> Llegas con tu hora reservada y entras directo.</div></li>
       </ul>
     </aside>
   </div>
@@ -538,9 +569,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- reseñas -->
 <section class="block wrap reveal" id="resenas">
   <div class="head">
-    <span class="eyebrow">La gente habla</span>
-    <h2>Reseñas reales</h2>
-    <p>Opiniones de ejemplo: se pueden conectar a las reseñas reales de Google automáticamente. Mientras, enlazamos a tu ficha.</p>
+    <span class="eyebrow" id="revEye">La gente habla</span>
+    <h2 id="revH2">Lo que dicen</h2>
+    <p id="revP">Opiniones de quienes ya han pasado por la silla.</p>
   </div>
   <div class="reviews" id="reviews"></div>
   <a class="gmaps-btn" href="https://www.google.com/maps/place/BARBER%C3%8DA+DALI/@39.98006,-0.0393534,17z/data=!4m6!3m5!1s0xd60013383b56371:0x90d2aaf21f2d0973" target="_blank" rel="noopener">⭐ Ver reseñas en Google</a>
@@ -549,9 +580,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 <!-- tienda -->
 <section class="block wrap reveal" id="tienda">
   <div class="head">
-    <span class="eyebrow">Tienda · Productos</span>
-    <h2>Llévate el acabado a casa</h2>
-    <p>Los mismos productos que usamos en la silla. Añade a la cesta y ve el total en directo. Con backend, aquí entraría la pasarela de pago real.</p>
+    <span class="eyebrow" id="shopEye">Tienda</span>
+    <h2 id="shopH2">Llévate el acabado a casa</h2>
+    <p id="shopP">Los productos que usamos a diario, listos para ti.</p>
   </div>
   <div class="shop-grid" id="shopGrid"></div>
 </section>
@@ -582,8 +613,8 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 
 <footer class="site wrap">
   <div class="foot-grid">
-    <div><b>DALÍ BARBER</b><br><span style="font-size:.85rem">Demo · Castellón · @dalibarber.11</span></div>
-    <div style="font-size:.85rem">Lun–Sáb · 10:00–20:30<br>Esta es una demostración sin datos reales.</div>
+    <div><b>Barbería Dali</b><br><span style="font-size:.85rem">Castellón · @dalibarber.11</span></div>
+    <div style="font-size:.85rem">Lun–Sáb · 10:00–20:30<br>Tu barbería de confianza en el centro de Castellón.</div>
   </div>
 </footer>
 
@@ -609,41 +640,84 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 const $=(s,e=document)=>e.querySelector(s);
 const $$=(s,e=document)=>[...e.querySelectorAll(s)];
 
-// ===== motor de temas: estilo (tipografía/forma) x color (acento) =====
+// ===== motor de temas: estilo (tipografía/forma/voz) x color (acento) =====
+// cada estilo trae su propio texto en todas las secciones
 const STYLES=[
   {id:'viral',name:'Viral',copy:{
     eye:'Barbería · Castellón',
     h1:['Cortes que se ','vuelven virales','.'],
-    lead:'La barbería que petó en TikTok, ahora con web propia. Mira el feed, elige tu estilo y reserva en 30 segundos. Sin llamadas, sin esperas.',
+    lead:'La barbería de Castellón que arrasa en TikTok. Mira los vídeos, elige tu estilo y reserva en 30 segundos.',
     ctaH:'¿Listo para tu próximo corte?',
-    ctaP:'El mismo estilo que ves en TikTok, ahora a un clic. Reserva ya y entra con cita.'}},
+    ctaP:'El mismo estilo que ves en los vídeos, ahora a un clic. Reserva y entra con cita.',
+    feed:{e:'Lo último',h:'Directo desde TikTok',p:'El feed de Barbería Dali, siempre al día. Cada vídeo nuevo aparece aquí al instante.'},
+    vid:{e:'En movimiento',h:'Míralo de cerca',p:'Fades, barbas y diseños grabados en la silla. Dale al play y descúbrelo.'},
+    svc:{e:'La carta',h:'Elige tu corte',p:'Precios claros y sin sorpresas. Toca reservar y lo dejamos listo en el formulario.'},
+    ba:{e:'El cambio',h:'Antes y después',p:'Arrastra y comprueba la diferencia. Así sale la gente de la silla.'},
+    book:{e:'Reserva en 30s',h:'Pide tu cita',p:'Elige servicio, día y hora. Sin llamadas y sin esperas.'},
+    rev:{e:'La gente habla',h:'Lo que dicen',p:'Opiniones de quienes ya han pasado por la silla.'},
+    shop:{e:'Tienda',h:'Llévate el acabado a casa',p:'Los productos que usamos a diario, listos para ti.'}}},
   {id:'estudio',name:'Estudio',copy:{
     eye:'Barbería de autor · Castellón',
     h1:['El oficio del ','buen corte','.'],
-    lead:'Precisión, navaja y detalle. Una barbería donde cada corte se trabaja con calma. Reserva tu cita en segundos y déjate las prisas en la puerta.',
+    lead:'Precisión, navaja y detalle. Una barbería en el centro de Castellón donde cada corte se trabaja con calma.',
     ctaH:'Tu próxima cita, sin llamadas.',
-    ctaP:'Elige servicio y hora. Te esperamos con todo preparado.'}},
+    ctaP:'Elige servicio y hora. Te esperamos con todo preparado.',
+    feed:{e:'Diario',h:'Nuestro trabajo, día a día',p:'Una selección de cortes y acabados, siempre actualizada.'},
+    vid:{e:'Detalle',h:'El proceso, de cerca',p:'Cada fundido y cada perfilado, grabado para que veas el cuidado en cada paso.'},
+    svc:{e:'Servicios',h:'Nuestra carta',p:'Tarifas transparentes. Elige un servicio y queda reflejado en tu reserva.'},
+    ba:{e:'Transformación',h:'El resultado',p:'Desliza para ver el cambio. La diferencia está en los detalles.'},
+    book:{e:'Cita',h:'Reserva tu hora',p:'Elige servicio, día y franja. Confirmamos al instante.'},
+    rev:{e:'Opiniones',h:'La voz de nuestros clientes',p:'Experiencias de quienes confían en nuestras manos.'},
+    shop:{e:'Boutique',h:'Cuidado para casa',p:'Productos seleccionados para mantener tu estilo entre visita y visita.'}}},
   {id:'calle',name:'Calle',copy:{
     eye:'Barbería · Castellón',
     h1:['Tu corte ','manda','.'],
-    lead:'Fades, diseños y barba al milímetro. Lo que ves en TikTok, ahora en tu barrio. Reserva y entra directo, sin esperas.',
+    lead:'Fades, diseños y barba al milímetro. Lo que ves en los vídeos, ahora en tu barrio de Castellón.',
     ctaH:'Pídete cita ya.',
-    ctaP:'Sin esperas, sin movidas. Reserva en 30 segundos y listo.'}},
+    ctaP:'Sin esperas, sin movidas. Reserva en 30 segundos.',
+    feed:{e:'Al loro',h:'Lo que se cuece',p:'El feed de Barbería Dali, siempre fresco. Vídeo nuevo, aquí lo tienes.'},
+    vid:{e:'En bucle',h:'Mira cómo se hace',p:'Fades, líneas y barba grabados en directo. Dale al play.'},
+    svc:{e:'La lista',h:'Elige y entra',p:'Precios a la vista. Toca y reservas con el corte ya elegido.'},
+    ba:{e:'El tijeretazo',h:'Antes / Después',p:'Arrastra y flipa con el cambio.'},
+    book:{e:'Cita exprés',h:'Reserva y listo',p:'Servicio, día y hora. En 30 segundos lo tienes.'},
+    rev:{e:'La calle habla',h:'Lo que dicen',p:'Clientes reales, opiniones reales.'},
+    shop:{e:'Tienda',h:'Llévatelo a casa',p:'Lo que usamos en la silla, para tu día a día.'}}},
+  {id:'clasico',name:'Clásico',copy:{
+    eye:'Barbería tradicional · Castellón',
+    h1:['El arte de ','la navaja','.'],
+    lead:'Una barbería clásica en el corazón de Castellón. Corte a tijera, afeitado a navaja y el cuidado de siempre para el caballero de hoy.',
+    ctaH:'Reserve su cita.',
+    ctaP:'El ritual completo de la barbería clásica le espera. Resérvelo en un momento.',
+    feed:{e:'La casa',h:'Nuestro oficio en imágenes',p:'El día a día de Barbería Dali, fiel a la tradición y al detalle.'},
+    vid:{e:'El ritual',h:'El oficio, en movimiento',p:'La tijera, la navaja y la brocha. Vea de cerca cómo trabajamos cada corte.'},
+    svc:{e:'Servicios',h:'Nuestra carta',p:'Cada servicio, con el tiempo y el mimo que merece. Elija el suyo y resérvelo.'},
+    ba:{e:'El resultado',h:'Antes y después',p:'Deslice y compruebe el cambio. El sello de la casa.'},
+    book:{e:'Su cita',h:'Reserve su hora',p:'Escoja servicio, día y hora. Le recibiremos con todo dispuesto.'},
+    rev:{e:'Testimonios',h:'La palabra de nuestros clientes',p:'Caballeros que confían en la casa desde el primer corte.'},
+    shop:{e:'La tienda',h:'El cuidado, también en casa',p:'Productos de barbería para prolongar el resultado en casa.'}}},
 ];
 const PALETTES=[{id:'oro',name:'Oro'},{id:'rojo',name:'Rojo'},{id:'verde',name:'Verde'},{id:'azul',name:'Azul'}];
 let styleIx=0,palIx=0;
 
-// aplica un estilo: cambia data-attr, etiqueta y textos
+// rellena el trío eyebrow/h2/p de una sección si existe en el dom
+function setSec(prefix,c){
+  if(!c)return;
+  const e=$('#'+prefix+'Eye'),h=$('#'+prefix+'H2'),p=$('#'+prefix+'P');
+  if(e)e.textContent=c.e;if(h)h.textContent=c.h;if(p)p.textContent=c.p;
+}
+// aplica un estilo: cambia data-attr, etiqueta y todos los textos de la página
 function applyStyle(i,announce){
   styleIx=(i+STYLES.length)%STYLES.length;
-  const s=STYLES[styleIx];
+  const s=STYLES[styleIx],c=s.copy;
   document.documentElement.dataset.style=s.id;
   $('#lblStyle').textContent=s.name;
-  $('#heroEye').textContent=s.copy.eye;
-  $('#heroH1').innerHTML=`${s.copy.h1[0]}<span class="out">${s.copy.h1[1]}</span>${s.copy.h1[2]}`;
-  $('#heroLead').textContent=s.copy.lead;
-  $('#ctaH').textContent=s.copy.ctaH;
-  $('#ctaP').textContent=s.copy.ctaP;
+  $('#heroEye').textContent=c.eye;
+  $('#heroH1').innerHTML=`${c.h1[0]}<span class="out">${c.h1[1]}</span>${c.h1[2]}`;
+  $('#heroLead').textContent=c.lead;
+  $('#ctaH').textContent=c.ctaH;
+  $('#ctaP').textContent=c.ctaP;
+  setSec('feed',c.feed);setSec('vid',c.vid);setSec('svc',c.svc);
+  setSec('ba',c.ba);setSec('book',c.book);setSec('rev',c.rev);setSec('shop',c.shop);
   try{localStorage.setItem('dali_style',s.id);}catch(e){}
   if(announce)toast('Estilo: '+s.name);
 }
@@ -721,7 +795,17 @@ function buildReviews(){
     </div>`).join('');
 }
 
-// los reels están en el html como blockquotes estáticos; instagram los procesa al cargar
+// vídeo del trabajo: autoplay silenciado al entrar en pantalla, clic pausa, botón activa sonido
+function initVideo(){
+  const v=$('#reelVideo'),btn=$('#vidSound');
+  if(!v)return;
+  new IntersectionObserver(es=>es.forEach(x=>{x.isIntersecting?v.play().catch(()=>{}):v.pause();}),{threshold:.4}).observe(v);
+  v.addEventListener('click',()=>{v.paused?v.play():v.pause();});
+  btn.addEventListener('click',()=>{
+    v.muted=!v.muted;btn.textContent=v.muted?'🔇':'🔊';
+    if(!v.muted)v.play().catch(()=>{});
+  });
+}
 
 // slider antes/despues con raton y tactil
 function initBA(){
@@ -764,7 +848,7 @@ function initBooking(){
     const all=JSON.parse(localStorage.getItem('dali_bookings')||'[]');
     all.push(data);localStorage.setItem('dali_bookings',JSON.stringify(all));
     const c=$('#bookConfirm');
-    c.innerHTML=`✅ <b>¡Cita confirmada!</b><br>${data.service} · ${data.date} a las ${data.time}, a nombre de ${data.name}. <br><small style="color:var(--muted)">Demostración: guardada solo en este navegador.</small>`;
+    c.innerHTML=`✅ <b>¡Cita confirmada!</b><br>${data.service} · ${data.date} a las ${data.time}, a nombre de ${data.name}. <br><small style="color:var(--muted)">Te enviaremos un recordatorio antes de tu cita.</small>`;
     c.classList.add('show');
     toast('Reserva confirmada ✂️');
   });
@@ -870,16 +954,14 @@ function initShop(){
     if(!Object.keys(cart).length){toast('La cesta está vacía');return;}
     const total=$('#cartTotal').textContent;
     const c=$('#cartConfirm');
-    c.innerHTML=`✅ <b>¡Pedido realizado!</b> Total ${total}.<br><small style="color:var(--muted)">Demo: sin cobro real. Con backend aquí entraría la pasarela.</small>`;
+    c.innerHTML=`✅ <b>¡Pedido realizado!</b> Total ${total}.<br><small style="color:var(--muted)">Te avisaremos cuando esté listo para recoger en la barbería.</small>`;
     c.classList.add('show');cart={};saveCart();toast('Pedido confirmado 🎉');
   });
 }
 
 // arranque
-initTheme();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();animateStats();initReveal();
+initTheme();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();animateStats();initReveal();
 </script>
-<!-- instagram embed: blockquotes estáticos en el html, process() en onload -->
-<script src="https://www.instagram.com/embed.js" onload="window.instgrm?.Embeds?.process()"></script>
 <!-- script oficial de tiktok para renderizar el feed en directo de @dalibarber.11 -->
 <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
