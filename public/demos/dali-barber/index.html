@@ -235,10 +235,30 @@ section.block{padding:70px 0}
 .sp-services{border-top:1px solid var(--line);padding:16px 22px;display:flex;flex-direction:column;gap:0;flex-shrink:0}
 .sp-services .vspec{padding:10px 0;border-bottom:1px solid var(--line)}
 .sp-services .vspec:last-child{border-bottom:none}
+.social-json-lab{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--bg2) 92%,var(--accent) 8%),rgba(255,255,255,.025));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+.sjl-inner{display:grid;grid-template-columns:minmax(230px,.72fr) minmax(300px,1.28fr);gap:0;min-height:260px}
+.sjl-profile{padding:22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.sjl-profile-top{display:flex;align-items:center;gap:12px}
+.sjl-avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.sjl-name{display:block;font-weight:900}.sjl-handle{display:block;color:var(--muted);font-size:.84rem}
+.sjl-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sjl-stat{border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center;background:rgba(0,0,0,.16)}
+.sjl-stat b{display:block;font-family:var(--font-display);font-size:1rem}.sjl-stat span{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em}
+.sjl-bio{color:var(--muted);font-size:.9rem;line-height:1.45;white-space:pre-line}
+.sjl-video{position:relative;min-height:260px;background:#050302;display:grid;grid-template-columns:minmax(180px,.64fr) 1fr}
+.sjl-media{position:relative;min-height:260px;overflow:hidden;background:#050302}.sjl-media video,.sjl-media img{width:100%;height:100%;object-fit:cover;display:block}
+.sjl-play{position:absolute;inset:auto 14px 14px auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;background:rgba(0,0,0,.5);backdrop-filter:blur(12px);font-weight:900}
+.sjl-copy{padding:22px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.sjl-pill{width:max-content;max-width:100%;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.72rem}
+.sjl-caption{font-weight:750;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sjl-metrics{display:flex;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.82rem}
+.sjl-link{width:max-content;display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:10px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--text);text-decoration:none;font-weight:800;background:linear-gradient(90deg,color-mix(in srgb,var(--accent2) 18%,transparent),color-mix(in srgb,var(--accent) 16%,transparent))}
 @media(max-width:860px){
   .social-section{grid-template-columns:1fr}
   .barber-video-player,.social-tabs-panel{height:auto;min-height:480px}
   .video-stage{min-height:320px}
+  .sjl-inner,.sjl-video{grid-template-columns:1fr}
+  .sjl-profile{border-right:none;border-bottom:1px solid var(--line)}
 }
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
 
@@ -652,6 +672,35 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
       </div>
     </div>
 
+  </div>
+
+  <div class="social-json-lab" id="socialJsonLab" hidden>
+    <div class="sjl-inner">
+      <div class="sjl-profile">
+        <div class="sjl-profile-top">
+          <img class="sjl-avatar" id="sjlAvatar" src="media/dali-logo.jpg" alt="Barberia Dali">
+          <div>
+            <b class="sjl-name" id="sjlName">Barberia Dali</b>
+            <span class="sjl-handle" id="sjlHandle">@dalibarber.11</span>
+          </div>
+        </div>
+        <div class="sjl-stats">
+          <div class="sjl-stat"><b id="sjlFollowers">--</b><span>Seguidores</span></div>
+          <div class="sjl-stat"><b id="sjlLikes">--</b><span>Me gusta</span></div>
+          <div class="sjl-stat"><b id="sjlVideos">--</b><span>Videos</span></div>
+        </div>
+        <p class="sjl-bio" id="sjlBio">Contenido real desde TikTok.</p>
+      </div>
+      <article class="sjl-video" id="sjlVideoCard">
+        <div class="sjl-media" id="sjlMedia"></div>
+        <div class="sjl-copy">
+          <span class="sjl-pill" id="sjlMode">Prueba Apify</span>
+          <h3 class="sjl-caption" id="sjlCaption">Ultimo video de TikTok</h3>
+          <div class="sjl-metrics" id="sjlMetrics"></div>
+          <a class="sjl-link" id="sjlLink" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">Ver en TikTok</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -1150,6 +1199,68 @@ function formatTikTokStat(value){
   return Math.round(n).toLocaleString('es-ES');
 }
 
+function setText(id,value){
+  const el=$('#'+id);
+  if(el&&value!==null&&value!==undefined) el.textContent=value;
+}
+
+function renderSocialJsonLab(data){
+  const lab=$('#socialJsonLab'),media=$('#sjlMedia');
+  const video=data?.latestVideos?.[0];
+  if(!lab||!media||!video) return;
+  const profile=data.profile||{},stats=data.stats||{};
+  lab.hidden=false;
+  const avatar=$('#sjlAvatar');
+  if(avatar&&profile.avatar) avatar.src=profile.avatar;
+  setText('sjlName',profile.displayName||profile.username||'Barberia Dali');
+  setText('sjlHandle','@'+(profile.username||'dalibarber.11'));
+  setText('sjlFollowers',formatTikTokStat(stats.followers)||'--');
+  setText('sjlLikes',formatTikTokStat(stats.likes)||'--');
+  setText('sjlVideos',formatTikTokStat(stats.videos)||'--');
+  setText('sjlBio',profile.bio||'Contenido real desde TikTok.');
+  setText('sjlCaption',video.caption||'Ultimo video de TikTok');
+  setText('sjlMode',video.videoUrl?'Prueba con video reproducible':'Prueba con miniatura real');
+  const metrics=$('#sjlMetrics');
+  if(metrics){
+    metrics.innerHTML='';
+    [['Reproducciones',video.plays],['Likes',video.likes],['Comentarios',video.comments],['Compartidos',video.shares]].forEach(([label,value])=>{
+      const formatted=formatTikTokStat(value);
+      if(!formatted) return;
+      const span=document.createElement('span');
+      span.textContent=`${formatted} ${label}`;
+      metrics.appendChild(span);
+    });
+  }
+  const link=$('#sjlLink');
+  if(link&&video.url) link.href=video.url;
+  media.innerHTML='';
+  if(video.videoUrl){
+    const v=document.createElement('video');
+    v.src=video.videoUrl;v.controls=true;v.playsInline=true;v.preload='metadata';
+    if(video.cover) v.poster=video.cover;
+    v.addEventListener('error',()=>renderSocialJsonFallback(media,video));
+    media.appendChild(v);
+  }else{
+    renderSocialJsonFallback(media,video);
+  }
+}
+
+function renderSocialJsonFallback(media,video){
+  media.innerHTML='';
+  const img=document.createElement('img');
+  img.src=video.cover||'media/dali-logo.jpg';
+  img.alt='Video de TikTok de Barberia Dali';
+  media.appendChild(img);
+  const play=document.createElement('a');
+  play.className='sjl-play';
+  play.href=video.url||'https://www.tiktok.com/@dalibarber.11';
+  play.target='_blank';
+  play.rel='noopener';
+  play.setAttribute('aria-label','Ver video en TikTok');
+  play.textContent='▶';
+  media.appendChild(play);
+}
+
 async function initTikTokStats(){
   const statEls={
     followers:$('[data-tiktok-stat="followers"]'),
@@ -1161,6 +1272,7 @@ async function initTikTokStats(){
     const res=await fetch('/api/tiktok-dali',{headers:{Accept:'application/json'}});
     if(!res.ok) throw new Error('TikTok stats unavailable');
     const data=await res.json();
+    renderSocialJsonLab(data);
     Object.entries(statEls).forEach(([key,el])=>{
       const formatted=formatTikTokStat(data?.stats?.[key]);
       if(formatted) el.textContent=formatted;

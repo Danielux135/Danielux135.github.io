@@ -38,6 +38,19 @@ function normalizeProfile(item) {
   };
 }
 
+function pickVideoUrl(item) {
+  const candidates = [
+    item?.videoUrl,
+    item?.videoMeta?.downloadAddr,
+    item?.videoMeta?.playAddr,
+    item?.videoMeta?.url,
+    item?.video?.playAddr,
+    item?.video?.downloadAddr,
+  ];
+
+  return candidates.find((url) => typeof url === 'string' && /^https?:\/\//.test(url)) || null;
+}
+
 async function fetchTikTokProfile() {
   if (!APIFY_TOKEN) {
     const err = new Error('APIFY_TOKEN not configured');
@@ -99,6 +112,7 @@ async function fetchTikTokProfile() {
       shares: toNumber(item.shareCount),
       plays: toNumber(item.playCount),
       cover: item.videoMeta?.coverUrl || item.videoMeta?.originalCoverUrl || null,
+      videoUrl: pickVideoUrl(item),
     }));
 
   return payload;
