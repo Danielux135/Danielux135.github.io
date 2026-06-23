@@ -8,9 +8,9 @@
 <meta name="description" content="Barbería Dali, en el centro de Castellón. Corte, barba y afeitado a navaja. Reserva tu cita online en segundos." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Rye&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Noto+Kufi+Arabic:wght@400;600;700;800;900&family=Rye&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <!-- aplica estilo/color guardados antes de pintar para evitar parpadeo -->
-<script>try{var s=localStorage.getItem('dali_style'),p=localStorage.getItem('dali_palette');if(s)document.documentElement.dataset.style=s;if(p)document.documentElement.dataset.palette=p;}catch(e){}</script>
+<script>try{var s=localStorage.getItem('dali_style'),p=localStorage.getItem('dali_palette'),l=localStorage.getItem('dali_lang');if(s)document.documentElement.dataset.style=s;if(p)document.documentElement.dataset.palette=p;if(l){document.documentElement.lang=l==='ca'?'ca-valencia':l;document.documentElement.dir=l==='ar'?'rtl':'ltr';}}catch(e){}</script>
 <style>
 :root{
   /* base de color (el estilo controla fondo y tono general) */
@@ -103,6 +103,34 @@ a{color:inherit}
 .btn.ghost{background:var(--glass);border:1px solid var(--line);color:var(--text)}
 .btn.ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
 
+/* selector de idioma */
+.lang-switcher{position:relative;display:flex;align-items:center;width:52px;min-width:52px;height:42px;
+  border:1px solid var(--line);border-radius:999px;background:var(--glass);backdrop-filter:blur(12px);
+  overflow:hidden;transition:width .38s var(--ease),border-color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease)}
+.lang-switcher.open{width:218px;border-color:color-mix(in srgb,var(--accent) 55%,transparent);
+  box-shadow:0 14px 36px color-mix(in srgb,var(--accent) 18%,transparent)}
+.lang-toggle,.lang-option{height:100%;border:0;background:transparent;color:var(--text);font-family:var(--font-body);
+  font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:.22s var(--ease)}
+.lang-toggle{min-width:52px;gap:4px;padding:0 11px;position:relative;z-index:2}
+.lang-toggle:hover,.lang-option:hover{color:var(--accent)}
+.lang-current{font-size:.78rem;letter-spacing:.06em;line-height:1}
+.lang-options{display:flex;align-items:center;gap:4px;padding-inline-end:6px;opacity:0;transform:translateX(-10px);
+  pointer-events:none;transition:opacity .24s var(--ease),transform .34s var(--ease)}
+.lang-switcher.open .lang-options{opacity:1;transform:none;pointer-events:auto}
+.lang-option{min-width:46px;height:30px;border-radius:999px;font-size:.72rem;letter-spacing:.07em;color:var(--muted)}
+.lang-option.active{background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--ink);box-shadow:0 8px 24px color-mix(in srgb,var(--accent) 28%,transparent)}
+html[dir="rtl"] body{direction:rtl;text-align:right;font-family:'Noto Kufi Arabic',Inter,system-ui,sans-serif}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,
+html[dir="rtl"] .brand,html[dir="rtl"] .stat strong,html[dir="rtl"] .spstat b,html[dir="rtl"] .price,
+html[dir="rtl"] .pprice,html[dir="rtl"] .cart-total b{font-family:'Noto Kufi Arabic',var(--font-display),system-ui,sans-serif;letter-spacing:0}
+html[dir="rtl"] .nav-inner,html[dir="rtl"] .hero-cta,html[dir="rtl"] .stats,html[dir="rtl"] .sp-actions,
+html[dir="rtl"] .follow-bar,html[dir="rtl"] .foot-main{direction:rtl}
+html[dir="rtl"] .lang-options{transform:translateX(10px);padding-inline-end:0;padding-inline-start:6px}
+html[dir="rtl"] .vspec:hover{transform:translateX(-5px)}
+html[dir="rtl"] .svc .row,html[dir="rtl"] .cart-total{direction:rtl}
+@media(max-width:720px){.lang-switcher.open{width:184px}.lang-option{min-width:38px}.lang-toggle{min-width:46px}.lang-switcher{width:46px;min-width:46px}}
+
+
 /* hero */
 .hero{position:relative;padding:64px 0 40px}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
@@ -166,9 +194,12 @@ section.block{padding:70px 0}
 .video-skeleton{width:100%;height:100%;background:linear-gradient(110deg,#111 30%,#1a1a1a 50%,#111 70%);
   background-size:200% 100%;animation:shimmer 1.8s infinite}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.bvp-controls{padding:10px 16px;display:flex;gap:10px;flex-shrink:0;border-top:1px solid var(--line)}
-.bvp-btn{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);
-  color:var(--text);cursor:pointer;font-size:.82rem;transition:.2s var(--ease)}
+.bvp-controls{padding:10px 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;flex-shrink:0;border-top:1px solid var(--line)}
+.bvp-controls>.bvp-btn{justify-self:start}
+.bvp-controls-center{display:flex;gap:8px;justify-content:center}
+.bvp-controls-right{display:flex;justify-content:flex-end}
+.bvp-btn{width:42px;height:34px;padding:0;display:inline-grid;place-items:center;flex:0 0 auto;border-radius:999px;border:1px solid var(--line);background:var(--glass);
+ color:var(--text);cursor:pointer;font-size:.82rem;line-height:1;transition:.2s var(--ease)}
 .bvp-btn:hover{border-color:var(--accent);color:var(--accent)}
 .video-playlist{display:flex;gap:8px;padding:10px 16px;flex-shrink:0;overflow-x:auto;scrollbar-width:none}
 .video-playlist::-webkit-scrollbar{display:none}
@@ -454,18 +485,28 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   <div class="wrap nav-inner">
     <div class="brand"><img class="blogo" src="media/dali-logo.jpg" alt="Barbería Dali" /> <span>Barbería <span style="color:var(--accent)">Dali</span></span></div>
     <nav class="nav-links">
-      <a href="#feed">TikTok</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#tienda">Tienda</a>
-      <a href="#resenas">Reseñas</a>
+      <a href="#feed" id="navTikTok">TikTok</a>
+      <a href="#servicios" id="navServices">Servicios</a>
+      <a href="#tienda" id="navShop">Tienda</a>
+      <a href="#resenas" id="navReviews">Reseñas</a>
     </nav>
     <div style="display:flex;align-items:center;gap:10px">
+      <div class="lang-switcher" id="langSwitch">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma" aria-expanded="false">
+          <span aria-hidden="true">🌐</span><span class="lang-current" id="langCurrent">ES</span>
+        </button>
+        <div class="lang-options" role="group" aria-label="Idiomas disponibles">
+          <button class="lang-option active" type="button" data-lang-choice="es">ES</button>
+          <button class="lang-option" type="button" data-lang-choice="ca">VA</button>
+          <button class="lang-option" type="button" data-lang-choice="ar">AR</button>
+        </div>
+      </div>
       <button id="cartBtnNav" aria-label="Abrir cesta"
         style="display:flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;
                border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);
                color:var(--text);cursor:pointer;font-family:var(--font-body);font-size:.9rem;
                transition:.25s var(--ease)">
-        🛒 <span>Cesta</span>
+        🛒 <span id="navCartText">Cesta</span>
         <span id="cartBadgeNav" style="min-width:20px;height:20px;border-radius:999px;background:var(--accent);
           color:var(--ink);font-size:.72rem;font-weight:900;display:none;place-items:center;padding:0 5px">0</span>
       </button>
@@ -528,8 +569,14 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
         <div class="video-skeleton"></div>
       </div>
       <div class="bvp-controls">
-        <button class="bvp-btn" id="vidSound" aria-label="Activar sonido">🔇</button>
-        <button class="bvp-btn" id="vidPlayPause" aria-label="Play/Pausa">▶</button>
+        <button class="bvp-btn" id="vidPrev" aria-label="Vídeo anterior">⏮</button>
+        <div class="bvp-controls-center">
+          <button class="bvp-btn" id="vidSound" aria-label="Activar sonido">🔇</button>
+          <button class="bvp-btn" id="vidPlayPause" aria-label="Play/Pausa">▶</button>
+        </div>
+        <div class="bvp-controls-right">
+          <button class="bvp-btn" id="vidNext" aria-label="Vídeo siguiente">⏭</button>
+        </div>
       </div>
       <div class="video-playlist" id="videoPlaylist">
         <!-- miniaturas inyectadas por JS -->
@@ -757,7 +804,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
       </a>
     </div>
   </div>
-  <p class="foot-legal">© 2025 Barbería Dali · Castelló de la Plana</p>
+  <p class="foot-legal">© 2026 Barbería Dali · Castelló de la Plana</p>
 </footer>
 
 <!-- controles de estilo y color -->
@@ -946,7 +993,7 @@ function initVideo(){
   const stage=$('#videoStage');
   const titleEl=$('#bvpTitle'),subEl=$('#bvpSub');
   const playlist=$('#videoPlaylist');
-  const btnSound=$('#vidSound'),btnPlay=$('#vidPlayPause');
+  const btnSound=$('#vidSound'),btnPlay=$('#vidPlayPause'),btnPrev=$('#vidPrev'),btnNext=$('#vidNext');
   let activeVideo=null,activeIdx=0;
 
   function loadVideo(idx){
@@ -1025,6 +1072,8 @@ function initVideo(){
     activeVideo.paused?activeVideo.play().catch(()=>{}):activeVideo.pause();
     btnPlay.textContent=activeVideo.paused?'▶':'⏸';
   });
+  btnPrev.addEventListener('click',()=>loadVideo((activeIdx-1+socialData.videos.length)%socialData.videos.length));
+  btnNext.addEventListener('click',()=>loadVideo((activeIdx+1)%socialData.videos.length));
 
   // tabs
   document.querySelectorAll('.stab').forEach(btn=>{
@@ -1193,8 +1242,286 @@ function initShop(){
   });
 }
 
+
+
+// ===== idiomas: español / valencià / العربية =====
+const LANGUAGE_META={
+  es:{code:'ES',name:'Español',html:'es',dir:'ltr',locale:'es-ES'},
+  ca:{code:'VA',name:'Valencià',html:'ca-valencia',dir:'ltr',locale:'ca-ES'},
+  ar:{code:'AR',name:'العربية',html:'ar',dir:'rtl',locale:'ar-MA'}
+};
+let currentLang=localStorage.getItem('dali_lang')||'es';
+if(!LANGUAGE_META[currentLang])currentLang='es';
+
+const I18N={
+  es:{
+    title:'Barbería Dali · Barbería en Castellón',
+    description:'Barbería Dali, en el centro de Castellón. Corte, barba y afeitado a navaja. Reserva tu cita online en segundos.',
+    nav:{tiktok:'TikTok',services:'Servicios',shop:'Tienda',reviews:'Reseñas',cart:'Cesta',reserve:'Reservar cita',reserveMine:'Reservar mi cita',watch:'▶ Ver vídeos',checkout:'Tramitar pedido',total:'Total',cartTitle:'Tu cesta',floatingCart:'Cesta'},
+    theme:{style:'Estilo',color:'Color',styleToast:'Estilo: ',colorToast:'Color: ',languageToast:'Idioma: ',styles:{viral:'Viral',estudio:'Estudio',calle:'Calle',clasico:'Clásico'},palettes:{oro:'Oro',rojo:'Rojo',verde:'Verde',azul:'Azul'}},
+    styles:{
+      viral:{eye:'Barbería · Castellón',h1:['Cortes que se ','vuelven virales','.'],lead:'La barbería de Castellón que arrasa en TikTok. Mira los vídeos, elige tu estilo y reserva en 30 segundos.',ctaH:'¿Listo para tu próximo corte?',ctaP:'El mismo estilo que ves en los vídeos, ahora a un clic. Reserva y entra con cita.',feed:{e:'Lo último',h:'Míralo en movimiento',p:'Fades, barbas y diseños grabados en la silla. Síguenos para ver cada trabajo nuevo.'},svc:{e:'La carta',h:'Elige tu corte',p:'Precios claros y sin sorpresas. Toca reservar y lo dejamos listo en el formulario.'},ba:{e:'El cambio',h:'Antes y después',p:'Arrastra y comprueba la diferencia. Así sale la gente de la silla.'},book:{e:'Reserva en 30s',h:'Pide tu cita',p:'Elige servicio, día y hora. Sin llamadas y sin esperas.'},rev:{e:'La gente habla',h:'Lo que dicen',p:'Opiniones de quienes ya han pasado por la silla.'},shop:{e:'Tienda',h:'Llévate el acabado a casa',p:'Los productos que usamos a diario, listos para ti.'}},
+      estudio:{eye:'Barbería de autor · Castellón',h1:['El oficio del ','buen corte','.'],lead:'Precisión, navaja y detalle. Una barbería en el centro de Castellón donde cada corte se trabaja con calma.',ctaH:'Tu próxima cita, sin llamadas.',ctaP:'Elige servicio y hora. Te esperamos con todo preparado.',feed:{e:'Diario',h:'Nuestro trabajo, día a día',p:'Una selección de cortes y acabados, siempre actualizada.'},svc:{e:'Servicios',h:'Nuestra carta',p:'Tarifas transparentes. Elige un servicio y queda reflejado en tu reserva.'},ba:{e:'Transformación',h:'El resultado',p:'Desliza para ver el cambio. La diferencia está en los detalles.'},book:{e:'Cita',h:'Reserva tu hora',p:'Elige servicio, día y franja. Confirmamos al instante.'},rev:{e:'Opiniones',h:'La voz de nuestros clientes',p:'Experiencias de quienes confían en nuestras manos.'},shop:{e:'Boutique',h:'Cuidado para casa',p:'Productos seleccionados para mantener tu estilo entre visita y visita.'}},
+      calle:{eye:'Barbería · Castellón',h1:['Tu corte ','manda','.'],lead:'Fades, diseños y barba al milímetro. Lo que ves en los vídeos, ahora en tu barrio de Castellón.',ctaH:'Pídete cita ya.',ctaP:'Sin esperas, sin movidas. Reserva en 30 segundos.',feed:{e:'Al loro',h:'Lo que se cuece',p:'El feed de Barbería Dali, siempre fresco. Vídeo nuevo, aquí lo tienes.'},svc:{e:'La lista',h:'Elige y entra',p:'Precios a la vista. Toca y reservas con el corte ya elegido.'},ba:{e:'El tijeretazo',h:'Antes / Después',p:'Arrastra y flipa con el cambio.'},book:{e:'Cita exprés',h:'Reserva y listo',p:'Servicio, día, hora y nombre. Ya está.'},rev:{e:'La calle opina',h:'Dicen que...',p:'Clientes reales, cortes reales.'},shop:{e:'Productos',h:'Mantén el flow',p:'Lo que usamos en la barbería, para que lo tengas en casa.'}},
+      clasico:{eye:'Barbería clásica · Castellón',h1:['El arte de la ','barbería','.'],lead:'Una barbería clásica en el corazón de Castellón. Corte a tijera, afeitado a navaja y el cuidado de siempre para el caballero de hoy.',ctaH:'Reserve su cita.',ctaP:'El ritual completo de la barbería clásica le espera. Resérvelo en un momento.',feed:{e:'La casa',h:'Nuestro oficio en imágenes',p:'El día a día de Barbería Dali, fiel a la tradición y al detalle.'},svc:{e:'Servicios',h:'Nuestra carta',p:'Cada servicio, con el tiempo y el mimo que merece. Elija el suyo y resérvelo.'},ba:{e:'El resultado',h:'Antes y después',p:'Deslice y compruebe el cambio. El sello de la casa.'},book:{e:'Su cita',h:'Reserve su hora',p:'Escoja servicio, día y hora. Le recibiremos con todo dispuesto.'},rev:{e:'Testimonios',h:'La palabra de nuestros clientes',p:'Caballeros que confían en la casa desde el primer corte.'},shop:{e:'La tienda',h:'El cuidado, también en casa',p:'Productos de barbería para prolongar el resultado en casa.'}}
+    },
+    social:{tiktokBio:'Barbería en Castellón. Cortes, degradados y transformaciones reales. Contenido semanal.',instagramBio:'Barbero ⭐⭐⭐⭐⭐ · Castellón de la Plana. Cortes, diseños y transformaciones.',followers:'Seguidores',following:'Siguiendo',likes:'Me gusta',posts:'Publicaciones',reels:'Reels',followTiktok:'Seguir en TikTok',seeInstagram:'Ver Instagram',updated:'Estadísticas actualizadas manualmente',services:[['✂️','Corte a tijera y máquina','Fundidos limpios y acabados a medida.'],['🪒','Barba y afeitado a navaja','Perfilado, toalla caliente y navaja.'],['🎨','Diseños y líneas','Rayas y detalles que marcan la diferencia.']]},
+    video:{titles:[['En la silla','Fade y diseño · Castellón'],['El proceso','Barbería Dali · Castellón'],['El resultado','Barbería Dali · Castellón']],labels:{prev:'Vídeo anterior',sound:'Activar sonido',play:'Play/Pausa',next:'Vídeo siguiente'}},
+    ba:{before:'Antes',after:'Después'},
+    form:{service:'Servicio',name:'Tu nombre',namePh:'Nombre y apellido',phone:'Teléfono',phonePh:'600 000 000',day:'Día',hour:'Hora disponible',confirm:'Confirmar reserva',how:'Cómo funciona',steps:[['1','Eliges servicio y hora.','Lo ves todo de un vistazo, sin llamar.'],['2','Confirmas tu cita.','En segundos queda reservada.'],['3','Te avisamos.','Recibirás un recordatorio antes de tu cita.'],['★','Sin esperas.','Llegas con tu hora reservada y entras directo.']]},
+    bookingConfirm:d=>`✅ <b>¡Cita confirmada!</b><br>${d.service} · ${d.date} a las ${d.time}, a nombre de ${d.name}. <br><small style="color:var(--muted)">Te enviaremos un recordatorio antes de tu cita.</small>`,
+    services:[{ic:'✂️',name:'Corte Dalí',desc:'El corte estrella: fade a medida y acabado de revista.',price:14},{ic:'🧔',name:'Corte + Barba',desc:'Combo completo, perfilado de barba con toalla caliente.',price:19},{ic:'🎨',name:'Diseño / Líneas',desc:'Dibujos y líneas personalizadas para destacar.',price:8},{ic:'👦',name:'Corte Junior',desc:'Para los más peques, paciencia incluida.',price:11},{ic:'🪒',name:'Afeitado clásico',desc:'Navaja, ritual completo y piel suave.',price:13},{ic:'💈',name:'Pack Completo',desc:'Corte, barba, cejas y diseño. La experiencia entera.',price:25}],
+    reviews:{verified:'Cliente verificado',google:'⭐ Ver reseñas en Google',items:[{n:'Marcos R.',c:'#e7c27d',txt:'Lo vi en TikTok y fui. Mejor corte de mi vida, sin exagerar.'},{n:'Iván L.',c:'#fe2c55',txt:'Reservé desde el móvil en un minuto. El fade es una locura.'},{n:'Hugo P.',c:'#25f4ee',txt:'Llevo meses yendo. Diseños top y siempre puntual.'}]},
+    products:[{id:'pomada',name:'Pomada mate',ic:'🧴',tag:'Top ventas',g:['#3a2a1a','#e7c27d'],price:12,desc:'Fijación fuerte y acabado seco, sin grasa.'},{id:'cera',name:'Cera moldeadora',ic:'🪧',tag:'Clásico',g:['#241a08','#caa052'],price:11,desc:'Brillo medio y control que aguanta todo el día.'},{id:'aceite',name:'Aceite para barba',ic:'🧔',tag:'Barba',g:['#2a1810','#d68b4a'],price:14,desc:'Hidrata, suaviza y deja un aroma amaderado.'},{id:'champu',name:'Champú fortificante',ic:'🧴',tag:'Cuidado',g:['#10202a','#56b6c8'],price:13,desc:'Limpia en profundidad y refuerza la raíz.'},{id:'after',name:'Bálsamo aftershave',ic:'🪒',tag:'Afeitado',g:['#1c1226','#9a6cd6'],price:10,desc:'Calma la piel justo después de la navaja.'},{id:'kit',name:'Kit barba completo',ic:'🎁',tag:'Pack',g:['#2a1020','#fe6fa0'],price:29,desc:'Aceite, bálsamo y peine en estuche de regalo.'},{id:'peine',name:'Peine de madera',ic:'💈',tag:'Accesorio',g:['#22180c','#b98a44'],price:7,desc:'Antiestático, de bolsillo, hecho a mano.'},{id:'regalo',name:'Tarjeta regalo',ic:'💳',tag:'Regalo',g:['#0d2a1a','#76ffb2'],price:25,desc:'Un corte + barba para quien tú quieras.'}],
+    cart:{empty:'Tu cesta está vacía.<br>Añade algún producto para empezar.',add:'Añadir +',added:' añadido ✓',emptyToast:'La cesta está vacía',order:'Pedido confirmado 🎉',checkoutConfirm:t=>`✅ <b>¡Pedido realizado!</b> Total ${t}.<br><small style="color:var(--muted)">Te avisaremos cuando esté listo para recoger en la barbería.</small>`},
+    footer:{hours:'Lun–Sáb · 10:00–20:30',legal:'© 2026 Barbería Dali · Castelló de la Plana'}
+  },
+  ca:{
+    title:'Barberia Dali · Perruqueria a Castelló',
+    description:'Barberia Dali, al centre de Castelló. Tall, barba i afaitat a navalla. Reserva la teua cita en línia en segons.',
+    nav:{tiktok:'TikTok',services:'Serveis',shop:'Botiga',reviews:'Ressenyes',cart:'Cistella',reserve:'Reservar cita',reserveMine:'Reservar la meua cita',watch:'▶ Veure vídeos',checkout:'Tramitar comanda',total:'Total',cartTitle:'La teua cistella',floatingCart:'Cistella'},
+    theme:{style:'Estil',color:'Color',styleToast:'Estil: ',colorToast:'Color: ',languageToast:'Idioma: ',styles:{viral:'Viral',estudio:'Estudi',calle:'Carrer',clasico:'Clàssic'},palettes:{oro:'Or',rojo:'Roig',verde:'Verd',azul:'Blau'}},
+    styles:{
+      viral:{eye:'Barberia · Castelló',h1:['Talls que es ','fan virals','.'],lead:'La barberia de Castelló que ho peta a TikTok. Mira els vídeos, tria el teu estil i reserva en 30 segons.',ctaH:'Preparat per al teu pròxim tall?',ctaP:'El mateix estil que veus als vídeos, ara a un clic. Reserva i entra amb cita.',feed:{e:'L’últim',h:'Mira-ho en moviment',p:'Fades, barbes i dissenys gravats a la cadira. Seguix-nos per vore cada treball nou.'},svc:{e:'La carta',h:'Tria el teu tall',p:'Preus clars i sense sorpreses. Toca reservar i ho deixem preparat al formulari.'},ba:{e:'El canvi',h:'Abans i després',p:'Arrossega i comprova la diferència. Així ix la gent de la cadira.'},book:{e:'Reserva en 30s',h:'Demana la teua cita',p:'Tria servici, dia i hora. Sense telefonades i sense esperes.'},rev:{e:'La gent parla',h:'El que diuen',p:'Opinions de qui ja ha passat per la cadira.'},shop:{e:'Botiga',h:'Emporta’t l’acabat a casa',p:'Els productes que usem cada dia, preparats per a tu.'}},
+      estudio:{eye:'Barberia d’autor · Castelló',h1:['L’ofici del ','bon tall','.'],lead:'Precisió, navalla i detall. Una barberia al centre de Castelló on cada tall es treballa amb calma.',ctaH:'La teua pròxima cita, sense telefonades.',ctaP:'Tria servici i hora. T’esperem amb tot preparat.',feed:{e:'Diari',h:'El nostre treball, dia a dia',p:'Una selecció de talls i acabats, sempre actualitzada.'},svc:{e:'Serveis',h:'La nostra carta',p:'Tarifes transparents. Tria un servici i quedarà reflectit en la reserva.'},ba:{e:'Transformació',h:'El resultat',p:'Fes lliscar per vore el canvi. La diferència està en els detalls.'},book:{e:'Cita',h:'Reserva la teua hora',p:'Tria servici, dia i franja. Confirmem al moment.'},rev:{e:'Opinions',h:'La veu dels nostres clients',p:'Experiències de qui confia en les nostres mans.'},shop:{e:'Boutique',h:'Cura per a casa',p:'Productes seleccionats per mantindre el teu estil entre visites.'}},
+      calle:{eye:'Barberia · Castelló',h1:['El teu tall ','mana','.'],lead:'Fades, dissenys i barba al mil·límetre. El que veus als vídeos, ara al teu barri de Castelló.',ctaH:'Demana cita ja.',ctaP:'Sense esperes ni embolics. Reserva en 30 segons.',feed:{e:'Al lloro',h:'El que es cou',p:'El feed de Barberia Dali, sempre fresc. Vídeo nou, ací el tens.'},svc:{e:'La llista',h:'Tria i entra',p:'Preus a la vista. Toca i reserves amb el tall ja triat.'},ba:{e:'El canvi',h:'Abans / Després',p:'Arrossega i flipa amb el canvi.'},book:{e:'Cita exprés',h:'Reserva i fet',p:'Servici, dia, hora i nom. Ja està.'},rev:{e:'El carrer opina',h:'Diuen que...',p:'Clients reals, talls reals.'},shop:{e:'Productes',h:'Mantín el flow',p:'El que usem a la barberia perquè ho tingues a casa.'}},
+      clasico:{eye:'Barberia clàssica · Castelló',h1:['L’art de la ','barberia','.'],lead:'Una barberia clàssica al cor de Castelló. Tall a tisora, afaitat a navalla i la cura de sempre per al cavaller d’avui.',ctaH:'Reserve la seua cita.',ctaP:'El ritual complet de la barberia clàssica l’espera. Reserve’l en un moment.',feed:{e:'La casa',h:'El nostre ofici en imatges',p:'El dia a dia de Barberia Dali, fidel a la tradició i al detall.'},svc:{e:'Serveis',h:'La nostra carta',p:'Cada servici, amb el temps i l’afecte que mereix. Trie el seu i reserve’l.'},ba:{e:'El resultat',h:'Abans i després',p:'Faça lliscar i comprove el canvi. El segell de la casa.'},book:{e:'La seua cita',h:'Reserve la seua hora',p:'Trie servici, dia i hora. El rebrem amb tot disposat.'},rev:{e:'Testimonis',h:'La paraula dels nostres clients',p:'Cavallers que confien en la casa des del primer tall.'},shop:{e:'La botiga',h:'La cura, també a casa',p:'Productes de barberia per prolongar el resultat a casa.'}}
+    },
+    social:{tiktokBio:'Barberia a Castelló. Talls, degradats i transformacions reals. Contingut setmanal.',instagramBio:'Barber ⭐⭐⭐⭐⭐ · Castelló de la Plana. Talls, dissenys i transformacions.',followers:'Seguidors',following:'Seguint',likes:'M’agrada',posts:'Publicacions',reels:'Reels',followTiktok:'Seguir en TikTok',seeInstagram:'Veure Instagram',updated:'Estadístiques actualitzades manualment',services:[['✂️','Tall a tisora i màquina','Degradats nets i acabats a mida.'],['🪒','Barba i afaitat a navalla','Perfilat, tovalla calenta i navalla.'],['🎨','Dissenys i línies','Ratlles i detalls que marquen la diferència.']]},
+    video:{titles:[['A la cadira','Fade i disseny · Castelló'],['El procés','Barberia Dali · Castelló'],['El resultat','Barberia Dali · Castelló']],labels:{prev:'Vídeo anterior',sound:'Activar so',play:'Play/Pausa',next:'Vídeo següent'}},
+    ba:{before:'Abans',after:'Després'},
+    form:{service:'Servici',name:'El teu nom',namePh:'Nom i cognoms',phone:'Telèfon',phonePh:'600 000 000',day:'Dia',hour:'Hora disponible',confirm:'Confirmar reserva',how:'Com funciona',steps:[['1','Tries servici i hora.','Ho veus tot d’un colp d’ull, sense telefonar.'],['2','Confirmes la cita.','En segons queda reservada.'],['3','T’avisem.','Rebràs un recordatori abans de la cita.'],['★','Sense esperes.','Arribes amb l’hora reservada i entres directe.']]},
+    bookingConfirm:d=>`✅ <b>Cita confirmada!</b><br>${d.service} · ${d.date} a les ${d.time}, a nom de ${d.name}. <br><small style="color:var(--muted)">T’enviarem un recordatori abans de la cita.</small>`,
+    services:[{ic:'✂️',name:'Tall Dalí',desc:'El tall estrela: fade a mida i acabat de revista.',price:14},{ic:'🧔',name:'Tall + Barba',desc:'Combo complet, perfilat de barba amb tovalla calenta.',price:19},{ic:'🎨',name:'Disseny / Línies',desc:'Dibuixos i línies personalitzades per destacar.',price:8},{ic:'👦',name:'Tall Junior',desc:'Per als més menuts, paciència inclosa.',price:11},{ic:'🪒',name:'Afaitat clàssic',desc:'Navalla, ritual complet i pell suau.',price:13},{ic:'💈',name:'Pack Complet',desc:'Tall, barba, celles i disseny. L’experiència sencera.',price:25}],
+    reviews:{verified:'Client verificat',google:'⭐ Veure ressenyes a Google',items:[{n:'Marcos R.',c:'#e7c27d',txt:'Ho vaig vore a TikTok i vaig anar. El millor tall de la meua vida, sense exagerar.'},{n:'Iván L.',c:'#fe2c55',txt:'Vaig reservar des del mòbil en un minut. El fade és una passada.'},{n:'Hugo P.',c:'#25f4ee',txt:'Fa mesos que hi vaig. Dissenys top i sempre puntual.'}]},
+    products:[{id:'pomada',name:'Pomada mat',ic:'🧴',tag:'Top vendes',g:['#3a2a1a','#e7c27d'],price:12,desc:'Fixació forta i acabat sec, sense greix.'},{id:'cera',name:'Cera modeladora',ic:'🪧',tag:'Clàssic',g:['#241a08','#caa052'],price:11,desc:'Brillantor mitjana i control que aguanta tot el dia.'},{id:'aceite',name:'Oli per a barba',ic:'🧔',tag:'Barba',g:['#2a1810','#d68b4a'],price:14,desc:'Hidrata, suavitza i deixa una aroma de fusta.'},{id:'champu',name:'Xampú fortificant',ic:'🧴',tag:'Cura',g:['#10202a','#56b6c8'],price:13,desc:'Neteja en profunditat i reforça l’arrel.'},{id:'after',name:'Bàlsam aftershave',ic:'🪒',tag:'Afaitat',g:['#1c1226','#9a6cd6'],price:10,desc:'Calma la pell just després de la navalla.'},{id:'kit',name:'Kit barba complet',ic:'🎁',tag:'Pack',g:['#2a1020','#fe6fa0'],price:29,desc:'Oli, bàlsam i pinta en estoig de regal.'},{id:'peine',name:'Pinta de fusta',ic:'💈',tag:'Accessori',g:['#22180c','#b98a44'],price:7,desc:'Antiestàtica, de butxaca, feta a mà.'},{id:'regalo',name:'Targeta regal',ic:'💳',tag:'Regal',g:['#0d2a1a','#76ffb2'],price:25,desc:'Un tall + barba per a qui tu vulgues.'}],
+    cart:{empty:'La teua cistella està buida.<br>Afig algun producte per començar.',add:'Afegir +',added:' afegit ✓',emptyToast:'La cistella està buida',order:'Comanda confirmada 🎉',checkoutConfirm:t=>`✅ <b>Comanda realitzada!</b> Total ${t}.<br><small style="color:var(--muted)">T’avisarem quan estiga preparada per recollir a la barberia.</small>`},
+    footer:{hours:'Dl–Ds · 10:00–20:30',legal:'© 2026 Barberia Dali · Castelló de la Plana'}
+  },
+  ar:{
+    title:'حلاقة دالي · حلاق في كاستيون',
+    description:'حلاقة دالي في وسط كاستيون. قصّ الشعر، اللحية والحلاقة بالموس. احجز موعدك أونلاين في ثواني.',
+    nav:{tiktok:'تيك توك',services:'الخدمات',shop:'المتجر',reviews:'التقييمات',cart:'السلة',reserve:'احجز موعد',reserveMine:'احجز موعدي',watch:'▶ شاهد الفيديوهات',checkout:'إتمام الطلب',total:'المجموع',cartTitle:'سلتك',floatingCart:'السلة'},
+    theme:{style:'النمط',color:'اللون',styleToast:'النمط: ',colorToast:'اللون: ',languageToast:'اللغة: ',styles:{viral:'ترند',estudio:'استوديو',calle:'شارع',clasico:'كلاسيكي'},palettes:{oro:'ذهبي',rojo:'أحمر',verde:'أخضر',azul:'أزرق'}},
+    styles:{
+      viral:{eye:'حلاقة · كاستيون',h1:['قصّات ','تولّي ترند','.'],lead:'حلاقة دالي في كاستيون اللي طالعة في تيك توك. شاهد الفيديوهات، اختر ستايلك واحجز في 30 ثانية.',ctaH:'جاهز لقصّتك القادمة؟',ctaP:'نفس الستايل اللي تشوفه في الفيديوهات، الآن بضغطة واحدة. احجز وادخل بموعد.',feed:{e:'آخر الأعمال',h:'شاهدها وهي تتحرك',p:'تدرجات، لحى وتصاميم مصوّرة من الكرسي. تابعنا لترى كل شغل جديد.'},svc:{e:'القائمة',h:'اختر قصّتك',p:'أسعار واضحة بلا مفاجآت. اضغط احجز ونجهّزها في النموذج.'},ba:{e:'التغيير',h:'قبل وبعد',p:'اسحب وشوف الفرق. هكذا يخرج الزبون من الكرسي.'},book:{e:'حجز في 30 ثانية',h:'اطلب موعدك',p:'اختر الخدمة، اليوم والساعة. بلا مكالمات وبلا انتظار.'},rev:{e:'كلام الناس',h:'ماذا يقولون',p:'آراء من جلسوا على الكرسي من قبل.'},shop:{e:'المتجر',h:'خذ اللمسة النهائية معك',p:'المنتجات التي نستعملها يومياً، جاهزة لك.'}},
+      estudio:{eye:'حلاقة احترافية · كاستيون',h1:['حرفة ','القصّة المتقنة','.'],lead:'دقة، موس وتفاصيل. حلاقة في قلب كاستيون حيث تُنجز كل قصة بهدوء وعناية.',ctaH:'موعدك القادم بلا مكالمات.',ctaP:'اختر الخدمة والوقت. سنكون في انتظارك وكل شيء جاهز.',feed:{e:'يوميات',h:'عملنا يوماً بعد يوم',p:'مجموعة من القصّات واللمسات النهائية، محدثة دائماً.'},svc:{e:'الخدمات',h:'قائمتنا',p:'أسعار واضحة. اختر خدمة وستظهر مباشرة في حجزك.'},ba:{e:'تحوّل',h:'النتيجة',p:'اسحب لرؤية التغيير. الفرق في التفاصيل.'},book:{e:'موعد',h:'احجز ساعتك',p:'اختر الخدمة، اليوم والفترة. التأكيد فوري.'},rev:{e:'آراء',h:'صوت زبائننا',p:'تجارب من يثقون في أيدينا.'},shop:{e:'بوتيك',h:'عناية للبيت',p:'منتجات مختارة للحفاظ على ستايلك بين كل زيارة وأخرى.'}},
+      calle:{eye:'حلاقة · كاستيون',h1:['قصّتك ','هي اللي تحكم','.'],lead:'فيدر، تصاميم ولحية بالمليمتر. ما تراه في الفيديوهات، الآن في حيك بكاستيون.',ctaH:'احجز الآن.',ctaP:'بلا انتظار وبلا صداع. احجز في 30 ثانية.',feed:{e:'تابع الجديد',h:'اللي واقع الآن',p:'فيد حلاقة دالي دائماً جديد. أي فيديو جديد تلقاه هنا.'},svc:{e:'اللائحة',h:'اختر وادخل',p:'الأسعار قدامك. اضغط واحجز والقصّة مختارة.'},ba:{e:'التحوّل',h:'قبل / بعد',p:'اسحب وشوف الفرق بنفسك.'},book:{e:'حجز سريع',h:'احجز وخلاص',p:'الخدمة، اليوم، الساعة والاسم. انتهى.'},rev:{e:'الشارع يتكلم',h:'يقولون...',p:'زبائن حقيقيون، قصّات حقيقية.'},shop:{e:'منتجات',h:'حافظ على الستايل',p:'الذي نستعمله في الحلاقة لتستعمله في البيت.'}},
+      clasico:{eye:'حلاقة كلاسيكية · كاستيون',h1:['فنّ ','الحلاقة','.'],lead:'حلاقة كلاسيكية في قلب كاستيون. قص بالمقص، حلاقة بالموس وعناية أصيلة لرجل اليوم.',ctaH:'احجز موعدك.',ctaP:'طقس الحلاقة الكلاسيكية الكامل في انتظارك. احجزه في لحظة.',feed:{e:'الدار',h:'حرفتنا بالصور',p:'يوميات حلاقة دالي، وفية للتقاليد والتفاصيل.'},svc:{e:'الخدمات',h:'قائمتنا',p:'كل خدمة بالوقت والعناية التي تستحقها. اختر خدمتك واحجزها.'},ba:{e:'النتيجة',h:'قبل وبعد',p:'اسحب وتأكد من التغيير. هذا هو ختم الدار.'},book:{e:'موعدك',h:'احجز ساعتك',p:'اختر الخدمة، اليوم والساعة. نستقبلك وكل شيء جاهز.'},rev:{e:'شهادات',h:'كلمة زبائننا',p:'رجال يثقون في الدار من أول قصّة.'},shop:{e:'المتجر',h:'العناية أيضاً في البيت',p:'منتجات حلاقة لإطالة النتيجة في البيت.'}}
+    },
+    social:{tiktokBio:'حلاقة في كاستيون. قصّات، تدرجات وتحولات حقيقية. محتوى كل أسبوع.',instagramBio:'حلاق ⭐⭐⭐⭐⭐ · كاستيون دي لا بلانا. قصّات، تصاميم وتحولات.',followers:'متابعون',following:'يتابع',likes:'إعجابات',posts:'منشورات',reels:'ريلز',followTiktok:'تابع على تيك توك',seeInstagram:'افتح إنستغرام',updated:'الإحصائيات محدثة يدوياً',services:[['✂️','قص بالمقص والماكينة','تدرجات نظيفة ولمسات نهائية حسب الطلب.'],['🪒','لحية وحلاقة بالموس','تحديد، منشفة ساخنة وموس.'],['🎨','تصاميم وخطوط','خطوط وتفاصيل تصنع الفرق.']]},
+    video:{titles:[['على الكرسي','فيد وتصميم · كاستيون'],['العملية','حلاقة دالي · كاستيون'],['النتيجة','حلاقة دالي · كاستيون']],labels:{prev:'الفيديو السابق',sound:'تفعيل الصوت',play:'تشغيل/إيقاف',next:'الفيديو التالي'}},
+    ba:{before:'قبل',after:'بعد'},
+    form:{service:'الخدمة',name:'اسمك',namePh:'الاسم واللقب',phone:'الهاتف',phonePh:'600 000 000',day:'اليوم',hour:'الساعة المتاحة',confirm:'تأكيد الحجز',how:'كيف يعمل',steps:[['1','تختار الخدمة والساعة.','كل شيء واضح أمامك بدون اتصال.'],['2','تؤكد موعدك.','في ثوانٍ يصبح محجوزاً.'],['3','نذكّرك.','ستصلك تذكرة قبل موعدك.'],['★','بلا انتظار.','تصل في وقتك المحجوز وتدخل مباشرة.']]},
+    bookingConfirm:d=>`✅ <b>تم تأكيد الموعد!</b><br>${d.service} · ${d.date} على ${d.time} باسم ${d.name}. <br><small style="color:var(--muted)">سنرسل لك تذكيراً قبل موعدك.</small>`,
+    services:[{ic:'✂️',name:'قصة دالي',desc:'القصة الأشهر: فيد حسب الطلب ولمسة نهائية ممتازة.',price:14},{ic:'🧔',name:'قص + لحية',desc:'كومبو كامل مع تحديد اللحية ومنشفة ساخنة.',price:19},{ic:'🎨',name:'تصميم / خطوط',desc:'رسومات وخطوط مخصصة لتبرز.',price:8},{ic:'👦',name:'قص للأطفال',desc:'للصغار، والصبر داخل الخدمة.',price:11},{ic:'🪒',name:'حلاقة كلاسيكية',desc:'موس، طقس كامل وبشرة ناعمة.',price:13},{ic:'💈',name:'الباقة الكاملة',desc:'قص، لحية، حواجب وتصميم. التجربة كاملة.',price:25}],
+    reviews:{verified:'زبون موثّق',google:'⭐ شاهد التقييمات على Google',items:[{n:'Marcos R.',c:'#e7c27d',txt:'شفته في تيك توك ومشيت. أحسن قصة في حياتي، بدون مبالغة.'},{n:'Iván L.',c:'#fe2c55',txt:'حجزت من الهاتف في دقيقة. الفيد كان مجنون.'},{n:'Hugo P.',c:'#25f4ee',txt:'من شهور وأنا نمشي. تصاميم ممتازة ودائماً في الوقت.'}]},
+    products:[{id:'pomada',name:'بوماد مطفي',ic:'🧴',tag:'الأكثر مبيعاً',g:['#3a2a1a','#e7c27d'],price:12,desc:'تثبيت قوي ولمسة جافة بدون دهن.'},{id:'cera',name:'واكس تشكيل',ic:'🪧',tag:'كلاسيكي',g:['#241a08','#caa052'],price:11,desc:'لمعان متوسط وتحكم يدوم طوال اليوم.'},{id:'aceite',name:'زيت اللحية',ic:'🧔',tag:'لحية',g:['#2a1810','#d68b4a'],price:14,desc:'يرطّب وينعّم ويترك رائحة خشبية.'},{id:'champu',name:'شامبو مقوّي',ic:'🧴',tag:'عناية',g:['#10202a','#56b6c8'],price:13,desc:'ينظف بعمق ويقوّي الجذور.'},{id:'after',name:'بلسم بعد الحلاقة',ic:'🪒',tag:'حلاقة',g:['#1c1226','#9a6cd6'],price:10,desc:'يهدّئ البشرة مباشرة بعد الموس.'},{id:'kit',name:'طقم لحية كامل',ic:'🎁',tag:'باقة',g:['#2a1020','#fe6fa0'],price:29,desc:'زيت، بلسم ومشط داخل علبة هدية.'},{id:'peine',name:'مشط خشبي',ic:'💈',tag:'إكسسوار',g:['#22180c','#b98a44'],price:7,desc:'مضاد للكهرباء، للجيب، مصنوع يدوياً.'},{id:'regalo',name:'بطاقة هدية',ic:'💳',tag:'هدية',g:['#0d2a1a','#76ffb2'],price:25,desc:'قص + لحية لمن تختار.'}],
+    cart:{empty:'سلتك فارغة.<br>أضف منتجاً للبدء.',add:'أضف +',added:' أضيف ✓',emptyToast:'السلة فارغة',order:'تم تأكيد الطلب 🎉',checkoutConfirm:t=>`✅ <b>تم إرسال الطلب!</b> المجموع ${t}.<br><small style="color:var(--muted)">سنخبرك عندما يكون جاهزاً للاستلام من الحلاقة.</small>`},
+    footer:{hours:'الإثنين–السبت · 10:00–20:30',legal:'© 2026 حلاقة دالي · كاستيون دي لا بلانا'}
+  }
+};
+
+function tr(){return I18N[currentLang]||I18N.es;}
+function langMeta(){return LANGUAGE_META[currentLang]||LANGUAGE_META.es;}
+function setTxt(sel,val){const el=$(sel);if(el&&val!==undefined)el.textContent=val;}
+function setHTML(sel,val){const el=$(sel);if(el&&val!==undefined)el.innerHTML=val;}
+function setAttr(sel,attr,val){const el=$(sel);if(el&&val!==undefined)el.setAttribute(attr,val);}
+function fmtNumber(v){return new Intl.NumberFormat(langMeta().locale).format(v??0);}
+function getServices(){return tr().services;}
+function getReviews(){return tr().reviews.items;}
+function getProducts(){return tr().products;}
+function productById(id){return getProducts().find(p=>p.id===id)||PMAP[id];}
+
+const originalApplyStyle=applyStyle;
+applyStyle=function(i,announce){originalApplyStyle(i,announce);applyLanguage(currentLang,{silent:true,skipRebuild:true});};
+const originalApplyPalette=applyPalette;
+applyPalette=function(i,announce){originalApplyPalette(i,announce);applyLanguage(currentLang,{silent:true,skipRebuild:true});};
+
+function activeStyleCopy(){
+  const id=document.documentElement.dataset.style||'viral';
+  return tr().styles[id]||tr().styles.viral;
+}
+function syncThemeLabels(){
+  const styleId=document.documentElement.dataset.style||'viral';
+  const palId=document.documentElement.dataset.palette||'oro';
+  setTxt('#lblStyle',tr().theme.styles[styleId]||styleId);
+  setTxt('#lblColor',tr().theme.palettes[palId]||palId);
+  const sSmall=$('#btnStyle small'),cSmall=$('#btnColor small');
+  if(sSmall)sSmall.textContent=tr().theme.style;
+  if(cSmall)cSmall.textContent=tr().theme.color;
+  setAttr('#btnStyle','aria-label',tr().theme.style);
+  setAttr('#btnColor','aria-label',tr().theme.color);
+}
+function applyMainCopy(){
+  const c=activeStyleCopy();
+  setTxt('#heroEye',c.eye);
+  const h=$('#heroH1');if(h)h.innerHTML=`${c.h1[0]}<span class="out">${c.h1[1]}</span>${c.h1[2]}`;
+  setTxt('#heroLead',c.lead);setTxt('#ctaH',c.ctaH);setTxt('#ctaP',c.ctaP);
+  setSec('feed',c.feed);setSec('svc',c.svc);setSec('ba',c.ba);setSec('book',c.book);setSec('rev',c.rev);setSec('shop',c.shop);
+}
+function applyStaticCopy(){
+  const l=tr();
+  document.title=l.title;
+  const meta=document.querySelector('meta[name="description"]');if(meta)meta.content=l.description;
+  const brand=$('.brand > span');
+  if(brand)brand.innerHTML=currentLang==='ar'?'حلاقة <span style="color:var(--accent)">Dali</span>':currentLang==='ca'?'Barberia <span style="color:var(--accent)">Dali</span>':'Barbería <span style="color:var(--accent)">Dali</span>';
+  const footBrand=$('.foot-brand b');
+  if(footBrand)footBrand.textContent=currentLang==='ar'?'حلاقة دالي':currentLang==='ca'?'Barberia Dali':'Barbería Dali';
+  setTxt('#navTikTok',l.nav.tiktok);setTxt('#navServices',l.nav.services);setTxt('#navShop',l.nav.shop);setTxt('#navReviews',l.nav.reviews);
+  setTxt('#navCartText',l.nav.cart);
+  $$('.btn.gold[href="#reservar"]').forEach(a=>a.textContent=l.nav.reserveMine);
+  const navReserve=document.querySelector('.nav-inner .btn.gold[href="#reservar"]');if(navReserve)navReserve.textContent=l.nav.reserve;
+  const heroWatch=document.querySelector('.hero-cta .btn.ghost');if(heroWatch)heroWatch.textContent=l.nav.watch;
+  setAttr('#cartBtnNav','aria-label',l.nav.cart);setAttr('#cartBtnFixed','aria-label',l.nav.cart);setAttr('#cartPanel','aria-label',l.nav.cartTitle);
+  const fixedCart=$('#cartBtnFixed');
+  if(fixedCart&&!fixedCart.querySelector('#cartBadge'))fixedCart.innerHTML=`🛒 ${l.nav.floatingCart} <span class="cbc" id="cartBadge">0</span>`;
+  else if(fixedCart){const txt=[...fixedCart.childNodes].find(n=>n.nodeType===3);if(txt)txt.nodeValue=`🛒 ${l.nav.floatingCart} `;}
+  setTxt('.cart-panel .ch h2',l.nav.cartTitle);setTxt('.cart-total span',l.nav.total);setTxt('#checkout',l.nav.checkout);
+  const formLabels=$$('.book-card label');
+  [l.form.service,l.form.name,l.form.phone,l.form.day,l.form.hour].forEach((txt,i)=>{if(formLabels[i])formLabels[i].textContent=txt;});
+  const name=$('#fName'),phone=$('#fPhone');if(name)name.placeholder=l.form.namePh;if(phone)phone.placeholder=l.form.phonePh;
+  const submit=$('#bookForm button[type="submit"]');if(submit)submit.textContent=l.form.confirm;
+  setTxt('.book-side h3',l.form.how);
+  $$('.book-side li').forEach((li,i)=>{const st=l.form.steps[i];if(!st)return;const ic=li.querySelector('.ic'),b=li.querySelector('b');if(ic)ic.textContent=st[0];if(b)b.textContent=st[1];const div=li.querySelector('div');if(div){div.childNodes.forEach(n=>{if(n.nodeType===3)n.nodeValue=' '+st[2];});}});
+  const before=$('#baBefore span'),after=$('#baAfter span');if(before)before.textContent=l.ba.before;if(after)after.textContent=l.ba.after;
+  setTxt('.gmaps-btn',l.reviews.google);
+  const hours=document.querySelector('.foot-brand p');if(hours)hours.textContent=l.footer.hours;
+  setTxt('.foot-legal',l.footer.legal);
+  const tt=$('#tab-tiktok .sp-bio'),ig=$('#tab-instagram .sp-bio');if(tt)tt.textContent=l.social.tiktokBio;if(ig)ig.textContent=l.social.instagramBio;
+  const ttStats=$$('#tab-tiktok .spstat span');[l.social.followers,l.social.following,l.social.likes].forEach((txt,i)=>{if(ttStats[i])ttStats[i].textContent=txt;});
+  const igStats=$$('#tab-instagram .spstat span');[l.social.followers,l.social.posts,l.social.reels].forEach((txt,i)=>{if(igStats[i])igStats[i].textContent=txt;});
+  const ttFollow=$('#tab-tiktok .follow-btn'),igFollow=$('#tab-instagram .follow-btn');
+  if(ttFollow){const svg=ttFollow.querySelector('svg')?.outerHTML||'';ttFollow.innerHTML=svg+' '+l.social.followTiktok;}
+  if(igFollow){const svg=igFollow.querySelector('svg')?.outerHTML||'';igFollow.innerHTML=svg+' '+l.social.seeInstagram;}
+  $$('.sp-updated').forEach(el=>el.textContent=l.social.updated);
+  const serviceBox=$('.sp-services');if(serviceBox)serviceBox.innerHTML=l.social.services.map(s=>`<article class="vspec"><span class="vic">${s[0]}</span><div><h3>${s[1]}</h3><p>${s[2]}</p></div></article>`).join('');
+  socialData.videos.forEach((v,i)=>{const t=l.video.titles[i];if(t){v.title=t[0];v.sub=t[1];}});
+  const first=l.video.titles[0];if(first){setTxt('#bvpTitle',first[0]);setTxt('#bvpSub',first[1]);}
+  setAttr('#vidPrev','aria-label',l.video.labels.prev);setAttr('#vidSound','aria-label',l.video.labels.sound);setAttr('#vidPlayPause','aria-label',l.video.labels.play);setAttr('#vidNext','aria-label',l.video.labels.next);
+}
+
+// Versiones multilingües de constructores dinámicos
+buildServices=function(){
+  const l=tr(), services=getServices();
+  $('#svcGrid').innerHTML=services.map(s=>`
+    <div class="svc">
+      <div class="ic">${s.ic}</div>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <div class="row">
+        <span class="price">${s.price}€</span>
+        <button class="pick" data-svc="${s.name}">${l.nav.reserve} →</button>
+      </div>
+    </div>`).join('');
+  $('#fService').innerHTML=services.map(s=>`<option value="${s.name}">${s.name} · ${s.price}€</option>`).join('');
+  $$('.pick').forEach(b=>b.addEventListener('click',()=>{
+    $('#fService').value=b.dataset.svc;
+    $('#reservar').scrollIntoView({behavior:'smooth'});
+    toast((currentLang==='ar'?'الخدمة المختارة: ':currentLang==='ca'?'Servici triat: ':'Servicio elegido: ')+b.dataset.svc);
+  }));
+};
+
+buildReviews=function(){
+  const l=tr();
+  $('#reviews').innerHTML=getReviews().map(r=>`
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>“${r.txt}”</p>
+      <div class="who">
+        <div class="av" style="background:${r.c}">${r.n[0]}</div>
+        <div><b>${r.n}</b><small>${l.reviews.verified}</small></div>
+      </div>
+    </div>`).join('');
+};
+
+buildShop=function(){
+  const l=tr();
+  $('#shopGrid').innerHTML=getProducts().map(p=>`
+    <article class="prod">
+      <div class="pph" style="background:linear-gradient(150deg,${p.g[0]},${p.g[1]} 165%)">
+        <span class="ptag">${p.tag}</span>${p.ic}
+      </div>
+      <div class="pbody">
+        <h3>${p.name}</h3>
+        <p class="pdesc">${p.desc}</p>
+        <div class="pfoot">
+          <span class="pprice">${p.price}€</span>
+          <button class="padd" data-id="${p.id}">${l.cart.add}</button>
+        </div>
+      </div>
+    </article>`).join('');
+  $$('.padd').forEach(b=>b.addEventListener('click',()=>{addToCart(b.dataset.id);}));
+};
+
+addToCart=function(id){const p=productById(id);cart[id]=(cart[id]||0)+1;saveCart();toast(p.name+tr().cart.added);openCart();};
+
+renderCart=function(){
+  const ids=Object.keys(cart),l=tr();
+  const count=ids.reduce((s,id)=>s+cart[id],0);
+  const badge=$('#cartBadge');badge.textContent=count;
+  $('#cartBtnFixed').classList.toggle('visible',count>0);
+  const badgeNav=$('#cartBadgeNav');
+  if(badgeNav){badgeNav.textContent=count;badgeNav.style.display=count>0?'grid':'none';}
+  const box=$('#cartItems');
+  if(!ids.length){
+    box.innerHTML=`<div class="cart-empty"><div class="ce-ic">🪒</div><p>${l.cart.empty}</p></div>`;
+  }else{
+    box.innerHTML=ids.map(id=>{const p=productById(id),q=cart[id];return `
+      <div class="ci">
+        <div class="ciph" style="background:linear-gradient(150deg,${p.g[0]},${p.g[1]} 165%)">${p.ic}</div>
+        <div class="cinfo">
+          <b>${p.name}</b><span>${(p.price*q).toFixed(2)} €</span>
+          <div class="ciqty">
+            <button data-id="${id}" data-d="-1">−</button><b>${q}</b><button data-id="${id}" data-d="1">+</button>
+          </div>
+        </div>
+        <button class="cirm" data-rm="${id}">🗑</button>
+      </div>`;}).join('');
+    $$('.ciqty button',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.id,cart[b.dataset.id]+(+b.dataset.d))));
+    $$('.cirm',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.rm,0)));
+  }
+  const total=ids.reduce((s,id)=>s+productById(id).price*cart[id],0);
+  $('#cartTotal').textContent=total.toFixed(2).replace('.',',')+' €';
+};
+
+initBooking=function(){
+  $('#bookForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const slot=$('.slot.on');
+    const data={service:$('#fService').value,name:$('#fName').value,phone:$('#fPhone').value,date:$('#fDate').value,time:slot?slot.dataset.h:'—',ts:Date.now()};
+    const all=JSON.parse(localStorage.getItem('dali_bookings')||'[]');
+    all.push(data);localStorage.setItem('dali_bookings',JSON.stringify(all));
+    const c=$('#bookConfirm');c.innerHTML=tr().bookingConfirm(data);c.classList.add('show');
+    toast(currentLang==='ar'?'تم تأكيد الحجز ✂️':currentLang==='ca'?'Reserva confirmada ✂️':'Reserva confirmada ✂️');
+  });
+};
+
+function applyLanguage(lang=currentLang,opts={}){
+  currentLang=LANGUAGE_META[lang]?lang:'es';
+  const meta=langMeta();
+  document.documentElement.lang=meta.html;document.documentElement.dir=meta.dir;
+  localStorage.setItem('dali_lang',currentLang);
+  const sw=$('#langSwitch');if(sw)sw.classList.remove('open');
+  const toggle=$('#langToggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label',meta.name);}
+  setTxt('#langCurrent',meta.code);
+  $$('[data-lang-choice]').forEach(b=>b.classList.toggle('active',b.dataset.langChoice===currentLang));
+  syncThemeLabels();applyMainCopy();applyStaticCopy();
+  if(!opts.skipRebuild){buildServices();buildReviews();buildShop();renderCart();}
+  if(!opts.silent)toast(tr().theme.languageToast+meta.name);
+}
+
+function initLanguage(){
+  const sw=$('#langSwitch'),toggle=$('#langToggle');
+  if(!sw||!toggle)return;
+  toggle.addEventListener('click',e=>{e.stopPropagation();const open=!sw.classList.contains('open');sw.classList.toggle('open',open);toggle.setAttribute('aria-expanded',open?'true':'false');});
+  $$('[data-lang-choice]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();applyLanguage(btn.dataset.langChoice);}));
+  document.addEventListener('click',e=>{if(!sw.contains(e.target)){sw.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+  applyLanguage(currentLang,{silent:true,skipRebuild:true});
+}
+
 // arranque
-initTheme();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();animateStats();initReveal();
+initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
 </script>
 </body>
 </html>
