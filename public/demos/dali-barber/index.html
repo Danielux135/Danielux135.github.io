@@ -607,9 +607,9 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
         </div>
         <p class="sp-bio">Barbería en Castellón. Cortes, degradados y transformaciones reales. Contenido semanal.</p>
         <div class="sp-stats">
-          <div class="spstat"><b>1.294</b><span>Seguidores</span></div>
-          <div class="spstat"><b>165</b><span>Siguiendo</span></div>
-          <div class="spstat"><b>2.855</b><span>Me gusta</span></div>
+          <div class="spstat"><b data-tiktok-stat="followers">1.294</b><span>Seguidores</span></div>
+          <div class="spstat"><b data-tiktok-stat="following">165</b><span>Siguiendo</span></div>
+          <div class="spstat"><b data-tiktok-stat="likes">2.855</b><span>Me gusta</span></div>
         </div>
         <div class="sp-actions">
           <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">
@@ -1144,6 +1144,36 @@ function animateStats(){
   setTimeout(()=>{$('#stFollow').textContent='248k';},1300);
 }
 
+function formatTikTokStat(value){
+  const n=Number(value);
+  if(!Number.isFinite(n)) return null;
+  return Math.round(n).toLocaleString('es-ES');
+}
+
+async function initTikTokStats(){
+  const statEls={
+    followers:$('[data-tiktok-stat="followers"]'),
+    following:$('[data-tiktok-stat="following"]'),
+    likes:$('[data-tiktok-stat="likes"]')
+  };
+  if(!statEls.followers||!statEls.following||!statEls.likes) return;
+  try{
+    const res=await fetch('/api/tiktok-dali',{headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error('TikTok stats unavailable');
+    const data=await res.json();
+    Object.entries(statEls).forEach(([key,el])=>{
+      const formatted=formatTikTokStat(data?.stats?.[key]);
+      if(formatted) el.textContent=formatted;
+    });
+    const updated=$('#tab-tiktok .sp-updated');
+    if(updated&&data?.updatedAt) updated.textContent='Estadisticas actualizadas desde TikTok';
+    const avatar=$('#tab-tiktok .sp-avatar');
+    if(avatar&&data?.profile?.avatar) avatar.src=data.profile.avatar;
+  }catch(err){
+    console.warn('TikTok stats fallback:',err);
+  }
+}
+
 // revela secciones al hacer scroll
 function initReveal(){
   const io=new IntersectionObserver(es=>es.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.12});
@@ -1521,7 +1551,7 @@ function initLanguage(){
 }
 
 // arranque
-initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
+initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();initTikTokStats();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
 </script>
 </body>
 </html>
