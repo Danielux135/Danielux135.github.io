@@ -888,6 +888,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 // utilidad corta para seleccionar
 const $=(s,e=document)=>e.querySelector(s);
 const $$=(s,e=document)=>[...e.querySelectorAll(s)];
+const API_ORIGIN=location.hostname.endsWith('vercel.app')?location.origin:'https://danielux135-github-io.vercel.app';
 
 // ===== motor de temas: estilo (tipografía/forma/voz) x color (acento) =====
 // cada estilo trae su propio texto en todas las secciones
@@ -1288,7 +1289,7 @@ function instagramMediaUrl(url){
   try{
     const u=new URL(url,location.href);
     if(u.hostname.includes('cdninstagram.com')||u.hostname.includes('fbcdn.net')){
-      return `/api/instagram-media?url=${encodeURIComponent(u.href)}`;
+      return `${API_ORIGIN}/api/instagram-media?url=${encodeURIComponent(u.href)}`;
     }
   }catch{}
   return url;
@@ -1400,7 +1401,7 @@ function renderInstagramLab(data){
 
 async function initInstagramLab(){
   try{
-    const res=await fetch('/api/instagram-dali',{headers:{Accept:'application/json'}});
+    const res=await fetch(`${API_ORIGIN}/api/instagram-dali`,{headers:{Accept:'application/json'}});
     if(!res.ok) throw new Error('Instagram data unavailable');
     const data=await res.json();
     renderInstagramLab(data);
@@ -1434,7 +1435,7 @@ async function initTikTokStats(){
   };
   if(!statEls.followers||!statEls.following||!statEls.likes) return;
   try{
-    const res=await fetch('/api/tiktok-dali',{headers:{Accept:'application/json'}});
+    const res=await fetch(`${API_ORIGIN}/api/tiktok-dali`,{headers:{Accept:'application/json'}});
     if(!res.ok) throw new Error('TikTok stats unavailable');
     const data=await res.json();
     renderSocialJsonLab(data);
