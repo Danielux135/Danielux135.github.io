@@ -253,12 +253,19 @@ section.block{padding:70px 0}
 .sjl-caption{font-weight:750;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .sjl-metrics{display:flex;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.82rem}
 .sjl-link{width:max-content;display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:10px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--text);text-decoration:none;font-weight:800;background:linear-gradient(90deg,color-mix(in srgb,var(--accent2) 18%,transparent),color-mix(in srgb,var(--accent) 16%,transparent))}
+.sjl-actions{display:flex;flex-wrap:wrap;gap:8px}.sjl-like,.sjl-comment-toggle{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.045);color:var(--text);padding:9px 11px;font-weight:800;cursor:pointer}.sjl-like.active{border-color:#ff4f86;background:rgba(255,79,134,.18)}
+.sjl-comments{border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:7px}.sjl-comments b{color:var(--text)}.sjl-comments[hidden]{display:none}
+.sjl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.14)}
+.sjl-post{position:relative;min-height:150px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#050302;cursor:pointer;color:var(--text);padding:0;text-align:left}
+.sjl-post img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}.sjl-post.active{border-color:color-mix(in srgb,var(--accent) 70%,white)}
+.sjl-post span{position:absolute;left:8px;right:8px;bottom:8px;padding:5px 7px;border-radius:8px;background:rgba(0,0,0,.58);backdrop-filter:blur(10px);font-size:.72rem;font-weight:800}
 @media(max-width:860px){
   .social-section{grid-template-columns:1fr}
   .barber-video-player,.social-tabs-panel{height:auto;min-height:480px}
   .video-stage{min-height:320px}
   .sjl-inner,.sjl-video{grid-template-columns:1fr}
   .sjl-profile{border-right:none;border-bottom:1px solid var(--line)}
+  .sjl-grid{grid-template-columns:repeat(2,1fr)}
 }
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
 
@@ -674,7 +681,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 
   </div>
 
-  <div class="social-json-lab" id="socialJsonLab">
+  <div class="social-json-lab" id="instagramJsonLab">
     <div class="sjl-inner">
       <div class="sjl-profile">
         <div class="sjl-profile-top">
@@ -685,25 +692,31 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
           </div>
         </div>
         <div class="sjl-stats">
-          <div class="sjl-stat"><b id="sjlFollowers">--</b><span>Seguidores</span></div>
-          <div class="sjl-stat"><b id="sjlLikes">--</b><span>Me gusta</span></div>
-          <div class="sjl-stat"><b id="sjlVideos">--</b><span>Videos</span></div>
+          <div class="sjl-stat"><b id="igLabFollowers">--</b><span>Seguidores</span></div>
+          <div class="sjl-stat"><b id="igLabPosts">--</b><span>Posts</span></div>
+          <div class="sjl-stat"><b id="igLabFollowing">--</b><span>Siguiendo</span></div>
         </div>
-        <p class="sjl-bio" id="sjlBio">Contenido real desde TikTok.</p>
+        <p class="sjl-bio" id="igLabBio">Prueba Instagram con datos JSON de Apify.</p>
       </div>
-      <article class="sjl-video" id="sjlVideoCard">
-        <div class="sjl-media" id="sjlMedia">
+      <article class="sjl-video" id="igLabVideoCard">
+        <div class="sjl-media" id="igLabMedia">
           <img src="media/dali-logo.jpg" alt="Barberia Dali">
-          <a class="sjl-play" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener" aria-label="Ver perfil en TikTok">▶</a>
+          <a class="sjl-play" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener" aria-label="Ver perfil en Instagram">▶</a>
         </div>
         <div class="sjl-copy">
-          <span class="sjl-pill" id="sjlMode">Prueba Apify</span>
-          <h3 class="sjl-caption" id="sjlCaption">Ultimo video de TikTok con datos JSON</h3>
-          <div class="sjl-metrics" id="sjlMetrics"></div>
-          <a class="sjl-link" id="sjlLink" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">Ver en TikTok</a>
+          <span class="sjl-pill" id="igLabMode">Instagram JSON test</span>
+          <h3 class="sjl-caption" id="igLabCaption">Reel de Instagram con reproducción directa</h3>
+          <div class="sjl-metrics" id="igLabMetrics"></div>
+          <div class="sjl-actions">
+            <button class="sjl-like" id="igLabLike" type="button">Me gusta</button>
+            <button class="sjl-comment-toggle" id="igLabCommentToggle" type="button">Comentarios</button>
+            <a class="sjl-link" id="igLabLink" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">Ver en Instagram</a>
+          </div>
+          <div class="sjl-comments" id="igLabComments" hidden></div>
         </div>
       </article>
     </div>
+    <div class="sjl-grid" id="igLabGrid"></div>
   </div>
 </section>
 
@@ -1264,6 +1277,144 @@ function renderSocialJsonFallback(media,video){
   media.appendChild(play);
 }
 
+let activeInstagramPost=null;
+
+function instagramPosts(data){
+  return Array.isArray(data?.posts)?data.posts:[];
+}
+
+function renderInstagramComments(post){
+  const box=$('#igLabComments');
+  if(!box||!post) return;
+  const comments=Array.isArray(post.comments)?post.comments.filter(c=>c.text):[];
+  if(comments.length){
+    box.innerHTML=comments.map(c=>`<div><b>@${c.ownerUsername||'instagram'}</b> ${c.text}</div>`).join('');
+  }else{
+    const count=formatTikTokStat(post.commentsCount)||'0';
+    box.innerHTML=`<div><b>${count} comentarios</b> disponibles como contador. Este JSON no trae comentarios completos.</div>`;
+  }
+}
+
+function renderInstagramMedia(post){
+  const media=$('#igLabMedia');
+  if(!media||!post) return;
+  media.innerHTML='';
+  if(post.videoUrl){
+    const v=document.createElement('video');
+    v.src=post.videoUrl;
+    v.controls=true;
+    v.playsInline=true;
+    v.preload='metadata';
+    if(post.cover) v.poster=post.cover;
+    v.addEventListener('error',()=>renderInstagramFallback(media,post));
+    media.appendChild(v);
+  }else{
+    renderInstagramFallback(media,post);
+  }
+}
+
+function renderInstagramFallback(media,post){
+  media.innerHTML='';
+  const img=document.createElement('img');
+  img.src=post.cover||post.images?.[0]||'media/dali-logo.jpg';
+  img.alt='Publicacion de Instagram de Barberia Dali';
+  media.appendChild(img);
+  const play=document.createElement('a');
+  play.className='sjl-play';
+  play.href=post.url||'https://www.instagram.com/dalibarber.11/';
+  play.target='_blank';
+  play.rel='noopener';
+  play.setAttribute('aria-label','Ver publicacion en Instagram');
+  play.textContent='▶';
+  media.appendChild(play);
+}
+
+function setInstagramActivePost(post){
+  activeInstagramPost=post;
+  renderInstagramMedia(post);
+  setText('igLabCaption',post.caption||'Publicacion de Instagram');
+  setText('igLabMode',post.videoUrl?'Video directo desde Instagram CDN':'Miniatura con enlace a Instagram');
+  const link=$('#igLabLink');
+  if(link&&post.url) link.href=post.url;
+  const metrics=$('#igLabMetrics');
+  if(metrics){
+    metrics.innerHTML='';
+    [['Views',post.views],['Likes',post.likes],['Comentarios',post.commentsCount]].forEach(([label,value])=>{
+      const formatted=formatTikTokStat(value);
+      if(!formatted) return;
+      const span=document.createElement('span');
+      span.textContent=`${formatted} ${label}`;
+      metrics.appendChild(span);
+    });
+    if(post.locationName){
+      const span=document.createElement('span');
+      span.textContent=post.locationName;
+      metrics.appendChild(span);
+    }
+  }
+  renderInstagramComments(post);
+  const like=$('#igLabLike');
+  if(like){
+    like.classList.remove('active');
+    like.textContent=`Me gusta (${formatTikTokStat(post.likes)||0})`;
+  }
+  $$('.sjl-post').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===String(post.id)));
+}
+
+function renderInstagramLab(data){
+  const lab=$('#instagramJsonLab');
+  if(!lab) return;
+  const profile=data?.profile||{},stats=data?.stats||{};
+  const avatar=$('#sjlAvatar');
+  if(avatar&&profile.avatar) avatar.src=profile.avatar;
+  setText('sjlName',profile.displayName||profile.username||'Barberia Dali');
+  setText('sjlHandle','@'+(profile.username||'dalibarber.11'));
+  setText('igLabFollowers',formatTikTokStat(stats.followers)||'--');
+  setText('igLabPosts',formatTikTokStat(stats.posts)||'--');
+  setText('igLabFollowing',formatTikTokStat(stats.following)||'--');
+  setText('igLabBio',profile.bio||profile.category||'Instagram de Barberia Dali');
+  const posts=instagramPosts(data);
+  const playable=posts.find(post=>post.videoUrl)||posts[0];
+  const grid=$('#igLabGrid');
+  if(grid){
+    grid.innerHTML=posts.slice(0,8).map(post=>`
+      <button class="sjl-post" type="button" data-id="${post.id||''}">
+        <img src="${post.cover||post.images?.[0]||'media/dali-logo.jpg'}" alt="">
+        <span>${post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes</span>
+      </button>`).join('');
+    $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index])));
+  }
+  if(playable) setInstagramActivePost(playable);
+}
+
+async function initInstagramLab(){
+  try{
+    const res=await fetch('/api/instagram-dali',{headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error('Instagram data unavailable');
+    const data=await res.json();
+    renderInstagramLab(data);
+  }catch(err){
+    console.warn('Instagram lab fallback:',err);
+  }
+}
+
+function initInstagramLabControls(){
+  const like=$('#igLabLike');
+  if(like){
+    like.addEventListener('click',()=>{
+      if(!activeInstagramPost) return;
+      const active=!like.classList.contains('active');
+      like.classList.toggle('active',active);
+      const base=Number(activeInstagramPost.likes)||0;
+      like.textContent=`Me gusta (${formatTikTokStat(base+(active?1:0))})`;
+    });
+  }
+  const toggle=$('#igLabCommentToggle'),comments=$('#igLabComments');
+  if(toggle&&comments){
+    toggle.addEventListener('click',()=>{comments.hidden=!comments.hidden;});
+  }
+}
+
 async function initTikTokStats(){
   const statEls={
     followers:$('[data-tiktok-stat="followers"]'),
@@ -1666,9 +1817,9 @@ function initLanguage(){
 }
 
 // arranque
-initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
-initTikTokStats();
-window.addEventListener('load',()=>initTikTokStats(),{once:true});
+initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();initInstagramLabControls();
+initTikTokStats();initInstagramLab();
+window.addEventListener('load',()=>{initTikTokStats();initInstagramLab();},{once:true});
 </script>
 </body>
 </html>
