@@ -144,17 +144,71 @@ section.block{padding:70px 0}
 .head h2{font-size:clamp(1.8rem,4vw,2.9rem);font-weight:900}
 .head p{color:var(--muted);font-size:1.05rem;line-height:1.6;margin-top:12px}
 
-/* widget tiktok en directo */
-.tt-widget-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.015));box-shadow:var(--shadow)}
-.tt-widget-header{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.tt-widget-brand{display:flex;align-items:center;gap:12px}
-.tt-widget-brand svg{flex:0 0 22px}
-.tt-widget-brand b{font-size:1rem;display:block}
-.tt-widget-brand small{display:block;font-size:.78rem;color:var(--muted)}
-.tt-widget-body{padding:0;background:#0a0a12;min-height:620px}
-.tt-widget-body .tiktok-embed{margin:0!important;border:0!important}
+/* sección social premium */
+.social-section{--social-panel-height:clamp(560px,72vh,760px);
+  display:grid;grid-template-columns:minmax(280px,.95fr) minmax(360px,1.05fr);
+  gap:clamp(20px,4vw,56px);align-items:stretch}
+.barber-video-player,.social-tabs-panel{
+  height:var(--social-panel-height);border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:0 28px 80px rgba(0,0,0,.5);
+  display:flex;flex-direction:column;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--bg2) 95%,var(--accent) 5%),var(--bg))}
+/* reproductor izquierdo */
+.bvp-header{padding:16px 20px 0;display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.bvp-header span:first-child{font-weight:700;font-size:.95rem}
+.bvp-header span:last-child{font-size:.75rem;color:var(--muted)}
+.video-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;background:#050302;overflow:hidden;min-height:0}
+.video-main{position:relative;z-index:1;height:100%;width:auto;max-width:100%;border:0;display:block}
+.video-stage iframe{width:100%;height:100%;border:0;position:relative;z-index:1}
+.video-bg{position:absolute!important;inset:-8%!important;z-index:0!important;
+  width:116%!important;height:116%!important;
+  object-fit:cover;filter:blur(20px) brightness(.35) saturate(1.3);pointer-events:none}
+.video-skeleton{width:100%;height:100%;background:linear-gradient(110deg,#111 30%,#1a1a1a 50%,#111 70%);
+  background-size:200% 100%;animation:shimmer 1.8s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.bvp-controls{padding:10px 16px;display:flex;gap:10px;flex-shrink:0;border-top:1px solid var(--line)}
+.bvp-btn{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);
+  color:var(--text);cursor:pointer;font-size:.82rem;transition:.2s var(--ease)}
+.bvp-btn:hover{border-color:var(--accent);color:var(--accent)}
+.video-playlist{display:flex;gap:8px;padding:10px 16px;flex-shrink:0;overflow-x:auto;scrollbar-width:none}
+.video-playlist::-webkit-scrollbar{display:none}
+.vpl-item{flex:0 0 56px;height:56px;border-radius:10px;overflow:hidden;cursor:pointer;
+  border:2px solid transparent;transition:.2s var(--ease);position:relative;background:#111}
+.vpl-item.active{border-color:var(--accent)}
+.vpl-item img,.vpl-item video{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.vpl-item .vpl-play{position:absolute;inset:0;display:grid;place-items:center;
+  background:rgba(0,0,0,.35);font-size:.7rem;color:#fff;opacity:0;transition:.15s}
+.vpl-item:hover .vpl-play{opacity:1}
+/* panel derecho */
+.social-tabs-panel{padding:0;gap:0}
+.stabs{display:flex;border-bottom:1px solid var(--line);flex-shrink:0}
+.stab{flex:1;padding:14px;border:none;background:none;color:var(--muted);cursor:pointer;
+  font-family:var(--font-body);font-size:.88rem;font-weight:700;display:flex;align-items:center;
+  justify-content:center;gap:7px;transition:.2s var(--ease);border-bottom:2px solid transparent}
+.stab.active{color:var(--text);border-bottom-color:var(--accent)}
+.stab-content{display:none;flex-direction:column;gap:16px;padding:22px;flex:1;overflow-y:auto;scrollbar-width:thin}
+.stab-content.active{display:flex}
+.sp-profile{display:flex;align-items:center;gap:12px}
+.sp-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--line)}
+.sp-name{display:block;font-weight:700;font-size:.95rem}
+.sp-handle{font-size:.8rem;color:var(--muted)}
+.sp-bio{margin:0;font-size:.88rem;color:var(--muted);line-height:1.55}
+.sp-stats{display:flex;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.spstat{flex:1;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;
+  border-right:1px solid var(--line)}
+.spstat:last-child{border-right:none}
+.spstat b{font-size:1.1rem;font-weight:800;font-family:var(--font-display)}
+.spstat span{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.sp-actions{display:flex;gap:8px;flex-wrap:wrap}
+.sp-updated{font-size:.7rem;color:var(--muted);opacity:.5;margin-top:auto}
+.sp-services{border-top:1px solid var(--line);padding:16px 22px;display:flex;flex-direction:column;gap:0;flex-shrink:0}
+.sp-services .vspec{padding:10px 0;border-bottom:1px solid var(--line)}
+.sp-services .vspec:last-child{border-bottom:none}
+@media(max-width:860px){
+  .social-section{grid-template-columns:1fr}
+  .barber-video-player,.social-tabs-panel{height:auto;min-height:480px}
+  .video-stage{min-height:320px}
+}
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
 
 /* emblema del logo (hero del tema clásico) */
@@ -285,6 +339,22 @@ section.block{padding:70px 0}
 .prod .padd{border:1px solid var(--line);background:var(--glass);color:var(--text);font-family:var(--font-body);
   font-weight:800;padding:9px 14px;border-radius:999px;cursor:pointer;font-size:.85rem;transition:.2s var(--ease)}
 .prod .padd:hover{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+/* footer */
+footer.site{padding:48px 0 28px;border-top:1px solid var(--line);margin-top:60px}
+.foot-main{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:space-between}
+.foot-brand{display:flex;align-items:center;gap:14px}
+.foot-info{display:flex;flex-direction:column;gap:10px}
+.foot-link{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem;text-decoration:none;transition:color .2s}
+.foot-link:hover{color:var(--text)}
+.foot-link svg{flex-shrink:0;opacity:.6}
+.foot-social{display:flex;gap:10px;align-items:center}
+.foot-social-btn{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:.2s var(--ease)}
+.foot-social-btn:hover{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,transparent);
+  background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.foot-legal{margin-top:32px;font-size:.78rem;color:var(--muted);text-align:center;opacity:.6}
+@media(max-width:640px){.foot-main{flex-direction:column;gap:24px}}
+
 /* cesta flotante */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);
   opacity:0;pointer-events:none;transition:opacity .3s var(--ease);z-index:60}
@@ -320,8 +390,7 @@ section.block{padding:70px 0}
 .cart-confirm{margin-bottom:12px;padding:12px;border-radius:var(--radius-sm);font-size:.88rem;display:none;line-height:1.5;
   border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .cart-confirm.show{display:block}
-.cart-btn-fixed{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:55;
-  display:none;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:1px solid var(--line);
+.cart-btn-fixed{display:none!important;
   background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(16px);
   color:var(--text);font-family:var(--font-body);font-weight:800;cursor:pointer;
   box-shadow:var(--shadow);transition:.25s var(--ease)}
@@ -348,7 +417,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 .portfolio-footer a::after{content:"↗"}.portfolio-footer a:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
 
 /* controles de tema flotantes */
-.theme-fab{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:10px}
+.theme-fab{position:fixed;left:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:10px}
 .tfab{display:flex;align-items:center;gap:10px;padding:10px 15px;border-radius:999px;cursor:pointer;
   border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);
   color:var(--text);font-family:var(--font-body);box-shadow:var(--shadow);transition:.25s var(--ease)}
@@ -357,7 +426,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 .tfab .tf-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
 .tfab .tf-txt small{font-size:.62rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .tfab .tf-txt b{font-size:.92rem}
-.tfab .dot{width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.tfab .dot{width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);transition:background .3s,box-shadow .3s}
 @media (max-width:560px){.tfab .tf-txt small{display:none}}
 
 /* toast */
@@ -386,12 +455,22 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
     <div class="brand"><img class="blogo" src="media/dali-logo.jpg" alt="Barbería Dali" /> <span>Barbería <span style="color:var(--accent)">Dali</span></span></div>
     <nav class="nav-links">
       <a href="#feed">TikTok</a>
-      <a href="#videos">Vídeos</a>
       <a href="#servicios">Servicios</a>
       <a href="#tienda">Tienda</a>
       <a href="#resenas">Reseñas</a>
     </nav>
-    <a href="#reservar" class="btn gold">Reservar cita</a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button id="cartBtnNav" aria-label="Abrir cesta"
+        style="display:flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;
+               border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);
+               color:var(--text);cursor:pointer;font-family:var(--font-body);font-size:.9rem;
+               transition:.25s var(--ease)">
+        🛒 <span>Cesta</span>
+        <span id="cartBadgeNav" style="min-width:20px;height:20px;border-radius:999px;background:var(--accent);
+          color:var(--ink);font-size:.72rem;font-weight:900;display:none;place-items:center;padding:0 5px">0</span>
+      </button>
+      <a href="#reservar" class="btn gold">Reservar cita</a>
+    </div>
   </div>
 </header>
 
@@ -429,70 +508,103 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   </div>
 </section>
 
-<!-- feed tiktok en directo -->
+<!-- sección social premium: reproductor + tabs redes sociales -->
 <section class="block wrap reveal" id="feed">
   <div class="head">
     <span class="eyebrow" id="feedEye">Lo último</span>
-    <h2 id="feedH2">Directo desde TikTok</h2>
-    <p id="feedP">El feed de Barbería Dali, siempre al día. Cada vídeo nuevo aparece aquí al instante.</p>
+    <h2 id="feedH2">Míralo en movimiento</h2>
+    <p id="feedP">Fades, barbas y diseños grabados en la silla. Síguenos para ver cada trabajo nuevo.</p>
   </div>
-  <div class="tt-widget-wrap">
-    <div class="tt-widget-header">
-      <div class="tt-widget-brand">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="#fff"/></svg>
-        <span><b>@dalibarber.11</b><small>Feed en directo · se actualiza solo</small></span>
-      </div>
-      <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener" style="padding:9px 14px;font-size:.85rem">Seguir en TikTok</a>
-    </div>
-    <div class="tt-widget-body">
-      <blockquote class="tiktok-embed"
-        cite="https://www.tiktok.com/@dalibarber.11"
-        data-unique-id="dalibarber.11"
-        data-embed-type="creator"
-        style="max-width:100%;min-width:288px;border:0">
-        <section><a target="_blank" href="https://www.tiktok.com/@dalibarber.11?refer=creator_embed">@dalibarber.11</a></section>
-      </blockquote>
-    </div>
-  </div>
-</section>
+  <div class="social-section">
 
-<!-- reels: instagram en vídeo -->
-<section class="block wrap reveal" id="videos">
-  <div class="head">
-    <span class="eyebrow" id="vidEye">En movimiento</span>
-    <h2 id="vidH2">Míralo de cerca</h2>
-    <p id="vidP">Fades, barbas y diseños grabados en la silla. Dale al play y descúbrelo.</p>
-  </div>
-  <div class="vid-stage">
-    <figure class="vid-feature">
-      <video id="reelVideo" src="media/dali1.mp4" muted loop playsinline preload="metadata"></video>
-      <button class="vid-sound" id="vidSound" type="button" aria-label="Activar sonido">🔇</button>
-      <figcaption class="vid-cap"><b>En la silla</b><span>Barbería Dali · Castellón</span></figcaption>
-    </figure>
-    <div class="vid-specs">
-      <article class="vspec">
-        <span class="vic">✂️</span>
-        <div><h3>Corte a tijera y máquina</h3><p>Fundidos limpios y acabados a medida para cada tipo de pelo.</p></div>
-      </article>
-      <article class="vspec">
-        <span class="vic">🪒</span>
-        <div><h3>Barba y afeitado a navaja</h3><p>Perfilado, toalla caliente y navaja para un apurado perfecto.</p></div>
-      </article>
-      <article class="vspec">
-        <span class="vic">🎨</span>
-        <div><h3>Diseños y líneas</h3><p>Rayas, dibujos y detalles que marcan la diferencia.</p></div>
-      </article>
+    <!-- izquierda: reproductor -->
+    <div class="barber-video-player">
+      <div class="bvp-header">
+        <span id="bvpTitle">En la silla</span>
+        <span id="bvpSub">Barbería Dali · Castellón</span>
+      </div>
+      <div class="video-stage" id="videoStage">
+        <!-- contenido inyectado por JS -->
+        <div class="video-skeleton"></div>
+      </div>
+      <div class="bvp-controls">
+        <button class="bvp-btn" id="vidSound" aria-label="Activar sonido">🔇</button>
+        <button class="bvp-btn" id="vidPlayPause" aria-label="Play/Pausa">▶</button>
+      </div>
+      <div class="video-playlist" id="videoPlaylist">
+        <!-- miniaturas inyectadas por JS -->
+      </div>
     </div>
-  </div>
-  <div class="follow-bar">
-    <a class="follow-btn ig" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.4" fill="#fff"/></svg>
-      <span>@dalibarber.11<small>Seguir en Instagram</small></span>
-    </a>
-    <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="#fff"/></svg>
-      <span>@dalibarber.11<small>Seguir en TikTok</small></span>
-    </a>
+
+    <!-- derecha: panel con tabs -->
+    <div class="social-tabs-panel">
+      <div class="stabs">
+        <button class="stab active" data-tab="tiktok">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z"/></svg>
+          TikTok
+        </button>
+        <button class="stab" data-tab="instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.4" fill="currentColor"/></svg>
+          Instagram
+        </button>
+      </div>
+
+      <!-- contenido TikTok -->
+      <div class="stab-content active" id="tab-tiktok">
+        <div class="sp-profile">
+          <img class="sp-avatar" src="media/dali-logo.jpg" alt="Barbería Dali">
+          <div>
+            <b class="sp-name">Barbería Dali</b>
+            <span class="sp-handle">@dalibarber.11</span>
+          </div>
+        </div>
+        <p class="sp-bio">Barbería en Castellón. Cortes, degradados y transformaciones reales. Contenido semanal.</p>
+        <div class="sp-stats">
+          <div class="spstat"><b>1.294</b><span>Seguidores</span></div>
+          <div class="spstat"><b>165</b><span>Siguiendo</span></div>
+          <div class="spstat"><b>2.855</b><span>Me gusta</span></div>
+        </div>
+        <div class="sp-actions">
+          <a class="follow-btn tt" href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z"/></svg>
+            Seguir en TikTok
+          </a>
+        </div>
+        <div class="sp-updated">Estadísticas actualizadas manualmente</div>
+      </div>
+
+      <!-- contenido Instagram -->
+      <div class="stab-content" id="tab-instagram">
+        <div class="sp-profile">
+          <img class="sp-avatar" src="media/dali-logo.jpg" alt="Barbería Dali">
+          <div>
+            <b class="sp-name">Barbería Dali</b>
+            <span class="sp-handle">@dalibarber.11</span>
+          </div>
+        </div>
+        <p class="sp-bio">Barbero ⭐⭐⭐⭐⭐ · Castellón de la Plana. Cortes, diseños y transformaciones.</p>
+        <div class="sp-stats">
+          <div class="spstat"><b>1.294</b><span>Seguidores</span></div>
+          <div class="spstat"><b>165</b><span>Publicaciones</span></div>
+          <div class="spstat"><b>24</b><span>Reels</span></div>
+        </div>
+        <div class="sp-actions">
+          <a class="follow-btn ig" href="https://www.instagram.com/dalibarber.11/" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.4" fill="currentColor"/></svg>
+            Ver Instagram
+          </a>
+        </div>
+        <div class="sp-updated">Estadísticas actualizadas manualmente</div>
+      </div>
+
+      <!-- servicios (común) -->
+      <div class="sp-services">
+        <article class="vspec"><span class="vic">✂️</span><div><h3>Corte a tijera y máquina</h3><p>Fundidos limpios y acabados a medida.</p></div></article>
+        <article class="vspec"><span class="vic">🪒</span><div><h3>Barba y afeitado a navaja</h3><p>Perfilado, toalla caliente y navaja.</p></div></article>
+        <article class="vspec"><span class="vic">🎨</span><div><h3>Diseños y líneas</h3><p>Rayas y detalles que marcan la diferencia.</p></div></article>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -612,15 +724,40 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 </section>
 
 <footer class="site wrap">
-  <div class="foot-grid">
-    <div><b>Barbería Dali</b><br><span style="font-size:.85rem">Castellón · @dalibarber.11</span></div>
-    <div style="font-size:.85rem">Lun–Sáb · 10:00–20:30<br>Tu barbería de confianza en el centro de Castellón.</div>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <img src="media/dali-logo.jpg" alt="Barbería Dali" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--line)">
+      <div>
+        <b style="font-family:var(--font-display);font-size:1.1rem">Barbería Dali</b>
+        <p style="margin:.2em 0 0;font-size:.83rem;color:var(--muted)">Lun–Sáb · 10:00–20:30</p>
+      </div>
+    </div>
+    <div class="foot-info">
+      <a href="https://maps.google.com/?q=Carrer+de+Ramon+y+Cajal+43+12005+Castellon" target="_blank" rel="noopener" class="foot-link">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Carrer de Ramón y Cajal, 43, bajo · 12005 Castelló de la Plana
+      </a>
+      <a href="tel:641794328" class="foot-link">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        641 794 328
+      </a>
+    </div>
+    <div class="foot-social">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/34641794328" target="_blank" rel="noopener" aria-label="WhatsApp" class="foot-social-btn">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/dalibarber.11" target="_blank" rel="noopener" aria-label="Instagram" class="foot-social-btn">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@dalibarber.11" target="_blank" rel="noopener" aria-label="TikTok" class="foot-social-btn">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      </a>
+    </div>
   </div>
-</footer>
-
-<footer class="portfolio-footer">
-  <p>Demo creada por <strong>Daniel Bort Guzmán</strong></p>
-  <a href="https://danielux135.github.io/" target="_blank" rel="noopener">Ver portfolio de Daniel</a>
+  <p class="foot-legal">© 2025 Barbería Dali · Castelló de la Plana</p>
 </footer>
 
 <!-- controles de estilo y color -->
@@ -629,7 +766,7 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
     <span class="ic">🎭</span><span class="tf-txt"><small>Estilo</small><b id="lblStyle">Viral</b></span>
   </button>
   <button class="tfab" id="btnColor" type="button" aria-label="Cambiar color">
-    <span class="dot"></span><span class="tf-txt"><small>Color</small><b id="lblColor">Oro</b></span>
+    <span class="ic">🎨</span><span class="tf-txt"><small>Color</small><b id="lblColor">Oro</b></span>
   </button>
 </div>
 
@@ -796,14 +933,107 @@ function buildReviews(){
 }
 
 // vídeo del trabajo: autoplay silenciado al entrar en pantalla, clic pausa, botón activa sonido
+// datos sociales (actualizar manualmente o conectar a API)
+const socialData={
+  videos:[
+    {platform:'local',title:'En la silla',sub:'Fade y diseño · Castellón',src:'media/dali1.mp4'},
+    {platform:'local',title:'El proceso',sub:'Barbería Dali · Castellón',src:'media/dali2.mp4'},
+    {platform:'local',title:'El resultado',sub:'Barbería Dali · Castellón',src:'media/dali3.mp4'},
+  ]
+};
+
 function initVideo(){
-  const v=$('#reelVideo'),btn=$('#vidSound');
-  if(!v)return;
-  new IntersectionObserver(es=>es.forEach(x=>{x.isIntersecting?v.play().catch(()=>{}):v.pause();}),{threshold:.4}).observe(v);
-  v.addEventListener('click',()=>{v.paused?v.play():v.pause();});
-  btn.addEventListener('click',()=>{
-    v.muted=!v.muted;btn.textContent=v.muted?'🔇':'🔊';
-    if(!v.muted)v.play().catch(()=>{});
+  const stage=$('#videoStage');
+  const titleEl=$('#bvpTitle'),subEl=$('#bvpSub');
+  const playlist=$('#videoPlaylist');
+  const btnSound=$('#vidSound'),btnPlay=$('#vidPlayPause');
+  let activeVideo=null,activeIdx=0;
+
+  function loadVideo(idx){
+    const item=socialData.videos[idx];
+    activeIdx=idx;
+    titleEl.textContent=item.title;
+    subEl.textContent=item.sub||'Barbería Dali';
+    // actualiza estado activo en playlist
+    playlist.querySelectorAll('.vpl-item').forEach((el,i)=>el.classList.toggle('active',i===idx));
+
+    if(item.platform==='local'){
+      stage.innerHTML='';
+      // fondo blur
+      const bg=document.createElement('video');
+      bg.src=item.src;bg.muted=true;bg.loop=true;bg.playsInline=true;bg.preload='metadata';
+      bg.className='video-bg';bg.setAttribute('aria-hidden','true');
+      stage.appendChild(bg);
+      const v=document.createElement('video');
+      v.src=item.src;v.muted=true;v.loop=true;v.playsInline=true;v.preload='metadata';
+      v.className='video-main';
+      stage.appendChild(v);
+      activeVideo=v;
+      v.play().then(()=>bg.play().catch(()=>{})).catch(()=>{});
+      btnPlay.textContent='⏸';btnSound.textContent='🔇';
+      // sincroniza pausa/play del bg con el principal
+      v.addEventListener('play',()=>bg.play().catch(()=>{}));
+      v.addEventListener('pause',()=>bg.pause());
+      // autoplay por intersección
+      new IntersectionObserver(es=>es.forEach(x=>{
+        if(x.isIntersecting){v.play().catch(()=>{});bg.play().catch(()=>{});}
+        else{v.pause();bg.pause();}
+      }),{threshold:.3}).observe(stage);
+    } else {
+      // tarjeta de enlace para vídeos externos
+      stage.innerHTML=`
+        <a href="${item.href}" target="_blank" rel="noopener"
+          style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+                 width:100%;height:100%;text-decoration:none;color:var(--text);
+                 background:linear-gradient(135deg,color-mix(in srgb,var(--bg2) 90%,var(--accent)),var(--bg))">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none"
+            style="opacity:.7"><path d="M16.5 5.5a4.5 4.5 0 0 0 3.5 1.7v3a7.4 7.4 0 0 1-3.5-.9v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.5V2.5h2.9c0 1.1.4 2.2 1.5 3z" fill="currentColor"/></svg>
+          <span style="font-weight:700;font-size:1rem">${item.title}</span>
+          <span style="font-size:.82rem;color:var(--muted)">Ver en TikTok →</span>
+        </a>`;
+      activeVideo=null;
+      btnPlay.textContent='▶';
+    }
+  }
+
+  // construye playlist
+  socialData.videos.forEach((item,i)=>{
+    const el=document.createElement('div');
+    el.className='vpl-item'+(i===0?' active':'');
+    if(item.platform==='local'){
+      const v=document.createElement('video');
+      v.src=item.src;v.muted=true;v.preload='metadata';v.style.cssText='width:100%;height:100%;object-fit:cover;pointer-events:none';
+      el.appendChild(v);
+    } else {
+      el.innerHTML=`<div style="width:100%;height:100%;display:grid;place-items:center;background:var(--bg2);font-size:1.2rem">▶</div>`;
+    }
+    el.innerHTML+=`<div class="vpl-play">▶</div>`;
+    el.addEventListener('click',()=>loadVideo(i));
+    playlist.appendChild(el);
+  });
+
+  loadVideo(0);
+
+  btnSound.addEventListener('click',()=>{
+    if(!activeVideo)return;
+    activeVideo.muted=!activeVideo.muted;
+    btnSound.textContent=activeVideo.muted?'🔇':'🔊';
+    if(!activeVideo.muted)activeVideo.play().catch(()=>{});
+  });
+  btnPlay.addEventListener('click',()=>{
+    if(!activeVideo)return;
+    activeVideo.paused?activeVideo.play().catch(()=>{}):activeVideo.pause();
+    btnPlay.textContent=activeVideo.paused?'▶':'⏸';
+  });
+
+  // tabs
+  document.querySelectorAll('.stab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.stab-content').forEach(c=>c.classList.remove('active'));
+      btn.classList.add('active');
+      $('#tab-'+btn.dataset.tab).classList.add('active');
+    });
   });
 }
 
@@ -920,6 +1150,9 @@ function renderCart(){
   // actualiza badge del botón flotante
   const badge=$('#cartBadge');badge.textContent=count;
   $('#cartBtnFixed').classList.toggle('visible',count>0);
+  // badge del nav
+  const badgeNav=$('#cartBadgeNav');
+  if(badgeNav){badgeNav.textContent=count;badgeNav.style.display=count>0?'grid':'none';}
   const box=$('#cartItems');
   if(!ids.length){
     box.innerHTML=`<div class="cart-empty"><div class="ce-ic">🪒</div><p>Tu cesta está vacía.<br>Añade algún producto para empezar.</p></div>`;
@@ -948,6 +1181,7 @@ function closeCart(){$('#cartPanel').classList.remove('on');$('#cartOverlay').cl
 function initShop(){
   buildShop();renderCart();
   $('#cartBtnFixed').addEventListener('click',openCart);
+  $('#cartBtnNav').addEventListener('click',openCart);
   $('#cartClose').addEventListener('click',closeCart);
   $('#cartOverlay').addEventListener('click',closeCart);
   $('#checkout').addEventListener('click',()=>{
@@ -962,7 +1196,5 @@ function initShop(){
 // arranque
 initTheme();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();animateStats();initReveal();
 </script>
-<!-- script oficial de tiktok para renderizar el feed en directo de @dalibarber.11 -->
-<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
