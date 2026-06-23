@@ -1666,7 +1666,9 @@ function initLanguage(){
 }
 
 // arranque
-initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();initTikTokStats();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
+initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();
+initTikTokStats();
+window.addEventListener('load',()=>initTikTokStats(),{once:true});
 </script>
 </body>
 </html>
