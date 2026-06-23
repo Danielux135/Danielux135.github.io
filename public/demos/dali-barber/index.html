@@ -1283,6 +1283,17 @@ function instagramPosts(data){
   return Array.isArray(data?.posts)?data.posts:[];
 }
 
+function instagramMediaUrl(url){
+  if(!url) return null;
+  try{
+    const u=new URL(url,location.href);
+    if(u.hostname.includes('cdninstagram.com')||u.hostname.includes('fbcdn.net')){
+      return `/api/instagram-media?url=${encodeURIComponent(u.href)}`;
+    }
+  }catch{}
+  return url;
+}
+
 function renderInstagramComments(post){
   const box=$('#igLabComments');
   if(!box||!post) return;
@@ -1301,11 +1312,11 @@ function renderInstagramMedia(post){
   media.innerHTML='';
   if(post.videoUrl){
     const v=document.createElement('video');
-    v.src=post.videoUrl;
+    v.src=instagramMediaUrl(post.videoUrl);
     v.controls=true;
     v.playsInline=true;
     v.preload='metadata';
-    if(post.cover) v.poster=post.cover;
+    if(post.cover) v.poster=instagramMediaUrl(post.cover);
     v.addEventListener('error',()=>renderInstagramFallback(media,post));
     media.appendChild(v);
   }else{
@@ -1316,7 +1327,7 @@ function renderInstagramMedia(post){
 function renderInstagramFallback(media,post){
   media.innerHTML='';
   const img=document.createElement('img');
-  img.src=post.cover||post.images?.[0]||'media/dali-logo.jpg';
+  img.src=instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg';
   img.alt='Publicacion de Instagram de Barberia Dali';
   media.appendChild(img);
   const play=document.createElement('a');
@@ -1366,7 +1377,7 @@ function renderInstagramLab(data){
   if(!lab) return;
   const profile=data?.profile||{},stats=data?.stats||{};
   const avatar=$('#sjlAvatar');
-  if(avatar&&profile.avatar) avatar.src=profile.avatar;
+  if(avatar&&profile.avatar) avatar.src=instagramMediaUrl(profile.avatar);
   setText('sjlName',profile.displayName||profile.username||'Barberia Dali');
   setText('sjlHandle','@'+(profile.username||'dalibarber.11'));
   setText('igLabFollowers',formatTikTokStat(stats.followers)||'--');
@@ -1379,7 +1390,7 @@ function renderInstagramLab(data){
   if(grid){
     grid.innerHTML=posts.slice(0,8).map(post=>`
       <button class="sjl-post" type="button" data-id="${post.id||''}">
-        <img src="${post.cover||post.images?.[0]||'media/dali-logo.jpg'}" alt="">
+        <img src="${instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg'}" alt="">
         <span>${post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes</span>
       </button>`).join('');
     $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index])));
