@@ -246,7 +246,7 @@ section.block{padding:70px 0}
 .sjl-stat b{display:block;font-family:var(--font-display);font-size:1rem}.sjl-stat span{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em}
 .sjl-bio{color:var(--muted);font-size:.9rem;line-height:1.45;white-space:pre-line}
 .sjl-video{position:relative;min-height:260px;background:#050302;display:grid;grid-template-columns:minmax(180px,.64fr) 1fr}
-.sjl-media{position:relative;min-height:260px;overflow:hidden;background:#050302}.sjl-media video,.sjl-media img{width:100%;height:100%;object-fit:cover;display:block}
+.sjl-media{position:relative;min-height:260px;overflow:hidden;background:#050302}.sjl-media video,.sjl-media img,.sjl-media iframe{width:100%;height:100%;object-fit:cover;display:block}.sjl-media iframe{border:0;min-height:420px;background:#050302}
 .sjl-play{position:absolute;inset:auto 14px 14px auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;background:rgba(0,0,0,.5);backdrop-filter:blur(12px);font-weight:900}
 .sjl-copy{padding:22px;display:flex;flex-direction:column;gap:12px;justify-content:center}
 .sjl-pill{width:max-content;max-width:100%;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.72rem}
@@ -1347,13 +1347,21 @@ function renderInstagramComments(post){
 }
 
 function renderInstagramMedia(post){
-  const media=$('#igLabMedia');
-  if(!media||!post) return;
-  media.innerHTML='';
-  if(post.videoUrl){
-    const v=document.createElement('video');
-    v.src=instagramMediaUrl(post.videoUrl);
-    v.controls=true;
+const media=$('#igLabMedia');
+if(!media||!post) return;
+media.innerHTML='';
+if(currentSocialLab==='tiktok'&&!post.videoUrl&&post.url){
+const id=post.id||post.url.split('/').filter(Boolean).pop();
+const iframe=document.createElement('iframe');
+iframe.src=`https://www.tiktok.com/embed/v2/${id}`;
+iframe.title='Video de TikTok de Barberia Dali';
+iframe.allow='fullscreen; encrypted-media; picture-in-picture';
+iframe.loading='lazy';
+media.appendChild(iframe);
+}else if(post.videoUrl){
+const v=document.createElement('video');
+v.src=instagramMediaUrl(post.videoUrl);
+v.controls=true;
     v.playsInline=true;
     v.preload='metadata';
     if(post.cover) v.poster=instagramMediaUrl(post.cover);
@@ -1385,7 +1393,7 @@ activeInstagramPost=post;
 renderInstagramMedia(post);
 const platformName=platform==='tiktok'?'TikTok':'Instagram';
 setText('igLabCaption',post.caption||`Publicacion de ${platformName}`);
-setText('igLabMode',post.videoUrl?`Video directo desde ${platformName}`:`Miniatura con enlace a ${platformName}`);
+setText('igLabMode',post.videoUrl?`Video directo desde ${platformName}`:(platform==='tiktok'?'Embed de TikTok desde el enlace':'Miniatura con enlace a Instagram'));
 const link=$('#igLabLink');
 if(link&&post.url) link.href=post.url;
 if(link) link.textContent=`Ver en ${platformName}`;
