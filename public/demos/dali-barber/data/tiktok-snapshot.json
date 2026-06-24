@@ -2,30 +2,198 @@
   "profile": {
     "username": "dalibarber.11",
     "displayName": "Barberia Dali",
-    "avatar": "media/dali-logo.jpg",
-    "bio": "Barberia en Castellon. Cortes, degradados y transformaciones reales. Contenido semanal.",
+    "avatar": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/e799667fce20c9db1cdbee851edf6cba~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=7a1adaff&x-expires=1782432000&x-signature=BnnesfaTt1tjSP%2FXbVRoM0tjgBA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+    "bio": "TikTok de Barberia Dali. Videos, cortes y transformaciones.",
     "url": "https://www.tiktok.com/@dalibarber.11"
   },
   "stats": {
     "followers": 1294,
     "following": 165,
     "likes": 2852,
-    "videos": 30
+    "videos": 10
   },
   "latestVideos": [
     {
-      "id": "snapshot-1",
-      "url": "https://www.tiktok.com/@dalibarber.11",
-      "caption": "Snapshot inicial de TikTok. Se actualiza semanalmente por GitHub Actions.",
-      "cover": "media/dali-logo.jpg",
+      "id": "7649008104880753936",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7649008104880753936",
+      "caption": "#figoshin #barbero #maruecos🇲🇦españa🇪🇸 #castellon ",
+      "cover": null,
       "videoUrl": null,
-      "likes": 135,
+      "likes": 52,
+      "comments": 0,
+      "shares": 2,
+      "plays": 952,
+      "duration": 14,
+      "timestamp": "2026-06-08T12:58:31.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": true
+      }
+    },
+    {
+      "id": "7636772315228851457",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7636772315228851457",
+      "caption": "#figoshin #barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 52,
+      "comments": 2,
+      "shares": 0,
+      "plays": 1331,
+      "duration": 16,
+      "timestamp": "2026-05-06T13:37:23.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": true
+      }
+    },
+    {
+      "id": "7628959222419524880",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7628959222419524880",
+      "caption": "#barbero #castellon #barberia #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 74,
       "comments": 2,
       "shares": 1,
-      "plays": 4058,
-      "timestamp": null
+      "plays": 1532,
+      "duration": 10,
+      "timestamp": "2026-04-15T12:18:19.000Z",
+      "music": {
+        "song": "Originalton",
+        "artist": "່",
+        "original": true
+      }
+    },
+    {
+      "id": "7628729927734545680",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7628729927734545680",
+      "caption": "#barbero #castellon #barberia #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 43,
+      "comments": 1,
+      "shares": 1,
+      "plays": 1196,
+      "duration": 10,
+      "timestamp": "2026-04-14T21:29:43.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "barbero_hmz",
+        "original": true
+      }
+    },
+    {
+      "id": "7628629791687642385",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7628629791687642385",
+      "caption": "Castellón 🩸💈#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 40,
+      "comments": 0,
+      "shares": 0,
+      "plays": 1392,
+      "duration": 14,
+      "timestamp": "2026-04-14T15:00:20.000Z",
+      "music": {
+        "song": "son original",
+        "artist": "𝗖𝗛𝕠𝕜𝕣𝕚🥷🏻",
+        "original": true
+      }
+    },
+    {
+      "id": "7615602725190995216",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7615602725190995216",
+      "caption": "#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 37,
+      "comments": 2,
+      "shares": 0,
+      "plays": 1448,
+      "duration": 45,
+      "timestamp": "2026-03-10T12:28:47.000Z",
+      "music": {
+        "song": "Way down We Go",
+        "artist": "KELAO",
+        "original": false
+      }
+    },
+    {
+      "id": "7615600685178031376",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600685178031376",
+      "caption": "#barbero #barberia #castellon ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 60,
+      "comments": 3,
+      "shares": 1,
+      "plays": 1976,
+      "duration": 28,
+      "timestamp": "2026-03-10T12:20:56.000Z",
+      "music": {
+        "song": "original sound",
+        "artist": "Josh Bailey",
+        "original": true
+      }
+    },
+    {
+      "id": "7615600489782185232",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600489782185232",
+      "caption": "Castellón de la plana #barbero #barberia #castellon ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 20,
+      "comments": 0,
+      "shares": 1,
+      "plays": 1284,
+      "duration": 25,
+      "timestamp": "2026-03-10T12:20:19.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": true
+      }
+    },
+    {
+      "id": "7615600192896765201",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600192896765201",
+      "caption": "💈🩸#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 23,
+      "comments": 0,
+      "shares": 0,
+      "plays": 1163,
+      "duration": 32,
+      "timestamp": "2026-03-10T12:18:56.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": true
+      }
+    },
+    {
+      "id": "7614836252575141136",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7614836252575141136",
+      "caption": "🩸💈#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
+      "cover": null,
+      "videoUrl": null,
+      "likes": 28,
+      "comments": 0,
+      "shares": 0,
+      "plays": 1264,
+      "duration": 32,
+      "timestamp": "2026-03-08T10:54:37.000Z",
+      "music": {
+        "song": "suono originale",
+        "artist": "SHITOSBARBER🥷🏻",
+        "original": true
+      }
     }
   ],
-  "updatedAt": "2026-06-24T00:52:35.562Z",
-  "source": "initial-static-snapshot"
+  "updatedAt": "2026-06-24T00:58:19.113Z",
+  "source": "static-json-snapshot"
 }

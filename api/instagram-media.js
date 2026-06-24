@@ -1,4 +1,4 @@
-const ALLOWED_HOST_PARTS = ['cdninstagram.com', 'fbcdn.net'];
+const ALLOWED_HOST_PARTS = ['cdninstagram.com', 'fbcdn.net', 'tiktokcdn.com', 'tiktokcdn-us.com'];
 
 function isAllowedUrl(value) {
   try {

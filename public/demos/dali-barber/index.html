@@ -254,6 +254,7 @@ section.block{padding:70px 0}
 .sjl-metrics{display:flex;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.82rem}
 .sjl-link{width:max-content;display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:10px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--text);text-decoration:none;font-weight:800;background:linear-gradient(90deg,color-mix(in srgb,var(--accent2) 18%,transparent),color-mix(in srgb,var(--accent) 16%,transparent))}
 .sjl-actions{display:flex;flex-wrap:wrap;gap:8px}.sjl-like,.sjl-comment-toggle{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.045);color:var(--text);padding:9px 11px;font-weight:800;cursor:pointer}.sjl-like.active{border-color:#ff4f86;background:rgba(255,79,134,.18)}
+.sjl-switch{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.12)}.sjl-switch button{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);color:var(--muted);padding:8px 12px;font-weight:900;cursor:pointer}.sjl-switch button.active{color:var(--text);border-color:color-mix(in srgb,var(--accent) 62%,var(--line));background:color-mix(in srgb,var(--accent) 18%,transparent)}
 .sjl-comments{border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:7px}.sjl-comments b{color:var(--text)}.sjl-comments[hidden]{display:none}
 .sjl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.14)}
 .sjl-post{position:relative;min-height:150px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#050302;cursor:pointer;color:var(--text);padding:0;text-align:left}
@@ -682,6 +683,10 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
   </div>
 
   <div class="social-json-lab" id="instagramJsonLab">
+    <div class="sjl-switch" id="socialLabSwitch" aria-label="Cambiar red social de prueba">
+      <button type="button" class="active" data-social-lab="instagram">Instagram</button>
+      <button type="button" data-social-lab="tiktok">TikTok</button>
+    </div>
     <div class="sjl-inner">
       <div class="sjl-profile">
         <div class="sjl-profile-top">
@@ -1291,9 +1296,31 @@ function renderSocialJsonFallback(media,video){
 }
 
 let activeInstagramPost=null;
+let currentSocialLab='instagram';
 
 function instagramPosts(data){
   return Array.isArray(data?.posts)?data.posts:[];
+}
+
+function socialLabPosts(platform,data){
+  if(platform==='tiktok'){
+    return (Array.isArray(data?.latestVideos)?data.latestVideos:[]).map(video=>({
+      id:video.id||video.url,
+      type:'Video',
+      caption:video.caption||'Video de TikTok',
+      url:video.url,
+      cover:video.cover,
+      videoUrl:video.videoUrl,
+      likes:video.likes,
+      commentsCount:video.comments,
+      views:video.plays,
+      shares:video.shares,
+      timestamp:video.timestamp,
+      productType:'tiktok',
+      comments:[]
+    }));
+  }
+  return instagramPosts(data);
 }
 
 function instagramMediaUrl(url){
@@ -1353,13 +1380,15 @@ function renderInstagramFallback(media,post){
   media.appendChild(play);
 }
 
-function setInstagramActivePost(post){
-  activeInstagramPost=post;
-  renderInstagramMedia(post);
-  setText('igLabCaption',post.caption||'Publicacion de Instagram');
-  setText('igLabMode',post.videoUrl?'Video directo desde Instagram CDN':'Miniatura con enlace a Instagram');
-  const link=$('#igLabLink');
-  if(link&&post.url) link.href=post.url;
+function setInstagramActivePost(post,platform=currentSocialLab){
+activeInstagramPost=post;
+renderInstagramMedia(post);
+const platformName=platform==='tiktok'?'TikTok':'Instagram';
+setText('igLabCaption',post.caption||`Publicacion de ${platformName}`);
+setText('igLabMode',post.videoUrl?`Video directo desde ${platformName}`:`Miniatura con enlace a ${platformName}`);
+const link=$('#igLabLink');
+if(link&&post.url) link.href=post.url;
+if(link) link.textContent=`Ver en ${platformName}`;
   const metrics=$('#igLabMetrics');
   if(metrics){
     metrics.innerHTML='';
@@ -1382,48 +1411,56 @@ function setInstagramActivePost(post){
     like.classList.remove('active');
     like.textContent=`Me gusta (${formatTikTokStat(post.likes)||0})`;
   }
-  $$('.sjl-post').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===String(post.id)));
+$$('.sjl-post').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===String(post.id)));
 }
 
-function renderInstagramLab(data){
-  const lab=$('#instagramJsonLab');
-  if(!lab) return;
-  const profile=data?.profile||{},stats=data?.stats||{};
-  const avatar=$('#sjlAvatar');
-  if(avatar&&profile.avatar) avatar.src=instagramMediaUrl(profile.avatar);
-  setText('sjlName',profile.displayName||profile.username||'Barberia Dali');
-  setText('sjlHandle','@'+(profile.username||'dalibarber.11'));
-  setText('igLabFollowers',formatTikTokStat(stats.followers)||'--');
-  setText('igLabPosts',formatTikTokStat(stats.posts)||'--');
-  setText('igLabFollowing',formatTikTokStat(stats.following)||'--');
-  setText('igLabBio',profile.bio||profile.category||'Instagram de Barberia Dali');
-  const posts=instagramPosts(data);
-  const playable=posts.find(post=>post.videoUrl)||posts[0];
-  const grid=$('#igLabGrid');
-  if(grid){
+function renderInstagramLab(data,platform='instagram'){
+currentSocialLab=platform;
+const lab=$('#instagramJsonLab');
+if(!lab) return;
+const profile=data?.profile||{},stats=data?.stats||{};
+const avatar=$('#sjlAvatar');
+if(avatar&&profile.avatar) avatar.src=instagramMediaUrl(profile.avatar);
+setText('sjlName',profile.displayName||profile.username||'Barberia Dali');
+setText('sjlHandle','@'+(profile.username||'dalibarber.11'));
+setText('igLabFollowers',formatTikTokStat(stats.followers)||'--');
+setText('igLabPosts',formatTikTokStat(platform==='tiktok'?stats.videos:stats.posts)||'--');
+setText('igLabFollowing',formatTikTokStat(stats.following)||'--');
+const statLabels=$$('#instagramJsonLab .sjl-stat span');
+if(statLabels[1]) statLabels[1].textContent=platform==='tiktok'?'Videos':'Posts';
+setText('igLabBio',profile.bio||profile.category||`${platform==='tiktok'?'TikTok':'Instagram'} de Barberia Dali`);
+$$('[data-social-lab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.socialLab===platform));
+const posts=socialLabPosts(platform,data);
+const playable=posts.find(post=>post.videoUrl)||posts[0];
+const grid=$('#igLabGrid');
+if(grid){
     grid.innerHTML=posts.slice(0,8).map(post=>`
       <button class="sjl-post" type="button" data-id="${post.id||''}">
         <img src="${instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg'}" alt="">
         <span>${post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes</span>
       </button>`).join('');
-    $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index])));
+    $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index],platform)));
   }
-  if(playable) setInstagramActivePost(playable);
+if(playable) setInstagramActivePost(playable,platform);
 }
 
-async function initInstagramLab(){
+async function initSocialLab(platform=currentSocialLab){
   try{
-    const res=await fetch('data/instagram-snapshot.json',{headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error('static Instagram snapshot unavailable');
+    const file=platform==='tiktok'?'tiktok-snapshot.json':'instagram-snapshot.json';
+    const res=await fetch(`data/${file}`,{headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error(`static ${platform} snapshot unavailable`);
     const data=await res.json();
-    renderInstagramLab(data);
+    renderInstagramLab(data,platform);
   }catch(err){
-    console.warn('Instagram snapshot fallback:',err);
-    renderInstagramLab(SOCIAL_SNAPSHOT.instagram);
+    console.warn('Social snapshot fallback:',err);
+    renderInstagramLab(SOCIAL_SNAPSHOT[platform]||SOCIAL_SNAPSHOT.instagram,platform);
   }
 }
 
 function initInstagramLabControls(){
+  $$('[data-social-lab]').forEach(btn=>{
+    btn.addEventListener('click',()=>initSocialLab(btn.dataset.socialLab));
+  });
   const like=$('#igLabLike');
   if(like){
     like.addEventListener('click',()=>{
@@ -1849,8 +1886,8 @@ function initLanguage(){
 
 // arranque
 initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();initInstagramLabControls();
-initTikTokStats();initInstagramLab();
-window.addEventListener('load',()=>{initTikTokStats();initInstagramLab();},{once:true});
+initTikTokStats();initSocialLab('instagram');
+window.addEventListener('load',()=>{initTikTokStats();initSocialLab(currentSocialLab);},{once:true});
 </script>
 </body>
 </html>

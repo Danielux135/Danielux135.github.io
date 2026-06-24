@@ -111,7 +111,7 @@ function normalizeTikTokPost(item) {
     id: item.id || item.webVideoUrl || null,
     url: item.webVideoUrl || null,
     caption: item.text || '',
-    cover: pickUrl(item.videoMeta?.coverUrl, item.videoMeta?.originalCoverUrl),
+    cover: pickUrl(item.videoMeta?.coverUrl, item.videoMeta?.originalCoverUrl, item['videoMeta.coverUrl']),
     videoUrl: pickUrl(
       item.videoUrl,
       item.videoMeta?.downloadAddr,
@@ -119,26 +119,31 @@ function normalizeTikTokPost(item) {
       item.videoMeta?.url,
       item.video?.playAddr,
       item.video?.downloadAddr,
+      item['videoMeta.downloadAddr'],
+      item['videoMeta.playAddr'],
+      item['videoMeta.url'],
     ),
     likes: toNumber(item.diggCount),
     comments: toNumber(item.commentCount),
     shares: toNumber(item.shareCount),
     plays: toNumber(item.playCount),
+    duration: toNumber(item.videoMeta?.duration) || toNumber(item['videoMeta.duration']),
     timestamp: item.createTimeISO || item.createTime || null,
   };
 }
 
 function normalizeTikTokItems(items) {
-  const profileItem = items.find((item) => item?.authorMeta?.name) || items[0] || {};
+  const profileItem = items.find((item) => item?.authorMeta?.name || item?.['authorMeta.name']) || items[0] || {};
   const author = profileItem.authorMeta || {};
+  const username = author.name || profileItem['authorMeta.name'] || TIKTOK_USERNAME;
 
   return {
     profile: {
-      username: author.name || TIKTOK_USERNAME,
-      displayName: author.nickName || author.name || 'Barberia Dali',
-      avatar: pickUrl(author.avatar, author.originalAvatarUrl),
+      username,
+      displayName: author.nickName || username || 'Barberia Dali',
+      avatar: pickUrl(author.avatar, author.originalAvatarUrl, profileItem['authorMeta.avatar']),
       bio: author.signature || '',
-      url: author.profileUrl || `https://www.tiktok.com/@${TIKTOK_USERNAME}`,
+      url: author.profileUrl || `https://www.tiktok.com/@${username}`,
     },
     stats: {
       followers: toNumber(author.fans),
