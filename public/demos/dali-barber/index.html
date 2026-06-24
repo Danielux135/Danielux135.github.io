@@ -128,7 +128,21 @@ html[dir="rtl"] .follow-bar,html[dir="rtl"] .foot-main{direction:rtl}
 html[dir="rtl"] .lang-options{transform:translateX(10px);padding-inline-end:0;padding-inline-start:6px}
 html[dir="rtl"] .vspec:hover{transform:translateX(-5px)}
 html[dir="rtl"] .svc .row,html[dir="rtl"] .cart-total{direction:rtl}
-@media(max-width:720px){.lang-switcher.open{width:184px}.lang-option{min-width:38px}.lang-toggle{min-width:46px}.lang-switcher{width:46px;min-width:46px}}
+@media(max-width:720px){
+  .nav-inner{gap:8px;padding:10px 0}
+  .brand{gap:8px;font-size:1rem;min-width:0}
+  .brand .blogo{width:36px;height:36px;flex-basis:36px}
+  .nav-inner > div[style*="display:flex"]{gap:6px;min-width:0}
+  .lang-switcher{width:42px;min-width:42px;height:38px}
+  .lang-switcher.open{width:168px}
+  .lang-toggle{min-width:42px;height:38px}
+  #cartBtnNav{padding:8px 10px;gap:0}
+  #navCartText{display:none}
+  #cartBtnNav #cartBadgeNav{margin-left:0}
+  .nav-inner .btn.gold[href="#reservar"]{padding:8px 12px;font-size:.8rem;white-space:nowrap;min-width:0}
+  .lang-option{min-width:38px}
+  .lang-switcher{width:46px;min-width:46px}
+}
 
 
 /* hero */
@@ -1951,7 +1965,7 @@ const I18N={
   es:{
     title:'Barbería Dali · Barbería en Castellón',
     description:'Barbería Dali, en el centro de Castellón. Corte, barba y afeitado a navaja. Reserva tu cita online en segundos.',
-    nav:{tiktok:'TikTok',services:'Servicios',shop:'Tienda',reviews:'Reseñas',cart:'Cesta',reserve:'Reservar cita',reserveMine:'Reservar mi cita',watch:'▶ Ver vídeos',checkout:'Tramitar pedido',total:'Total',cartTitle:'Tu cesta',floatingCart:'Cesta'},
+ nav:{tiktok:'TikTok',services:'Servicios',shop:'Tienda',reviews:'Reseñas',cart:'Cesta',reserve:'Reservar',reserveMine:'Reservar mi cita',watch:'▶ Ver vídeos',checkout:'Tramitar pedido',total:'Total',cartTitle:'Tu cesta',floatingCart:'Cesta'},
     theme:{style:'Estilo',color:'Color',styleToast:'Estilo: ',colorToast:'Color: ',languageToast:'Idioma: ',styles:{viral:'Viral',estudio:'Estudio',calle:'Calle',clasico:'Clásico'},palettes:{oro:'Oro',rojo:'Rojo',verde:'Verde',azul:'Azul'}},
     styles:{
       viral:{eye:'Barbería · Castellón',h1:['Cortes que se ','vuelven virales','.'],lead:'La barbería de Castellón que arrasa en TikTok. Mira los vídeos, elige tu estilo y reserva en 30 segundos.',ctaH:'¿Listo para tu próximo corte?',ctaP:'El mismo estilo que ves en los vídeos, ahora a un clic. Reserva y entra con cita.',feed:{e:'Lo último',h:'Míralo en movimiento',p:'Fades, barbas y diseños grabados en la silla. Síguenos para ver cada trabajo nuevo.'},svc:{e:'La carta',h:'Elige tu corte',p:'Precios claros y sin sorpresas. Toca reservar y lo dejamos listo en el formulario.'},ba:{e:'El cambio',h:'Antes y después',p:'Arrastra y comprueba la diferencia. Así sale la gente de la silla.'},book:{e:'Reserva en 30s',h:'Pide tu cita',p:'Elige servicio, día y hora. Sin llamadas y sin esperas.'},rev:{e:'La gente habla',h:'Lo que dicen',p:'Opiniones de quienes ya han pasado por la silla.'},shop:{e:'Tienda',h:'Llévate el acabado a casa',p:'Los productos que usamos a diario, listos para ti.'}},
@@ -1973,7 +1987,7 @@ const I18N={
   ca:{
     title:'Barberia Dali · Perruqueria a Castelló',
     description:'Barberia Dali, al centre de Castelló. Tall, barba i afaitat a navalla. Reserva la teua cita en línia en segons.',
-    nav:{tiktok:'TikTok',services:'Serveis',shop:'Botiga',reviews:'Ressenyes',cart:'Cistella',reserve:'Reservar cita',reserveMine:'Reservar la meua cita',watch:'▶ Veure vídeos',checkout:'Tramitar comanda',total:'Total',cartTitle:'La teua cistella',floatingCart:'Cistella'},
+ nav:{tiktok:'TikTok',services:'Serveis',shop:'Botiga',reviews:'Ressenyes',cart:'Cistella',reserve:'Reservar',reserveMine:'Reservar la meua cita',watch:'▶ Veure vídeos',checkout:'Tramitar comanda',total:'Total',cartTitle:'La teua cistella',floatingCart:'Cistella'},
     theme:{style:'Estil',color:'Color',styleToast:'Estil: ',colorToast:'Color: ',languageToast:'Idioma: ',styles:{viral:'Viral',estudio:'Estudi',calle:'Carrer',clasico:'Clàssic'},palettes:{oro:'Or',rojo:'Roig',verde:'Verd',azul:'Blau'}},
     styles:{
       viral:{eye:'Barberia · Castelló',h1:['Talls que es ','fan virals','.'],lead:'La barberia de Castelló que ho peta a TikTok. Mira els vídeos, tria el teu estil i reserva en 30 segons.',ctaH:'Preparat per al teu pròxim tall?',ctaP:'El mateix estil que veus als vídeos, ara a un clic. Reserva i entra amb cita.',feed:{e:'L’últim',h:'Mira-ho en moviment',p:'Fades, barbes i dissenys gravats a la cadira. Seguix-nos per vore cada treball nou.'},svc:{e:'La carta',h:'Tria el teu tall',p:'Preus clars i sense sorpreses. Toca reservar i ho deixem preparat al formulari.'},ba:{e:'El canvi',h:'Abans i després',p:'Arrossega i comprova la diferència. Així ix la gent de la cadira.'},book:{e:'Reserva en 30s',h:'Demana la teua cita',p:'Tria servici, dia i hora. Sense telefonades i sense esperes.'},rev:{e:'La gent parla',h:'El que diuen',p:'Opinions de qui ja ha passat per la cadira.'},shop:{e:'Botiga',h:'Emporta’t l’acabat a casa',p:'Els productes que usem cada dia, preparats per a tu.'}},
