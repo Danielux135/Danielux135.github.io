@@ -5,6 +5,7 @@ const INSTAGRAM_ACTOR_ID = process.env.APIFY_INSTAGRAM_PROFILE_ACTOR_ID || 'apif
 const TIKTOK_ACTOR_ID = process.env.APIFY_TIKTOK_ACTOR_ID || 'clockworks~tiktok-scraper';
 const INSTAGRAM_USERNAME = process.env.DALI_INSTAGRAM_USERNAME || 'dalibarber.11';
 const TIKTOK_USERNAME = process.env.DALI_TIKTOK_PROFILE || 'dalibarber.11';
+const TIKTOK_LATEST_LIMIT = toNumber(process.env.DALI_TIKTOK_LATEST_LIMIT) || 10;
 const OUT_DIR = new URL('../public/demos/dali-barber/data/', import.meta.url);
 
 function requiredToken() {
@@ -14,6 +15,14 @@ function requiredToken() {
 function toNumber(value) {
   const n = Number(value);
   return Number.isFinite(n) ? n : null;
+}
+
+function firstNumber(...values) {
+  for (const value of values.flat(Infinity)) {
+    const n = toNumber(value);
+    if (n !== null) return n;
+  }
+  return null;
 }
 
 function pickUrl(...values) {
@@ -53,6 +62,25 @@ async function getTikTokOEmbed(videoUrl) {
     const response = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(videoUrl)}`);
     if (!response.ok) return null;
     return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+async function getTikTokProfileVideoCount(username) {
+  try {
+    const response = await fetch(`https://www.tiktok.com/@${username}`, {
+      headers: {
+        accept: 'text/html',
+        'user-agent': 'Mozilla/5.0',
+      },
+    });
+    if (!response.ok) return null;
+    const html = await response.text();
+    const counts = [...html.matchAll(/"videoCount":"?(\d+)"?/g)]
+      .map((match) => toNumber(match[1]))
+      .filter((count) => count !== null);
+    return counts.length ? Math.max(...counts) : null;
   } catch {
     return null;
   }
@@ -203,8 +231,29 @@ function normalizeTikTokPost(item, oembed = null) {
 async function normalizeTikTokItems(items) {
   const profileItem = items.find((item) => item?.authorMeta?.name || item?.['authorMeta.name']) || items[0] || {};
   const author = profileItem.authorMeta || {};
+  const authorStats = author.stats || profileItem.authorStats || profileItem.stats || {};
   const username = author.name || profileItem['authorMeta.name'] || TIKTOK_USERNAME;
-  const videoItems = items.filter((item) => item?.webVideoUrl).slice(0, 8);
+  const videoItems = items.filter((item) => item?.webVideoUrl).slice(0, TIKTOK_LATEST_LIMIT);
+  const publicProfileVideoCount = await getTikTokProfileVideoCount(username);
+  const authorVideoCount = toNumber(author.video);
+  const totalVideos =
+    firstNumber(
+      author.videoCount,
+      author.videosCount,
+      author.awemeCount,
+      authorStats.videoCount,
+      authorStats.videosCount,
+      authorStats.awemeCount,
+      profileItem.videoCount,
+      profileItem.videosCount,
+      profileItem.awemeCount,
+      profileItem['authorMeta.videoCount'],
+      profileItem['authorMeta.videosCount'],
+      profileItem['authorMeta.awemeCount'],
+    ) ??
+    publicProfileVideoCount ??
+    (authorVideoCount !== null && authorVideoCount > videoItems.length ? authorVideoCount : null) ??
+    videoItems.length;
   const oembeds = await Promise.all(videoItems.map((item) => getTikTokOEmbed(item.webVideoUrl)));
 
   return {
@@ -219,7 +268,7 @@ async function normalizeTikTokItems(items) {
       followers: toNumber(author.fans),
       following: toNumber(author.following),
       likes: toNumber(author.heart),
-      videos: toNumber(author.video) || videoItems.length,
+      videos: totalVideos,
     },
     latestVideos: videoItems.map((item, index) => normalizeTikTokPost(item, oembeds[index])),
     updatedAt: new Date().toISOString(),
@@ -239,7 +288,7 @@ async function updateInstagram() {
 async function updateTikTok() {
   const items = await runActor(TIKTOK_ACTOR_ID, {
     profiles: [TIKTOK_USERNAME],
-    resultsPerPage: 8,
+    resultsPerPage: TIKTOK_LATEST_LIMIT,
     profileScrapeSections: ['videos'],
     profileSorting: 'latest',
     excludePinnedPosts: false,
