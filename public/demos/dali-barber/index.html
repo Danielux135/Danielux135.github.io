@@ -258,7 +258,7 @@ section.block{padding:70px 0}
 .sjl-comments{border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:7px}.sjl-comments b{color:var(--text)}.sjl-comments[hidden]{display:none}
 .sjl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.14)}
 .sjl-post{position:relative;min-height:150px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#050302;cursor:pointer;color:var(--text);padding:0;text-align:left}
-.sjl-post img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}.sjl-post.active{border-color:color-mix(in srgb,var(--accent) 70%,white)}
+.sjl-post img,.sjl-post video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}.sjl-post.active{border-color:color-mix(in srgb,var(--accent) 70%,white)}
 .sjl-post span{position:absolute;left:8px;right:8px;bottom:8px;padding:5px 7px;border-radius:8px;background:rgba(0,0,0,.58);backdrop-filter:blur(10px);font-size:.72rem;font-weight:800}
 @media(max-width:860px){
   .social-section{grid-template-columns:1fr}
@@ -1297,21 +1297,34 @@ function renderSocialJsonFallback(media,video){
 
 let activeInstagramPost=null;
 let currentSocialLab='instagram';
+const MANUAL_SOCIAL_MEDIA={
+  tiktok:{
+    // Sustituye estos archivos por previews reales guardadas en media/tiktok/.
+    '7649008104880753936':{cover:'media/dali-logo.jpg',preview:'media/dali1.mp4'},
+    '7636772315228851457':{cover:'media/dali-logo.jpg',preview:'media/dali2.mp4'},
+    '7615600192896765201':{cover:'media/dali-logo.jpg',preview:'media/dali3.mp4'}
+  }
+};
+
+function manualMedia(platform,id){
+  return MANUAL_SOCIAL_MEDIA?.[platform]?.[id]||null;
+}
 
 function instagramPosts(data){
-  return Array.isArray(data?.posts)?data.posts:[];
+return Array.isArray(data?.posts)?data.posts:[];
 }
 
 function socialLabPosts(platform,data){
   if(platform==='tiktok'){
-    return (Array.isArray(data?.latestVideos)?data.latestVideos:[]).map(video=>({
-      id:video.id||video.url,
-      type:'Video',
-      caption:video.caption||'Video de TikTok',
-      url:video.url,
-      cover:video.cover,
-      videoUrl:video.videoUrl,
-      likes:video.likes,
+return (Array.isArray(data?.latestVideos)?data.latestVideos:[]).map(video=>({
+id:video.id||video.url,
+type:'Video',
+caption:video.caption||'Video de TikTok',
+url:video.url,
+cover:manualMedia('tiktok',video.id)?.cover||video.cover,
+videoUrl:manualMedia('tiktok',video.id)?.preview||video.videoUrl,
+manualPreview:Boolean(manualMedia('tiktok',video.id)?.preview),
+likes:video.likes,
       commentsCount:video.comments,
       views:video.plays,
       shares:video.shares,
@@ -1393,7 +1406,7 @@ activeInstagramPost=post;
 renderInstagramMedia(post);
 const platformName=platform==='tiktok'?'TikTok':'Instagram';
 setText('igLabCaption',post.caption||`Publicacion de ${platformName}`);
-setText('igLabMode',post.videoUrl?`Video directo desde ${platformName}`:(platform==='tiktok'?'Embed de TikTok desde el enlace':'Miniatura con enlace a Instagram'));
+setText('igLabMode',post.manualPreview?'Preview manual dentro de la web':(post.videoUrl?`Video directo desde ${platformName}`:(platform==='tiktok'?'Embed de TikTok desde el enlace':'Miniatura con enlace a Instagram')));
 const link=$('#igLabLink');
 if(link&&post.url) link.href=post.url;
 if(link) link.textContent=`Ver en ${platformName}`;
@@ -1444,9 +1457,10 @@ const grid=$('#igLabGrid');
 if(grid){
     grid.innerHTML=posts.slice(0,8).map(post=>`
       <button class="sjl-post" type="button" data-id="${post.id||''}">
-        <img src="${instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg'}" alt="">
+        ${post.manualPreview?`<video src="${instagramMediaUrl(post.videoUrl)}" muted playsinline loop preload="metadata"></video>`:`<img src="${instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg'}" alt="">`}
         <span>${post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes</span>
       </button>`).join('');
+    $$('video',grid).forEach(v=>v.play().catch(()=>{}));
     $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index],platform)));
   }
 if(playable) setInstagramActivePost(playable,platform);
