@@ -245,8 +245,16 @@ section.block{padding:70px 0}
 .sjl-stat{border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center;background:rgba(0,0,0,.16)}
 .sjl-stat b{display:block;font-family:var(--font-display);font-size:1rem}.sjl-stat span{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em}
 .sjl-bio{color:var(--muted);font-size:.9rem;line-height:1.45;white-space:pre-line}
-.sjl-video{position:relative;min-height:260px;background:#050302;display:grid;grid-template-columns:minmax(180px,.64fr) 1fr}
-.sjl-media{position:relative;min-height:260px;overflow:hidden;background:#050302}.sjl-media video,.sjl-media img,.sjl-media iframe{width:100%;height:100%;object-fit:cover;display:block}.sjl-media iframe{border:0;min-height:420px;background:#050302}
+.sjl-video{position:relative;min-height:360px;background:#050302;display:grid;grid-template-columns:minmax(220px,.72fr) 1fr}
+.sjl-media{position:relative;min-height:360px;overflow:hidden;background:radial-gradient(circle at 50% 20%,rgba(231,194,125,.08),transparent 58%),#050302;display:flex;align-items:center;justify-content:center}.sjl-media video,.sjl-media img,.sjl-media iframe{width:100%;height:100%;object-fit:cover;display:block}.sjl-media iframe{border:0;background:#050302}
+.sjl-video--tiktok{grid-template-columns:minmax(240px,380px) 1fr}
+.sjl-video--tiktok .sjl-media{min-height:520px;background:linear-gradient(180deg,#050302,#000)}
+.sjl-video--tiktok .sjl-media video,.sjl-video--tiktok .sjl-media img{width:auto;height:100%;max-width:100%;object-fit:contain;background:#000}
+.sjl-media--tiktok-player{align-items:stretch;justify-content:center;padding:0;background:#000}
+.sjl-tiktok-frame-shell{position:relative;width:min(100%,360px);height:100%;min-height:520px;margin:0 auto;overflow:hidden;background:#000;border-inline:1px solid rgba(255,255,255,.08)}
+.sjl-tiktok-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;display:block}
+.sjl-tiktok-frame--thumb{pointer-events:none;transform:scale(1.005);transform-origin:center center}
+.sjl-tiktok-open{position:absolute;right:12px;bottom:12px;z-index:2;padding:9px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.68);color:#fff;text-decoration:none;font-weight:900;font-size:.78rem;backdrop-filter:blur(10px)}
 .sjl-play{position:absolute;inset:auto 14px 14px auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;background:rgba(0,0,0,.5);backdrop-filter:blur(12px);font-weight:900}
 .sjl-copy{padding:22px;display:flex;flex-direction:column;gap:12px;justify-content:center}
 .sjl-pill{width:max-content;max-width:100%;padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.72rem}
@@ -256,24 +264,34 @@ section.block{padding:70px 0}
 .sjl-actions{display:flex;flex-wrap:wrap;gap:8px}.sjl-like,.sjl-comment-toggle{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.045);color:var(--text);padding:9px 11px;font-weight:800;cursor:pointer}.sjl-like.active{border-color:#ff4f86;background:rgba(255,79,134,.18)}
 .sjl-switch{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.12)}.sjl-switch button{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);color:var(--muted);padding:8px 12px;font-weight:900;cursor:pointer}.sjl-switch button.active{color:var(--text);border-color:color-mix(in srgb,var(--accent) 62%,var(--line));background:color-mix(in srgb,var(--accent) 18%,transparent)}
 .sjl-comments{border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.82rem;display:flex;flex-direction:column;gap:7px}.sjl-comments b{color:var(--text)}.sjl-comments[hidden]{display:none}
-.sjl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.14)}
-.sjl-post{position:relative;min-height:150px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#050302;cursor:pointer;color:var(--text);padding:0;text-align:left}
+.sjl-grid{display:flex;gap:12px;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.14);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:thin;overscroll-behavior-inline:contain}
+.sjl-grid::after{content:'';flex:0 0 2px}
+.sjl-post{position:relative;flex:0 0 clamp(170px,22vw,280px);min-height:190px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#050302;cursor:pointer;color:var(--text);padding:0;text-align:left;scroll-snap-align:start}
+.sjl-post-media{position:absolute;inset:0;display:block;overflow:hidden;background:#050302}
 .sjl-post img,.sjl-post video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}.sjl-post.active{border-color:color-mix(in srgb,var(--accent) 70%,white)}
-.sjl-post span{position:absolute;left:8px;right:8px;bottom:8px;padding:5px 7px;border-radius:8px;background:rgba(0,0,0,.58);backdrop-filter:blur(10px);font-size:.72rem;font-weight:800}
+.sjl-post-frame{position:absolute;inset:0;overflow:hidden;background:#000}.sjl-post-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;pointer-events:none}.sjl-post--tiktok{flex-basis:clamp(180px,21vw,260px);aspect-ratio:9/14;min-height:245px}.sjl-post--tiktok img,.sjl-post--tiktok video{aspect-ratio:9/14;object-fit:cover}.sjl-post--tiktok .sjl-post-frame{aspect-ratio:9/14}
+.sjl-post-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.7);font-weight:900;font-size:.75rem;background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.08),transparent 35%),#000}
+.sjl-post-placeholder::after{content:'♪';position:absolute;bottom:-18px;right:12px;font-size:4.4rem;color:rgba(255,255,255,.12);font-family:serif}
+.sjl-post > .sjl-post-label{position:absolute;left:8px;right:8px;bottom:8px;padding:5px 7px;border-radius:8px;background:rgba(0,0,0,.58);backdrop-filter:blur(10px);font-size:.72rem;font-weight:800;z-index:3}
 @media(max-width:860px){
   .social-section{grid-template-columns:1fr}
   .barber-video-player,.social-tabs-panel{height:auto;min-height:480px}
   .video-stage{min-height:320px}
-  .sjl-inner,.sjl-video{grid-template-columns:1fr}
+  .sjl-inner,.sjl-video,.sjl-video--tiktok{grid-template-columns:1fr}
   .sjl-profile{border-right:none;border-bottom:1px solid var(--line)}
-  .sjl-grid{grid-template-columns:repeat(2,1fr)}
+  .sjl-media,.sjl-video--tiktok .sjl-media{min-height:min(78vh,620px)}
+  .sjl-tiktok-frame-shell{width:min(100%,340px);min-height:min(78vh,620px)}
+  .sjl-grid{display:flex;overflow-x:auto}
+  .sjl-post{flex-basis:72vw;min-height:220px}
+  .sjl-post--tiktok{flex-basis:68vw;min-height:360px}
 }
 @keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-12deg)}30%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:0;transform:scale(1.4)}}
 
 /* emblema del logo (hero del tema clásico) */
 .logo-emblem{display:none}
 [data-style="clasico"] .pole-stage{display:none}
-[data-style="clasico"] .logo-emblem{display:grid;place-items:center;width:100%;max-width:340px;aspect-ratio:1;
+      .pole-stage{display:none}
+.logo-emblem{display:grid;place-items:center;width:100%;max-width:340px;aspect-ratio:1;
   position:relative;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);
   background:radial-gradient(circle at 50% 36%,rgba(0,0,0,.15),#000);
   box-shadow:var(--shadow),inset 0 0 70px rgba(0,0,0,.85)}
@@ -555,9 +573,8 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
         <a href="#videos" class="btn ghost">▶ Ver vídeos</a>
       </div>
       <div class="stats">
-        <div class="stat"><strong id="stFollow">0</strong><span>seguidores en TikTok</span></div>
-        <div class="stat"><strong id="stCuts">0</strong><span>cortes este mes</span></div>
-        <div class="stat"><strong id="stStars">0.0</strong><span>valoración media</span></div>
+        <div class="stat"><strong id="stFollow">0</strong><span>seguidores</span></div>
+        <div class="stat"><strong id="stStars">5</strong><span>★★★★★</span></div>
       </div>
     </div>
     <div class="hero-visual">
@@ -1223,8 +1240,17 @@ function animateStats(){
     const id=setInterval(()=>{s+=step;if(s>=to){s=to;clearInterval(id);}
       el.textContent=(dec?s.toFixed(1):Math.floor(s).toLocaleString('es-ES'));},18);
   };
-  go($('#stFollow'),248000);go($('#stCuts'),320);go($('#stStars'),4.9,1);
-  setTimeout(()=>{$('#stFollow').textContent='248k';},1300);
+  go($('#stFollow'),9367);go($('#stStars'),5,1);
+  setTimeout(async()=>{
+      try{
+        const[ig,tk]=await Promise.all([
+          fetch('data/instagram-snapshot.json',{headers:{Accept:'application/json'},cache:'force-cache'}).then(r=>r.json()),
+          fetch('data/tiktok-snapshot.json',{headers:{Accept:'application/json'},cache:'force-cache'}).then(r=>r.json())
+        ]);
+        const total=(ig.stats?.followers||0)+(tk.stats?.followers||0);
+        $('#stFollow').textContent=total.toLocaleString('es-ES');
+      }catch(e){$('#stFollow').textContent='9.367';}
+    },1300);
 }
 
 function formatTikTokStat(value){
@@ -1296,18 +1322,260 @@ function renderSocialJsonFallback(media,video){
 }
 
 let activeInstagramPost=null;
+let activeSocialPostKey=null;
 let currentSocialLab='instagram';
-const MANUAL_SOCIAL_MEDIA={
-  tiktok:{
-    // Sustituye estos archivos por previews reales guardadas en media/tiktok/.
-    '7649008104880753936':{cover:'media/dali-logo.jpg',preview:'media/dali1.mp4'},
-    '7636772315228851457':{cover:'media/dali-logo.jpg',preview:'media/dali2.mp4'},
-    '7615600192896765201':{cover:'media/dali-logo.jpg',preview:'media/dali3.mp4'}
-  }
-};
+let tiktokSnapshotCache=null;
+const SOCIAL_EAGER_MEDIA_COUNT=5;
+const socialCardPayloads=new WeakMap();
+let socialCardObserver=null;
 
-function manualMedia(platform,id){
-  return MANUAL_SOCIAL_MEDIA?.[platform]?.[id]||null;
+function warmTikTokNetwork(){
+  ['https://www.tiktok.com','https://www.tiktokcdn.com'].forEach(href=>{
+    if(document.querySelector(`link[data-tiktok-preconnect="${href}"]`)) return;
+    const preconnect=document.createElement('link');
+    preconnect.rel='preconnect';preconnect.href=href;preconnect.crossOrigin='anonymous';preconnect.dataset.tiktokPreconnect=href;
+    document.head.appendChild(preconnect);
+    const dns=document.createElement('link');
+    dns.rel='dns-prefetch';dns.href=href;dns.dataset.tiktokPreconnect=href+'-dns';
+    document.head.appendChild(dns);
+  });
+}
+
+async function loadTikTokSnapshot(){
+  if(tiktokSnapshotCache) return tiktokSnapshotCache;
+  const res=await fetch('data/tiktok-snapshot.json',{headers:{Accept:'application/json'},cache:'force-cache'});
+  if(!res.ok) throw new Error('static TikTok snapshot unavailable');
+  tiktokSnapshotCache=await res.json();
+  return tiktokSnapshotCache;
+}
+
+function socialPostKey(platform,post){
+  return `${platform}:${post?.id||post?.url||post?.videoUrl||post?.caption||''}`;
+}
+
+function createTikTokIframeElement(post,{controls=true,thumb=false,loading='lazy'}={}){
+  const iframe=document.createElement('iframe');
+  iframe.className='sjl-tiktok-frame'+(thumb?' sjl-tiktok-frame--thumb':'');
+  iframe.src=(controls ? (post?.embedUrl||tiktokPlayerUrl(post,{controls:true})) : (tiktokPlayerUrl(post,{controls:false})||post?.embedUrl)) || '';
+  iframe.title=thumb?'Preview de TikTok de Barbería Dali':'Vídeo de TikTok de Barbería Dali';
+  iframe.loading=loading;
+  iframe.allow='fullscreen; encrypted-media; picture-in-picture; autoplay';
+  iframe.referrerPolicy='strict-origin-when-cross-origin';
+  return iframe;
+}
+
+function createTikTokFrameShell(post,{controls=true,thumb=false,loading='lazy'}={}){
+  const shell=document.createElement('div');
+  shell.className='sjl-tiktok-frame-shell';
+  const iframe=createTikTokIframeElement(post,{controls,thumb,loading});
+  if(iframe.src) shell.appendChild(iframe);
+  return shell;
+}
+
+function getSocialCardObserver(){
+  if(!('IntersectionObserver' in window)) return null;
+  if(!socialCardObserver){
+    socialCardObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting||entry.intersectionRatio>0){
+          loadSocialCardMedia(entry.target);
+          socialCardObserver.unobserve(entry.target);
+        }
+      });
+    },{root:null,rootMargin:'260px 520px',threshold:0.01});
+  }
+  return socialCardObserver;
+}
+
+function queueSocialCardMedia(card,payload){
+  socialCardPayloads.set(card,payload);
+  if(payload.index<SOCIAL_EAGER_MEDIA_COUNT){
+    loadSocialCardMedia(card);
+    return;
+  }
+  const observer=getSocialCardObserver();
+  if(observer) observer.observe(card);
+  else loadSocialCardMedia(card);
+}
+
+function loadSocialCardMedia(card){
+  if(!card||card.dataset.mediaLoaded==='true') return;
+  const payload=socialCardPayloads.get(card);
+  if(!payload) return;
+  const {post,platform,index}=payload;
+  const holder=card.querySelector('.sjl-post-media');
+  if(!holder) return;
+  holder.innerHTML='';
+  holder.className='sjl-post-media';
+  const isTikTokPost=platform==='tiktok';
+  const mediaSrc=instagramMediaUrl(post.videoUrl);
+  const poster=instagramMediaUrl(post.cover||post.images?.[0]);
+
+  if(mediaSrc){
+    const v=createSocialVideo(mediaSrc,poster,{controls:false,autoplay:true,loop:true,muted:true});
+    v.preload=index<SOCIAL_EAGER_MEDIA_COUNT?'auto':'metadata';
+    v.addEventListener('error',()=>{
+      holder.innerHTML='';
+      renderLazyFallback(holder,post,platform,index);
+    },{once:true});
+    holder.appendChild(v);
+  }else if(poster){
+    const img=document.createElement('img');
+    img.src=poster;
+    img.alt=isTikTokPost?'Preview de TikTok de Barbería Dali':'Publicación de Instagram de Barbería Dali';
+    img.loading=index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy';
+    img.decoding='async';
+    holder.appendChild(img);
+  }else{
+    renderLazyFallback(holder,post,platform,index);
+  }
+  card.dataset.mediaLoaded='true';
+}
+
+function renderLazyFallback(holder,post,platform,index){
+  const isTikTokPost=platform==='tiktok';
+  const player=isTikTokPost?(tiktokPlayerUrl(post,{controls:false})||post.embedUrl):null;
+  if(player){
+    holder.classList.add('sjl-post-frame');
+    holder.appendChild(createTikTokIframeElement({...post,embedUrl:player},{controls:false,thumb:true,loading:index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy'}));
+    return;
+  }
+  const img=document.createElement('img');
+  img.src='media/dali-logo.jpg';
+  img.alt='Barberia Dali';
+  img.loading=index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy';
+  holder.appendChild(img);
+}
+
+function buildSocialCard(post,index,platform){
+  const card=document.createElement('article');
+  const isTikTokPost=platform==='tiktok';
+  card.className='sjl-post'+(isTikTokPost?' sjl-post--tiktok':'');
+  card.role='button';
+  card.tabIndex=0;
+  card.dataset.id=post.id||'';
+  card.dataset.index=String(index);
+  card.dataset.postKey=socialPostKey(platform,post);
+
+  const holder=document.createElement('div');
+  holder.className='sjl-post-media';
+  const pending=document.createElement('div');
+  pending.className='sjl-post-placeholder';
+  pending.textContent=index<SOCIAL_EAGER_MEDIA_COUNT?'Cargando preview':'Preview al desplazar';
+  holder.appendChild(pending);
+  card.appendChild(holder);
+
+  const label=document.createElement('span');
+  label.className='sjl-post-label';
+  label.textContent=`${isTikTokPost||post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes`;
+  card.appendChild(label);
+
+  const activate=()=>setInstagramActivePost(post,platform);
+  card.addEventListener('click',activate);
+  card.addEventListener('keydown',(event)=>{
+    if(event.key==='Enter'||event.key===' '){
+      event.preventDefault();
+      activate();
+    }
+  });
+
+  queueSocialCardMedia(card,{post,platform,index});
+  return card;
+}
+
+function escapeHTML(value){
+  return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function firstHttpUrl(...values){
+  for(const value of values.flat(Infinity)){
+    if(typeof value==='string'&&/^https?:\/\//i.test(value)) return value;
+  }
+  return null;
+}
+
+function getTikTokVideoId(post){
+  const raw=post?.id||post?.videoId||post?.url||post?.webVideoUrl||'';
+  const fromRaw=String(raw).match(/\d{12,}/)?.[0];
+  if(fromRaw) return fromRaw;
+  try{
+    const url=new URL(post?.url||post?.webVideoUrl||'',location.href);
+    const parts=url.pathname.split('/').filter(Boolean);
+    const videoIndex=parts.findIndex(part=>part==='video');
+    if(videoIndex>=0&&parts[videoIndex+1]) return parts[videoIndex+1].match(/\d{12,}/)?.[0]||parts[videoIndex+1];
+  }catch{}
+  return null;
+}
+
+function tiktokPlayerUrl(post,{controls=true}={}){
+  const id=getTikTokVideoId(post);
+  if(!id) return null;
+  const params=new URLSearchParams({
+    autoplay:'0',
+    controls:controls?'1':'0',
+    description:'0',
+    music_info:'0',
+    rel:'0'
+  });
+  return `https://www.tiktok.com/player/v1/${encodeURIComponent(id)}?${params.toString()}`;
+}
+
+function normalizeTikTokVideo(video,index=0){
+  const cover=firstHttpUrl(
+    video?.cover,
+    video?.thumbnail,
+    video?.thumbnailUrl,
+    video?.thumbnail_url,
+    video?.oEmbedThumbnail,
+    video?.oembedThumbnail,
+    video?.videoMeta?.coverUrl,
+    video?.videoMeta?.originalCoverUrl,
+    video?.['videoMeta.coverUrl'],
+    video?.['videoMeta.originalCoverUrl']
+  );
+  const videoUrl=firstHttpUrl(
+    video?.videoUrl,
+    video?.playUrl,
+    video?.downloadUrl,
+    video?.videoMeta?.playAddr,
+    video?.videoMeta?.downloadAddr,
+    video?.videoMeta?.url,
+    video?.video?.playAddr,
+    video?.video?.downloadAddr,
+    video?.['videoMeta.playAddr'],
+    video?.['videoMeta.downloadAddr'],
+    video?.['videoMeta.url']
+  );
+  const url=firstHttpUrl(video?.url,video?.webVideoUrl) || (video?.id?`https://www.tiktok.com/@dalibarber.11/video/${video.id}`:null);
+  const prepared={
+    ...video,
+    url,
+    cover,
+    videoUrl,
+    embedUrl:firstHttpUrl(video?.playerUrl,video?.embedUrl,video?.embed_url) || tiktokPlayerUrl({...video,url}),
+    manualPreview:false,
+    playerFallback:Boolean(!videoUrl)
+  };
+  prepared.id=getTikTokVideoId(prepared)||prepared.id||prepared.url||`tiktok-${index}`;
+  return prepared;
+}
+
+function createSocialVideo(src,poster,{controls=false,autoplay=false,loop=false,muted=false}={}){
+  const v=document.createElement('video');
+  v.src=instagramMediaUrl(src);
+  v.controls=controls;
+  v.autoplay=autoplay;
+  v.loop=loop;
+  v.muted=muted;
+  v.playsInline=true;
+  v.preload='metadata';
+  if(poster) v.poster=instagramMediaUrl(poster);
+  if(autoplay) requestAnimationFrame(()=>v.play().catch(()=>{}));
+  return v;
+}
+
+function createTikTokPlayer(post,{thumb=false,cacheKind='main'}={}){
+  return createTikTokFrameShell(post,{controls:!thumb,thumb,loading:'eager'});
 }
 
 function instagramPosts(data){
@@ -1316,22 +1584,26 @@ return Array.isArray(data?.posts)?data.posts:[];
 
 function socialLabPosts(platform,data){
   if(platform==='tiktok'){
-return (Array.isArray(data?.latestVideos)?data.latestVideos:[]).map(video=>({
-id:video.id||video.url,
-type:'Video',
-caption:video.caption||'Video de TikTok',
-url:video.url,
-cover:manualMedia('tiktok',video.id)?.cover||video.cover,
-videoUrl:manualMedia('tiktok',video.id)?.preview||video.videoUrl,
-manualPreview:Boolean(manualMedia('tiktok',video.id)?.preview),
-likes:video.likes,
-      commentsCount:video.comments,
-      views:video.plays,
-      shares:video.shares,
-      timestamp:video.timestamp,
-      productType:'tiktok',
-      comments:[]
-    }));
+    return (Array.isArray(data?.latestVideos)?data.latestVideos:[]).map((video,index)=>{
+      const prepared=normalizeTikTokVideo(video,index);
+      return {
+        id:prepared.id||prepared.url,
+        type:'Video',
+        caption:prepared.caption||'Video de TikTok',
+        url:prepared.url,
+        cover:prepared.cover,
+        videoUrl:prepared.videoUrl,
+        embedUrl:prepared.embedUrl,
+        manualPreview:false,
+        likes:prepared.likes,
+        commentsCount:prepared.comments,
+        views:prepared.plays,
+        shares:prepared.shares,
+        timestamp:prepared.timestamp,
+        productType:'tiktok',
+        comments:[]
+      };
+    });
   }
   return instagramPosts(data);
 }
@@ -1360,24 +1632,28 @@ function renderInstagramComments(post){
 }
 
 function renderInstagramMedia(post){
-const media=$('#igLabMedia');
-if(!media||!post) return;
-media.innerHTML='';
-if(currentSocialLab==='tiktok'&&!post.videoUrl&&post.url){
-const id=post.id||post.url.split('/').filter(Boolean).pop();
-const iframe=document.createElement('iframe');
-iframe.src=`https://www.tiktok.com/embed/v2/${id}`;
-iframe.title='Video de TikTok de Barberia Dali';
-iframe.allow='fullscreen; encrypted-media; picture-in-picture';
-iframe.loading='lazy';
-media.appendChild(iframe);
-}else if(post.videoUrl){
-const v=document.createElement('video');
-v.src=instagramMediaUrl(post.videoUrl);
-v.controls=true;
-    v.playsInline=true;
-    v.preload='metadata';
-    if(post.cover) v.poster=instagramMediaUrl(post.cover);
+  const media=$('#igLabMedia');
+  const card=$('#igLabVideoCard');
+  if(!media||!post) return;
+  const isTikTok=currentSocialLab==='tiktok';
+  media.innerHTML='';
+  media.classList.toggle('sjl-media--tiktok',isTikTok);
+  media.classList.toggle('sjl-media--tiktok-player',isTikTok&&!post.videoUrl&&Boolean(post.embedUrl||tiktokPlayerUrl(post)));
+  if(card) card.classList.toggle('sjl-video--tiktok',isTikTok);
+
+  if(isTikTok){
+    if(post.videoUrl){
+      const v=createSocialVideo(post.videoUrl,post.cover,{controls:true,autoplay:false,loop:false,muted:false});
+      v.addEventListener('error',()=>renderTikTokPlayerOrFallback(media,post));
+      media.appendChild(v);
+      return;
+    }
+    renderTikTokPlayerOrFallback(media,post);
+    return;
+  }
+
+  if(post.videoUrl){
+    const v=createSocialVideo(post.videoUrl,post.cover,{controls:true});
     v.addEventListener('error',()=>renderInstagramFallback(media,post));
     media.appendChild(v);
   }else{
@@ -1385,28 +1661,50 @@ v.controls=true;
   }
 }
 
+function renderTikTokPlayerOrFallback(media,post){
+  media.innerHTML='';
+  const player=post.embedUrl||tiktokPlayerUrl(post);
+  if(player){
+    media.classList.add('sjl-media--tiktok-player');
+    const prepared={...post,embedUrl:player};
+    media.appendChild(createTikTokPlayer(prepared));
+    const open=document.createElement('a');
+    open.className='sjl-tiktok-open';
+    open.href=post.url||'https://www.tiktok.com/@dalibarber.11';
+    open.target='_blank';
+    open.rel='noopener';
+    open.textContent='Abrir en TikTok';
+    media.appendChild(open);
+    return;
+  }
+  renderInstagramFallback(media,post);
+}
+
 function renderInstagramFallback(media,post){
   media.innerHTML='';
   const img=document.createElement('img');
   img.src=instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg';
-  img.alt='Publicacion de Instagram de Barberia Dali';
+  img.alt=currentSocialLab==='tiktok'?'Preview de TikTok de Barbería Dali':'Publicacion de Instagram de Barberia Dali';
   media.appendChild(img);
   const play=document.createElement('a');
   play.className='sjl-play';
   play.href=post.url||'https://www.instagram.com/dalibarber.11/';
   play.target='_blank';
   play.rel='noopener';
-  play.setAttribute('aria-label','Ver publicacion en Instagram');
+  play.setAttribute('aria-label',currentSocialLab==='tiktok'?'Ver vídeo en TikTok':'Ver publicacion en Instagram');
   play.textContent='▶';
   media.appendChild(play);
 }
 
 function setInstagramActivePost(post,platform=currentSocialLab){
+const nextKey=socialPostKey(platform,post);
+const sameMedia=nextKey===activeSocialPostKey&&$('#igLabMedia')?.children.length;
 activeInstagramPost=post;
-renderInstagramMedia(post);
+activeSocialPostKey=nextKey;
+if(!sameMedia) renderInstagramMedia(post);
 const platformName=platform==='tiktok'?'TikTok':'Instagram';
 setText('igLabCaption',post.caption||`Publicacion de ${platformName}`);
-setText('igLabMode',post.manualPreview?'Preview manual dentro de la web':(post.videoUrl?`Video directo desde ${platformName}`:(platform==='tiktok'?'Embed de TikTok desde el enlace':'Miniatura con enlace a Instagram')));
+setText('igLabMode',post.videoUrl?`Video directo desde ${platformName}`:(platform==='tiktok'?'Player TikTok cargado bajo demanda':'Miniatura con enlace a Instagram'));
 const link=$('#igLabLink');
 if(link&&post.url) link.href=post.url;
 if(link) link.textContent=`Ver en ${platformName}`;
@@ -1432,7 +1730,7 @@ if(link) link.textContent=`Ver en ${platformName}`;
     like.classList.remove('active');
     like.textContent=`Me gusta (${formatTikTokStat(post.likes)||0})`;
   }
-$$('.sjl-post').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===String(post.id)));
+$$('.sjl-post').forEach(btn=>btn.classList.toggle('active',btn.dataset.postKey===activeSocialPostKey));
 }
 
 function renderInstagramLab(data,platform='instagram'){
@@ -1451,25 +1749,31 @@ const statLabels=$$('#instagramJsonLab .sjl-stat span');
 if(statLabels[1]) statLabels[1].textContent=platform==='tiktok'?'Videos':'Posts';
 setText('igLabBio',profile.bio||profile.category||`${platform==='tiktok'?'TikTok':'Instagram'} de Barberia Dali`);
 $$('[data-social-lab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.socialLab===platform));
-const posts=socialLabPosts(platform,data);
-const playable=posts.find(post=>post.videoUrl)||posts[0];
+const posts=socialLabPosts(platform,data).slice(0,10);
 const grid=$('#igLabGrid');
 if(grid){
-    grid.innerHTML=posts.slice(0,8).map(post=>`
-      <button class="sjl-post" type="button" data-id="${post.id||''}">
-        ${post.manualPreview?`<video src="${instagramMediaUrl(post.videoUrl)}" muted playsinline loop preload="metadata"></video>`:`<img src="${instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg'}" alt="">`}
-        <span>${post.videoUrl?'Video':'Post'} · ${formatTikTokStat(post.likes)||0} likes</span>
-      </button>`).join('');
-    $$('video',grid).forEach(v=>v.play().catch(()=>{}));
-    $$('.sjl-post',grid).forEach((btn,index)=>btn.addEventListener('click',()=>setInstagramActivePost(posts[index],platform)));
+    grid.innerHTML='';
+    if(socialCardObserver) socialCardObserver.disconnect();
+    socialCardObserver=null;
+    posts.forEach((post,index)=>grid.appendChild(buildSocialCard(post,index,platform)));
   }
+const playable=posts.find(post=>post.videoUrl)||posts[0];
 if(playable) setInstagramActivePost(playable,platform);
 }
 
 async function initSocialLab(platform=currentSocialLab){
+  const grid=$('#igLabGrid');
+  if(platform===currentSocialLab&&grid&&grid.children.length){
+    return;
+  }
   try{
-    const file=platform==='tiktok'?'tiktok-snapshot.json':'instagram-snapshot.json';
-    const res=await fetch(`data/${file}`,{headers:{Accept:'application/json'}});
+    if(platform==='tiktok'){
+      warmTikTokNetwork();
+      const data=await loadTikTokSnapshot();
+      renderInstagramLab(data,platform);
+      return;
+    }
+    const res=await fetch('data/instagram-snapshot.json',{headers:{Accept:'application/json'},cache:'force-cache'});
     if(!res.ok) throw new Error(`static ${platform} snapshot unavailable`);
     const data=await res.json();
     renderInstagramLab(data,platform);
@@ -1481,7 +1785,11 @@ async function initSocialLab(platform=currentSocialLab){
 
 function initInstagramLabControls(){
   $$('[data-social-lab]').forEach(btn=>{
-    btn.addEventListener('click',()=>initSocialLab(btn.dataset.socialLab));
+    btn.addEventListener('click',()=>{
+      const platform=btn.dataset.socialLab;
+      if(platform===currentSocialLab&&$('#igLabGrid')?.children.length) return;
+      initSocialLab(platform);
+    });
   });
   const like=$('#igLabLike');
   if(like){
@@ -1908,8 +2216,9 @@ function initLanguage(){
 
 // arranque
 initTheme();initLanguage();buildServices();buildReviews();buildSlots();initBA();initBooking();initShop();initVideo();applyLanguage(currentLang,{silent:true});animateStats();initReveal();initInstagramLabControls();
-initTikTokStats();initSocialLab('instagram');
-window.addEventListener('load',()=>{initTikTokStats();initSocialLab(currentSocialLab);},{once:true});
+initTikTokStats();warmTikTokNetwork();initSocialLab('instagram');
+window.addEventListener('load',()=>{initTikTokStats();warmTikTokNetwork();},{once:true});
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>

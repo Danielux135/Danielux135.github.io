@@ -17,7 +17,45 @@ function toNumber(value) {
 }
 
 function pickUrl(...values) {
-  return values.find((value) => typeof value === 'string' && /^https?:\/\//.test(value)) || null;
+  return values.flat(Infinity).find((value) => typeof value === 'string' && /^https?:\/\//.test(value)) || null;
+}
+
+function tiktokVideoIdFromUrl(urlOrId) {
+  const value = String(urlOrId || '');
+  const direct = value.match(/\d{12,}/)?.[0];
+  if (direct) return direct;
+  try {
+    const url = new URL(value);
+    const parts = url.pathname.split('/').filter(Boolean);
+    const videoIndex = parts.findIndex((part) => part === 'video');
+    return videoIndex >= 0 ? parts[videoIndex + 1] || null : null;
+  } catch {
+    return null;
+  }
+}
+
+function tiktokPlayerUrl(videoUrlOrId) {
+  const id = tiktokVideoIdFromUrl(videoUrlOrId);
+  if (!id) return null;
+  const params = new URLSearchParams({
+    autoplay: '0',
+    controls: '1',
+    description: '0',
+    music_info: '0',
+    rel: '0',
+  });
+  return `https://www.tiktok.com/player/v1/${id}?${params.toString()}`;
+}
+
+async function getTikTokOEmbed(videoUrl) {
+  if (!videoUrl) return null;
+  try {
+    const response = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(videoUrl)}`);
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
 }
 
 async function runActor(actorId, input) {
@@ -106,12 +144,35 @@ function normalizeInstagramProfile(profile) {
   };
 }
 
-function normalizeTikTokPost(item) {
+function normalizeTikTokPost(item, oembed = null) {
+  const url = pickUrl(item.webVideoUrl, item.url) || null;
+  const id = tiktokVideoIdFromUrl(item.id || url) || item.id || null;
+  const cover = pickUrl(
+    item.videoMeta?.coverUrl,
+    item.videoMeta?.originalCoverUrl,
+    item.videoMeta?.dynamicCoverUrl,
+    item.video?.cover,
+    item.video?.originCover,
+    item.video?.dynamicCover,
+    item.covers,
+    item.thumbnails,
+    item.thumbnailUrl,
+    item.thumbnail_url,
+    item['videoMeta.coverUrl'],
+    item['videoMeta.originalCoverUrl'],
+    item['videoMeta.dynamicCoverUrl'],
+    oembed?.thumbnail_url,
+  );
+
   return {
-    id: item.id || item.webVideoUrl || null,
-    url: item.webVideoUrl || null,
-    caption: item.text || '',
-    cover: pickUrl(item.videoMeta?.coverUrl, item.videoMeta?.originalCoverUrl, item['videoMeta.coverUrl']),
+    id,
+    url,
+    caption: item.text || oembed?.title || '',
+    cover,
+    thumbnail: cover,
+    oEmbedThumbnail: pickUrl(oembed?.thumbnail_url),
+    playerUrl: tiktokPlayerUrl(id || url),
+    embedUrl: tiktokPlayerUrl(id || url),
     videoUrl: pickUrl(
       item.videoUrl,
       item.videoMeta?.downloadAddr,
@@ -129,13 +190,22 @@ function normalizeTikTokPost(item) {
     plays: toNumber(item.playCount),
     duration: toNumber(item.videoMeta?.duration) || toNumber(item['videoMeta.duration']),
     timestamp: item.createTimeISO || item.createTime || null,
+    music: item.musicMeta
+      ? {
+          song: item.musicMeta.musicName || item.musicMeta.songName || item.musicMeta.title || null,
+          artist: item.musicMeta.musicAuthor || item.musicMeta.authorName || item.musicMeta.artist || null,
+          original: typeof item.musicMeta.original === 'boolean' ? item.musicMeta.original : null,
+        }
+      : null,
   };
 }
 
-function normalizeTikTokItems(items) {
+async function normalizeTikTokItems(items) {
   const profileItem = items.find((item) => item?.authorMeta?.name || item?.['authorMeta.name']) || items[0] || {};
   const author = profileItem.authorMeta || {};
   const username = author.name || profileItem['authorMeta.name'] || TIKTOK_USERNAME;
+  const videoItems = items.filter((item) => item?.webVideoUrl).slice(0, 8);
+  const oembeds = await Promise.all(videoItems.map((item) => getTikTokOEmbed(item.webVideoUrl)));
 
   return {
     profile: {
@@ -149,9 +219,9 @@ function normalizeTikTokItems(items) {
       followers: toNumber(author.fans),
       following: toNumber(author.following),
       likes: toNumber(author.heart),
-      videos: toNumber(author.video),
+      videos: toNumber(author.video) || videoItems.length,
     },
-    latestVideos: items.filter((item) => item?.webVideoUrl).slice(0, 8).map(normalizeTikTokPost),
+    latestVideos: videoItems.map((item, index) => normalizeTikTokPost(item, oembeds[index])),
     updatedAt: new Date().toISOString(),
     source: 'weekly-static-snapshot',
   };
@@ -174,14 +244,14 @@ async function updateTikTok() {
     profileSorting: 'latest',
     excludePinnedPosts: false,
     shouldDownloadAvatars: false,
-    shouldDownloadCovers: false,
+    shouldDownloadCovers: true,
     shouldDownloadMusicCovers: false,
     shouldDownloadVideos: false,
     shouldDownloadSubtitles: false,
     shouldDownloadSlideshowImages: false,
   });
   if (!items.length) throw new Error('TikTok actor returned no items');
-  return normalizeTikTokItems(items);
+  return await normalizeTikTokItems(items);
 }
 
 async function main() {
