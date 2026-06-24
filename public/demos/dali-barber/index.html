@@ -888,7 +888,27 @@ footer.site{padding:40px 0 20px;border-top:1px solid var(--line);margin-top:50px
 // utilidad corta para seleccionar
 const $=(s,e=document)=>e.querySelector(s);
 const $$=(s,e=document)=>[...e.querySelectorAll(s)];
-const API_ORIGIN=location.hostname.endsWith('vercel.app')?location.origin:'https://danielux135-github-io.vercel.app';
+const SOCIAL_SNAPSHOT={
+  tiktok:{
+    profile:{username:'dalibarber.11',displayName:'Barberia Dali',avatar:'media/dali-logo.jpg',bio:'Barberia en Castellon. Cortes, degradados y transformaciones reales. Contenido semanal.',url:'https://www.tiktok.com/@dalibarber.11'},
+    stats:{followers:1294,following:165,likes:2852,videos:30},
+    latestVideos:[{url:'https://www.tiktok.com/@dalibarber.11',caption:'Snapshot estatico de TikTok para no gastar cuota de Apify.',likes:135,comments:2,shares:1,plays:4058,cover:'media/dali-logo.jpg'}]
+  },
+  instagram:{
+    profile:{username:'dalibarber.11',displayName:'Dali bassem',avatar:'media/dali-logo.jpg',bio:'Barbero: 5 estrellas. Castellon de La Plana. Ubicacion, con y sin cita.',url:'https://www.instagram.com/dalibarber.11/',externalUrl:'https://maps.app.goo.gl/TA1bd3yeU5FGoWsdA?g_st=ic',category:'Barber Shop',verified:false,private:false},
+    stats:{followers:8073,following:1766,posts:114,highlights:11},
+    posts:[
+      {id:'C-XrQ8is32Q',type:'Video',caption:'with the goat @breonma_ #barber #cuts #style #barbero #barbershop',url:'https://www.instagram.com/p/C-XrQ8is32Q/',cover:'media/dali-logo.jpg',videoUrl:'media/dali1.mp4',likes:476,commentsCount:15,views:1800,timestamp:'2024-08-07T13:14:09.000Z',productType:'clips',comments:[]},
+      {id:'DRmhSH2DeZ_',type:'Video',caption:'Servicio de diseno y color. #barber #barbershop #style #barbero',url:'https://www.instagram.com/p/DRmhSH2DeZ_/',cover:'media/dali-logo.jpg',videoUrl:'media/dali2.mp4',likes:10562,commentsCount:72,views:63729,timestamp:'2025-11-28T13:31:33.000Z',productType:'clips',locationName:'Castellon de la Plana, Spain',comments:[]},
+      {id:'DNdTVU8NZtC',type:'Video',caption:'Inauguracion con la familia.',url:'https://www.instagram.com/p/DNdTVU8NZtC/',cover:'media/dali-logo.jpg',videoUrl:'media/dali3.mp4',likes:420,commentsCount:83,views:7251,timestamp:'2025-08-17T13:32:26.000Z',productType:'clips',locationName:'Castellon de la Plana, Spain',comments:[]},
+      {id:'DY9ouy1NQ9c',type:'Video',caption:'Trabajo de barberia, fade y detalle.',url:'https://www.instagram.com/p/DY9ouy1NQ9c/',cover:'media/dali-logo.jpg',videoUrl:'media/dali1.mp4',likes:125,commentsCount:12,views:1850,timestamp:'2026-05-30T12:41:08.000Z',productType:'clips',comments:[]},
+      {id:'DX9K_1qN5nd',type:'Video',caption:'Nuevo corte y transformacion.',url:'https://www.instagram.com/p/DX9K_1qN5nd/',cover:'media/dali-logo.jpg',videoUrl:'media/dali2.mp4',likes:346,commentsCount:10,views:9459,timestamp:'2026-05-05T11:47:18.000Z',productType:'clips',comments:[]},
+      {id:'DWmH1FCjUfR',type:'Video',caption:'Corte urbano y acabado limpio.',url:'https://www.instagram.com/p/DWmH1FCjUfR/',cover:'media/dali-logo.jpg',videoUrl:'media/dali3.mp4',likes:290,commentsCount:20,views:3094,timestamp:'2026-02-26T10:10:06.000Z',productType:'clips',comments:[]},
+      {id:'DULUJrbjWtt',type:'Sidecar',caption:'Carrusel de trabajos recientes.',url:'https://www.instagram.com/p/DULUJrbjWtt/',cover:'media/dali-logo.jpg',images:['media/dali-logo.jpg'],likes:70,commentsCount:4,timestamp:'2026-01-31T13:30:18.000Z',productType:'sidecar',comments:[]},
+      {id:'DS0Pz99jVpO',type:'Sidecar',caption:'Alhamdolilah.',url:'https://www.instagram.com/p/DS0Pz99jVpO/',cover:'media/dali-logo.jpg',images:['media/dali-logo.jpg'],likes:165,commentsCount:14,timestamp:'2025-12-28T17:58:28.000Z',productType:'sidecar',locationName:'Oropesa, Spain',comments:[]}
+    ]
+  }
+};
 
 // ===== motor de temas: estilo (tipografía/forma/voz) x color (acento) =====
 // cada estilo trae su propio texto en todas las secciones
@@ -1285,14 +1305,7 @@ function instagramPosts(data){
 }
 
 function instagramMediaUrl(url){
-  if(!url) return null;
-  try{
-    const u=new URL(url,location.href);
-    if(u.hostname.includes('cdninstagram.com')||u.hostname.includes('fbcdn.net')){
-      return `${API_ORIGIN}/api/instagram-media?url=${encodeURIComponent(u.href)}`;
-    }
-  }catch{}
-  return url;
+  return url||null;
 }
 
 function renderInstagramComments(post){
@@ -1400,14 +1413,7 @@ function renderInstagramLab(data){
 }
 
 async function initInstagramLab(){
-  try{
-    const res=await fetch(`${API_ORIGIN}/api/instagram-dali`,{headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error('Instagram data unavailable');
-    const data=await res.json();
-    renderInstagramLab(data);
-  }catch(err){
-    console.warn('Instagram lab fallback:',err);
-  }
+  renderInstagramLab(SOCIAL_SNAPSHOT.instagram);
 }
 
 function initInstagramLabControls(){
@@ -1435,9 +1441,7 @@ async function initTikTokStats(){
   };
   if(!statEls.followers||!statEls.following||!statEls.likes) return;
   try{
-    const res=await fetch(`${API_ORIGIN}/api/tiktok-dali`,{headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error('TikTok stats unavailable');
-    const data=await res.json();
+    const data=SOCIAL_SNAPSHOT.tiktok;
     renderSocialJsonLab(data);
     Object.entries(statEls).forEach(([key,el])=>{
       const formatted=formatTikTokStat(data?.stats?.[key]);

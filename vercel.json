@@ -3,9 +3,6 @@
     "api/subscribe.js":         { "memory": 128, "maxDuration": 15 },
     "api/unsubscribe.js":       { "memory": 128, "maxDuration": 10 },
     "api/soundcloud-tracks.js": { "memory": 128, "maxDuration": 10 },
-    "api/send-email.js":        { "memory": 128, "maxDuration": 15 },
-    "api/tiktok-dali.js":       { "memory": 128, "maxDuration": 30 },
-    "api/instagram-dali.js":    { "memory": 128, "maxDuration": 30 },
-    "api/instagram-media.js":   { "memory": 256, "maxDuration": 30 }
+    "api/send-email.js":        { "memory": 128, "maxDuration": 15 }
   }
 }
