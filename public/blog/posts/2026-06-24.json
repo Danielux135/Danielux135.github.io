@@ -1,0 +1,2166 @@
+{
+  "date": "2026-06-24",
+  "title": {
+    "es": "Steam Machine ya tiene precio, GTA VI abre reservas y la IA entra en revisión",
+    "en": "Steam Machine gets a price, GTA VI opens pre-orders and AI enters review mode",
+    "val": "Steam Machine ja té preu, GTA VI obri reserves i la IA entra en revisió"
+  },
+  "intro": {
+    "es": "Edición del 24 de junio con videojuegos, juegos gratis, desarrollo, ciencia, mercados, cripto, IA, hardware, ciberseguridad, entretenimiento, curiosidades, ofertas y anime. El día viene marcado por la presión sobre tecnológicas, el avance comercial de GTA VI, nuevas señales de regulación práctica en IA y varias promociones que caducan muy pronto.",
+    "en": "June 24 edition covering games, free titles, development, science, markets, crypto, AI, hardware, cybersecurity, entertainment, curiosities, deals and anime. The day is shaped by pressure on tech stocks, GTA VI moving into its commercial phase, practical AI oversight signals and several giveaways that expire very soon.",
+    "val": "Edició del 24 de juny amb videojocs, jocs gratis, desenvolupament, ciència, mercats, cripto, IA, maquinari, ciberseguretat, entreteniment, curiositats, ofertes i anime. El dia ve marcat per la pressió sobre tecnològiques, l'avanç comercial de GTA VI, noves senyals de regulació pràctica en IA i diverses promocions que caduquen molt prompte."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Valve pone precio real a la Steam Machine: de experimento a PC de salón premium",
+            "en": "Valve puts a real price on the Steam Machine: from experiment to premium living-room PC",
+            "val": "Valve posa preu real a la Steam Machine: d'experiment a PC de saló prèmium"
+          },
+          "summary": {
+            "es": "La nueva <a href=\"https://www.theverge.com/games/953989/valve-steam-machine-pc-build-alternative\">Steam Machine</a> ya tiene cifras de referencia: 1.049 dólares para el modelo base y 1.349 dólares para la versión de 2 TB, muy por encima de una consola tradicional. La noticia cambia la conversación: no compite solo contra PlayStation o Xbox, sino contra montar un PC compacto con SteamOS, AMD Zen 4/RDNA 3 y 16 GB de RAM.",
+            "en": "The new <a href=\"https://www.theverge.com/games/953989/valve-steam-machine-pc-build-alternative\">Steam Machine</a> now has benchmark pricing: $1,049 for the base model and $1,349 for the 2 TB version, well above a traditional console. That shifts the debate: it is not only competing with PlayStation or Xbox, but with building a compact SteamOS PC powered by AMD Zen 4/RDNA 3 and 16 GB of RAM.",
+            "val": "La nova <a href=\"https://www.theverge.com/games/953989/valve-steam-machine-pc-build-alternative\">Steam Machine</a> ja té xifres de referència: 1.049 dòlars per al model base i 1.349 dòlars per a la versió de 2 TB, molt per damunt d'una consola tradicional. La notícia canvia la conversa: no competix només contra PlayStation o Xbox, sinó contra muntar un PC compacte amb SteamOS, AMD Zen 4/RDNA 3 i 16 GB de RAM."
+          },
+          "source": "The Verge",
+          "url": "https://www.theverge.com/games/953989/valve-steam-machine-pc-build-alternative",
+          "links": [
+            {
+              "title": {
+                "es": "Análisis de precio en The Verge",
+                "en": "Price analysis at The Verge",
+                "val": "Anàlisi de preu en The Verge"
+              },
+              "url": "https://www.theverge.com/games/953989/valve-steam-machine-pc-build-alternative"
+            },
+            {
+              "title": {
+                "es": "Confirmación en Notebookcheck",
+                "en": "Notebookcheck confirmation",
+                "val": "Confirmació en Notebookcheck"
+              },
+              "url": "https://www.notebookcheck.net/Steam-Machine-release-date-and-price-officially-confirmed.1326720.0.html"
+            },
+            {
+              "title": {
+                "es": "Cobertura en Times of India",
+                "en": "Times of India coverage",
+                "val": "Cobertura en Times of India"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/tech-news/valve-announces-price-of-steam-machine-it-is/articleshow/125917939.cms"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Grand Theft Auto VI abre reservas el 25 de junio con arte final y tres ediciones",
+            "en": "Grand Theft Auto VI opens pre-orders on June 25 with final cover art and three editions",
+            "val": "Grand Theft Auto VI obri reserves el 25 de juny amb art final i tres edicions"
+          },
+          "summary": {
+            "es": "Rockstar activará las reservas de <a href=\"https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25\">Grand Theft Auto VI</a> el 25 de junio, con Standard, Deluxe y Premium Edition, además de una colección física para PlayStation 5 y Xbox Series X|S. La fecha confirma que la campaña comercial entra en su recta seria y deja a las tiendas preparadas para una de las preventas más grandes de la generación.",
+            "en": "Rockstar will open <a href=\"https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25\">Grand Theft Auto VI</a> pre-orders on June 25, with Standard, Deluxe and Premium editions plus a physical collection for PlayStation 5 and Xbox Series X|S. The date confirms that the commercial campaign is entering its serious phase and leaves retailers braced for one of the generation's biggest pre-order waves.",
+            "val": "Rockstar activarà les reserves de <a href=\"https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25\">Grand Theft Auto VI</a> el 25 de juny, amb edicions Standard, Deluxe i Premium, a més d'una col·lecció física per a PlayStation 5 i Xbox Series X|S. La data confirma que la campanya comercial entra en la seua fase seriosa i deixa les botigues preparades per a una de les preventes més grans de la generació."
+          },
+          "source": "Rockstar Games",
+          "url": "https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio oficial de Rockstar",
+                "en": "Official Rockstar announcement",
+                "val": "Anunci oficial de Rockstar"
+              },
+              "url": "https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25"
+            },
+            {
+              "title": {
+                "es": "Cobertura de Reuters",
+                "en": "Reuters coverage",
+                "val": "Cobertura de Reuters"
+              },
+              "url": "https://www.reuters.com/business/take-twos-rockstar-games-says-gta-vi-pre-orders-begin-june-25-2026-06-18/"
+            },
+            {
+              "title": {
+                "es": "Detalles en Gematsu",
+                "en": "Details at Gematsu",
+                "val": "Detalls en Gematsu"
+              },
+              "url": "https://www.gematsu.com/2026/06/grand-theft-auto-vi-pre-orders-open-june-25-cover-art-revealed"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "SteamOS se abre camino fuera de AMD: Valve trabaja con Intel y NVIDIA",
+            "en": "SteamOS moves beyond AMD: Valve is working with Intel and NVIDIA",
+            "val": "SteamOS s'obri camí fora d'AMD: Valve treballa amb Intel i NVIDIA"
+          },
+          "summary": {
+            "es": "Valve está colaborando con Intel y NVIDIA para que <a href=\"https://www.theverge.com/games/952634/valve-intel-nvidia-steamos-gpus-linux\">SteamOS funcione mejor en más hardware</a>, una pieza clave si quiere que el ecosistema tipo Steam Deck deje de depender de combinaciones muy concretas. La curiosidad gamer del día: esto no solo afecta a futuras máquinas oficiales, también puede facilitar PCs de salón de terceros con una experiencia más cercana a consola.",
+            "en": "Valve is working with Intel and NVIDIA so that <a href=\"https://www.theverge.com/games/952634/valve-intel-nvidia-steamos-gpus-linux\">SteamOS runs better on more hardware</a>, a key step if the Steam Deck-like ecosystem is to stop depending on very specific hardware pairings. Today's gamer curiosity: this is not just about official future boxes; it could also make third-party living-room PCs feel much more console-like.",
+            "val": "Valve està col·laborant amb Intel i NVIDIA perquè <a href=\"https://www.theverge.com/games/952634/valve-intel-nvidia-steamos-gpus-linux\">SteamOS funcione millor en més maquinari</a>, una peça clau si vol que l'ecosistema tipus Steam Deck deixe de dependre de combinacions molt concretes. La curiositat gamer del dia: això no sols afecta futures màquines oficials, també pot facilitar PCs de saló de tercers amb una experiència més pròxima a una consola."
+          },
+          "source": "The Verge",
+          "url": "https://www.theverge.com/games/952634/valve-intel-nvidia-steamos-gpus-linux",
+          "links": [
+            {
+              "title": {
+                "es": "Informe en The Verge",
+                "en": "Report at The Verge",
+                "val": "Informe en The Verge"
+              },
+              "url": "https://www.theverge.com/games/952634/valve-intel-nvidia-steamos-gpus-linux"
+            },
+            {
+              "title": {
+                "es": "Contexto técnico en Ars Technica",
+                "en": "Technical context at Ars Technica",
+                "val": "Context tècnic en Ars Technica"
+              },
+              "url": "https://arstechnica.com/gaming/2026/06/valves-steam-machine-ships-june-29-for-1049-but-you-probably-wont-be-able-to-buy-one-yet/"
+            },
+            {
+              "title": {
+                "es": "Página oficial de SteamOS",
+                "en": "Official SteamOS page",
+                "val": "Pàgina oficial de SteamOS"
+              },
+              "url": "https://store.steampowered.com/steamos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Citizen Sleeper — gratis en Epic Games Store",
+            "en": "Citizen Sleeper — free on Epic Games Store",
+            "val": "Citizen Sleeper — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "RPG narrativo de ciencia ficción disponible para reclamar gratis en la <a href=\"https://store.epicgames.com/en-US/p/citizen-sleeper\">ficha de Epic Games Store</a>. Caduca el 25 de junio, así que entra en zona urgente: una vez reclamado se queda en tu biblioteca.",
+            "en": "A narrative sci-fi RPG free to claim on its <a href=\"https://store.epicgames.com/en-US/p/citizen-sleeper\">Epic Games Store page</a>. It expires on June 25, so it is now urgent: once claimed, it stays in your library.",
+            "val": "RPG narratiu de ciència-ficció disponible per a reclamar gratis en la <a href=\"https://store.epicgames.com/en-US/p/citizen-sleeper\">fitxa d'Epic Games Store</a>. Caduca el 25 de juny, així que entra en zona urgent: una vegada reclamat es queda en la teua biblioteca."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 25 de junio de 2026",
+            "en": "Until June 25, 2026",
+            "val": "Fins al 25 de juny de 2026"
+          },
+          "urgent": true,
+          "url": "https://store.epicgames.com/en-US/p/citizen-sleeper",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha en Epic",
+                "en": "Epic page",
+                "val": "Fitxa en Epic"
+              },
+              "url": "https://store.epicgames.com/en-US/p/citizen-sleeper"
+            },
+            {
+              "title": {
+                "es": "Lista de PC Gamer",
+                "en": "PC Gamer list",
+                "val": "Llista de PC Gamer"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            },
+            {
+              "title": {
+                "es": "Resumen en Polygon",
+                "en": "Polygon round-up",
+                "val": "Resum en Polygon"
+              },
+              "url": "https://www.polygon.com/epic-games-store-free-game-6-18-2026-download/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "ROBOBEAT — gratis en Epic Games Store",
+            "en": "ROBOBEAT — free on Epic Games Store",
+            "val": "ROBOBEAT — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "Shooter rítmico roguelite en el que disparas al compás de la música, gratis en la <a href=\"https://store.epicgames.com/en-US/p/robobeat\">tienda de Epic</a>. La promoción termina el 25 de junio y es urgente si quieres quedártelo para siempre.",
+            "en": "A rhythm-shooter roguelite where you fire to the beat, free on the <a href=\"https://store.epicgames.com/en-US/p/robobeat\">Epic store page</a>. The promotion ends on June 25 and is urgent if you want to keep it permanently.",
+            "val": "Shooter rítmic roguelite en què dispares al compàs de la música, gratis en la <a href=\"https://store.epicgames.com/en-US/p/robobeat\">botiga d'Epic</a>. La promoció acaba el 25 de juny i és urgent si vols conservar-lo per a sempre."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 25 de junio de 2026",
+            "en": "Until June 25, 2026",
+            "val": "Fins al 25 de juny de 2026"
+          },
+          "urgent": true,
+          "url": "https://store.epicgames.com/en-US/p/robobeat",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha en Epic",
+                "en": "Epic page",
+                "val": "Fitxa en Epic"
+              },
+              "url": "https://store.epicgames.com/en-US/p/robobeat"
+            },
+            {
+              "title": {
+                "es": "Lista de PC Gamer",
+                "en": "PC Gamer list",
+                "val": "Llista de PC Gamer"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            },
+            {
+              "title": {
+                "es": "Aviso en LittleBigCampus",
+                "en": "LittleBigCampus notice",
+                "val": "Avís en LittleBigCampus"
+              },
+              "url": "https://littlebigcampus.com/news/pc/2026-06-19/citizen-sleeper-robobeat-gratis-epic-games-store/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Grounded: Fully Yoked Edition — PS Plus Essential",
+            "en": "Grounded: Fully Yoked Edition — PS Plus Essential",
+            "val": "Grounded: Fully Yoked Edition — PS Plus Essential"
+          },
+          "summary": {
+            "es": "La edición completa del survival cooperativo de Obsidian forma parte de los juegos mensuales de <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">PS Plus de junio</a>. Se puede añadir a la biblioteca hasta el 6 de julio con suscripción activa.",
+            "en": "The complete edition of Obsidian's co-op survival game is part of the <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">June PS Plus lineup</a>. It can be added to your library until July 6 with an active subscription.",
+            "val": "L'edició completa del survival cooperatiu d'Obsidian forma part dels jocs mensuals de <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">PS Plus de juny</a>. Es pot afegir a la biblioteca fins al 6 de juliol amb subscripció activa."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 6 de julio de 2026",
+            "en": "Until July 6, 2026",
+            "val": "Fins al 6 de juliol de 2026"
+          },
+          "urgent": false,
+          "url": "https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/",
+          "source": "PlayStation Blog",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio oficial",
+                "en": "Official announcement",
+                "val": "Anunci oficial"
+              },
+              "url": "https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/"
+            },
+            {
+              "title": {
+                "es": "Ficha de Grounded",
+                "en": "Grounded page",
+                "val": "Fitxa de Grounded"
+              },
+              "url": "https://www.playstation.com/en-us/games/grounded/"
+            },
+            {
+              "title": {
+                "es": "Cobertura de Times of India",
+                "en": "Times of India coverage",
+                "val": "Cobertura de Times of India"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/gaming/sony-announces-playstation-plus-free-games-for-june-2026/articleshow/125871984.cms"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Warhammer 40,000: Darktide — PS Plus Essential",
+            "en": "Warhammer 40,000: Darktide — PS Plus Essential",
+            "val": "Warhammer 40,000: Darktide — PS Plus Essential"
+          },
+          "summary": {
+            "es": "El shooter cooperativo de Fatshark también entra en los juegos mensuales de <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">PS Plus</a>. Disponible para añadir hasta el 6 de julio, ideal si buscas acción PvE intensa con escuadras de cuatro jugadores.",
+            "en": "Fatshark's co-op shooter is also included in the <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">PS Plus</a> monthly games. It is available to add until July 6, ideal if you want intense four-player PvE action.",
+            "val": "El shooter cooperatiu de Fatshark també entra en els jocs mensuals de <a href=\"https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/\">PS Plus</a>. Disponible per a afegir fins al 6 de juliol, ideal si busques acció PvE intensa amb esquadres de quatre jugadors."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 6 de julio de 2026",
+            "en": "Until July 6, 2026",
+            "val": "Fins al 6 de juliol de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/concept/10005035",
+          "source": "PlayStation Blog",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio oficial",
+                "en": "Official announcement",
+                "val": "Anunci oficial"
+              },
+              "url": "https://blog.playstation.com/2026/05/27/playstation-plus-monthly-games-for-june-2026-grounded-fully-yoked-edition-nickelodeon-all-star-brawl-2-warhammer-40000-darktide/"
+            },
+            {
+              "title": {
+                "es": "Ficha en PlayStation Store",
+                "en": "PlayStation Store page",
+                "val": "Fitxa en PlayStation Store"
+              },
+              "url": "https://store.playstation.com/en-us/concept/10005035"
+            },
+            {
+              "title": {
+                "es": "Resumen externo",
+                "en": "External round-up",
+                "val": "Resum extern"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/gaming/sony-announces-playstation-plus-free-games-for-june-2026/articleshow/125871984.cms"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Tomb Raider IV-VI Remastered — Prime Gaming",
+            "en": "Tomb Raider IV-VI Remastered — Prime Gaming",
+            "val": "Tomb Raider IV-VI Remastered — Prime Gaming"
+          },
+          "summary": {
+            "es": "La trilogía remasterizada de Lara Croft está en la tanda de junio de <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a>, con canje vía Epic Games Store según el calendario de Amazon. Recomendado reclamarlo antes de que termine el mes para no perder la rotación.",
+            "en": "Lara Croft's remastered trilogy is in the June <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a> drop, with redemption via Epic Games Store according to Amazon's schedule. Claim it before the end of the month so you do not miss the rotation.",
+            "val": "La trilogia remasteritzada de Lara Croft està en la tanda de juny de <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a>, amb bescanvi via Epic Games Store segons el calendari d'Amazon. Recomanable reclamar-la abans que acabe el mes per a no perdre la rotació."
+          },
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Durante junio de 2026",
+            "en": "Throughout June 2026",
+            "val": "Durant juny de 2026"
+          },
+          "urgent": false,
+          "url": "https://gaming.amazon.com/home",
+          "source": "Prime Gaming",
+          "links": [
+            {
+              "title": {
+                "es": "Prime Gaming",
+                "en": "Prime Gaming",
+                "val": "Prime Gaming"
+              },
+              "url": "https://gaming.amazon.com/home"
+            },
+            {
+              "title": {
+                "es": "Anuncio de Amazon Games",
+                "en": "Amazon Games announcement",
+                "val": "Anunci d'Amazon Games"
+              },
+              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
+            },
+            {
+              "title": {
+                "es": "Resumen de Polygon",
+                "en": "Polygon round-up",
+                "val": "Resum de Polygon"
+              },
+              "url": "https://www.polygon.com/amazon-prime-gaming-free-games-june-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Mafia III: Definitive Edition — Prime Gaming",
+            "en": "Mafia III: Definitive Edition — Prime Gaming",
+            "val": "Mafia III: Definitive Edition — Prime Gaming"
+          },
+          "summary": {
+            "es": "La edición definitiva de Mafia III aparece en los juegos de junio de <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a>, con código para GOG. Si tienes Prime, conviene revisar la página de recompensas antes del cierre de mes.",
+            "en": "Mafia III: Definitive Edition appears in the June <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a> games, with a GOG code. If you have Prime, check the rewards page before the month closes.",
+            "val": "L'edició definitiva de Mafia III apareix en els jocs de juny de <a href=\"https://gaming.amazon.com/home\">Prime Gaming</a>, amb codi per a GOG. Si tens Prime, convé revisar la pàgina de recompenses abans que tanque el mes."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Durante junio de 2026",
+            "en": "Throughout June 2026",
+            "val": "Durant juny de 2026"
+          },
+          "urgent": false,
+          "url": "https://gaming.amazon.com/home",
+          "source": "Prime Gaming",
+          "links": [
+            {
+              "title": {
+                "es": "Prime Gaming",
+                "en": "Prime Gaming",
+                "val": "Prime Gaming"
+              },
+              "url": "https://gaming.amazon.com/home"
+            },
+            {
+              "title": {
+                "es": "Anuncio de Amazon Games",
+                "en": "Amazon Games announcement",
+                "val": "Anunci d'Amazon Games"
+              },
+              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
+            },
+            {
+              "title": {
+                "es": "Resumen en Polygon",
+                "en": "Polygon round-up",
+                "val": "Resum en Polygon"
+              },
+              "url": "https://www.polygon.com/amazon-prime-gaming-free-games-june-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Age of Empires Mobile: PC Edition — Game Pass",
+            "en": "Age of Empires Mobile: PC Edition — Game Pass",
+            "val": "Age of Empires Mobile: PC Edition — Game Pass"
+          },
+          "summary": {
+            "es": "Microsoft añadió <a href=\"https://news.xbox.com/en-us/2026/06/03/xbox-game-pass-june-2026-wave-1/\">Age of Empires Mobile: PC Edition</a> a Game Pass el 23 de junio. No es un regalo permanente, pero sí una incorporación vigente para suscriptores de PC Game Pass y Ultimate.",
+            "en": "Microsoft added <a href=\"https://news.xbox.com/en-us/2026/06/03/xbox-game-pass-june-2026-wave-1/\">Age of Empires Mobile: PC Edition</a> to Game Pass on June 23. It is not a permanent giveaway, but it is a current included title for PC Game Pass and Ultimate subscribers.",
+            "val": "Microsoft va afegir <a href=\"https://news.xbox.com/en-us/2026/06/03/xbox-game-pass-june-2026-wave-1/\">Age of Empires Mobile: PC Edition</a> a Game Pass el 23 de juny. No és un regal permanent, però sí una incorporació vigent per a subscriptors de PC Game Pass i Ultimate."
+          },
+          "platform": "Xbox / PC Game Pass",
+          "until": {
+            "es": "Disponible desde el 23 de junio de 2026",
+            "en": "Available from June 23, 2026",
+            "val": "Disponible des del 23 de juny de 2026"
+          },
+          "urgent": false,
+          "url": "https://news.xbox.com/en-us/2026/06/03/xbox-game-pass-june-2026-wave-1/",
+          "source": "Xbox Wire",
+          "links": [
+            {
+              "title": {
+                "es": "Xbox Wire",
+                "en": "Xbox Wire",
+                "val": "Xbox Wire"
+              },
+              "url": "https://news.xbox.com/en-us/2026/06/03/xbox-game-pass-june-2026-wave-1/"
+            },
+            {
+              "title": {
+                "es": "Calendario en Pure Xbox",
+                "en": "Pure Xbox calendar",
+                "val": "Calendari en Pure Xbox"
+              },
+              "url": "https://www.purexbox.com/guides/xbox-game-pass-all-games-coming-soon-in-june-2026"
+            },
+            {
+              "title": {
+                "es": "Página de Game Pass",
+                "en": "Game Pass page",
+                "val": "Pàgina de Game Pass"
+              },
+              "url": "https://www.xbox.com/en-US/xbox-game-pass"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "The Green Light — gratis en itch.io",
+            "en": "The Green Light — free on itch.io",
+            "val": "The Green Light — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Aventura indie disponible gratis por tiempo limitado según el listado de <a href=\"https://www.gamerpower.com/the-green-light-itch-io-giveaway\">GamerPower</a>, con canje en itch.io. La promoción aparece activa hasta el 2 de julio.",
+            "en": "An indie adventure available free for a limited time according to <a href=\"https://www.gamerpower.com/the-green-light-itch-io-giveaway\">GamerPower</a>, redeemable on itch.io. The promotion is listed as active until July 2.",
+            "val": "Aventura indie disponible gratis per temps limitat segons el llistat de <a href=\"https://www.gamerpower.com/the-green-light-itch-io-giveaway\">GamerPower</a>, amb bescanvi en itch.io. La promoció apareix activa fins al 2 de juliol."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 2 de julio de 2026",
+            "en": "Until July 2, 2026",
+            "val": "Fins al 2 de juliol de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gamerpower.com/the-green-light-itch-io-giveaway",
+          "source": "GamerPower",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha en GamerPower",
+                "en": "GamerPower page",
+                "val": "Fitxa en GamerPower"
+              },
+              "url": "https://www.gamerpower.com/the-green-light-itch-io-giveaway"
+            },
+            {
+              "title": {
+                "es": "Giveaways en GamerScout",
+                "en": "GamerScout giveaways",
+                "val": "Giveaways en GamerScout"
+              },
+              "url": "https://www.gamerscout.io/giveaways"
+            },
+            {
+              "title": {
+                "es": "itch.io",
+                "en": "itch.io",
+                "val": "itch.io"
+              },
+              "url": "https://itch.io/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Madness Inside — gratis en itch.io",
+            "en": "Madness Inside — free on itch.io",
+            "val": "Madness Inside — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Juego indie listado como gratuito temporalmente en <a href=\"https://www.gamerpower.com/madness-inside-itch-io-giveaway\">GamerPower</a>, con canje vía itch.io. No es urgente todavía, pero merece reclamarlo si quieres ampliar biblioteca sin coste.",
+            "en": "An indie game listed as temporarily free on <a href=\"https://www.gamerpower.com/madness-inside-itch-io-giveaway\">GamerPower</a>, redeemable through itch.io. It is not urgent yet, but worth claiming if you want to expand your library at no cost.",
+            "val": "Joc indie llistat com a gratuït temporalment en <a href=\"https://www.gamerpower.com/madness-inside-itch-io-giveaway\">GamerPower</a>, amb bescanvi via itch.io. Encara no és urgent, però val la pena reclamar-lo si vols ampliar biblioteca sense cost."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 1 de agosto de 2026",
+            "en": "Until August 1, 2026",
+            "val": "Fins a l'1 d'agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gamerpower.com/madness-inside-itch-io-giveaway",
+          "source": "GamerPower",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha en GamerPower",
+                "en": "GamerPower page",
+                "val": "Fitxa en GamerPower"
+              },
+              "url": "https://www.gamerpower.com/madness-inside-itch-io-giveaway"
+            },
+            {
+              "title": {
+                "es": "Giveaways en GamerScout",
+                "en": "GamerScout giveaways",
+                "val": "Giveaways en GamerScout"
+              },
+              "url": "https://www.gamerscout.io/giveaways"
+            },
+            {
+              "title": {
+                "es": "itch.io",
+                "en": "itch.io",
+                "val": "itch.io"
+              },
+              "url": "https://itch.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "CircleCI empuja los agentes de IA al propio flujo de CI",
+            "en": "CircleCI pushes AI agents into the CI workflow itself",
+            "val": "CircleCI espenta els agents d'IA cap al mateix flux de CI"
+          },
+          "summary": {
+            "es": "CircleCI presentó <a href=\"https://www.infoq.com/news/\">Chunk Sidecars</a>, una forma de ejecutar y validar cambios generados por agentes dentro del flujo de integración continua. La idea importante no es solo que la IA escriba código, sino que el pipeline se convierta en el filtro que detecta regresiones antes de mezclar cambios automáticos.",
+            "en": "CircleCI introduced <a href=\"https://www.infoq.com/news/\">Chunk Sidecars</a>, a way to run and validate agent-generated changes inside the continuous-integration workflow. The key point is not merely that AI writes code, but that the pipeline becomes the filter catching regressions before automated changes are merged.",
+            "val": "CircleCI va presentar <a href=\"https://www.infoq.com/news/\">Chunk Sidecars</a>, una manera d'executar i validar canvis generats per agents dins del flux d'integració contínua. La idea important no és només que la IA escriga codi, sinó que el pipeline es convertisca en el filtre que detecta regressions abans de mesclar canvis automàtics."
+          },
+          "source": "InfoQ",
+          "url": "https://www.infoq.com/news/",
+          "links": [
+            {
+              "title": {
+                "es": "Noticia en InfoQ",
+                "en": "InfoQ story",
+                "val": "Notícia en InfoQ"
+              },
+              "url": "https://www.infoq.com/news/"
+            },
+            {
+              "title": {
+                "es": "Blog de CircleCI",
+                "en": "CircleCI blog",
+                "val": "Blog de CircleCI"
+              },
+              "url": "https://circleci.com/blog/"
+            },
+            {
+              "title": {
+                "es": "The Changelog",
+                "en": "The Changelog",
+                "val": "The Changelog"
+              },
+              "url": "https://changelog.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Apple actualiza sus betas de desarrollo con Xcode 27 beta 2",
+            "en": "Apple updates its developer betas with Xcode 27 beta 2",
+            "val": "Apple actualitza les seues betes de desenvolupament amb Xcode 27 beta 2"
+          },
+          "summary": {
+            "es": "Apple publicó nuevas versiones para desarrolladores, incluyendo <a href=\"https://developer.apple.com/news/releases/\">Xcode 27 beta 2</a> y betas de sus sistemas. Para quienes mantienen apps iOS, macOS o watchOS, la jornada fue de revisar SDKs, cambios de compilación y compatibilidad antes de que llegue la campaña grande de otoño.",
+            "en": "Apple published new developer releases, including <a href=\"https://developer.apple.com/news/releases/\">Xcode 27 beta 2</a> and operating-system betas. For teams maintaining iOS, macOS or watchOS apps, the day was about checking SDKs, build changes and compatibility before the big autumn cycle arrives.",
+            "val": "Apple va publicar noves versions per a desenvolupadors, incloent <a href=\"https://developer.apple.com/news/releases/\">Xcode 27 beta 2</a> i betes dels seus sistemes. Per a qui manté apps iOS, macOS o watchOS, la jornada va ser de revisar SDKs, canvis de compilació i compatibilitat abans que arribe la gran campanya de tardor."
+          },
+          "source": "Apple Developer",
+          "url": "https://developer.apple.com/news/releases/",
+          "links": [
+            {
+              "title": {
+                "es": "Releases de Apple Developer",
+                "en": "Apple Developer releases",
+                "val": "Versions d'Apple Developer"
+              },
+              "url": "https://developer.apple.com/news/releases/"
+            },
+            {
+              "title": {
+                "es": "Documentación de Xcode",
+                "en": "Xcode documentation",
+                "val": "Documentació de Xcode"
+              },
+              "url": "https://developer.apple.com/documentation/xcode"
+            },
+            {
+              "title": {
+                "es": "Portal de desarrolladores",
+                "en": "Developer portal",
+                "val": "Portal de desenvolupadors"
+              },
+              "url": "https://developer.apple.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La factura oculta del coding con IA: más velocidad, pero también bloqueo",
+            "en": "The hidden bill of AI coding: more speed, but also paralysis",
+            "val": "La factura oculta del coding amb IA: més velocitat, però també bloqueig"
+          },
+          "summary": {
+            "es": "Un informe de Business Insider apunta a un efecto incómodo de las herramientas de programación con IA: más prototipos, más ruido y equipos que se quedan bloqueados revisando grandes volúmenes de código generado. La lección para devs es práctica: usar IA sin tests, límites y revisión humana convierte el ahorro inicial en deuda técnica.",
+            "en": "A Business Insider report points to an uncomfortable effect of AI coding tools: more prototypes, more noise and teams getting stuck reviewing large volumes of generated code. The practical lesson for developers is clear: using AI without tests, limits and human review turns the initial saving into technical debt.",
+            "val": "Un informe de Business Insider apunta a un efecte incòmode de les eines de programació amb IA: més prototips, més soroll i equips que es queden bloquejats revisant grans volums de codi generat. La lliçó per a devs és pràctica: usar IA sense tests, límits i revisió humana convertix l'estalvi inicial en deute tècnic."
+          },
+          "source": "Business Insider",
+          "url": "https://www.businessinsider.com/ai-coding-tools-software-engineers-workplace-paralysis-2026-6",
+          "links": [
+            {
+              "title": {
+                "es": "Informe de Business Insider",
+                "en": "Business Insider report",
+                "val": "Informe de Business Insider"
+              },
+              "url": "https://www.businessinsider.com/ai-coding-tools-software-engineers-workplace-paralysis-2026-6"
+            },
+            {
+              "title": {
+                "es": "Stack Overflow Blog",
+                "en": "Stack Overflow Blog",
+                "val": "Stack Overflow Blog"
+              },
+              "url": "https://stackoverflow.blog/"
+            },
+            {
+              "title": {
+                "es": "GitHub Blog",
+                "en": "GitHub Blog",
+                "val": "GitHub Blog"
+              },
+              "url": "https://github.blog/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "El laboratorio más frío de la NASA recibe una actualización en órbita",
+            "en": "NASA's coldest lab gets an orbital upgrade",
+            "val": "El laboratori més fred de la NASA rep una actualització en òrbita"
+          },
+          "summary": {
+            "es": "El Cold Atom Lab de la Estación Espacial Internacional recibió mejoras para estudiar formas exóticas de materia en microgravedad, con átomos enfriados casi al cero absoluto. La ventaja de hacerlo en órbita es que las nubes cuánticas duran más y permiten medir fenómenos que en la Tierra desaparecen demasiado rápido.",
+            "en": "The Cold Atom Lab aboard the International Space Station received upgrades to study exotic states of matter in microgravity, using atoms chilled to near absolute zero. Doing this in orbit lets quantum clouds last longer, making it possible to measure phenomena that vanish too quickly on Earth.",
+            "val": "El Cold Atom Lab de l'Estació Espacial Internacional va rebre millores per a estudiar formes exòtiques de matèria en microgravetat, amb àtoms refredats quasi al zero absolut. L'avantatge de fer-ho en òrbita és que els núvols quàntics duren més i permeten mesurar fenòmens que en la Terra desapareixen massa ràpid."
+          },
+          "source": "NASA JPL",
+          "url": "https://www.jpl.nasa.gov/news/nasas-cold-atom-lab-gets-a-chilly-upgrade-on-space-station",
+          "links": [
+            {
+              "title": {
+                "es": "NASA JPL",
+                "en": "NASA JPL",
+                "val": "NASA JPL"
+              },
+              "url": "https://www.jpl.nasa.gov/news/nasas-cold-atom-lab-gets-a-chilly-upgrade-on-space-station"
+            },
+            {
+              "title": {
+                "es": "ScienceDaily",
+                "en": "ScienceDaily",
+                "val": "ScienceDaily"
+              },
+              "url": "https://www.sciencedaily.com/releases/2026/06/260623113551.htm"
+            },
+            {
+              "title": {
+                "es": "NASA Cold Atom Lab",
+                "en": "NASA Cold Atom Lab",
+                "val": "NASA Cold Atom Lab"
+              },
+              "url": "https://coldatomlab.jpl.nasa.gov/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Un meteorito raro apunta a un mundo perdido del amanecer del Sistema Solar",
+            "en": "A rare meteorite points to a lost world from the Solar System's dawn",
+            "val": "Un meteorit rar apunta a un món perdut de l'alba del Sistema Solar"
+          },
+          "summary": {
+            "es": "El análisis de un meteorito primitivo sugiere restos de un cuerpo del tamaño de una luna que pudo existir durante las primeras etapas del Sistema Solar. Es una pista valiosa porque esos objetos embrionarios fueron devorados, expulsados o destruidos en colisiones que apenas dejaron rastros directos.",
+            "en": "Analysis of a primitive meteorite suggests remnants of a moon-sized body that may have existed during the Solar System's earliest stages. That matters because such embryonic worlds were later swallowed, ejected or smashed apart, leaving few direct traces.",
+            "val": "L'anàlisi d'un meteorit primitiu suggerix restes d'un cos de la grandària d'una lluna que podria haver existit durant les primeres etapes del Sistema Solar. És una pista valuosa perquè aquells objectes embrionaris van ser engolits, expulsats o destruïts en col·lisions que quasi no deixaren rastres directes."
+          },
+          "source": "ScienceDaily",
+          "url": "https://www.sciencedaily.com/releases/2026/06/260623113238.htm",
+          "links": [
+            {
+              "title": {
+                "es": "ScienceDaily",
+                "en": "ScienceDaily",
+                "val": "ScienceDaily"
+              },
+              "url": "https://www.sciencedaily.com/releases/2026/06/260623113238.htm"
+            },
+            {
+              "title": {
+                "es": "Phys.org",
+                "en": "Phys.org",
+                "val": "Phys.org"
+              },
+              "url": "https://phys.org/news/2026-06-rare-meteorite-reveals-lost-moon.html"
+            },
+            {
+              "title": {
+                "es": "Contexto de meteoritos en NASA",
+                "en": "NASA meteorite context",
+                "val": "Context de meteorits en NASA"
+              },
+              "url": "https://solarsystem.nasa.gov/asteroids-comets-and-meteors/meteors-and-meteorites/overview/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Una terapia vascular reduce el dolor de rodilla y podría retrasar prótesis",
+            "en": "A vascular therapy reduces knee pain and could delay replacement surgery",
+            "val": "Una teràpia vascular reduïx el dolor de genoll i podria retardar pròtesis"
+          },
+          "summary": {
+            "es": "La embolización de arterias geniculares aparece como una opción prometedora para pacientes con artrosis de rodilla que no responden bien a tratamientos conservadores. La técnica busca reducir la inflamación cortando parte del flujo anómalo, con el objetivo de aliviar dolor y ganar tiempo antes de una prótesis.",
+            "en": "Genicular artery embolization is emerging as a promising option for knee osteoarthritis patients who do not respond well to conservative treatments. The technique aims to reduce inflammation by cutting part of the abnormal blood flow, easing pain and potentially buying time before replacement surgery.",
+            "val": "L'embolització d'artèries geniculars apareix com una opció prometedora per a pacients amb artrosi de genoll que no responen bé a tractaments conservadors. La tècnica busca reduir la inflamació tallant part del flux anòmal, amb l'objectiu d'alleujar dolor i guanyar temps abans d'una pròtesi."
+          },
+          "source": "ScienceDaily",
+          "url": "https://www.sciencedaily.com/releases/2026/06/260622174632.htm",
+          "links": [
+            {
+              "title": {
+                "es": "ScienceDaily",
+                "en": "ScienceDaily",
+                "val": "ScienceDaily"
+              },
+              "url": "https://www.sciencedaily.com/releases/2026/06/260622174632.htm"
+            },
+            {
+              "title": {
+                "es": "Cobertura de Reuters",
+                "en": "Reuters coverage",
+                "val": "Cobertura de Reuters"
+              },
+              "url": "https://www.reuters.com/science/"
+            },
+            {
+              "title": {
+                "es": "Información clínica general",
+                "en": "Clinical background",
+                "val": "Informació clínica general"
+              },
+              "url": "https://www.hopkinsmedicine.org/health/treatment-tests-and-therapies/genicular-artery-embolization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "La tecnología arrastra a Wall Street y deja una sesión global defensiva",
+            "en": "Tech drags Wall Street into a defensive global session",
+            "val": "La tecnologia arrossega Wall Street i deixa una sessió global defensiva"
+          },
+          "summary": {
+            "es": "Los mercados globales cerraron con tono débil tras una venta intensa en tecnológicas y expectativas de más presión monetaria de la Reserva Federal. El Nasdaq llegó a perder más de un 2%, recordando que la concentración en grandes valores de IA también amplifica las correcciones cuando cambia el apetito por riesgo.",
+            "en": "Global markets turned defensive after a sharp tech selloff and renewed expectations of more Federal Reserve pressure. The Nasdaq fell more than 2% at one point, a reminder that heavy concentration in AI megacaps also amplifies corrections when risk appetite changes.",
+            "val": "Els mercats globals van tancar amb to dèbil després d'una venda intensa en tecnològiques i expectatives de més pressió monetària de la Reserva Federal. El Nasdaq va arribar a perdre més d'un 2%, recordant que la concentració en grans valors d'IA també amplifica les correccions quan canvia l'apetit pel risc."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/asia-pacific/global-markets-global-markets-2026-06-23/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters mercados globales",
+                "en": "Reuters global markets",
+                "val": "Reuters mercats globals"
+              },
+              "url": "https://www.reuters.com/world/asia-pacific/global-markets-global-markets-2026-06-23/"
+            },
+            {
+              "title": {
+                "es": "Cobertura de The Guardian",
+                "en": "The Guardian coverage",
+                "val": "Cobertura de The Guardian"
+              },
+              "url": "https://www.theguardian.com/business/live/2026/jun/23/technology-stocks-selloff-markets-ftse-wall-street-business-live"
+            },
+            {
+              "title": {
+                "es": "MarketWatch",
+                "en": "MarketWatch",
+                "val": "MarketWatch"
+              },
+              "url": "https://www.marketwatch.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Prime Day se adelanta y activa una guerra comercial de cuatro días",
+            "en": "Prime Day starts early and triggers a four-day retail fight",
+            "val": "Prime Day s'avança i activa una guerra comercial de quatre dies"
+          },
+          "summary": {
+            "es": "Amazon arrancó su Prime Day del 23 al 26 de junio, y rivales como Walmart o Target aprovecharon la ventana para competir con promociones propias. Para el consumo, la clave está en si los descuentos concentran compras que iban a ocurrir igualmente o si logran reactivar demanda en electrónica y hogar.",
+            "en": "Amazon kicked off Prime Day from June 23 to June 26, while rivals such as Walmart and Target used the window to counter with their own promotions. For consumer demand, the key question is whether discounts merely pull forward purchases that would have happened anyway or actually revive electronics and home spending.",
+            "val": "Amazon va arrancar el seu Prime Day del 23 al 26 de juny, i rivals com Walmart o Target van aprofitar la finestra per a competir amb promocions pròpies. Per al consum, la clau és si els descomptes concentren compres que ja haurien ocorregut o si aconseguixen reactivar demanda en electrònica i llar."
+          },
+          "source": "Amazon / AS",
+          "url": "https://www.aboutamazon.com/news/retail/amazon-prime-day-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio de Amazon",
+                "en": "Amazon announcement",
+                "val": "Anunci d'Amazon"
+              },
+              "url": "https://www.aboutamazon.com/news/retail/amazon-prime-day-2026"
+            },
+            {
+              "title": {
+                "es": "Cobertura de AS USA",
+                "en": "AS USA coverage",
+                "val": "Cobertura d'AS USA"
+              },
+              "url": "https://en.as.com/latest_news/amazon-prime-day-2026-is-here-best-deals-from-amazon-walmart-target-and-more-n/"
+            },
+            {
+              "title": {
+                "es": "CNBC retail",
+                "en": "CNBC retail",
+                "val": "CNBC retail"
+              },
+              "url": "https://www.cnbc.com/retail/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La ola de calor europea vuelve a entrar en la cuenta económica",
+            "en": "Europe's heatwave is back on the economic bill",
+            "val": "L'onada de calor europea torna a entrar en el compte econòmic"
+          },
+          "summary": {
+            "es": "La nueva ola de calor en Europa reabre el debate sobre costes laborales, productividad, salud pública y presión energética. No es solo una noticia meteorológica: cuando los picos de temperatura se alargan, afectan a agricultura, construcción, turismo y redes eléctricas.",
+            "en": "Europe's latest heatwave has reopened the debate over labour costs, productivity, public health and energy-system stress. It is not just a weather story: when heat spikes last longer, they affect agriculture, construction, tourism and electricity grids.",
+            "val": "La nova onada de calor a Europa reobri el debat sobre costos laborals, productivitat, salut pública i pressió energètica. No és només una notícia meteorològica: quan els pics de temperatura s'allarguen, afecten agricultura, construcció, turisme i xarxes elèctriques."
+          },
+          "source": "Le Monde",
+          "url": "https://www.lemonde.fr/en/economy/article/2026/06/24/heatwaves-have-long-term-economic-impact-in-france_6742762_19.html",
+          "links": [
+            {
+              "title": {
+                "es": "Análisis en Le Monde",
+                "en": "Le Monde analysis",
+                "val": "Anàlisi en Le Monde"
+              },
+              "url": "https://www.lemonde.fr/en/economy/article/2026/06/24/heatwaves-have-long-term-economic-impact-in-france_6742762_19.html"
+            },
+            {
+              "title": {
+                "es": "RTVE sobre la ola de calor",
+                "en": "RTVE heatwave report",
+                "val": "RTVE sobre l'onada de calor"
+              },
+              "url": "https://www.rtve.es/noticias/20260624/ola-calor-europa-ahogamientos-francia-alertas-italia-reino-unido-alemania-belgica-portugal-espana/17185168.shtml"
+            },
+            {
+              "title": {
+                "es": "Agencia Europea de Medio Ambiente",
+                "en": "European Environment Agency",
+                "val": "Agència Europea de Medi Ambient"
+              },
+              "url": "https://www.eea.europa.eu/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin defiende los 62.000 dólares tras otra barrida de riesgo",
+            "en": "Bitcoin defends $62,000 after another risk-off sweep",
+            "val": "Bitcoin defensa els 62.000 dòlars després d'una altra agranada de risc"
+          },
+          "summary": {
+            "es": "Bitcoin cotizó alrededor de los 62.300 dólares después de una venta de mercado que golpeó también a las tecnológicas. La presión vino de liquidaciones, menor liquidez y un dólar más fuerte, pero el activo sigue siendo el termómetro central de todo el mercado cripto.",
+            "en": "Bitcoin traded around $62,300 after a market selloff that also hit technology stocks. Pressure came from liquidations, thinner liquidity and a stronger dollar, but the asset remains the central thermometer for the whole crypto market.",
+            "val": "Bitcoin va cotitzar al voltant dels 62.300 dòlars després d'una venda de mercat que també va colpejar les tecnològiques. La pressió va vindre de liquidacions, menor liquiditat i un dòlar més fort, però l'actiu continua sent el termòmetre central de tot el mercat cripto."
+          },
+          "shortTerm": {
+            "es": "A corto plazo, el rango crítico está entre 59.000 y 64.000 dólares. Perder 59.000 abriría una caída técnica adicional; recuperar 64.500-65.000 aliviaría presión y devolvería compras tácticas.",
+            "en": "Short term, the critical range is between $59,000 and $64,000. Losing $59,000 would open further technical downside; reclaiming $64,500-$65,000 would ease pressure and bring tactical buyers back.",
+            "val": "A curt termini, el rang crític està entre 59.000 i 64.000 dòlars. Perdre 59.000 obriria una caiguda tècnica addicional; recuperar 64.500-65.000 alleujaria pressió i tornaria compres tàctiques."
+          },
+          "longTerm": {
+            "es": "A largo plazo, BTC mantiene narrativa de activo escaso, pero necesita que vuelvan entradas constantes y apetito por riesgo. La zona de 58.000-60.000 queda como soporte psicológico de ciclo.",
+            "en": "Long term, BTC keeps its scarce-asset narrative, but it needs steady inflows and renewed risk appetite. The $58,000-$60,000 area remains the cycle's psychological support zone.",
+            "val": "A llarg termini, BTC manté la narrativa d'actiu escàs, però necessita que tornen entrades constants i apetit pel risc. La zona de 58.000-60.000 queda com a suport psicològic de cicle."
+          },
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/markets/2026/06/23/crypto-markets-drop-bitcoin-falls-under-usd63k-as-tech-selloff-and-liquidations-hit",
+          "links": [
+            {
+              "title": {
+                "es": "Mercado en CoinDesk",
+                "en": "CoinDesk market report",
+                "val": "Mercat en CoinDesk"
+              },
+              "url": "https://www.coindesk.com/markets/2026/06/23/crypto-markets-drop-bitcoin-falls-under-usd63k-as-tech-selloff-and-liquidations-hit"
+            },
+            {
+              "title": {
+                "es": "Precio BTC",
+                "en": "BTC price",
+                "val": "Preu BTC"
+              },
+              "url": "https://www.coindesk.com/price/bitcoin"
+            },
+            {
+              "title": {
+                "es": "Cointelegraph mercados",
+                "en": "Cointelegraph markets",
+                "val": "Cointelegraph mercats"
+              },
+              "url": "https://cointelegraph.com/tags/bitcoin"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Ethereum pierde tracción y mira los 1.650 dólares",
+            "en": "Ethereum loses traction and watches $1,650",
+            "val": "Ethereum perd tracció i mira els 1.650 dòlars"
+          },
+          "summary": {
+            "es": "Ethereum cayó hacia la zona de 1.650 dólares, con peor comportamiento relativo que Bitcoin durante la sesión. El mercado sigue esperando catalizadores propios más allá de la beta cripto general: actividad en L2, flujos institucionales y uso real de aplicaciones.",
+            "en": "Ethereum slid toward the $1,650 area, underperforming Bitcoin during the session. The market is still waiting for its own catalysts beyond broad crypto beta: L2 activity, institutional flows and real application usage.",
+            "val": "Ethereum va caure cap a la zona de 1.650 dòlars, amb pitjor comportament relatiu que Bitcoin durant la sessió. El mercat continua esperant catalitzadors propis més enllà de la beta cripto general: activitat en L2, fluxos institucionals i ús real d'aplicacions."
+          },
+          "shortTerm": {
+            "es": "A corto plazo, ETH necesita recuperar 1.700-1.720 dólares para cambiar el tono. Por debajo de 1.620, aumenta el riesgo de una visita a soportes inferiores.",
+            "en": "Short term, ETH needs to reclaim $1,700-$1,720 to change tone. Below $1,620, the risk of a move toward lower supports increases.",
+            "val": "A curt termini, ETH necessita recuperar 1.700-1.720 dòlars per a canviar el to. Per davall de 1.620, augmenta el risc d'una visita a suports inferiors."
+          },
+          "longTerm": {
+            "es": "A largo plazo, la tesis depende de que Ethereum vuelva a capturar valor de su ecosistema. Si las L2 crecen sin trasladar demanda a la capa base, la valoración seguirá bajo presión.",
+            "en": "Long term, the thesis depends on Ethereum recapturing value from its ecosystem. If L2s keep growing without passing demand back to the base layer, valuation pressure will remain.",
+            "val": "A llarg termini, la tesi depén que Ethereum torne a capturar valor del seu ecosistema. Si les L2 creixen sense traslladar demanda a la capa base, la valoració continuarà sota pressió."
+          },
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/markets/2026/06/23/crypto-markets-drop-bitcoin-falls-under-usd63k-as-tech-selloff-and-liquidations-hit",
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk mercados",
+                "en": "CoinDesk markets",
+                "val": "CoinDesk mercats"
+              },
+              "url": "https://www.coindesk.com/markets/2026/06/23/crypto-markets-drop-bitcoin-falls-under-usd63k-as-tech-selloff-and-liquidations-hit"
+            },
+            {
+              "title": {
+                "es": "Precio ETH",
+                "en": "ETH price",
+                "val": "Preu ETH"
+              },
+              "url": "https://www.coindesk.com/price/ethereum"
+            },
+            {
+              "title": {
+                "es": "The Block Ethereum",
+                "en": "The Block Ethereum",
+                "val": "The Block Ethereum"
+              },
+              "url": "https://www.theblock.co/tags/ethereum"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Solana aguanta como altcoin de referencia, pero no escapa al golpe",
+            "en": "Solana holds as a reference altcoin, but does not escape the hit",
+            "val": "Solana aguanta com a altcoin de referència, però no escapa del colp"
+          },
+          "summary": {
+            "es": "Solana se mantuvo cerca de 69 dólares, mostrando resistencia relativa frente a otras altcoins pero sin quedar fuera de la aversión al riesgo. El mercado sigue atento a actividad on-chain, memecoins y aplicaciones de consumo, que son su principal diferenciador frente a otras capas 1.",
+            "en": "Solana held near $69, showing relative resilience versus other altcoins but not escaping the broader risk-off move. The market remains focused on on-chain activity, memecoins and consumer applications, its main differentiator against other layer-1 networks.",
+            "val": "Solana es va mantindre prop de 69 dòlars, mostrant resistència relativa davant altres altcoins però sense quedar fora de l'aversió al risc. El mercat continua atent a l'activitat on-chain, memecoins i aplicacions de consum, el seu principal diferenciador davant altres capes 1."
+          },
+          "shortTerm": {
+            "es": "A corto plazo, SOL necesita sostener 66-68 dólares. Una recuperación por encima de 72-74 activaría mejor tono en altcoins de alta beta.",
+            "en": "Short term, SOL needs to hold $66-$68. A recovery above $72-$74 would improve the tone for high-beta altcoins.",
+            "val": "A curt termini, SOL necessita sostindre 66-68 dòlars. Una recuperació per damunt de 72-74 activaria millor to en altcoins d'alta beta."
+          },
+          "longTerm": {
+            "es": "A largo plazo, Solana conserva una tesis fuerte si mantiene usuarios reales y comisiones competitivas. El riesgo es que la narrativa de consumo no compense un entorno macro más duro.",
+            "en": "Long term, Solana keeps a strong thesis if it maintains real users and competitive fees. The risk is that the consumer narrative may not offset a tougher macro environment.",
+            "val": "A llarg termini, Solana conserva una tesi forta si manté usuaris reals i comissions competitives. El risc és que la narrativa de consum no compense un entorn macro més dur."
+          },
+          "source": "CoinDesk",
+          "url": "https://www.coindesk.com/price/solana",
+          "links": [
+            {
+              "title": {
+                "es": "Precio SOL en CoinDesk",
+                "en": "SOL price at CoinDesk",
+                "val": "Preu SOL en CoinDesk"
+              },
+              "url": "https://www.coindesk.com/price/solana"
+            },
+            {
+              "title": {
+                "es": "Decrypt Solana",
+                "en": "Decrypt Solana",
+                "val": "Decrypt Solana"
+              },
+              "url": "https://decrypt.co/crypto-news/solana"
+            },
+            {
+              "title": {
+                "es": "Blockworks Solana",
+                "en": "Blockworks Solana",
+                "val": "Blockworks Solana"
+              },
+              "url": "https://blockworks.co/tag/solana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "El Senado de EE. UU. vota limitar una guerra con Irán",
+            "en": "The U.S. Senate votes to limit war with Iran",
+            "val": "El Senat dels EUA vota limitar una guerra amb l'Iran"
+          },
+          "summary": {
+            "es": "El Senado estadounidense aprobó una resolución para frenar una guerra no autorizada con Irán, un raro aviso bipartidista al Ejecutivo. La tensión sigue viva porque Washington y Teherán discrepan sobre inspecciones nucleares y activos congelados en cualquier acuerdo para cerrar la crisis.",
+            "en": "The U.S. Senate passed a resolution to block an unauthorized war with Iran, a rare bipartisan warning to the executive branch. Tensions remain high because Washington and Tehran still disagree over nuclear inspections and frozen assets in any deal to end the crisis.",
+            "val": "El Senat estatunidenc va aprovar una resolució per a frenar una guerra no autoritzada amb l'Iran, un avís bipartidista poc habitual a l'Executiu. La tensió continua viva perquè Washington i Teheran discrepen sobre inspeccions nuclears i actius congelats en qualsevol acord per a tancar la crisi."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/us-senate-joins-house-halt-iran-war-rare-bipartisan-rebuke-trump-2026-06-23/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters sobre la votación",
+                "en": "Reuters on the vote",
+                "val": "Reuters sobre la votació"
+              },
+              "url": "https://www.reuters.com/world/us-senate-joins-house-halt-iran-war-rare-bipartisan-rebuke-trump-2026-06-23/"
+            },
+            {
+              "title": {
+                "es": "Reuters sobre las negociaciones",
+                "en": "Reuters on negotiations",
+                "val": "Reuters sobre les negociacions"
+              },
+              "url": "https://www.reuters.com/world/us/us-iran-at-odds-nuclear-inspections-frozen-assets-deal-end-war-2026-06-24/"
+            },
+            {
+              "title": {
+                "es": "Al Jazeera",
+                "en": "Al Jazeera",
+                "val": "Al Jazeera"
+              },
+              "url": "https://www.aljazeera.com/news/2026/6/24/us-senate-votes-to-pass-iran-war-powers-resolution"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Europa encadena calor extrema, alertas y ahogamientos",
+            "en": "Europe faces extreme heat, alerts and drownings",
+            "val": "Europa encadena calor extrema, alertes i ofegaments"
+          },
+          "summary": {
+            "es": "La ola de calor dejó alertas en buena parte de Europa y episodios graves, con Francia informando de decenas de ahogamientos en plena subida de temperaturas. España también afrontó picos de hasta 44 ºC y noches tórridas, un patrón que ya mezcla emergencia climática, salud pública y turismo.",
+            "en": "The heatwave brought alerts across much of Europe and serious incidents, with France reporting dozens of drownings as temperatures climbed. Spain also faced peaks of up to 44°C and torrid nights, a pattern that now mixes climate emergency, public health and tourism.",
+            "val": "L'onada de calor va deixar alertes en bona part d'Europa i episodis greus, amb França informant de desenes d'ofegaments en plena pujada de temperatures. Espanya també va afrontar pics de fins a 44 ºC i nits tòrrides, un patró que ja mescla emergència climàtica, salut pública i turisme."
+          },
+          "source": "RTVE",
+          "url": "https://www.rtve.es/noticias/20260624/ola-calor-europa-ahogamientos-francia-alertas-italia-reino-unido-alemania-belgica-portugal-espana/17185168.shtml",
+          "links": [
+            {
+              "title": {
+                "es": "RTVE Europa",
+                "en": "RTVE Europe",
+                "val": "RTVE Europa"
+              },
+              "url": "https://www.rtve.es/noticias/20260624/ola-calor-europa-ahogamientos-francia-alertas-italia-reino-unido-alemania-belgica-portugal-espana/17185168.shtml"
+            },
+            {
+              "title": {
+                "es": "RTVE España",
+                "en": "RTVE Spain",
+                "val": "RTVE Espanya"
+              },
+              "url": "https://www.rtve.es/noticias/20260624/ola-calor-espana-temperaturas-44-grados-noches-torridas/17185174.shtml"
+            },
+            {
+              "title": {
+                "es": "The Guardian Francia",
+                "en": "The Guardian France",
+                "val": "The Guardian França"
+              },
+              "url": "https://www.theguardian.com/world/2026/jun/24/france-records-hottest-day-ever-as-heatwave-sweeps-europe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "EE. UU. presiona a Meta para someter sus modelos de IA a revisión voluntaria",
+            "en": "The U.S. presses Meta to submit AI models for voluntary review",
+            "val": "Els EUA pressionen Meta perquè sotmeta els seus models d'IA a revisió voluntària"
+          },
+          "summary": {
+            "es": "El gobierno estadounidense está presionando a Meta para que entregue sus modelos de IA a revisiones voluntarias de seguridad, una vía a la que ya se han sumado otros grandes laboratorios. La noticia importa porque convierte la evaluación previa en un estándar de facto incluso sin una ley dura y completa.",
+            "en": "The U.S. government is pressing Meta to submit its AI models to voluntary safety reviews, a path already joined by other major labs. The story matters because pre-release evaluation is becoming a de facto standard even without a full hard-law framework.",
+            "val": "El govern estatunidenc està pressionant Meta perquè entregue els seus models d'IA a revisions voluntàries de seguretat, una via a la qual ja s'han sumat altres grans laboratoris. La notícia importa perquè convertix l'avaluació prèvia en un estàndard de facto encara sense una llei dura i completa."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/technology/us-presses-meta-submit-ai-models-voluntary-government-review-sources-say-2026-06-24/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/technology/us-presses-meta-submit-ai-models-voluntary-government-review-sources-say-2026-06-24/"
+            },
+            {
+              "title": {
+                "es": "NIST AI Safety Institute",
+                "en": "NIST AI Safety Institute",
+                "val": "NIST AI Safety Institute"
+              },
+              "url": "https://www.nist.gov/artificial-intelligence/artificial-intelligence-safety-institute"
+            },
+            {
+              "title": {
+                "es": "Meta AI",
+                "en": "Meta AI",
+                "val": "Meta AI"
+              },
+              "url": "https://ai.meta.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Anthropic queda en el centro del debate por modelos restringidos y pruebas de seguridad",
+            "en": "Anthropic sits at the center of the debate over restricted models and security tests",
+            "val": "Anthropic queda al centre del debat per models restringits i proves de seguretat"
+          },
+          "summary": {
+            "es": "Anthropic restringió el acceso a modelos sensibles como Fable/Mythos y, en paralelo, un informe de AP señala que uno de sus sistemas halló vulnerabilidades en entornos clasificados durante pruebas de seguridad. El caso resume el dilema de la IA avanzada: más capacidad útil también significa más necesidad de control de acceso.",
+            "en": "Anthropic restricted access to sensitive models such as Fable/Mythos while an AP report says one of its systems found vulnerabilities in classified environments during security tests. The case sums up the advanced-AI dilemma: more useful capability also means a greater need for access control.",
+            "val": "Anthropic va restringir l'accés a models sensibles com Fable/Mythos i, en paral·lel, un informe d'AP assenyala que un dels seus sistemes va trobar vulnerabilitats en entorns classificats durant proves de seguretat. El cas resumix el dilema de la IA avançada: més capacitat útil també significa més necessitat de control d'accés."
+          },
+          "source": "AP / Anthropic",
+          "url": "https://apnews.com/article/3e8762c0527c4d8ed657cbe48c84a718",
+          "links": [
+            {
+              "title": {
+                "es": "Informe de AP",
+                "en": "AP report",
+                "val": "Informe d'AP"
+              },
+              "url": "https://apnews.com/article/3e8762c0527c4d8ed657cbe48c84a718"
+            },
+            {
+              "title": {
+                "es": "Página de Anthropic",
+                "en": "Anthropic page",
+                "val": "Pàgina d'Anthropic"
+              },
+              "url": "https://www.anthropic.com/news"
+            },
+            {
+              "title": {
+                "es": "Cobertura de Business Insider",
+                "en": "Business Insider coverage",
+                "val": "Cobertura de Business Insider"
+              },
+              "url": "https://www.businessinsider.com/legion-suing-us-government-anthropic-ai-model-access-restrictions-2026-6"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Google DeepMind sufre nuevas salidas de talento hacia rivales de IA",
+            "en": "Google DeepMind sees more AI talent departures to rivals",
+            "val": "Google DeepMind patix noves eixides de talent cap a rivals d'IA"
+          },
+          "summary": {
+            "es": "La salida de perfiles de alto nivel de Google DeepMind hacia competidores vuelve a mostrar que la guerra por talento en IA sigue siendo tan importante como la de chips o datos. Para el lector, la consecuencia práctica es clara: los próximos saltos de producto pueden depender tanto de equipos concretos como de modelos concretos.",
+            "en": "High-profile departures from Google DeepMind to rivals again show that the AI talent war remains as important as the fight for chips or data. For readers, the practical takeaway is clear: the next product leaps may depend as much on specific teams as on specific models.",
+            "val": "L'eixida de perfils d'alt nivell de Google DeepMind cap a competidors torna a mostrar que la guerra pel talent en IA continua sent tan important com la de xips o dades. Per al lector, la conseqüència pràctica és clara: els pròxims salts de producte poden dependre tant d'equips concrets com de models concrets."
+          },
+          "source": "Axios",
+          "url": "https://www.axios.com/2026/06/23/ai-lab-agi-google-deepmind-departures",
+          "links": [
+            {
+              "title": {
+                "es": "Axios",
+                "en": "Axios",
+                "val": "Axios"
+              },
+              "url": "https://www.axios.com/2026/06/23/ai-lab-agi-google-deepmind-departures"
+            },
+            {
+              "title": {
+                "es": "Google DeepMind Blog",
+                "en": "Google DeepMind Blog",
+                "val": "Google DeepMind Blog"
+              },
+              "url": "https://deepmind.google/discover/blog/"
+            },
+            {
+              "title": {
+                "es": "MIT Technology Review AI",
+                "en": "MIT Technology Review AI",
+                "val": "MIT Technology Review AI"
+              },
+              "url": "https://www.technologyreview.com/topic/artificial-intelligence/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Qualcomm negocia diseñar chips personalizados para ByteDance",
+            "en": "Qualcomm is in talks to design custom chips for ByteDance",
+            "val": "Qualcomm negocia dissenyar xips personalitzats per a ByteDance"
+          },
+          "summary": {
+            "es": "Qualcomm mantiene conversaciones para ofrecer servicios de diseño de chips personalizados a ByteDance, una señal de que quiere diversificar más allá de móviles y módems. Si prospera, el movimiento la acercaría al negocio de silicio a medida para IA, vídeo y centros de datos ligeros.",
+            "en": "Qualcomm is in talks to provide custom chip-design services to ByteDance, a sign that it wants to diversify beyond phones and modems. If it moves forward, the deal would push Qualcomm closer to custom silicon for AI, video and lighter data-center workloads.",
+            "val": "Qualcomm manté converses per a oferir serveis de disseny de xips personalitzats a ByteDance, un senyal que vol diversificar més enllà de mòbils i mòdems. Si prospera, el moviment l'acostaria al negoci de silici a mida per a IA, vídeo i centres de dades lleugers."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/technology/qualcomm-talks-provide-custom-chip-design-services-bytedance-sources-say-2026-06-24/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/technology/qualcomm-talks-provide-custom-chip-design-services-bytedance-sources-say-2026-06-24/"
+            },
+            {
+              "title": {
+                "es": "Qualcomm",
+                "en": "Qualcomm",
+                "val": "Qualcomm"
+              },
+              "url": "https://www.qualcomm.com/"
+            },
+            {
+              "title": {
+                "es": "Contexto en TradingView",
+                "en": "TradingView context",
+                "val": "Context en TradingView"
+              },
+              "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N3UO34L:0-qualcomm-in-talks-to-provide-custom-chip-design-services-to-bytedance-sources-say/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "HPE presume de un Cray GX5000 con hasta 81.920 núcleos y memoria masiva",
+            "en": "HPE touts a Cray GX5000 with up to 81,920 cores and massive memory",
+            "val": "HPE presumix d'un Cray GX5000 amb fins a 81.920 nuclis i memòria massiva"
+          },
+          "summary": {
+            "es": "El nuevo HPE Cray GX5000 apunta a supercomputación modular con CPUs AMD EPYC Venice, escalando hasta decenas de miles de núcleos y 1,28 PB de RAM. Es una señal de hacia dónde va el HPC: nodos más densos para IA científica, simulación y cargas híbridas CPU/GPU.",
+            "en": "The new HPE Cray GX5000 targets modular supercomputing with AMD EPYC Venice CPUs, scaling to tens of thousands of cores and 1.28 PB of RAM. It signals where HPC is heading: denser nodes for scientific AI, simulation and hybrid CPU/GPU workloads.",
+            "val": "El nou HPE Cray GX5000 apunta a supercomputació modular amb CPUs AMD EPYC Venice, escalant fins a desenes de milers de nuclis i 1,28 PB de RAM. És un senyal de cap a on va l'HPC: nodes més densos per a IA científica, simulació i càrregues híbrides CPU/GPU."
+          },
+          "source": "TechRadar",
+          "url": "https://www.techradar.com/pro/hpe-has-built-a-crazy-supercomputer-with-up-to-81920-cpu-cores-and-128pb-of-ram-powered-by-amds-next-gen-epyc-venice-cpus",
+          "links": [
+            {
+              "title": {
+                "es": "TechRadar",
+                "en": "TechRadar",
+                "val": "TechRadar"
+              },
+              "url": "https://www.techradar.com/pro/hpe-has-built-a-crazy-supercomputer-with-up-to-81920-cpu-cores-and-128pb-of-ram-powered-by-amds-next-gen-epyc-venice-cpus"
+            },
+            {
+              "title": {
+                "es": "HPE Cray",
+                "en": "HPE Cray",
+                "val": "HPE Cray"
+              },
+              "url": "https://www.hpe.com/us/en/compute/hpc/cray.html"
+            },
+            {
+              "title": {
+                "es": "AMD EPYC",
+                "en": "AMD EPYC",
+                "val": "AMD EPYC"
+              },
+              "url": "https://www.amd.com/en/products/processors/server/epyc.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "NVIDIA RTX Spark perfila el PC compacto para agentes de IA",
+            "en": "NVIDIA RTX Spark sketches the compact PC for AI agents",
+            "val": "NVIDIA RTX Spark perfila el PC compacte per a agents d'IA"
+          },
+          "summary": {
+            "es": "NVIDIA mantiene viva la idea de equipos compactos para desarrollo local de IA con RTX Spark, combinando CPU Arm, GPU Blackwell y memoria compartida abundante. El mensaje para creadores y devs es claro: no todo el trabajo con agentes tiene que vivir en la nube si el hardware local se especializa lo suficiente.",
+            "en": "NVIDIA is keeping alive the idea of compact machines for local AI development with RTX Spark, combining Arm CPU cores, a Blackwell GPU and plenty of shared memory. The message for creators and developers is clear: not all agent work has to live in the cloud if local hardware becomes specialized enough.",
+            "val": "NVIDIA manté viva la idea d'equips compactes per al desenvolupament local d'IA amb RTX Spark, combinant CPU Arm, GPU Blackwell i memòria compartida abundant. El missatge per a creadors i devs és clar: no tot el treball amb agents ha de viure en el núvol si el maquinari local s'especialitza prou."
+          },
+          "source": "Tom's Hardware",
+          "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-rtx-spark-specifications-revealed",
+          "links": [
+            {
+              "title": {
+                "es": "Tom's Hardware",
+                "en": "Tom's Hardware",
+                "val": "Tom's Hardware"
+              },
+              "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-rtx-spark-specifications-revealed"
+            },
+            {
+              "title": {
+                "es": "NVIDIA RTX AI PCs",
+                "en": "NVIDIA RTX AI PCs",
+                "val": "NVIDIA RTX AI PCs"
+              },
+              "url": "https://www.nvidia.com/en-us/geforce/technologies/ai/"
+            },
+            {
+              "title": {
+                "es": "NVIDIA Newsroom",
+                "en": "NVIDIA Newsroom",
+                "val": "NVIDIA Newsroom"
+              },
+              "url": "https://nvidianews.nvidia.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "Cisco confirma explotación de una vulnerabilidad en Unified CM",
+            "en": "Cisco confirms exploitation of a Unified CM vulnerability",
+            "val": "Cisco confirma explotació d'una vulnerabilitat en Unified CM"
+          },
+          "summary": {
+            "es": "Una vulnerabilidad SSRF en Cisco Unified Communications Manager, identificada como CVE-2026-20230, está siendo explotada en ataques según la cobertura de seguridad. El riesgo es serio porque un atacante remoto no autenticado puede usar el fallo como punto de entrada en entornos corporativos de comunicaciones.",
+            "en": "An SSRF vulnerability in Cisco Unified Communications Manager, tracked as CVE-2026-20230, is being exploited in attacks according to security coverage. The risk is serious because an unauthenticated remote attacker can use the flaw as an entry point into corporate communications environments.",
+            "val": "Una vulnerabilitat SSRF en Cisco Unified Communications Manager, identificada com CVE-2026-20230, està sent explotada en atacs segons la cobertura de seguretat. El risc és seriós perquè un atacant remot no autenticat pot usar la fallada com a punt d'entrada en entorns corporatius de comunicacions."
+          },
+          "source": "The Hacker News",
+          "url": "https://thehackernews.com/2026/06/cisco-unified-cm-flaw-cve-2026-20230.html",
+          "links": [
+            {
+              "title": {
+                "es": "The Hacker News",
+                "en": "The Hacker News",
+                "val": "The Hacker News"
+              },
+              "url": "https://thehackernews.com/2026/06/cisco-unified-cm-flaw-cve-2026-20230.html"
+            },
+            {
+              "title": {
+                "es": "BleepingComputer",
+                "en": "BleepingComputer",
+                "val": "BleepingComputer"
+              },
+              "url": "https://www.bleepingcomputer.com/"
+            },
+            {
+              "title": {
+                "es": "Cisco Security Advisories",
+                "en": "Cisco Security Advisories",
+                "val": "Cisco Security Advisories"
+              },
+              "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "FortiBleed vuelve a enseñar el peligro de credenciales capturadas en masa",
+            "en": "FortiBleed again shows the danger of mass-harvested credentials",
+            "val": "FortiBleed torna a mostrar el perill de credencials capturades en massa"
+          },
+          "summary": {
+            "es": "Investigadores vinculan a un broker ruso con FortiBleed y con la captura de más de 110 millones de credenciales mediante sniffers personalizados. La cifra ilustra por qué los incidentes de red no se cierran con un parche: también exigen rotación de contraseñas, revisión de sesiones y búsqueda de accesos persistentes.",
+            "en": "Researchers link a Russian access broker to FortiBleed and the capture of more than 110 million credentials through custom sniffers. The figure shows why network incidents do not end with a patch: they also require password rotation, session review and hunting for persistent access.",
+            "val": "Investigadors vinculen un broker rus amb FortiBleed i amb la captura de més de 110 milions de credencials mitjançant sniffers personalitzats. La xifra mostra per què els incidents de xarxa no es tanquen amb un pegat: també exigixen rotació de contrasenyes, revisió de sessions i cerca d'accessos persistents."
+          },
+          "source": "SecurityWeek",
+          "url": "https://www.securityweek.com/russian-iab-behind-fortibleed-campaign-that-stole-110-million-credentials/",
+          "links": [
+            {
+              "title": {
+                "es": "SecurityWeek",
+                "en": "SecurityWeek",
+                "val": "SecurityWeek"
+              },
+              "url": "https://www.securityweek.com/russian-iab-behind-fortibleed-campaign-that-stole-110-million-credentials/"
+            },
+            {
+              "title": {
+                "es": "TechRadar",
+                "en": "TechRadar",
+                "val": "TechRadar"
+              },
+              "url": "https://www.techradar.com/pro/security/fortibleed-hackers-leaked-thousands-of-usernames-and-passwords-online"
+            },
+            {
+              "title": {
+                "es": "Fortinet PSIRT",
+                "en": "Fortinet PSIRT",
+                "val": "Fortinet PSIRT"
+              },
+              "url": "https://www.fortiguard.com/psirt"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Tata Electronics y LastPass recuerdan que la cadena de suministro sigue rota",
+            "en": "Tata Electronics and LastPass show the supply chain is still broken",
+            "val": "Tata Electronics i LastPass recorden que la cadena de subministrament continua trencada"
+          },
+          "summary": {
+            "es": "Tata Electronics confirmó un ciberataque con datos filtrados, mientras LastPass notificó una brecha vinculada a un proveedor de inteligencia comercial. Son dos recordatorios de la misma semana: la exposición ya no está solo en tus sistemas, sino también en SaaS, proveedores y tokens conectados.",
+            "en": "Tata Electronics confirmed a cyberattack with leaked data, while LastPass disclosed a breach tied to a sales-intelligence provider. The same week's reminder is blunt: exposure no longer sits only in your systems, but also in SaaS tools, vendors and connected tokens.",
+            "val": "Tata Electronics va confirmar un ciberatac amb dades filtrades, mentres LastPass va notificar una bretxa vinculada a un proveïdor d'intel·ligència comercial. Són dos recordatoris de la mateixa setmana: l'exposició ja no està només en els teus sistemes, sinó també en SaaS, proveïdors i tokens connectats."
+          },
+          "source": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tata-electronics-confirms-cyberattack-after-hackers-leak-stolen-data/",
+          "links": [
+            {
+              "title": {
+                "es": "Tata en BleepingComputer",
+                "en": "Tata at BleepingComputer",
+                "val": "Tata en BleepingComputer"
+              },
+              "url": "https://www.bleepingcomputer.com/news/security/tata-electronics-confirms-cyberattack-after-hackers-leak-stolen-data/"
+            },
+            {
+              "title": {
+                "es": "LastPass en BleepingComputer",
+                "en": "LastPass at BleepingComputer",
+                "val": "LastPass en BleepingComputer"
+              },
+              "url": "https://www.bleepingcomputer.com/news/security/lastpass-confirms-data-breach-in-klue-supply-chain-attack/"
+            },
+            {
+              "title": {
+                "es": "CISA alerts",
+                "en": "CISA alerts",
+                "val": "Alertes CISA"
+              },
+              "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Apple prepara más entretenimiento y ya piensa en una secuela de F1",
+            "en": "Apple prepares more entertainment and is already thinking about an F1 sequel",
+            "val": "Apple prepara més entreteniment i ja pensa en una seqüela de F1"
+          },
+          "summary": {
+            "es": "Apple quiere ampliar su apuesta de entretenimiento y, según Reuters, ya hay conversación sobre una secuela de F1 tras el impulso de su división audiovisual. La estrategia encaja con un Apple TV que busca menos volumen que Netflix, pero más eventos premium capaces de justificar suscripción.",
+            "en": "Apple wants to expand its entertainment push and, according to Reuters, talks are already happening around an F1 sequel after momentum in its audiovisual division. The strategy fits an Apple TV that seeks less volume than Netflix but more premium events capable of justifying subscription.",
+            "val": "Apple vol ampliar la seua aposta d'entreteniment i, segons Reuters, ja hi ha conversa sobre una seqüela de F1 després de l'impuls de la seua divisió audiovisual. L'estratègia encaixa amb un Apple TV que busca menys volum que Netflix, però més esdeveniments prèmium capaços de justificar subscripció."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/business/media-telecom/apple-plans-more-better-entertainment-offerings-after-f1-success-eddy-cue-says-2026-06-24/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/business/media-telecom/apple-plans-more-better-entertainment-offerings-after-f1-success-eddy-cue-says-2026-06-24/"
+            },
+            {
+              "title": {
+                "es": "Apple TV",
+                "en": "Apple TV",
+                "val": "Apple TV"
+              },
+              "url": "https://tv.apple.com/"
+            },
+            {
+              "title": {
+                "es": "Variety Apple",
+                "en": "Variety Apple",
+                "val": "Variety Apple"
+              },
+              "url": "https://variety.com/t/apple/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Peacock cancela Ponies tras una sola temporada",
+            "en": "Peacock cancels Ponies after one season",
+            "val": "Peacock cancel·la Ponies després d'una sola temporada"
+          },
+          "summary": {
+            "es": "Peacock canceló la serie Ponies después de una temporada, otro ejemplo de cómo las plataformas siguen recortando catálogo si una producción no encuentra audiencia rápido. La cancelación encaja con una industria que ya mide cada estreno por retención, coste y conversación social desde la primera semana.",
+            "en": "Peacock cancelled Ponies after one season, another example of platforms cutting shows that fail to find an audience quickly. The move fits an industry that now measures every premiere by retention, cost and social buzz from week one.",
+            "val": "Peacock va cancel·lar la sèrie Ponies després d'una temporada, un altre exemple de com les plataformes continuen retallant catàleg si una producció no troba audiència ràpid. La cancel·lació encaixa amb una indústria que ja mesura cada estrena per retenció, cost i conversa social des de la primera setmana."
+          },
+          "source": "TV Guide",
+          "url": "https://www.tvguide.com/news/canceled-renewed-tv-shows-june-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "TV Guide",
+                "en": "TV Guide",
+                "val": "TV Guide"
+              },
+              "url": "https://www.tvguide.com/news/canceled-renewed-tv-shows-june-2026/"
+            },
+            {
+              "title": {
+                "es": "News.com.au",
+                "en": "News.com.au",
+                "val": "News.com.au"
+              },
+              "url": "https://www.news.com.au/entertainment/tv/streaming/peacock-cancels-ponies-after-one-season/news-story/"
+            },
+            {
+              "title": {
+                "es": "Peacock",
+                "en": "Peacock",
+                "val": "Peacock"
+              },
+              "url": "https://www.peacocktv.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Muere Clive Davis, una figura gigante de la industria musical",
+            "en": "Clive Davis dies, a giant figure in the music industry",
+            "val": "Mor Clive Davis, una figura gegant de la indústria musical"
+          },
+          "summary": {
+            "es": "Clive Davis murió a los 94 años, cerrando una carrera que atravesó décadas de pop, soul, rock y grandes fichajes discográficos. Su historia importa porque explica una parte de la industria previa al streaming: sellos con olfato artístico, desarrollo de carreras largas y ejecutivos convertidos en marca.",
+            "en": "Clive Davis died at 94, closing a career that spanned decades of pop, soul, rock and major label signings. His story matters because it explains part of the pre-streaming industry: labels with artistic instinct, long career development and executives who became brands themselves.",
+            "val": "Clive Davis va morir als 94 anys, tancant una carrera que va travessar dècades de pop, soul, rock i grans fitxatges discogràfics. La seua història importa perquè explica una part de la indústria prèvia al streaming: segells amb olfacte artístic, desenvolupament de carreres llargues i executius convertits en marca."
+          },
+          "source": "The Guardian",
+          "url": "https://www.theguardian.com/music/2026/jun/24/clive-davis-obituary",
+          "links": [
+            {
+              "title": {
+                "es": "Obituario en The Guardian",
+                "en": "The Guardian obituary",
+                "val": "Obituari en The Guardian"
+              },
+              "url": "https://www.theguardian.com/music/2026/jun/24/clive-davis-obituary"
+            },
+            {
+              "title": {
+                "es": "Billboard música",
+                "en": "Billboard music",
+                "val": "Billboard música"
+              },
+              "url": "https://www.billboard.com/music/"
+            },
+            {
+              "title": {
+                "es": "Variety música",
+                "en": "Variety music",
+                "val": "Variety música"
+              },
+              "url": "https://variety.com/v/music/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "El impacto de meteorito más antiguo conocido tendría 3.000 millones de años",
+            "en": "The oldest known meteorite impact may be 3 billion years old",
+            "val": "L'impacte de meteorit més antic conegut tindria 3.000 milions d'anys"
+          },
+          "summary": {
+            "es": "Investigadores sitúan en Pilbara, Australia, pruebas de un impacto de meteorito de hace unos 3.000 millones de años, potencialmente el más antiguo confirmado. La parte sorprendente es que esos impactos no solo destruyen: también pudieron modificar la corteza y crear nichos químicos donde la vida temprana encontró oportunidades.",
+            "en": "Researchers place evidence in Pilbara, Australia, of a meteorite impact about 3 billion years ago, potentially the oldest confirmed one. The surprising part is that such impacts did not only destroy: they may also have reshaped crust and created chemical niches where early life found opportunities.",
+            "val": "Investigadors situen a Pilbara, Austràlia, proves d'un impacte de meteorit de fa uns 3.000 milions d'anys, potencialment el més antic confirmat. La part sorprenent és que aquells impactes no sols destruïxen: també pogueren modificar l'escorça i crear nínxols químics on la vida primerenca va trobar oportunitats."
+          },
+          "source": "EurekAlert / The Guardian",
+          "url": "https://www.eurekalert.org/news-releases/1089354",
+          "links": [
+            {
+              "title": {
+                "es": "EurekAlert",
+                "en": "EurekAlert",
+                "val": "EurekAlert"
+              },
+              "url": "https://www.eurekalert.org/news-releases/1089354"
+            },
+            {
+              "title": {
+                "es": "The Guardian",
+                "en": "The Guardian",
+                "val": "The Guardian"
+              },
+              "url": "https://www.theguardian.com/science/2026/jun/24/scientists-find-smoking-gun-evidence-of-worlds-oldest-meteorite-strike"
+            },
+            {
+              "title": {
+                "es": "ABC Australia",
+                "en": "ABC Australia",
+                "val": "ABC Australia"
+              },
+              "url": "https://www.abc.net.au/news/science/2026-06-24/oldest-meteorite-impact-pilbara-australia/105450142"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Un fósil de 125 millones de años conserva crías dentro de una concha",
+            "en": "A 125-million-year-old fossil preserves babies inside a shell",
+            "val": "Un fòssil de 125 milions d'anys conserva cries dins d'una closca"
+          },
+          "summary": {
+            "es": "Un fósil de crustáceo antiguo conserva embriones y branquias, una evidencia extraordinaria de cuidado maternal en animales diminutos. Lo llamativo es la ventana microscópica que abre: no vemos solo el organismo, sino una conducta reproductiva congelada desde el Cretácico.",
+            "en": "An ancient crustacean fossil preserves embryos and gills, extraordinary evidence of maternal care in tiny animals. The striking part is the microscopic window it opens: we are not only seeing the organism, but reproductive behaviour frozen since the Cretaceous.",
+            "val": "Un fòssil de crustaci antic conserva embrions i brànquies, una evidència extraordinària de cura maternal en animals diminuts. El més cridaner és la finestra microscòpica que obri: no veiem només l'organisme, sinó una conducta reproductiva congelada des del Cretaci."
+          },
+          "source": "People / ScienceAlert",
+          "url": "https://people.com/125-million-year-old-fossilized-shellfish-with-embryos-gills-11761291",
+          "links": [
+            {
+              "title": {
+                "es": "People",
+                "en": "People",
+                "val": "People"
+              },
+              "url": "https://people.com/125-million-year-old-fossilized-shellfish-with-embryos-gills-11761291"
+            },
+            {
+              "title": {
+                "es": "ScienceAlert",
+                "en": "ScienceAlert",
+                "val": "ScienceAlert"
+              },
+              "url": "https://www.sciencealert.com/"
+            },
+            {
+              "title": {
+                "es": "Smithsonian fósiles",
+                "en": "Smithsonian fossils",
+                "val": "Smithsonian fòssils"
+              },
+              "url": "https://www.smithsonianmag.com/category/fossils-geology/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El hielo de Noruega está soltando zapatos, esquís y objetos de hace milenios",
+            "en": "Norway's ice is releasing shoes, skis and objects from millennia ago",
+            "val": "El gel de Noruega està soltant sabates, esquís i objectes de fa mil·lennis"
+          },
+          "summary": {
+            "es": "El deshielo en Noruega ha sacado a la luz miles de artefactos, desde un zapato de 3.400 años hasta esquís antiguos conservados por el frío. Es fascinante y triste a la vez: cada hallazgo arqueológico llega porque el archivo natural que lo protegía se está derritiendo.",
+            "en": "Melting ice in Norway has revealed thousands of artefacts, from a 3,400-year-old shoe to ancient skis preserved by the cold. It is both fascinating and sad: each archaeological find arrives because the natural archive that protected it is melting away.",
+            "val": "El desgel a Noruega ha tret a la llum milers d'artefactes, des d'una sabata de 3.400 anys fins a esquís antics conservats pel fred. És fascinant i trist alhora: cada troballa arqueològica arriba perquè l'arxiu natural que la protegia s'està fonent."
+          },
+          "source": "People",
+          "url": "https://people.com/melting-ice-norway-reveals-ancient-artifacts-11761268",
+          "links": [
+            {
+              "title": {
+                "es": "People",
+                "en": "People",
+                "val": "People"
+              },
+              "url": "https://people.com/melting-ice-norway-reveals-ancient-artifacts-11761268"
+            },
+            {
+              "title": {
+                "es": "Secrets of the Ice",
+                "en": "Secrets of the Ice",
+                "val": "Secrets of the Ice"
+              },
+              "url": "https://secretsoftheice.com/"
+            },
+            {
+              "title": {
+                "es": "Smithsonian archaeology",
+                "en": "Smithsonian archaeology",
+                "val": "Smithsonian arqueologia"
+              },
+              "url": "https://www.smithsonianmag.com/category/archaeology/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "Samsung Galaxy Buds3 FE por 79€",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Los Samsung Galaxy Buds3 FE aparecen en Chollometro a 79€ desde Amazon España, una rebaja agresiva para unos TWS con cancelación activa de ruido. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-fe-blancos-1767505\">Ver oferta</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-fe-blancos-1767505",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "149€",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "79€",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-47%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Stock limitado / Prime Day",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "Garmin Fenix E con hasta un 40% de descuento",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "La selección Prime Day de Garmin incluye el Fenix E con descuentos de hasta el 40%, junto a Venu 3S, Instinct 3 Solar y Venu X1. Es una de las familias más interesantes si buscas reloj deportivo serio antes de que acaben las ofertas del 26 de junio. <a href=\"https://as.com/showroom/garmin-prime-day-2026-ofertas-n/\">Ver selección</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "AS Showroom",
+          "url": "https://as.com/showroom/garmin-prime-day-2026-ofertas-n/",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "PVP según modelo",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "Hasta -40%",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "Hasta -40%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Hasta el 26 de junio de 2026",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Samsung Galaxy Buds3 FE per 79€"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Els Samsung Galaxy Buds3 FE apareixen en Chollometro a 79€ des d'Amazon Espanya, una rebaixa agressiva per a uns TWS amb cancel·lació activa de soroll. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-fe-blancos-1767505\">Veure oferta</a>."
+          },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-fe-blancos-1767505",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "149€"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "79€"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-47%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Stock limitat / Prime Day"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Garmin Fenix E amb fins a un 40% de descompte"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "La selecció Prime Day de Garmin inclou el Fenix E amb descomptes de fins al 40%, junt amb Venu 3S, Instinct 3 Solar i Venu X1. És una de les famílies més interessants si busques rellotge esportiu seriós abans que acaben les ofertes del 26 de juny. <a href=\"https://as.com/showroom/garmin-prime-day-2026-ofertas-n/\">Veure selecció</a>."
+          },
+          "source": "AS Showroom",
+          "url": "https://as.com/showroom/garmin-prime-day-2026-ofertas-n/",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "PVP segons model"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "Fins a -40%"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "Fins a -40%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Fins al 26 de juny de 2026"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "AirPods Pro 3 drop to $179.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "AirPods Pro 3 are listed around $179.99, down from $249.99, at major U.S. retailers during Prime Day week. The discount clears the 25% threshold and is one of the safest audio deals if you are already inside the Apple ecosystem. <a href=\"https://www.bestbuy.com/site/promo/top-deals\">See deal</a>.",
+            "val": ""
+          },
+          "source": "Best Buy / Business Insider",
+          "url": "https://www.bestbuy.com/site/promo/top-deals",
+          "platform": "Best Buy / Amazon US",
+          "originalPrice": {
+            "es": "",
+            "en": "$249.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$179.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-28%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "Prime Day week / while stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Samsung 65-inch S90F OLED TV for $1,199.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "Best Buy lists the Samsung 65-inch S90F OLED at $1,199.99, down from $2,499.99, one of the deepest home-theater cuts in the current U.S. deal window. It is a true high-discount item rather than a cosmetic markdown. <a href=\"https://www.bestbuy.com/site/promo/top-deals\">See deal</a>.",
+            "val": ""
+          },
+          "source": "Best Buy",
+          "url": "https://www.bestbuy.com/site/promo/top-deals",
+          "platform": "Best Buy",
+          "originalPrice": {
+            "es": "",
+            "en": "$2,499.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$1,199.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-52%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "Limited-time deal",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Sgt. Frog vuelve al cine con nuevo tráiler de su primera película en 16 años",
+            "en": "Sgt. Frog returns to theaters with a new trailer for its first film in 16 years",
+            "val": "Sgt. Frog torna al cinema amb nou tràiler de la seua primera pel·lícula en 16 anys"
+          },
+          "summary": {
+            "es": "Crunchyroll destacó un nuevo tráiler de la película de Sgt. Frog, el regreso cinematográfico de la franquicia tras 16 años. Para los fans de Keroro, es una mezcla de nostalgia y prueba de que las IP de comedia clásica siguen teniendo recorrido si se reactivan con buen timing.",
+            "en": "Crunchyroll highlighted a new trailer for the Sgt. Frog movie, the franchise's first theatrical return in 16 years. For Keroro fans, it is both nostalgia and proof that classic comedy IP can still travel if revived at the right moment.",
+            "val": "Crunchyroll va destacar un nou tràiler de la pel·lícula de Sgt. Frog, el retorn cinematogràfic de la franquícia després de 16 anys. Per als fans de Keroro, és una mescla de nostàlgia i prova que les IP de comèdia clàssica encara tenen recorregut si es reactiven amb bon timing."
+          },
+          "source": "Crunchyroll News",
+          "url": "https://www.crunchyroll.com/news/latest/2026/6/23/sgt-frog-new-anime-film-trailer",
+          "links": [
+            {
+              "title": {
+                "es": "Crunchyroll trailer",
+                "en": "Crunchyroll trailer",
+                "val": "Tràiler en Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/news/latest/2026/6/23/sgt-frog-new-anime-film-trailer"
+            },
+            {
+              "title": {
+                "es": "Crunchyroll fecha",
+                "en": "Crunchyroll date",
+                "val": "Data en Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/news/latest/2026/4/23/sgt-frog-new-anime-film-june-26-release-date-japan"
+            },
+            {
+              "title": {
+                "es": "Anime News Network",
+                "en": "Anime News Network",
+                "val": "Anime News Network"
+              },
+              "url": "https://www.animenewsnetwork.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Mushoku Tensei temporada 3 prepara un estreno especial de dos episodios",
+            "en": "Mushoku Tensei Season 3 prepares a two-episode special premiere",
+            "val": "Mushoku Tensei temporada 3 prepara una estrena especial de dos episodis"
+          },
+          "summary": {
+            "es": "Anime Corner recoge que la tercera temporada de Mushoku Tensei tendrá un estreno especial de dos episodios. Es una señal de confianza en una adaptación que sigue siendo una de las más observadas por fans de fantasía isekai, aunque también una de las más debatidas.",
+            "en": "Anime Corner reports that Mushoku Tensei Season 3 will receive a two-episode special premiere. It signals confidence in an adaptation that remains one of the most watched fantasy-isekai titles, while also one of the most debated.",
+            "val": "Anime Corner arreplega que la tercera temporada de Mushoku Tensei tindrà una estrena especial de dos episodis. És un senyal de confiança en una adaptació que continua sent una de les més observades pels fans de fantasia isekai, encara que també una de les més debatudes."
+          },
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/mushoku-tensei-season-3-gets-two-episode-special-premiere/",
+          "links": [
+            {
+              "title": {
+                "es": "Anime Corner",
+                "en": "Anime Corner",
+                "val": "Anime Corner"
+              },
+              "url": "https://animecorner.me/mushoku-tensei-season-3-gets-two-episode-special-premiere/"
+            },
+            {
+              "title": {
+                "es": "MyAnimeList News",
+                "en": "MyAnimeList News",
+                "val": "MyAnimeList News"
+              },
+              "url": "https://myanimelist.net/news"
+            },
+            {
+              "title": {
+                "es": "Crunchyroll News",
+                "en": "Crunchyroll News",
+                "val": "Crunchyroll News"
+              },
+              "url": "https://www.crunchyroll.com/news"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Chainsaw Man reaparece con tráiler en el aniversario de MAPPA",
+            "en": "Chainsaw Man resurfaces with a trailer at MAPPA's anniversary",
+            "val": "Chainsaw Man reapareix amb tràiler en l'aniversari de MAPPA"
+          },
+          "summary": {
+            "es": "MAPPA volvió a enseñar material de Chainsaw Man durante su aniversario, apuntando al arco de International Assassins aunque el formato todavía genere dudas entre fans. La expectación sigue intacta porque la serie conserva una base enorme y cada novedad reabre el debate sobre ritmo, adaptación y cine frente a temporada.",
+            "en": "MAPPA showed new Chainsaw Man material during its anniversary, pointing toward the International Assassins arc while the final format still raises questions among fans. Hype remains intact because the series still has a huge base, and every update reopens the debate over pacing, adaptation and film versus season format.",
+            "val": "MAPPA va tornar a ensenyar material de Chainsaw Man durant el seu aniversari, apuntant a l'arc d'International Assassins encara que el format continue generant dubtes entre fans. L'expectació continua intacta perquè la sèrie conserva una base enorme i cada novetat reobri el debat sobre ritme, adaptació i cinema davant temporada."
+          },
+          "source": "MeriStation",
+          "url": "https://as.com/meristation/anime/chainsaw-man-tiene-nuevo-trailer-en-el-aniversario-de-mappa-y-apunta-a-la-saga-de-los-asesinos-internacionales-n/",
+          "links": [
+            {
+              "title": {
+                "es": "MeriStation",
+                "en": "MeriStation",
+                "val": "MeriStation"
+              },
+              "url": "https://as.com/meristation/anime/chainsaw-man-tiene-nuevo-trailer-en-el-aniversario-de-mappa-y-apunta-a-la-saga-de-los-asesinos-internacionales-n/"
+            },
+            {
+              "title": {
+                "es": "MAPPA",
+                "en": "MAPPA",
+                "val": "MAPPA"
+              },
+              "url": "https://www.mappa.co.jp/en/"
+            },
+            {
+              "title": {
+                "es": "Anime News Network",
+                "en": "Anime News Network",
+                "val": "Anime News Network"
+              },
+              "url": "https://www.animenewsnetwork.com/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
