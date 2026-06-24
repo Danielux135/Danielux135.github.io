@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "username": "dalibarber.11",
+    "displayName": "Barberia Dali",
+    "avatar": "media/dali-logo.jpg",
+    "bio": "Barberia en Castellon. Cortes, degradados y transformaciones reales. Contenido semanal.",
+    "url": "https://www.tiktok.com/@dalibarber.11"
+  },
+  "stats": {
+    "followers": 1294,
+    "following": 165,
+    "likes": 2852,
+    "videos": 30
+  },
+  "latestVideos": [
+    {
+      "id": "snapshot-1",
+      "url": "https://www.tiktok.com/@dalibarber.11",
+      "caption": "Snapshot inicial de TikTok. Se actualiza semanalmente por GitHub Actions.",
+      "cover": "media/dali-logo.jpg",
+      "videoUrl": null,
+      "likes": 135,
+      "comments": 2,
+      "shares": 1,
+      "plays": 4058,
+      "timestamp": null
+    }
+  ],
+  "updatedAt": "2026-06-24T00:52:35.562Z",
+  "source": "initial-static-snapshot"
+}

@@ -1448,7 +1448,9 @@ async function initTikTokStats(){
   };
   if(!statEls.followers||!statEls.following||!statEls.likes) return;
   try{
-    const data=SOCIAL_SNAPSHOT.tiktok;
+    const res=await fetch('data/tiktok-snapshot.json',{headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error('static TikTok snapshot unavailable');
+    const data=await res.json();
     renderSocialJsonLab(data);
     Object.entries(statEls).forEach(([key,el])=>{
       const formatted=formatTikTokStat(data?.stats?.[key]);
@@ -1459,7 +1461,13 @@ async function initTikTokStats(){
     const avatar=$('#tab-tiktok .sp-avatar');
     if(avatar&&data?.profile?.avatar) avatar.src=data.profile.avatar;
   }catch(err){
-    console.warn('TikTok stats fallback:',err);
+    console.warn('TikTok snapshot fallback:',err);
+    const data=SOCIAL_SNAPSHOT.tiktok;
+    renderSocialJsonLab(data);
+    Object.entries(statEls).forEach(([key,el])=>{
+      const formatted=formatTikTokStat(data?.stats?.[key]);
+      if(formatted) el.textContent=formatted;
+    });
   }
 }
 

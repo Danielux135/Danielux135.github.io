@@ -1,0 +1,34 @@
+name: Update Dali social snapshots
+
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Update social snapshots
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          DALI_INSTAGRAM_USERNAME: dalibarber.11
+          DALI_TIKTOK_PROFILE: dalibarber.11
+        run: node scripts/update-social-snapshots.mjs
+
+      - name: Commit snapshot changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Actualiza snapshots sociales de Dali
+          file_pattern: public/demos/dali-barber/data/*.json
