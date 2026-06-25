@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es" data-style="estudio" data-palette="oro">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#12110c" />
-<title>Dalí Barber · Tienda — Demo frontend</title>
-<meta name="description" content="Tienda de productos de barbería con cesta funcional. Demo frontend con temas y colores intercambiables. Hecho por Daniel Bort." />
+<meta name="theme-color" content="#12110c" />`r`n<meta name="robots" content="index,follow,max-image-preview:large">`r`n<meta name="author" content="Daniel Bort Guzmán">`r`n<link rel="canonical" href="https://danielux.es/demos/dali-barber/tienda/">`r`n<meta property="og:title" content="Barbería Dali · Tienda en Castellón">`r`n<meta property="og:description" content="Tienda demo de Barbería Dali en Castellón con productos de barbería y cesta funcional.">`r`n<meta property="og:url" content="https://danielux.es/demos/dali-barber/tienda/">
+<title>Barbería Dali · Tienda en Castellón | Productos de barbería</title>
+<meta name="description" content="Tienda demo de Barbería Dali en Castellón con productos de barbería, cesta funcional y experiencia de compra realista." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -152,7 +152,7 @@ footer.site{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);f
 .portfolio-footer p{margin:0;font-size:.95rem}.portfolio-footer strong{color:var(--text)}
 .portfolio-footer a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;
   padding:10px 16px;background:rgba(255,255,255,.07);color:var(--accent2);font-weight:900;text-decoration:none;transition:.25s var(--ease)}
-.portfolio-footer a::after{content:"↗"}.portfolio-footer a:hover{transform:translateY(-2px)}
+.portfolio-footer a::after{content:"â†—"}.portfolio-footer a:hover{transform:translateY(-2px)}
 
 .theme-fab{position:fixed;left:16px;bottom:16px;z-index:50;display:flex;flex-direction:column;gap:10px}
 .tfab{display:flex;align-items:center;gap:10px;padding:10px 15px;border-radius:999px;cursor:pointer;border:1px solid var(--line);
@@ -174,28 +174,28 @@ footer.site{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);f
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="../"><span class="mark">D</span> Dalí<span style="color:var(--accent)">Barber</span></a>
+    <a class="brand" href="../"><span class="mark">D</span> DalÃ­<span style="color:var(--accent)">Barber</span></a>
     <div class="nav-right">
-      <a class="back-link" href="../">← Volver a la barbería</a>
-      <button class="cart-btn" id="cartBtn">🛒 Cesta<span class="count" id="cartCount">0</span></button>
+      <a class="back-link" href="../">â† Volver a la barberÃ­a</a>
+      <button class="cart-btn" id="cartBtn">ðŸ›’ Cesta<span class="count" id="cartCount">0</span></button>
     </div>
   </div>
 </header>
 
 <section class="intro wrap">
-  <span class="eyebrow">Tienda · Productos</span>
-  <h1>Llévate el acabado a casa</h1>
-  <p>Los mismos productos que usamos en la silla, para que mantengas el corte y la barba como el primer día. Añade a la cesta y verás cómo se va sumando el total en directo.</p>
+  <span class="eyebrow">Tienda Â· Productos</span>
+  <h1>LlÃ©vate el acabado a casa</h1>
+  <p>Los mismos productos que usamos en la silla, para que mantengas el corte y la barba como el primer dÃ­a. AÃ±ade a la cesta y verÃ¡s cÃ³mo se va sumando el total en directo.</p>
 </section>
 
 <section class="shop wrap">
   <div class="prod-grid" id="prodGrid"></div>
 </section>
 
-<footer class="site">DALÍ BARBER · Tienda demo · Castellón — Productos y precios de ejemplo, sin pasarela de pago real.</footer>
+<footer class="site">DALÃ BARBER Â· Tienda demo Â· CastellÃ³n â€” Productos y precios de ejemplo, sin pasarela de pago real.</footer>
 
 <footer class="portfolio-footer">
-  <p>Demo creada por <strong>Daniel Bort Guzmán</strong></p>
+  <p>Demo creada por <strong>Daniel Bort GuzmÃ¡n</strong></p>
   <a href="https://danielux135.github.io/" target="_blank" rel="noopener">Ver portfolio de Daniel</a>
 </footer>
 
@@ -204,19 +204,19 @@ footer.site{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);f
 <aside class="cart" id="cart" aria-label="Cesta de la compra">
   <div class="cart-head">
     <h2>Tu cesta</h2>
-    <button class="cart-close" id="cartClose" aria-label="Cerrar cesta">×</button>
+    <button class="cart-close" id="cartClose" aria-label="Cerrar cesta">Ã—</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot">
     <div class="cart-confirm" id="cartConfirm"></div>
-    <div class="cart-total"><span>Total</span><b id="cartTotal">0,00 €</b></div>
+    <div class="cart-total"><span>Total</span><b id="cartTotal">0,00 â‚¬</b></div>
     <button class="btn gold" id="checkout">Tramitar pedido</button>
   </div>
 </aside>
 
 <!-- controles de estilo y color -->
 <div class="theme-fab">
-  <button class="tfab" id="btnStyle" type="button" aria-label="Cambiar estilo"><span class="ic">🎭</span><span class="tf-txt"><small>Estilo</small><b id="lblStyle">Estudio</b></span></button>
+  <button class="tfab" id="btnStyle" type="button" aria-label="Cambiar estilo"><span class="ic">ðŸŽ­</span><span class="tf-txt"><small>Estilo</small><b id="lblStyle">Estudio</b></span></button>
   <button class="tfab" id="btnColor" type="button" aria-label="Cambiar color"><span class="dot"></span><span class="tf-txt"><small>Color</small><b id="lblColor">Oro</b></span></button>
 </div>
 
@@ -246,14 +246,14 @@ function initTheme(){
 
 // catalogo de productos (precios de ejemplo)
 const PRODUCTS=[
-  {id:'pomada',name:'Pomada mate',ic:'🧴',tag:'Top ventas',g:['#3a2a1a','#e7c27d'],price:12,desc:'Fijación fuerte y acabado seco, sin grasa.'},
-  {id:'cera',name:'Cera moldeadora',ic:'🪧',tag:'Clásico',g:['#241a08','#caa052'],price:11,desc:'Brillo medio y control que aguanta todo el día.'},
-  {id:'aceite',name:'Aceite para barba',ic:'🧔',tag:'Barba',g:['#2a1810','#d68b4a'],price:14,desc:'Hidrata, suaviza y deja un aroma amaderado.'},
-  {id:'champu',name:'Champú fortificante',ic:'🧴',tag:'Cuidado',g:['#10202a','#56b6c8'],price:13,desc:'Limpia en profundidad y refuerza la raíz.'},
-  {id:'after',name:'Bálsamo aftershave',ic:'🪒',tag:'Afeitado',g:['#1c1226','#9a6cd6'],price:10,desc:'Calma la piel justo después de la navaja.'},
-  {id:'kit',name:'Kit barba completo',ic:'🎁',tag:'Pack',g:['#2a1020','#fe6fa0'],price:29,desc:'Aceite, bálsamo y peine en estuche de regalo.'},
-  {id:'peine',name:'Peine de madera',ic:'💈',tag:'Accesorio',g:['#22180c','#b98a44'],price:7,desc:'Antiestático, de bolsillo, hecho a mano.'},
-  {id:'regalo',name:'Tarjeta regalo',ic:'💳',tag:'Regalo',g:['#0d2a1a','#76ffb2'],price:25,desc:'Un corte + barba para quien tú quieras.'},
+  {id:'pomada',name:'Pomada mate',ic:'ðŸ§´',tag:'Top ventas',g:['#3a2a1a','#e7c27d'],price:12,desc:'FijaciÃ³n fuerte y acabado seco, sin grasa.'},
+  {id:'cera',name:'Cera moldeadora',ic:'ðŸª§',tag:'ClÃ¡sico',g:['#241a08','#caa052'],price:11,desc:'Brillo medio y control que aguanta todo el dÃ­a.'},
+  {id:'aceite',name:'Aceite para barba',ic:'ðŸ§”',tag:'Barba',g:['#2a1810','#d68b4a'],price:14,desc:'Hidrata, suaviza y deja un aroma amaderado.'},
+  {id:'champu',name:'ChampÃº fortificante',ic:'ðŸ§´',tag:'Cuidado',g:['#10202a','#56b6c8'],price:13,desc:'Limpia en profundidad y refuerza la raÃ­z.'},
+  {id:'after',name:'BÃ¡lsamo aftershave',ic:'ðŸª’',tag:'Afeitado',g:['#1c1226','#9a6cd6'],price:10,desc:'Calma la piel justo despuÃ©s de la navaja.'},
+  {id:'kit',name:'Kit barba completo',ic:'ðŸŽ',tag:'Pack',g:['#2a1020','#fe6fa0'],price:29,desc:'Aceite, bÃ¡lsamo y peine en estuche de regalo.'},
+  {id:'peine',name:'Peine de madera',ic:'ðŸ’ˆ',tag:'Accesorio',g:['#22180c','#b98a44'],price:7,desc:'AntiestÃ¡tico, de bolsillo, hecho a mano.'},
+  {id:'regalo',name:'Tarjeta regalo',ic:'ðŸ’³',tag:'Regalo',g:['#0d2a1a','#76ffb2'],price:25,desc:'Un corte + barba para quien tÃº quieras.'},
 ];
 const PMAP=Object.fromEntries(PRODUCTS.map(p=>[p.id,p]));
 let cart=JSON.parse(localStorage.getItem('dali_cart')||'{}');
@@ -269,8 +269,8 @@ function buildProducts(){
         <h3>${p.name}</h3>
         <p class="desc">${p.desc}</p>
         <div class="foot">
-          <span class="price">${p.price}€</span>
-          <button class="add" data-id="${p.id}">Añadir +</button>
+          <span class="price">${p.price}â‚¬</span>
+          <button class="add" data-id="${p.id}">AÃ±adir +</button>
         </div>
       </div>
     </article>`).join('');
@@ -279,7 +279,7 @@ function buildProducts(){
 
 // guarda y refresca la cesta
 function saveCart(){localStorage.setItem('dali_cart',JSON.stringify(cart));renderCart();}
-function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();toast(PMAP[id].name+' añadido a la cesta');openCart();}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();toast(PMAP[id].name+' aÃ±adido a la cesta');openCart();}
 function setQty(id,n){if(n<=0)delete cart[id];else cart[id]=n;saveCart();}
 
 // dibuja el contenido de la cesta y el total
@@ -289,27 +289,27 @@ function renderCart(){
   const badge=$('#cartCount');badge.textContent=count;badge.classList.toggle('on',count>0);
   const box=$('#cartItems');
   if(!ids.length){
-    box.innerHTML=`<div class="cart-empty"><div class="big">🪒</div>Tu cesta está vacía.<br>Añade algún producto para empezar.</div>`;
+    box.innerHTML=`<div class="cart-empty"><div class="big">ðŸª’</div>Tu cesta estÃ¡ vacÃ­a.<br>AÃ±ade algÃºn producto para empezar.</div>`;
   }else{
     box.innerHTML=ids.map(id=>{const p=PMAP[id],q=cart[id];return `
       <div class="ci">
         <div class="ph" style="background:linear-gradient(150deg,${p.g[0]},${p.g[1]} 165%)">${p.ic}</div>
         <div class="info">
           <b>${p.name}</b>
-          <span>${(p.price*q).toFixed(2)} €</span>
+          <span>${(p.price*q).toFixed(2)} â‚¬</span>
           <div class="qty">
-            <button data-id="${id}" data-d="-1" aria-label="Quitar uno">−</button>
+            <button data-id="${id}" data-d="-1" aria-label="Quitar uno">âˆ’</button>
             <b>${q}</b>
-            <button data-id="${id}" data-d="1" aria-label="Añadir uno">+</button>
+            <button data-id="${id}" data-d="1" aria-label="AÃ±adir uno">+</button>
           </div>
         </div>
-        <button class="rm" data-rm="${id}" aria-label="Eliminar">🗑</button>
+        <button class="rm" data-rm="${id}" aria-label="Eliminar">ðŸ—‘</button>
       </div>`;}).join('');
     $$('.qty button',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.id,cart[b.dataset.id]+(+b.dataset.d))));
     $$('.rm',box).forEach(b=>b.addEventListener('click',()=>setQty(b.dataset.rm,0)));
   }
   const total=ids.reduce((s,id)=>s+PMAP[id].price*cart[id],0);
-  $('#cartTotal').textContent=total.toFixed(2).replace('.',',')+' €';
+  $('#cartTotal').textContent=total.toFixed(2).replace('.',',')+' â‚¬';
 }
 
 // abre / cierra el panel de la cesta
@@ -321,12 +321,12 @@ function initCart(){
   $('#cartClose').addEventListener('click',closeCart);
   $('#overlay').addEventListener('click',closeCart);
   $('#checkout').addEventListener('click',()=>{
-    if(!Object.keys(cart).length){toast('La cesta está vacía');return;}
+    if(!Object.keys(cart).length){toast('La cesta estÃ¡ vacÃ­a');return;}
     const total=$('#cartTotal').textContent;
     const c=$('#cartConfirm');
-    c.innerHTML=`✅ <b>¡Pedido realizado!</b><br>Total ${total}. <small style="color:var(--muted)">Demostración: sin cobro real. Con backend, aquí entraría la pasarela de pago y el aviso al cliente.</small>`;
+    c.innerHTML=`âœ… <b>Â¡Pedido realizado!</b><br>Total ${total}. <small style="color:var(--muted)">DemostraciÃ³n: sin cobro real. Con backend, aquÃ­ entrarÃ­a la pasarela de pago y el aviso al cliente.</small>`;
     c.classList.add('show');
-    cart={};saveCart();toast('Pedido confirmado 🎉');
+    cart={};saveCart();toast('Pedido confirmado ðŸŽ‰');
   });
   renderCart();
 }
