@@ -119,6 +119,15 @@ function loadPosts() {
   return posts;
 }
 
+function buildIndexPosts(posts) {
+  return posts.map(post => ({
+    ...post,
+    tags: Array.isArray(post.tags) && post.tags.length > 0
+      ? post.tags
+      : Array.from(new Set((post.sections || []).map(section => section.category).filter(Boolean))),
+  }));
+}
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 // GENERACIÓN DE HTML
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -356,13 +365,16 @@ function main() {
   log(`Encontrados ${posts.length} posts`, 'success');
 
   const html = generateFullHTML(posts);
+  const indexJson = JSON.stringify({ editions: buildIndexPosts(posts) }, null, 2) + '\n';
 
   fs.writeFileSync(OUTPUT_FILE, html, 'utf8');
+  fs.writeFileSync(path.join(POSTS_DIR, 'index.json'), indexJson, 'utf8');
 
   const distOutput = OUTPUT_FILE.replace('portfolio/public/blog', 'portfolio/dist/blog');
   fs.writeFileSync(distOutput, html, 'utf8');
 
   log(`HTML generado en ${OUTPUT_FILE}`, 'success');
+  log(`Índice actualizado en ${path.join(POSTS_DIR, 'index.json')}`, 'success');
   log(`HTML copiado a ${distOutput}`, 'success');
   log('¡Regeneración completada!', 'success');
 }
