@@ -56,19 +56,23 @@
                 "val": "<a href=\"https://www.xbox.com/es-ES/xbox-game-pass\">Xbox Game Pass</a> completa el mes amb l'arribada de Final Fantasy 6, The Elder Scrolls Online i Jurassic World Evolution 3 al catàleg de consola i PC. Microsoft remata així un juny carregat de JRPG i sandboxes de gestió, mentre la comunitat espera els anuncis de la primera onada de jocs de juliol."
               },
               "source": "Xbox / NME Gaming",
-              "url": "https://www.xbox.com/es-ES/xbox-game-pass",
+              "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/",
               "links": [
                 {
-                  "title": "Xbox Game Pass oficial",
-                  "url": "https://www.xbox.com/es-ES/xbox-game-pass"
+                  "title": "Xbox Wire: Game Pass mayo/junio 2026",
+                  "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/"
                 },
                 {
-                  "title": "NME: Game Pass junio 2026",
-                  "url": "https://www.nme.com/news/gaming-news/xbox-game-pass-additions-june-2026-premium-ultimate-pc-3951407"
+                  "title": "FINAL FANTASY VI en Xbox Store",
+                  "url": "https://www.xbox.com/es-ES/games/store/final-fantasy-vi/9n255k81xbd3"
                 },
                 {
-                  "title": "GameRant: nuevos juegos Game Pass",
-                  "url": "https://gamerant.com/xbox-game-pass-new-games-list-2026/"
+                  "title": "Jurassic World Evolution 3 en Xbox Store",
+                  "url": "https://www.xbox.com/es-ES/games/store/jurassic-world-evolution-3/9nx7hcwl13z9"
+                },
+                {
+                  "title": "The Elder Scrolls Online en Xbox",
+                  "url": "https://www.xbox.com/en-US/games/elder-scrolls-online"
                 }
               ]
             },
@@ -107,37 +111,42 @@
           "items": [
             {
               "title": {
-                "es": "The Falconeer — Gratis en Epic Games Store",
-                "en": "The Falconeer — Free on Epic Games Store",
-                "val": "The Falconeer — Gratis a Epic Games Store"
+                "es": "RollerCoaster Tycoon 3 y Voidwrought — gratis en Epic Games Store",
+                "en": "RollerCoaster Tycoon 3 and Voidwrought — free on Epic Games Store",
+                "val": "RollerCoaster Tycoon 3 i Voidwrought — gratis a Epic Games Store"
               },
               "summary": {
-                "es": "<a href=\"https://store.epicgames.com/\">Epic Games Store</a> regala The Falconeer, shooter aéreo en mundo abierto en el que pilotas un gigantesco halcón de guerra sobre mares tempestuosos. Puedes reclamarlo gratis y quedártelo para siempre mientras dure la promoción.",
-                "en": "<a href=\"https://store.epicgames.com/\">Epic Games Store</a> is giving away The Falconeer, an open‑world air combat game where you ride a giant war falcon over stormy seas. Claim it for free and keep it forever while the promotion lasts.",
-                "val": "<a href=\"https://store.epicgames.com/\">Epic Games Store</a> regala The Falconeer, shooter aeri de món obert on pilotes un falcó de guerra gegant sobre mars tempestuosos. Pots reclamar‑lo gratis i quedar‑te'l per sempre mentre dure la promoció."
+                "es": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> renueva sus juegos gratuitos con RollerCoaster Tycoon 3: Complete Edition y Voidwrought. El primero es un clásico de gestión de parques con sus expansiones incluidas; el segundo, un metroidvania oscuro de acción y exploración. Reclámalos gratis y se quedan en tu biblioteca.",
+                "en": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> refreshes its weekly freebies with RollerCoaster Tycoon 3: Complete Edition and Voidwrought. The first is a classic theme‑park management game with its expansions included; the second is a dark action‑exploration metroidvania. Claim them for free and keep them in your library.",
+                "val": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> renova els seus jocs gratuïts amb RollerCoaster Tycoon 3: Complete Edition i Voidwrought. El primer és un clàssic de gestió de parcs amb les expansions incloses; el segon, un metroidvania fosc d’acció i exploració. Reclama’ls gratis i es queden a la teua biblioteca."
               },
               "platform": "Epic Games Store",
               "until": {
-                "es": "27 de junio de 2026, 15:00h CEST",
-                "en": "June 27, 2026, 1:00 PM UTC",
-                "val": "27 de juny de 2026, 15.00 h CEST"
+                "es": "2 de julio de 2026, 17:00h CEST",
+                "en": "July 2, 2026, 3:00 PM UTC",
+                "val": "2 de juliol de 2026, 17.00 h CEST"
               },
               "urgent": true,
-              "storeUrl": "https://store.epicgames.com/p/the-falconeer",
+              "storeUrl": "https://store.epicgames.com/free-games",
               "links": [
                 {
-                  "title": "Epic Games Store: free games",
-                  "url": "https://store.epicgames.com/en-US/free-games"
+                  "title": "Epic: juegos gratis de la semana",
+                  "url": "https://store.epicgames.com/free-games"
                 },
                 {
-                  "title": "The Falconeer en Epic",
-                  "url": "https://store.epicgames.com/p/the-falconeer"
+                  "title": "RollerCoaster Tycoon 3 Complete Edition en Epic",
+                  "url": "https://store.epicgames.com/p/rollercoaster-tycoon-3-complete-edition"
                 },
                 {
-                  "title": "GameRant: juegos gratis ahora mismo",
-                  "url": "https://gamerant.com/free-games-right-now-2026-steam-playstation-xbox/"
+                  "title": "Voidwrought en Epic",
+                  "url": "https://store.epicgames.com/p/voidwrought-ce8f4b"
+                },
+                {
+                  "title": "PC Gamer: calendario de juegos gratis de Epic",
+                  "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
                 }
-              ]
+              ],
+              "source": "Epic Games Store / PC Gamer"
             },
             {
               "title": {
@@ -160,52 +169,70 @@
               "storeUrl": "https://store.steampowered.com/genre/Free%20to%20Play/",
               "links": [
                 {
-                  "title": "Steam: Free to Play",
-                  "url": "https://store.steampowered.com/genre/Free%20to%20Play/"
+                  "title": "Steam: juegos Free to Play",
+                  "url": "https://store.steampowered.com/search/?category1=998&genre=Free+to+Play"
                 },
                 {
-                  "title": "Steam: Free Weekend",
+                  "title": "Steam: fines de semana gratis",
                   "url": "https://store.steampowered.com/search/?filter=freeweekend"
                 },
                 {
-                  "title": "GameRant: juegos gratis PC",
-                  "url": "https://gamerant.com/steam-free-game-giveaway-2026/"
+                  "title": "Steam: demos gratuitas recientes",
+                  "url": "https://store.steampowered.com/search/?sort_by=Released_DESC&maxprice=free&category1=10"
+                },
+                {
+                  "title": "GameRant: juegos gratis de junio 2026",
+                  "url": "https://gamerant.com/free-games-june-2026-steam-epic-amazon-prime-gaming/"
                 }
               ]
             },
             {
               "title": {
-                "es": "Prime Gaming — Terraforming Mars y clásicos de estrategia gratis",
-                "en": "Prime Gaming — Terraforming Mars and strategy classics for free",
-                "val": "Prime Gaming — Terraforming Mars i clàssics d'estratègia gratis"
+                "es": "Prime Gaming — Space Grunts, Terraforming Mars y Lost Eidolons gratis",
+                "en": "Prime Gaming — Space Grunts, Terraforming Mars and Lost Eidolons for free",
+                "val": "Prime Gaming — Space Grunts, Terraforming Mars i Lost Eidolons gratis"
               },
               "summary": {
-                "es": "El lote de junio de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> incluye Terraforming Mars, XCOM: Chimera Squad, Mafia III: Definitive Edition y otros títulos de estrategia y aventura. Todos se pueden reclamar durante varias semanas y quedan vinculados de forma permanente a tu biblioteca en las plataformas indicadas.",
-                "en": "June’s <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> line‑up features Terraforming Mars, XCOM: Chimera Squad, Mafia III: Definitive Edition and more strategy and adventure titles. Once claimed within the promo window, they’re yours to keep permanently on the specified launchers.",
-                "val": "El lot de juny de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> inclou Terraforming Mars, XCOM: Chimera Squad, Mafia III: Definitive Edition i altres títols d'estratègia i aventura. Tots es poden reclamar durant diverses setmanes i queden units de manera permanent a la teua biblioteca en les plataformes indicades."
+                "es": "El lote de junio de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> suma el 25 de junio Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars y Lost Eidolons: Veil of the Witch. La mayoría se reclaman como códigos para Epic, Legacy Games o la app de Amazon Games, así que entra desde el hub oficial y revisa la plataforma de canje antes de reclamar.",
+                "en": "June’s <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> line‑up adds Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars and Lost Eidolons: Veil of the Witch on June 25. Most are claimed as codes for Epic, Legacy Games or the Amazon Games app, so use the official hub and check each redemption platform before claiming.",
+                "val": "El lot de juny de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> afig el 25 de juny Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars i Lost Eidolons: Veil of the Witch. La majoria es reclamen com a codis per a Epic, Legacy Games o l’app d’Amazon Games, així que entra des del hub oficial i revisa la plataforma de bescanvi abans de reclamar."
               },
               "platform": "Prime Gaming",
               "until": {
-                "es": "Fechas escalonadas hasta mediados de julio de 2026",
-                "en": "Staggered end dates through mid‑July 2026",
-                "val": "Dates escalonades fins a mitjan juliol de 2026"
+                "es": "Fechas variables según juego; nueva tanda disponible desde el 25 de junio de 2026",
+                "en": "Varies by title; new batch available from June 25, 2026",
+                "val": "Dates variables segons joc; nova tanda disponible des del 25 de juny de 2026"
               },
               "urgent": false,
               "storeUrl": "https://gaming.amazon.com/",
               "links": [
                 {
-                  "title": "Prime Gaming junio 2026",
+                  "title": "Prime Gaming: reclamar juegos",
                   "url": "https://gaming.amazon.com/"
                 },
                 {
-                  "title": "GameRant: Prime Gaming junio 2026",
-                  "url": "https://gamerant.com/amazon-prime-free-games-june-2026/"
+                  "title": "Amazon Luna: novedades junio 2026",
+                  "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
                 },
                 {
-                  "title": "AllKeyShop: Prime Gaming junio",
-                  "url": "https://www.allkeyshop.com/blog/amazon-prime-gaming-free-games-june-2026-news-n/"
+                  "title": "Space Grunts: Chrono Shard en Epic",
+                  "url": "https://store.epicgames.com/p/space-grunts-chrono-shard-3d4893"
+                },
+                {
+                  "title": "Terraforming Mars en Steam",
+                  "url": "https://store.steampowered.com/app/800270/Terraforming_Mars/"
+                },
+                {
+                  "title": "Lost Eidolons: Veil of the Witch en Steam",
+                  "url": "https://store.steampowered.com/app/2530490/Lost_Eidolons_Veil_of_the_Witch/"
+                },
+                {
+                  "title": "VGC: lista completa Prime Gaming junio 2026",
+                  "url": "https://www.videogameschronicle.com/news/amazon-primes-15-free-games-for-june-include-tomb-raider-4-6-remastered-and-mafia-3-definitive-edition/"
                 }
-              ]
+              ],
+              "source": "Amazon Luna / Prime Gaming",
+              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
             }
           ]
         },
@@ -288,16 +315,20 @@
               "url": "https://elpais.com/ciencia",
               "links": [
                 {
-                  "title": "El País Ciencia: genomas humanos",
-                  "url": "https://elpais.com/ciencia"
+                  "title": "El País Ciencia",
+                  "url": "https://elpais.com/ciencia/"
                 },
                 {
-                  "title": "Nature: ancient human genomes",
-                  "url": "https://www.nature.com/articles/d41586-026-xxxxx-x"
+                  "title": "Nature: earliest modern human genomes",
+                  "url": "https://www.nature.com/articles/s41586-024-08420-x"
                 },
                 {
-                  "title": "Science: human population history",
-                  "url": "https://www.science.org/content/article/ancient-dna-human-history"
+                  "title": "Max Planck: oldest modern human genomes sequenced",
+                  "url": "https://www.mpg.de/23820703/oldest-modern-human-genomes-sequenced"
+                },
+                {
+                  "title": "Science Advances: movilidad antigua en Ucrania",
+                  "url": "https://www.science.org/doi/10.1126/sciadv.adr0695"
                 }
               ]
             },
@@ -385,8 +416,12 @@
                   "url": "https://www.bloomberg.com/markets/fed"
                 },
                 {
-                  "title": "Reuters: mercados globales",
-                  "url": "https://www.reuters.com/markets/"
+                  "title": "Reuters: mercados estadounidenses",
+                  "url": "https://www.reuters.com/markets/us/"
+                },
+                {
+                  "title": "Federal Reserve: comunicados oficiales",
+                  "url": "https://www.federalreserve.gov/newsevents/pressreleases.htm"
                 }
               ]
             },
@@ -605,15 +640,19 @@
                 "val": "Llançat el 9 de juny, <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a> es posiciona com un model especialitzat en enginyeria de programari i investigació científica capaç d'executar cadenes de tasques de diversos dies amb supervisió humana mínima. La seua adopció en equips de producte i dades accelera el debat sobre fins on automatitzar sense perdre control ni traçabilitat."
               },
               "source": "Anthropic",
-              "url": "https://www.anthropic.com/news",
+              "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
               "links": [
                 {
-                  "title": "Anthropic Blog",
-                  "url": "https://www.anthropic.com/news"
+                  "title": "Anthropic: Claude Fable 5 y Mythos 5",
+                  "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
                 },
                 {
-                  "title": "VentureBeat: IA empresarial 2026",
-                  "url": "https://venturebeat.com/category/ai/"
+                  "title": "Anthropic Docs: introducción a Fable 5 y Mythos 5",
+                  "url": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5"
+                },
+                {
+                  "title": "Claude Fable: página oficial",
+                  "url": "https://www.anthropic.com/claude/fable"
                 },
                 {
                   "title": "The Batch: workflows autónomos",
@@ -645,12 +684,16 @@
                   "url": "https://www.intel.com/content/www/us/en/products/details/processors/xeon.html"
                 },
                 {
-                  "title": "AMD: Epyc para IA",
-                  "url": "https://www.amd.com/en/products/server"
+                  "title": "AMD: EPYC para servidores",
+                  "url": "https://www.amd.com/en/products/processors/server/epyc.html"
                 },
                 {
-                  "title": "Tom's Hardware: CPUs y data centers",
-                  "url": "https://www.tomshardware.com/news"
+                  "title": "Tom’s Hardware: CPUs",
+                  "url": "https://www.tomshardware.com/pc-components/cpus"
+                },
+                {
+                  "title": "AnandTech: CPUs y servidores",
+                  "url": "https://www.anandtech.com/tag/cpus"
                 }
               ]
             },
@@ -821,19 +864,23 @@
                 "val": "Nous prototips de cèl·lules solars de <a href=\"https://es.wikipedia.org/wiki/Perovskita\">tàndem de perovskita</a> han superat el 34% d'eficiència de conversió, molt per damunt del ~24% típic dels panells de silici comercials. Si estos resultats arriben a la producció massiva, podrien abaratar radicalment l'energia solar i accelerar la descarbonització."
               },
               "source": "Science / Muy Interesante",
-              "url": "https://www.science.org/",
+              "url": "https://www.longi.com/en/news/silicon-perovskite-tandem-solar-cells-new-world-efficiency/",
               "links": [
                 {
-                  "title": "Science: perovskite tandems",
-                  "url": "https://www.science.org/doi/10.1126/science.xxx"
+                  "title": "LONGi: récord 34,85% perovskita-silicio",
+                  "url": "https://www.longi.com/en/news/silicon-perovskite-tandem-solar-cells-new-world-efficiency/"
                 },
                 {
-                  "title": "Muy Interesante: energía solar del futuro",
-                  "url": "https://www.muyinteresante.es/tecnologia/articulo/celdas-solares-perovskita"
+                  "title": "NREL: tabla de eficiencias de células solares",
+                  "url": "https://www.nrel.gov/pv/cell-efficiency.html"
                 },
                 {
-                  "title": "National Geographic: revolución solar",
-                  "url": "https://www.nationalgeographic.com.es/ciencia/energia-solar-perovskita_15182"
+                  "title": "Fluxim: actualización récords perovskita 2026",
+                  "url": "https://www.fluxim.com/research-blogs/perovskite-silicon-tandem-pv-record-updates"
+                },
+                {
+                  "title": "Nature Energy: perovskitas en tándem",
+                  "url": "https://www.nature.com/articles/s41560-026-02068-9"
                 }
               ]
             },
@@ -874,115 +921,166 @@
               "market": "es",
               "title": {
                 "es": "Remnant II en Steam — 75% de descuento y uno de los mejores co‑op looter‑shooters recientes",
-                "en": "",
-                "val": ""
+                "en": "Remnant II on Steam — 75% off and one of the best recent co‑op looter shooters",
+                "val": "Remnant II en Steam — 75% de descompte i un dels millors looter‑shooters cooperatius recents"
               },
               "summary": {
-                "es": "Remnant II mezcla souls‑like, looter‑shooter y generación procedural de niveles para ofrecer campañas cooperativas muy rejugables. A 9,99€ en Steam (75% de descuento sobre los 39,99€ habituales) es una ganga para quienes busquen acción desafiante en equipo.",
-                "en": "",
-                "val": ""
+                "es": "Remnant II mezcla souls‑like, looter‑shooter y generación procedural de niveles para ofrecer campañas cooperativas muy rejugables. A 9,99€ en Steam, con un 75% de descuento sobre los 39,99€ habituales, es una compra muy fuerte si buscas acción desafiante en equipo.",
+                "en": "Remnant II blends souls‑like combat, looter‑shooter progression and procedural worlds into highly replayable co‑op campaigns. At €9.99 on Steam, 75% off its usual €39.99 price, it is a strong pick if you want challenging team‑based action.",
+                "val": "Remnant II barreja combat souls‑like, progressió de looter‑shooter i mons procedurals per a oferir campanyes cooperatives molt rejugables. A 9,99€ en Steam, amb un 75% de descompte sobre els 39,99€ habituals, és una compra molt potent si busques acció exigent en equip."
               },
               "source": "Chollometro",
-              "url": "https://store.steampowered.com/app/1282100/Remnant_2/",
+              "url": "https://store.steampowered.com/app/1282100/REMNANT_II/",
               "platform": "Steam",
               "originalPrice": {
                 "es": "39,99€",
-                "en": "",
-                "val": ""
+                "en": "€39.99",
+                "val": "39,99€"
               },
               "salePrice": {
                 "es": "9,99€",
-                "en": "",
-                "val": ""
+                "en": "€9.99",
+                "val": "9,99€"
               },
               "discount": {
                 "es": "75% dto.",
-                "en": "",
-                "val": ""
+                "en": "75% off",
+                "val": "75% desc."
               },
               "until": {
-                "es": "Hasta fin de rebajas de Steam",
-                "en": "",
-                "val": ""
+                "es": "Durante las rebajas activas de Steam",
+                "en": "During the current Steam sale",
+                "val": "Durant les rebaixes actives de Steam"
               },
               "urgent": false,
-              "links": []
+              "links": [
+                {
+                  "title": "Remnant II en Steam",
+                  "url": "https://store.steampowered.com/app/1282100/REMNANT_II/"
+                },
+                {
+                  "title": "Remnant II en Epic Games Store",
+                  "url": "https://store.epicgames.com/p/remnant-2"
+                },
+                {
+                  "title": "Web oficial de Remnant II",
+                  "url": "https://www.remnantgame.com/"
+                },
+                {
+                  "title": "Comunidad/noticias de Remnant II en Steam",
+                  "url": "https://steamcommunity.com/app/1282100/allnews/"
+                }
+              ]
             },
             {
               "market": "val",
               "title": {
-                "es": "",
-                "en": "",
-                "val": "Elden Ring Nightreign Seekers Edition per a Xbox — lleuger descompte de llançament"
+                "es": "Elden Ring Nightreign Seekers Edition para Xbox — descuento directo en Amazon España",
+                "en": "Elden Ring Nightreign Seekers Edition for Xbox — direct discount at Amazon Spain",
+                "val": "Elden Ring Nightreign Seekers Edition per a Xbox — descompte directe en Amazon Espanya"
               },
               "summary": {
-                "es": "",
-                "en": "",
-                "val": "La Nightreign Seekers Edition amplia Elden Ring amb nou contingut cooperatiu i enemics d'alta dificultat. A Amazon Espanya es pot trobar per 49,99€ front als 59,99€ recomanats, un bon preu si tens clar que vols jugar‑la en llançament."
+                "es": "La Seekers Edition de Elden Ring Nightreign incluye el juego completo en SteelBook, DLC y contenidos digitales como artbook y banda sonora. En Amazon España aparece con enlace directo para Xbox Series X / Xbox One, útil si quieres evitar páginas de categoría y entrar directamente a la ficha del producto.",
+                "en": "Elden Ring Nightreign’s Seekers Edition includes the full game in a SteelBook, DLC and digital extras such as an artbook and soundtrack. Amazon Spain has a direct Xbox Series X / Xbox One product page, useful if you want to skip category pages and go straight to the offer.",
+                "val": "La Seekers Edition d’Elden Ring Nightreign inclou el joc complet en SteelBook, DLC i continguts digitals com artbook i banda sonora. En Amazon Espanya hi ha enllaç directe per a Xbox Series X / Xbox One, útil si vols evitar pàgines de categoria i entrar directament a la fitxa del producte."
               },
               "source": "Chollometro",
-              "url": "https://www.chollometro.com/categorias/consolas-y-videojuegos",
-              "platform": "Amazon Espanya",
+              "url": "https://www.amazon.es/Elden-Ring-Nightreign-Seekers-Xbox/dp/B0DWY2PSZM",
+              "platform": "Amazon España",
               "originalPrice": {
-                "es": "",
-                "en": "",
+                "es": "59,99€",
+                "en": "€59.99",
                 "val": "59,99€"
               },
               "salePrice": {
-                "es": "",
-                "en": "",
-                "val": "49,99€"
+                "es": "Consultar precio actual en Amazon",
+                "en": "Check current price on Amazon",
+                "val": "Consulta el preu actual en Amazon"
               },
               "discount": {
-                "es": "",
-                "en": "",
-                "val": "17% dto."
+                "es": "Oferta variable",
+                "en": "Variable deal",
+                "val": "Oferta variable"
               },
               "until": {
-                "es": "",
-                "en": "",
-                "val": "Oferta per temps limitat"
+                "es": "Oferta sujeta a stock y cambios de precio",
+                "en": "Offer subject to stock and price changes",
+                "val": "Oferta subjecta a estoc i canvis de preu"
               },
               "urgent": false,
-              "links": []
+              "links": [
+                {
+                  "title": "Amazon España: Seekers Edition Xbox",
+                  "url": "https://www.amazon.es/Elden-Ring-Nightreign-Seekers-Xbox/dp/B0DWY2PSZM"
+                },
+                {
+                  "title": "Web oficial: Elden Ring Nightreign",
+                  "url": "https://en.bandainamcoent.eu/elden-ring/elden-ring-nightreign"
+                },
+                {
+                  "title": "Elden Ring Nightreign en Steam",
+                  "url": "https://store.steampowered.com/app/2622380/ELDEN_RING_NIGHTREIGN/"
+                },
+                {
+                  "title": "Idealo: comparador Seekers Edition Xbox",
+                  "url": "https://www.idealo.es/precios/205941904/elden-ring-nightreign-seekers-edition-xbox-one-xbox-series-x.html"
+                }
+              ]
             },
             {
               "market": "en",
               "title": {
-                "es": "",
-                "en": "LG C3 55\" OLED TV (4K 120Hz, HDMI 2.1) — 33% off at Best Buy",
-                "val": ""
+                "es": "LG C3 OLED 55\" 4K 120Hz — ficha directa en Best Buy",
+                "en": "LG C3 55\" OLED TV 4K 120Hz — direct product page at Best Buy",
+                "val": "LG C3 OLED 55\" 4K 120Hz — fitxa directa en Best Buy"
               },
               "summary": {
-                "es": "",
-                "en": "Excellent 55‑inch 4K OLED with 120 Hz panel and four HDMI 2.1 ports, ideal for PS5, Xbox Series X and high‑end PCs. At $336.99 down from $499.99 at Best Buy, it’s one of the best value‑for‑money living‑room displays right now.",
-                "val": ""
+                "es": "El LG C3 de 55 pulgadas sigue siendo una OLED muy recomendable para gaming: panel 4K, 120 Hz nativos, HDMI 2.1 y buen soporte para PS5, Xbox Series X y PC. He dejado el enlace directo a la ficha del producto en Best Buy y a la página oficial de LG para comprobar precio, disponibilidad y especificaciones antes de comprar.",
+                "en": "The 55‑inch LG C3 remains a very strong OLED for gaming, with a 4K panel, native 120 Hz refresh, HDMI 2.1 and good support for PS5, Xbox Series X and PC. I’ve added the direct Best Buy product page plus LG’s official page so readers can check live price, availability and specs before buying.",
+                "val": "El LG C3 de 55 polzades continua sent una OLED molt recomanable per a gaming: panell 4K, 120 Hz natius, HDMI 2.1 i bon suport per a PS5, Xbox Series X i PC. He deixat l’enllaç directe a la fitxa del producte en Best Buy i a la pàgina oficial de LG per a comprovar preu, disponibilitat i especificacions abans de comprar."
               },
-              "source": "Best Buy / Slickdeals",
-              "url": "https://www.bestbuy.com/",
+              "source": "Best Buy / LG",
+              "url": "https://www.bestbuy.com/product/lg-55-class-c3-series-oled-evo-4k-uhd-smart-webos-tv-2023/JJ8VPZR3SX",
               "platform": "Best Buy",
               "originalPrice": {
-                "es": "",
-                "en": "$499.99",
-                "val": ""
+                "es": "Consultar valor comparable en Best Buy",
+                "en": "Check comparable value at Best Buy",
+                "val": "Consulta el valor comparable en Best Buy"
               },
               "salePrice": {
-                "es": "",
-                "en": "$336.99",
-                "val": ""
+                "es": "Consultar precio actual en Best Buy",
+                "en": "Check current price at Best Buy",
+                "val": "Consulta el preu actual en Best Buy"
               },
               "discount": {
-                "es": "",
-                "en": "33% off",
-                "val": ""
+                "es": "Oferta variable",
+                "en": "Variable deal",
+                "val": "Oferta variable"
               },
               "until": {
-                "es": "",
+                "es": "Mientras haya stock",
                 "en": "While stock lasts",
-                "val": ""
+                "val": "Mentre hi haja estoc"
               },
-              "urgent": true,
-              "links": []
+              "urgent": false,
+              "links": [
+                {
+                  "title": "Best Buy: LG C3 55\" OLED",
+                  "url": "https://www.bestbuy.com/product/lg-55-class-c3-series-oled-evo-4k-uhd-smart-webos-tv-2023/JJ8VPZR3SX"
+                },
+                {
+                  "title": "LG: OLED55C3PUA ficha oficial",
+                  "url": "https://www.lg.com/ca_en/tv-soundbars/oled-evo/oled55c3pua/"
+                },
+                {
+                  "title": "Tom’s Guide: mejores ofertas OLED junio 2026",
+                  "url": "https://www.tomsguide.com/news/best-oled-tv-deals"
+                },
+                {
+                  "title": "GamesRadar: mejores TV 4K 120Hz",
+                  "url": "https://www.gamesradar.com/best-120hz-4k-tv/"
+                }
+              ]
             }
           ]
         },
@@ -1008,12 +1106,12 @@
                   "url": "https://ramenparados.com/tag/blue-lock/"
                 },
                 {
-                  "title": "Anime News Network: Blue Lock Season 3",
-                  "url": "https://www.animenewsnetwork.com/news/"
+                  "title": "Anime News Network: noticias de Blue Lock",
+                  "url": "https://www.animenewsnetwork.com/news/?ann-edition=us&q=Blue+Lock"
                 },
                 {
-                  "title": "Crunchyroll News: próximos estrenos",
-                  "url": "https://www.crunchyroll.com/news"
+                  "title": "Crunchyroll News: búsqueda Blue Lock",
+                  "url": "https://www.crunchyroll.com/news/search?q=Blue+Lock"
                 }
               ]
             },
@@ -1032,16 +1130,16 @@
               "url": "https://myanimelist.net/anime/season",
               "links": [
                 {
-                  "title": "MyAnimeList: temporada estiu 2026",
+                  "title": "MyAnimeList: temporada actual",
                   "url": "https://myanimelist.net/anime/season"
                 },
                 {
-                  "title": "Anime News Network: season charts",
+                  "title": "Anime News Network: próximos animes TV",
                   "url": "https://www.animenewsnetwork.com/encyclopedia/anime/upcoming/tv"
                 },
                 {
-                  "title": "Crunchyroll: line‑up estiu",
-                  "url": "https://www.crunchyroll.com/news"
+                  "title": "Crunchyroll News: anime estacional",
+                  "url": "https://www.crunchyroll.com/news/search?q=summer+anime+2026"
                 }
               ]
             }
