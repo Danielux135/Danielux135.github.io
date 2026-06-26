@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-- 'public/foskia/posts/2*.json'
+      - 'public/foskia/posts/2*.json'
   workflow_dispatch:
     inputs:
       date:
