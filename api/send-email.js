@@ -22,8 +22,8 @@ export default async function handler(req, res) {
             accept: 'application/json'
         },
         body: JSON.stringify({
-            sender:      sender || { name: 'FoskIA', email: 'danielux135@gmail.com' },
-            replyTo:     { email: 'danielux135@gmail.com' },
+            sender:      sender || { name: 'FoskIA', email: 'contacto@danielux.es' },
+            replyTo:     { email: 'contacto@danielux.es' },
             to,
             subject,
             htmlContent

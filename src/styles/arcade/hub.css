@@ -1328,3 +1328,138 @@
     .arc-card, .arc-launch-btn, .arc-arrow { transition: none; animation: none; }
 }
 
+
+/* ==========================================================================
+   PARTY ONLINE — categoría y panel añadido para Danielux Party Arena
+   ========================================================================== */
+.arc-category-tabs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 760px);
+    margin: -4px 0 4px;
+    z-index: 3;
+}
+.arc-cat-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 180px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,200,255,0.16);
+    background: rgba(2, 8, 28, 0.54);
+    color: rgba(215,230,255,0.62);
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: none;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transition: all .2s ease;
+}
+.arc-cat-tab:hover,
+.arc-cat-tab.active {
+    color: #fff;
+    border-color: rgba(0,200,255,0.58);
+    background: linear-gradient(90deg, rgba(139,92,246,0.22), rgba(0,200,255,0.13));
+    box-shadow: 0 0 26px rgba(0,200,255,0.18), inset 0 0 26px rgba(139,92,246,0.08);
+}
+.arc-cat-tab.active:nth-child(2) {
+    border-color: rgba(139,92,246,0.68);
+    box-shadow: 0 0 30px rgba(139,92,246,0.28), 0 0 18px rgba(0,200,255,0.16);
+}
+.arc-party-float {
+    position: absolute;
+    top: 50%;
+    right: clamp(14px, 2.5vw, 26px);
+    transform: translateY(-50%);
+    width: clamp(240px, 22vw, 330px);
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 11;
+    pointer-events: none;
+    padding: 14px;
+    border: 1px solid rgba(0,200,255,0.18);
+    border-radius: 16px;
+    background: rgba(2, 8, 28, 0.72);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 35px rgba(0,0,0,0.25), inset 0 0 40px rgba(0,200,255,0.04);
+}
+.arcade-hub.party-selected .arc-party-float { display: flex; }
+.arcade-hub.party-selected .arc-ach-float { display: none; }
+.arc-party-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: rgba(170,205,255,0.75);
+    font-family: var(--font-head);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 2px 0 6px;
+}
+.arc-party-title i { color: var(--accent-1); }
+.arc-party-item {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,200,255,0.10);
+    background: rgba(0, 13, 36, 0.52);
+}
+.arc-party-item.active {
+    border-color: rgba(0,200,255,0.64);
+    background: linear-gradient(90deg, rgba(0,200,255,0.16), rgba(139,92,246,0.12));
+    box-shadow: 0 0 20px rgba(0,200,255,0.18);
+}
+.arc-party-item > i:first-child {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: var(--accent-1);
+    font-size: 1rem;
+}
+.arc-party-item:nth-child(3) > i:first-child { color: #ff5b83; }
+.arc-party-item:nth-child(4) > i:first-child { color: #20ff91; }
+.arc-party-item:nth-child(5) > i:first-child { color: #9b5cff; }
+.arc-party-item:nth-child(6) > i:first-child { color: #ff42d0; }
+.arc-party-item:nth-child(7) > i:first-child { color: #ffd84a; }
+.arc-party-item strong {
+    display: block;
+    color: rgba(255,255,255,0.9);
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+}
+.arc-party-item span {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255,255,255,0.46);
+    font-size: 0.62rem;
+}
+.arc-party-item .fa-circle-check { color: var(--accent-1); }
+
+@media (max-width: 1180px) {
+    .arc-party-float { display: none !important; }
+    .arc-category-tabs { width: min(100%, 680px); }
+    .arc-cat-tab { min-width: 0; flex: 1; font-size: .58rem; padding: 10px 12px; }
+}
+@media (max-width: 680px) {
+    .arc-category-tabs { flex-direction: column; gap: 6px; width: min(100%, 360px); }
+    .arc-cat-tab { width: 100%; }
+}

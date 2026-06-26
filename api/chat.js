@@ -10,7 +10,7 @@ const SYSTEM_PROMPT = `Eres el asistente virtual del portfolio de Daniel Bort Gu
 - Nombre artístico musical: Danielux
 
 ## Contacto y redes sociales
-- Email: danielux135@gmail.com
+- Email: contacto@danielux.es
 - LinkedIn: https://www.linkedin.com/in/daniel-bort-guzmán-3727b8122/
 - GitHub: https://github.com/Danielux135
 - Twitch: https://www.twitch.tv/danielux135

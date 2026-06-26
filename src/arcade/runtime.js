@@ -72,7 +72,7 @@ const GAMES_I18N = {
         loadingReady: 'LISTO',
         cat: {
             tap: 'RITMO', hero: 'MODO HÉROE', surfer: 'SURF',
-            simon: 'MEMORIA', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER'
+            simon: 'MEMORIA', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER', party: 'PARTY ONLINE'
         },
         ach: {
             firstStep: 'PRIMER PASO',
@@ -114,6 +114,7 @@ const GAMES_I18N = {
             dodger: { name: 'Ring Escape',    desc: 'Cada golpe detona una onda expansiva. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
             tempo:  { name: 'BPM Hunter',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo. Mínimo 8 toques.' },
             bass:   { name: 'Bass Invaders',  desc: 'Naves que bajan con cada golpe. En los drops aparece un jefe que crece con la energía.', how: 'Mueve la nave (arrastra, A/D o flechas). El disparo es automático. 3 vidas.' },
+            party:  { name: 'Danielux Party Arena', desc: 'Sala online para jugar con la clase: impostor, bugs, boss, ritmo y mentiras.', how: 'Crea una sala, comparte el código y lanza rondas rotatorias para 2-8 jugadores.' },
         },
     },
     en: {
@@ -148,7 +149,7 @@ const GAMES_I18N = {
         loadingReady: 'READY',
         cat: {
             tap: 'RHYTHM', hero: 'HERO MODE', surfer: 'SURF',
-            simon: 'MEMORY', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER'
+            simon: 'MEMORY', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER', party: 'PARTY ONLINE'
         },
         ach: {
             firstStep: 'FIRST STEP',
@@ -190,6 +191,7 @@ const GAMES_I18N = {
             dodger: { name: 'Ring Escape',    desc: 'Every hit detonates an expanding wave. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
             tempo:  { name: 'BPM Hunter',     desc: 'Got real rhythm? Follow the pulse and compare your BPM with the real one.', how: 'Tap the big button (or space bar) to the beat. At least 8 taps.' },
             bass:   { name: 'Bass Invaders',  desc: 'Ships descend with every hit. On drops a boss appears, growing with the energy.', how: 'Move the ship (drag, A/D or arrows). Firing is automatic. 3 lives.' },
+            party:  { name: 'Danielux Party Arena', desc: 'Online room for the class: impostor, bugs, boss, rhythm and lies.', how: 'Create a room, share the code and launch rotating rounds for 2-8 players.' },
         },
     },
     val: {
@@ -224,7 +226,7 @@ const GAMES_I18N = {
         loadingReady: 'LLEST',
         cat: {
             tap: 'RITME', hero: 'MODE HEROI', surfer: 'SURF',
-            simon: 'MEMÒRIA', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER'
+            simon: 'MEMÒRIA', dodger: 'ESCAPE', tempo: 'TEMPO', bass: 'SHOOTER', party: 'PARTY ONLINE'
         },
         ach: {
             firstStep: 'PRIMER PAS',
@@ -266,6 +268,7 @@ const GAMES_I18N = {
             dodger: { name: "Ring Escape",    desc: "Cada colp detona una ona expansiva. Arrossega el teu orbe i sobreviu.", how: "Arrossega l’orbe per a esquivar les ones. 3 vides." },
             tempo:  { name: "BPM Hunter",     desc: "Tens ritme de veritat? Segueix el pols i compara el teu BPM amb el real.", how: "Toca el botó gran (o l’espai) al ritme. Mínim 8 tocs." },
             bass:   { name: "Bass Invaders",  desc: "Naus que baixen amb cada colp. En els drops apareix un cap que creix amb l’energia.", how: "Mou la nau (arrossega, A/D o fletxes). El tret és automàtic. 3 vides." },
+            party:  { name: "Danielux Party Arena", desc: "Sala online per a jugar amb la classe: impostor, bugs, boss, ritme i mentides.", how: "Crea una sala, comparteix el codi i llança rondes rotatòries per a 2-8 jugadors." },
         },
     },
 };
@@ -571,6 +574,11 @@ const Arcade = {
                         <h1 class="arc-main-title">${T('hubTitle')}</h1>
                         <p class="arc-main-sub">${T('hubSubtitle')}</p>
                     </div>
+                    <div class="arc-category-tabs" id="arcCategoryTabs" aria-label="Categorías de minijuegos">
+                        <button class="arc-cat-tab active" data-cat="music"><i class="fa-solid fa-music"></i> JUEGOS MUSICALES</button>
+                        <button class="arc-cat-tab" data-cat="party"><i class="fa-solid fa-users"></i> PARTY ONLINE</button>
+                        <button class="arc-cat-tab" data-cat="code"><i class="fa-solid fa-code"></i> RETOS DE PROGRAMACIÓN</button>
+                    </div>
                     <div class="arc-scene" id="arcScene">
                         <div class="arc-track" id="arcTrack"></div>
                     </div>
@@ -586,6 +594,15 @@ const Arcade = {
                 </div>
                 <!-- Logros flotantes (derecha) -->
                 <div class="arc-ach-float" id="arcAchPanel"></div>
+                <div class="arc-party-float" id="arcPartyPanel" aria-hidden="true">
+                    <div class="arc-party-title"><i class="fa-solid fa-users"></i> MODOS DISPONIBLES</div>
+                    <div class="arc-party-item active"><i class="fa-solid fa-crown"></i><div><strong>DANIELUX PARTY ARENA</strong><span>2-8 jugadores · Rondas rotatorias</span></div><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="arc-party-item"><i class="fa-solid fa-mask"></i><div><strong>IMPOSTOR DE PALABRAS</strong><span>Engaña y descubre</span></div></div>
+                    <div class="arc-party-item"><i class="fa-solid fa-bug"></i><div><strong>CARRERA DE BUGS</strong><span>Código al límite</span></div></div>
+                    <div class="arc-party-item"><i class="fa-solid fa-dragon"></i><div><strong>BOSS COOPERATIVO</strong><span>Derrota al jefe</span></div></div>
+                    <div class="arc-party-item"><i class="fa-solid fa-music"></i><div><strong>RHYTHM BATTLE ROYALE</strong><span>Ritmo y precisión</span></div></div>
+                    <div class="arc-party-item"><i class="fa-solid fa-comment-dots"></i><div><strong>MENTIRA EXPRESS</strong><span>Adivina o miente</span></div></div>
+                </div>
                 <!-- Estadísticas flotantes (abajo-izquierda) -->
                 <div class="arc-stats-float">
                     <div class="arc-stat-item"><i class="fa-regular fa-clock"></i><div><div class="arc-stat-lbl">${T('statsTime')}</div><div class="arc-stat-val" id="arcTimePlayed">0H 0M</div></div></div>
@@ -666,6 +683,7 @@ const Arcade = {
             dodger: T('cat.dodger'),
             tempo: T('cat.tempo'),
             bass: T('cat.bass'),
+            party: T('cat.party'),
         };
         this.games.forEach((g, i) => {
             const card = document.createElement('div');
@@ -712,6 +730,17 @@ const Arcade = {
 
         const getSelectedDiff = () => 'medium';
 
+        const catTabs = el.querySelectorAll('.arc-cat-tab');
+        const selectGameById = (gid) => {
+            const idx = this.games.findIndex((game) => game.id === gid);
+            if (idx >= 0) this._carNav(idx);
+        };
+        catTabs.forEach((tab) => tab.addEventListener('click', () => {
+            const cat = tab.dataset.cat;
+            if (cat === 'party' || cat === 'code') selectGameById('party');
+            else this._carNav(0);
+        }));
+
         // Pantalla de carga cinemática
         this._launchWithLoading = (id, diff) => {
             const loadEl  = el.querySelector('#arcLoading');
@@ -738,7 +767,11 @@ const Arcade = {
                 barEl.style.transition = 'width 0.2s ease';
                 barEl.style.width = (((steps.indexOf(steps.find(s=>s[1]===txt))+1)/steps.length)*100) + '%';
             }, t));
-            setTimeout(() => { loadEl.hidden = true; this.launch(id, diff); }, 1150);
+            setTimeout(() => {
+                loadEl.hidden = true;
+                if (g?.externalUrl) { window.location.href = g.externalUrl; return; }
+                this.launch(id, diff);
+            }, 1150);
         };
 
         // Panel lateral: perfil + logros + estadísticas
@@ -789,6 +822,12 @@ const Arcade = {
             this._carIdx = ((idx % N) + N) % N;
             const g = this.games[this._carIdx];
             this._currentGameColors = g.colors;
+            this.hub?.classList.toggle('party-selected', g.id === 'party');
+            el.querySelectorAll('.arc-cat-tab').forEach((tab) => {
+                const cat = tab.dataset.cat;
+                const on = (g.id === 'party') ? (cat === 'party') : (cat === 'music');
+                tab.classList.toggle('active', on);
+            });
 
             // Posicionar tarjetas en 3D
             const cards = track.querySelectorAll('.arc-card');

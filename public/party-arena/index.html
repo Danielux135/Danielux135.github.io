@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danielux Party Arena</title>
+  <meta name="description" content="Party game online para clase: impostor, bugs, boss cooperativo, ritmo y mentiras.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="arena-bg" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="grid-floor"></div>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+  </div>
+
+  <aside class="side-rail" aria-hidden="true">
+    <div class="rail-logo">D</div>
+    <div class="rail-icon active"><i class="fa-solid fa-gamepad"></i></div>
+    <div class="rail-icon"><i class="fa-solid fa-star"></i></div>
+    <div class="rail-icon"><i class="fa-solid fa-chart-simple"></i></div>
+    <div class="rail-icon"><i class="fa-solid fa-gear"></i></div>
+  </aside>
+
+  <header class="top-hud">
+    <a href="/" class="brand" aria-label="Volver al portfolio">
+      <span class="brand-main">DANIELUX</span>
+      <span class="brand-sub">ARCADE</span>
+    </a>
+    <div class="music-pill"><i class="fa-solid fa-music"></i><span>Neon Horizon</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="top-actions">
+      <div class="xp-card"><strong>NVL 1</strong><span>Party Online</span></div>
+      <a href="/" class="exit-btn"><i class="fa-solid fa-power-off"></i> SALIR</a>
+    </div>
+  </header>
+
+  <main id="app" class="app-shell" aria-live="polite"></main>
+
+  <template id="tpl-home">
+    <section class="hero-screen">
+      <p class="eyebrow">PARTY ONLINE</p>
+      <h1>DANIELUX <span>PARTY ARENA</span></h1>
+      <p class="lead">Juega con toda la clase: salas de 2 a 8 personas, rondas rotatorias, ranking global y minijuegos rápidos.</p>
+      <div class="home-grid">
+        <form class="glass-card join-card" data-action="create">
+          <div class="card-icon crown"><i class="fa-solid fa-crown"></i></div>
+          <h2>Crear sala</h2>
+          <label>Tu nombre</label>
+          <input name="name" maxlength="32" placeholder="Daniel" autocomplete="nickname" required>
+          <button class="primary-btn" type="submit"><i class="fa-solid fa-play"></i> CREAR COMO HOST</button>
+        </form>
+        <form class="glass-card join-card" data-action="join">
+          <div class="card-icon users"><i class="fa-solid fa-users"></i></div>
+          <h2>Unirme</h2>
+          <label>Tu nombre</label>
+          <input name="name" maxlength="32" placeholder="Ana" autocomplete="nickname" required>
+          <label>Código de sala</label>
+          <input name="code" maxlength="8" placeholder="4821" inputmode="text" required>
+          <button class="primary-btn alt" type="submit"><i class="fa-solid fa-right-to-bracket"></i> ENTRAR</button>
+        </form>
+      </div>
+      <section class="mode-strip" aria-label="Modos incluidos">
+        <article><i class="fa-solid fa-mask"></i><strong>Impostor</strong><span>Engaña y descubre</span></article>
+        <article><i class="fa-solid fa-bug"></i><strong>Carrera de Bugs</strong><span>Código al límite</span></article>
+        <article><i class="fa-solid fa-dragon"></i><strong>Boss Coop</strong><span>Derrota al jefe</span></article>
+        <article><i class="fa-solid fa-music"></i><strong>Rhythm Royale</strong><span>Ritmo y precisión</span></article>
+        <article><i class="fa-solid fa-comment-dots"></i><strong>Mentira Express</strong><span>Adivina o miente</span></article>
+      </section>
+      <button class="api-settings" data-open-settings><i class="fa-solid fa-server"></i> Configurar API</button>
+    </section>
+  </template>
+
+  <dialog id="settingsDialog" class="settings-dialog">
+    <form method="dialog">
+      <h2>API del hosting</h2>
+      <p>Cuando subas la API PHP al hosting, pega aquí la URL. Ejemplo: <code>https://api.danielux.es/party.php</code></p>
+      <input id="apiUrlInput" placeholder="https://api.danielux.es/party.php">
+      <menu>
+        <button value="cancel">Cancelar</button>
+        <button value="save" id="saveApiUrl">Guardar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

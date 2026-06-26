@@ -177,6 +177,56 @@ Arcade._drawArt = function(ctx, cv, id) {
             ctx.fillStyle = rgbStr(a1(), 0.85 + b * 0.15);
             ctx.fillText('BPM', cx, cy + 50);
         },
+
+        party(ctx, t) { // Danielux Party Arena: robots + corona + minijuegos online
+            ctx.clearRect(0, 0, W, H);
+            const b = beat();
+            const grd = ctx.createRadialGradient(cx, cy, 10, cx, cy, Math.max(W,H)*0.7);
+            grd.addColorStop(0, rgbStr(a1(), 0.22 + b*0.12));
+            grd.addColorStop(0.5, rgbStr(a2(), 0.12));
+            grd.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = grd; ctx.fillRect(0,0,W,H);
+            // Arena central
+            for (let i=0;i<4;i++) {
+                ctx.beginPath();
+                ctx.ellipse(cx, H*0.62, 70+i*28+b*10, 26+i*9+b*4, 0, 0, PI2);
+                ctx.strokeStyle = rgbStr(i%2?a2():a1(), 0.42-i*0.06);
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            // Corona
+            ctx.save(); ctx.translate(cx, H*0.34);
+            ctx.strokeStyle = rgbStr('255 216 74', .9); ctx.fillStyle = rgbStr('255 216 74', .18+b*.15); ctx.lineWidth = 3;
+            ctx.beginPath(); ctx.moveTo(-38, 18); ctx.lineTo(-26,-12); ctx.lineTo(-10,10); ctx.lineTo(0,-24); ctx.lineTo(10,10); ctx.lineTo(26,-12); ctx.lineTo(38,18); ctx.closePath(); ctx.fill(); ctx.stroke();
+            ctx.restore();
+            // Robots alrededor
+            const colors = [a1(), a2(), '32 255 145', '255 216 74', '255 66 208'];
+            for (let i=0;i<5;i++) {
+                const ang = -Math.PI*0.95 + i*(Math.PI*0.48) + Math.sin(t*.8+i)*0.05;
+                const x = cx + Math.cos(ang)*95;
+                const y = H*0.62 + Math.sin(ang)*32;
+                const col = colors[i%colors.length];
+                ctx.save(); ctx.translate(x,y);
+                const r = 13 + b*2;
+                ctx.fillStyle = rgbStr(col,.18); ctx.strokeStyle = rgbStr(col,.88); ctx.lineWidth = 2;
+                ctx.beginPath(); if(ctx.roundRect) ctx.roundRect(-r,-r,r*2,r*2,7); else ctx.rect(-r,-r,r*2,r*2); ctx.fill(); ctx.stroke();
+                ctx.fillStyle = rgbStr(col,.95); ctx.fillRect(-6,-2,4,4); ctx.fillRect(2,-2,4,4);
+                ctx.strokeStyle = rgbStr(col,.55); ctx.beginPath(); ctx.moveTo(-9, r); ctx.lineTo(-18, r+14); ctx.moveTo(9,r); ctx.lineTo(18,r+14); ctx.stroke();
+                ctx.restore();
+            }
+            // iconos inferiores
+            const labels = ['?', '😂', '⚔', '💣'];
+            labels.forEach((txt,i)=>{
+                const x = W*(0.22+i*0.19), y = H*0.84;
+                ctx.beginPath();
+                if(ctx.roundRect) ctx.roundRect(x-22,y-16,44,32,8); else ctx.rect(x-22,y-16,44,32);
+                ctx.fillStyle = 'rgba(0,10,32,.55)'; ctx.fill();
+                ctx.strokeStyle = rgbStr(i%2?a2():a1(), .45); ctx.stroke();
+                ctx.font = `900 ${txt.length>1?13:18}px Montserrat, sans-serif`;
+                ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillStyle='#fff'; ctx.fillText(txt,x,y+1);
+            });
+        },
+
         bass(ctx, t) { // Bass Invaders: naves en formación
             ctx.clearRect(0, 0, W, H);
             const b = beat();
@@ -203,7 +253,7 @@ Arcade._drawArt = function(ctx, cv, id) {
             ctx.fillStyle = rgbStr(a2(), 0.9); ctx.fillRect(cx - 2, by2, 4, 12);
         },
     };
-    const artFns = { tap: artists.tap, hero: artists.hero, surfer: artists.surfer, simon: artists.simon, dodger: artists.dodger, tempo: artists.tempo, bass: artists.bass };
+    const artFns = { tap: artists.tap, hero: artists.hero, surfer: artists.surfer, simon: artists.simon, dodger: artists.dodger, tempo: artists.tempo, bass: artists.bass, party: artists.party };
     const fn = artFns[id] || artFns.tap;
     // staticOnly se captura en el closure — funciona aunque el flag externo cambie después
     const _once = !!Arcade._drawArt._staticNext;
