@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#050711" />
-  <title>Orbit CRM — Polished Frontend SaaS Demo</title>
-  <meta name="description" content="A frontend-only SaaS dashboard demo with CRM data, kanban drag and drop, command palette, charting, calendar, theme and localStorage state." />
+  <title>Demo Hub</title>
+  <meta name="description" content="Demo Hub del portfolio.">
   <style>
 :root{--bg:#060816;--panel:#0d1225;--panel2:#121932;--text:#f7fbff;--muted:#9aa7c7;--line:rgba(255,255,255,.12);--cyan:#6bf4ff;--blue:#7c8cff;--pink:#ff5edb;--green:#83ffba;--amber:#ffd166;--red:#ff7d86;--shadow:0 28px 90px rgba(0,0,0,.42);--radius:26px;--ease:cubic-bezier(.2,.8,.2,1);color-scheme:dark}
 html[data-theme=light]{--bg:#eef3ff;--panel:#ffffff;--panel2:#f7f9ff;--text:#11182b;--muted:#61708e;--line:rgba(16,24,43,.12);--shadow:0 24px 70px rgba(57,76,120,.16);color-scheme:light}
@@ -350,7 +350,7 @@ function renderChart(){
     ${[0,1,2,3].map(i => `<line class="chart-grid" x1="${pad}" x2="${w-pad}" y1="${pad+i*(h-pad*2)/3}" y2="${pad+i*(h-pad*2)/3}"/>`).join('')}
     <path class="chart-fill" d="${fill}" fill="url(#area)"></path>
     <path class="chart-line" d="${path}"></path>
-    ${points.map((p,i) => `<circle class="chart-dot" cx="${p[0]}" cy="${p[1]}" r="6"><title>${labels[i]} · ${chartMode === 'revenue' ? '€' : ''}${p[2]}${chartMode === 'revenue' ? 'k' : ' leads'}</title></circle>`).join('')}
+    ${points.map((p,i) => `<circle class="chart-dot" cx="${p[0]}" cy="${p[1]}" r="6"><title>Demo Hub</title></circle>`).join('')}
     ${labels.map((label,i)=>`<text class="chart-label" x="${points[i][0]-10}" y="${h-14}">${label}</text>`).join('')}
   `;
 }

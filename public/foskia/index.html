@@ -1,17 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FoskIA · Danielux / Danielux135 · El mundo del día, en un latido</title><meta name="robots" content="index,follow,max-image-preview:large"><meta name="author" content="Daniel Bort Guzmán"><link rel="canonical" href="https://danielux.es/foskia/">
-<meta name="description" content="FoskIA, proyecto editorial de Danielux y Danielux135: boletín diario que resume noticias de gaming, programación, ciencia y economía.">
+<title>FoskIA | Danielux | Danielux135</title><meta name="robots" content="index,follow,max-image-preview:large"><meta name="author" content="Daniel Bort Guzm�n"><link rel="canonical" href="https://danielux.es/foskia/">
+<meta name="description" content="FoskIA, proyecto editorial de Danielux y Danielux135: bolet�n diario que resume noticias de gaming, programaci�n, ciencia y econom�a.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-/* ─── VARIABLES ─────────────────────────────────────────────────────────── */
+/* --- VARIABLES ----------------------------------------------------------- */
 :root {
   --bg:#08090d; --bg2:#0c0d13; --card:#10131c; --card2:#141720; --line:#1c2030;
   --text:#edf0f7; --muted:#8590a6; --dim:#4c5568;
@@ -50,7 +50,7 @@ body.light .brand-logo { border-color:rgba(13,148,136,.35); }
 body.light .theme-icon-moon { display:none; }
 body.light .theme-icon-sun  { display:block; }
 
-/* ─── RESET ─────────────────────────────────────────────────────────────── */
+/* --- RESET --------------------------------------------------------------- */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -73,7 +73,7 @@ body::before{
   transition:background var(--ease);
 }
 
-/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+/* --- HEADER --------------------------------------------------------------- */
 header{
   position:sticky;top:0;z-index:100;
   backdrop-filter:blur(20px) saturate(1.5);
@@ -130,7 +130,7 @@ header{
 .lang button.on{background:var(--accent);color:#04221c;font-weight:600}
 body.light .lang button.on{color:#fff}
 
-/* ─── HERO ───────────────────────────────────────────────────────────────── */
+/* --- HERO ----------------------------------------------------------------- */
 .hero{padding:84px 0 44px;border-bottom:1px solid var(--line);position:relative}
 .kicker{
   font-family:var(--font-m);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
@@ -165,7 +165,7 @@ body.light .lang button.on{color:#fff}
   .stat:nth-last-child(-n+2){border-bottom:none}
 }
 
-/* ─── TOOLBAR ────────────────────────────────────────────────────────────── */
+/* --- TOOLBAR -------------------------------------------------------------- */
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:34px 0 28px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{
@@ -178,7 +178,7 @@ body.light .lang button.on{color:#fff}
 .chip.on{background:var(--accent);color:#04221c;border-color:var(--accent);font-weight:600}
 .count{font-family:var(--font-m);font-size:.72rem;color:var(--dim);white-space:nowrap}
 
-/* ─── EDITION VIEW ───────────────────────────────────────────────────────── */
+/* --- EDITION VIEW --------------------------------------------------------- */
 .edition{padding:10px 0 90px;display:none}
 .edition.show{display:block;animation:fade-up .45s ease}
 @keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -211,7 +211,7 @@ body.light .lang button.on{color:#fff}
 }
 .back:hover{color:var(--accent);border-color:var(--accent);background:rgba(94,234,212,.06);padding-left:12px}
 
-/* ─── SECTIONS ───────────────────────────────────────────────────────────── */
+/* --- SECTIONS ------------------------------------------------------------- */
 .section{margin-bottom:72px}
 .sec-label{display:flex;align-items:center;gap:14px;margin-bottom:26px}
 .sec-tag{
@@ -229,7 +229,7 @@ body.light .lang button.on{color:#fff}
 .cat-cripto  .sec-tag{color:var(--purple); background:rgba(192,132,252,.1); border:1px solid rgba(192,132,252,.2)}
 .cat-radar   .sec-tag{color:var(--rose);   background:rgba(251,113,133,.1); border:1px solid rgba(251,113,133,.2)}
 
-/* ─── ITEMS ──────────────────────────────────────────────────────────────── */
+/* --- ITEMS ---------------------------------------------------------------- */
 .item{
   padding:24px 26px 24px 30px;border:1px solid var(--line);border-radius:var(--r);
   background:var(--card);margin-bottom:14px;transition:var(--ease);
@@ -339,7 +339,7 @@ body.light .item.open{border-color:rgba(13,148,136,.15)}
 .src a{color:var(--accent);border-bottom:1px solid transparent;transition:.2s}
 .src a:hover{border-color:var(--accent)}
 
-/* ─── ARCHIVE CARDS ──────────────────────────────────────────────────────── */
+/* --- ARCHIVE CARDS -------------------------------------------------------- */
 .archive{padding:8px 0 90px}
 .archive.hide{display:none}
 .ed-card{
@@ -371,13 +371,13 @@ body.light .item.open{border-color:rgba(13,148,136,.15)}
 .section-title{font-family:var(--font-m);font-size:.73rem;text-transform:uppercase;letter-spacing:.18em;color:var(--dim);margin:0 0 24px;display:flex;align-items:center;gap:14px}
 .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
 
-/* ─── STATES ─────────────────────────────────────────────────────────────── */
+/* --- STATES --------------------------------------------------------------- */
 .state{text-align:center;padding:100px 20px;color:var(--muted)}
 .state i{font-size:2.4rem;color:var(--dim);margin-bottom:20px;display:block}
 .spinner{width:36px;height:36px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 20px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ─── HOW IT WORKS ───────────────────────────────────────────────────────── */
+/* --- HOW IT WORKS --------------------------------------------------------- */
 .how{border-top:1px solid var(--line);padding:76px 0;background:var(--bg2);transition:background var(--ease)}
 .how-inner{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;margin-bottom:44px}
 @media(max-width:740px){.how-inner{grid-template-columns:1fr;gap:20px}}
@@ -406,7 +406,7 @@ body.light .item.open{border-color:rgba(13,148,136,.15)}
 .step h5{font-size:.98rem;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
 .step p{color:var(--muted);font-size:.84rem;line-height:1.58}
 
-/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+/* --- FOOTER --------------------------------------------------------------- */
 footer{border-top:1px solid var(--line);padding:52px 0;background:var(--bg2);transition:background var(--ease)}
 .foot{
   display:grid;grid-template-columns:auto 1fr auto;
@@ -418,7 +418,7 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--bg2);tra
 .foot-center b{color:var(--accent);font-weight:500}
 .foot-right p{color:var(--dim);font-size:.75rem;font-family:var(--font-m);text-align:right}
 
-/* ─── COMENTARIOS ────────────────────────────────────────────────────────── */
+/* --- COMENTARIOS ---------------------------------------------------------- */
 .comments{margin-top:64px;padding-top:48px;border-top:1px solid var(--line)}
 .comments-title{
   font-family:var(--font-m);font-size:.72rem;text-transform:uppercase;
@@ -462,7 +462,7 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--bg2);tra
 .comment-ok{font-family:var(--font-m);font-size:.78rem;color:var(--green);display:flex;align-items:center;gap:7px;padding:4px 0}
 .comment-err{font-family:var(--font-m);font-size:.78rem;color:var(--rose);display:flex;align-items:center;gap:7px;padding:4px 0}
 
-/* ─── ADMIN ──────────────────────────────────────────────────────────────── */
+/* --- ADMIN ---------------------------------------------------------------- */
 #admin-panel{
   position:fixed;bottom:24px;right:24px;z-index:999;
   display:none;flex-direction:column;align-items:flex-end;gap:8px;
@@ -491,7 +491,7 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--bg2);tra
 .cmt-del:hover{border-color:var(--rose);color:var(--rose);background:rgba(251,113,133,.08)}
 body.admin-mode .cmt-del{display:grid}
 
-/* ─── MISC ───────────────────────────────────────────────────────────────── */
+/* --- MISC ----------------------------------------------------------------- */
 @media(max-width:520px){
   .wrap{padding:0 18px}
   .hero{padding:56px 0 34px}
@@ -500,7 +500,7 @@ body.admin-mode .cmt-del{display:grid}
   .share-pop{right:0}
 }
 
-/* ─── SUSCRIPCIÓN ─────────────────────────────────────────────────────────── */
+/* --- SUSCRIPCI�N ----------------------------------------------------------- */
 #subscribe-section{padding:64px 0;background:linear-gradient(160deg,rgba(94,234,212,.06) 0%,transparent 60%);border-top:1px solid var(--line)}
 .sub-box{max-width:540px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
 .sub-icon{width:56px;height:56px;border-radius:50%;background:rgba(94,234,212,.12);border:1px solid rgba(94,234,212,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--accent)}
@@ -555,14 +555,14 @@ body.admin-mode .cmt-del{display:grid}
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <span class="kicker" data-ui="kicker">Boletín diario · autónomo</span>
-    <h1><span data-ui="h1a">El mundo del día, en un</span> <em data-ui="h1em">latido</em><span data-ui="h1b">.</span></h1>
-    <p class="hero-lead" data-ui="lead">Cada madrugada, una inteligencia artificial recopila, filtra y resume lo esencial de las últimas 24 horas. Gaming, código, ciencia, economía y un radar de lo que de verdad importa. Sin redacción, sin intermediarios.</p>
+    <span class="kicker" data-ui="kicker">Bolet�n diario � aut�nomo</span>
+    <h1><span data-ui="h1a">El mundo del d�a, en un</span> <em data-ui="h1em">latido</em><span data-ui="h1b">.</span></h1>
+    <p class="hero-lead" data-ui="lead">Cada madrugada, una inteligencia artificial recopila, filtra y resume lo esencial de las �ltimas 24 horas. Gaming, c�digo, ciencia, econom�a y un radar de lo que de verdad importa. Sin redacci�n, sin intermediarios.</p>
     <div class="hero-stats">
-      <div class="stat"><div class="n" id="stat-eds">—</div><div class="l" data-ui="stEditions">Ediciones</div></div>
-      <div class="stat"><div class="n">05:30</div><div class="l" data-ui="stMorning">Cada mañana</div></div>
+      <div class="stat"><div class="n" id="stat-eds">�</div><div class="l" data-ui="stEditions">Ediciones</div></div>
+      <div class="stat"><div class="n">05:30</div><div class="l" data-ui="stMorning">Cada ma�ana</div></div>
       <div class="stat"><div class="n">14</div><div class="l" data-ui="stSections">Secciones</div></div>
-      <div class="stat"><div class="n">100%</div><div class="l" data-ui="stAuto">Automático</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l" data-ui="stAuto">Autom�tico</div></div>
     </div>
   </div>
 </section>
@@ -573,7 +573,7 @@ body.admin-mode .cmt-del{display:grid}
       <div class="chips" id="chips"></div>
       <div class="count" id="count"></div>
     </div>
-    <div id="ed-list"><div class="state"><div class="spinner"></div><span data-ui="loading">Cargando ediciones…</span></div></div>
+    <div id="ed-list"><div class="state"><div class="spinner"></div><span data-ui="loading">Cargando ediciones�</span></div></div>
   </div>
   <div class="edition" id="edition"></div>
 </main>
@@ -581,8 +581,8 @@ body.admin-mode .cmt-del{display:grid}
 <section class="how" id="how">
   <div class="wrap">
     <div class="how-inner">
-      <h3 data-ui="howTitle">¿Cómo se publica solo?</h3>
-      <p class="sub" data-ui="howSub">Una cadena 100% automática. Nadie abre el editor: el contenido nace, se escribe y se despliega sin intervención humana.</p>
+      <h3 data-ui="howTitle">�C�mo se publica solo?</h3>
+      <p class="sub" data-ui="howSub">Una cadena 100% autom�tica. Nadie abre el editor: el contenido nace, se escribe y se despliega sin intervenci�n humana.</p>
     </div>
     <div class="flow" id="flow"></div>
   </div>
@@ -592,9 +592,9 @@ body.admin-mode .cmt-del{display:grid}
   <div class="wrap">
     <div class="sub-box" id="sub-box">
       <div class="sub-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-      <h2 class="sub-title" data-ui="subTitle">Recibe FoskIA cada mañana</h2>
-      <p class="sub-desc" data-ui="subDesc">La edición del día en tu bandeja de entrada, escrita y enviada por IA sin intervención humana.</p>
-      <div class="sub-langs-label" data-ui="subLangsLabel">¿En qué idioma(s) quieres recibirlo?</div>
+      <h2 class="sub-title" data-ui="subTitle">Recibe FoskIA cada ma�ana</h2>
+      <p class="sub-desc" data-ui="subDesc">La edici�n del d�a en tu bandeja de entrada, escrita y enviada por IA sin intervenci�n humana.</p>
+      <div class="sub-langs-label" data-ui="subLangsLabel">�En qu� idioma(s) quieres recibirlo?</div>
       <div class="sub-langs" id="sub-langs">
         <button type="button" class="sub-lang-btn active" data-lang="es">ES</button>
         <button type="button" class="sub-lang-btn" data-lang="en">EN</button>
@@ -607,10 +607,10 @@ body.admin-mode .cmt-del{display:grid}
           <span data-ui="subBtn">Suscribirme</span>
         </button>
       </form>
-      <p class="sub-note" data-ui="subNote">Sin spam · Puedes darte de baja cuando quieras</p>
+      <p class="sub-note" data-ui="subNote">Sin spam � Puedes darte de baja cuando quieras</p>
       <div class="sub-ok" id="sub-ok" style="display:none">
         <i class="fa-solid fa-circle-check"></i>
-        <span data-ui="subOk">¡Apuntado! Te llegará la próxima edición.</span>
+        <span data-ui="subOk">�Apuntado! Te llegar� la pr�xima edici�n.</span>
       </div>
       <div class="sub-err" id="sub-err" style="display:none"></div>
     </div>
@@ -628,23 +628,23 @@ body.admin-mode .cmt-del{display:grid}
       </div>
     </a>
     <div class="foot-center">
-      <p><span data-ui="byPre">Escrito y publicado por</span> <b data-ui="byB">IA</b> <span data-ui="byPost">· sin manos humanas</span></p>
+      <p><span data-ui="byPre">Escrito y publicado por</span> <b data-ui="byB">IA</b> <span data-ui="byPost">� sin manos humanas</span></p>
       <p data-ui="byCredit"></p>
     </div>
     <div class="foot-right">
-      <p>FoskIA Â© 2026</p>
+      <p>FoskIA © 2026</p>
     </div>
   </div>
 </footer>
 
 <script>
-/* ─── DATOS ──────────────────────────────────────────────────────────────── */
+/* --- DATOS ---------------------------------------------------------------- */
 const CATS = {
   gaming:          {icon:"fa-gamepad",         label:{es:"Gaming",          en:"Gaming",          val:"Gaming"}},
   gratis:          {icon:"fa-gift",            label:{es:"Juegos gratis",   en:"Free games",      val:"Jocs gratis"}},
-  codigo:          {icon:"fa-code",            label:{es:"Código",          en:"Code",            val:"Codi"}},
-  ciencia:         {icon:"fa-flask",           label:{es:"Ciencia",         en:"Science",         val:"Cií¨ncia"}},
-  economia:        {icon:"fa-chart-line",      label:{es:"Economía",        en:"Economy",         val:"Economia"}},
+  codigo:          {icon:"fa-code",            label:{es:"C�digo",          en:"Code",            val:"Codi"}},
+  ciencia:         {icon:"fa-flask",           label:{es:"Ciencia",         en:"Science",         val:"Ci��ncia"}},
+  economia:        {icon:"fa-chart-line",      label:{es:"Econom�a",        en:"Economy",         val:"Economia"}},
   cripto:          {icon:"fa-coins",           label:{es:"Criptomonedas",   en:"Crypto",          val:"Criptomonedes"}},
   radar:           {icon:"fa-satellite-dish",  label:{es:"Radar",           en:"Radar",           val:"Radar"}},
   ia:              {icon:"fa-robot",           label:{es:"IA",              en:"AI",              val:"IA"}},
@@ -658,74 +658,74 @@ const CATS = {
 
 const UI = {
   es:{
-    live:"EN VIVO",kicker:"Boletín diario · autónomo",h1a:"El mundo del día, en un",h1em:"latido",h1b:".",
-    lead:"Cada madrugada, una inteligencia artificial recopila, filtra y resume lo esencial de las últimas 24 horas. Gaming, código, ciencia, economía y un radar de lo que de verdad importa. Sin redacción, sin intermediarios.",
-    stEditions:"Ediciones",stMorning:"Cada mañana",stSections:"Secciones",stAuto:"Automático",
-    all:"Todo",recent:"Ediciones recientes",read:"Leer",edS:"edición",edP:"ediciones",newsS:"noticia",newsP:"noticias",
-    allEditions:"Todas las ediciones",empty:"Nada por aquí todavía.",loadErr:"No se pudieron cargar las ediciones.",
-    openErr:"No se pudo abrir esta edición.",loading:"Cargando ediciones…",opening:"Abriendo edición…",back:"Volver",source:"Fuente",
-    freeUntil:"Gratis hasta",shortTerm:"Corto plazo",longTerm:"Largo plazo",getFree:"Conseguir gratis",urgentBadge:"¡Se acaba pronto!",getOffer:"Ver oferta",dealUntil:"Oferta hasta",dealBadge:"¡Chollazo!",originalPrice:"Precio original",salePrice:"Precio oferta",
-    cryptoDisclaimer:"Análisis informativo, no asesoramiento financiero. Invierte bajo tu propia responsabilidad.",
-    howTitle:"¿Cómo se publica solo?",
-    howSub:"Una cadena 100% automática. Nadie abre el editor: el contenido nace, se escribe y se despliega sin intervención humana.",
-    byPre:"Escrito y publicado por",byB:"IA",byPost:"· sin manos humanas",byCredit:"Proyecto de <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzmán</a>",
-    share:"Compartir",shareX:"Twitter / X",shareWA:"WhatsApp",copyLink:"Copiar enlace",copied:"¡Copiado!",
+    live:"EN VIVO",kicker:"Bolet�n diario � aut�nomo",h1a:"El mundo del d�a, en un",h1em:"latido",h1b:".",
+    lead:"Cada madrugada, una inteligencia artificial recopila, filtra y resume lo esencial de las �ltimas 24 horas. Gaming, c�digo, ciencia, econom�a y un radar de lo que de verdad importa. Sin redacci�n, sin intermediarios.",
+    stEditions:"Ediciones",stMorning:"Cada ma�ana",stSections:"Secciones",stAuto:"Autom�tico",
+    all:"Todo",recent:"Ediciones recientes",read:"Leer",edS:"edici�n",edP:"ediciones",newsS:"noticia",newsP:"noticias",
+    allEditions:"Todas las ediciones",empty:"Nada por aqu� todav�a.",loadErr:"No se pudieron cargar las ediciones.",
+    openErr:"No se pudo abrir esta edici�n.",loading:"Cargando ediciones�",opening:"Abriendo edici�n�",back:"Volver",source:"Fuente",
+    freeUntil:"Gratis hasta",shortTerm:"Corto plazo",longTerm:"Largo plazo",getFree:"Conseguir gratis",urgentBadge:"�Se acaba pronto!",getOffer:"Ver oferta",dealUntil:"Oferta hasta",dealBadge:"�Chollazo!",originalPrice:"Precio original",salePrice:"Precio oferta",
+    cryptoDisclaimer:"An�lisis informativo, no asesoramiento financiero. Invierte bajo tu propia responsabilidad.",
+    howTitle:"�C�mo se publica solo?",
+    howSub:"Una cadena 100% autom�tica. Nadie abre el editor: el contenido nace, se escribe y se despliega sin intervenci�n humana.",
+    byPre:"Escrito y publicado por",byB:"IA",byPost:"� sin manos humanas",byCredit:"Proyecto de <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzm�n</a>",
+    share:"Compartir",shareX:"Twitter / X",shareWA:"WhatsApp",copyLink:"Copiar enlace",copied:"�Copiado!",
     urgent:"Caduca pronto",urgentEmpty:"No hay juegos a punto de caducar.",
     cmtTitle:"Comentarios",cmtName:"Tu nombre",cmtMsg:"Tu comentario",cmtSend:"Publicar",
-    cmtEmpty:"Sé el primero en comentar.",cmtOk:"¡Comentario publicado!",cmtErr:"Error al publicar. Inténtalo de nuevo.",
-    subTitle:"Recibe FoskIA cada mañana",subDesc:"La edición del día en tu bandeja de entrada, escrita y enviada por IA sin intervención humana.",subLangsLabel:"¿En qué idioma(s) quieres recibirlo?",subBtn:"Suscribirme",subNote:"Sin spam · Puedes darte de baja cuando quieras",subOk:"¡Apuntado! Te llegará la próxima edición.",
+    cmtEmpty:"S� el primero en comentar.",cmtOk:"�Comentario publicado!",cmtErr:"Error al publicar. Int�ntalo de nuevo.",
+    subTitle:"Recibe FoskIA cada ma�ana",subDesc:"La edici�n del d�a en tu bandeja de entrada, escrita y enviada por IA sin intervenci�n humana.",subLangsLabel:"�En qu� idioma(s) quieres recibirlo?",subBtn:"Suscribirme",subNote:"Sin spam � Puedes darte de baja cuando quieras",subOk:"�Apuntado! Te llegar� la pr�xima edici�n.",
     steps:[
-      ["05:30 — Despierta","Un agente programado en la nube arranca cada madrugada, puntual."],
-      ["Investiga","Busca y contrasta las noticias del día anterior en cada categoría."],
-      ["Redacta","Resume con criterio propio y empaqueta la edición en un archivo."],
+      ["05:30 � Despierta","Un agente programado en la nube arranca cada madrugada, puntual."],
+      ["Investiga","Busca y contrasta las noticias del d�a anterior en cada categor�a."],
+      ["Redacta","Resume con criterio propio y empaqueta la edici�n en un archivo."],
       ["Despliega","Hace commit por la API de GitHub y la web se actualiza sola."]
     ]
   },
   en:{
-    live:"LIVE",kicker:"Daily briefing · autonomous",h1a:"The day's world, in a single",h1em:"pulse",h1b:".",
+    live:"LIVE",kicker:"Daily briefing � autonomous",h1a:"The day's world, in a single",h1em:"pulse",h1b:".",
     lead:"Every dawn, an artificial intelligence gathers, filters and summarizes what matters from the last 24 hours. Gaming, code, science, economy and a radar for what truly counts. No newsroom, no middlemen.",
     stEditions:"Editions",stMorning:"Every morning",stSections:"Sections",stAuto:"Automated",
     all:"All",recent:"Recent editions",read:"Read",edS:"edition",edP:"editions",newsS:"story",newsP:"stories",
     allEditions:"All editions",empty:"Nothing here yet.",loadErr:"Couldn't load the editions.",
-    openErr:"Couldn't open this edition.",loading:"Loading editions…",opening:"Opening edition…",back:"Back",source:"Source",
+    openErr:"Couldn't open this edition.",loading:"Loading editions�",opening:"Opening edition�",back:"Back",source:"Source",
     freeUntil:"Free until",shortTerm:"Short term",longTerm:"Long term",getFree:"Get it free",urgentBadge:"Ending soon!",getOffer:"See deal",dealUntil:"Deal until",dealBadge:"Hot deal!",originalPrice:"Original price",salePrice:"Sale price",
     cryptoDisclaimer:"Informational analysis, not financial advice. Invest at your own risk.",
     howTitle:"How does it publish itself?",
     howSub:"A 100% automated chain. No one opens the editor: the content is born, written and deployed with no human hands.",
-    byPre:"Written and published by",byB:"AI",byPost:"· no human hands",byCredit:"A project by <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzmán</a>",
+    byPre:"Written and published by",byB:"AI",byPost:"� no human hands",byCredit:"A project by <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzm�n</a>",
     share:"Share",shareX:"Twitter / X",shareWA:"WhatsApp",copyLink:"Copy link",copied:"Copied!",
     urgent:"Expiring soon",urgentEmpty:"No games expiring soon.",
     cmtTitle:"Comments",cmtName:"Your name",cmtMsg:"Your comment",cmtSend:"Post",
     cmtEmpty:"Be the first to comment.",cmtOk:"Comment posted!",cmtErr:"Failed to post. Please try again.",
-    subTitle:"Get FoskIA every morning",subDesc:"The day's edition in your inbox, written and sent by AI with no human input.",subLangsLabel:"Which language(s) do you want to receive it in?",subBtn:"Subscribe",subNote:"No spam · Unsubscribe anytime",subOk:"You're in! The next edition will land in your inbox.",
+    subTitle:"Get FoskIA every morning",subDesc:"The day's edition in your inbox, written and sent by AI with no human input.",subLangsLabel:"Which language(s) do you want to receive it in?",subBtn:"Subscribe",subNote:"No spam � Unsubscribe anytime",subOk:"You're in! The next edition will land in your inbox.",
     steps:[
-      ["05:30 — Wakes up","A scheduled cloud agent starts every dawn, right on time."],
+      ["05:30 � Wakes up","A scheduled cloud agent starts every dawn, right on time."],
       ["Researches","It searches and cross-checks the previous day's news in each category."],
       ["Writes","It summarizes with its own judgment and packs the edition into a file."],
       ["Deploys","It commits via the GitHub API and the site updates on its own."]
     ]
   },
   val:{
-    live:"EN DIRECTE",kicker:"Butlletí diari · autí²nom",h1a:"El món del dia, en un",h1em:"batec",h1b:".",
-    lead:"Cada matinada, una intel·ligí¨ncia artificial recopila, filtra i resumix l'essencial de les últimes 24 hores. Gaming, codi, cií¨ncia, economia i un radar del que de veritat importa. Sense redacció, sense intermediaris.",
-    stEditions:"Edicions",stMorning:"Cada matí",stSections:"Seccions",stAuto:"Automí tic",
-    all:"Tot",recent:"Edicions recents",read:"Llegir",edS:"edició",edP:"edicions",newsS:"notícia",newsP:"notícies",
+    live:"EN DIRECTE",kicker:"Butllet� diari � aut��nom",h1a:"El m�n del dia, en un",h1em:"batec",h1b:".",
+    lead:"Cada matinada, una intel�lig��ncia artificial recopila, filtra i resumix l'essencial de les �ltimes 24 hores. Gaming, codi, ci��ncia, economia i un radar del que de veritat importa. Sense redacci�, sense intermediaris.",
+    stEditions:"Edicions",stMorning:"Cada mat�",stSections:"Seccions",stAuto:"Autom��tic",
+    all:"Tot",recent:"Edicions recents",read:"Llegir",edS:"edici�",edP:"edicions",newsS:"not�cia",newsP:"not�cies",
     allEditions:"Totes les edicions",empty:"Encara no hi ha res.",loadErr:"No s'han pogut carregar les edicions.",
-    openErr:"No s'ha pogut obrir esta edició.",loading:"Carregant edicions…",opening:"Obrint edició…",back:"Tornar",source:"Font",
+    openErr:"No s'ha pogut obrir esta edici�.",loading:"Carregant edicions�",opening:"Obrint edici�",back:"Tornar",source:"Font",
     freeUntil:"Gratis fins a",shortTerm:"Curt termini",longTerm:"Llarg termini",getFree:"Aconseguir gratis",urgentBadge:"S'acaba prompte!",getOffer:"Veure oferta",dealUntil:"Oferta fins a",dealBadge:"Ganga!",originalPrice:"Preu original",salePrice:"Preu oferta",
-    cryptoDisclaimer:"Aní lisi informativa, no assessorament financer. Invertix sota la teua responsabilitat.",
+    cryptoDisclaimer:"An��lisi informativa, no assessorament financer. Invertix sota la teua responsabilitat.",
     howTitle:"Com es publica sol?",
-    howSub:"Una cadena 100% automí tica. Ningú obri l'editor: el contingut naix, s'escriu i es desplega sense intervenció humana.",
-    byPre:"Escrit i publicat per",byB:"IA",byPost:"· sense mans humanes",byCredit:"Projecte de <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzmán</a>",
-    share:"Compartir",shareX:"Twitter / X",shareWA:"WhatsApp",copyLink:"Copiar enllaí§",copied:"Copiat!",
+    howSub:"Una cadena 100% autom��tica. Ning� obri l'editor: el contingut naix, s'escriu i es desplega sense intervenci� humana.",
+    byPre:"Escrit i publicat per",byB:"IA",byPost:"� sense mans humanes",byCredit:"Projecte de <a href='https://danielux135.github.io' style='color:var(--accent)'>Daniel Bort Guzm�n</a>",
+    share:"Compartir",shareX:"Twitter / X",shareWA:"WhatsApp",copyLink:"Copiar enlla��",copied:"Copiat!",
     urgent:"Caduca prompte",urgentEmpty:"No hi ha jocs a punt de caducar.",
     cmtTitle:"Comentaris",cmtName:"El teu nom",cmtMsg:"El teu comentari",cmtSend:"Publicar",
     cmtEmpty:"Sigues el primer a comentar.",cmtOk:"Comentari publicat!",cmtErr:"Error en publicar. Torna-ho a intentar.",
-    subTitle:"Rep FoskIA cada matí",subDesc:"L'edició del dia a la teua safata d'entrada, escrita i enviada per IA sense intervenció humana.",subLangsLabel:"En quin/quins idioma/es vols rebre'l?",subBtn:"Subscriure'm",subNote:"Sense spam · Et pots donar de baixa quan vulgues",subOk:"Apuntat! Et arribarí  la prí²xima edició.",
+    subTitle:"Rep FoskIA cada mat�",subDesc:"L'edici� del dia a la teua safata d'entrada, escrita i enviada per IA sense intervenci� humana.",subLangsLabel:"En quin/quins idioma/es vols rebre'l?",subBtn:"Subscriure'm",subNote:"Sense spam � Et pots donar de baixa quan vulgues",subOk:"Apuntat! Et arribar�� la pr��xima edici�.",
     steps:[
-      ["05:30 — Es desperta","Un agent programat al núvol arranca cada matinada, puntual."],
-      ["Investiga","Busca i contrasta les notícies del dia anterior en cada categoria."],
-      ["Redacta","Resumix amb criteri propi i empaqueta l'edició en un arxiu."],
+      ["05:30 � Es desperta","Un agent programat al n�vol arranca cada matinada, puntual."],
+      ["Investiga","Busca i contrasta les not�cies del dia anterior en cada categoria."],
+      ["Redacta","Resumix amb criteri propi i empaqueta l'edici� en un arxiu."],
       ["Desplega","Fa commit per l'API de GitHub i la web s'actualitza sola."]
     ]
   }
@@ -734,11 +734,11 @@ const UI = {
 const MONTHS = {
   es:["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
   en:["January","February","March","April","May","June","July","August","September","October","November","December"],
-  val:["gener","febrer","marí§","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre"]
+  val:["gener","febrer","mar��","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre"]
 };
 const STEP_ICONS = ["fa-clock","fa-magnifying-glass","fa-feather","fa-rocket"];
 
-/* ─── ESTADO ─────────────────────────────────────────────────────────────── */
+/* --- ESTADO --------------------------------------------------------------- */
 let EDITIONS = [], filter = "todo", currentEd = null;
 let lang = localStorage.getItem('portfolioLanguage') || 'es';
 if(!UI[lang]) lang = 'es';
@@ -761,7 +761,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   applyTheme();
 });
 
-/* ─── HELPERS ────────────────────────────────────────────────────────────── */
+/* --- HELPERS -------------------------------------------------------------- */
 function L(v){ if(v==null) return ""; if(typeof v==="string") return v; return v[lang]??v.es??Object.values(v)[0]??""; }
 function u(k){ return UI[lang][k]??""; }
 function catLabel(k){ return CATS[k]?CATS[k].label[lang]||CATS[k].label.es:k; }
@@ -782,13 +782,13 @@ function escLink(s){
   s=String(s??"");const parts=[];
   s=s.replace(/<a\s+href="(https?:\/\/[^"]+)"\s*>([\s\S]*?)<\/a>/gi,(m,url,txt)=>{
     const i=parts.push(`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(txt)}</a>`)-1;
-    return `î€€${i}î€`;
+    return `${i}`;
   });
   s=esc(s);
-  return s.replace(/î€€(\d+)î€/g,(m,i)=>parts[+i]);
+  return s.replace(/(\d+)/g,(m,i)=>parts[+i]);
 }
 
-/* ─── UI / IDIOMA ────────────────────────────────────────────────────────── */
+/* --- UI / IDIOMA ---------------------------------------------------------- */
 function applyUI(){
   document.documentElement.lang = lang==="val"?"ca-valencia":lang;
   document.querySelectorAll("[data-ui]").forEach(el=>{
@@ -814,7 +814,7 @@ document.getElementById("lang").addEventListener("click",e=>{
   if(currentEd) openEdition(currentEd); else renderList();
 });
 
-/* ─── DATOS / FETCH ──────────────────────────────────────────────────────── */
+/* --- DATOS / FETCH -------------------------------------------------------- */
 const POSTS = {};
 async function getPost(date){
   if(POSTS[date]) return POSTS[date];
@@ -843,7 +843,7 @@ async function init(){
   }
 }
 
-/* ─── CHIPS ──────────────────────────────────────────────────────────────── */
+/* --- CHIPS ---------------------------------------------------------------- */
 function renderChips(){
   const used=new Set(); EDITIONS.forEach(e=>(e.tags||[]).forEach(t=>used.add(t)));
   const chips=[`<button class="chip ${filter==="todo"?"on":""}" data-f="todo">${u("all")}</button>`];
@@ -861,7 +861,7 @@ function renderChips(){
 
 function renderList(){ if(filter==="todo") renderArchive(); else if(filter==="urgente") renderUrgent(); else renderFeed(); }
 
-/* ─── URGENTES ───────────────────────────────────────────────────────────── */
+/* --- URGENTES ------------------------------------------------------------- */
 async function renderUrgent(){
   const box=document.getElementById("ed-list");
   box.innerHTML=`<div class="state"><div class="spinner"></div>${u("loading")}</div>`;
@@ -883,7 +883,7 @@ async function renderUrgent(){
   </div>`;
 }
 
-/* ─── ARCHIVO ────────────────────────────────────────────────────────────── */
+/* --- ARCHIVO -------------------------------------------------------------- */
 function renderArchive(){
   const list=EDITIONS;
   document.getElementById("count").textContent=`${list.length} ${list.length===1?u("edS"):u("edP")}`;
@@ -901,7 +901,7 @@ function renderArchive(){
     </a>`).join("");
 }
 
-/* ─── FEED POR CATEGORíA ─────────────────────────────────────────────────── */
+/* --- FEED POR CATEGOR�A --------------------------------------------------- */
 async function renderFeed(){
   const cat=filter;
   const box=document.getElementById("ed-list");
@@ -925,7 +925,7 @@ async function renderFeed(){
   </div>`;
 }
 
-/* ─── ABRIR EDICIÓN ──────────────────────────────────────────────────────── */
+/* --- ABRIR EDICI�N -------------------------------------------------------- */
 async function openEdition(date){
   currentEd=date;
   const ed=document.getElementById("edition"); setView("edition");
@@ -978,7 +978,7 @@ function renderSection(s){
   </div>`;
 }
 
-/* ─── ITEM ───────────────────────────────────────────────────────────────── */
+/* --- ITEM ----------------------------------------------------------------- */
 function linkIcon(l){
   const url=String(l.url||"").toLowerCase();
   if(/youtube\.com|youtu\.be/.test(url)) return "fa-brands fa-youtube";
@@ -1049,7 +1049,7 @@ function renderItem(it, dateISO){
   </div>`;
 }
 
-/* ─── COMPARTIR ──────────────────────────────────────────────────────────── */
+/* --- COMPARTIR ------------------------------------------------------------ */
 function toggleShare(e, btn, title, shareUrl){
   e.stopPropagation();
   const item = btn.closest('.item');
@@ -1100,13 +1100,13 @@ document.addEventListener('click', ()=>{
   document.querySelectorAll('.share-pop.open').forEach(p=>p.classList.remove('open'));
 });
 
-/* ─── TOGGLE ITEM ────────────────────────────────────────────────────────── */
+/* --- TOGGLE ITEM ---------------------------------------------------------- */
 function toggleItem(e, item){
   if(e.target.closest('.share-btn,.share-pop')) return;
   item.classList.toggle('open');
 }
 
-/* ─── VISTAS ─────────────────────────────────────────────────────────────── */
+/* --- VISTAS --------------------------------------------------------------- */
 function setView(v){
   document.getElementById("archive").classList.toggle("hide",v==="edition");
   document.getElementById("edition").classList.toggle("show",v==="edition");
@@ -1156,7 +1156,7 @@ const provider = new GoogleAuthProvider();
 let activeUnsub = null;
 let adminUid    = null;
 
-/* ─── LOGO CLICK COUNTER ─────────────────────────────────────────────────── */
+/* --- LOGO CLICK COUNTER --------------------------------------------------- */
 let logoClicks = 0, logoTimer = null;
 document.querySelectorAll('.brand-logo').forEach(el=>{
   el.addEventListener('click', ()=>{
@@ -1171,7 +1171,7 @@ document.querySelectorAll('.brand-logo').forEach(el=>{
   });
 });
 
-/* ─── AUTH ───────────────────────────────────────────────────────────────── */
+/* --- AUTH ----------------------------------------------------------------- */
 onAuthStateChanged(auth, user=>{
   const loginBtn  = document.getElementById('admin-login-btn');
   const logoutBtn = document.getElementById('admin-logout-btn');
@@ -1201,7 +1201,7 @@ document.getElementById('admin-logout-btn').addEventListener('click', ()=>{
   document.getElementById('admin-panel').classList.remove('show');
 });
 
-/* ─── SELECTOR DE IDIOMA EN SUSCRIPCIÓN ─────────────────────────────────── */
+/* --- SELECTOR DE IDIOMA EN SUSCRIPCI�N ----------------------------------- */
 document.getElementById('sub-langs').addEventListener('click', e => {
   const btn = e.target.closest('.sub-lang-btn');
   if (!btn) return;
@@ -1211,7 +1211,7 @@ document.getElementById('sub-langs').addEventListener('click', e => {
   if (active.length === 0) btn.classList.add('active');
 });
 
-/* ─── SUSCRIPCIÓN ────────────────────────────────────────────────────────── */
+/* --- SUSCRIPCI�N ---------------------------------------------------------- */
 window.handleSubscribe = async function(e){
   e.preventDefault();
   const email   = document.getElementById('sub-email').value.trim().toLowerCase();
@@ -1223,9 +1223,9 @@ window.handleSubscribe = async function(e){
   const selectedLangs = [...document.querySelectorAll('.sub-lang-btn.active')].map(b => b.dataset.lang);
 
   const msgs = {
-    duplicate: { es:'Ya estás suscrito con ese email.', en:'You are already subscribed.', val:'Ja estí s subscrit amb eixe email.' },
+    duplicate: { es:'Ya est�s suscrito con ese email.', en:'You are already subscribed.', val:'Ja est��s subscrit amb eixe email.' },
     noLang:    { es:'Selecciona al menos un idioma.', en:'Please select at least one language.', val:'Selecciona almenys un idioma.' },
-    error:     { es:'Error al suscribirte. Inténtalo de nuevo.', en:'Something went wrong. Please try again.', val:"Error en subscriure't. Torna-ho a intentar." },
+    error:     { es:'Error al suscribirte. Int�ntalo de nuevo.', en:'Something went wrong. Please try again.', val:"Error en subscriure't. Torna-ho a intentar." },
   };
 
   if(selectedLangs.length === 0){
@@ -1264,10 +1264,10 @@ window.handleSubscribe = async function(e){
   }
 };
 
-/* ─── DELETE COMMENT ─────────────────────────────────────────────────────── */
+/* --- DELETE COMMENT ------------------------------------------------------- */
 window.deleteComment = async function(date, id){
   if(!adminUid) return;
-  if(!confirm('¿Eliminar este comentario?')) return;
+  if(!confirm('�Eliminar este comentario?')) return;
   await deleteDoc(doc(db,'comentarios',date,'lista',id));
 };
 
@@ -1281,7 +1281,7 @@ function renderComments(docs, date){
   const box = document.getElementById("cmt-list-"+date);
   if(!box) return;
   if(!docs.length){
-    box.innerHTML = '<div class="comment-empty">' + (window.__u ? window.__u('cmtEmpty') : 'Sé el primero en comentar.') + '</div>';
+    box.innerHTML = '<div class="comment-empty">' + (window.__u ? window.__u('cmtEmpty') : 'S� el primero en comentar.') + '</div>';
     return;
   }
   box.innerHTML = docs.map(d=>`
@@ -1320,7 +1320,7 @@ window.submitComment = async function(date){
       nombre, texto, ts: serverTimestamp()
     });
     msgEl.value = "";
-    statusEl.innerHTML = `<div class="comment-ok"><i class="fa-solid fa-check"></i>${t.cmtOk||"¡Publicado!"}</div>`;
+    statusEl.innerHTML = `<div class="comment-ok"><i class="fa-solid fa-check"></i>${t.cmtOk||"�Publicado!"}</div>`;
     setTimeout(()=>{ if(statusEl) statusEl.innerHTML=""; },3000);
   }catch(e){
     statusEl.innerHTML = `<div class="comment-err"><i class="fa-solid fa-xmark"></i>${t.cmtErr||"Error al publicar."}</div>`;
@@ -1331,3 +1331,5 @@ window.submitComment = async function(date){
 </script>
 </body>
 </html>
+
+
