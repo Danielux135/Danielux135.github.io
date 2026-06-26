@@ -11,9 +11,9 @@ function page(title, body, color = '#5eead4') {
     <div style="color:#5eead4;font-size:28px;font-weight:900;letter-spacing:-.02em;margin-bottom:32px">FoskIA.</div>
     <h1 style="color:${color};font-size:22px;font-weight:700;margin:0 0 16px">${title}</h1>
     <p style="color:#94a3b8;font-size:15px;line-height:1.6;margin:0 0 32px">${body}</p>
-    <a href="https://danielux135.github.io/blog/" style="background:#5eead4;color:#0a1628;padding:11px 26px;border-radius:8px;text-decoration:none;font-weight:700;font-size:13px">Volver al blog</a>
-    <p style="color:#334155;font-size:11px;margin-top:32px">
-      Proyecto de <a href="https://danielux135.github.io/" style="color:#5eead4;text-decoration:none">Daniel Bort Guzmán</a>
+<a href="https://danielux.es/foskia/" style="background:#5eead4;color:#0a1628;padding:11px 26px;border-radius:8px;text-decoration:none;font-weight:700;font-size:13px">Volver a FoskIA</a>
+<p style="color:#334155;font-size:11px;margin-top:32px">
+ Proyecto de <a href="https://danielux.es/" style="color:#5eead4;text-decoration:none">Daniel Bort Guzmán</a>
     </p>
   </div>
 </body></html>`;
