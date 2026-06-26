@@ -19,7 +19,7 @@ function getNewPosts() {
   const manualDate = process.env.MANUAL_DATE;
   if (manualDate || process.env.GITHUB_EVENT_NAME === 'workflow_dispatch') {
     const date = manualDate || new Date().toISOString().slice(0, 10);
-    const f = `public/blog/posts/${date}.json`;
+const f = `public/foskia/posts/${date}.json`;
     return require('fs').existsSync(f) ? [f] : [];
   }
   try {

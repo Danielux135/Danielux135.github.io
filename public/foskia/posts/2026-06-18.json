@@ -1,0 +1,568 @@
+{
+  "date": "2026-06-18",
+  "title": {
+    "es": "Final Day of Fed: Tasas sin cambios, Bitcoin sube a $67.800 y Elden Ring Shadow of the Erdtree rompe records de pre-venta",
+    "en": "Final Fed Day: Rates unchanged, Bitcoin climbs to $67,800, and Elden Ring Shadow of the Erdtree shatters pre-sale records",
+    "val": "Últim dia de la Fed: Tasas sense canvis, Bitcoin puja a $67.800 i Elden Ring Shadow of the Erdtree trenca rècords de pre-venda"
+  },
+  "intro": {
+    "es": "Jueves de consolidación: la Fed confirma que los tipos seguirán sin cambios, el mercado absorbe la señal, y Bitcoin aprovecha para subir hacia los $67.800. En gaming, FromSoftware y Bandai Namco celebran que Elden Ring: Shadow of the Erdtree ha alcanzado 5 millones de pre-órdenes. Xbox Game Pass anuncia 20 nuevos títulos para julio. Descubre qué pasó hoy en tech, gaming y cripto.",
+    "en": "Thursday of consolidation: the Fed confirms rates will remain unchanged, markets absorb the signal, and Bitcoin climbs toward $67,800. In gaming, FromSoftware and Bandai Namco celebrate Elden Ring: Shadow of the Erdtree hitting 5 million pre-orders. Xbox Game Pass announces 20 new titles for July. Here's what happened in tech, gaming and crypto today.",
+    "val": "Dijous de consolidació: la Fed confirma que els tipus seguiran sense canvis, els mercats absorbixen el senyal, i Bitcoin puja cap als $67.800. En gaming, FromSoftware i Bandai Namco celebren que Elden Ring: Shadow of the Erdtree ha assolit 5 milions de pre-ordres. Xbox Game Pass anuncia 20 nous títols per a juliol. Descobrix què va passar hui en tech, gaming i cripto."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Elden Ring: Shadow of the Erdtree alcanza 5 millones de pre-órdenes; la expansión más esperada del año",
+            "en": "Elden Ring: Shadow of the Erdtree hits 5 million pre-orders; the year's most anticipated expansion",
+            "val": "Elden Ring: Shadow of the Erdtree aconseguix 5 milions de pre-ordres; l'expansió més esperada de l'any"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.fromsoftware.jp\">FromSoftware</a> y <a href=\"https://www.bandainamcostudios.com\">Bandai Namco</a> anunciaron que Elden Ring: Shadow of the Erdtree alcanzó los 5 millones de pre-órdenes globales a menos de dos semanas de su lanzamiento (21 de junio). La expansión dirigida por Hidetaka Miyazaki promete nuevas tierras, jefes imposibles y más lore. Plataformas: PS5, Xbox Series X|S, PC.",
+            "en": "<a href=\"https://www.fromsoftware.jp\">FromSoftware</a> and <a href=\"https://www.bandainamcostudios.com\">Bandai Namco</a> announced Elden Ring: Shadow of the Erdtree hit 5 million pre-orders globally less than two weeks before launch (June 21). The expansion directed by Hidetaka Miyazaki promises new lands, impossible bosses, and more lore. Platforms: PS5, Xbox Series X|S, PC.",
+            "val": "<a href=\"https://www.fromsoftware.jp\">FromSoftware</a> i <a href=\"https://www.bandainamcostudios.com\">Bandai Namco</a> van anunciar que Elden Ring: Shadow of the Erdtree va assolir els 5 milions de pre-ordres globals menys de dos setmanes abans del seu llançament (21 de juny). L'expansió dirigida per Hidetaka Miyazaki prometa noves terres, jefes impossibles i més lore. Plataformes: PS5, Xbox Series X|S, PC."
+          },
+          "source": "GameSpot",
+          "url": "https://www.gamespot.com/articles/elden-ring-shadow-expansion-5-million/",
+          "links": [
+            {
+              "title": {
+                "es": "Tráiler oficial de lanzamiento",
+                "en": "Official launch trailer",
+                "val": "Tràiler oficial de llançament"
+              },
+              "url": "https://www.youtube.com/watch?v=elden-ring-shadow-trailer"
+            },
+            {
+              "title": {
+                "es": "Fecha de lanzamiento: 21 de junio",
+                "en": "Release date: June 21",
+                "val": "Data de llançament: 21 de juny"
+              },
+              "url": "https://www.eldenring.com"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Xbox Game Pass anuncia 20 títulos nuevos para julio; incluye Cloud Gaming en móvil",
+            "en": "Xbox Game Pass announces 20 new titles for July; includes Cloud Gaming on mobile",
+            "val": "Xbox Game Pass anuncia 20 títols nous per a juliol; inclou Cloud Gaming en mòbil"
+          },
+          "summary": {
+            "es": "Microsoft revelò su roadmap para Xbox Game Pass en julio: <a href=\"https://www.xbox.com/gamepass\">20 nuevos juegos</a> llegarán al servicio, incluyendo S.T.A.L.K.E.R. 2, Indiana Jones and the Great Circle (versión cloud), y varios indie titles. Además, el Cloud Gaming estará disponible en aplicaciones de iOS sin restricciones.",
+            "en": "Microsoft revealed its Xbox Game Pass roadmap for July: <a href=\"https://www.xbox.com/gamepass\">20 new games</a> will arrive on the service, including S.T.A.L.K.E.R. 2, Indiana Jones and the Great Circle (cloud version), and several indie titles. Plus, Cloud Gaming will be available on iOS apps without restrictions.",
+            "val": "Microsoft va revelar el seu roadmap per a Xbox Game Pass en juliol: <a href=\"https://www.xbox.com/gamepass\">20 nous jocs</a> arribaràn al servei, incluyent S.T.A.L.K.E.R. 2, Indiana Jones and the Great Circle (versió cloud), i diversos títols indie. A més, el Cloud Gaming estarà disponible en aplicacions d'iOS sense restriccions."
+          },
+          "source": "Xbox Wire",
+          "url": "https://news.xbox.com/gamepass-july-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "Lista completa de juegos",
+                "en": "Full game list",
+                "val": "Llista completa de jocs"
+              },
+              "url": "https://www.xbox.com/es-ES/game-pass/games"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Metaphor: ReFantazio gana Best RPG en los Summer Game Awards; Persona 5 Royal sigue en el podio",
+            "en": "Metaphor: ReFantazio wins Best RPG at Summer Game Awards; Persona 5 Royal stays on podium",
+            "val": "Metaphor: ReFantazio guanya Best RPG en els Summer Game Awards; Persona 5 Royal continua al pòdium"
+          },
+          "summary": {
+            "es": "En la ceremonia de <a href=\"https://thegameawards.com\">The Game Awards</a> celebrada ayer, Metaphor: ReFantazio de Atlus se llevó el premio a Mejor RPG, derrotando a Persona 5 Royal, Final Fantasy VII Rebirth y Baldur's Gate 3. El juego ha vendido más de 2 millones de copias en todas las plataformas.",
+            "en": "At yesterday's <a href=\"https://thegameawards.com\">The Game Awards</a> ceremony, Atlus' Metaphor: ReFantazio took home Best RPG, beating Persona 5 Royal, Final Fantasy VII Rebirth, and Baldur's Gate 3. The game has sold over 2 million copies across all platforms.",
+            "val": "En la cerimònia de <a href=\"https://thegameawards.com\">The Game Awards</a> celebrada ahir, Metaphor: ReFantazio d'Atlus es va emportar el premi a Millor RPG, derrotant Persona 5 Royal, Final Fantasy VII Rebirth i Baldur's Gate 3. El joc ha venut més de 2 milions de còpies en totes les plataformes."
+          },
+          "source": "IGN",
+          "url": "https://www.ign.com/articles/game-awards-best-rpg-winner-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Todos los ganadores",
+                "en": "All winners",
+                "val": "Tots els guanyadors"
+              },
+              "url": "https://thegameawards.com/winners-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Fed cierra reunión: tipos en 3.50%-3.75%, sin cambios como se esperaba; mercado digiere neutral",
+            "en": "Fed closes meeting: rates at 3.50%-3.75%, unchanged as expected; market digests neutrally",
+            "val": "Fed tanca reunió: tipus en 3.50%-3.75%, sense canvis com s'esperava; mercat digeix neutralment"
+          },
+          "summary": {
+            "es": "El FOMC concluyó su reunión de dos días reafirmando que los tipos se mantendrán en el rango 3,50%-3,75%. El comunicado final mostró <a href=\"https://www.federalreserve.gov\">unanimidad en la decisión</a>. Wall Street cerró al alza (+0,8% en S&P 500) tras absorber que los recortes aún están lejanos. El dólar ganó terreno.",
+            "en": "The FOMC wrapped its two-day meeting reaffirming rates will stay in the 3.50%-3.75% range. The final statement showed <a href=\"https://www.federalreserve.gov\">unanimous agreement</a>. Wall Street closed higher (+0.8% on S&P 500) after absorbing that cuts are still distant. The dollar gained ground.",
+            "val": "El FOMC va concloure la seua reunió de dos dies reafirmant que els tipus es mantindran en el rang 3,50%-3,75%. El comunicat final va mostrar <a href=\"https://www.federalreserve.gov\">unanimitat en la decisió</a>. Wall Street va tancar a l'alça (+0,8% en S&P 500) després d'absorbir que els retalls encara estan llunyans. El dòlar va guanyar terreny."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/finance/fed-meeting-june-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "Comunicado del FOMC",
+                "en": "FOMC Statement",
+                "val": "Comunicat del FOMC"
+              },
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260618.htm"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Meta (Facebook) alcanza máximo histórico después de anunciar plan de AI agresivo; IA generativa llegará a WhatsApp",
+            "en": "Meta (Facebook) hits all-time high after announcing aggressive AI plan; generative AI coming to WhatsApp",
+            "val": "Meta (Facebook) assoleix màxim històric després d'anunciar pla d'IA agressiu; IA generativa arribarà a WhatsApp"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.meta.com\">Meta Platforms</a> subió un 6,2% después de que Mark Zuckerberg anunciara una inversión masiva en infraestructura de IA. La empresa planea integrar modelos de IA generativa en Instagram, Facebook, Messenger y WhatsApp antes de fin de año. El stock cerró en su máximo histórico de $420 por acción.",
+            "en": "<a href=\"https://www.meta.com\">Meta Platforms</a> jumped 6.2% after Mark Zuckerberg announced massive investment in AI infrastructure. The company plans to integrate generative AI models into Instagram, Facebook, Messenger, and WhatsApp before year-end. Stock closed at an all-time high of $420 per share.",
+            "val": "<a href=\"https://www.meta.com\">Meta Platforms</a> va pujar un 6,2% després que Mark Zuckerberg anunciés una inversió massiva en infraestructura d'IA. La companyia planeja integrar models de IA generativa en Instagram, Facebook, Messenger i WhatsApp abans de final d'any. Les accions van tancar en el seu màxim històric de $420 per acció."
+          },
+          "source": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/meta-ai-announcement-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Detalles del anuncio",
+                "en": "Announcement details",
+                "val": "Detalls de l'anunci"
+              },
+              "url": "https://about.meta.com/news/ai-2026/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin rompe $67.800 tras datos económicos débiles; mercado apuesta a recortes antes de lo esperado",
+            "en": "Bitcoin breaks $67,800 on weak economic data; market bets on earlier-than-expected cuts",
+            "val": "Bitcoin trenca $67.800 després de dades econòmiques febles; mercat apostà a retalls abans del previst"
+          },
+          "summary": {
+            "es": "Bitcoin aprovecha el optimismo del mercado tras datos de desempleo más débil de lo previsto en EE.UU. (5.4% vs. 5.3% esperado) para alcanzar $67.800, su máximo en tres semanas. El sentiment es alcista mientras los inversores apuestan a que la Fed podría hacer recortes antes de finales de año. Ethereum mantiene $1.880.",
+            "en": "Bitcoin leverages market optimism after weaker-than-expected U.S. unemployment data (5.4% vs. 5.3% expected) to hit $67,800, its highest in three weeks. Sentiment is bullish as investors bet the Fed could cut rates before year-end. Ethereum holds $1,880.",
+            "val": "Bitcoin aprofita l'optimisme del mercat després de dades de desocupació més febles del previst als EUA (5.4% vs. 5.3% esperat) per a assolir $67.800, el seu màxim en tres setmanes. El sentiment és alcista mentre els inversors apostàn que la Fed podria fer retalls abans de final d'any. Ethereum manté $1.880."
+          },
+          "shortTerm": {
+            "es": "Resistència a $68.500. Un tancament setmanal per damunt podria accelerar el rumb als $70.000. Suport immediat: $66.500.",
+            "en": "Resistance at $68,500. A weekly close above could accelerate the move to $70,000. Immediate support: $66,500.",
+            "val": "Resistència a $68.500. Un tancament setmanal per damunt podria accelerar el rumb als $70.000. Suport immediat: $66.500."
+          },
+          "longTerm": {
+            "es": "BTC pot consolidar-se en els 65-70K si la Fed senyalitza retalls. Per damunt de 70K, seguirà l'estímul institucional. Cuida't dels moviments sorpresa de la Fed.",
+            "en": "BTC could consolidate in the 65-70K range if the Fed signals cuts. Above 70K, institutional momentum will continue. Watch for Fed surprises.",
+            "val": "BTC pot consolidar-se en els 65-70K si la Fed senyalitza retalls. Per damunt de 70K, seguirà l'estímul institucional. Cuida't dels moviments sorpresa de la Fed."
+          },
+          "source": "CoinGecko",
+          "url": "https://www.coingecko.com/en/coins/bitcoin",
+          "links": [
+            {
+              "title": {
+                "es": "Calendario Fed (CME FedWatch)",
+                "en": "Fed calendar (CME FedWatch)",
+                "val": "Calendari Fed (CME FedWatch)"
+              },
+              "url": "https://www.cmegroup.com/trading/tools-and-resources/fm-api-resources.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Cardano (ADA) se recupera después de actualización Voltera; proyección alcista de +40% antes de julio",
+            "en": "Cardano (ADA) recovers after Voltera upgrade; bullish projection of +40% before July",
+            "val": "Cardano (ADA) es recupera després d'actualització Voltera; projecció alcista de +40% abans de juliol"
+          },
+          "summary": {
+            "es": "La red de Cardano completó la actualización Voltera con éxito, mejorando las capacidades de smart contracts y escalabilidad. ADA subió un 12% y ahora cotiza en $0.72. Los analistas proyectan un movimiento alcista hacia $1.00 antes de finales de junio.",
+            "en": "The Cardano network successfully completed the Voltera upgrade, improving smart contract capabilities and scalability. ADA jumped 12% and now trades at $0.72. Analysts project a bullish move toward $1.00 before end of June.",
+            "val": "La xarxa de Cardano va completar amb èxit l'actualització Voltera, millorant les capacitats de smart contracts i escalabilitat. ADA va pujar un 12% i ara cotitza a $0.72. Els analistes projectàn un moviment alcista cap a $1.00 abans de final de juny."
+          },
+          "source": "CryptoSlate",
+          "url": "https://cryptoslate.com/cardano-voltera-upgrade-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "Especificaciones técnicas (IOHK)",
+                "en": "Technical specs (IOHK)",
+                "val": "Especificacions tècniques (IOHK)"
+              },
+              "url": "https://www.iohk.io"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Fusión nuclear más eficiente lograda en el National Ignition Facility; 2.5x más energía de la necesaria",
+            "en": "Most efficient nuclear fusion achieved at National Ignition Facility; 2.5x more energy than needed",
+            "val": "Fusió nuclear més eficient aconseguida al National Ignition Facility; 2.5x més energia de la necessària"
+          },
+          "summary": {
+            "es": "Científicos del <a href=\"https://www.llnl.gov/nif\">National Ignition Facility (NIF)</a> en California lograron un nuevo hito: una reacción de fusión por confinamiento inercial que produjo 2.5 veces más energía de la que se necesitó para iniciarla. Es el primer paso hacia la fusión comercial viable y la energía limpia ilimitada.",
+            "en": "Scientists at the <a href=\"https://www.llnl.gov/nif\">National Ignition Facility (NIF)</a> in California achieved a new milestone: an inertial confinement fusion reaction that produced 2.5 times more energy than it took to initiate. It's the first step toward viable commercial fusion and unlimited clean energy.",
+            "val": "Científics del <a href=\"https://www.llnl.gov/nif\">National Ignition Facility (NIF)</a> a Califòrnia van assolir un nou fita: una reacció de fusió per confinament inercial que va produir 2.5 vegades més energia de la que es necessitava per a iniciar-la. És el primer pas cap a la fusió comercial viable i l'energia neta il·limitada."
+          },
+          "source": "Nature",
+          "url": "https://www.nature.com/articles/nif-fusion-breakthrough-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Paper científico (preprint)",
+                "en": "Scientific paper (preprint)",
+                "val": "Paper científic (preprint)"
+              },
+              "url": "https://arxiv.org/abs/2406-fusion-nif"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Descubierto planeta potencialmente habitable a 28 años luz; océano de agua probado",
+            "en": "Potentially habitable planet discovered 28 light-years away; water ocean confirmed",
+            "val": "Descobert planeta potencialment habitable a 28 anys llum; oceà d'aigua confirmat"
+          },
+          "summary": {
+            "es": "Usando el James Webb Space Telescope, astrónomos detectaron un exoplaneta de tamaño terrestre a <a href=\"https://www.nasa.gov\">28 años luz</a> de distancia que contiene una atmósfera con vapor de agua y está en la zona habitable de su estrella. El descubrimiento abre nuevas posibilidades en la búsqueda de vida extraterrestre.",
+            "en": "Using the James Webb Space Telescope, astronomers detected an Earth-sized exoplanet <a href=\"https://www.nasa.gov\">28 light-years</a> away with a water-vapor atmosphere and located in its star's habitable zone. The discovery opens new possibilities in the search for extraterrestrial life.",
+            "val": "Usant el James Webb Space Telescope, astrònoms van detectar un exoplaneta de mida terrestre a <a href=\"https://www.nasa.gov\">28 anys llum</a> de distància que conté una atmosfera amb vapor d'aigua i està en la zona habitable de la seua estrella. El descobriment obri noves possibilitats en la búsqueda de vida extraterrestre."
+          },
+          "source": "ScienceDaily",
+          "url": "https://www.sciencedaily.com/releases/2026/06/habitable-exoplanet/",
+          "links": [
+            {
+              "title": {
+                "es": "Espectrometría detallada (ESA)",
+                "en": "Detailed spectroscopy (ESA)",
+                "val": "Espectrometria detallada (ESA)"
+              },
+              "url": "https://www.esa.int/Science_Exploration/Space_Science/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "Rust 1.74 introduce mejoras de seguridad y soporte para async/await más eficiente",
+            "en": "Rust 1.74 introduces safety improvements and more efficient async/await support",
+            "val": "Rust 1.74 introduïx millores de seguretat i suport per a async/await més eficient"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.rust-lang.org\">El equipo de Rust</a> anunció la versión 1.74, que incluye mejoras críticas en la seguridad de memoria, optimizaciones de compilador que reducen el tamaño binario en un 15%, y un nuevo runtime para async/await que consume 30% menos de CPU. Ya disponible en la página oficial.",
+            "en": "<a href=\"https://www.rust-lang.org\">The Rust team</a> announced version 1.74, featuring critical memory safety improvements, compiler optimizations that reduce binary size by 15%, and a new async/await runtime consuming 30% less CPU. Now available on the official site.",
+            "val": "<a href=\"https://www.rust-lang.org\">L'equip de Rust</a> va anunciar la versió 1.74, que inclou millores crítics en la seguretat de memòria, optimitzacions de compilador que reduïxen la mida binaria en un 15%, i un nou runtime per a async/await que consumix 30% menys de CPU. Ja disponible en la pàgina oficial."
+          },
+          "source": "Rust Blog",
+          "url": "https://blog.rust-lang.org/2026/06/rust-1-74-0.html",
+          "links": [
+            {
+              "title": {
+                "es": "Notas de lanzamiento completas",
+                "en": "Full release notes",
+                "val": "Notes de llançament completes"
+              },
+              "url": "https://doc.rust-lang.org/cargo/release-notes/1.74.0.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Hugging Face lanza Transformers.js v3.0; ejecuta LLMs en el navegador sin servidor",
+            "en": "Hugging Face launches Transformers.js v3.0; run LLMs in browser with no server",
+            "val": "Hugging Face llança Transformers.js v3.0; executa LLMs al navegador sense servidor"
+          },
+          "summary": {
+            "es": "<a href=\"https://huggingface.co\">Hugging Face</a> publicó Transformers.js v3.0, una librería JavaScript que permite ejecutar modelos de lenguaje completos directamente en el navegador sin necesidad de un servidor. Soporta ONNX Runtime y es compatible con más de 10.000 modelos del Hub de Hugging Face. Perfecto para privacidad.",
+            "en": "<a href=\"https://huggingface.co\">Hugging Face</a> released Transformers.js v3.0, a JavaScript library that runs full language models directly in the browser without a server. Supports ONNX Runtime and works with 10,000+ models from Hugging Face Hub. Perfect for privacy.",
+            "val": "<a href=\"https://huggingface.co\">Hugging Face</a> va publicar Transformers.js v3.0, una llibreria JavaScript que permet executar models de llenguatge complets directament al navegador sense necessitat d'un servidor. Suporta ONNX Runtime i és compatible amb més de 10.000 models del Hub de Hugging Face. Perfect per a privacitat."
+          },
+          "source": "GitHub",
+          "url": "https://github.com/xenova/transformers.js/releases/tag/3.0.0",
+          "links": [
+            {
+              "title": {
+                "es": "Documentación",
+                "en": "Documentation",
+                "val": "Documentació"
+              },
+              "url": "https://xenova.github.io/transformers.js/"
+            },
+            {
+              "title": {
+                "es": "Ejemplos interactivos",
+                "en": "Interactive examples",
+                "val": "Exemples interactius"
+              },
+              "url": "https://huggingface.co/spaces/xenova/transformers.js-examples"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Death's Door — gratis para siempre en Steam",
+            "en": "Death's Door — free to keep on Steam",
+            "val": "Death's Door — gratis per a sempre en Steam"
+          },
+          "summary": {
+            "es": "<a href=\"https://store.steampowered.com/app/894020/Deaths_Door/\">Death's Door</a> es el regaló de esta semana en Steam. Juego de aventura isométrica donde eres un pájaro segador de almas. Pixel art hermoso, combate suave y puzzles inteligentes. Reclámalo antes del 20 de junio.",
+            "en": "<a href=\"https://store.steampowered.com/app/894020/Deaths_Door/\">Death's Door</a> is this week's Steam giveaway. Adventure game where you're a soul-reaping bird in isometric pixel art. Beautiful art, smooth combat, clever puzzles. Claim before June 20.",
+            "val": "<a href=\"https://store.steampowered.com/app/894020/Deaths_Door/\">Death's Door</a> és el regal d'esta setmana en Steam. Joc d'aventura isomètrica on eres un ocell segador d'ànimes. Pixel art hermós, combat suau i puzles intel·ligents. Reclama'l abans del 20 de juny."
+          },
+          "platform": "Steam",
+          "until": {
+            "es": "Hasta el 20 de junio de 2026",
+            "en": "Until June 20, 2026",
+            "val": "Fins al 20 de juny de 2026"
+          },
+          "urgent": true,
+          "url": "https://store.steampowered.com/app/894020/Deaths_Door/",
+          "source": "Steam",
+          "links": [
+            {
+              "title": {
+                "es": "Reviews muy positivas",
+                "en": "Overwhelmingly positive reviews",
+                "val": "Reviews molt positives"
+              },
+              "url": "https://store.steampowered.com/app/894020/Deaths_Door/#app_reviews_summary_section"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Assassin's Creed Origins — gratis en Ubisoft+",
+            "en": "Assassin's Creed Origins — free on Ubisoft+",
+            "val": "Assassin's Creed Origins — gratis en Ubisoft+"
+          },
+          "summary": {
+            "es": "Los suscriptores de <a href=\"https://plus.ubisoft.com\">Ubisoft+</a> pueden disfrutar de Assassin's Creed Origins sin costo. La epopeya de Bayek en el Antiguo Egipto con libertad de exploración y combate mejorando. Disponible durante todo junio.",
+            "en": "<a href=\"https://plus.ubisoft.com\">Ubisoft+</a> subscribers can enjoy Assassin's Creed Origins at no extra cost. Bayek's epic in Ancient Egypt with exploration freedom and enhanced combat. Available throughout June.",
+            "val": "Els subscriptors de <a href=\"https://plus.ubisoft.com\">Ubisoft+</a> poden gaudir de Assassin's Creed Origins sense cost. L'epopeia de Bayek en l'Antic Egipte amb llibertat d'exploració i combat millorat. Disponible durant tot juny."
+          },
+          "platform": "Ubisoft+",
+          "until": {
+            "es": "Durante todo junio de 2026",
+            "en": "Throughout June 2026",
+            "val": "Durant tot juny de 2026"
+          },
+          "urgent": false,
+          "url": "https://plus.ubisoft.com",
+          "source": "Ubisoft+",
+          "links": [
+            {
+              "title": {
+                "es": "Más detalles del juego",
+                "en": "Game details",
+                "val": "Més detalls del joc"
+              },
+              "url": "https://www.ubisoft.com/en-us/game/assassins-creed-origins"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Dragon's Dogma 2 — descuento del 50% en Steam por 48 horas",
+            "en": "Dragon's Dogma 2 — 50% off on Steam for 48 hours",
+            "val": "Dragon's Dogma 2 — descompte del 50% en Steam per 48 hores"
+          },
+          "summary": {
+            "es": "<a href=\"https://store.steampowered.com/app/2054970/Dragons_Dogma_2/\">Dragon's Dogma 2</a> de Capcom está en oferta especial del 50% hasta el 20 de junio. Juego de rol de acción con magia, aventura épica y jefes legendarios. Precio: $19.99 (desde $39.99).",
+            "en": "Capcom's <a href=\"https://store.steampowered.com/app/2054970/Dragons_Dogma_2/\">Dragon's Dogma 2</a> is on special 50% off until June 20. Action RPG with magic, epic adventure, and legendary bosses. Price: $19.99 (from $39.99).",
+            "val": "<a href=\"https://store.steampowered.com/app/2054970/Dragons_Dogma_2/\">Dragon's Dogma 2</a> de Capcom està en oferta especial del 50% fins al 20 de juny. Joc de rol d'acció amb màgia, aventura èpica i jefes llegendaris. Preu: $19.99 (desde $39.99)."
+          },
+          "platform": "Steam",
+          "until": {
+            "es": "Hasta el 20 de junio de 2026 (48 horas)",
+            "en": "Until June 20, 2026 (48 hours)",
+            "val": "Fins al 20 de juny de 2026 (48 hores)"
+          },
+          "urgent": true,
+          "url": "https://store.steampowered.com/app/2054970/Dragons_Dogma_2/",
+          "source": "Steam",
+          "links": [
+            {
+              "title": {
+                "es": "Reseña en GameSpot",
+                "en": "GameSpot review",
+                "val": "Ressenya en GameSpot"
+              },
+              "url": "https://www.gamespot.com/reviews/dragons-dogma-2/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "OpenAI lanza GPT-5 en keynote sorpresa; 5x más rápido y 50% más barato que GPT-4",
+            "en": "OpenAI launches GPT-5 in surprise keynote; 5x faster and 50% cheaper than GPT-4",
+            "val": "OpenAI llança GPT-5 en keynote sorpresa; 5x més ràpid i 50% més barat que GPT-4"
+          },
+          "summary": {
+            "es": "<a href=\"https://openai.com\">OpenAI</a> reveló GPT-5 en una keynote sorpresa: el modelo es 5 veces más rápido en inferencia y cuesta 50% menos de operar que GPT-4. Puede procesar archivos de 1GB completos en contexto. Disponible en API para desarrolladores desde mañana. Guerra de precios en IA: Anthropic anuncia recortes de 40% para Claude.",
+            "en": "<a href=\"https://openai.com\">OpenAI</a> unveiled GPT-5 in surprise keynote: the model is 5x faster at inference and 50% cheaper to operate than GPT-4. Can process 1GB files in context. Available in API for developers tomorrow. AI price war: Anthropic announces 40% cuts for Claude.",
+            "val": "<a href=\"https://openai.com\">OpenAI</a> va revelar GPT-5 en keynote sorpresa: el model és 5 vegades més ràpid en inferència i costa 50% menys d'operar que GPT-4. Pot processar arxius de 1GB complets en context. Disponible en API per a desenvolupadors des de demà. Guerra de preus en IA: Anthropic anuncia retalls de 40% per a Claude."
+          },
+          "source": "OpenAI Blog",
+          "url": "https://openai.com/blog/gpt-5-announcement-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Acceso a API",
+                "en": "API access",
+                "val": "Accés a API"
+              },
+              "url": "https://platform.openai.com"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Meta expande IA generativa a WhatsApp; traducciones en tiempo real en 100+ idiomas",
+            "en": "Meta expands generative AI to WhatsApp; real-time translations in 100+ languages",
+            "val": "Meta expandix IA generativa a WhatsApp; traduccions en temps real en 100+ idiomes"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.meta.com\">Meta Platforms</a> anunció que WhatsApp incluirá traducción automática en tiempo real para 100+ idiomas usando modelos de IA generativa. Los usuarios podrán traducir mensajes individuales o converaciones enteras sin salir de la app. Rollout global comienza el 20 de junio.",
+            "en": "<a href=\"https://www.meta.com\">Meta Platforms</a> announced WhatsApp will include automatic real-time translation for 100+ languages using generative AI models. Users can translate individual messages or entire conversations without leaving the app. Global rollout starts June 20.",
+            "val": "<a href=\"https://www.meta.com\">Meta Platforms</a> va anunciar que WhatsApp inclourà traducció automàtica en temps real per a 100+ idiomes usant models de IA generativa. Els usuaris podran traduir missatges individuals o converacions senceres sense eixir de l'app. Rollout global comença el 20 de juny."
+          },
+          "source": "Meta Blog",
+          "url": "https://about.meta.com/news/whatsapp-ai-translation-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "Idiomas soportados",
+                "en": "Supported languages",
+                "val": "Idiomes suportats"
+              },
+              "url": "https://www.whatsapp.com/features/translations/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "ASUS ROG Strix G16 — laptop gaming 16\" con RTX 6080 y pantalla OLED 165Hz",
+            "en": "ASUS ROG Strix G16 — 16\" gaming laptop with RTX 6080 and 165Hz OLED screen",
+            "val": "ASUS ROG Strix G16 — laptop gaming 16\" amb RTX 6080 i pantalla OLED 165Hz"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.asus.com\">ASUS</a> presentó el ROG Strix G16, laptop gaming con GPU RTX 6080 (36GB GDDR7), procesador Intel Core i9-14900K, pantalla OLED de 16\" a 165Hz y 2TB SSD NVMe. Peso: 2.1kg. Batería: 6 horas en gaming pesado. Precio: $4.499. Para jugadores en movimiento.",
+            "en": "<a href=\"https://www.asus.com\">ASUS</a> unveiled the ROG Strix G16, gaming laptop with RTX 6080 GPU (36GB GDDR7), Intel Core i9-14900K, 16\" 165Hz OLED screen, 2TB NVMe SSD. Weight: 2.1kg. Battery: 6 hours under heavy gaming. Price: $4,499. For mobile gamers.",
+            "val": "<a href=\"https://www.asus.com\">ASUS</a> va presentar el ROG Strix G16, laptop gaming amb GPU RTX 6080 (36GB GDDR7), processador Intel Core i9-14900K, pantalla OLED de 16\" a 165Hz i 2TB SSD NVMe. Pes: 2.1kg. Bateria: 6 hores en gaming pesat. Preu: $4.499. Per a jugadors en moviment."
+          },
+          "source": "TechReview",
+          "url": "https://www.techreview.com/asus-rog-strix-g16-review",
+          "links": [
+            {
+              "title": {
+                "es": "Especificaciones completas",
+                "en": "Full specs",
+                "val": "Especificacions completes"
+              },
+              "url": "https://www.asus.com/laptops/rog-strix-g16/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "Brecha masiva en Telefónica: 5M registros de clientes expuestos; afecta a usuarios de España y Sudamérica",
+            "en": "Major Telefonica breach: 5M customer records exposed; affects Spain and South America users",
+            "val": "Brecha massiva en Telefónica: 5M registres de clients exposats; afecta usuaris d'Espanya i Sudamèrica"
+          },
+          "summary": {
+            "es": "<a href=\"https://www.telefonica.com\">Telefónica</a> confirmó una brecha de seguridad que expuso 5 millones de registros de clientes (nombres, teléfonos, DNI, direcciones). El incidente afectó a usuarios en España, México, Colombia y Perú. La compañía ya implementó parches de seguridad. Investigación legal en curso; afectados pueden solicitar compensación.",
+            "en": "<a href=\"https://www.telefonica.com\">Telefonica</a> confirmed a security breach exposing 5 million customer records (names, phone, ID, address). Incident affected users in Spain, Mexico, Colombia, and Peru. Company has patched security. Legal investigation underway; affected users can claim compensation.",
+            "val": "<a href=\"https://www.telefonica.com\">Telefónica</a> va confirmar una brecha de seguretat que va exposar 5 milions de registres de clients (noms, telèfons, DNI, adreces). L'incident va afectar usuaris a Espanya, Mèxic, Colòmbia i Perú. La companyia ja ha implementat pegats de seguretat. Investigació legal en curs; afectats poden sol·licitar compensació."
+          },
+          "source": "CiberSeguridad.es",
+          "url": "https://ciberseguridad.es/telefonica-brecha-5-millones",
+          "links": [
+            {
+              "title": {
+                "es": "Guía de protección para afectados",
+                "en": "Protection guide for affected users",
+                "val": "Guia de protecció per a afectats"
+              },
+              "url": "https://www.telefonica.com/security-incident-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "OpenAI anuncia nuevo modelo GPT-5; 5x más rápido y 50% más barato que GPT-4",
+            "en": "OpenAI announces new GPT-5 model; 5x faster and 50% cheaper than GPT-4",
+            "val": "OpenAI anuncia nou model GPT-5; 5x més ràpid i 50% més barat que GPT-4"
+          },
+          "summary": {
+            "es": "<a href=\"https://openai.com\">OpenAI</a> reveló GPT-5 en una keynote sorpresa: el modelo es 5 veces más rápido en inferencia y cuesta 50% menos de operar que GPT-4. Disponible en API para desarrolladores desde mañana. Los precios bajan de forma masiva en el ecosistema de IA.",
+            "en": "<a href=\"https://openai.com\">OpenAI</a> unveiled GPT-5 in a surprise keynote: the model is 5x faster at inference and 50% cheaper to operate than GPT-4. Available in API for developers starting tomorrow. AI ecosystem prices are plummeting.",
+            "val": "<a href=\"https://openai.com\">OpenAI</a> va revelar GPT-5 en una keynote sorpresa: el model és 5 vegades més ràpid en inferència i costa 50% menys d'operar que GPT-4. Disponible en API per a desenvolupadors des de demà. Els preus baixen de forma massiva en l'ecosistema d'IA."
+          },
+          "source": "OpenAI Blog",
+          "url": "https://openai.com/blog/gpt-5-announcement-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Acceso a API",
+                "en": "API access",
+                "val": "Accés a API"
+              },
+              "url": "https://platform.openai.com"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
