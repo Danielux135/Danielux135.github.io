@@ -36,15 +36,15 @@ jobs:
       - name: Build and verify every static page
         run: npm run build
 
-      - name: Show published routes
-        run: |
-          test -s dist/index.html
-          test -s dist/blog/index.html
-          test -s dist/demos/restaurante/index.html
-          test -s dist/demos/tienda/index.html
-          test -s dist/demos/agencia/index.html
-          printf '\nPublished standalone pages:\n'
-          find dist/blog dist/demos -type f -name 'index.html' -print | sort
+- name: Show published routes
+  run: |
+    test -s dist/index.html
+    test -s dist/foskia/index.html
+    test -s dist/demos/restaurante/index.html
+    test -s dist/demos/tienda/index.html
+    test -s dist/demos/agencia/index.html
+    printf '\nPublished standalone pages:\n'
+    find dist/foskia dist/demos -type f -name 'index.html' -print | sort
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
