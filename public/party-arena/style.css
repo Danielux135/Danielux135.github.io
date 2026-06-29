@@ -14,6 +14,16 @@
 @media (max-width:1100px){.layout{grid-template-columns:1fr}.side-rail{display:none}.top-hud{left:0}.app-shell{padding-left:22px;padding-right:22px}.music-pill{display:none}.mode-strip{grid-template-columns:repeat(2,1fr)}.mode-carousel{grid-template-columns:repeat(2,1fr)}.home-grid{grid-template-columns:1fr}.answers,.boss-actions{grid-template-columns:1fr}.footer-note{left:20px;position:static;text-align:center;margin-top:18px}}@media (max-width:600px){.top-hud{height:64px;padding:8px 14px}.brand-main{font-size:1rem}.exit-btn span,.xp-card{display:none}.app-shell{padding-top:78px}.hero-screen h1,.screen-title{font-size:2.4rem}.mode-strip{grid-template-columns:1fr}.room-code{font-size:3rem}.mode-carousel{grid-template-columns:1fr}.glass-card{padding:18px}.panel{padding:14px}.game-title{font-size:2.1rem}.secret-word{font-size:2.1rem}.code-box{font-size:.84rem;overflow:auto}.rhythm-target{width:86vw;height:86vw}}
 
 /* Party Arena v2: minijuegos extra */
+.mode-strip{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));max-width:1160px}
+.mode-carousel{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.mode-card{min-height:148px}
+.chat-form input:focus,.game-card input:focus{outline:2px solid rgba(0,216,255,.6);outline-offset:2px}
+.mode-card>button{all:unset;display:flex;flex:1;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;z-index:1}
+.mode-card.is-excluded{opacity:.48;filter:saturate(.4)}
+.mode-toggle{position:relative;z-index:2;display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.68);font-size:.72rem;font-weight:800}
+.rhythm-player{display:grid;grid-template-columns:auto minmax(180px,1fr) auto minmax(120px,220px) auto;gap:10px;align-items:center;margin:0 0 18px}
+.rhythm-player select,.rhythm-player input[type="range"]{width:100%}
+@media (max-width:700px){.rhythm-player{grid-template-columns:1fr}.rhythm-player label{text-align:left}}
 .mode-carousel{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
 .mode-strip{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
 .mode-card[data-mode="quiz"] i{color:var(--yellow)}

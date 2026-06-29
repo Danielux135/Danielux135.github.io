@@ -77,6 +77,8 @@ Arcade.register({
         const events = run.events;
         let t = 0, score = 0, lives = 3, invuln = 1.4, dodged = 0, shake = 0;
         let px = api.W() / 2, py = api.H() * 0.55, tx = px, ty = py;
+        let safeFlash = 0; // >0 → flash verde "SAFE" al esquivar con poco margen
+        let hasMoved = false; // para detectar si el jugador ya interactuó
         const rings = [];
         const TELEGRAPH = 0.6; // el aviso dura más de medio segundo: siempre legible
         const PR = 11;
@@ -172,7 +174,12 @@ Arcade.register({
                     const live = now >= r.hitT;
                     if (live) r.r = (now - r.hitT) * r.speed + 10;
                     if (r.r > r.maxR) {
-                        if (!r.done) { dodged++; score += 25; }
+                        if (!r.done) {
+                            dodged++; score += 25;
+                            // SAFE flash si esquivamos con poco margen
+                            const d = Math.hypot(px - r.cx, py - r.cy);
+                            if (Math.abs(d - r.maxR) < 55) safeFlash = 0.45;
+                        }
                         rings.splice(i, 1);
                         continue;
                     }
@@ -206,6 +213,56 @@ Arcade.register({
                     }
                 }
 
+                // warning si una onda está muy cerca del jugador
+                let danger = false;
+                for (const r of rings) {
+                    if (r.done) continue;
+                    const d = Math.hypot(px - r.cx, py - r.cy);
+                    if (Math.abs(d - r.r) < 44 && invuln <= 0) { danger = true; break; }
+                }
+                if (danger) {
+                    ctx.beginPath();
+                    ctx.arc(px, py, PR + 8 + Math.sin(t * 22) * 3, 0, Math.PI * 2);
+                    ctx.strokeStyle = 'rgba(255,60,60,0.7)';
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                }
+
+                // SAFE flash al esquivar con poco margen
+                if (safeFlash > 0) {
+                    safeFlash -= dt * 2.5;
+                    ctx.fillStyle = rgbStr(accentRgb(1), Math.max(0, safeFlash) * 0.16);
+                    ctx.fillRect(0, 0, W, H);
+                    if (safeFlash > 0.08) {
+                        ctx.font = `900 ${Math.round(Math.min(W, H) * 0.065)}px Montserrat, sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.globalAlpha = Math.min(1, safeFlash * 2.5);
+                        ctx.fillStyle = rgbStr(accentRgb(1), 1);
+                        ctx.fillText('SAFE', W / 2, H / 2 - 55);
+                        ctx.globalAlpha = 1;
+                    }
+                }
+
+                // tutorial primeros 3.5s si el jugador no ha movido
+                if (t < 3.5 && !hasMoved) {
+                    const alpha = clamp(1 - (t - 2.5) / 1, 0, 1);
+                    const isTouch = window.matchMedia('(pointer:coarse)').matches;
+                    const hint = isTouch ? '👆 ARRASTRA EL ORBE' : '🖱 MUEVE EL RATÓN';
+                    ctx.font = `700 ${Math.round(Math.min(W, H) * 0.046)}px Montserrat, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.fillStyle = rgbStr(a1, 0.72 * alpha);
+                    ctx.fillText(hint, W / 2, H * 0.8);
+                    const dist2 = 42 + Math.sin(t * 4) * 5;
+                    const arrows = [{ dx: -dist2, dy: 0, a: '←' }, { dx: dist2, dy: 0, a: '→' }, { dx: 0, dy: -dist2, a: '↑' }, { dx: 0, dy: dist2, a: '↓' }];
+                    ctx.font = `${Math.round(Math.min(W, H) * 0.04)}px sans-serif`;
+                    ctx.textBaseline = 'middle';
+                    ctx.globalAlpha = alpha * 0.65;
+                    arrows.forEach(({ dx, dy, a }) => { ctx.fillText(a, px + dx, py + dy); });
+                    ctx.globalAlpha = 1;
+                }
+
                 const blink = invuln > 0 && Math.floor(t * 10) % 2 === 0;
                 if (!blink) {
                     glow(ctx, px, py, PR * 2.4 + beat * 12, 'a1', 0.5 + beat * 0.3);
@@ -223,8 +280,8 @@ Arcade.register({
                 elScore.textContent = fmtN(score);
                 elTime.textContent = Math.floor(t) + 's';
             },
-            onTap(x, y) { tx = x; ty = y; },
-            onMove(x, y) { tx = x; ty = y; },
+            onTap(x, y) { tx = x; ty = y; hasMoved = true; },
+            onMove(x, y) { tx = x; ty = y; hasMoved = true; },
             forceEnd() { finish(); },
             destroy() { rings.length = 0; },
         };

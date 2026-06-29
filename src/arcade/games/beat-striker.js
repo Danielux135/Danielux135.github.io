@@ -583,7 +583,7 @@ Arcade.register({
                 let pts, label, accent;
                 if (dtHit <= W_P) { pts = 300; label = T('perfect'); accent = 1; }
                 else if (dtHit <= W_G) { pts = 150; label = T('good'); accent = 2; }
-                else { pts = 50; label = T('good'); accent = 2; }
+                else { pts = 50; label = T('ok'); accent = 2; }
                 circles.splice(bestIdx, 1);
                 judged++;
                 hits++;

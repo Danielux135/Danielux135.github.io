@@ -326,14 +326,20 @@ Arcade.register({
             let pts, label, accent;
             if (bestDt <= W_PERFECT) { pts = 300; label = T('perfect'); accent = 1; nPerfect++; }
             else if (bestDt <= W_GOOD) { pts = 150; label = T('good'); accent = 2; nGood++; }
-            else { pts = 50; label = T('good'); accent = 2; nOk++; }
+            else { pts = 50; label = T('ok'); accent = 2; nOk++; }
             if (!n.hold) {
                 combo++;
                 maxCombo = Math.max(maxCombo, combo);
             }
             score += Math.round((n.hold ? pts * 0.55 : pts) * (1 + Math.min(combo, 40) * 0.08));
             const cx = L.x0 + (n.lane + 0.5) * L.laneW;
-            api.burst(cx, L.hitY, { n: pts >= 300 ? 26 : 14, power: pts >= 300 ? 1.2 : 0.8, accent });
+            api.burst(cx, L.hitY, { n: pts >= 300 ? 28 : 14, power: pts >= 300 ? 1.3 : 0.8, accent });
+            // burst extra lateral en los carriles vecinos al acertar PERFECT
+            if (pts >= 300) {
+                const lw = L.laneW;
+                if (n.lane > 0) api.burst(cx - lw, L.hitY, { n: 8, power: 0.6, accent: 2 });
+                if (n.lane < LANES - 1) api.burst(cx + lw, L.hitY, { n: 8, power: 0.6, accent: 2 });
+            }
             api.addFloat(cx, L.hitY - 36, n.hold ? 'HOLD' : label, accent === 1 ? accentRgb(1) : accentRgb(2));
             refreshHud();
             haptic(10);

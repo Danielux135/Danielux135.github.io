@@ -165,7 +165,9 @@ Arcade.register({
                     if (e.t <= now + 0.25) continue;
                     const last = gatesArr[gatesArr.length - 1];
                     if (last && e.t - last.hitT < CFG.spacing) continue;
-                    const gapH = clamp(H * (CFG.gap - Math.min(gates, 40) * 0.002), H * CFG.gapMin, H * CFG.gap);
+                    // primeras 3 puertas: hueco 25% más grande (rampa de entrada)
+                const rampBonus = gates < 3 ? 0.25 : gates < 6 ? 0.1 : 0;
+                const gapH = clamp(H * (CFG.gap * (1 + rampBonus) - Math.min(gates, 40) * 0.002), H * CFG.gapMin, H * CFG.gap);
                     const yMin = topY + 40 + gapH / 2;
                     const yMax = floorBase - 50 - gapH / 2;
                     let gapY = yMin + Math.random() * Math.max(1, yMax - yMin);
@@ -202,9 +204,12 @@ Arcade.register({
                     if (!g.passed && g.x + g.w < px - pr) {
                         g.passed = true;
                         gates++;
-                        score += 100 + Math.min(gates, 30) * 5;
+                        const pts = 100 + Math.min(gates, 30) * 5;
+                        score += pts;
                         elGates.textContent = gates;
+                        g.successFlash = 0.5;
                         api.burst(px, py, { n: 16, power: 0.9, accent: 1 });
+                        api.addFloat(px, py - 30, '+' + pts, accentRgb(1));
                         haptic(10);
                     }
                 }
