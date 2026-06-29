@@ -219,14 +219,30 @@ html.theme-developer .player-stage {
    Activado con el FAB — añade html.dev-inspect-active
    ════════════════════════════════════════════════════════════════ */
 
-/* velo azul muy sutil */
-html.dev-inspect-active body::after {
+/* barra animada en el borde superior — señal de modo activo */
+html.dev-inspect-active::before {
     content: '';
     position: fixed;
-    inset: 0;
-    background: rgba(126, 170, 255, 0.03);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--dev-keyword)  0%,
+        var(--dev-type)    40%,
+        var(--dev-fn)      70%,
+        var(--dev-keyword) 100%
+    );
+    background-size: 200% 100%;
+    z-index: 99999;
     pointer-events: none;
-    z-index: 9984;
+    animation: inspectBar 1.8s linear infinite;
+}
+
+@keyframes inspectBar {
+    from { background-position:   0% 0%; }
+    to   { background-position: 200% 0%; }
 }
 
 /* crosshair en todo el documento */
@@ -234,74 +250,49 @@ html.dev-inspect-active *:not(#dev-inspector):not(#dev-inspector *):not(#dev-ins
     cursor: crosshair !important;
 }
 
-/* highlight en hover */
+/* highlight en hover — outline + fondo + glow */
 html.dev-inspect-active [data-inspect-hover] {
     outline: 2px solid var(--dev-keyword) !important;
-    outline-offset: 3px;
-    background: rgba(126, 170, 255, 0.07) !important;
+    outline-offset: 4px;
+    background: rgba(126, 170, 255, 0.1) !important;
+    box-shadow: 0 0 0 6px rgba(126, 170, 255, 0.05),
+                inset 0 0 12px rgba(126, 170, 255, 0.04) !important;
 }
 
-/* badge parpadeante en el navbar */
-html.dev-inspect-active #navbar::after {
-    content: '● INSPECT';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: var(--dev-keyword);
-    letter-spacing: 0.12em;
-    pointer-events: none;
-    animation: inspectBlink 1.6s step-end infinite;
-}
-
-@keyframes inspectBlink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.25; }
-}
-
-/* ── FAB de inspección ────────────────────────────────────────── */
+/* ── botón inspect — vive dentro del nav-actions ─────────────── */
 #dev-inspect-fab {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 9992;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 22px;
-    background: var(--dev-keyword);
-    color: #0D0B08;
+    gap: 6px;
+    padding: 5px 13px;
+    background: rgba(126, 170, 255, 0.1);
+    color: var(--dev-keyword);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    border: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(126, 170, 255, 0.22);
     border-radius: 100px;
-    cursor: pointer !important;
-    box-shadow: 0 4px 20px rgba(126, 170, 255, 0.3);
-    transition: background 0.18s, box-shadow 0.18s, transform 0.15s;
-    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: background 0.14s, border-color 0.14s, color 0.14s;
     white-space: nowrap;
     line-height: 1;
+    flex-shrink: 0;
 }
 
 #dev-inspect-fab:hover {
-    background: #9BBCFF;
-    box-shadow: 0 6px 28px rgba(126, 170, 255, 0.45);
-    transform: translateY(-2px);
+    background: rgba(126, 170, 255, 0.18);
+    border-color: rgba(126, 170, 255, 0.4);
 }
 
 html.dev-inspect-active #dev-inspect-fab {
-    background: var(--dev-number);
-    color: #0D0B08;
-    box-shadow: 0 4px 20px rgba(229, 169, 106, 0.4);
+    background: rgba(229, 169, 106, 0.12);
+    color: var(--dev-number);
+    border-color: rgba(229, 169, 106, 0.35);
 }
 
 html.dev-inspect-active #dev-inspect-fab:hover {
-    background: #F0BB80;
-    box-shadow: 0 6px 28px rgba(229, 169, 106, 0.5);
+    background: rgba(229, 169, 106, 0.2);
+    border-color: rgba(229, 169, 106, 0.5);
 }
 
 /* ════════════════════════════════════════════════════════════════
