@@ -32,10 +32,10 @@ Lo ideal es tener:
 
 ```txt
 danielux.es          -> GitHub Pages / portfolio
-api.danielux.es      -> hosting PHP + MariaDB
+danielux-api-proxy.dlux135.workers.dev      -> Cloudflare Worker
 ```
 
-En el hosting crea el subdominio `api.danielux.es` y sube dentro estos archivos:
+En el hosting o backend que uses, expon la API detras del Worker `danielux-api-proxy.dlux135.workers.dev` y sube dentro estos archivos:
 
 ```txt
 party.php
@@ -93,7 +93,7 @@ Abre la página:
 Pulsa **Configurar API** y pega:
 
 ```txt
-https://api.danielux.es/party.php
+https://danielux-api-proxy.dlux135.workers.dev/api/party
 ```
 
 También puedes editar `public/party-arena/app.js` y cambiar el valor por defecto si quieres dejarlo fijo.
