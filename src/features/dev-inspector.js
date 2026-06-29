@@ -833,14 +833,23 @@ function _buildPanel() {
     });
 }
 
-// ── construye el FAB ──────────────────────────────────────────────────────────
+// ── construye el botón en el nav-actions ─────────────────────────────────────
 function _buildFab() {
     _fab = document.createElement('button');
     _fab.id = 'dev-inspect-fab';
+    _fab.type = 'button';
     _fab.setAttribute('title', 'Activar modo inspección · Esc para salir');
     _fab.innerHTML = `<span aria-hidden="true">&lt;/&gt;</span>&nbsp;Inspect`;
     _fab.addEventListener('click', _toggleInspectMode);
-    document.body.appendChild(_fab);
+
+    // integrar en el navbar junto al resto de controles
+    const navActions = document.querySelector('.nav-actions');
+    if (navActions) {
+        navActions.prepend(_fab);
+    } else {
+        // fallback si el navbar no existe aún
+        document.body.appendChild(_fab);
+    }
 }
 
 // ── activa / desactiva el modo inspección ─────────────────────────────────────
