@@ -6,6 +6,7 @@ import './games/echo-sequence.js';
 import './games/ring-escape.js';
 import './games/bpm-hunter.js';
 import './games/bass-invaders.js';
+import './games/beat-blitz.js';
 import './games/party-arena.js';
 import './art.js';
 
