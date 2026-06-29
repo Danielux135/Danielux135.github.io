@@ -3,7 +3,7 @@
 /* Mantiene las clases de tema como API visual principal.
    Los data-* se conservan para compatibilidad con código existente y herramientas. */
 export const THEME_ROOT = document.documentElement;
-const STYLE_THEME_CLASSES = ['theme-retro', 'theme-gamer'];
+const STYLE_THEME_CLASSES = ['theme-retro', 'theme-gamer', 'theme-os', 'theme-developer'];
 
 export function applyColorTheme(theme, { persist = true } = {}) {
     const light = theme === 'light';
@@ -14,8 +14,9 @@ export function applyColorTheme(theme, { persist = true } = {}) {
 }
 
 export function applyStyleTheme(theme, { persist = true } = {}) {
+    const prev = THEME_ROOT.getAttribute('data-style-theme') || null;
     STYLE_THEME_CLASSES.forEach((name) => THEME_ROOT.classList.remove(name));
-    if (theme === 'retro' || theme === 'gamer') {
+    if (theme === 'retro' || theme === 'gamer' || theme === 'os' || theme === 'developer') {
         THEME_ROOT.classList.add(`theme-${theme}`);
         THEME_ROOT.setAttribute('data-style-theme', theme);
         if (persist) localStorage.setItem('portfolioStyleTheme', theme);
@@ -23,6 +24,8 @@ export function applyStyleTheme(theme, { persist = true } = {}) {
         THEME_ROOT.removeAttribute('data-style-theme');
         if (persist) localStorage.removeItem('portfolioStyleTheme');
     }
+    // notifica al sistema OS para que monte/desmonte
+    document.dispatchEvent(new CustomEvent('stylethemechange', { detail: { theme: theme || null, prev } }));
 }
 
 // Sincroniza clases y atributos guardados antes de registrar controles.

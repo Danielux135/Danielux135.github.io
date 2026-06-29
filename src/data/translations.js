@@ -301,7 +301,9 @@ export const translations = {
             themes: {
                 default: 'Default',
                 retro: 'Retro',
-                gamer: 'Gamer'
+                gamer: 'Gamer',
+                os: 'Danielux OS',
+                developer: 'DevMode'
             }
         }
     },
@@ -603,7 +605,9 @@ export const translations = {
             themes: {
                 default: 'Default',
                 retro: 'Retro',
-                gamer: 'Gamer'
+                gamer: 'Gamer',
+                os: 'Danielux OS',
+                developer: 'DevMode'
             }
         }
     },
@@ -905,7 +909,9 @@ export const translations = {
             themes: {
                 default: 'Default',
                 retro: 'Retro',
-                gamer: 'Gamer'
+                gamer: 'Gamer',
+                os: 'Danielux OS',
+                developer: 'DevMode'
             }
         }
     }

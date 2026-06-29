@@ -473,3 +473,36 @@ body.npb-visible #footer {
     body.npb-visible .studio-cat-panel { bottom: calc(64px + 14px); }
 }
 /* búsqueda en tracklist */
+
+
+/* Contact form backend status */
+.contact-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.contact-status {
+    min-height: 1.4rem;
+    margin: -0.25rem 0 0.25rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.contact-status.is-success {
+    color: var(--accent, #22c55e);
+}
+
+.contact-status.is-error {
+    color: #ff6b6b;
+}
+
+.contact-form.is-sending .btn-primary {
+    opacity: 0.72;
+    cursor: wait;
+}

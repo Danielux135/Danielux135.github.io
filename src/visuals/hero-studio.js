@@ -199,8 +199,9 @@ function initStudio() {
 
     // colores default por cada tema visual (para el botón dinámico de posición 0)
     const STYLE_DEFAULT_COLORS = {
-        'retro': { h1: 120, h2: 88  },
-        'gamer': { h1: 270, h2: 325 },
+        'retro':     { h1: 120, h2: 88  },
+        'gamer':     { h1: 270, h2: 325 },
+        'developer': { h1: 38,  h2: 22  },
     };
     function getActiveStyleColors() {
         const key = document.documentElement.getAttribute('data-style-theme');
@@ -298,6 +299,8 @@ function initStudio() {
             { id: null,    labelKey: 'default', icon: 'fa-wand-magic-sparkles', defaultBg: null, defaultH1: 195, defaultH2: 270 },
             { id: 'retro', labelKey: 'retro',   icon: 'fa-terminal',            defaultBg: 1,    defaultH1: 120, defaultH2: 88  },
             { id: 'gamer', labelKey: 'gamer',   icon: 'fa-gamepad',             defaultBg: 7,    defaultH1: 270, defaultH2: 325 },
+            { id: 'os',        labelKey: 'os',        icon: 'fa-desktop',             defaultBg: 4,    defaultH1: 210, defaultH2: 260 },
+            { id: 'developer', labelKey: 'developer', icon: 'fa-code',                defaultBg: 1,    defaultH1: 38,  defaultH2: 22  },
         ];
         const currentStyle = document.documentElement.getAttribute('data-style-theme') || null;
         STYLE_THEMES.forEach(t => {

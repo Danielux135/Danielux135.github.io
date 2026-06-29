@@ -114,7 +114,7 @@ const GAMES_I18N = {
             dodger: { name: 'Ring Escape',    desc: 'Cada golpe detona una onda expansiva. Arrastra tu orbe y sobrevive.', how: 'Arrastra el orbe para esquivar las ondas. 3 vidas.' },
             tempo:  { name: 'BPM Hunter',     desc: '¿Tienes ritmo de verdad? Sigue el pulso de la canción y compara tu BPM con el real.', how: 'Toca el botón grande (o la barra espaciadora) al ritmo. Mínimo 8 toques.' },
             bass:   { name: 'Bass Invaders',  desc: 'Naves que bajan con cada golpe. En los drops aparece un jefe que crece con la energía.', how: 'Mueve la nave (arrastra, A/D o flechas). El disparo es automático. 3 vidas.' },
-            party:  { name: 'Danielux Party Arena', desc: 'Sala online para jugar con la clase: impostor, bugs, boss, ritmo y mentiras.', how: 'Crea una sala, comparte el código y lanza rondas rotatorias para 2-8 jugadores.' },
+            party:  { name: 'Danielux Party Arena', desc: 'Sala online para jugar con la clase: impostor, bugs, boss, ritmo, mentiras, quiz, botones y subastas.', how: 'Crea una sala, comparte el código y lanza rondas rotatorias para 2-8 jugadores.' },
         },
     },
     en: {
@@ -191,7 +191,7 @@ const GAMES_I18N = {
             dodger: { name: 'Ring Escape',    desc: 'Every hit detonates an expanding wave. Drag your orb and survive.', how: 'Drag the orb to dodge the waves. 3 lives.' },
             tempo:  { name: 'BPM Hunter',     desc: 'Got real rhythm? Follow the pulse and compare your BPM with the real one.', how: 'Tap the big button (or space bar) to the beat. At least 8 taps.' },
             bass:   { name: 'Bass Invaders',  desc: 'Ships descend with every hit. On drops a boss appears, growing with the energy.', how: 'Move the ship (drag, A/D or arrows). Firing is automatic. 3 lives.' },
-            party:  { name: 'Danielux Party Arena', desc: 'Online room for the class: impostor, bugs, boss, rhythm and lies.', how: 'Create a room, share the code and launch rotating rounds for 2-8 players.' },
+            party:  { name: 'Danielux Party Arena', desc: 'Online room for the class: impostor, bugs, boss, rhythm, lies, quiz, buttons and auctions.', how: 'Create a room, share the code and launch rotating rounds for 2-8 players.' },
         },
     },
     val: {
@@ -268,7 +268,7 @@ const GAMES_I18N = {
             dodger: { name: "Ring Escape",    desc: "Cada colp detona una ona expansiva. Arrossega el teu orbe i sobreviu.", how: "Arrossega l’orbe per a esquivar les ones. 3 vides." },
             tempo:  { name: "BPM Hunter",     desc: "Tens ritme de veritat? Segueix el pols i compara el teu BPM amb el real.", how: "Toca el botó gran (o l’espai) al ritme. Mínim 8 tocs." },
             bass:   { name: "Bass Invaders",  desc: "Naus que baixen amb cada colp. En els drops apareix un cap que creix amb l’energia.", how: "Mou la nau (arrossega, A/D o fletxes). El tret és automàtic. 3 vides." },
-            party:  { name: "Danielux Party Arena", desc: "Sala online per a jugar amb la classe: impostor, bugs, boss, ritme i mentides.", how: "Crea una sala, comparteix el codi i llança rondes rotatòries per a 2-8 jugadors." },
+            party:  { name: "Danielux Party Arena", desc: "Sala online per a jugar amb la classe: impostor, bugs, boss, ritme, mentides, quiz, botons i subhastes.", how: "Crea una sala, comparteix el codi i llança rondes rotatòries per a 2-8 jugadors." },
         },
     },
 };
@@ -1105,6 +1105,12 @@ const Arcade = {
         this.overlay.setAttribute('aria-hidden', 'false');
         document.documentElement.classList.add('arcade-lock');
         this.showHubView();
+    },
+
+    openToGame(gameId) {
+        this.open();
+        const idx = this.games.findIndex(g => g.id === gameId);
+        if (idx >= 0 && this._carNav) requestAnimationFrame(() => this._carNav(idx));
     },
 
     close() {

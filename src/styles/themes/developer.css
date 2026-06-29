@@ -1,0 +1,476 @@
+/* ─────────────────────────────────────────────────────────────
+   DEVMODE — tema "Desarrollador" (dark edition)
+   Paleta: carbón cálido + periwinkle azul + sintaxis One Dark
+   Firma: FAB → inspect mode → panel de dos columnas
+   ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+/* ── tokens del tema ─────────────────────────────────────────── */
+html.theme-developer {
+    --dev-bg:       #141210;
+    --dev-surface:  #1C1A16;
+    --dev-lift:     #232018;
+    --dev-border:   #332E24;
+    --dev-edge:     #4A4236;
+    --dev-ink:      #E8E0D0;
+    --dev-muted:    #8A7D6E;
+    --dev-subtle:   #5A5148;
+
+    /* syntax — One Dark cálido */
+    --dev-keyword:  #7EAAFF;   /* periwinkle */
+    --dev-string:   #98C379;   /* sage green */
+    --dev-comment:  #5C6B5C;   /* verde grisáceo */
+    --dev-number:   #E5A96A;   /* ámbar suave */
+    --dev-type:     #C678DD;   /* violeta */
+    --dev-fn:       #56B6C2;   /* teal */
+    --dev-punct:    #6A6358;
+
+    /* overrides del portfolio */
+    --bg:       var(--dev-bg);
+    --bg-alt:   var(--dev-lift);
+    --surface:  var(--dev-surface);
+    --border:   var(--dev-border);
+    --text:     var(--dev-ink);
+    --muted:    var(--dev-muted);
+    --white:    #ffffff;
+    --radius:   6px;
+    --radius-sm: 4px;
+    --ease:     0.14s ease;
+}
+
+/* ── base ─────────────────────────────────────────────────────── */
+html.theme-developer body {
+    background: var(--dev-bg);
+    color: var(--dev-ink);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.9375rem;
+    line-height: 1.72;
+}
+
+/* fondo de puntos — cuadrícula muy sutil */
+html.theme-developer body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--dev-border) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+/* ── navbar ───────────────────────────────────────────────────── */
+html.theme-developer #navbar {
+    background: color-mix(in srgb, var(--dev-bg) 85%, transparent);
+    border-bottom: 1px solid var(--dev-border);
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    backdrop-filter: blur(12px);
+}
+
+html.theme-developer nav a,
+html.theme-developer nav button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--dev-muted);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.12s, border-color 0.12s;
+}
+
+html.theme-developer nav a:hover,
+html.theme-developer nav button:hover {
+    color: var(--dev-ink);
+    border-bottom-color: var(--dev-edge);
+}
+
+html.theme-developer nav a.active,
+html.theme-developer nav a[aria-current] {
+    color: var(--dev-keyword);
+    border-bottom-color: var(--dev-keyword);
+}
+
+/* ── headings → comentarios de bloque ────────────────────────── */
+html.theme-developer h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--dev-ink);
+}
+
+html.theme-developer h1::before {
+    content: '// ';
+    color: var(--dev-comment);
+    font-style: italic;
+}
+
+html.theme-developer h2.section-title,
+html.theme-developer .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--dev-ink);
+}
+
+html.theme-developer h2.section-title::before,
+html.theme-developer .section-title::before {
+    content: '/* ';
+    color: var(--dev-comment);
+    font-style: italic;
+    font-size: 0.88em;
+}
+
+html.theme-developer h2.section-title::after,
+html.theme-developer .section-title::after {
+    content: ' */';
+    color: var(--dev-comment);
+    font-style: italic;
+    font-size: 0.88em;
+}
+
+html.theme-developer h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--dev-fn);
+}
+
+html.theme-developer h3::before {
+    content: 'fn ';
+    color: var(--dev-keyword);
+    font-size: 0.88em;
+    font-weight: 600;
+}
+
+/* ── cards ────────────────────────────────────────────────────── */
+html.theme-developer .project-card,
+html.theme-developer .demo-card,
+html.theme-developer .about-card {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    border-left: 3px solid var(--dev-keyword);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    transition: box-shadow 0.14s, border-left-color 0.14s;
+}
+
+html.theme-developer .project-card:hover,
+html.theme-developer .demo-card:hover {
+    border-left-color: var(--dev-type);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+}
+
+html.theme-developer .project-tag,
+html.theme-developer .demo-tag,
+html.theme-developer [class*="tag"] {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    background: rgba(126, 170, 255, 0.1);
+    color: var(--dev-keyword);
+    border: 1px solid rgba(126, 170, 255, 0.2);
+    border-radius: 3px;
+    padding: 1px 6px;
+    letter-spacing: 0.03em;
+}
+
+/* ── skill bars ───────────────────────────────────────────────── */
+html.theme-developer .skill-bar-fill,
+html.theme-developer .skill-progress {
+    background: linear-gradient(90deg, var(--dev-keyword), var(--dev-type));
+    border-radius: 2px;
+}
+
+html.theme-developer .skill-bar,
+html.theme-developer .skill-bar-track {
+    background: var(--dev-border);
+    border-radius: 2px;
+}
+
+/* ── chips de tecnología ──────────────────────────────────────── */
+html.theme-developer .chip {
+    background: rgba(126, 170, 255, 0.07);
+    border-color: rgba(126, 170, 255, 0.18);
+    color: var(--dev-ink);
+}
+
+html.theme-developer .chip i {
+    color: var(--dev-keyword);
+}
+
+/* ── scrollbar oscura ─────────────────────────────────────────── */
+html.theme-developer ::-webkit-scrollbar        { width: 7px; height: 7px; }
+html.theme-developer ::-webkit-scrollbar-track  { background: var(--dev-bg); }
+html.theme-developer ::-webkit-scrollbar-thumb  { background: var(--dev-edge); border-radius: 4px; }
+html.theme-developer ::-webkit-scrollbar-thumb:hover { background: var(--dev-muted); }
+
+/* ── selección de texto ───────────────────────────────────────── */
+html.theme-developer ::selection {
+    background: rgba(126, 170, 255, 0.22);
+    color: var(--dev-ink);
+}
+
+/* ── player ───────────────────────────────────────────────────── */
+html.theme-developer #playerStage,
+html.theme-developer .player-stage {
+    background: var(--dev-surface);
+    border: 1px solid var(--dev-border);
+    border-radius: var(--radius);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MODO INSPECCIÓN
+   Activado con el FAB — añade html.dev-inspect-active
+   ════════════════════════════════════════════════════════════════ */
+
+/* velo azul muy sutil */
+html.dev-inspect-active body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(126, 170, 255, 0.03);
+    pointer-events: none;
+    z-index: 9984;
+}
+
+/* crosshair en todo el documento */
+html.dev-inspect-active *:not(#dev-inspector):not(#dev-inspector *):not(#dev-inspect-fab) {
+    cursor: crosshair !important;
+}
+
+/* highlight en hover */
+html.dev-inspect-active [data-inspect-hover] {
+    outline: 2px solid var(--dev-keyword) !important;
+    outline-offset: 3px;
+    background: rgba(126, 170, 255, 0.07) !important;
+}
+
+/* badge parpadeante en el navbar */
+html.dev-inspect-active #navbar::after {
+    content: '● INSPECT';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--dev-keyword);
+    letter-spacing: 0.12em;
+    pointer-events: none;
+    animation: inspectBlink 1.6s step-end infinite;
+}
+
+@keyframes inspectBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.25; }
+}
+
+/* ── FAB de inspección ────────────────────────────────────────── */
+#dev-inspect-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9992;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: var(--dev-keyword);
+    color: #0D0B08;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer !important;
+    box-shadow: 0 4px 20px rgba(126, 170, 255, 0.3);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.15s;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+#dev-inspect-fab:hover {
+    background: #9BBCFF;
+    box-shadow: 0 6px 28px rgba(126, 170, 255, 0.45);
+    transform: translateY(-2px);
+}
+
+html.dev-inspect-active #dev-inspect-fab {
+    background: var(--dev-number);
+    color: #0D0B08;
+    box-shadow: 0 4px 20px rgba(229, 169, 106, 0.4);
+}
+
+html.dev-inspect-active #dev-inspect-fab:hover {
+    background: #F0BB80;
+    box-shadow: 0 6px 28px rgba(229, 169, 106, 0.5);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PANEL INSPECTOR — dos columnas: descripción + código
+   ════════════════════════════════════════════════════════════════ */
+#dev-inspector {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 380px;
+    background: var(--dev-surface);
+    border-top: 2px solid var(--dev-keyword);
+    z-index: 9990;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 -8px 48px rgba(0,0,0,0.5);
+}
+
+#dev-inspector.dev-inspector--open {
+    transform: translateY(0);
+}
+
+/* barra de título */
+.dev-inspector-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--dev-lift);
+    border-bottom: 1px solid var(--dev-border);
+    flex-shrink: 0;
+    min-height: 44px;
+}
+
+.dev-inspector-icon {
+    color: var(--dev-keyword);
+    font-size: 0.875rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: -0.05em;
+}
+
+.dev-inspector-title {
+    color: var(--dev-ink);
+    font-size: 0.875rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.dev-inspector-selector {
+    color: var(--dev-muted);
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.dev-inspector-file {
+    color: var(--dev-fn);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.dev-inspector-close {
+    background: none;
+    border: 1px solid var(--dev-border);
+    border-radius: 4px;
+    color: var(--dev-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.12s, border-color 0.12s, background 0.12s;
+    white-space: nowrap;
+}
+
+.dev-inspector-close:hover {
+    color: var(--dev-ink);
+    border-color: var(--dev-edge);
+    background: var(--dev-border);
+}
+
+/* dos columnas */
+.dev-inspector-content {
+    display: grid;
+    grid-template-columns: 272px 1fr;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* columna izquierda — descripción */
+.dev-inspector-desc-pane {
+    padding: 18px 20px;
+    border-right: 1px solid var(--dev-border);
+    overflow-y: auto;
+    background: var(--dev-lift);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dev-inspector-desc-label {
+    font-size: 0.6875rem;
+    color: var(--dev-comment);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.dev-inspector-desc-text {
+    font-size: 0.8125rem;
+    color: var(--dev-muted);
+    line-height: 1.72;
+    white-space: pre-wrap;
+}
+
+/* columna derecha — código */
+.dev-inspector-code-pane {
+    display: flex;
+    overflow: auto;
+    background: var(--dev-surface);
+}
+
+.dev-inspector-gutter {
+    color: var(--dev-subtle);
+    text-align: right;
+    padding: 16px 12px 16px 16px;
+    border-right: 1px solid var(--dev-border);
+    flex-shrink: 0;
+    line-height: 1.62;
+    user-select: none;
+    font-size: 0.8125rem;
+    background: var(--dev-lift);
+    min-width: 40px;
+    white-space: pre;
+}
+
+.dev-inspector-code {
+    flex: 1;
+    padding: 16px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.62;
+    white-space: pre;
+    color: var(--dev-ink);
+    margin: 0;
+    overflow: visible;
+    min-width: 0;
+}
+
+/* ── syntax tokens (dark) ─────────────────────────────────────── */
+.sy-keyword  { color: var(--dev-keyword); font-weight: 500; }
+.sy-string   { color: var(--dev-string); }
+.sy-comment  { color: var(--dev-comment); font-style: italic; }
+.sy-number   { color: var(--dev-number); }
+.sy-type     { color: var(--dev-type); }
+.sy-fn       { color: var(--dev-fn); }
+.sy-punct    { color: var(--dev-punct); }
+.sy-prop     { color: var(--dev-fn); }
+.sy-value    { color: var(--dev-string); }
+.sy-selector { color: var(--dev-type); }
+.sy-at       { color: var(--dev-keyword); }

@@ -1,16 +1,16 @@
 {
   "editions": [
     {
-      "date": "2026-06-25",
+      "date": "2026-06-27",
       "title": {
-        "es": "Bitcoin pelea por los 68.000$, Epic regala The Falconeer y la IA entra en campaña electoral",
-        "en": "Bitcoin fights for $68,000, Epic gives away The Falconeer and AI enters the election arena",
-        "val": "Bitcoin lluita pels 68.000$, Epic regala The Falconeer i la IA entra en campanya electoral"
+        "es": "FoskIA 27/06: fin de semana de seguimiento para Epic, Roman, Steam e IA mientras Bitcoin rebota hacia 60.000$",
+        "en": "FoskIA 27/06: a weekend follow-up for Epic, Roman, Steam and AI as Bitcoin rebounds toward $60K",
+        "val": "FoskIA 27/06: cap de setmana de seguiment per a Epic, Roman, Steam i IA mentre Bitcoin rebota cap als 60.000$"
       },
       "intro": {
-        "es": "Jueves 25 de junio: Bitcoin oscila en torno a los 67.000–68.000 dólares en un mercado pendiente de la crisis EE.UU.–Irán y del petróleo. Las plataformas de PC y consolas siguen llenando la semana de juegos gratis, con The Falconeer destacando en Epic y nuevos títulos en Prime Gaming. En política y tecnología, la regulación de la IA se cuela en los debates electorales mientras los gigantes del sector presentan modelos cada vez más autónomos.",
-        "en": "Thursday June 25: Bitcoin hovers around $67,000–68,000 as markets watch the US–Iran crisis and oil prices. PC and console platforms keep the week packed with free games, with The Falconeer standing out on Epic and new titles landing on Prime Gaming. In politics and tech, AI regulation enters the electoral debate while industry giants roll out increasingly autonomous models.",
-        "val": "Dijous 25 de juny: Bitcoin oscil·la al voltant dels 67.000–68.000 dòlars en un mercat pendent de la crisi EUA–Iran i del preu del petroli. Les plataformes de PC i consoles continuen omplint la setmana de jocs gratis, amb The Falconeer destacant en Epic i nous títols arribant a Prime Gaming. En política i tecnologia, la regulació de la IA entra en els debats electorals mentres els gegants del sector presenten models cada vegada més autònoms."
+        "es": "El 27 de junio no pedía inventar un gran terremoto informativo, sino ordenar bien lo que seguía vivo: Epic mantiene la rotación, Prime sigue útil, Steam continúa discutiendo la avalancha de IA y Bitcoin intenta rebotar tras varios días malos. La edición correcta del viernes es más de seguimiento que de humo.",
+        "en": "June 27 did not need an invented information earthquake; it needed a clean follow-up on what was still active: Epic keeps the rotation live, Prime remains useful, Steam is still arguing over AI saturation and Bitcoin tries to bounce after several rough sessions. The right Friday edition is about tracking, not smoke.",
+        "val": "El 27 de juny no demanava inventar un gran terratrémol informatiu, sinó ordenar bé el que continuava viu: Epic manté la rotació, Prime continua útil, Steam seguix discutint l’allau d’IA i Bitcoin intenta rebotar després de diversos dies roïns. L’edició correcta del divendres és més de seguiment que de fum."
       },
       "sections": [
         {
@@ -18,89 +18,49 @@
           "items": [
             {
               "title": {
-                "es": "Lanzamientos de fin de junio: indies y simuladores toman el relevo",
-                "en": "Late June releases: indies and simulators take over",
-                "val": "Llançaments de finals de juny: els indies i simuladors prenen el relleu"
+                "es": "Solo una demo con divulgación de IA logra colarse entre las más jugadas de Steam Next Fest",
+                "en": "Only one AI-disclosed demo breaks into Steam Next Fest’s most-played list",
+                "val": "Només una demo amb divulgació d’IA aconseguix colar-se entre les més jugades de Steam Next Fest"
               },
               "summary": {
-                "es": "El calendario de lanzamientos de <a href=\"https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026\">Vandal</a> para finales de junio reúne propuestas como OK Boomer, The Necromancer's Tale, Rat Protocol o Trashy Cashy en PC, Switch i Switch 2. Lejos de los grandes AAA, el cierre de mes está dominado por proyectos independientes y AA que buscan hacerse hueco en plena resaca de anuncios veraniegos.",
-                "en": "<a href=\"https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026\">Vandal's</a> late June release calendar highlights titles like OK Boomer, The Necromancer's Tale, Rat Protocol and Trashy Cashy across PC, Switch and Switch 2. Far from the big AAAs, the end of the month is dominated by indie and AA projects trying to stand out in the post‑summer‑showcase flood.",
-                "val": "El calendari de llançaments de <a href=\"https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026\">Vandal</a> per a finals de juny reuneix propostes com OK Boomer, The Necromancer's Tale, Rat Protocol o Trashy Cashy en PC, Switch i Switch 2. Lluny dels grans AAA, el tancament de mes està dominat per projectes independents i AA que busquen fer-se un lloc després de la cascada d'anuncis d'estiu."
+                "es": "La lectura del dato sigue siendo igual de buena el día 27: la abundancia de proyectos con IA en Steam no se está traduciendo automáticamente en tracción alta. Para FoskIA esto importa porque diferencia entre “mucho ruido de escaparate” y “interés real del público”, que no siempre van de la mano.",
+                "en": "The reading still holds on the 27th: the abundance of AI-linked projects on Steam is not automatically turning into top-tier traction. For FoskIA, that matters because it separates “a lot of storefront noise” from “real audience interest,” which are not always the same thing.",
+                "val": "La lectura de la dada continua sent igual de bona el dia 27: l’abundància de projectes amb IA en Steam no s’està traduint automàticament en tracció alta. Per a FoskIA això importa perquè diferencia entre “molt de soroll d’aparador” i “interés real del públic”, que no sempre van de la mà."
               },
-              "source": "Vandal",
-              "url": "https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026",
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/",
               "links": [
                 {
-                  "title": "Vandal: lanzamientos junio 2026",
-                  "url": "https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026"
-                },
-                {
-                  "title": "IGN: 2026 video game release dates",
-                  "url": "https://www.ign.com/articles/video-game-release-dates-ps4-ps5-xbox-one-series-x-nintendo-switch"
-                },
-                {
-                  "title": "Nintendo UK: juegos junio 2026",
-                  "url": "https://www.nintendo.com/en-gb/News/2026/June/Upcoming-games-June-2026-3110313.html"
+                  "title": {
+                    "es": "PC Gamer: Steam Next Fest e IA",
+                    "en": "PC Gamer: Steam Next Fest and AI",
+                    "val": "PC Gamer: Steam Next Fest i IA"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/"
                 }
               ]
             },
             {
               "title": {
-                "es": "Game Pass cierra junio con Final Fantasy 6, ESO y Jurassic World Evolution 3",
-                "en": "Game Pass ends June with Final Fantasy 6, ESO and Jurassic World Evolution 3",
-                "val": "Game Pass tanca juny amb Final Fantasy 6, ESO i Jurassic World Evolution 3"
+                "es": "Tim Sweeney defiende la IA como herramienta de producción, no como estigma automático",
+                "en": "Tim Sweeney defends AI as a production tool, not an automatic stigma",
+                "val": "Tim Sweeney defensa la IA com a eina de producció, no com a estigma automàtic"
               },
               "summary": {
-                "es": "<a href=\"https://www.xbox.com/es-ES/xbox-game-pass\">Xbox Game Pass</a> completa el mes con la llegada de Final Fantasy 6, The Elder Scrolls Online y Jurassic World Evolution 3 al catálogo de consola y PC. Microsoft remata así un junio cargado de JRPG y sandbox de gestión, mientras se esperan los anuncios de la primera oleada de juegos de julio.",
-                "en": "<a href=\"https://www.xbox.com/en-US/xbox-game-pass\">Xbox Game Pass</a> wraps up the month with Final Fantasy 6, The Elder Scrolls Online and Jurassic World Evolution 3 joining the console and PC library. It’s the capstone to a June packed with JRPGs and management sandboxes, as players now look ahead to the first wave of July additions.",
-                "val": "<a href=\"https://www.xbox.com/es-ES/xbox-game-pass\">Xbox Game Pass</a> completa el mes amb l'arribada de Final Fantasy 6, The Elder Scrolls Online i Jurassic World Evolution 3 al catàleg de consola i PC. Microsoft remata així un juny carregat de JRPG i sandboxes de gestió, mentre la comunitat espera els anuncis de la primera onada de jocs de juliol."
+                "es": "En su conversación con <a href=\"https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/\">PC Gamer</a>, Tim Sweeney plantea que el problema no es la IA en sí, sino cómo se entrena y se presenta. La entrevista encaja bien con la semana porque refleja el choque entre dos visiones: la IA como ahorro de trabajo interno y la IA como ruido visible que daña confianza en tiendas como Steam.",
+                "en": "In his conversation with <a href=\"https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/\">PC Gamer</a>, Tim Sweeney argues that the problem is not AI itself but how it is trained and presented. It fits the week well because it captures the clash between two views: AI as internal productivity gain and AI as visible noise that hurts trust on storefronts like Steam.",
+                "val": "En la seua conversa amb <a href=\"https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/\">PC Gamer</a>, Tim Sweeney planteja que el problema no és la IA en si, sinó com s’entrena i es presenta. L’entrevista encaixa bé amb la setmana perquè reflectix el xoc entre dos visions: la IA com a estalvi de treball intern i la IA com a soroll visible que danya la confiança en botigues com Steam."
               },
-              "source": "Xbox / NME Gaming",
-              "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/",
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/",
               "links": [
                 {
-                  "title": "Xbox Wire: Game Pass mayo/junio 2026",
-                  "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/"
-                },
-                {
-                  "title": "FINAL FANTASY VI en Xbox Store",
-                  "url": "https://www.xbox.com/es-ES/games/store/final-fantasy-vi/9n255k81xbd3"
-                },
-                {
-                  "title": "Jurassic World Evolution 3 en Xbox Store",
-                  "url": "https://www.xbox.com/es-ES/games/store/jurassic-world-evolution-3/9nx7hcwl13z9"
-                },
-                {
-                  "title": "The Elder Scrolls Online en Xbox",
-                  "url": "https://www.xbox.com/en-US/games/elder-scrolls-online"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Curiosidad gamer: el shooter que nació como prototipo de una game jam",
-                "en": "Gamer curiosity: the shooter that started as a game jam prototype",
-                "val": "Curiositat gamer: el shooter que va nàixer com a prototip d'una game jam"
-              },
-              "summary": {
-                "es": "Varios de los indies de junio, como OK Boomer o Trashy Cashy, empezaron como prototipos de game jam antes de convertirse en lanzamientos comerciales. La escena independiente sigue demostrando que proyectos nacidos en 48 horas pueden acabar en las estanterías digitales de Steam, Switch o Xbox si encuentran comunidad y editor adecuados.",
-                "en": "Several of June’s indies, like OK Boomer or Trashy Cashy, began life as game jam prototypes before becoming full commercial releases. The indie scene keeps proving that projects built in 48 hours can end up on the digital shelves of Steam, Switch or Xbox when they find the right community and publisher.",
-                "val": "Diversos indies de juny, com OK Boomer o Trashy Cashy, van començar com a prototips de game jam abans de convertir-se en llançaments comercials. L'escena independent continua demostrant que projectes nascuts en 48 hores poden acabar a les prestatgeries digitals de Steam, Switch o Xbox si troben comunitat i editor adequats."
-              },
-              "source": "Vandal / IGN / Dev interviews",
-              "url": "https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026",
-              "links": [
-                {
-                  "title": "Vandal: lanzamientos indies junio",
-                  "url": "https://vandal.elespanol.com/lanzamientos/0/videojuegos/6/2026"
-                },
-                {
-                  "title": "IGN: indies to watch 2026",
-                  "url": "https://www.ign.com/articles/best-upcoming-indie-games-2026"
-                },
-                {
-                  "title": "PC Gamer: game jams to full releases",
-                  "url": "https://www.pcgamer.com/how-game-jams-became-the-indie-industrys-rd-lab/"
+                  "title": {
+                    "es": "Entrevista a Tim Sweeney",
+                    "en": "Tim Sweeney interview",
+                    "val": "Entrevista a Tim Sweeney"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/"
                 }
               ]
             }
@@ -111,128 +71,65 @@
           "items": [
             {
               "title": {
-                "es": "RollerCoaster Tycoon 3 y Voidwrought — gratis en Epic Games Store",
-                "en": "RollerCoaster Tycoon 3 and Voidwrought — free on Epic Games Store",
-                "val": "RollerCoaster Tycoon 3 i Voidwrought — gratis a Epic Games Store"
+                "es": "Epic encara el fin de semana con RollerCoaster Tycoon 3 y Voidwrought como reclamos principales",
+                "en": "Epic heads into the weekend with RollerCoaster Tycoon 3 and Voidwrought as its main claims",
+                "val": "Epic enceta el cap de setmana amb RollerCoaster Tycoon 3 i Voidwrought com a reclams principals"
               },
               "summary": {
-                "es": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> renueva sus juegos gratuitos con RollerCoaster Tycoon 3: Complete Edition y Voidwrought. El primero es un clásico de gestión de parques con sus expansiones incluidas; el segundo, un metroidvania oscuro de acción y exploración. Reclámalos gratis y se quedan en tu biblioteca.",
-                "en": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> refreshes its weekly freebies with RollerCoaster Tycoon 3: Complete Edition and Voidwrought. The first is a classic theme‑park management game with its expansions included; the second is a dark action‑exploration metroidvania. Claim them for free and keep them in your library.",
-                "val": "<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> renova els seus jocs gratuïts amb RollerCoaster Tycoon 3: Complete Edition i Voidwrought. El primer és un clàssic de gestió de parcs amb les expansions incloses; el segon, un metroidvania fosc d’acció i exploració. Reclama’ls gratis i es queden a la teua biblioteca."
+                "es": "De cara al fin de semana, la recomendación gratis más directa sigue siendo la misma: entrar en la <a href=\"https://store.epicgames.com/free-games\">rotación semanal de Epic</a> y reclamar ambos juegos antes del 2 de julio. No hay que adornarlo más: es un buen bloque y tiene fecha clara.",
+                "en": "Heading into the weekend, the clearest free recommendation stays the same: hit the <a href=\"https://store.epicgames.com/free-games\">weekly Epic rotation</a> and claim both games before July 2. It does not need extra decoration: it is a solid bundle with a clear deadline.",
+                "val": "De cara al cap de setmana, la recomanació gratis més directa continua sent la mateixa: entrar en la <a href=\"https://store.epicgames.com/free-games\">rotació setmanal d’Epic</a> i reclamar els dos jocs abans del 2 de juliol. No cal adornar-ho més: és un bon bloc i té data clara."
               },
               "platform": "Epic Games Store",
               "until": {
-                "es": "2 de julio de 2026, 17:00h CEST",
+                "es": "2 de julio de 2026, 17:00 CEST",
                 "en": "July 2, 2026, 3:00 PM UTC",
-                "val": "2 de juliol de 2026, 17.00 h CEST"
+                "val": "2 de juliol de 2026, 17.00 CEST"
               },
               "urgent": true,
-              "storeUrl": "https://store.epicgames.com/free-games",
+              "source": "Epic Games Store",
+              "url": "https://store.epicgames.com/free-games",
               "links": [
                 {
-                  "title": "Epic: juegos gratis de la semana",
+                  "title": {
+                    "es": "Epic: juegos gratis",
+                    "en": "Epic: free games",
+                    "val": "Epic: jocs gratis"
+                  },
                   "url": "https://store.epicgames.com/free-games"
-                },
-                {
-                  "title": "RollerCoaster Tycoon 3 Complete Edition en Epic",
-                  "url": "https://store.epicgames.com/p/rollercoaster-tycoon-3-complete-edition"
-                },
-                {
-                  "title": "Voidwrought en Epic",
-                  "url": "https://store.epicgames.com/p/voidwrought-ce8f4b"
-                },
-                {
-                  "title": "PC Gamer: calendario de juegos gratis de Epic",
-                  "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
-                }
-              ],
-              "source": "Epic Games Store / PC Gamer"
-            },
-            {
-              "title": {
-                "es": "Steam — Fin de semana gratis y pruebas temporales",
-                "en": "Steam — Free weekend and timed trials",
-                "val": "Steam — Cap de setmana gratis i proves temporals"
-              },
-              "summary": {
-                "es": "Steam mantiene su sección de juegos gratuitos y pruebas de fin de semana, con varios shooters y juegos de estrategia disponibles sin coste durante unos días. Los títulos cambian con frecuencia, así que conviene revisar la ficha de cada juego para confirmar fechas de finalización y requisitos.",
-                "en": "Steam keeps its free‑to‑play and free weekend section busy, with several shooters and strategy titles available at no cost for a few days. Line‑ups change quickly, so make sure to check each game’s store page for exact end dates and requirements.",
-                "val": "Steam manté activa la seua secció de free‑to‑play i caps de setmana gratis, amb diversos shooters i jocs d'estratègia disponibles sense cost durant uns dies. Els títols canvien amb rapidesa, així que convé revisar la fitxa de cada joc per a confirmar dates de fi i requisits."
-              },
-              "platform": "Steam",
-              "until": {
-                "es": "Fechas variables según juego (consultar ficha en Steam)",
-                "en": "Varies by title (check Steam store page)",
-                "val": "Dates variables segons joc (consulta la fitxa en Steam)"
-              },
-              "urgent": false,
-              "storeUrl": "https://store.steampowered.com/genre/Free%20to%20Play/",
-              "links": [
-                {
-                  "title": "Steam: juegos Free to Play",
-                  "url": "https://store.steampowered.com/search/?category1=998&genre=Free+to+Play"
-                },
-                {
-                  "title": "Steam: fines de semana gratis",
-                  "url": "https://store.steampowered.com/search/?filter=freeweekend"
-                },
-                {
-                  "title": "Steam: demos gratuitas recientes",
-                  "url": "https://store.steampowered.com/search/?sort_by=Released_DESC&maxprice=free&category1=10"
-                },
-                {
-                  "title": "GameRant: juegos gratis de junio 2026",
-                  "url": "https://gamerant.com/free-games-june-2026-steam-epic-amazon-prime-gaming/"
                 }
               ]
             },
             {
               "title": {
-                "es": "Prime Gaming — Space Grunts, Terraforming Mars y Lost Eidolons gratis",
-                "en": "Prime Gaming — Space Grunts, Terraforming Mars and Lost Eidolons for free",
-                "val": "Prime Gaming — Space Grunts, Terraforming Mars i Lost Eidolons gratis"
+                "es": "Prime Gaming sigue siendo el complemento útil para cerrar junio",
+                "en": "Prime Gaming remains the useful complement for closing June",
+                "val": "Prime Gaming continua sent el complement útil per a tancar juny"
               },
               "summary": {
-                "es": "El lote de junio de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> suma el 25 de junio Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars y Lost Eidolons: Veil of the Witch. La mayoría se reclaman como códigos para Epic, Legacy Games o la app de Amazon Games, así que entra desde el hub oficial y revisa la plataforma de canje antes de reclamar.",
-                "en": "June’s <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> line‑up adds Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars and Lost Eidolons: Veil of the Witch on June 25. Most are claimed as codes for Epic, Legacy Games or the Amazon Games app, so use the official hub and check each redemption platform before claiming.",
-                "val": "El lot de juny de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> afig el 25 de juny Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars i Lost Eidolons: Veil of the Witch. La majoria es reclamen com a codis per a Epic, Legacy Games o l’app d’Amazon Games, així que entra des del hub oficial i revisa la plataforma de bescanvi abans de reclamar."
+                "es": "Para quien ya pague Prime, el hub de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> sigue ofreciendo una segunda capa de regalos bastante más tranquila que Epic, pero igualmente aprovechable. El valor aquí no está en la urgencia brutal, sino en revisar bien cada launcher y no dejar códigos sin reclamar.",
+                "en": "For anyone already paying for Prime, the <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> hub still offers a calmer second layer of free claims than Epic, but one that is still worth using. The value here is not extreme urgency; it is checking each launcher carefully and not leaving codes unclaimed.",
+                "val": "Per a qui ja pague Prime, el hub de <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> continua oferint una segona capa de regals molt més tranquil·la que Epic, però igualment aprofitable. El valor ací no està en la urgència brutal, sinó en revisar bé cada launcher i no deixar codis sense reclamar."
               },
               "platform": "Prime Gaming",
               "until": {
-                "es": "Fechas variables según juego; nueva tanda disponible desde el 25 de junio de 2026",
-                "en": "Varies by title; new batch available from June 25, 2026",
-                "val": "Dates variables segons joc; nova tanda disponible des del 25 de juny de 2026"
+                "es": "Fechas variables según juego",
+                "en": "Varies by game",
+                "val": "Dates variables segons joc"
               },
               "urgent": false,
-              "storeUrl": "https://gaming.amazon.com/",
+              "source": "Prime Gaming",
+              "url": "https://gaming.amazon.com/",
               "links": [
                 {
-                  "title": "Prime Gaming: reclamar juegos",
+                  "title": {
+                    "es": "Prime Gaming",
+                    "en": "Prime Gaming",
+                    "val": "Prime Gaming"
+                  },
                   "url": "https://gaming.amazon.com/"
-                },
-                {
-                  "title": "Amazon Luna: novedades junio 2026",
-                  "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
-                },
-                {
-                  "title": "Space Grunts: Chrono Shard en Epic",
-                  "url": "https://store.epicgames.com/p/space-grunts-chrono-shard-3d4893"
-                },
-                {
-                  "title": "Terraforming Mars en Steam",
-                  "url": "https://store.steampowered.com/app/800270/Terraforming_Mars/"
-                },
-                {
-                  "title": "Lost Eidolons: Veil of the Witch en Steam",
-                  "url": "https://store.steampowered.com/app/2530490/Lost_Eidolons_Veil_of_the_Witch/"
-                },
-                {
-                  "title": "VGC: lista completa Prime Gaming junio 2026",
-                  "url": "https://www.videogameschronicle.com/news/amazon-primes-15-free-games-for-june-include-tomb-raider-4-6-remastered-and-mafia-3-definitive-edition/"
                 }
-              ],
-              "source": "Amazon Luna / Prime Gaming",
-              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-june-2026"
+              ]
             }
           ]
         },
@@ -241,57 +138,49 @@
           "items": [
             {
               "title": {
-                "es": "La IA ya genera cerca de la mitad del código en proyectos profesionales",
-                "en": "AI now generates nearly half of the code in professional projects",
-                "val": "La IA ja genera prop de la meitat del codi en projectes professionals"
+                "es": "La IA redefine el IDE, pero no elimina la necesidad de criterio técnico",
+                "en": "AI is redefining the IDE, but not removing the need for technical judgment",
+                "val": "La IA redefinix l’IDE, però no elimina la necessitat de criteri tècnic"
               },
               "summary": {
-                "es": "Estudios recientes sobre el uso de <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> y asistentes equivalentes estiman que entre el 40% y el 50% del código en equipos sénior proviene de sugerencias de IA. El rol del desarrollador gira hacia curar, revisar y ensamblar bloques generados, mientras crece la brecha entre quien entiende los fundamentos y quien solo acepta autocompletados.",
-                "en": "Recent studies on <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> and similar tools estimate that 40–50% of code in senior teams now comes from AI suggestions. The developer role is shifting toward curating, reviewing and composing generated blocks, widening the gap between those who grasp fundamentals and those who simply accept autocomplete.",
-                "val": "Estudis recents sobre l'ús de <a href=\"https://github.com/features/copilot\">GitHub Copilot</a> i assistents equivalents estimen que entre el 40% i el 50% del codi en equips sèniors prové de suggeriments d'IA. El rol del desenvolupador gira cap a curar, revisar i ensamblar blocs generats, mentres creix la bretxa entre qui entén els fonaments i qui només accepta els autocompletats."
+                "es": "La conversación de junio sobre developer experience insiste en que el IDE del futuro próximo será mucho más conversacional y asistido. Aun así, lo que más se repite en voces expertas es justo lo contrario del “piloto automático total”: revisar, seleccionar y entender sigue siendo la parte valiosa del trabajo.",
+                "en": "June’s developer-experience conversation keeps insisting that the near-future IDE will be far more conversational and assisted. Even so, the most consistent expert takeaway runs against the “full autopilot” fantasy: review, selection and understanding remain the valuable part of the work.",
+                "val": "La conversa de juny sobre developer experience insistix que l’IDE del futur pròxim serà molt més conversacional i assistit. Així i tot, el que més es repetix en veus expertes és just el contrari del “pilot automàtic total”: revisar, seleccionar i entendre continua sent la part valuosa del treball."
               },
-              "source": "Xataka / Stack Overflow Blog",
-              "url": "https://www.xataka.com/tag/programacion",
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/developer-experience/",
               "links": [
                 {
-                  "title": "Xataka: IA y programación",
-                  "url": "https://www.xataka.com/tag/programacion"
-                },
-                {
-                  "title": "Stack Overflow Blog: AI in the developer workflow",
-                  "url": "https://stackoverflow.blog/2026/04/ai-is-changing-how-developers-work/"
-                },
-                {
-                  "title": "GitHub Blog: impacto de Copilot",
-                  "url": "https://github.blog/ai-and-github-copilot/"
+                  "title": {
+                    "es": "Developer experience",
+                    "en": "Developer experience",
+                    "val": "Developer experience"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
                 }
               ]
             },
             {
               "title": {
-                "es": "Rust y Go consolidan su hueco frente a Python y JavaScript",
-                "en": "Rust and Go cement their place against Python and JavaScript",
-                "val": "Rust i Go consoliden el seu espai davant Python i JavaScript"
+                "es": "La productividad con agentes depende de límites claros, no de cantidad de sugerencias",
+                "en": "Agent productivity depends on clear limits, not on suggestion volume",
+                "val": "La productivitat amb agents depén de límits clars, no de quantitat de suggeriments"
               },
               "summary": {
-                "es": "Rankings de 2026 apuntan a Rust y Go como lenguajes clave para backend de alto rendimiento y sistemas, desplazando poco a poco a Java y C++ en nuevos proyectos. Python y JavaScript siguen dominando en data y frontend, pero los perfiles bien pagados se concentran cada vez más en stacks mixtos donde Rust o Go conviven con TypeScript y Python.",
-                "en": "2026 rankings point to Rust and Go as key languages for high‑performance backends and systems, gradually displacing Java and C++ in new projects. Python and JavaScript still dominate data and frontend, but the highest‑paid roles increasingly sit in mixed stacks where Rust or Go live alongside TypeScript and Python.",
-                "val": "Els rànquings de 2026 assenyalen Rust i Go com a llenguatges clau per a backend d'alt rendiment i sistemes, desplaçant a poc a poc Java i C++ en nous projectes. Python i JavaScript continuen dominant en dades i frontend, però els perfils millor pagats se concentren cada vegada més en stacks mixtes on Rust o Go conviuen amb TypeScript i Python."
+                "es": "El mejor resumen del momento sigue siendo simple: más asistentes no siempre equivalen a más velocidad. Sin recorte de contexto, responsabilidades y ruido, el supuesto ahorro se puede convertir en revisión infinita. Esa es precisamente la alerta que están verbalizando varios textos recientes del ecosistema dev.",
+                "en": "The best summary of the moment is still simple: more assistants do not always equal more speed. Without tight context, clear responsibilities and less noise, the supposed time-saving turns into endless review. That is exactly the warning several recent dev-ecosystem pieces are now spelling out.",
+                "val": "El millor resum del moment continua sent simple: més assistents no sempre equivalen a més velocitat. Sense retall de context, responsabilitats i soroll, el suposat estalvi es pot convertir en revisió infinita. Eixa és precisament l’alerta que estan verbalitzant diversos textos recents de l’ecosistema dev."
               },
-              "source": "Xataka / encuestas 2026",
-              "url": "https://dinahosting.com/blog/lenguajes-de-programacion-2026/",
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/",
               "links": [
                 {
-                  "title": "Dinahosting: lenguajes 2026",
-                  "url": "https://dinahosting.com/blog/lenguajes-de-programacion-2026/"
-                },
-                {
-                  "title": "Innowise: tendencias desarrollo 2026",
-                  "url": "https://innowise.com/blog/top-software-development-trends/"
-                },
-                {
-                  "title": "Orienteed: 10 tendencias clave 2026",
-                  "url": "https://orienteed.com/en/10-software-development-trends-2026/"
+                  "title": {
+                    "es": "Fatiga de decisión",
+                    "en": "Decision fatigue",
+                    "val": "Fatiga de decisió"
+                  },
+                  "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/"
                 }
               ]
             }
@@ -302,89 +191,57 @@
           "items": [
             {
               "title": {
-                "es": "27 genomas revelan que las poblaciones humanas eran más conectadas de lo pensado",
-                "en": "27 genomes reveal human populations were more connected than thought",
-                "val": "27 genomes revelen que les poblacions humanes estaven més connectades del que es pensava"
+                "es": "Roman cierra junio con calendario creíble y expectativa alta",
+                "en": "Roman closes June with a credible schedule and high expectations",
+                "val": "Roman tanca juny amb calendari creïble i expectativa alta"
               },
               "summary": {
-                "es": "Un análisis de 27 genomas antiguos y modernos, recogido por <a href=\"https://elpais.com/ciencia\">El País Ciencia</a>, cuestiona la idea de que nuestros ancestros vivían en poblaciones pequeñas y aisladas condenadas al deterioro genético. Los datos apuntan a una red mucho más densa de contactos y migraciones, lo que favoreció la mezcla genética y la eliminación de mutaciones perjudiciales.",
-                "en": "An analysis of 27 ancient and modern genomes reported by <a href=\"https://elpais.com/ciencia\">El País Ciencia</a> challenges the notion that our ancestors lived in small, isolated groups doomed to genetic decline. The data point to a far denser web of contacts and migrations, which fostered genetic mixing and the purging of harmful mutations.",
-                "val": "Una anàlisi de 27 genomes antics i moderns, recollida per <a href=\"https://elpais.com/ciencia\">El País Ciencia</a>, qüestiona la idea que els nostres avantpassats vivien en poblacions xicotetes i aïllades condemnades al deteriorament genètic. Les dades apunten a una xarxa molt més densa de contactes i migracions, que va afavorir la barreja genètica i l'eliminació de mutacions perjudicials."
+                "es": "Entre la construcción completada, la llegada a Kennedy y la fecha de referencia que maneja NASA Science, Roman cierra junio como uno de los proyectos espaciales más fáciles de seguir sin exageración. Hay hitos reales, fechas concretas y una misión con impacto científico muy visible.",
+                "en": "Between completed construction, the arrival at Kennedy and the reference date used by NASA Science, Roman closes June as one of the easiest space projects to track without exaggeration. It has real milestones, concrete dates and a mission with very visible scientific impact.",
+                "val": "Entre la construcció completada, l’arribada a Kennedy i la data de referència que maneja NASA Science, Roman tanca juny com un dels projectes espacials més fàcils de seguir sense exageració. Hi ha fites reals, dates concretes i una missió amb impacte científic molt visible."
               },
-              "source": "El País Ciencia",
-              "url": "https://elpais.com/ciencia",
+              "source": "NASA / NASA Science",
+              "url": "https://science.nasa.gov/missions/roman-space-telescope/building-roman/",
               "links": [
                 {
-                  "title": "El País Ciencia",
-                  "url": "https://elpais.com/ciencia/"
+                  "title": {
+                    "es": "Building Roman",
+                    "en": "Building Roman",
+                    "val": "Building Roman"
+                  },
+                  "url": "https://science.nasa.gov/missions/roman-space-telescope/building-roman/"
                 },
                 {
-                  "title": "Nature: earliest modern human genomes",
-                  "url": "https://www.nature.com/articles/s41586-024-08420-x"
-                },
-                {
-                  "title": "Max Planck: oldest modern human genomes sequenced",
-                  "url": "https://www.mpg.de/23820703/oldest-modern-human-genomes-sequenced"
-                },
-                {
-                  "title": "Science Advances: movilidad antigua en Ucrania",
-                  "url": "https://www.science.org/doi/10.1126/sciadv.adr0695"
+                  "title": {
+                    "es": "Llegada a Kennedy",
+                    "en": "Arrival at Kennedy",
+                    "val": "Arribada a Kennedy"
+                  },
+                  "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/"
                 }
               ]
             },
             {
               "title": {
-                "es": "Una eyección de masa coronal vista por SDO recuerda el poder del Sol",
-                "en": "A coronal mass ejection seen by SDO showcases the Sun’s power",
-                "val": "Una ejecció de massa coronal vista per SDO recorda el poder del Sol"
+                "es": "El tamaño del campo de visión de Roman sigue siendo su carta más fuerte",
+                "en": "Roman’s field of view remains its strongest card",
+                "val": "La grandària del camp de visió de Roman continua sent la seua carta més forta"
               },
               "summary": {
-                "es": "El Solar Dynamics Observatory de la <a href=\"https://www.nasa.gov/\">NASA</a> captó en las últimas horas una espectacular eyección de masa coronal abandonando la superficie solar. Aunque este evento concreto no fue especialmente geoefectivo, sirve de recordatorio de que el ciclo solar se acerca a su máximo y de la importancia de vigilar las tormentas que sí pueden afectar a satélites y redes eléctricas.",
-                "en": "NASA’s <a href=\"https://www.nasa.gov/\">Solar Dynamics Observatory</a> has captured a striking coronal mass ejection lifting off the Sun’s surface in recent hours. While this event was not particularly geo‑effective, it’s a reminder that the solar cycle is nearing its peak and that monitoring CMEs that can disrupt satellites and power grids is critical.",
-                "val": "El Solar Dynamics Observatory de la <a href=\"https://www.nasa.gov/\">NASA</a> ha captat en les últimes hores una espectacular ejecció de massa coronal que s'alça de la superfície solar. Encara que este esdeveniment concret no ha sigut especialment geoefectiu, recorda que el cicle solar s'acosta al màxim i la importància de vigilar les tempestes que sí poden afectar satèl·lits i xarxes elèctriques."
+                "es": "La misión no solo interesa por cuándo despega, sino por lo que podrá observar al arrancar: un campo de visión cien veces superior al de Hubble cambia la escala del trabajo astronómico. Es una buena forma de cerrar la semana científica sin caer en titulares inflados.",
+                "en": "The mission matters not only because of when it launches, but because of what it will see once it does: a field of view one hundred times larger than Hubble’s changes the scale of astronomical work. It is a good way to close the science week without inflated headlines.",
+                "val": "La missió no interessa només per quan despega, sinó pel que podrà observar quan comence: un camp de visió cent vegades superior al de Hubble canvia l’escala del treball astronòmic. És una bona manera de tancar la setmana científica sense caure en titulars inflats."
               },
-              "source": "NASA",
-              "url": "https://apod.nasa.gov/apod/",
+              "source": "NASA Science",
+              "url": "https://science.nasa.gov/mission/roman-space-telescope/",
               "links": [
                 {
-                  "title": "NASA APOD: CME",
-                  "url": "https://apod.nasa.gov/apod/"
-                },
-                {
-                  "title": "NASA: Solar Dynamics Observatory",
-                  "url": "https://sdo.gsfc.nasa.gov/"
-                },
-                {
-                  "title": "SpaceWeather: actividad solar",
-                  "url": "https://spaceweather.com/"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "España impulsa la investigación en salud de las mujeres con el programa ‘Somos. Contamos’",
-                "en": "Spain boosts women’s health research with ‘Somos. Contamos’ programme",
-                "val": "Espanya impulsa la investigació en salut de les dones amb el programa «Som. Comptem»"
-              },
-              "summary": {
-                "es": "El Gobierno presentó el programa <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">‘Somos. Contamos’</a> para acabar con la discriminación de las mujeres en investigación sanitaria, triplicando la inversión anual específica hasta los 18 millones de euros. Entre las líneas de trabajo destaca una vacuna universal que entrena al sistema inmune para reconocer células cancerígenas en más de 200 tipos de tumores.",
-                "en": "The Spanish government unveiled the <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">‘Somos. Contamos’</a> programme to end discrimination against women in health research, tripling dedicated annual funding to €18 million. One flagship line is a universal‑style cancer vaccine that trains the immune system to recognise malignant cells across more than 200 tumour types.",
-                "val": "El Govern va presentar el programa <a href=\"https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html\">«Som. Comptem»</a> per a acabar amb la discriminació de les dones en la investigació sanitària, triplicant la inversió específica anual fins als 18 milions d'euros. Entre les línies de treball destaca una vacuna quasi universal que entrenaria el sistema immunitari per a reconéixer cèl·lules cancerígenes en més de 200 tipus de tumors."
-              },
-              "source": "Ministerio de Ciencia de España",
-              "url": "https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html",
-              "links": [
-                {
-                  "title": "Noticia oficial ministerio",
-                  "url": "https://www.ciencia.gob.es/Noticias/2026/junio/Somos-Contamos-fin-discriminacion-mujeres-investigacion-salud.html"
-                },
-                {
-                  "title": "Consultor Salud: ciencia y salud 2026",
-                  "url": "https://consultorsalud.com.mx/la-ciencia-dia-mundial-de-la-salud-2026/"
-                },
-                {
-                  "title": "Agencia SINC: investigación en salud",
-                  "url": "https://www.agenciasinc.es/Salud"
+                  "title": {
+                    "es": "Ficha de misión Roman",
+                    "en": "Roman mission page",
+                    "val": "Fitxa de la missió Roman"
+                  },
+                  "url": "https://science.nasa.gov/mission/roman-space-telescope/"
                 }
               ]
             }
@@ -395,751 +252,57 @@
           "items": [
             {
               "title": {
-                "es": "La Fed mantiene el tono duro y los mercados de riesgo se resienten",
-                "en": "Fed keeps hawkish tone and risk assets feel the pain",
-                "val": "La Fed manté el to dur i els actius de risc se'n ressenten"
+                "es": "Bitcoin rebota hacia los 60.300$, pero el contexto sigue siendo frágil",
+                "en": "Bitcoin rebounds toward $60,300, but the context remains fragile",
+                "val": "Bitcoin rebota cap als 60.300$, però el context continua sent fràgil"
               },
               "summary": {
-                "es": "Analistas de mercado resaltan que los inversores están dando más peso al tono hawkish de la Fed que a los datos macro puntuales, frenando las subidas en bolsa y cripto. Sin recortes de tipos a la vista y con el petróleo tensionado por Oriente Medio, el apetito por riesgo se desplaza hacia activos de calidad y deuda a corto plazo.",
-                "en": "Market strategists note that investors are focusing more on the Fed’s hawkish tone than on individual macro prints, capping rallies in equities and crypto. With no rate cuts in sight and oil pressured by Middle East tensions, risk appetite is rotating into quality assets and short‑dated bonds.",
-                "val": "Analistes de mercat remarquen que els inversors donen més pes al to hawkish de la Fed que a les dades macro puntuals, cosa que frena les pujades en borsa i cripto. Sense retallades de tipus a la vista i amb el petroli tensionat per l'Orient Mitjà, l'apetit pel risc es desplaça cap a actius de qualitat i deute a curt termini."
+                "es": "Tras el golpe del 25 y la tensión del 26, el 27 deja una lectura algo menos dura: mercados de predicción y rastreadores de precio sitúan a BTC rondando los 60.300 dólares a primera hora de la mañana estadounidense. Aun así, el rebote sabe más a estabilización nerviosa que a recuperación sólida.",
+                "en": "After the June 25 hit and the June 26 stress, the 27th brings a slightly softer reading: prediction markets and price trackers place BTC around $60,300 in the early U.S. morning. Even so, the rebound feels more like nervous stabilization than a solid recovery.",
+                "val": "Després del colp del 25 i la tensió del 26, el 27 deixa una lectura un poc menys dura: mercats de predicció i rastrejadors de preu situen BTC al voltant dels 60.300 dòlars a primera hora del matí nord-americà. Així i tot, el rebot sona més a estabilització nerviosa que a recuperació sòlida."
               },
-              "source": "Análisis semanal mercados",
-              "url": "https://www.youtube.com/watch?v=NcO7qvP7KfY",
+              "source": "Robinhood / market trackers",
+              "url": "https://robinhood.com/us/en/prediction-markets/crypto/events/btc-price-on-jun-27-2026-at-7am-edt-jun-26-2026/",
               "links": [
                 {
-                  "title": "Resumen mercados semana",
-                  "url": "https://www.youtube.com/watch?v=NcO7qvP7KfY"
+                  "title": {
+                    "es": "Mercado de predicción BTC 27/06",
+                    "en": "BTC prediction market 06/27",
+                    "val": "Mercat de predicció BTC 27/06"
+                  },
+                  "url": "https://robinhood.com/us/en/prediction-markets/crypto/events/btc-price-on-jun-27-2026-at-7am-edt-jun-26-2026/"
                 },
                 {
-                  "title": "Bloomberg: Fed watch",
-                  "url": "https://www.bloomberg.com/markets/fed"
-                },
-                {
-                  "title": "Reuters: mercados estadounidenses",
-                  "url": "https://www.reuters.com/markets/us/"
-                },
-                {
-                  "title": "Federal Reserve: comunicados oficiales",
-                  "url": "https://www.federalreserve.gov/newsevents/pressreleases.htm"
+                  "title": {
+                    "es": "Fortune: precio del 26 de junio",
+                    "en": "Fortune: June 26 price",
+                    "val": "Fortune: preu del 26 de juny"
+                  },
+                  "url": "https://fortune.com/article/price-of-bitcoin-06-26-2026/"
                 }
               ]
             },
             {
               "title": {
-                "es": "El BCE rebaja previsiones de crecimiento pero insiste en el endurecimiento",
-                "en": "ECB cuts growth forecasts but sticks to tightening bias",
-                "val": "El BCE rebaixa les previsions de creixement però manté l'enduriment"
+                "es": "La producción industrial sigue siendo una referencia más fiable que el ruido de mercado",
+                "en": "Industrial production remains a steadier reference than market noise",
+                "val": "La producció industrial continua sent una referència més fiable que el soroll de mercat"
               },
               "summary": {
-                "es": "El Banco Central Europeo recortó sus previsiones de crecimiento para la eurozona y volvió a insistir en que la política monetaria seguirá siendo restrictiva mientras la inflación subyacente no converja al 2%. La decisión enfría las expectativas de crédito barato en 2027 y mantiene al euro relativamente fuerte frente al dólar.",
-                "en": "The European Central Bank trimmed its euro‑area growth forecasts and reiterated that policy will remain restrictive until core inflation converges toward 2%. The move cools hopes for cheap credit in 2027 and keeps the euro relatively firm against the dollar.",
-                "val": "El Banc Central Europeu va retallar les previsions de creixement per a la zona euro i va reiterar que la política monetària seguirà sent restrictiva mentre la inflació subjacent no convergisca cap al 2%. La decisió refreda les expectatives de crèdit barat en 2027 i manté l'euro relativament fort davant el dòlar."
+                "es": "Al cerrar la semana, el contraste es claro: frente a la hiperreactividad de cripto y bolsa, las series industriales del INE ayudan a poner pies en el suelo. No capturan el pulso emocional del mercado, pero sí una parte real de la economía que tarda más en girar y dice más sobre estructura.",
+                "en": "As the week closes, the contrast is clear: against the hyper-reactivity of crypto and markets, INE industrial series help put feet back on the ground. They do not capture market emotion, but they do capture a real slice of the economy that moves more slowly and says more about structure.",
+                "val": "En tancar la setmana, el contrast és clar: davant de la hiperreactivitat de cripto i borsa, les sèries industrials de l’INE ajuden a posar els peus en terra. No capturen el pols emocional del mercat, però sí una part real de l’economia que tarda més a girar i diu més sobre estructura."
               },
-              "source": "BCE / prensa económica",
-              "url": "https://www.ecb.europa.eu/",
+              "source": "INE",
+              "url": "https://www.ine.es",
               "links": [
                 {
-                  "title": "BCE: comunicados de política monetaria",
-                  "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/index.en.html"
-                },
-                {
-                  "title": "Expansión: economía eurozona",
-                  "url": "https://www.expansion.com/economia.html"
-                },
-                {
-                  "title": "Reuters: ECB watch",
-                  "url": "https://www.reuters.com/markets/european-central-bank/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "cripto",
-          "items": [
-            {
-              "title": {
-                "es": "Bitcoin aguanta sobre los 67.000$ mientras sube la tensión EE.UU.–Irán",
-                "en": "Bitcoin holds above $67,000 as US–Iran tensions rise",
-                "val": "Bitcoin aguanta per damunt dels 67.000$ mentre puja la tensió EUA–Iran"
-              },
-              "summary": {
-                "es": "Bitcoin se mueve en el rango 67.000–68.000 dólares, con soporte clave por debajo de 65.000$ en plena escalada verbal entre EE.UU. e Irán y dudas sobre el petróleo. Analistas señalan que el conflicto en el Estrecho de Ormuz alimenta el miedo a más inflación y complica los recortes de tipos, lo que presiona a las criptomonedas frente al dólar fuerte.",
-                "en": "Bitcoin is trading in a $67,000–68,000 range, with key support just below $65,000 as US–Iran rhetoric heats up and oil jitters persist. Analysts note that the Strait of Hormuz standoff stokes inflation fears and complicates rate‑cut bets, putting pressure on crypto versus a strong dollar.",
-                "val": "Bitcoin es mou en el rang 67.000–68.000 dòlars, amb un suport clau lleugerament per davall dels 65.000$ en plena escalada verbal entre els EUA i l'Iran i amb dubtes sobre el petroli. Analistes assenyalen que el conflicte en l'Estret d'Ormuz alimenta la por a més inflació i complica les apostes de retallades de tipus, cosa que pressiona les criptomonedes davant d'un dòlar fort."
-              },
-              "shortTerm": {
-                "es": "Zona de soporte inmediata entre 63.000$ y 65.000$; por debajo, el siguiente nivel relevante se sitúa en torno a 60.000$, mencionado por varias casas de análisis. Resistencias en 70.000$ y 72.000$, donde se ha concentrado la toma de beneficios.",
-                "en": "Immediate support lies in the $63,000–65,000 band; below that, the next key area sits around $60,000, flagged by several research desks. On the upside, $70,000 and $72,000 remain major resistance where profit‑taking has clustered.",
-                "val": "Zona de suport immediat entre 63.000$ i 65.000$; per davall, el següent nivell rellevant se situa al voltant dels 60.000$, esmentat per diverses cases d'anàlisi. Per dalt, 70.000$ i 72.000$ continuen sent resistències majors on s'ha concentrat la presa de beneficis."
-              },
-              "longTerm": {
-                "es": "Mientras la Fed mantenga un sesgo restrictivo y el petróleo siga tensionado, el ciclo bajista de medio plazo no puede darse por cerrado. A largo plazo, las entradas en ETF spot y la narrativa de refugio frente a tensiones geopolíticas siguen siendo los principales soportes estructurales del precio.",
-                "en": "As long as the Fed keeps a tightening bias and oil stays elevated, the medium‑term downcycle cannot be declared over. Over the long run, inflows into spot ETFs and the hedge‑against‑geopolitics narrative remain the key structural pillars for price.",
-                "val": "Mentre la Fed mantinga un biaix restrictiu i el petroli continue tensionat, el cicle baixista de mitjà termini no es pot donar per tancat. A llarg termini, les entrades en ETF spot i la narrativa de refugi davant les tensions geopolítiques continuen sent els principals pilars estructurals del preu."
-              },
-              "source": "Cointelegraph / Phemex",
-              "url": "https://cointelegraph.es/markets/bitcoin-waits-68k-hours-tick-down-iran-deadline",
-              "links": [
-                {
-                  "title": "Cointelegraph: BTC cerca de 68K",
-                  "url": "https://cointelegraph.es/markets/bitcoin-waits-68k-hours-tick-down-iran-deadline"
-                },
-                {
-                  "title": "Phemex: soporte en 60K",
-                  "url": "https://phemex.com/es/news/article/bitcoin-faces-potential-60000-support-test-amid-usiran-tensions-69854"
-                },
-                {
-                  "title": "Crypto World Daily: BTC cerca de 64K",
-                  "url": "https://www.coindesk.com/markets/2026/06/22/bitcoin-holds-near-usd64-000-as-us-iran-talks-progress-but-crypto-sits-out-the-rally"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Altcoins: rotación defensiva hacia grandes capitalizaciones",
-                "en": "Altcoins: defensive rotation into large caps",
-                "val": "Altcoins: rotació defensiva cap a les grans capitalitzacions"
-              },
-              "summary": {
-                "es": "Mientras Bitcoin aguanta el tipo, muchas altcoins de mediana capitalización corrigen con fuerza tras meses de subidas. Los flujos se concentran en Ethereum y en unas pocas L1 y L2 líquidas, mientras proyectos más pequeños sufren salidas y menor volumen.",
-                "en": "While Bitcoin holds its ground, many mid‑cap altcoins are seeing sharp pullbacks after months of gains. Flows are concentrating in Ethereum and a handful of liquid L1s and L2s, leaving smaller projects facing outflows and thinner volumes.",
-                "val": "Mentre Bitcoin aguanta, moltes altcoins de capitalització mitjana corregeixen amb força després de mesos de pujades. Els fluxos se concentren en Ethereum i en unes poques L1 i L2 líquides, mentre els projectes més xicotets patixen eixides i menor volum."
-              },
-              "shortTerm": {
-                "es": "Rotación desde memecoins y tokens ilíquidos hacia blue chips como ETH, SOL o las principales L2. Probable continuidad de la limpieza de excesos especulativos si BTC no rompe claramente al alza.",
-                "en": "Rotation out of memecoins and illiquid tokens into blue chips like ETH, SOL and major L2s. Further flushing of speculative excess is likely if BTC fails to break decisively higher.",
-                "val": "Rotació des de memecoins i tokens il·líquids cap a blue chips com ETH, SOL i les principals L2. És probable que continue la neteja d'excessos especulatius si BTC no trenca clarament a l'alça."
-              },
-              "longTerm": {
-                "es": "El ciclo de altcoins dependerá en gran medida de que Ethereum consolide su papel como capa de liquidación y de la tracción real de las soluciones L2 en pagos y juegos. La selección de proyectos con caja, producto y usuarios será clave frente a la mera narrativa.",
-                "en": "The altcoin cycle will hinge largely on Ethereum cementing its role as a settlement layer and on real‑world traction for L2s in payments and gaming. Picking projects with cash, product and users will matter far more than narrative alone.",
-                "val": "El cicle d'altcoins dependrà en gran mesura que Ethereum consolide el seu paper com a capa de liquidació i de la tracció real de les L2 en pagaments i videojocs. La selecció de projectes amb caixa, producte i usuaris serà clau per damunt de la simple narrativa."
-              },
-              "source": "CoinDesk / Cointelegraph",
-              "url": "https://www.coindesk.com/markets/",
-              "links": [
-                {
-                  "title": "CoinDesk: mercado de altcoins",
-                  "url": "https://www.coindesk.com/markets/"
-                },
-                {
-                  "title": "Cointelegraph: análisis altcoins",
-                  "url": "https://es.cointelegraph.com/tags/altcoin-watch"
-                },
-                {
-                  "title": "The Block: rotación de mercado",
-                  "url": "https://www.theblock.co/markets"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "radar",
-          "items": [
-            {
-              "title": {
-                "es": "EE.UU. e Irán al borde del acuerdo mientras el petróleo vuelve a tensionarse",
-                "en": "US and Iran on the brink of a deal as oil prices tighten again",
-                "val": "EUA i l'Iran a la vora de l'acord mentre el petroli torna a tensionar-se"
-              },
-              "summary": {
-                "es": "Las negociaciones entre EE.UU. e Irán avanzan hacia un acuerdo de alto el fuego, pero las amenazas cruzadas mantienen el riesgo de cierre del Estrecho de Ormuz. Los mercados de renta variable intentan digerir la retórica bélica mientras el crudo coquetea con máximos de varios años y los bancos centrales recalculan escenarios de inflación.",
-                "en": "Talks between the US and Iran are edging toward a ceasefire deal, yet tit‑for‑tat threats keep the risk of a Strait of Hormuz shutdown on the table. Equity markets are trying to digest the war rhetoric as crude flirts with multi‑year highs and central banks recast their inflation scenarios.",
-                "val": "Les negociacions entre els EUA i l'Iran avancen cap a un acord d'alt el foc, però les amenaces creuades mantenen sobre la taula el risc de tancament de l'Estret d'Ormuz. Els mercats de renda variable intenten digerir la retòrica bèl·lica mentre el cru coqueteja amb màxims de diversos anys i els bancs centrals refan els escenaris d'inflació."
-              },
-              "source": "Reuters / Cointelegraph",
-              "url": "https://cointelegraph.es/markets/bitcoin-waits-68k-hours-tick-down-iran-deadline",
-              "links": [
-                {
-                  "title": "Cointelegraph: BTC y ultimátum a Irán",
-                  "url": "https://cointelegraph.es/markets/bitcoin-waits-68k-hours-tick-down-iran-deadline"
-                },
-                {
-                  "title": "Reuters: crisis EE.UU.–Irán",
-                  "url": "https://www.reuters.com/world/middle-east/"
-                },
-                {
-                  "title": "BBC: análisis de Oriente Medio",
-                  "url": "https://www.bbc.com/news/world/middle_east"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Las elecciones en Perú se deciden por un puñado de votos y reabren el debate sobre el fujimorismo",
-                "en": "Peru’s election decided by a razor‑thin margin rekindles the Fujimorismo debate",
-                "val": "Les eleccions al Perú es decidixen per un grapat de vots i reobrin el debat sobre el fujimorisme"
-              },
-              "summary": {
-                "es": "Con más del 99% del escrutinio completado, Keiko Fujimori se impone por poco más de 39.000 votos frente a Roberto Sánchez, según recogen medios latinoamericanos. El ajustado resultado y las acusaciones cruzadas de irregularidades auguran semanas de tensión institucional y reavivan el debate sobre la herencia del fujimorismo.",
-                "en": "With more than 99% of ballots counted, Keiko Fujimori is ahead of Roberto Sánchez by just over 39,000 votes, according to Latin American outlets. The razor‑thin margin and mutual accusations of irregularities point to weeks of institutional tension and reignite debate over the legacy of Fujimorismo.",
-                "val": "Amb més del 99% de les paperetes comptabilitzades, Keiko Fujimori supera Roberto Sánchez per poc més de 39.000 vots, segons mitjans llatinoamericans. L'estretíssim marge i les acusacions creuades d'irregularitats auguren setmanes de tensió institucional i reobrin el debat sobre l'herència del fujimorisme."
-              },
-              "source": "Yahoo Noticias / prensa peruana",
-              "url": "https://es-us.noticias.yahoo.com/",
-              "links": [
-                {
-                  "title": "Yahoo Noticias: resumen internacional",
-                  "url": "https://es-us.noticias.yahoo.com/noticias-20-junio-2026-mediod%C3%ADa-100025952.html"
-                },
-                {
-                  "title": "Wikipedia: Keiko Fujimori",
-                  "url": "https://es.wikipedia.org/wiki/Keiko_Fujimori"
-                },
-                {
-                  "title": "Euronews: América Latina",
-                  "url": "https://es.euronews.com/noticias/america-latina"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "ia",
-          "items": [
-            {
-              "title": {
-                "es": "Gigantes de la IA piden al Congreso de EE.UU. una regulación más dura de los modelos avanzados",
-                "en": "AI giants urge US Congress to tighten oversight of advanced models",
-                "val": "Els gegants de la IA demanen al Congrés dels EUA una regulació més dura dels models avançats"
-              },
-              "summary": {
-                "es": "OpenAI, Anthropic, Google DeepMind y Microsoft han remitido una carta conjunta al Congreso de EE.UU. advirtiendo de los riesgos de la IA avanzada y reclamando una agencia específica para supervisar los modelos más potentes. Los firmantes piden registros obligatorios de entrenamiento, pruebas de seguridad independientes y la posibilidad de suspender sistemas que no cumplan estándares mínimos.",
-                "en": "OpenAI, Anthropic, Google DeepMind and Microsoft have sent a joint letter to the US Congress warning about advanced AI risks and calling for a dedicated agency to oversee the most powerful models. They urge mandatory training registers, independent safety evaluations and the power to suspend systems that fail to meet minimum standards.",
-                "val": "OpenAI, Anthropic, Google DeepMind i Microsoft han remés una carta conjunta al Congrés dels EUA advertint dels riscos de la IA avançada i reclamant una agència específica per a supervisar els models més potents. Els signants demanen registres obligatoris d'entrenament, proves de seguretat independents i la possibilitat de suspendre sistemes que no complisquen uns estàndards mínims."
-              },
-              "source": "WION / medios tecnológicos",
-              "url": "https://www.youtube.com/watch?v=n5O6u6YVZ2U",
-              "links": [
-                {
-                  "title": "WION: carta sobre riscos de la IA",
-                  "url": "https://www.youtube.com/watch?v=n5O6u6YVZ2U"
-                },
-                {
-                  "title": "MIT Technology Review: regulación IA",
-                  "url": "https://www.technologyreview.com/ai/"
-                },
-                {
-                  "title": "The Verge: política y IA",
-                  "url": "https://www.theverge.com/artificial-intelligence"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Claude Fable 5 demuestra el potencial de flujos de trabajo autónomos de varios días",
-                "en": "Claude Fable 5 showcases multi‑day autonomous workflows",
-                "val": "Claude Fable 5 demostra el potencial de fluxos de treball autònoms de diversos dies"
-              },
-              "summary": {
-                "es": "Lanzado el 9 de junio, <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a> se posiciona como modelo especializado en ingeniería de software e investigación científica capaz de ejecutar cadenas de tareas que duran días con mínima supervisión humana. La adopción en equipos de producto y data acelera el debate sobre hasta dónde automatizar sin perder control ni trazabilidad.",
-                "en": "Released on June 9, <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a> targets software engineering and scientific research, capable of running task chains that last days with minimal human oversight. Its adoption in product and data teams is fuelling debate on how far to push automation without losing control and auditability.",
-                "val": "Llançat el 9 de juny, <a href=\"https://www.anthropic.com/news\">Claude Fable 5</a> es posiciona com un model especialitzat en enginyeria de programari i investigació científica capaç d'executar cadenes de tasques de diversos dies amb supervisió humana mínima. La seua adopció en equips de producte i dades accelera el debat sobre fins on automatitzar sense perdre control ni traçabilitat."
-              },
-              "source": "Anthropic",
-              "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
-              "links": [
-                {
-                  "title": "Anthropic: Claude Fable 5 y Mythos 5",
-                  "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
-                },
-                {
-                  "title": "Anthropic Docs: introducción a Fable 5 y Mythos 5",
-                  "url": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5"
-                },
-                {
-                  "title": "Claude Fable: página oficial",
-                  "url": "https://www.anthropic.com/claude/fable"
-                },
-                {
-                  "title": "The Batch: workflows autónomos",
-                  "url": "https://www.deeplearning.ai/the-batch/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "hardware",
-          "items": [
-            {
-              "title": {
-                "es": "Nuevos Xeon y Epyc afinan consumo para centros de datos saturados por IA",
-                "en": "New Xeon and Epyc chips fine‑tune power for AI‑burdened data centers",
-                "val": "Els nous Xeon i Epyc ajusten el consum per a centres de dades saturats per la IA"
-              },
-              "summary": {
-                "es": "Intel y AMD ultiman revisiones de sus gamas Xeon y Epyc centradas en eficiencia energética y ancho de banda de memoria para cargas de IA generativa. En un contexto de escasez de GPUs de gama alta, muchos centros de datos apuestan por CPUs más eficientes para servir modelos pequeños y tareas de inferencia de baja latencia.",
-                "en": "Intel and AMD are prepping refreshed Xeon and Epyc line‑ups focused on energy efficiency and memory bandwidth for generative AI workloads. With high‑end GPUs still in short supply, many data centers are turning to more efficient CPUs to serve small models and low‑latency inference.",
-                "val": "Intel i AMD ultimen revisions de les seues gammes Xeon i Epyc centrades en l'eficiència energètica i l'ample de banda de memòria per a càrregues d'IA generativa. En un context d'escassetat de GPU d'alta gamma, molts centres de dades aposten per CPU més eficients per a servir models menuts i tasques d'inferència de baixa latència."
-              },
-              "source": "Tom's Hardware / AnandTech",
-              "url": "https://www.intel.com/content/www/us/en/products/details/processors/xeon.html",
-              "links": [
-                {
-                  "title": "Intel: Xeon para data center",
-                  "url": "https://www.intel.com/content/www/us/en/products/details/processors/xeon.html"
-                },
-                {
-                  "title": "AMD: EPYC para servidores",
-                  "url": "https://www.amd.com/en/products/processors/server/epyc.html"
-                },
-                {
-                  "title": "Tom’s Hardware: CPUs",
-                  "url": "https://www.tomshardware.com/pc-components/cpus"
-                },
-                {
-                  "title": "AnandTech: CPUs y servidores",
-                  "url": "https://www.anandtech.com/tag/cpus"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Los móviles de gama media suben el listón en cámaras y autonomía",
-                "en": "Mid‑range phones raise the bar in cameras and battery life",
-                "val": "Els mòbils de gamma mitjana alcen el llistó en càmera i autonomia"
-              },
-              "summary": {
-                "es": "Los lanzamientos recientes de Android en la gama de 300–500€ muestran sensores de 50–100 MP, baterías de más de 5.000 mAh y pantallas de 120 Hz como nuevo estándar. Para muchos usuarios, el salto a la gama alta solo se justifica ya por el zoom óptico extremo o el ecosistema de software.",
-                "en": "Recent Android launches in the €300–500 bracket now ship with 50–100 MP sensors, 5,000+ mAh batteries and 120 Hz displays as the new norm. For many users, moving to true flagships is only justified by extreme optical zoom or tighter software ecosystems.",
-                "val": "Els llançaments recents d'Android en la franja de 300–500 € ja oferixen sensors de 50–100 MP, bateries de més de 5.000 mAh i pantalles de 120 Hz com a nou estàndard. Per a molts usuaris, el salt a la gamma alta només es justifica ja pel zoom òptic extrem o per l'ecosistema de programari."
-              },
-              "source": "Xataka / GSMArena",
-              "url": "https://www.xataka.com/moviles",
-              "links": [
-                {
-                  "title": "Xataka: móviles 2026",
-                  "url": "https://www.xataka.com/moviles"
-                },
-                {
-                  "title": "GSMArena: novedades móviles",
-                  "url": "https://www.gsmarena.com/news.php3"
-                },
-                {
-                  "title": "Computer Hoy: comparativa gama media",
-                  "url": "https://computerhoy.com/analisis/moviles"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "security",
-          "items": [
-            {
-              "title": {
-                "es": "FortiBleed: más de 80.000 firewalls Fortinet expuestos en una campaña masiva",
-                "en": "FortiBleed: over 80,000 Fortinet firewalls exposed in massive campaign",
-                "val": "FortiBleed: més de 80.000 firewalls Fortinet exposats en una campanya massiva"
-              },
-              "summary": {
-                "es": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> y varios CERT alertan de una campaña activa contra dispositivos FortiGate que ya habría comprometido decenas de miles de firewalls. Las cuentas de administrador genéricas y credenciales por defecto siguen siendo el vector de entrada más común, pese a años de advertencias.",
-                "en": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> and several CERTs are warning of an active campaign against FortiGate devices that has compromised tens of thousands of firewalls. Generic admin accounts and default credentials remain the most common entry point, despite years of guidance to lock them down.",
-                "val": "<a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">CISA</a> i diversos CERT alerten d'una campanya activa contra dispositius FortiGate que ja hauria compromés desenes de milers de firewalls. Els comptes d'administrador genèrics i les credencials per defecte continuen sent el vector d'entrada més habitual, malgrat anys d'advertiments."
-              },
-              "source": "CISA / The Hacker News",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "links": [
-                {
-                  "title": "CISA: KEV Fortinet",
-                  "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-                },
-                {
-                  "title": "The Hacker News: FortiBleed",
-                  "url": "https://thehackernews.com/2026/06/fortinet-fortigate-mass-exploitation.html"
-                },
-                {
-                  "title": "ESET: análisis campaña",
-                  "url": "https://www.welivesecurity.com/es/"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Patch Tuesday de junio: 200 vulnerabilidades corregidas y varios zero‑days en Microsoft",
-                "en": "June Patch Tuesday: 200 vulnerabilities fixed and multiple zero‑days in Microsoft products",
-                "val": "Patch Tuesday de juny: 200 vulnerabilitats corregides i diversos zero‑days en productes Microsoft"
-              },
-              "summary": {
-                "es": "El último Patch Tuesday de Microsoft corrige unas 200 vulnerabilidades, con 33 etiquetadas como Críticas y al menos seis zero‑days bajo explotación activa. Destaca CVE‑2026‑42897 en Exchange Server (XSS, CVSS 8,1), que permite ejecutar JavaScript arbitrario desde correos especialmente manipulados.",
-                "en": "Microsoft’s latest Patch Tuesday fixes around 200 vulnerabilities, including 33 rated Critical and at least six zero‑days under active exploitation. Among them, CVE‑2026‑42897 in Exchange Server (XSS, CVSS 8.1) allows arbitrary JavaScript execution from specially crafted emails.",
-                "val": "L'últim Patch Tuesday de Microsoft corregeix unes 200 vulnerabilitats, amb 33 etiquetades com a Crítiques i almenys sis zero‑days sota explotació activa. Destaca la CVE‑2026‑42897 en Exchange Server (XSS, CVSS 8,1), que permet executar JavaScript arbitrari des de correus especialment manipulats."
-              },
-              "source": "The Hacker News",
-              "url": "https://thehackernews.com/",
-              "links": [
-                {
-                  "title": "The Hacker News: Patch Tuesday juny",
-                  "url": "https://thehackernews.com/2026/06/microsoft-june-2026-patch-tuesday.html"
-                },
-                {
-                  "title": "Microsoft: notes de la versió",
-                  "url": "https://msrc.microsoft.com/update-guide/releaseNote/2026-Jun"
-                },
-                {
-                  "title": "INCIBE: avisos de seguretat",
-                  "url": "https://www.incibe.es/protege-tu-empresa/avisos-seguridad"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "entretenimiento",
-          "items": [
-            {
-              "title": {
-                "es": "Estrenos de cine de fin de junio: de Toy Story 5 a ciencia ficción adulta",
-                "en": "Late June movie releases: from Toy Story 5 to adult sci‑fi",
-                "val": "Estrenes de cine de finals de juny: de Toy Story 5 a ciència ficció adulta"
-              },
-              "summary": {
-                "es": "Las carteleras de España y Latinoamérica cierran junio con una mezcla de blockbusters familiares como Toy Story 5 y propuestas de ciencia ficción más adultas. Las previsiones apuntan a un nuevo fin de semana fuerte de taquilla antes de la llegada de los estrenos de julio.",
-                "en": "Spanish and Latin American theatres are closing out June with a mix of family blockbusters like Toy Story 5 and more adult‑oriented sci‑fi releases. Forecasts point to another strong box‑office weekend before July’s heavy‑hitters arrive.",
-                "val": "Les cartelleres d'Espanya i Llatinoamèrica tanquen juny amb una barreja de blockbusters familiars com Toy Story 5 i propostes de ciència ficció més adultes. Les previsions apunten a un altre cap de setmana fort de taquilla abans de l'arribada dels grans estrenes de juliol."
-              },
-              "source": "Bloomberg Línea / DeCine21",
-              "url": "https://www.bloomberglinea.com/estilo-de-vida/los-principales-estrenos-en-cines-en-junio-de-2026-de-amos-del-universo-a-toy-story-5/",
-              "links": [
-                {
-                  "title": "Bloomberg Línea: estrenos junio 2026",
-                  "url": "https://www.bloomberglinea.com/estilo-de-vida/los-principales-estrenos-en-cines-en-junio-de-2026-de-amos-del-universo-a-toy-story-5/"
-                },
-                {
-                  "title": "DeCine21: calendario estrenos",
-                  "url": "https://decine21.com/estrenos/cine"
-                },
-                {
-                  "title": "Sensacine: próximos estrenos",
-                  "url": "https://www.sensacine.com/peliculas/estrenos/"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "House of the Dragon T3 arranca y Avatar: The Last Airbender T2 llega a Netflix",
-                "en": "House of the Dragon S3 kicks off and Avatar: The Last Airbender S2 hits Netflix",
-                "val": "House of the Dragon T3 arranca i Avatar: The Last Airbender T2 arriba a Netflix"
-              },
-              "summary": {
-                "es": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> estrena su tercera temporada en HBO Max, llevando la Danza de los Dragones a su fase más sangrienta. El 25 de junio, Netflix suma la segunda temporada de <a href=\"https://www.netflix.com/es/title/80260013\">Avatar: The Last Airbender</a>, centrada en el entrenamiento de Aang en el dominio de la tierra.",
-                "en": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> launches its third season on HBO Max, taking the Dance of the Dragons into its bloodiest phase. On June 25, Netflix adds Season 2 of <a href=\"https://www.netflix.com/title/80260013\">Avatar: The Last Airbender</a>, focused on Aang’s earthbending training.",
-                "val": "<a href=\"https://www.hbo.com/house-of-the-dragon\">House of the Dragon</a> estrena la tercera temporada en HBO Max, portant la Dansa dels Dracs a la seua fase més sagnant. El 25 de juny, Netflix afegix la segona temporada d'<a href=\"https://www.netflix.com/es/title/80260013\">Avatar: The Last Airbender</a>, centrada en l'entrenament d'Aang en el domini de la terra."
-              },
-              "source": "HBO / Netflix",
-              "url": "https://www.hbo.com/house-of-the-dragon",
-              "links": [
-                {
-                  "title": "HBO: House of the Dragon",
-                  "url": "https://www.hbo.com/house-of-the-dragon"
-                },
-                {
-                  "title": "Netflix: Avatar TLAB",
-                  "url": "https://www.netflix.com/es/title/80260013"
-                },
-                {
-                  "title": "FormulaTV: estrenos series junio",
-                  "url": "https://www.formulatv.com/series/estrenos/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "curiosidades",
-          "items": [
-            {
-              "title": {
-                "es": "Las celdas solares de perovskita en tándem superan el 34% de eficiencia",
-                "en": "Perovskite tandem solar cells surpass 34% efficiency",
-                "val": "Les cèl·lules solars de perovskita en tàndem superen el 34% d'eficiència"
-              },
-              "summary": {
-                "es": "Nuevos prototipos de celdas solares de <a href=\"https://es.wikipedia.org/wiki/Perovskita\">tándem de perovskita</a> han superado el 34% de eficiencia de conversión, muy por encima del ~24% típico de los paneles de silicio comerciales. Si estos resultados se trasladan a producción masiva, podrían abaratar radicalmente la energía solar y acelerar la descarbonización.",
-                "en": "New <a href=\"https://en.wikipedia.org/wiki/Perovskite_solar_cell\">perovskite tandem solar cell</a> prototypes have topped 34% conversion efficiency, far above the ~24% typical of commercial silicon panels. If scaled to mass production, they could radically cut solar costs and speed up decarbonisation.",
-                "val": "Nous prototips de cèl·lules solars de <a href=\"https://es.wikipedia.org/wiki/Perovskita\">tàndem de perovskita</a> han superat el 34% d'eficiència de conversió, molt per damunt del ~24% típic dels panells de silici comercials. Si estos resultats arriben a la producció massiva, podrien abaratar radicalment l'energia solar i accelerar la descarbonització."
-              },
-              "source": "Science / Muy Interesante",
-              "url": "https://www.longi.com/en/news/silicon-perovskite-tandem-solar-cells-new-world-efficiency/",
-              "links": [
-                {
-                  "title": "LONGi: récord 34,85% perovskita-silicio",
-                  "url": "https://www.longi.com/en/news/silicon-perovskite-tandem-solar-cells-new-world-efficiency/"
-                },
-                {
-                  "title": "NREL: tabla de eficiencias de células solares",
-                  "url": "https://www.nrel.gov/pv/cell-efficiency.html"
-                },
-                {
-                  "title": "Fluxim: actualización récords perovskita 2026",
-                  "url": "https://www.fluxim.com/research-blogs/perovskite-silicon-tandem-pv-record-updates"
-                },
-                {
-                  "title": "Nature Energy: perovskitas en tándem",
-                  "url": "https://www.nature.com/articles/s41560-026-02068-9"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "El telescopio Nancy Grace Roman se prepara para cazar miles de exoplanetas",
-                "en": "Nancy Grace Roman Telescope prepares to hunt thousands of exoplanets",
-                "val": "El telescopi Nancy Grace Roman es prepara per a caçar milers d'exoplanetes"
-              },
-              "summary": {
-                "es": "La NASA ultima el telescopio espacial <a href=\"https://roman.gsfc.nasa.gov/\">Nancy Grace Roman</a>, cuyo lanzamiento está previsto antes de finales de 2026 y que se conoce ya como «el cazador de planetas». Su campo de visión, cien veces mayor que el del Hubble, permitirá mapear la energía y la materia oscura y detectar miles de nuevos exoplanetas mediante microlentes gravitatorias.",
-                "en": "NASA is finalising the <a href=\"https://roman.gsfc.nasa.gov/\">Nancy Grace Roman</a> Space Telescope, slated to launch before the end of 2026 and already nicknamed “the planet hunter.” Its field of view, a hundred times larger than Hubble’s, will map dark energy and dark matter and spot thousands of new exoplanets via gravitational microlensing.",
-                "val": "La NASA està ultimant el telescopi espacial <a href=\"https://roman.gsfc.nasa.gov/\">Nancy Grace Roman</a>, el llançament del qual està previst abans de finals de 2026 i que ja es coneix com «el caçador de planetes». El seu camp de visió, cent vegades més gran que el de l'Hubble, permetrà mapar l'energia i la matèria fosca i detectar milers de nous exoplanetes mitjançant microlents gravitacionals."
-              },
-              "source": "NASA",
-              "url": "https://roman.gsfc.nasa.gov/",
-              "links": [
-                {
-                  "title": "NASA: Roman Space Telescope",
-                  "url": "https://roman.gsfc.nasa.gov/"
-                },
-                {
-                  "title": "National Geographic ES: avances 2026",
-                  "url": "https://www.nationalgeographic.com.es/ciencia/2024-predijimos-mayores-avances-cientificos-2025-nuestros-aciertos-fallos-y-predicciones-para-2026_27123"
-                },
-                {
-                  "title": "N+: exploración espacial 2026",
-                  "url": "https://www.nmas.com.mx/ciencia/ciencia-y-exploracion-espacial-2026-que-buenas-noticias-esperar-este-ano/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "ofertas",
-          "items": [
-            {
-              "market": "es",
-              "title": {
-                "es": "Remnant II en Steam — 75% de descuento y uno de los mejores co‑op looter‑shooters recientes",
-                "en": "Remnant II on Steam — 75% off and one of the best recent co‑op looter shooters",
-                "val": "Remnant II en Steam — 75% de descompte i un dels millors looter‑shooters cooperatius recents"
-              },
-              "summary": {
-                "es": "Remnant II mezcla souls‑like, looter‑shooter y generación procedural de niveles para ofrecer campañas cooperativas muy rejugables. A 9,99€ en Steam, con un 75% de descuento sobre los 39,99€ habituales, es una compra muy fuerte si buscas acción desafiante en equipo.",
-                "en": "Remnant II blends souls‑like combat, looter‑shooter progression and procedural worlds into highly replayable co‑op campaigns. At €9.99 on Steam, 75% off its usual €39.99 price, it is a strong pick if you want challenging team‑based action.",
-                "val": "Remnant II barreja combat souls‑like, progressió de looter‑shooter i mons procedurals per a oferir campanyes cooperatives molt rejugables. A 9,99€ en Steam, amb un 75% de descompte sobre els 39,99€ habituals, és una compra molt potent si busques acció exigent en equip."
-              },
-              "source": "Chollometro",
-              "url": "https://store.steampowered.com/app/1282100/REMNANT_II/",
-              "platform": "Steam",
-              "originalPrice": {
-                "es": "39,99€",
-                "en": "€39.99",
-                "val": "39,99€"
-              },
-              "salePrice": {
-                "es": "9,99€",
-                "en": "€9.99",
-                "val": "9,99€"
-              },
-              "discount": {
-                "es": "75% dto.",
-                "en": "75% off",
-                "val": "75% desc."
-              },
-              "until": {
-                "es": "Durante las rebajas activas de Steam",
-                "en": "During the current Steam sale",
-                "val": "Durant les rebaixes actives de Steam"
-              },
-              "urgent": false,
-              "links": [
-                {
-                  "title": "Remnant II en Steam",
-                  "url": "https://store.steampowered.com/app/1282100/REMNANT_II/"
-                },
-                {
-                  "title": "Remnant II en Epic Games Store",
-                  "url": "https://store.epicgames.com/p/remnant-2"
-                },
-                {
-                  "title": "Web oficial de Remnant II",
-                  "url": "https://www.remnantgame.com/"
-                },
-                {
-                  "title": "Comunidad/noticias de Remnant II en Steam",
-                  "url": "https://steamcommunity.com/app/1282100/allnews/"
-                }
-              ]
-            },
-            {
-              "market": "val",
-              "title": {
-                "es": "Elden Ring Nightreign Seekers Edition para Xbox — descuento directo en Amazon España",
-                "en": "Elden Ring Nightreign Seekers Edition for Xbox — direct discount at Amazon Spain",
-                "val": "Elden Ring Nightreign Seekers Edition per a Xbox — descompte directe en Amazon Espanya"
-              },
-              "summary": {
-                "es": "La Seekers Edition de Elden Ring Nightreign incluye el juego completo en SteelBook, DLC y contenidos digitales como artbook y banda sonora. En Amazon España aparece con enlace directo para Xbox Series X / Xbox One, útil si quieres evitar páginas de categoría y entrar directamente a la ficha del producto.",
-                "en": "Elden Ring Nightreign’s Seekers Edition includes the full game in a SteelBook, DLC and digital extras such as an artbook and soundtrack. Amazon Spain has a direct Xbox Series X / Xbox One product page, useful if you want to skip category pages and go straight to the offer.",
-                "val": "La Seekers Edition d’Elden Ring Nightreign inclou el joc complet en SteelBook, DLC i continguts digitals com artbook i banda sonora. En Amazon Espanya hi ha enllaç directe per a Xbox Series X / Xbox One, útil si vols evitar pàgines de categoria i entrar directament a la fitxa del producte."
-              },
-              "source": "Chollometro",
-              "url": "https://www.amazon.es/Elden-Ring-Nightreign-Seekers-Xbox/dp/B0DWY2PSZM",
-              "platform": "Amazon España",
-              "originalPrice": {
-                "es": "59,99€",
-                "en": "€59.99",
-                "val": "59,99€"
-              },
-              "salePrice": {
-                "es": "Consultar precio actual en Amazon",
-                "en": "Check current price on Amazon",
-                "val": "Consulta el preu actual en Amazon"
-              },
-              "discount": {
-                "es": "Oferta variable",
-                "en": "Variable deal",
-                "val": "Oferta variable"
-              },
-              "until": {
-                "es": "Oferta sujeta a stock y cambios de precio",
-                "en": "Offer subject to stock and price changes",
-                "val": "Oferta subjecta a estoc i canvis de preu"
-              },
-              "urgent": false,
-              "links": [
-                {
-                  "title": "Amazon España: Seekers Edition Xbox",
-                  "url": "https://www.amazon.es/Elden-Ring-Nightreign-Seekers-Xbox/dp/B0DWY2PSZM"
-                },
-                {
-                  "title": "Web oficial: Elden Ring Nightreign",
-                  "url": "https://en.bandainamcoent.eu/elden-ring/elden-ring-nightreign"
-                },
-                {
-                  "title": "Elden Ring Nightreign en Steam",
-                  "url": "https://store.steampowered.com/app/2622380/ELDEN_RING_NIGHTREIGN/"
-                },
-                {
-                  "title": "Idealo: comparador Seekers Edition Xbox",
-                  "url": "https://www.idealo.es/precios/205941904/elden-ring-nightreign-seekers-edition-xbox-one-xbox-series-x.html"
-                }
-              ]
-            },
-            {
-              "market": "en",
-              "title": {
-                "es": "LG C3 OLED 55\" 4K 120Hz — ficha directa en Best Buy",
-                "en": "LG C3 55\" OLED TV 4K 120Hz — direct product page at Best Buy",
-                "val": "LG C3 OLED 55\" 4K 120Hz — fitxa directa en Best Buy"
-              },
-              "summary": {
-                "es": "El LG C3 de 55 pulgadas sigue siendo una OLED muy recomendable para gaming: panel 4K, 120 Hz nativos, HDMI 2.1 y buen soporte para PS5, Xbox Series X y PC. He dejado el enlace directo a la ficha del producto en Best Buy y a la página oficial de LG para comprobar precio, disponibilidad y especificaciones antes de comprar.",
-                "en": "The 55‑inch LG C3 remains a very strong OLED for gaming, with a 4K panel, native 120 Hz refresh, HDMI 2.1 and good support for PS5, Xbox Series X and PC. I’ve added the direct Best Buy product page plus LG’s official page so readers can check live price, availability and specs before buying.",
-                "val": "El LG C3 de 55 polzades continua sent una OLED molt recomanable per a gaming: panell 4K, 120 Hz natius, HDMI 2.1 i bon suport per a PS5, Xbox Series X i PC. He deixat l’enllaç directe a la fitxa del producte en Best Buy i a la pàgina oficial de LG per a comprovar preu, disponibilitat i especificacions abans de comprar."
-              },
-              "source": "Best Buy / LG",
-              "url": "https://www.bestbuy.com/product/lg-55-class-c3-series-oled-evo-4k-uhd-smart-webos-tv-2023/JJ8VPZR3SX",
-              "platform": "Best Buy",
-              "originalPrice": {
-                "es": "Consultar valor comparable en Best Buy",
-                "en": "Check comparable value at Best Buy",
-                "val": "Consulta el valor comparable en Best Buy"
-              },
-              "salePrice": {
-                "es": "Consultar precio actual en Best Buy",
-                "en": "Check current price at Best Buy",
-                "val": "Consulta el preu actual en Best Buy"
-              },
-              "discount": {
-                "es": "Oferta variable",
-                "en": "Variable deal",
-                "val": "Oferta variable"
-              },
-              "until": {
-                "es": "Mientras haya stock",
-                "en": "While stock lasts",
-                "val": "Mentre hi haja estoc"
-              },
-              "urgent": false,
-              "links": [
-                {
-                  "title": "Best Buy: LG C3 55\" OLED",
-                  "url": "https://www.bestbuy.com/product/lg-55-class-c3-series-oled-evo-4k-uhd-smart-webos-tv-2023/JJ8VPZR3SX"
-                },
-                {
-                  "title": "LG: OLED55C3PUA ficha oficial",
-                  "url": "https://www.lg.com/ca_en/tv-soundbars/oled-evo/oled55c3pua/"
-                },
-                {
-                  "title": "Tom’s Guide: mejores ofertas OLED junio 2026",
-                  "url": "https://www.tomsguide.com/news/best-oled-tv-deals"
-                },
-                {
-                  "title": "GamesRadar: mejores TV 4K 120Hz",
-                  "url": "https://www.gamesradar.com/best-120hz-4k-tv/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "anime",
-          "items": [
-            {
-              "title": {
-                "es": "Primera imagen de Blue Lock Temporada 3 alimenta el hype de la próxima temporada",
-                "en": "First Blue Lock Season 3 visual fuels hype for upcoming season",
-                "val": "La primera imatge de Blue Lock Temporada 3 alimenta l'hype per a la pròxima temporada"
-              },
-              "summary": {
-                "es": "La primera imagen oficial de la T3 de <a href=\"https://es.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a> muestra a Isagi y Rin preparados para un nuevo arco de alta tensión futbolística. El anime, uno de los grandes éxitos recientes del género deportivo, regresará en la temporada de verano con más partidos imposibles y egos desatados.",
-                "en": "The first official Season 3 visual for <a href=\"https://en.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a> shows Isagi and Rin gearing up for another high‑tension football arc. The anime, one of the breakout hits in recent sports series, returns in the summer cour with more impossible matches and colliding egos.",
-                "val": "La primera imatge oficial de la T3 de <a href=\"https://es.wikipedia.org/wiki/Blue_Lock\">Blue Lock</a> mostra Isagi i Rin preparats per a un nou arc de màxima tensió futbolística. L'anime, un dels grans èxits recents del gènere esportiu, tornarà en la temporada d'estiu amb més partits impossibles i egos desbocats."
-              },
-              "source": "Ramen Para Dos / Anime News Network",
-              "url": "https://ramenparados.com/",
-              "links": [
-                {
-                  "title": "Ramen Para Dos: Blue Lock",
-                  "url": "https://ramenparados.com/tag/blue-lock/"
-                },
-                {
-                  "title": "Anime News Network: noticias de Blue Lock",
-                  "url": "https://www.animenewsnetwork.com/news/?ann-edition=us&q=Blue+Lock"
-                },
-                {
-                  "title": "Crunchyroll News: búsqueda Blue Lock",
-                  "url": "https://www.crunchyroll.com/news/search?q=Blue+Lock"
-                }
-              ]
-            },
-            {
-              "title": {
-                "es": "Calendario de verano 2026: deporte, isekai y segundas temporadas muy esperadas",
-                "en": "Summer 2026 lineup: sports, isekai and long‑awaited second seasons",
-                "val": "Calendari d'estiu 2026: esport, isekai i segones temporades molt esperades"
-              },
-              "summary": {
-                "es": "Los listados de temporada de sitios como MyAnimeList y Anime News Network adelantan un verano 2026 cargado de series deportivas, nuevos isekai y segundas temporadas de títulos de 2024–2025. Las plataformas de streaming siguen apostando por el simulcast casi simultáneo con Japón.",
-                "en": "Season charts on sites like MyAnimeList and Anime News Network point to a Summer 2026 packed with sports shows, fresh isekai and second seasons of 2024–2025 hits. Streaming platforms are doubling down on near‑simulcast releases with Japan.",
-                "val": "Els llistats de temporada de webs com MyAnimeList i Anime News Network avancen un estiu 2026 carregat de sèries esportives, nous isekai i segones temporades de títols de 2024–2025. Les plataformes de streaming continuen apostant pel simulcast quasi simultani amb el Japó."
-              },
-              "source": "Anime News Network / MyAnimeList",
-              "url": "https://myanimelist.net/anime/season",
-              "links": [
-                {
-                  "title": "MyAnimeList: temporada actual",
-                  "url": "https://myanimelist.net/anime/season"
-                },
-                {
-                  "title": "Anime News Network: próximos animes TV",
-                  "url": "https://www.animenewsnetwork.com/encyclopedia/anime/upcoming/tv"
-                },
-                {
-                  "title": "Crunchyroll News: anime estacional",
-                  "url": "https://www.crunchyroll.com/news/search?q=summer+anime+2026"
+                  "title": {
+                    "es": "INE",
+                    "en": "INE",
+                    "val": "INE"
+                  },
+                  "url": "https://www.ine.es"
                 }
               ]
             }
@@ -1151,16 +314,665 @@
         "gratis",
         "codigo",
         "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
+        "economia"
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "title": {
+        "es": "FoskIA 26/06: Steam discute la IA visual, Prime y Epic siguen activos y Bitcoin encara el gran vencimiento",
+        "en": "FoskIA 26/06: Steam debates visual AI, Prime and Epic stay active, and Bitcoin heads into the big expiry",
+        "val": "FoskIA 26/06: Steam discuteix la IA visual, Prime i Epic continuen actius i Bitcoin afronta el gran venciment"
+      },
+      "intro": {
+        "es": "El 26 de junio mezcla continuidad y ajuste: las promociones gratis siguen siendo claras, Steam entra otra vez en conversación por la saturación de IA y el mercado cripto afronta un cierre de mes especialmente sensible por el vencimiento de opciones. En paralelo, Roman y la estadística industrial española aportan la parte más estructural del día.",
+        "en": "June 26 is about continuity and adjustment: the free-game promos remain clear, Steam returns to the spotlight over AI saturation and the crypto market moves into a particularly sensitive month-end options expiry. In parallel, Roman and Spanish industrial statistics provide the day’s more structural side.",
+        "val": "El 26 de juny mescla continuïtat i ajust: les promocions gratis continuen sent clares, Steam entra una altra vegada en conversa per la saturació d’IA i el mercat cripto afronta un tancament de mes especialment sensible pel venciment d’opcions. En paral·lel, Roman i l’estadística industrial espanyola aporten la part més estructural del dia."
+      },
+      "sections": [
+        {
+          "category": "gaming",
+          "items": [
+            {
+              "title": {
+                "es": "Steam Next Fest deja una pista incómoda: la IA ya llena escaparates, pero no lidera demos",
+                "en": "Steam Next Fest leaves an awkward clue: AI fills storefronts, but not top demos",
+                "val": "Steam Next Fest deixa una pista incòmoda: la IA ja ompli aparadors, però no lidera demos"
+              },
+              "summary": {
+                "es": "Otra pieza de <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a> destaca que, entre más de 500 demos con divulgación de IA, solo una consiguió colarse entre las más jugadas de Steam Next Fest. El dato no significa que la IA “no funcione”, pero sí sugiere que el volumen de contenido generado no se traduce automáticamente en interés real del jugador.",
+                "en": "Another <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a> report notes that among more than 500 demos carrying AI disclosures, only one reached Steam Next Fest’s most-played ranks. That does not mean AI “doesn’t work,” but it does suggest that generated volume does not automatically turn into real player interest.",
+                "val": "Una altra peça de <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a> destaca que, entre més de 500 demos amb divulgació d’IA, només una va aconseguir colar-se entre les més jugades de Steam Next Fest. La dada no significa que la IA “no funcione”, però sí que suggerix que el volum de contingut generat no es traduïx automàticament en interés real del jugador."
+              },
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/",
+              "links": [
+                {
+                  "title": {
+                    "es": "PC Gamer: Steam Next Fest e IA",
+                    "en": "PC Gamer: Steam Next Fest and AI",
+                    "val": "PC Gamer: Steam Next Fest i IA"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Game Pass remata el mes con Jurassic World Evolution 3, ESO y Final Fantasy VI",
+                "en": "Game Pass closes the month with Jurassic World Evolution 3, ESO and Final Fantasy VI",
+                "val": "Game Pass remata el mes amb Jurassic World Evolution 3, ESO i Final Fantasy VI"
+              },
+              "summary": {
+                "es": "La oleada anunciada por <a href=\"https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/\">Xbox Wire</a> termina aterrizando con nombres de bastante peso para junio: Jurassic World Evolution 3, The Elder Scrolls Online y Final Fantasy VI. No es una noticia del día 26 en sí misma, pero sí una referencia correcta para explicar el cierre de catálogo de estos días.",
+                "en": "The wave announced on <a href=\"https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/\">Xbox Wire</a> lands with a meaningful late-June trio: Jurassic World Evolution 3, The Elder Scrolls Online and Final Fantasy VI. It is not a June 26 breaking item by itself, but it is the right reference for the service’s late-month lineup.",
+                "val": "L’onada anunciada en <a href=\"https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/\">Xbox Wire</a> acaba aterrant amb noms de prou pes per a juny: Jurassic World Evolution 3, The Elder Scrolls Online i Final Fantasy VI. No és una notícia del dia 26 per si mateixa, però sí una referència correcta per a explicar el tancament de catàleg d’estos dies."
+              },
+              "source": "Xbox Wire",
+              "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Xbox Wire",
+                    "en": "Xbox Wire",
+                    "val": "Xbox Wire"
+                  },
+                  "url": "https://news.xbox.com/en-us/2026/05/19/xbox-game-pass-may-2026-wave-2/"
+                },
+                {
+                  "title": {
+                    "es": "Pure Xbox: calendario de junio",
+                    "en": "Pure Xbox: June lineup",
+                    "val": "Pure Xbox: calendari de juny"
+                  },
+                  "url": "https://www.purexbox.com/guides/xbox-game-pass-all-games-coming-soon-in-june-2026"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "gratis",
+          "items": [
+            {
+              "title": {
+                "es": "La rotación de Epic sigue igual de limpia un día después",
+                "en": "Epic’s rotation remains just as clear a day later",
+                "val": "La rotació d’Epic continua igual de clara un dia després"
+              },
+              "summary": {
+                "es": "Un día después del relevo, RollerCoaster Tycoon 3 y Voidwrought siguen siendo la referencia principal de gratis en PC. Es un bloque fácil de recomendar porque no depende de suscripción adicional y la fecha límite sigue bien definida en la <a href=\"https://store.epicgames.com/free-games\">tienda oficial</a>.",
+                "en": "One day after the swap, RollerCoaster Tycoon 3 and Voidwrought remain the clearest PC freebie reference. It is an easy recommendation because it requires no extra subscription and the deadline remains clearly stated on the <a href=\"https://store.epicgames.com/free-games\">official store</a>.",
+                "val": "Un dia després del relleu, RollerCoaster Tycoon 3 i Voidwrought continuen sent la referència principal de gratis en PC. És un bloc fàcil de recomanar perquè no depén de subscripció addicional i la data límit continua ben definida en la <a href=\"https://store.epicgames.com/free-games\">botiga oficial</a>."
+              },
+              "platform": "Epic Games Store",
+              "until": {
+                "es": "2 de julio de 2026, 17:00 CEST",
+                "en": "July 2, 2026, 3:00 PM UTC",
+                "val": "2 de juliol de 2026, 17.00 CEST"
+              },
+              "urgent": true,
+              "source": "Epic Games Store",
+              "url": "https://store.epicgames.com/free-games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Epic: juegos gratis",
+                    "en": "Epic: free games",
+                    "val": "Epic: jocs gratis"
+                  },
+                  "url": "https://store.epicgames.com/free-games"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Prime Gaming mantiene activa la tanda con Space Grunts, Lost Eidolons y Terraforming Mars",
+                "en": "Prime Gaming keeps the Space Grunts, Lost Eidolons and Terraforming Mars batch live",
+                "val": "Prime Gaming manté activa la tanda amb Space Grunts, Lost Eidolons i Terraforming Mars"
+              },
+              "summary": {
+                "es": "La actualización del 25 sigue plenamente vigente el 26: Space Grunts: Chrono Shard, Lost Eidolons: Veil of the Witch y Terraforming Mars continúan disponibles dentro del lote de junio. Para una sección de “gratis”, es más honesto mantener la referencia al hub oficial que inventar una fecha universal que cada plataforma no comparte.",
+                "en": "The June 25 refresh is still fully relevant on the 26th: Space Grunts: Chrono Shard, Lost Eidolons: Veil of the Witch and Terraforming Mars remain part of the live monthly batch. For a freebies section, it is more honest to point readers to the official hub than to invent a universal deadline that each platform does not share.",
+                "val": "L’actualització del 25 continua plenament vigent el 26: Space Grunts: Chrono Shard, Lost Eidolons: Veil of the Witch i Terraforming Mars continuen disponibles dins del lot de juny. Per a una secció de “gratis”, és més honest mantindre la referència al hub oficial que inventar una data universal que cada plataforma no compartix."
+              },
+              "platform": "Prime Gaming",
+              "until": {
+                "es": "Fechas variables según juego",
+                "en": "Varies by game",
+                "val": "Dates variables segons joc"
+              },
+              "urgent": false,
+              "source": "Prime Gaming",
+              "url": "https://gaming.amazon.com/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Prime Gaming",
+                    "en": "Prime Gaming",
+                    "val": "Prime Gaming"
+                  },
+                  "url": "https://gaming.amazon.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "codigo",
+          "items": [
+            {
+              "title": {
+                "es": "La experiencia de desarrollador gira hacia IDEs atravesados por IA",
+                "en": "Developer experience is shifting toward AI-shaped IDEs",
+                "val": "L’experiència de desenvolupador gira cap a IDEs travessats per la IA"
+              },
+              "summary": {
+                "es": "En su bloque de “developer experience”, <a href=\"https://stackoverflow.blog/developer-experience/\">Stack Overflow</a> está recogiendo una tendencia clara en junio: la IA ya no se vende solo como complemento, sino como algo que reconfigura el papel del IDE. Eso obliga a revisar hábitos, atajos mentales y hasta qué parte del trabajo sigue siendo verdaderamente humana.",
+                "en": "In its “developer experience” section, <a href=\"https://stackoverflow.blog/developer-experience/\">Stack Overflow</a> is documenting a clear June trend: AI is no longer sold merely as an add-on, but as something that reshapes the IDE’s role. That forces a rethink of habits, muscle memory and how much of the work remains genuinely human.",
+                "val": "En el seu bloc de “developer experience”, <a href=\"https://stackoverflow.blog/developer-experience/\">Stack Overflow</a> està arreplegant una tendència clara en juny: la IA ja no es ven només com a complement, sinó com alguna cosa que reconfigura el paper de l’IDE. Això obliga a revisar hàbits, automatismes i quina part del treball continua sent realment humana."
+              },
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/developer-experience/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Developer experience",
+                    "en": "Developer experience",
+                    "val": "Developer experience"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Sigue creciendo la crítica a los agentes que generan más supervisión que alivio",
+                "en": "Criticism keeps growing toward agents that create more supervision than relief",
+                "val": "Continua creixent la crítica als agents que generen més supervisió que alleujament"
+              },
+              "summary": {
+                "es": "La tesis de la <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">fatiga de decisión</a> sigue siendo útil para leer el momento: sí, los agentes ahorran tiempo, pero también multiplican las elecciones pequeñas y los puntos de revisión. En equipos reales, eso puede traducirse en más carga cognitiva si no se delimitan bien responsabilidades y contexto.",
+                "en": "The <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">decision fatigue</a> argument still fits the moment: yes, agents save time, but they also multiply small choices and review points. In real teams, that can become more cognitive load unless responsibilities and context are tightly scoped.",
+                "val": "La tesi de la <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">fatiga de decisió</a> continua sent útil per a llegir el moment: sí, els agents estalvien temps, però també multipliquen les xicotetes eleccions i els punts de revisió. En equips reals, això pot traduir-se en més càrrega cognitiva si no es delimiten bé responsabilitats i context."
+              },
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Artículo sobre fatiga de decisión",
+                    "en": "Decision fatigue article",
+                    "val": "Article sobre fatiga de decisió"
+                  },
+                  "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ciencia",
+          "items": [
+            {
+              "title": {
+                "es": "Roman ya se prepara con ventana de lanzamiento concreta para 2026",
+                "en": "Roman is already moving toward a concrete 2026 launch window",
+                "val": "Roman ja es prepara amb una finestra de llançament concreta per a 2026"
+              },
+              "summary": {
+                "es": "La página “<a href=\"https://science.nasa.gov/missions/roman-space-telescope/building-roman/\">Building Roman</a>” llega a dar una fecha concreta de referencia para el observatorio: 30 de agosto de 2026. En ciencia espacial eso no equivale a certeza absoluta, pero sí muestra que el proyecto ha salido del terreno difuso y entra en calendario operativo real.",
+                "en": "The “<a href=\"https://science.nasa.gov/missions/roman-space-telescope/building-roman/\">Building Roman</a>” page goes as far as giving the observatory a concrete reference date: August 30, 2026. In space science that never means absolute certainty, but it does show the mission has left the vague zone and entered a real operational calendar.",
+                "val": "La pàgina “<a href=\"https://science.nasa.gov/missions/roman-space-telescope/building-roman/\">Building Roman</a>” arriba a donar una data concreta de referència per a l’observatori: 30 d’agost de 2026. En ciència espacial això no equival a certesa absoluta, però sí que mostra que el projecte ha eixit del terreny difús i entra en calendari operatiu real."
+              },
+              "source": "NASA Science",
+              "url": "https://science.nasa.gov/missions/roman-space-telescope/building-roman/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Building Roman",
+                    "en": "Building Roman",
+                    "val": "Building Roman"
+                  },
+                  "url": "https://science.nasa.gov/missions/roman-space-telescope/building-roman/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "La misión Roman mantiene su promesa de mapear cielo profundo a escala Hubble x100",
+                "en": "The Roman mission keeps its promise of Hubble-scale deep-sky mapping times 100",
+                "val": "La missió Roman manté la promesa de mapar cel profund a escala Hubble x100"
+              },
+              "summary": {
+                "es": "La ficha oficial de la misión recuerda que Roman tendrá un campo de visión al menos cien veces mayor que el Hubble. Ese dato explica por qué sigue apareciendo en la conversación científica incluso antes del despegue: no es “otro telescopio”, sino una plataforma pensada para barrer grandes porciones de cielo con mucha más eficiencia.",
+                "en": "The official mission page reminds readers that Roman will have a field of view at least one hundred times larger than Hubble’s. That explains why it remains in the science conversation even before launch: it is not “just another telescope,” but a platform built to sweep huge portions of the sky far more efficiently.",
+                "val": "La fitxa oficial de la missió recorda que Roman tindrà un camp de visió almenys cent vegades major que el de l’Hubble. Això explica per què continua apareixent en la conversa científica fins i tot abans de l’enlairament: no és “un altre telescopi”, sinó una plataforma pensada per a rastrejar grans porcions de cel amb molta més eficiència."
+              },
+              "source": "NASA Science",
+              "url": "https://science.nasa.gov/mission/roman-space-telescope/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Ficha de misión Roman",
+                    "en": "Roman mission page",
+                    "val": "Fitxa de la missió Roman"
+                  },
+                  "url": "https://science.nasa.gov/mission/roman-space-telescope/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "economia",
+          "items": [
+            {
+              "title": {
+                "es": "Bitcoin llega al 26 con el mercado mirando un vencimiento de opciones de 10.600 millones",
+                "en": "Bitcoin reaches June 26 with markets watching a $10.6B options expiry",
+                "val": "Bitcoin arriba al 26 amb el mercat mirant un venciment d’opcions de 10.600 milions"
+              },
+              "summary": {
+                "es": "<a href=\"https://www.coindesk.com/markets/2026/06/17/bitcoin-s-june-downturn-leaves-usd8-6-billion-in-options-out-of-the-money\">CoinDesk</a> había advertido que el vencimiento del 26 de junio concentraba 10.600 millones de dólares en opciones de BTC y dejaba 8.600 millones fuera del dinero. Sumado al precio de unos 58.980 dólares que recogían Fortune y Yahoo durante la jornada, el contexto seguía siendo de tensión, no de consolidación alcista.",
+                "en": "<a href=\"https://www.coindesk.com/markets/2026/06/17/bitcoin-s-june-downturn-leaves-usd8-6-billion-in-options-out-of-the-money\">CoinDesk</a> had already warned that the June 26 expiry packed $10.6 billion in BTC options and left $8.6 billion out of the money. Combined with the roughly $58,980 price tracked by Fortune and Yahoo during the day, the setup remained one of stress rather than bullish consolidation.",
+                "val": "<a href=\"https://www.coindesk.com/markets/2026/06/17/bitcoin-s-june-downturn-leaves-usd8-6-billion-in-options-out-of-the-money\">CoinDesk</a> ja havia advertit que el venciment del 26 de juny concentrava 10.600 milions de dòlars en opcions de BTC i deixava 8.600 milions fora dels diners. Sumant-li el preu d’uns 58.980 dòlars que arreplegaven Fortune i Yahoo durant la jornada, el context continuava sent de tensió, no de consolidació alcista."
+              },
+              "source": "CoinDesk / Fortune / Yahoo Finance",
+              "url": "https://www.coindesk.com/markets/2026/06/17/bitcoin-s-june-downturn-leaves-usd8-6-billion-in-options-out-of-the-money",
+              "links": [
+                {
+                  "title": {
+                    "es": "CoinDesk: vencimiento de opciones",
+                    "en": "CoinDesk: options expiry",
+                    "val": "CoinDesk: venciment d’opcions"
+                  },
+                  "url": "https://www.coindesk.com/markets/2026/06/17/bitcoin-s-june-downturn-leaves-usd8-6-billion-in-options-out-of-the-money"
+                },
+                {
+                  "title": {
+                    "es": "Fortune: precio del 26 de junio",
+                    "en": "Fortune: June 26 price",
+                    "val": "Fortune: preu del 26 de juny"
+                  },
+                  "url": "https://fortune.com/article/price-of-bitcoin-06-26-2026/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "La estadística industrial española pone algo de suelo en una semana de mucho ruido",
+                "en": "Spanish industrial data provides some footing in a noisy week",
+                "val": "L’estadística industrial espanyola posa un poc de sòl en una setmana de molt de soroll"
+              },
+              "summary": {
+                "es": "Entre tanta volatilidad de mercado, la publicación del INE aporta una referencia bastante más estable sobre producción real. La Encuesta Industrial de Productos 2025 no domina titulares globales, pero sí ayuda a leer qué parte de la economía sigue moviéndose por debajo del ruido financiero diario.",
+                "en": "Amid all the market volatility, the INE release provides a far more stable reference point around real production. The 2025 Industrial Products Survey does not dominate global headlines, but it does help show which part of the economy keeps moving beneath daily financial noise.",
+                "val": "Entre tanta volatilitat de mercat, la publicació de l’INE aporta una referència molt més estable sobre producció real. L’Enquesta Industrial de Productes 2025 no domina titulars globals, però sí que ajuda a llegir quina part de l’economia continua movent-se per davall del soroll financer diari."
+              },
+              "source": "INE",
+              "url": "https://www.ine.es",
+              "links": [
+                {
+                  "title": {
+                    "es": "INE",
+                    "en": "INE",
+                    "val": "INE"
+                  },
+                  "url": "https://www.ine.es"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia"
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "title": {
+        "es": "FoskIA 25/06: Epic renueva regalos, Bitcoin pierde los 60.000$ y Bruselas reabre el debate del juego digital",
+        "en": "FoskIA 25/06: Epic refreshes freebies, Bitcoin loses $60K and Brussels reopens the digital-games debate",
+        "val": "FoskIA 25/06: Epic renova regals, Bitcoin perd els 60.000$ i Brussel·les reobri el debat del joc digital"
+      },
+      "intro": {
+        "es": "La edición del 25 de junio se mueve entre juegos gratis muy claros, presión seria sobre Bitcoin y una semana especialmente cargada de debate sobre preservación digital, IA y herramientas de desarrollo. Epic cambia su rotación, Prime Gaming activa nueva tanda y la conversación tech gira menos en torno al hype y más hacia control, calidad y criterio.",
+        "en": "The June 25 edition lands at the crossroads of clear free-game deals, real pressure on Bitcoin and a week packed with debate around game preservation, AI and developer tooling. Epic rotates its giveaways, Prime Gaming adds a fresh batch and the tech conversation shifts away from hype toward control, quality and judgment.",
+        "val": "L’edició del 25 de juny es mou entre jocs gratis molt clars, pressió seriosa sobre Bitcoin i una setmana especialment carregada de debat sobre preservació digital, IA i eines de desenvolupament. Epic canvia la seua rotació, Prime Gaming activa nova tanda i la conversa tech gira menys al hype i més cap al control, la qualitat i el criteri."
+      },
+      "sections": [
+        {
+          "category": "gaming",
+          "items": [
+            {
+              "title": {
+                "es": "La respuesta de la Comisión a Stop Destroying Videogames mantiene vivo el conflicto",
+                "en": "The Commission’s reply to Stop Destroying Videogames keeps the conflict alive",
+                "val": "La resposta de la Comissió a Stop Destroying Videogames manté viu el conflicte"
+              },
+              "summary": {
+                "es": "La Comisión Europea ya ha publicado su respuesta oficial a la iniciativa <a href=\"https://citizens-initiative.europa.eu/stop-destroying-videogames-commissions-reply-european-citizens-initiative_en\">Stop Destroying Videogames</a>, que había superado 1,29 millones de apoyos verificados. No promete una obligación inmediata para que los juegos sigan funcionando tras el cierre de servidores, pero el caso queda plenamente instalado en el debate europeo sobre propiedad digital, preservación y servicios siempre online.",
+                "en": "The European Commission has now published its official reply to the <a href=\"https://citizens-initiative.europa.eu/stop-destroying-videogames-commissions-reply-european-citizens-initiative_en\">Stop Destroying Videogames</a> initiative, which cleared 1.29 million verified statements of support. It does not promise an immediate requirement to keep games playable after server shutdowns, but it firmly places digital ownership, preservation and always-online services in the European debate.",
+                "val": "La Comissió Europea ja ha publicat la seua resposta oficial a la iniciativa <a href=\"https://citizens-initiative.europa.eu/stop-destroying-videogames-commissions-reply-european-citizens-initiative_en\">Stop Destroying Videogames</a>, que havia superat 1,29 milions de suports verificats. No promet una obligació immediata perquè els jocs continuen funcionant després del tancament de servidors, però el cas queda plenament instal·lat en el debat europeu sobre propietat digital, preservació i serveis sempre online."
+              },
+              "source": "European Citizens’ Initiative",
+              "url": "https://citizens-initiative.europa.eu/stop-destroying-videogames-commissions-reply-european-citizens-initiative_en",
+              "links": [
+                {
+                  "title": {
+                    "es": "Respuesta oficial de la Comisión",
+                    "en": "Official Commission reply",
+                    "val": "Resposta oficial de la Comissió"
+                  },
+                  "url": "https://citizens-initiative.europa.eu/stop-destroying-videogames-commissions-reply-european-citizens-initiative_en"
+                },
+                {
+                  "title": {
+                    "es": "Ficha de la iniciativa",
+                    "en": "Initiative page",
+                    "val": "Fitxa de la iniciativa"
+                  },
+                  "url": "https://citizens-initiative.europa.eu/initiatives/details/2024/000007_en"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Steam vuelve a discutir el efecto del arte generado por IA en la visibilidad de indies",
+                "en": "Steam is debating AI-generated art and indie visibility again",
+                "val": "Steam torna a discutir l’efecte de l’art generat per IA en la visibilitat dels indies"
+              },
+              "summary": {
+                "es": "El repaso semanal de <a href=\"https://www.pcgamer.com/gaming-industry/steam-week-in-review-spammy-ai-generated-capsule-art-is-a-pox-and-it-makes-browsing-steam-less-fun/\">PC Gamer</a> señala que la avalancha de portadas, cápsulas y materiales promocionales hechos con IA está empeorando el descubrimiento dentro de Steam. El problema no es solo estético: para estudios pequeños, perder claridad en la tienda puede significar desaparecer entre lanzamientos de baja calidad pero apariencia muy pulida.",
+                "en": "<a href=\"https://www.pcgamer.com/gaming-industry/steam-week-in-review-spammy-ai-generated-capsule-art-is-a-pox-and-it-makes-browsing-steam-less-fun/\">PC Gamer’s</a> weekly roundup argues that the flood of AI-made capsule art and promo assets is hurting discovery on Steam. The issue is not just aesthetic: for small studios, losing storefront clarity can mean vanishing behind low-quality releases with polished-looking packaging.",
+                "val": "El repàs setmanal de <a href=\"https://www.pcgamer.com/gaming-industry/steam-week-in-review-spammy-ai-generated-capsule-art-is-a-pox-and-it-makes-browsing-steam-less-fun/\">PC Gamer</a> assenyala que l’allau de portades, càpsules i materials promocionals fets amb IA està empitjorant el descobriment dins de Steam. El problema no és només estètic: per als estudis menuts, perdre claredat en la botiga pot significar desaparéixer entre llançaments de baixa qualitat però aparença molt polida."
+              },
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-spammy-ai-generated-capsule-art-is-a-pox-and-it-makes-browsing-steam-less-fun/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Steam Week in Review",
+                    "en": "Steam Week in Review",
+                    "val": "Steam Week in Review"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-spammy-ai-generated-capsule-art-is-a-pox-and-it-makes-browsing-steam-less-fun/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "gratis",
+          "items": [
+            {
+              "title": {
+                "es": "RollerCoaster Tycoon 3 y Voidwrought pasan a ser los juegos gratis de Epic",
+                "en": "RollerCoaster Tycoon 3 and Voidwrought become Epic’s free games",
+                "val": "RollerCoaster Tycoon 3 i Voidwrought passen a ser els jocs gratis d’Epic"
+              },
+              "summary": {
+                "es": "La nueva rotación de <a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> deja gratis RollerCoaster Tycoon 3: Complete Edition y Voidwrought entre el 25 de junio y el 2 de julio. Es una tanda bastante limpia: gestión clásica por un lado y metroidvania de acción por el otro, ambos para reclamar y conservar en la biblioteca.",
+                "en": "The new <a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> rotation makes RollerCoaster Tycoon 3: Complete Edition and Voidwrought free from June 25 to July 2. It is a neat combo: classic management on one side, action metroidvania on the other, both claimable to keep.",
+                "val": "La nova rotació d’<a href=\"https://store.epicgames.com/free-games\">Epic Games Store</a> deixa gratis RollerCoaster Tycoon 3: Complete Edition i Voidwrought entre el 25 de juny i el 2 de juliol. És una tanda prou clara: gestió clàssica per un costat i metroidvania d’acció per l’altre, tots dos per a reclamar i conservar en la biblioteca."
+              },
+              "platform": "Epic Games Store",
+              "until": {
+                "es": "2 de julio de 2026, 17:00 CEST",
+                "en": "July 2, 2026, 3:00 PM UTC",
+                "val": "2 de juliol de 2026, 17.00 CEST"
+              },
+              "urgent": true,
+              "source": "Epic Games Store / PC Gamer",
+              "url": "https://store.epicgames.com/free-games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Epic: juegos gratis",
+                    "en": "Epic: free games",
+                    "val": "Epic: jocs gratis"
+                  },
+                  "url": "https://store.epicgames.com/free-games"
+                },
+                {
+                  "title": {
+                    "es": "PC Gamer: rotación del 25 de junio",
+                    "en": "PC Gamer: June 25 rotation",
+                    "val": "PC Gamer: rotació del 25 de juny"
+                  },
+                  "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Prime Gaming activa su tanda del 25 de junio con Space Grunts y Terraforming Mars",
+                "en": "Prime Gaming activates its June 25 batch with Space Grunts and Terraforming Mars",
+                "val": "Prime Gaming activa la seua tanda del 25 de juny amb Space Grunts i Terraforming Mars"
+              },
+              "summary": {
+                "es": "La tanda final del mes en <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> añade Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars y Lost Eidolons: Veil of the Witch. Conviene revisar en qué launcher se reclama cada uno, porque el lote mezcla códigos para Epic, Legacy Games y Amazon Games.",
+                "en": "The final monthly batch on <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> adds Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars and Lost Eidolons: Veil of the Witch. It is worth checking each redemption platform because the bundle mixes Epic, Legacy Games and Amazon Games claims.",
+                "val": "La tanda final del mes en <a href=\"https://gaming.amazon.com/\">Prime Gaming</a> afig Space Grunts: Chrono Shard, Please Touch the Artwork, Terraforming Mars i Lost Eidolons: Veil of the Witch. Convé revisar en quin launcher es reclama cada joc, perquè el lot mescla codis per a Epic, Legacy Games i Amazon Games."
+              },
+              "platform": "Prime Gaming",
+              "until": {
+                "es": "Fechas variables según juego",
+                "en": "Varies by game",
+                "val": "Dates variables segons joc"
+              },
+              "urgent": false,
+              "source": "Prime Gaming",
+              "url": "https://gaming.amazon.com/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Prime Gaming",
+                    "en": "Prime Gaming",
+                    "val": "Prime Gaming"
+                  },
+                  "url": "https://gaming.amazon.com/"
+                },
+                {
+                  "title": {
+                    "es": "Resumen externo del lote",
+                    "en": "External batch roundup",
+                    "val": "Resum extern del lot"
+                  },
+                  "url": "https://web.phenixxgaming.com/2026/06/08/amazon-luna-games-with-prime-june-2026/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "codigo",
+          "items": [
+            {
+              "title": {
+                "es": "DeveloperWeek 2026 insiste en herramientas de IA útiles antes que llamativas",
+                "en": "DeveloperWeek 2026 argues for useful AI tools over flashy ones",
+                "val": "DeveloperWeek 2026 insistix en eines d’IA útils abans que cridaneres"
+              },
+              "summary": {
+                "es": "El resumen de <a href=\"https://stackoverflow.blog/2026/03/05/developerweek-2026/\">Stack Overflow</a> sobre DeveloperWeek 2026 repite una idea que se está volviendo central: la IA en desarrollo vale cuando encaja en flujos reales y no cuando añade ruido. Interoperabilidad, arquitectura del conocimiento y herramientas accionables pesan más que el marketing de “agente total”.",
+                "en": "<a href=\"https://stackoverflow.blog/2026/03/05/developerweek-2026/\">Stack Overflow’s</a> DeveloperWeek 2026 recap keeps returning to a theme that is becoming central: AI in development matters when it fits real workflows, not when it just adds noise. Interoperability, knowledge architecture and actionable tools now matter more than “full agent” marketing.",
+                "val": "El resum de <a href=\"https://stackoverflow.blog/2026/03/05/developerweek-2026/\">Stack Overflow</a> sobre DeveloperWeek 2026 repetix una idea que s’està tornant central: la IA en desenvolupament val quan encaixa en fluxos reals i no quan afig soroll. Interoperabilitat, arquitectura del coneixement i eines accionables pesen més que el màrqueting de “l’agent total”."
+              },
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/2026/03/05/developerweek-2026/",
+              "links": [
+                {
+                  "title": {
+                    "es": "DeveloperWeek 2026",
+                    "en": "DeveloperWeek 2026",
+                    "val": "DeveloperWeek 2026"
+                  },
+                  "url": "https://stackoverflow.blog/2026/03/05/developerweek-2026/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Los agentes de código ya están trayendo fatiga de decisión al trabajo diario",
+                "en": "Coding agents are already bringing decision fatigue to daily work",
+                "val": "Els agents de codi ja estan portant fatiga de decisió al treball diari"
+              },
+              "summary": {
+                "es": "Otro texto de <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">Stack Overflow</a> pone el foco en un problema más humano que técnico: cuantos más agentes y sugerencias automáticas corren en paralelo, más supervisión mental exigen. La productividad mejora solo si el desarrollador conserva criterio y capacidad para descartar.",
+                "en": "Another <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">Stack Overflow</a> piece focuses on a more human than technical problem: the more agents and automated suggestions run in parallel, the more cognitive supervision they demand. Productivity improves only if developers keep enough judgment to reject as well as accept.",
+                "val": "Un altre text de <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">Stack Overflow</a> posa el focus en un problema més humà que tècnic: com més agents i suggeriments automàtics funcionen en paral·lel, més supervisió mental exigixen. La productivitat millora només si el desenvolupador conserva criteri i capacitat per a descartar."
+              },
+              "source": "Stack Overflow Blog",
+              "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Fatiga de decisión con agentes",
+                    "en": "Decision fatigue with agents",
+                    "val": "Fatiga de decisió amb agents"
+                  },
+                  "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ciencia",
+          "items": [
+            {
+              "title": {
+                "es": "NASA da por completada la construcción del telescopio Roman",
+                "en": "NASA marks the Roman telescope as structurally complete",
+                "val": "La NASA dona per completada la construcció del telescopi Roman"
+              },
+              "summary": {
+                "es": "La NASA comunicó en diciembre que el <a href=\"https://www.nasa.gov/missions/roman-space-telescope/nasa-completes-nancy-grace-roman-space-telescope-construction/\">Nancy Grace Roman Space Telescope</a> había completado su construcción y mantenía opciones de lanzamiento ya en otoño de 2026. A estas alturas de junio, el proyecto entra en una fase mucho más concreta: menos promesa abstracta y más preparación final para campaña de lanzamiento.",
+                "en": "NASA said in December that the <a href=\"https://www.nasa.gov/missions/roman-space-telescope/nasa-completes-nancy-grace-roman-space-telescope-construction/\">Nancy Grace Roman Space Telescope</a> had completed construction and still had a path to launch as early as fall 2026. By late June, the mission is in a far more concrete phase: less abstract promise, more final launch-campaign preparation.",
+                "val": "La NASA va comunicar en desembre que el <a href=\"https://www.nasa.gov/missions/roman-space-telescope/nasa-completes-nancy-grace-roman-space-telescope-construction/\">Nancy Grace Roman Space Telescope</a> havia completat la seua construcció i mantenia opcions de llançament ja a la tardor de 2026. A estes altures de juny, el projecte entra en una fase molt més concreta: menys promesa abstracta i més preparació final per a la campanya de llançament."
+              },
+              "source": "NASA",
+              "url": "https://www.nasa.gov/missions/roman-space-telescope/nasa-completes-nancy-grace-roman-space-telescope-construction/",
+              "links": [
+                {
+                  "title": {
+                    "es": "NASA: construcción completada",
+                    "en": "NASA: construction completed",
+                    "val": "NASA: construcció completada"
+                  },
+                  "url": "https://www.nasa.gov/missions/roman-space-telescope/nasa-completes-nancy-grace-roman-space-telescope-construction/"
+                },
+                {
+                  "title": {
+                    "es": "Ficha de misión Roman",
+                    "en": "Roman mission page",
+                    "val": "Fitxa de la missió Roman"
+                  },
+                  "url": "https://science.nasa.gov/mission/roman-space-telescope/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Roman llega a Kennedy y el lanzamiento ya tiene ventana tangible",
+                "en": "Roman arrives at Kennedy and its launch window becomes tangible",
+                "val": "Roman arriba a Kennedy i la seua finestra de llançament ja és tangible"
+              },
+              "summary": {
+                "es": "La propia NASA abrió acreditaciones para cubrir la llegada de Roman al Centro Espacial Kennedy en <a href=\"https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/\">junio de 2026</a>. Es una señal importante: el telescopio ya no vive solo en notas de laboratorio, sino en la recta logística que precede a pruebas finales y lanzamiento.",
+                "en": "NASA itself opened media registration to cover Roman’s arrival at Kennedy Space Center in <a href=\"https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/\">June 2026</a>. That matters because the telescope is no longer just a lab milestone; it is entering the logistical stretch that leads into final tests and launch.",
+                "val": "La mateixa NASA va obrir acreditacions per a cobrir l’arribada de Roman al Centre Espacial Kennedy en <a href=\"https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/\">juny de 2026</a>. És un senyal important: el telescopi ja no viu només en notes de laboratori, sinó en la recta logística que precedix les proves finals i el llançament."
+              },
+              "source": "NASA",
+              "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Llegada de Roman a Kennedy",
+                    "en": "Roman arrival at Kennedy",
+                    "val": "Arribada de Roman a Kennedy"
+                  },
+                  "url": "https://www.nasa.gov/news-release/nasa-invites-media-to-see-roman-space-telescope-arrive-at-kennedy/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "economia",
+          "items": [
+            {
+              "title": {
+                "es": "Bitcoin cae a la zona de 58.000$ y desmiente el relato de los 68.000$",
+                "en": "Bitcoin drops into the $58K zone and disproves the $68K narrative",
+                "val": "Bitcoin cau a la zona dels 58.000$ i desmentix el relat dels 68.000$"
+              },
+              "summary": {
+                "es": "Los datos del 25 de junio muestran un panorama bastante más débil de lo que reflejaba el post roto. <a href=\"https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges\">CoinDesk</a> situó a Bitcoin en una caída rápida hasta los 58.000 dólares, mientras Yahoo y Fortune lo seguían moviendo alrededor de 61.000 por la mañana. El ángulo correcto del día no era fuerza, sino presión bajista y posible rebote técnico.",
+                "en": "June 25 data shows a much weaker market than the broken post suggested. <a href=\"https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges\">CoinDesk</a> tracked Bitcoin plunging to $58,000, while Yahoo and Fortune had it around $61,000 earlier in the day. The right angle for the date was not strength but downside pressure and the possibility of a technical bounce.",
+                "val": "Les dades del 25 de juny mostren un panorama molt més dèbil del que reflectia el post trencat. <a href=\"https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges\">CoinDesk</a> va situar Bitcoin en una caiguda ràpida fins als 58.000 dòlars, mentre Yahoo i Fortune el seguien movent al voltant dels 61.000 durant el matí. L’angle correcte del dia no era força, sinó pressió baixista i possible rebot tècnic."
+              },
+              "source": "CoinDesk / Yahoo Finance / Fortune",
+              "url": "https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges",
+              "links": [
+                {
+                  "title": {
+                    "es": "CoinDesk: caída a 58.000$",
+                    "en": "CoinDesk: drop to $58K",
+                    "val": "CoinDesk: caiguda a 58.000$"
+                  },
+                  "url": "https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges"
+                },
+                {
+                  "title": {
+                    "es": "Fortune: precio del 25 de junio",
+                    "en": "Fortune: June 25 price",
+                    "val": "Fortune: preu del 25 de juny"
+                  },
+                  "url": "https://fortune.com/article/price-of-bitcoin-06-25-2026/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "El INE publica la Encuesta Industrial de Productos de 2025 con Aragón liderando el avance",
+                "en": "INE releases the 2025 Industrial Products Survey with Aragón leading growth",
+                "val": "L’INE publica l’Enquesta Industrial de Productes de 2025 amb Aragó liderant l’avanç"
+              },
+              "summary": {
+                "es": "El Instituto Nacional de Estadística ha publicado la <a href=\"https://www.ine.es\">Encuesta Industrial de Productos</a> de 2025, con Aragón marcando el mayor incremento interanual y Asturias el menor entre las comunidades destacadas en la nota de difusión. No es una noticia vistosa, pero sí una foto útil de la base productiva española en un momento de mucha atención puesta sobre energía, costes e industria.",
+                "en": "Spain’s National Statistics Institute has released the <a href=\"https://www.ine.es\">2025 Industrial Products Survey</a>, with Aragón posting the strongest year-on-year increase and Asturias the weakest among the regions highlighted in the release. It is not flashy, but it is a useful snapshot of Spain’s production base at a time when energy, costs and industry are under heavy scrutiny.",
+                "val": "L’Institut Nacional d’Estadística ha publicat l’<a href=\"https://www.ine.es\">Enquesta Industrial de Productes</a> de 2025, amb Aragó registrant el major increment interanual i Astúries el menor entre les comunitats destacades en la nota. No és una notícia vistosa, però sí una foto útil de la base productiva espanyola en un moment de molta atenció posada sobre energia, costos i indústria."
+              },
+              "source": "INE",
+              "url": "https://www.ine.es",
+              "links": [
+                {
+                  "title": {
+                    "es": "INE",
+                    "en": "INE",
+                    "val": "INE"
+                  },
+                  "url": "https://www.ine.es"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia"
       ]
     },
     {
@@ -3994,22 +3806,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -6035,22 +5831,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -7986,22 +7766,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -9890,22 +9654,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -10968,22 +10716,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -12297,22 +12029,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar",
-        "ia",
-        "hardware",
-        "security",
-        "entretenimiento",
-        "curiosidades",
-        "ofertas",
-        "anime"
       ]
     },
     {
@@ -12881,18 +12597,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "economia",
-        "cripto",
-        "ciencia",
-        "codigo",
-        "gratis",
-        "ia",
-        "hardware",
-        "security",
-        "radar"
       ]
     },
     {
@@ -13461,18 +13165,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "economia",
-        "cripto",
-        "ciencia",
-        "codigo",
-        "gratis",
-        "ia",
-        "hardware",
-        "security",
-        "radar"
       ]
     },
     {
@@ -14439,15 +14131,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar"
       ]
     },
     {
@@ -14993,15 +14676,6 @@
             }
           ]
         }
-      ],
-      "tags": [
-        "gaming",
-        "gratis",
-        "codigo",
-        "ciencia",
-        "economia",
-        "cripto",
-        "radar"
       ]
     }
   ]

@@ -43,3 +43,7 @@ Thumbs.db
 # Deploy local
 .vercel/
 .netlify/
+
+# Configuración local de endpoints PHP
+public/contact-api/config.local.php
+public/**/config.local.php

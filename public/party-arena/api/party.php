@@ -168,6 +168,11 @@ function public_round_state(array $round, ?array $viewer, array $players): array
             unset($state['fakeAnswers']);
         }
     }
+    if ($mode === 'boton-prohibido' && (($round['phase'] ?? '') !== 'results')) {
+        foreach (($state['buttons'] ?? []) as $i => $button) {
+            unset($state['buttons'][$i]['effect'], $state['buttons'][$i]['points'], $state['buttons'][$i]['title'], $state['buttons'][$i]['text']);
+        }
+    }
 
     $submitted = [];
     foreach (($state['answers'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
@@ -240,6 +245,46 @@ function mentira_pool(): array {
     ];
 }
 
+function quiz_pool(): array {
+    return [
+        ['question'=>'¿Qué significa CSS?', 'options'=>['Cascading Style Sheets','Creative Server Script','Computer Style System','Código Sin Servidor'], 'correct'=>0],
+        ['question'=>'¿Qué comando descarga cambios de GitHub?', 'options'=>['git pull','git push','git init','git save'], 'correct'=>0],
+        ['question'=>'¿Qué etiqueta se usa para enlazar CSS?', 'options'=>['<link>','<script>','<style src="">','<css>'], 'correct'=>0],
+        ['question'=>'¿Qué base de datos estamos usando para Party Arena?', 'options'=>['MariaDB/MySQL','MongoDB','SQLite local','Excel'], 'correct'=>0],
+        ['question'=>'¿Qué protocolo necesita la web pública para llamar a la API sin bloqueos?', 'options'=>['HTTPS','FTP','SSH','SMTP'], 'correct'=>0],
+        ['question'=>'¿Qué significa API?', 'options'=>['Application Programming Interface','Arcade Party Instance','Audio Pulse Input','Automatic PHP Installer'], 'correct'=>0],
+    ];
+}
+function subasta_pool(): array {
+    return [
+        ['question'=>'¿Cuál es el puerto FTP normal?', 'options'=>['21','22','23','443'], 'correct'=>0],
+        ['question'=>'¿Qué archivo NO debe subirse a GitHub?', 'options'=>['config.local.php','index.html','style.css','README.md'], 'correct'=>0],
+        ['question'=>'¿Qué modo premia más la velocidad?', 'options'=>['Quiz/Bugs','Impostor','Mentira','Chat'], 'correct'=>0],
+        ['question'=>'¿Qué DNS apunta un subdominio a una IPv4?', 'options'=>['A','AAAA','MX','TXT'], 'correct'=>0],
+        ['question'=>'¿Qué DNS apunta un subdominio a una IPv6?', 'options'=>['AAAA','A','CNAME','SRV'], 'correct'=>0],
+    ];
+}
+function button_pool(): array {
+    $buttons = [
+        ['label'=>'AZUL', 'icon'=>'fa-solid fa-shield-halved', 'effect'=>'Seguro', 'points'=>250, 'title'=>'Botón seguro', 'text'=>'Has elegido un botón estable. Nada explota, por ahora.'],
+        ['label'=>'ROJO', 'icon'=>'fa-solid fa-bomb', 'effect'=>'Prohibido', 'points'=>-250, 'title'=>'Botón prohibido', 'text'=>'Has pulsado el botón maldito. Dolor arcade.'],
+        ['label'=>'VERDE', 'icon'=>'fa-solid fa-bolt', 'effect'=>'Crítico', 'points'=>650, 'title'=>'Crítico eléctrico', 'text'=>'Combo limpio. La clase te mira con respeto.'],
+        ['label'=>'MORADO', 'icon'=>'fa-solid fa-virus', 'effect'=>'Glitch', 'points'=>-100, 'title'=>'Glitch', 'text'=>'El sistema parpadea y pierdes algunos puntos.'],
+        ['label'=>'DORADO', 'icon'=>'fa-solid fa-crown', 'effect'=>'Jackpot', 'points'=>900, 'title'=>'Jackpot', 'text'=>'Te llevas el premio grande de la ronda.'],
+        ['label'=>'GRIS', 'icon'=>'fa-solid fa-circle', 'effect'=>'Nada', 'points'=>0, 'title'=>'Nada de nada', 'text'=>'Has pulsado un botón triste. Al menos sigues vivo.'],
+    ];
+    shuffle($buttons);
+    return array_slice($buttons, 0, 5);
+}
+function add_score(PDO $pdo, int $playerId, int $points): void {
+    if ($points >= 0) {
+        $pdo->prepare('UPDATE party_players SET score = score + ? WHERE id = ?')->execute([$points, $playerId]);
+    } else {
+        $pdo->prepare('UPDATE party_players SET score = GREATEST(0, score + ?) WHERE id = ?')->execute([$points, $playerId]);
+    }
+}
+
+
 try {
     if ($action === 'createRoom') {
         $name = clean_name((string)($body['name'] ?? 'Host'));
@@ -310,7 +355,7 @@ try {
     if ($action === 'setMode') {
         assert_host($room, $viewer, $body);
         $mode = preg_replace('/[^a-z0-9\-]/', '', strtolower((string)($body['mode'] ?? 'impostor'))) ?: 'impostor';
-        $allowedModes = ['impostor','bug-race','boss-coop','rhythm-royale','mentira'];
+        $allowedModes = ['impostor','bug-race','boss-coop','rhythm-royale','mentira','quiz','boton-prohibido','subasta'];
         if (!in_array($mode, $allowedModes, true)) fail('Modo no válido.');
         $st = $pdo->prepare('UPDATE party_rooms SET current_mode = ?, status = \'lobby\' WHERE id = ?');
         $st->execute([$mode, (int)$room['id']]);
@@ -356,6 +401,22 @@ try {
             $state = ['question'=>$q['question'], 'realAnswer'=>$q['real'], 'fakeAnswers'=>[], 'votes'=>[], 'scores'=>[]];
             $phase = 'write';
             $duration = 45000;
+        } elseif ($mode === 'quiz') {
+            $pool = quiz_pool();
+            $challenge = $pool[array_rand($pool)];
+            $state = ['challenge'=>$challenge, 'answers'=>[], 'scores'=>[]];
+            $phase = 'answer';
+            $duration = 18000;
+        } elseif ($mode === 'boton-prohibido') {
+            $state = ['buttons'=>button_pool(), 'outcomes'=>[], 'scores'=>[]];
+            $phase = 'press';
+            $duration = 16000;
+        } elseif ($mode === 'subasta') {
+            $pool = subasta_pool();
+            $challenge = $pool[array_rand($pool)];
+            $state = ['challenge'=>$challenge, 'submissions'=>[], 'scores'=>[]];
+            $phase = 'answer';
+            $duration = 26000;
         } else {
             fail('Modo no válido.');
         }
@@ -445,6 +506,46 @@ try {
                     $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
                     $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
                 }
+            }
+        } elseif ($mode === 'quiz' && $phase === 'answer') {
+            if (isset($state['answers'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+            $answer = (int)($payload['answer'] ?? -1);
+            $correct = (int)($state['challenge']['correct'] ?? -2);
+            $remaining = max(0, ((int)$round['ends_at_ms'] - now_ms()) / 1000);
+            $points = ($answer === $correct) ? (420 + (int)round($remaining * 35)) : 0;
+            $state['answers'][$pid] = ['answer'=>$answer, 'correct'=>$answer === $correct, 'points'=>$points, 'at'=>now_ms()];
+            if ($points > 0) add_score($pdo, (int)$viewer['id'], $points);
+            if (count($state['answers']) >= count(players_for_room($pdo, (int)$room['id']))) {
+                $phase = 'results';
+                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
+                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
+            }
+        } elseif ($mode === 'boton-prohibido' && $phase === 'press') {
+            if (isset($state['outcomes'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+            $buttonIndex = max(0, min(count($state['buttons'] ?? []) - 1, (int)($payload['button'] ?? 0)));
+            $button = $state['buttons'][$buttonIndex] ?? ['points'=>0,'label'=>'???','title'=>'Nada','text'=>'No ha pasado nada.','effect'=>'Nada'];
+            $points = (int)($button['points'] ?? 0);
+            $state['outcomes'][$pid] = ['button'=>$buttonIndex, 'label'=>$button['label'] ?? '???', 'effect'=>$button['effect'] ?? 'Nada', 'title'=>$button['title'] ?? 'Resultado', 'text'=>$button['text'] ?? '', 'points'=>$points, 'at'=>now_ms()];
+            add_score($pdo, (int)$viewer['id'], $points);
+            if (count($state['outcomes']) >= count(players_for_room($pdo, (int)$room['id']))) {
+                $phase = 'results';
+                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
+                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
+            }
+        } elseif ($mode === 'subasta' && $phase === 'answer') {
+            if (isset($state['submissions'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+            $answer = (int)($payload['answer'] ?? -1);
+            $wager = max(100, min(500, (int)($payload['wager'] ?? 100)));
+            $correct = (int)($state['challenge']['correct'] ?? -2);
+            $isCorrect = $answer === $correct;
+            $remaining = max(0, ((int)$round['ends_at_ms'] - now_ms()) / 1000);
+            $points = $isCorrect ? ($wager + 180 + (int)round($remaining * 12)) : -max(50, (int)round($wager * 0.6));
+            $state['submissions'][$pid] = ['answer'=>$answer, 'wager'=>$wager, 'correct'=>$isCorrect, 'points'=>$points, 'at'=>now_ms()];
+            add_score($pdo, (int)$viewer['id'], $points);
+            if (count($state['submissions']) >= count(players_for_room($pdo, (int)$room['id']))) {
+                $phase = 'results';
+                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
+                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
             }
         } elseif ($mode === 'boss-coop' && $phase === 'battle') {
             $damage = random_int(24, 82);
