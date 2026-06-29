@@ -19,8 +19,8 @@ let rhythm = null;
 function defaultApiUrl(){
   const saved = localStorage.getItem('party_api_url');
   if (saved) return saved;
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return './api/party.php';
-  return 'https://api.danielux.es/party.php';
+ if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return './api/party.php';
+ return 'https://danielux-api-proxy.dlux135.workers.dev/api/party';
 }
 function session(){
   return {
