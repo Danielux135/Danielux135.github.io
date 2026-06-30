@@ -199,21 +199,26 @@ Arcade._drawArt = function(ctx, cv, id) {
             ctx.strokeStyle = rgbStr('255 216 74', .9); ctx.fillStyle = rgbStr('255 216 74', .18+b*.15); ctx.lineWidth = 3;
             ctx.beginPath(); ctx.moveTo(-38, 18); ctx.lineTo(-26,-12); ctx.lineTo(-10,10); ctx.lineTo(0,-24); ctx.lineTo(10,10); ctx.lineTo(26,-12); ctx.lineTo(38,18); ctx.closePath(); ctx.fill(); ctx.stroke();
             ctx.restore();
-            // Robots alrededor
-            const colors = [a1(), a2(), '32 255 145', '255 216 74', '255 66 208'];
-            for (let i=0;i<5;i++) {
-                const ang = -Math.PI*0.95 + i*(Math.PI*0.48) + Math.sin(t*.8+i)*0.05;
-                const x = cx + Math.cos(ang)*95;
-                const y = H*0.62 + Math.sin(ang)*32;
-                const col = colors[i%colors.length];
-                ctx.save(); ctx.translate(x,y);
-                const r = 13 + b*2;
-                ctx.fillStyle = rgbStr(col,.18); ctx.strokeStyle = rgbStr(col,.88); ctx.lineWidth = 2;
-                ctx.beginPath(); if(ctx.roundRect) ctx.roundRect(-r,-r,r*2,r*2,7); else ctx.rect(-r,-r,r*2,r*2); ctx.fill(); ctx.stroke();
-                ctx.fillStyle = rgbStr(col,.95); ctx.fillRect(-6,-2,4,4); ctx.fillRect(2,-2,4,4);
-                ctx.strokeStyle = rgbStr(col,.55); ctx.beginPath(); ctx.moveTo(-9, r); ctx.lineTo(-18, r+14); ctx.moveTo(9,r); ctx.lineTo(18,r+14); ctx.stroke();
+            // Robots alrededor: 4 posiciones claras para evitar solapes visuales
+            const robots = [
+                { ang: -Math.PI * 0.92, col: a2() },
+                { ang: -Math.PI * 0.18, col: '32 255 145' },
+                { ang:  Math.PI * 0.20, col: '255 216 74' },
+                { ang:  Math.PI * 0.88, col: '255 66 208' },
+            ];
+            robots.forEach((robot, i) => {
+                const wobble = Math.sin(t * .8 + i) * 0.06;
+                const ang = robot.ang + wobble;
+                const x = cx + Math.cos(ang) * 98;
+                const y = H * 0.62 + Math.sin(ang) * 38;
+                ctx.save(); ctx.translate(x, y);
+                const r = 13 + b * 2;
+                ctx.fillStyle = rgbStr(robot.col, .18); ctx.strokeStyle = rgbStr(robot.col, .88); ctx.lineWidth = 2;
+                ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(-r, -r, r * 2, r * 2, 7); else ctx.rect(-r, -r, r * 2, r * 2); ctx.fill(); ctx.stroke();
+                ctx.fillStyle = rgbStr(robot.col, .95); ctx.fillRect(-6, -2, 4, 4); ctx.fillRect(2, -2, 4, 4);
+                ctx.strokeStyle = rgbStr(robot.col, .55); ctx.beginPath(); ctx.moveTo(-9, r); ctx.lineTo(-18, r + 14); ctx.moveTo(9, r); ctx.lineTo(18, r + 14); ctx.stroke();
                 ctx.restore();
-            }
+            });
             // iconos inferiores
             const labels = ['?', '😂', '⚔', '💣'];
             labels.forEach((txt,i)=>{
@@ -269,5 +274,4 @@ Arcade._drawArt = function(ctx, cv, id) {
     raf = requestAnimationFrame(loop);
     if (!_once) Arcade._carArtRaf = raf;
 };
-
 
