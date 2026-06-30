@@ -53,6 +53,7 @@ const tplHome = document.getElementById('tpl-home');
 const settingsDialog = document.getElementById('settingsDialog');
 const apiUrlInput = document.getElementById('apiUrlInput');
 const saveApiUrl = document.getElementById('saveApiUrl');
+const DEFAULT_PARTY_API_URL = 'https://danielux-api-proxy.dlux135.workers.dev/api/party';
 
 let state = null;
 let pollId = null;
@@ -65,8 +66,19 @@ let lastSyncAtMs = Date.now();
 let auctionDraft = { bid: null, insurance: false, stance: 'Secreto', key: '' };
 let timerUiId = null;
 
+function normalizeApiUrl(value) {
+  const url = String(value || '').trim();
+  if (!url) return DEFAULT_PARTY_API_URL;
+  if (/party\.php(?:\?|#|$)/i.test(url)) return DEFAULT_PARTY_API_URL;
+  return url;
+}
+
 function defaultApiUrl() {
-  return localStorage.getItem('party_api_url') || 'https://danielux-api-proxy.dlux135.workers.dev/api/party';
+  const stored = normalizeApiUrl(localStorage.getItem('party_api_url'));
+  if (stored !== localStorage.getItem('party_api_url')) {
+    localStorage.setItem('party_api_url', stored);
+  }
+  return stored;
 }
 
 function session() {
@@ -2152,10 +2164,11 @@ function render() {
 
 saveApiUrl?.addEventListener('click', (event) => {
   event.preventDefault();
-  const value = apiUrlInput.value.trim();
-  if (value) localStorage.setItem('party_api_url', value);
+  const value = normalizeApiUrl(apiUrlInput.value);
+  localStorage.setItem('party_api_url', value);
+  apiUrlInput.value = value;
   settingsDialog.close();
-  toast('API guardada.');
+  toast(value === DEFAULT_PARTY_API_URL ? 'API restaurada al Worker recomendado.' : 'API guardada.');
 });
 
 (async function boot() {

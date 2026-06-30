@@ -3,7 +3,7 @@
 ## Qué se ha añadido
 
 - `/party-arena/`: frontend del hub multijugador.
-- `/party-arena/api/party.php`: API PHP para salas online.
+- `/party-arena/api/party.php`: API PHP para salas online, solo si decides autohospedar la API.
 - `/party-arena/api/install.sql`: tablas MariaDB/MySQL.
 - `/party-arena/api/config.example.php`: plantilla de configuración segura.
 
@@ -28,14 +28,14 @@ public/party-arena/api/install.sql
 
 ## Subir la API al hosting
 
-Lo ideal es tener:
+Lo ideal es tener el frontend público apuntando al Worker y, si hace falta, una API PHP privada detrás:
 
 ```txt
 danielux.es          -> GitHub Pages / portfolio
 danielux-api-proxy.dlux135.workers.dev      -> Cloudflare Worker
 ```
 
-En el hosting o backend que uses, expon la API detras del Worker `danielux-api-proxy.dlux135.workers.dev` y sube dentro estos archivos:
+Si vas a autohospedar la API, sube dentro estos archivos:
 
 ```txt
 party.php
@@ -96,7 +96,7 @@ Pulsa **Configurar API** y pega:
 https://danielux-api-proxy.dlux135.workers.dev/api/party
 ```
 
-También puedes editar `public/party-arena/app.js` y cambiar el valor por defecto si quieres dejarlo fijo.
+El frontend ya usa este Worker por defecto. Solo cambia la URL si sabes que tu despliegue apunta a otra API.
 
 ## Flujo de prueba
 
