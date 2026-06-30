@@ -6,7 +6,7 @@ const MODES = [
   { id: 'mentira', title: 'Mentira Express', desc: 'Cuela una mentira convincente', icon: 'fa-solid fa-comment-dots' },
   { id: 'quiz', title: 'Quiz Relampago', desc: 'Respuesta rapida, puntos rapidos', icon: 'fa-solid fa-bolt' },
   { id: 'boton-prohibido', title: 'Boton Prohibido', desc: 'Riesgo, premio y caos controlado', icon: 'fa-solid fa-bomb' },
-  { id: 'subasta', title: 'Subasta de Puntos', desc: 'Apuesta si estas seguro', icon: 'fa-solid fa-gavel' },
+  { id: 'subasta', title: 'Subasta Relámpago', desc: 'Puja, analiza y caza chollos dev', icon: 'fa-solid fa-gavel' },
 ];
 
 const MUSIC_TRACKS = [
@@ -62,6 +62,7 @@ let excludedModes = new Set(JSON.parse(localStorage.getItem('party_excluded_mode
 let autoFinishing = false;
 let lastServerNowMs = Date.now();
 let lastSyncAtMs = Date.now();
+let auctionDraft = { bid: null, insurance: false, stance: 'Secreto', key: '' };
 let timerUiId = null;
 
 function defaultApiUrl() {
@@ -398,7 +399,7 @@ function renderLobby() {
       <h2 class="panel-title" style="justify-content:center">Ronda unica: ${escapeHtml(mode.title)} · Rotacion: ${playableModes().length}/${MODES.length}</h2>
       ${modeCards()}
       <div class="big-actions">
-        ${isHost() ? '<button class="primary-btn" data-start-round><i class="fa-solid fa-play"></i> JUGAR SELECCIONADO</button><button class="secondary-btn" data-start-next><i class="fa-solid fa-shuffle"></i> SIGUIENTE DE ROTACION</button><button class="secondary-btn" data-reset><i class="fa-solid fa-rotate"></i> REINICIAR PUNTOS</button>' : '<p>Esperando al host...</p>'}
+        ${isHost() ? '<button class="primary-btn" data-start-round><i class="fa-solid fa-play"></i> JUGAR SELECCIONADO</button><button class="secondary-btn" data-start-next><i class="fa-solid fa-shuffle"></i> SIGUIENTE MINIJUEGO</button><button class="secondary-btn" data-reset><i class="fa-solid fa-rotate"></i> REINICIAR PUNTOS</button>' : '<p>Esperando al host...</p>'}
       </div>
     </main>
     ${rankingPanel()}
@@ -464,13 +465,15 @@ function renderGame() {
 function renderResults() {
   const mode = modeInfo(state?.round?.mode || state?.room?.currentMode || selectedMode);
   const next = modeInfo(nextModeId());
-  app.innerHTML = `<section class="layout">${playersPanel()}<main class="results-card glass-card">
+  const resultMode = String(state?.round?.mode || '').replace(/[^a-z0-9-]/gi, '');
+  app.innerHTML = `<section class="layout">${playersPanel()}<main class="results-card glass-card results-mode-${resultMode}">
     <h1 class="game-title">RESULTADOS</h1>
-    <p class="subtitle">${escapeHtml(mode.title)} - Siguiente: ${escapeHtml(next.title)}</p>
+    <p class="subtitle results-hold-subtitle">${escapeHtml(mode.title)} · Pausado hasta que el host elija</p>
+    <div class="host-hold-note"><strong>Fin de ronda.</strong><span>Nada continúa solo: el host decide si repetir este minijuego o pasar a ${escapeHtml(next.title)}.</span></div>
     ${roundReviewHtml()}
-    ${['impostor', 'mentira', 'quiz'].includes(state?.round?.mode) ? '' : roundFeedbackHtml()}
-    ${['impostor', 'quiz'].includes(state?.round?.mode) ? '' : `<div class="ranking-list">${sortedPlayers().map((p, i) => `<div class="rank-row"><span class="rank-no">${i + 1}</span><strong>${escapeHtml(p.name)}</strong><span class="score">${p.score || 0}</span></div>`).join('')}</div>`}
-    <div class="big-actions">${isHost() ? '<button class="primary-btn" data-repeat-round><i class="fa-solid fa-repeat"></i> REPETIR MINIJUEGO</button><button class="secondary-btn" data-next-round><i class="fa-solid fa-forward"></i> SIGUIENTE DE ROTACION</button><button class="secondary-btn" data-back-lobby><i class="fa-solid fa-house"></i> VOLVER AL LOBBY</button>' : '<p>Esperando al host...</p>'}</div>
+    ${['impostor', 'mentira', 'quiz', 'subasta', 'boton-prohibido', 'bug-race'].includes(state?.round?.mode) ? '' : roundFeedbackHtml()}
+    ${['impostor', 'quiz', 'subasta', 'boton-prohibido'].includes(state?.round?.mode) ? '' : `<div class="ranking-list">${sortedPlayers().map((p, i) => `<div class="rank-row"><span class="rank-no">${i + 1}</span><strong>${escapeHtml(p.name)}</strong><span class="score">${p.score || 0}</span></div>`).join('')}</div>`}
+    <div class="big-actions">${isHost() ? '<button class="primary-btn" data-repeat-round><i class="fa-solid fa-repeat"></i> REPETIR MINIJUEGO</button><button class="secondary-btn" data-next-round><i class="fa-solid fa-forward"></i> SIGUIENTE MINIJUEGO</button><button class="secondary-btn" data-back-lobby><i class="fa-solid fa-house"></i> VOLVER AL LOBBY</button>' : '<p>Esperando al host...</p>'}</div>
   </main>${rankingPanel()}</section>`;
   bindCommon();
   app.querySelector('[data-back-lobby]')?.addEventListener('click', () => hostAction('backToLobby'));
@@ -705,18 +708,28 @@ function roundFeedback() {
   }
 
   if (round.mode === 'subasta') {
-    const sub = s.submissions?.[pid];
-    const challenge = s.challenge || {};
-    if (!sub) return null;
-    const correctIndex = Number(challenge.correct ?? -1);
-    const selectedIndex = Number(sub.answer ?? -1);
-    const isCorrect = Boolean(sub.correct);
+    const idx = String(Number(s.current || 0));
+    const bid = s.yourBid || s.bids?.[idx]?.[playerIdKey()];
+    if (round.phase === 'bid') {
+      if (!bid && !s.revealedExtra) return null;
+      return {
+        tone: 'info',
+        icon: 'fa-solid fa-gavel',
+        title: bid ? 'Puja registrada' : 'Análisis comprado',
+        message: bid ? `Has pujado ${Number(bid.bid || 0)} créditos${bid.insurance ? ' con seguro' : ''}.` : 'Has revelado una pista extra.',
+        details: [s.revealedExtra || '', bid?.stance ? `Postura pública: ${bid.stance}` : 'Puedes cambiar la puja hasta que cierre el mercado.'].filter(Boolean),
+      };
+    }
+    const result = s.lastResult || s.history?.[idx];
+    if (!result) return null;
+    const won = String(result.winner || '') === playerIdKey();
+    const row = (result.rows || []).find((r) => String(r.playerId) === playerIdKey());
     return {
-      tone: isCorrect ? 'good' : 'bad',
-      icon: isCorrect ? 'fa-solid fa-sack-dollar' : 'fa-solid fa-triangle-exclamation',
-      title: isCorrect ? 'Subasta ganada' : 'Subasta perdida',
-      message: `${signedPoints(sub.points)} con una apuesta de ${Number(sub.wager || 0)}.`,
-      details: isCorrect ? [`Respuesta: ${optionLabel(selectedIndex)}: ${optionText(challenge.options, selectedIndex)}`] : [`Tu respuesta: ${optionLabel(selectedIndex)}: ${optionText(challenge.options, selectedIndex)}`, `Correcta: ${optionLabel(correctIndex)}: ${optionText(challenge.options, correctIndex)}`],
+      tone: won ? (Number(result.net || 0) >= 0 ? 'good' : 'bad') : 'info',
+      icon: won ? 'fa-solid fa-sack-dollar' : 'fa-solid fa-eye',
+      title: won ? `${result.label || 'Lote resuelto'}` : 'No te llevaste el lote',
+      message: won ? `${Number(result.net || 0) >= 0 ? '+' : ''}${Number(result.net || 0)} créditos netos.` : `${result.winnerName || 'Otro jugador'} ganó por ${Number(result.winnerBid || 0)} créditos.`,
+      details: [row ? `Tu puja: ${Number(row.bid || 0)} créditos` : '', `Valor real: ${Number(result.value || 0)} créditos`, result.explanation || ''].filter(Boolean),
     };
   }
 
@@ -1017,9 +1030,15 @@ function roundReviewHtml() {
 
   if (round.mode === 'bug-race') {
     const c = s.challenge || {};
+    const answer = s.answers?.[playerIdKey()] || {};
     const result = answerResultFromAnswers() || { answer: -999, correctIndex: Number(c.correct ?? -1) };
+    const selectedIndex = Number(result.answer ?? -999);
+    const correctIndex = Number(result.correctIndex ?? c.correct ?? -1);
+    const isCorrect = Boolean(answer.correct) || selectedIndex === correctIndex;
+    const points = Number(answer.points || 0);
+    const summary = `<div class="bug-result-strip ${isCorrect ? 'good' : 'bad'}"><strong>${isCorrect ? '✓ Correcto' : '✕ Fallo'}</strong><span>${isCorrect ? `${signedPoints(points)} · Elegiste ${optionLabel(selectedIndex)}` : `Correcta: ${optionLabel(correctIndex)} · Tu respuesta: ${selectedIndex >= 0 ? optionLabel(selectedIndex) : 'sin respuesta'}`}</span></div>`;
     const prompt = `<span class="code-lang">${escapeHtml(c.lang || 'JS')}</span><pre class="code-box compact">${escapeHtml(c.code || c.question || 'Selecciona la respuesta correcta')}</pre>`;
-    return `<div class="round-review glass-card"><h3>Revision de tu respuesta</h3>${prompt}${reviewAnswerButtons(c.options, result)}</div>`;
+    return `<div class="round-review glass-card bug-results-review"><h3>Revisión de Carrera de Bugs</h3>${summary}${prompt}${reviewAnswerButtons(c.options, result)}</div>`;
   }
 
   if (round.mode === 'quiz') {
@@ -1044,17 +1063,22 @@ function roundReviewHtml() {
   }
 
   if (round.mode === 'subasta') {
-    const c = s.challenge || {};
-    const sub = s.submissions?.[playerIdKey()];
-    const result = sub ? { answer: Number(sub.answer ?? -1), correctIndex: Number(c.correct ?? -1) } : { answer: -999, correctIndex: Number(c.correct ?? -1) };
-    return `<div class="round-review glass-card"><h3>Revision de la subasta</h3><h2>${escapeHtml(c.question || 'Pregunta de subasta')}</h2>${reviewAnswerButtons(c.options, result)}${sub ? `<p class="player-meta">Apuesta: ${Number(sub.wager || 0)} · Resultado: ${signedPoints(sub.points)}</p>` : '<p class="player-meta">No apostaste en esta ronda.</p>'}</div>`;
+    const rows = s.finalRows || Object.values(s.summary || {}).sort((a, b) => Number(b.finalCredits || 0) - Number(a.finalCredits || 0));
+    const medals = s.medals || {};
+    const you = (s.summary || {})[playerIdKey()] || {};
+    const history = Object.values(s.history || {});
+    const chips = [
+      medals.bestBuy ? `Cazachollos: ${medals.bestBuy.name} con “${medals.bestBuy.lot}” (${Number(medals.bestBuy.net) >= 0 ? '+' : ''}${Number(medals.bestBuy.net)})` : '',
+      medals.worstBuy ? `Pagafantas: ${medals.worstBuy.name} con “${medals.worstBuy.lot}” (${Number(medals.worstBuy.net)})` : '',
+      medals.allIn ? `Manos de diamante: ${medals.allIn.name} arriesgó ${Number(medals.allIn.bid)} créditos` : '',
+    ].filter(Boolean);
+    const table = `<div class="auction-final-ranking">${rows.map((row, i) => `<div class="auction-rank-row ${String(row.playerId) === playerIdKey() ? 'you' : ''}"><span>${i + 1}</span><strong>${escapeHtml(row.name || auctionName(row.playerId))}</strong><em>${Number(row.ownedCount || 0)} lote${Number(row.ownedCount || 0) === 1 ? '' : 's'} · bonus ${Number(row.comboBonus || 0)}</em><b>${Number(row.finalCredits || row.credits || 0)}</b></div>`).join('')}</div>`;
+    const lastLots = history.slice(-3).reverse().map((h) => `<div class="auction-mini-history"><strong>${escapeHtml(h.lot?.name || 'Lote')}</strong><span>${escapeHtml(h.label || 'Resultado')} · ${escapeHtml(h.winnerName || 'Sin comprador')} · ${Number(h.net || 0) >= 0 ? '+' : ''}${Number(h.net || 0)}</span></div>`).join('');
+    return `<div class="round-review glass-card auction-final-card"><h3>Fin de Subasta Relámpago</h3><h2>${escapeHtml((medals.winner || rows[0] || {}).name || 'Mercado cerrado')}</h2><div class="auction-final-stats"><div><span>Tus créditos</span><strong>${Number(you.finalCredits || you.credits || 0)}</strong></div><div><span>Lotes comprados</span><strong>${Number(you.ownedCount || 0)}</strong></div><div><span>Bonus combo</span><strong>${Number(you.comboBonus || 0)}</strong></div></div>${table}${chips.length ? `<div class="lie-medals auction-medals">${chips.map((c) => `<span>${escapeHtml(c)}</span>`).join('')}</div>` : ''}${lastLots ? `<div class="auction-history-compact">${lastLots}</div>` : ''}</div>`;
   }
 
   if (round.mode === 'boton-prohibido') {
-    const buttons = s.buttons || [];
-    const outcome = s.outcomes?.[playerIdKey()];
-    const chosen = outcome ? Number(outcome.button ?? -1) : -999;
-    return `<div class="round-review glass-card"><h3>Boton elegido</h3><div class="answers answers-review">${buttons.map((button, i) => `<button class="answer-btn ${chosen === i ? 'is-selected' : ''}" disabled aria-disabled="true"><i class="${escapeHtml(button.icon || 'fa-solid fa-circle')}"></i> <span class="answer-copy">${escapeHtml(button.label || `Boton ${i + 1}`)}</span>${chosen === i ? '<span class="answer-tag choice">Tu eleccion</span>' : ''}</button>`).join('')}</div></div>`;
+    return renderForbiddenFinal(s);
   }
 
   if (round.mode === 'mentira' && round.phase === 'results') {
@@ -1277,10 +1301,142 @@ function answerResultFromAnswers() {
 }
 
 function answerResultFromAuction() {
-  const c = state.round?.state?.challenge || {};
-  const sub = state.round?.state?.submissions?.[playerIdKey()];
-  if (!sub) return null;
-  return { answer: Number(sub.answer ?? -1), correctIndex: Number(c.correct ?? -1) };
+  const s = state.round?.state || {};
+  const idx = String(Number(s.current || 0));
+  return s.yourBid || s.bids?.[idx]?.[playerIdKey()] || null;
+}
+
+function auctionState() { return state.round?.state || {}; }
+function auctionLot() { return auctionState().challenge || {}; }
+function auctionEvent() {
+  const s = auctionState();
+  const idx = String(Number(s.current || 0));
+  return s.marketEvents?.[idx] || { label: 'Mercado estable', note: 'Puja con cabeza.' };
+}
+function auctionName(id) {
+  const sid = String(id ?? '');
+  const player = (state?.players || []).find((p) => String(p.id) === sid);
+  if (player) return player.name || 'Jugador';
+  const bot = (auctionState().bots || []).find((b) => String(b.id) === sid);
+  return bot?.name || (sid.startsWith('bot_') ? 'Bot' : 'Mercader');
+}
+function auctionCreditsFor(id = playerIdKey()) {
+  const s = auctionState();
+  return Number((s.credits || {})[String(id)] ?? s.yourCredits ?? s.initialCredits ?? 0);
+}
+function auctionRarityClass(rarity) {
+  return String(rarity || 'comun').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
+}
+function auctionBidRows(result = null) {
+  const s = auctionState();
+  const idx = String(Number(s.current || 0));
+  const rows = result?.rows || Object.entries(s.bids?.[idx] || {}).map(([pid, bid]) => ({ playerId: pid, name: auctionName(pid), ...bid }));
+  const bots = (s.bots || []).filter((bot) => !rows.some((r) => String(r.playerId) === String(bot.id))).map((bot) => ({ playerId: bot.id, name: bot.name, stance: bot.mood || 'Observando', locked: true, bot: true }));
+  return [...rows, ...bots].slice(0, 8).map((row) => `<div class="auction-bid-row ${row.winner ? 'winner' : ''} ${String(row.playerId) === playerIdKey() ? 'you' : ''}"><strong>${escapeHtml(row.name || auctionName(row.playerId))}</strong><span>${result ? `${Number(row.bid || 0)} créditos${row.insurance ? ' · seguro' : ''}` : row.locked ? `${escapeHtml(row.stance || 'Puja secreta')}` : `${Number(row.bid || 0)} créditos${row.insurance ? ' · seguro' : ''}`}</span></div>`).join('');
+}
+function auctionRivalsCompact(result = null) {
+  const s = auctionState();
+  const idx = String(Number(s.current || 0));
+  const rows = result?.rows || Object.entries(s.bids?.[idx] || {}).map(([pid, bid]) => ({ playerId: pid, name: auctionName(pid), ...bid }));
+  const bots = (s.bots || []).filter((bot) => !rows.some((r) => String(r.playerId) === String(bot.id))).map((bot) => ({ playerId: bot.id, name: bot.name, stance: bot.mood || 'Observa', locked: true, bot: true }));
+  const everyone = [...rows, ...bots].slice(0, 6);
+  if (!everyone.length) return '';
+  return `<div class="auction-rivals-compact"><strong>Rivales</strong>${everyone.map((row) => {
+    const you = String(row.playerId) === playerIdKey();
+    const label = result ? `${Number(row.bid || 0)}` : row.locked ? escapeHtml(row.stance || 'Secreto') : 'Puja enviada';
+    return `<span class="${you ? 'you' : ''}"><b>${escapeHtml(row.name || auctionName(row.playerId))}</b><em>${label}</em></span>`;
+  }).join('')}</div>`;
+}
+
+function auctionClues(lot, s = auctionState()) {
+  const idx = String(Number(s.current || 0));
+  const clues = (lot.clues || []).slice(0, 3);
+  const extra = s.revealedExtra || s.revealedClues?.[idx]?.[playerIdKey()];
+  return `<div class="auction-clues">${clues.map((clue, i) => `<div><b>${i + 1}</b><span>${escapeHtml(clue)}</span></div>`).join('')}${extra ? `<div class="extra"><b>+</b><span>${escapeHtml(extra)}</span></div>` : ''}</div>`;
+}
+function auctionQuickBidButtons(credits) {
+  const presets = [
+    { value: 0, label: 'Pasar', hint: '0' },
+    { value: 25, label: '25', hint: 'segura' },
+    { value: 50, label: '50', hint: 'media' },
+    { value: 75, label: '75', hint: 'fuerte' },
+    { value: 100, label: '100', hint: 'alta' },
+  ].filter((p, i, arr) => p.value <= credits && arr.findIndex((x) => x.value === p.value) === i);
+  return `${presets.map((p) => `<button type="button" class="auction-chip" data-auction-bid-chip="${p.value}"><strong>${p.label}</strong><small>${p.hint}</small></button>`).join('')}<button type="button" class="auction-chip danger" data-auction-bid-chip="all"><strong>Todo</strong><small>${credits}</small></button>`;
+}
+function auctionTotalMs() {
+  const s = auctionState();
+  return Math.max(1, Number((state.round?.phase === 'reveal' ? s.revealMs : s.bidMs) || 30000));
+}
+function auctionProgressPct() {
+  return Math.max(0, Math.min(100, (msLeft() / auctionTotalMs()) * 100));
+}
+function auctionPhaseLabel() {
+  const phase = state.round?.phase || 'bid';
+  if (phase === 'reveal') return `REVELACIÓN · siguiente lote en <span class="timer">${secondsLeft()}s</span>`;
+  if (phase === 'results') return 'MERCADO CERRADO';
+  return `DECIDE TU PUJA · quedan <span class="timer">${secondsLeft()}s</span>`;
+}
+function auctionHowToHtml(hasBid) {
+  return `<div class="auction-rules-v5" aria-label="Cómo jugar Subasta Relámpago">
+    <div class="auction-rule-main"><b>OBJETIVO</b><span>Termina la partida con más <strong>capital</strong> que tus rivales.</span></div>
+    <div><b>RONDA</b><span>Aparece un lote con <strong>valor real oculto</strong>.</span></div>
+    <div><b>PUJA</b><span>Compra barato: si ganas, <strong>valor − puja = beneficio</strong>.</span></div>
+    <div><b>AYUDAS</b><span><strong>Analizar</strong> da una pista extra. <strong>Seguro</strong> reduce pérdidas.</span></div>
+    ${hasBid ? `<div class="done"><b>✓</b><span>Puja enviada. Puedes cambiarla antes de la revelación.</span></div>` : ''}
+  </div>`;
+}
+function auctionDecisionHint(lot, event, bid) {
+  if (bid) return `Puja confirmada: ${Number(bid.bid || 0)}. Para ganar dinero, el valor real debe superar esa cantidad${bid.insurance ? '; si sale mal, llevas seguro' : ''}.`;
+  if (String(event?.id || '') === 'glitch') return 'Glitch: una pista puede ser engañosa. Mejor analiza o no pujes demasiado alto.';
+  if (String(event?.id || '') === 'jackpot') return 'Jackpot: puede cambiar la partida. Si arriesgas fuerte, considera seguro.';
+  if (String(lot?.risk || '').toLowerCase().includes('alto') || String(lot?.risk || '').toLowerCase().includes('crítico')) return 'Riesgo alto: puja con margen. La rareza no garantiza que el lote sea bueno.';
+  return 'Elige cuánto pagarías por este lote. Si crees que vale 80, intenta pujar bastante menos de 80.';
+}
+function auctionBidMeaning(bidValue, credits) {
+  const bid = Number(bidValue || 0);
+  if (bid <= 0) return 'Pasas la ronda: no compras el lote, no pierdes capital y esperas al siguiente.';
+  const pct = credits > 0 ? bid / credits : 0;
+  const risk = pct >= .75 ? 'muy arriesgada' : pct >= .5 ? 'fuerte' : pct >= .25 ? 'moderada' : 'conservadora';
+  return `Puja ${risk}: necesitas que el lote valga más de ${bid} para ganar capital.`;
+}
+function auctionFormulaHtml(value, bid) {
+  const v = Number(value || 0);
+  const b = Number(bid || 0);
+  const net = v - b;
+  return `<div class="auction-formula ${net >= 0 ? 'good' : 'bad'}"><span>Cuenta del lote</span><strong>${v} − ${b} = ${net >= 0 ? '+' : ''}${net}</strong><em>valor real − puja ganadora = beneficio</em></div>`;
+}
+function auctionYourReveal(result) {
+  const myRow = (result?.rows || []).find((row) => String(row.playerId) === playerIdKey()) || null;
+  const myBid = Number(myRow?.bid || 0);
+  const won = String(result?.winner || '') === playerIdKey();
+  if (won) {
+    const net = Number(result?.net || 0);
+    return `<div class="auction-your-result ${net >= 0 ? 'good' : 'bad'}"><b>${net >= 0 ? 'Has comprado bien' : 'Has sobrepagado'}</b><span>Tu puja ganó. Resultado para ti: <strong>${net >= 0 ? '+' : ''}${net}</strong> capital.</span></div>`;
+  }
+  if (myBid > 0) return `<div class="auction-your-result neutral"><b>No te llevaste el lote</b><span>Tú pujaste ${myBid}, pero ${escapeHtml(result?.winnerName || 'otro jugador')} ganó por ${Number(result?.winnerBid || 0)}. Conservas tu capital.</span></div>`;
+  return `<div class="auction-your-result neutral"><b>Pasaste la ronda</b><span>No pujaste. No ganas nada, pero tampoco pierdes capital.</span></div>`;
+}
+function auctionCapitalBoard() {
+  const s = auctionState();
+  const credits = s.credits || {};
+  const rows = Object.entries(credits).map(([id, value]) => ({ id, name: auctionName(id), value: Number(value || 0), you: String(id) === playerIdKey() }))
+    .sort((a, b) => b.value - a.value).slice(0, 5);
+  if (!rows.length) return '';
+  return `<div class="auction-capital-board"><strong>Capital actual</strong>${rows.map((row, i) => `<span class="${row.you ? 'you' : ''}"><b>${i + 1}. ${escapeHtml(row.name)}</b><em>${row.value}</em></span>`).join('')}</div>`;
+}
+function auctionRevealSummary(result, lot) {
+  const value = Number(result?.value || 0);
+  const bid = Number(result?.winnerBid || 0);
+  const net = Number(result?.net || 0);
+  const winner = result?.winnerName || 'Sin comprador';
+  return `<div class="auction-reveal-grid">
+    <div><span>Ganador</span><strong>${escapeHtml(winner)}</strong><small>${bid > 0 ? `pagó ${bid}` : 'nadie compró'}</small></div>
+    <div><span>Valor real</span><strong>${value}</strong><small>lo que realmente valía</small></div>
+    <div class="${net >= 0 ? 'good' : 'bad'}"><span>Beneficio</span><strong>${net >= 0 ? '+' : ''}${net}</strong><small>${net >= 0 ? 'compra rentable' : 'pérdida / sobrepago'}</small></div>
+  </div>
+  ${auctionFormulaHtml(value, bid)}
+  <p class="auction-worth-explain"><b>Por qué valía ${value}:</b> ${escapeHtml(result?.explanation || lot?.explanation || 'El valor depende de utilidad real, riesgo, rareza y evento de mercado.')}</p>`;
 }
 
 function renderBugRace() {
@@ -1335,12 +1491,77 @@ function renderQuiz() {
 }
 
 function renderAuction() {
-  const c = state.round?.state?.challenge || {};
-  return `<h1 class="game-title">SUBASTA</h1><p class="subtitle">APUESTA Y RESPONDE - <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card">
-    <h2>${escapeHtml(c.question || 'Pregunta de subasta')}</h2>
-    <label>Tu apuesta</label>
-    <input data-wager type="number" min="100" max="500" step="50" value="200" ${answerResultFromAuction() ? 'disabled' : ''}>
-    ${answerButtons(c.options, 'data-auction-answer', answerResultFromAuction())}
+  const s = auctionState();
+  const lot = auctionLot();
+  const phase = state.round?.phase || 'bid';
+  const idx = Number(s.current || 0);
+  const total = Number(s.total || (s.lots || []).length || 8);
+  const event = auctionEvent();
+  const credits = auctionCreditsFor();
+  const bid = answerResultFromAuction();
+  const draftKey = `${state.round?.id || state.round?.round_id || ''}:${idx}:${phase}`;
+  if (auctionDraft.key !== draftKey) {
+    auctionDraft = { bid: bid ? Number(bid.bid || 0) : null, insurance: Boolean(bid?.insurance), stance: bid?.stance || 'Secreto', key: draftKey };
+  }
+  const result = s.lastResult || s.history?.[String(idx)];
+  const rarity = lot.rarity || result?.lot?.rarity || 'Común';
+  const risk = lot.risk || result?.lot?.risk || 'Medio';
+  const tags = (lot.tags || result?.lot?.tags || []).slice(0, 4);
+
+  if (phase === 'reveal') {
+    const resultLot = result?.lot || lot || {};
+    const won = String(result?.winner || '') === playerIdKey();
+    const net = Number(result?.net || 0);
+    return `<h1 class="game-title compact-title auction-title-v5">SUBASTA RELÁMPAGO</h1><p class="subtitle compact-subtitle">REVELACIÓN · siguiente lote en <span class="timer">${secondsLeft()}s</span></p>
+    <div class="glass-card game-card auction-card auction-card-v5 auction-reveal-v5 ${won ? 'won' : ''}">
+      <div class="auction-topline"><strong>Ronda ${idx + 1}/${total}</strong><span>Gana quien acabe con más capital</span></div>
+      <div class="auction-reveal-head ${net >= 0 ? 'good' : 'bad'}">
+        <span>${escapeHtml(result?.label || 'Revelación')}</span>
+        <h2>${escapeHtml(resultLot.name || 'Lote revelado')}</h2>
+        <p>${escapeHtml(resultLot.category || 'Tech')} · ${escapeHtml(resultLot.rarity || rarity)} · ${escapeHtml(event.label || 'Mercado')}</p>
+      </div>
+      ${auctionRevealSummary(result, resultLot)}
+      ${auctionYourReveal(result)}
+      <div class="auction-bid-list compact">${auctionBidRows(result)}</div>
+      ${(result?.notes || []).length ? `<div class="auction-notes">${result.notes.map((n) => `<span>${escapeHtml(n)}</span>`).join('')}</div>` : ''}
+      ${auctionCapitalBoard()}
+    </div>`;
+  }
+
+  const draftBid = auctionDraft.bid ?? (bid ? Number(bid.bid || 0) : Math.min(25, credits));
+  const insured = Boolean(auctionDraft.insurance || bid?.insurance);
+  const stance = auctionDraft.stance || bid?.stance || 'Secreto';
+  return `<h1 class="game-title compact-title auction-title-v5">SUBASTA RELÁMPAGO</h1>
+  <div class="glass-card game-card auction-card auction-card-v5">
+    <div class="auction-topline"><strong>Ronda ${idx + 1}/${total}</strong><span>Final: gana quien tenga más capital</span></div>
+    <div class="auction-timebar"><i style="width:${auctionProgressPct()}%"></i><span>${auctionPhaseLabel().replace(/<[^>]*>/g, '')}</span></div>
+    ${auctionHowToHtml(Boolean(bid))}
+    <div class="auction-layout-v5">
+      <section class="auction-lot-panel" aria-label="Lote de subasta">
+        <div class="auction-event auction-event-v5"><b>${escapeHtml(event.label || 'Evento')}</b><span>${escapeHtml(event.note || 'Lee pistas y puja por debajo del valor oculto.')}</span></div>
+        <div class="auction-lot-title"><span class="auction-rarity ${auctionRarityClass(rarity)}">${escapeHtml(rarity)}</span><h2>${escapeHtml(lot.name || 'Lote misterioso')}</h2></div>
+        <div class="auction-meta"><span>${escapeHtml(lot.category || 'Tech')}</span><span>Riesgo: ${escapeHtml(risk)}</span>${tags.slice(0, 3).map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+        <div class="auction-hidden-value"><b>Valor real oculto</b><span>No lo sabes todavía. Usa las pistas para estimarlo y puja menos de lo que crees que vale.</span></div>
+        ${auctionClues(lot, s)}
+      </section>
+      <section class="auction-action-panel" aria-label="Tu puja">
+        <div class="auction-decision-hint"><strong>Ahora</strong><span>${escapeHtml(auctionDecisionHint(lot, event, bid))}</span></div>
+        <form class="auction-form" data-auction-form>
+          <div class="auction-wallet"><div><span>Tu capital</span><strong>${credits}</strong></div><div><span>Tu puja</span><strong data-auction-live-bid>${Number(draftBid || 0)}</strong></div><div><span>Seguro</span><strong data-auction-live-insurance>${insured ? 'Sí' : 'No'}</strong></div></div>
+          <div class="auction-bid-meaning" data-auction-bid-meaning>${escapeHtml(auctionBidMeaning(draftBid, credits))}</div>
+          <label class="auction-bid-input"><span>Puja exacta</span><input data-auction-bid name="bid" type="number" min="0" max="${credits}" step="5" value="${draftBid}"></label>
+          <div class="auction-chip-row" aria-label="Pujas rápidas">${auctionQuickBidButtons(credits)}</div>
+          <div class="auction-tools auction-tools-v5">
+            <button type="button" class="lie-joker-card auction-tool" data-auction-analyze ${s.revealedExtra ? 'disabled aria-disabled="true"' : ''}><span class="lie-joker-icon">🔎</span><span class="lie-joker-copy"><strong>Analizar</strong><small>-${Number(s.analyzeCost ?? 10)} capital · revela pista extra</small></span></button>
+            <button type="button" class="lie-joker-card auction-tool ${insured ? 'active' : ''}" data-auction-insurance data-active="${insured ? '1' : '0'}"><span class="lie-joker-icon">🛡</span><span class="lie-joker-copy"><strong>Seguro</strong><small>-${Number(s.insuranceCost ?? 15)} capital · reduce pérdidas</small></span></button>
+            <label class="auction-stance"><span>Farol público</span><select data-auction-stance name="stance" data-current-stance="${escapeHtml(stance)}" aria-label="Postura pública"><option ${stance==="Secreto"?"selected":""}>Secreto</option><option ${stance==="Paso"?"selected":""}>Paso</option><option ${stance==="Me interesa"?"selected":""}>Me interesa</option><option ${stance==="Voy fuerte"?"selected":""}>Voy fuerte</option><option ${stance==="All-in"?"selected":""}>All-in</option></select></label>
+          </div>
+          <button class="primary-btn auction-confirm" type="submit"><span aria-hidden="true">🔨</span>${bid ? ' ACTUALIZAR PUJA' : ' CONFIRMAR PUJA'}</button>
+        </form>
+      </section>
+    </div>
+    ${auctionRivalsCompact()}
+    ${auctionCapitalBoard()}
     ${roundFeedbackHtml()}
   </div>`;
 }
@@ -1464,14 +1685,108 @@ function renderMentira() {
     ${submitted ? lieSubmittedPanel(s) : form}
   </div>`;
 }
-function renderForbiddenButton() {
-  const buttons = state.round?.state?.buttons || [];
-  const outcome = state.round?.state?.outcomes?.[playerIdKey()];
-  const chosen = outcome ? Number(outcome.button ?? -1) : -1;
-  return `<h1 class="game-title">BOTON PROHIBIDO</h1><p class="subtitle">ELIGE UNO - <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card">
-    <div class="answers">${buttons.map((button, i) => `<button class="answer-btn ${chosen === i ? 'is-selected' : ''}" data-button="${i}" ${outcome ? 'disabled aria-disabled="true"' : ''}><i class="${escapeHtml(button.icon || 'fa-solid fa-circle')}"></i> ${escapeHtml(button.label || `Boton ${i + 1}`)}</button>`).join('')}</div>
-    ${roundFeedbackHtml()}
+function forbiddenActionLabel(action) {
+  return ({ press: 'PULSAR', wait: 'AGUANTAR', shield: 'BLINDAJE', secret: 'DECIDIDO' }[action] || 'SIN DECIDIR');
+}
+function forbiddenActionIcon(action) {
+  return ({ press: '🔴', wait: '🧊', shield: '🛡', secret: '✓' }[action] || '•');
+}
+function forbiddenChoiceForSelf(s) {
+  const key = String(Number(s.current || 0));
+  return s.yourForbiddenChoice || s.choices?.[key]?.[playerIdKey()] || null;
+}
+function forbiddenScoreRows(s) {
+  const scores = s.scores || {};
+  return state.players.map((p) => ({ ...p, miniScore: Number(scores[p.id] || 0) })).sort((a, b) => b.miniScore - a.miniScore);
+}
+function forbiddenPlayerChips(s) {
+  const key = String(Number(s.current || 0));
+  const choices = s.choices?.[key] || {};
+  return `<div class="forbidden-player-chips">${state.players.map((p) => {
+    const choice = choices[p.id];
+    const own = String(p.id) === playerIdKey();
+    const action = choice?.action || '';
+    return `<span class="forbidden-player-chip ${choice ? 'ready' : ''} ${own ? 'you' : ''}">${escapeHtml(p.name)} · ${choice ? `${forbiddenActionIcon(own ? action : 'secret')} ${own ? forbiddenActionLabel(action) : 'Decidido'}` : 'Pensando'}</span>`;
+  }).join('')}</div>`;
+}
+function forbiddenTimerBar() {
+  const round = state.round || {};
+  const total = Math.max(1, Number(round.state?.durationMs || 14000));
+  const pct = Math.max(0, Math.min(100, (msLeft() / total) * 100));
+  return `<div class="forbidden-timerbar"><span style="width:${pct}%"></span></div>`;
+}
+function forbiddenMiniRanking(s) {
+  const rows = forbiddenScoreRows(s).slice(0, 4);
+  return `<div class="forbidden-mini-ranking">${rows.map((p, i) => `<div class="forbidden-rank ${String(p.id) === playerIdKey() ? 'you' : ''}"><span>${i + 1}</span><strong>${escapeHtml(p.name)}</strong><b>${Number(p.miniScore || 0)} pts</b></div>`).join('')}</div>`;
+}
+function renderForbiddenPress(s, button) {
+  const choice = forbiddenChoiceForSelf(s);
+  const action = choice?.action || '';
+  const scan = s.scannerResult;
+  const actionCards = [
+    ['press', '🔴', 'PULSAR', 'Arriesga. Puede dar premio, jackpot o castigo fuerte.'],
+    ['wait', '🧊', 'AGUANTAR', 'No tocas nada. Gana contra trampas, bombas y rondas de paciencia.'],
+    ['shield', '🛡', 'BLINDAJE', 'Te cubres. Menos premio, pero reduce sustos si dudas.'],
+  ].map(([id, icon, title, desc]) => `<button class="forbidden-action ${id} ${action === id ? 'selected' : ''}" data-forbidden-action="${id}"><span>${icon}</span><strong>${title}</strong><small>${desc}</small></button>`).join('');
+  return `<h1 class="game-title compact-title forbidden-title">BOTÓN PROHIBIDO</h1><p class="subtitle compact-subtitle">RONDA ${Number(s.current || 0) + 1}/${Number(s.total || 1)} · decide en <span class="timer">${secondsLeft()}s</span></p>
+  <div class="glass-card game-card forbidden-card forbidden-press-card">
+    ${forbiddenTimerBar()}
+    <section class="forbidden-hero">
+      <div class="forbidden-big-button" aria-hidden="true"><span>!</span><b>NO LO PULSES</b></div>
+      <div class="forbidden-info">
+        <div class="forbidden-topline"><span>Riesgo: ${escapeHtml(button.risk || '?')}</span><span>${escapeHtml(button.name || 'Botón misterioso')}</span></div>
+        <h2>${escapeHtml(button.clue || 'Algo no encaja.')}</h2>
+        <p><b>Objetivo:</b> acaba con más puntos. Lee la pista y decide: pulsar, aguantar o blindarte.</p>
+        <p><b>Consejo:</b> ${escapeHtml(button.hint || 'Si parece trampa, aguanta. Si parece premio, pulsa. Si dudas, usa blindaje.')}</p>
+      </div>
+    </section>
+    <section class="forbidden-actions-grid">${actionCards}</section>
+    <section class="forbidden-tools-row">
+      <button class="lie-joker-card forbidden-tool" data-forbidden-tool="scan" ${!s.canUseScanner ? 'disabled aria-disabled="true"' : ''}><span class="lie-joker-icon">🔎</span><span class="lie-joker-copy"><strong>Escáner</strong><small>Una vez por partida · te orienta sin revelar todo.</small></span></button>
+      <button class="lie-joker-card forbidden-tool" data-forbidden-action="lock" ${!s.canUseLock || choice ? 'disabled aria-disabled="true"' : ''}><span class="lie-joker-icon">🔒</span><span class="lie-joker-copy"><strong>Candado</strong><small>Te fuerza a aguantar esta ronda y suma autocontrol.</small></span></button>
+      <div class="forbidden-status-box"><strong>${choice ? `Tu decisión: ${forbiddenActionIcon(action)} ${forbiddenActionLabel(action)}` : 'Tu decisión: pendiente'}</strong><small>${choice ? 'Puedes cambiar de acción mientras quede tiempo.' : 'Elige una de las tres acciones grandes.'}</small></div>
+    </section>
+    ${scan ? `<div class="forbidden-scan-result">${escapeHtml(scan)}</div>` : ''}
+    ${forbiddenPlayerChips(s)}
+    ${forbiddenMiniRanking(s)}
   </div>`;
+}
+function renderForbiddenReveal(s) {
+  const result = s.lastOutcome || {};
+  const button = result.button || s.currentButton || {};
+  const rows = result.rows || [];
+  const best = result.best || null;
+  const rowHtml = rows.map((row) => `<div class="forbidden-result-row ${row.tone || 'info'} ${String(row.playerId) === playerIdKey() ? 'you' : ''}"><span>${escapeHtml(row.icon || '•')}</span><strong>${escapeHtml(row.name || playerNameById(row.playerId))}</strong><em>${escapeHtml(row.actionLabel || '')}${row.elapsedMs !== null && row.elapsedMs !== undefined ? ` · ${(Number(row.elapsedMs) / 1000).toFixed(1)}s` : ''}</em><b>${Number(row.points || 0) >= 0 ? '+' : ''}${Number(row.points || 0)}</b><small>${escapeHtml(row.title || '')}: ${escapeHtml(row.text || '')}</small></div>`).join('');
+  return `<h1 class="game-title compact-title forbidden-title">BOTÓN PROHIBIDO</h1><p class="subtitle compact-subtitle">REVELACIÓN · siguiente en <span class="timer">${secondsLeft()}s</span></p>
+  <div class="glass-card game-card forbidden-card forbidden-reveal-card">
+    <div class="forbidden-reveal-head">
+      <div><span>${escapeHtml(result.kindTitle || 'Botón revelado')}</span><h2>${escapeHtml(button.name || 'Botón misterioso')}</h2><p>${escapeHtml(button.clue || '')}</p></div>
+      <div class="forbidden-reveal-badge ${best && Number(best.points || 0) >= 0 ? 'good' : 'bad'}"><strong>${best ? `${escapeHtml(best.name || '')}` : 'Ronda resuelta'}</strong><small>${best ? `${Number(best.points || 0) >= 0 ? '+' : ''}${Number(best.points || 0)} pts` : ''}</small></div>
+    </div>
+    <div class="forbidden-explain"><b>Qué era:</b> ${escapeHtml(result.kindTitle || 'Botón oculto')}. <span>${escapeHtml(result.explanation || button.explanation || 'La pista se revela ahora para que aprendas a leer el botón.')}</span></div>
+    <div class="forbidden-result-list">${rowHtml}</div>
+    ${forbiddenMiniRanking(s)}
+  </div>`;
+}
+function renderForbiddenFinal(s) {
+  const rows = s.finalRows || forbiddenScoreRows(s).map((p) => ({ playerId: p.id, name: p.name, points: p.miniScore }));
+  const medals = s.medals || {};
+  const medalText = [
+    medals.winner ? `👑 Dedo prohibido: ${medals.winner.name}` : '',
+    medals.coldBlood ? `🧊 Sangre fría: ${medals.coldBlood.name}` : '',
+    medals.clickAddict ? `🔴 Adicto al click: ${medals.clickAddict.name}` : '',
+    medals.shield ? `🛡 Escudo humano: ${medals.shield.name}` : '',
+    medals.victim ? `💥 Víctima del botón: ${medals.victim.name}` : '',
+  ].filter(Boolean);
+  return `<div class="round-review glass-card forbidden-final-card"><h3>Fin del Botón Prohibido</h3><h2>${escapeHtml(medals.winner?.name || rows[0]?.name || 'Botón cerrado')}</h2><p>Gana quien leyó mejor las pistas, eligió cuándo pulsar y cuándo aguantar.</p><div class="forbidden-final-ranking">${rows.map((row, i) => `<div class="forbidden-final-row ${String(row.playerId) === playerIdKey() ? 'you' : ''}"><span>${i + 1}</span><strong>${escapeHtml(row.name || playerNameById(row.playerId))}</strong><em>${Number(row.presses || 0)} clicks · ${Number(row.waits || 0)} aguantes · ${Number(row.shields || 0)} blindajes</em><b>${Number(row.points || 0)} pts</b></div>`).join('')}</div>${medalText.length ? `<div class="lie-medals forbidden-medals">${medalText.map((m) => `<span>${escapeHtml(m)}</span>`).join('')}</div>` : ''}</div>`;
+}
+function renderForbiddenButton() {
+  const s = state.round?.state || {};
+  const phase = state.round?.phase || 'press';
+  const button = s.currentButton || {};
+  if (phase === 'reveal') return renderForbiddenReveal(s);
+  if (phase === 'results') return renderForbiddenFinal(s);
+  return renderForbiddenPress(s, button);
 }
 
 function renderUnsupported() {
@@ -1537,11 +1852,51 @@ function bindGameActions() {
     submitPayload({ vote: Number(btn.dataset.vote), wordGuess });
   }));
   app.querySelectorAll('[data-answer]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ answer: Number(btn.dataset.answer) }); }));
-  app.querySelectorAll('[data-auction-answer]').forEach((btn) => btn.addEventListener('click', () => {
-    markSelectionPending(btn);
-    const wager = Number(app.querySelector('[data-wager]')?.value || 200);
-    submitPayload({ answer: Number(btn.dataset.auctionAnswer), wager });
+  app.querySelectorAll('[data-auction-bid-chip]').forEach((btn) => btn.addEventListener('click', () => {
+    const input = app.querySelector('[data-auction-bid]');
+    const credits = auctionCreditsFor();
+    const value = btn.dataset.auctionBidChip === 'all' ? credits : Number(btn.dataset.auctionBidChip || 0);
+    if (input) {
+      const v = Math.max(0, Math.min(credits, value));
+      input.value = String(v);
+      auctionDraft.bid = v;
+      app.querySelector('[data-auction-live-bid]')?.replaceChildren(document.createTextNode(String(v)));
+      app.querySelector('[data-auction-bid-meaning]')?.replaceChildren(document.createTextNode(auctionBidMeaning(v, credits)));
+    }
   }));
+  app.querySelector('[data-auction-bid]')?.addEventListener('input', (event) => {
+    const credits = auctionCreditsFor();
+    const v = Math.max(0, Math.min(credits, Number(event.currentTarget.value || 0)));
+    auctionDraft.bid = v;
+    app.querySelector('[data-auction-live-bid]')?.replaceChildren(document.createTextNode(String(v)));
+    app.querySelector('[data-auction-bid-meaning]')?.replaceChildren(document.createTextNode(auctionBidMeaning(v, credits)));
+  });
+  app.querySelector('[data-auction-stance]')?.addEventListener('change', (event) => { auctionDraft.stance = event.currentTarget.value || 'Secreto'; });
+  app.querySelector('[data-auction-insurance]')?.addEventListener('click', (event) => {
+    const btn = event.currentTarget;
+    const active = btn.dataset.active === '1';
+    btn.dataset.active = active ? '0' : '1';
+    btn.classList.toggle('active', !active);
+    auctionDraft.insurance = !active;
+    app.querySelector('[data-auction-live-insurance]')?.replaceChildren(document.createTextNode(!active ? 'Sí' : 'No'));
+  });
+  app.querySelector('[data-auction-analyze]')?.addEventListener('click', (event) => {
+    event.currentTarget.disabled = true;
+    submitPayload({ auctionAction: 'analyze' });
+  });
+  app.querySelector('[data-auction-form]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const credits = auctionCreditsFor();
+    const bid = Math.max(0, Math.min(credits, Number(form.querySelector('[data-auction-bid]')?.value || 0)));
+    auctionDraft.bid = bid;
+    const insurance = form.querySelector('[data-auction-insurance]')?.dataset.active === '1';
+    auctionDraft.insurance = insurance;
+    const stanceSelect = form.querySelector('[data-auction-stance]');
+    const stance = stanceSelect?.value || 'Secreto';
+    auctionDraft.stance = stance;
+    submitPayload({ auctionAction: 'bid', bid, insurance, stance });
+  });
   app.querySelectorAll('[data-boss]').forEach((btn) => btn.addEventListener('click', () => {
     markSelectionPending(btn);
     app.querySelectorAll('[data-boss]').forEach((other) => { if (other !== btn) other.disabled = true; });
@@ -1549,7 +1904,8 @@ function bindGameActions() {
     setTimeout(() => btn.classList.remove('is-pressed'), 260);
     submitPayload({ move: btn.dataset.boss });
   }));
-  app.querySelectorAll('[data-button]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ button: Number(btn.dataset.button) }); }));
+  app.querySelectorAll('[data-forbidden-action]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ forbiddenAction: btn.dataset.forbiddenAction }); }));
+  app.querySelectorAll('[data-forbidden-tool]').forEach((btn) => btn.addEventListener('click', () => { btn.disabled = true; submitPayload({ forbiddenTool: btn.dataset.forbiddenTool }); }));
   app.querySelectorAll('[data-lie-vote]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ vote: btn.dataset.lieVote }); }));
   app.querySelectorAll('[data-lie-joker]').forEach((btn) => btn.addEventListener('click', () => { btn.disabled = true; submitPayload({ joker: btn.dataset.lieJoker }); }));
   app.querySelectorAll('[data-quiz-joker]').forEach((btn) => btn.addEventListener('click', () => { btn.disabled = true; submitPayload({ joker: btn.dataset.quizJoker }); }));
@@ -1612,7 +1968,7 @@ async function finishExpiredRound() {
       // En Boss cualquier cliente puede pedir el tick seguro: el servidor solo resuelve
       // si el turno ha terminado o si ya eligieron los jugadores online.
       await api('bossTick');
-    } else if (state?.round?.mode === 'quiz') {
+    } else if (['quiz', 'subasta', 'boton-prohibido'].includes(state?.round?.mode)) {
       await api('getState');
     } else if (isHost()) {
       await api('finishRound');

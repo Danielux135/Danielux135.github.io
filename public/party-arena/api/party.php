@@ -197,9 +197,32 @@ function public_round_state(array $round, ?array $viewer, array $players): array
             unset($state['fakeAnswers']);
         }
     }
-    if ($mode === 'boton-prohibido' && (($round['phase'] ?? '') !== 'results')) {
-        foreach (($state['buttons'] ?? []) as $i => $button) {
-            unset($state['buttons'][$i]['id'], $state['buttons'][$i]['effect'], $state['buttons'][$i]['points'], $state['buttons'][$i]['title'], $state['buttons'][$i]['text']);
+    if ($mode === 'boton-prohibido') {
+        $phase = (string)($round['phase'] ?? 'press');
+        $viewerKey = (string)$viewerId;
+        $idx = (string)(int)($rawState['current'] ?? 0);
+        $current = $rawState['sequence'][(int)($rawState['current'] ?? 0)] ?? null;
+        if (is_array($current)) {
+            $state['currentButton'] = $current;
+            if (!in_array($phase, ['reveal','results'], true)) unset($state['currentButton']['kind']);
+        }
+        $state['yourForbiddenChoice'] = ($rawState['choices'][$idx][$viewerKey] ?? null);
+        $state['yourForbiddenOutcome'] = null;
+        foreach (($rawState['outcomes'][$idx] ?? []) as $row) {
+            if (is_array($row) && (string)($row['playerId'] ?? '') === $viewerKey) $state['yourForbiddenOutcome'] = $row;
+        }
+        $state['canUseScanner'] = empty(($rawState['tools'][$viewerKey] ?? [])['scan']);
+        $state['canUseLock'] = empty(($rawState['tools'][$viewerKey] ?? [])['lock']);
+        $state['scannerResult'] = ($rawState['tools'][$viewerKey] ?? [])['scanResult'] ?? null;
+        if ($phase === 'press') {
+            $publicChoices = [];
+            foreach (($rawState['choices'][$idx] ?? []) as $pid => $choice) {
+                $publicChoices[(string)$pid] = ((string)$pid === $viewerKey) ? $choice : ['chosen'=>true, 'action'=>'secret'];
+            }
+            $state['choices'] = [$idx => $publicChoices];
+            unset($state['sequence'], $state['outcomes'], $state['lastOutcome'], $state['history'], $state['medals'], $state['finalRows']);
+        } elseif ($phase === 'reveal') {
+            unset($state['sequence']);
         }
     }
     if ($mode === 'quiz') {
@@ -209,6 +232,46 @@ function public_round_state(array $round, ?array $viewer, array $players): array
         $state['canUseFifty'] = empty(($rawState['jokers'][$viewerKey] ?? [])['fifty']);
         $state['canUseFreeze'] = empty(($rawState['jokers'][$viewerKey] ?? [])['freeze']);
         $state['fiftyRemoved'] = ($rawState['jokers'][$viewerKey] ?? [])['removed'] ?? [];
+    }
+
+    if ($mode === 'subasta') {
+        $phase = (string)($round['phase'] ?? 'bid');
+        $viewerKey = (string)$viewerId;
+        $idx = (string)(int)($rawState['current'] ?? 0);
+        $currentLot = $rawState['lots'][(int)$idx] ?? ($rawState['challenge'] ?? []);
+        $publicLot = $currentLot;
+        if ($phase === 'bid') {
+            unset($publicLot['value'], $publicLot['explanation']);
+        }
+        $state['challenge'] = $publicLot;
+        if (isset($state['lots']) && is_array($state['lots'])) {
+            foreach ($state['lots'] as $i => $lot) {
+                if ((string)$i !== $idx || $phase === 'bid') {
+                    unset($state['lots'][$i]['value'], $state['lots'][$i]['explanation'], $state['lots'][$i]['extra']);
+                }
+            }
+        }
+        $state['yourBid'] = ($rawState['bids'][$idx][$viewerKey] ?? null);
+        $state['yourCredits'] = (int)(($rawState['credits'] ?? [])[$viewerKey] ?? ($rawState['initialCredits'] ?? 0));
+        $state['analyzeCost'] = subasta_analyze_cost($rawState, $viewerKey);
+        $state['insuranceCost'] = subasta_insurance_cost($rawState, $viewerKey);
+        $state['bidMs'] = subasta_bid_ms($rawState);
+        $state['revealMs'] = subasta_reveal_ms();
+        $state['minDecisionMs'] = subasta_min_decision_ms();
+        $state['phaseStartedMs'] = (int)($rawState['phaseStartedMs'] ?? (int)($round['started_at_ms'] ?? now_ms()));
+        $state['revealedExtra'] = ($rawState['revealedClues'][$idx][$viewerKey] ?? null);
+        if ($phase === 'bid') {
+            $publicBids = [];
+            foreach (($rawState['bids'][$idx] ?? []) as $pid => $bid) {
+                if ((string)$pid === $viewerKey) {
+                    $publicBids[(string)$pid] = $bid;
+                } else {
+                    $publicBids[(string)$pid] = ['locked'=>true, 'stance'=>$bid['stance'] ?? 'Secreto', 'bot'=>!empty($bid['bot'])];
+                }
+            }
+            $state['bids'] = [$idx => $publicBids];
+            unset($state['history'], $state['lastResult'], $state['summary'], $state['finalRows'], $state['medals']);
+        }
     }
 
     $submitted = [];
@@ -257,6 +320,8 @@ function state_response(PDO $pdo, array $room, ?array $viewer = null): array {
     boss_auto_progress_room($pdo, $room);
     mentira_auto_progress_room($pdo, $room);
     quiz_auto_progress_room($pdo, $room);
+    subasta_auto_progress_room($pdo, $room);
+    forbidden_auto_progress_room($pdo, $room);
     $room = room_by_code($pdo, (string)$room['code']) ?: $room;
     $players = players_for_room($pdo, (int)$room['id']);
     $round = active_round($pdo, (int)$room['id']);
@@ -331,6 +396,9 @@ function used_content_ids(PDO $pdo, int $roomId, string $mode): array {
             if (isset($state[$key]) && is_array($state[$key]) && isset($state[$key]['id'])) {
                 $used[(string)$state[$key]['id']] = true;
             }
+        }
+        foreach (($state['lots'] ?? []) as $lot) {
+            if (is_array($lot) && isset($lot['id'])) $used[(string)$lot['id']] = true;
         }
     }
     return $used;
@@ -2100,34 +2168,1750 @@ function quiz_auto_progress_room(PDO $pdo, array $room): void {
 }
 
 function subasta_pool(): array {
-    return add_pool_ids('subasta', [
-        ['question'=>'¿Cuál es el puerto FTP normal?', 'options'=>['21','22','23','443'], 'correct'=>0],
-        ['question'=>'¿Qué archivo NO debe subirse a GitHub?', 'options'=>['config.local.php','index.html','style.css','README.md'], 'correct'=>0],
-        ['question'=>'¿Qué modo premia más la velocidad?', 'options'=>['Quiz/Bugs','Impostor','Mentira','Chat'], 'correct'=>0],
-        ['question'=>'¿Qué DNS apunta un subdominio a una IPv4?', 'options'=>['A','AAAA','MX','TXT'], 'correct'=>0],
-        ['question'=>'¿Qué DNS apunta un subdominio a una IPv6?', 'options'=>['AAAA','A','CNAME','SRV'], 'correct'=>0],
-        ['question'=>'¿Qué registro DNS suele usarse para correo?', 'options'=>['MX','A','CNAME','CAA'], 'correct'=>0],
-        ['question'=>'¿Qué registro puede verificar propiedad de dominio?', 'options'=>['TXT','IMG','HTTP','JSON'], 'correct'=>0],
-        ['question'=>'¿Qué estado HTTP indica redirección permanente?', 'options'=>['301','404','500','204'], 'correct'=>0],
-        ['question'=>'¿Qué estado HTTP indica sin contenido?', 'options'=>['204','201','418','503'], 'correct'=>0],
-        ['question'=>'¿Qué comando muestra cambios sin commitear?', 'options'=>['git status','git log --all','git push','npm run dev'], 'correct'=>0],
-        ['question'=>'¿Qué comando compila una web Vite?', 'options'=>['npm run build','npm run preview','npm install vite','git build'], 'correct'=>0],
-        ['question'=>'¿Qué comando sirve una preview local del build?', 'options'=>['npm run preview','npm run commit','php run vite','git preview'], 'correct'=>0],
-        ['question'=>'¿Qué etiqueta HTML carga JavaScript externo?', 'options'=>['<script src="app.js"></script>','<js href="app.js">','<link script="app.js">','<code src="app.js">'], 'correct'=>0],
-        ['question'=>'¿Qué atributo abre enlace en nueva pestaña?', 'options'=>['target="_blank"','newtab="true"','href="blank"','tab="external"'], 'correct'=>0],
-        ['question'=>'¿Qué propiedad CSS da esquinas redondeadas?', 'options'=>['border-radius','corner-size','radius-border','box-round'], 'correct'=>0],
-        ['question'=>'¿Qué propiedad CSS controla capas?', 'options'=>['z-index','layer-order','depth','stack'], 'correct'=>0],
-        ['question'=>'¿Qué posición permite usar top/left relativo al viewport?', 'options'=>['fixed','static','inline','grid'], 'correct'=>0],
-        ['question'=>'¿Qué operador JS compara valor y tipo?', 'options'=>['===','==','=','=>'], 'correct'=>0],
-        ['question'=>'¿Qué operador JS asigna valor?', 'options'=>['=','===','==','!=='], 'correct'=>0],
-        ['question'=>'¿Qué método convierte string a número decimal?', 'options'=>['parseFloat','JSON.parseFloat','Number.text','String.number'], 'correct'=>0],
-        ['question'=>'¿Qué función PHP comprueba hash de contraseña?', 'options'=>['password_verify','md5_compare','hash_login','verify_password_hash'], 'correct'=>0],
-        ['question'=>'¿Qué método PDO ejecuta una consulta preparada?', 'options'=>['execute','run','send','queryNow'], 'correct'=>0],
-        ['question'=>'¿Qué sentencia SQL elimina una tabla completa?', 'options'=>['DROP TABLE','DELETE TABLE','REMOVE TABLE','TRASH TABLE'], 'correct'=>0],
-        ['question'=>'¿Qué sentencia SQL limita el número de resultados?', 'options'=>['LIMIT','MAXROWS','TAKE','STOP AFTER'], 'correct'=>0],
-        ['question'=>'¿Qué cláusula une tablas?', 'options'=>['JOIN','MERGE BY','CONNECT','PAIR'], 'correct'=>0],
-    ]);
+    $json = <<<'JSON'
+[
+  {
+    "name": "Dominio .dev de 4 letras",
+    "category": "Hosting",
+    "rarity": "Legendario",
+    "risk": "Medio",
+    "value": 185,
+    "tags": [
+      "Hosting",
+      "Marca"
+    ],
+    "clues": [
+      "Corto, fácil de recordar y perfecto para portfolio.",
+      "La extensión .dev ya suena a proyecto serio.",
+      "La única duda: quizá no encaje con todas las marcas."
+    ],
+    "extra": "Tiene nombre pronunciable y no parece generado por accidente.",
+    "explanation": "Los dominios cortos y recordables suelen conservar valor. Si lo compras barato, es un activo de marca muy bueno."
+  },
+  {
+    "name": "Plugin de WordPress abandonado",
+    "category": "Legacy",
+    "rarity": "Raro",
+    "risk": "Alto",
+    "value": -70,
+    "tags": [
+      "Legacy",
+      "Seguridad"
+    ],
+    "clues": [
+      "Última actualización: hace 6 años.",
+      "Promete hacer de todo con un botón.",
+      "Tiene reviews antiguas muy buenas."
+    ],
+    "extra": "Los últimos comentarios preguntan si sigue funcionando en PHP 8.",
+    "explanation": "La deuda técnica y los riesgos de seguridad pesan más que la nostalgia. Barato puede salir caro."
+  },
+  {
+    "name": "Snippet CSS para centrar divs",
+    "category": "CSS",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 45,
+    "tags": [
+      "Frontend",
+      "CSS"
+    ],
+    "clues": [
+      "Tres líneas, cero dependencias.",
+      "Funciona con Flexbox moderno.",
+      "La documentación es un comentario bastante claro."
+    ],
+    "extra": "No usa position absolute ni hacks raros.",
+    "explanation": "Un snippet pequeño, moderno y fácil de mantener tiene valor real porque ahorra tiempo sin meter deuda."
+  },
+  {
+    "name": "API de clima gratuita",
+    "category": "APIs",
+    "rarity": "Raro",
+    "risk": "Medio",
+    "value": 65,
+    "tags": [
+      "Backend",
+      "APIs"
+    ],
+    "clues": [
+      "Plan gratuito generoso.",
+      "Tiene límite diario, pero no es ridículo.",
+      "La documentación incluye ejemplos reales."
+    ],
+    "extra": "Los cambios de pricing se avisan con 30 días.",
+    "explanation": "No es oro puro, pero una API gratis con límites claros y buena documentación puede ser un buen chollo."
+  },
+  {
+    "name": "Base de datos sin índices",
+    "category": "MySQL",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -95,
+    "tags": [
+      "MySQL",
+      "Legacy",
+      "Performance"
+    ],
+    "clues": [
+      "Tiene millones de filas.",
+      "Las consultas funcionan… hasta que hay usuarios.",
+      "Nadie sabe quién diseñó el esquema."
+    ],
+    "extra": "Hay SELECT con LIKE '%texto%' en producción.",
+    "explanation": "Sin índices, el rendimiento se hunde rápido. Esto no es una compra: es una deuda técnica con intereses."
+  },
+  {
+    "name": "Servidor VPS con descuento eterno",
+    "category": "Hosting",
+    "rarity": "Épico",
+    "risk": "Medio",
+    "value": 105,
+    "tags": [
+      "Hosting",
+      "DevOps"
+    ],
+    "clues": [
+      "Buen precio mensual.",
+      "NVMe y tráfico suficiente.",
+      "El panel parece de otra época."
+    ],
+    "extra": "La letra pequeña no menciona subida automática de precio.",
+    "explanation": "Si el descuento es real y el hardware acompaña, puede ser una gran compra pese a un panel feo."
+  },
+  {
+    "name": "Tema premium nulled",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Crítico",
+    "value": -140,
+    "tags": [
+      "Seguridad",
+      "Legacy"
+    ],
+    "clues": [
+      "Parece premium, pero viene de una web sospechosa.",
+      "Trae 18 plugins dentro del zip.",
+      "El vendedor dice '100% limpio' demasiadas veces."
+    ],
+    "extra": "Incluye un archivo llamado updater-backdoor.php.",
+    "explanation": "Los themes nulled son una bomba de seguridad. Lo barato aquí puede acabar en web infectada."
+  },
+  {
+    "name": "Librería JavaScript con 3 dependencias",
+    "category": "JavaScript",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 55,
+    "tags": [
+      "Frontend",
+      "JavaScript"
+    ],
+    "clues": [
+      "Hace una cosa concreta.",
+      "El bundle no crece mucho.",
+      "Tiene tests básicos."
+    ],
+    "extra": "Sus dependencias también están mantenidas.",
+    "explanation": "Una librería pequeña, enfocada y mantenida puede merecer la pena si evita código propio frágil."
+  },
+  {
+    "name": "Framework nuevo con mucho hype",
+    "category": "JavaScript",
+    "rarity": "Épico",
+    "risk": "Alto",
+    "value": -35,
+    "tags": [
+      "Frontend",
+      "JavaScript",
+      "Hype"
+    ],
+    "clues": [
+      "Todo Twitter habla de él.",
+      "La documentación cambia cada semana.",
+      "Aún no tiene versión estable."
+    ],
+    "extra": "El tutorial oficial empieza con 'esto puede romperse'.",
+    "explanation": "El hype no siempre se convierte en valor. Si cambia demasiado rápido, te cobra en migraciones."
+  },
+  {
+    "name": "Script PHP heredado",
+    "category": "PHP",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -80,
+    "tags": [
+      "PHP",
+      "Legacy"
+    ],
+    "clues": [
+      "Funciona en local.",
+      "Tiene variables globales por todas partes.",
+      "Nadie se atreve a tocarlo."
+    ],
+    "extra": "Mezcla HTML, SQL y lógica en el mismo archivo.",
+    "explanation": "Puede seguir funcionando, pero mantenerlo es lento y peligroso. La deuda pesa más que el ahorro inicial."
+  },
+  {
+    "name": "Paquete npm con 2 descargas semanales",
+    "category": "JavaScript",
+    "rarity": "Común",
+    "risk": "Medio",
+    "value": -25,
+    "tags": [
+      "JavaScript",
+      "Legacy"
+    ],
+    "clues": [
+      "El README es prometedor.",
+      "La comunidad es literalmente una persona.",
+      "No hay issues porque casi nadie lo usa."
+    ],
+    "extra": "El último publish fue hace 4 años.",
+    "explanation": "Puede ser útil, pero si falla estás solo. En producción, esa soledad cuesta."
+  },
+  {
+    "name": "CDN con plan gratis generoso",
+    "category": "Performance",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 95,
+    "tags": [
+      "Performance",
+      "Hosting",
+      "DevOps"
+    ],
+    "clues": [
+      "Caché global incluida.",
+      "SSL automático.",
+      "Panel bastante claro."
+    ],
+    "extra": "Tiene reglas de caché personalizables sin pagar.",
+    "explanation": "Un CDN decente mejora rendimiento y estabilidad. Si el plan gratis es claro, es una compra fuerte."
+  },
+  {
+    "name": "Certificado SSL wildcard",
+    "category": "Seguridad",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 70,
+    "tags": [
+      "Seguridad",
+      "Hosting"
+    ],
+    "clues": [
+      "Cubre todos los subdominios.",
+      "Renovación automatizable.",
+      "Útil si tienes varias demos o APIs."
+    ],
+    "extra": "Se integra con el panel del hosting.",
+    "explanation": "No es flashy, pero simplifica despliegues y evita errores de certificados en subdominios."
+  },
+  {
+    "name": "Diseño Figma impecable",
+    "category": "Diseño/UX",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 120,
+    "tags": [
+      "Diseño",
+      "Frontend"
+    ],
+    "clues": [
+      "Componentes ordenados.",
+      "Auto-layout bien usado.",
+      "Incluye estados mobile y desktop."
+    ],
+    "extra": "Los nombres de capas tienen sentido humano.",
+    "explanation": "Un diseño bien preparado ahorra muchísimas horas de implementación y reduce decisiones improvisadas."
+  },
+  {
+    "name": "Repositorio con 10k estrellas y 400 issues",
+    "category": "GitHub",
+    "rarity": "Épico",
+    "risk": "Alto",
+    "value": -20,
+    "tags": [
+      "GitHub",
+      "Legacy",
+      "Hype"
+    ],
+    "clues": [
+      "Muy popular hace años.",
+      "Último release: hace 2 años.",
+      "Hay forks activos, pero el original duerme."
+    ],
+    "extra": "Los issues críticos tienen respuestas de 2021.",
+    "explanation": "Las estrellas no garantizan mantenimiento. Popularidad antigua puede ser solo una trampa con buen marketing."
+  },
+  {
+    "name": "Landing page clonada de una plantilla",
+    "category": "Frontend",
+    "rarity": "Común",
+    "risk": "Medio",
+    "value": 15,
+    "tags": [
+      "Frontend",
+      "Diseño"
+    ],
+    "clues": [
+      "Se ve bonita en la demo.",
+      "Pesa más de lo que debería.",
+      "Todos los botones tienen el mismo CTA."
+    ],
+    "extra": "El CSS incluye 900 líneas que no se usan.",
+    "explanation": "Puede servir de punto de partida, pero no vale mucho si viene inflada y poco diferenciada."
+  },
+  {
+    "name": "Config .env subida por error",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Crítico",
+    "value": -160,
+    "tags": [
+      "Seguridad",
+      "GitHub"
+    ],
+    "clues": [
+      "Contiene claves reales.",
+      "Alguien la metió en un commit antiguo.",
+      "El repo fue público durante días."
+    ],
+    "extra": "La clave de API sigue activa.",
+    "explanation": "Una credencial filtrada no se compra, se revoca. Es una pérdida directa y urgente."
+  },
+  {
+    "name": "Automatización con GitHub Actions",
+    "category": "GitHub",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 90,
+    "tags": [
+      "GitHub",
+      "DevOps"
+    ],
+    "clues": [
+      "Build y deploy automáticos.",
+      "Tiene caché de dependencias.",
+      "Falla rápido cuando algo rompe."
+    ],
+    "extra": "Incluye secrets separados por entorno.",
+    "explanation": "Una buena automatización reduce errores humanos y hace los despliegues mucho más cómodos."
+  },
+  {
+    "name": "Consulta SQL con JOIN optimizado",
+    "category": "MySQL",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 85,
+    "tags": [
+      "MySQL",
+      "Performance",
+      "Backend"
+    ],
+    "clues": [
+      "Usa índices adecuados.",
+      "Evita N+1 queries.",
+      "Devuelve solo columnas necesarias."
+    ],
+    "extra": "El EXPLAIN no da miedo.",
+    "explanation": "Una query bien diseñada puede ahorrar más que cambiar de servidor. Buen rendimiento es valor real."
+  },
+  {
+    "name": "Tabla users con contraseñas MD5",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Crítico",
+    "value": -150,
+    "tags": [
+      "Seguridad",
+      "MySQL",
+      "Legacy"
+    ],
+    "clues": [
+      "Hash muy corto.",
+      "Sin salt.",
+      "El sistema dice 'así ha funcionado siempre'."
+    ],
+    "extra": "Hay usuarios con contraseña '123456'.",
+    "explanation": "MD5 no es adecuado para contraseñas. Migrar a password_hash/password_verify es obligatorio."
+  },
+  {
+    "name": "Microcopy perfecto para formularios",
+    "category": "UX",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 50,
+    "tags": [
+      "Diseño",
+      "UX"
+    ],
+    "clues": [
+      "Mensajes de error claros.",
+      "Explica qué pasó y cómo arreglarlo.",
+      "No culpa al usuario."
+    ],
+    "extra": "Incluye textos para estados vacíos.",
+    "explanation": "Buen texto UX reduce frustración y soporte. No parece espectacular, pero se nota muchísimo."
+  },
+  {
+    "name": "Bundle JS de 3 MB",
+    "category": "Performance",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -90,
+    "tags": [
+      "Performance",
+      "JavaScript"
+    ],
+    "clues": [
+      "Carga lenta en móvil.",
+      "Incluye librerías que solo se usan una vez.",
+      "El Lighthouse llora."
+    ],
+    "extra": "Hay tres date pickers distintos en producción.",
+    "explanation": "Un bundle enorme empeora experiencia y conversión. Optimizarlo vale más que comprarlo."
+  },
+  {
+    "name": "Sistema de caché bien configurado",
+    "category": "Performance",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 130,
+    "tags": [
+      "Performance",
+      "Backend",
+      "DevOps"
+    ],
+    "clues": [
+      "Cachea assets con hashes.",
+      "No cachea respuestas privadas.",
+      "Tiene invalidación clara."
+    ],
+    "extra": "Distingue HTML, API y assets estáticos.",
+    "explanation": "La caché bien hecha acelera sin romper datos. Es uno de los mejores activos técnicos."
+  },
+  {
+    "name": "API sin documentación",
+    "category": "APIs",
+    "rarity": "Raro",
+    "risk": "Alto",
+    "value": -45,
+    "tags": [
+      "APIs",
+      "Backend"
+    ],
+    "clues": [
+      "Responde rápido.",
+      "No sabes todos los parámetros.",
+      "Los ejemplos están desactualizados."
+    ],
+    "extra": "El endpoint de autenticación devuelve errores distintos cada día.",
+    "explanation": "Una API sin documentación cuesta integración, depuración y mantenimiento. El valor real cae mucho."
+  },
+  {
+    "name": "Endpoint REST limpio",
+    "category": "APIs",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 80,
+    "tags": [
+      "APIs",
+      "Backend"
+    ],
+    "clues": [
+      "Usa códigos HTTP coherentes.",
+      "Errores en JSON claro.",
+      "Autenticación documentada."
+    ],
+    "extra": "Incluye paginación y filtros consistentes.",
+    "explanation": "Una API predecible ahorra tiempo y reduce bugs. Buena compra para cualquier proyecto."
+  },
+  {
+    "name": "Panel admin sin autenticación",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Crítico",
+    "value": -180,
+    "tags": [
+      "Seguridad",
+      "Backend"
+    ],
+    "clues": [
+      "La URL no está enlazada, pero existe.",
+      "Alguien dijo 'nadie la encontrará'.",
+      "Permite editar contenido."
+    ],
+    "extra": "Google ya la indexó.",
+    "explanation": "La seguridad por ocultación no vale. Un admin sin auth es una catástrofe esperando turno."
+  },
+  {
+    "name": "Componente accesible de modal",
+    "category": "Accesibilidad",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 75,
+    "tags": [
+      "Frontend",
+      "UX",
+      "Accesibilidad"
+    ],
+    "clues": [
+      "Atrapa foco correctamente.",
+      "Cierra con Escape.",
+      "Tiene roles ARIA adecuados."
+    ],
+    "extra": "Devuelve el foco al botón que lo abrió.",
+    "explanation": "La accesibilidad bien resuelta mejora calidad y evita bugs molestos para teclado/lectores."
+  },
+  {
+    "name": "Carrusel infinito sin pausa",
+    "category": "UX",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -45,
+    "tags": [
+      "Frontend",
+      "UX"
+    ],
+    "clues": [
+      "Se mueve solo.",
+      "No respeta reduce-motion.",
+      "En móvil se pelea con el scroll."
+    ],
+    "extra": "No se puede pausar con teclado.",
+    "explanation": "Un carrusel intrusivo puede empeorar la experiencia. Si no respeta al usuario, resta valor."
+  },
+  {
+    "name": "Worker de Cloudflare proxy",
+    "category": "Backend",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 115,
+    "tags": [
+      "Backend",
+      "APIs",
+      "DevOps"
+    ],
+    "clues": [
+      "Oculta claves del frontend.",
+      "Permite controlar CORS.",
+      "Puede cachear respuestas públicas."
+    ],
+    "extra": "Tiene logs claros y fallback al origen.",
+    "explanation": "Un proxy bien hecho protege secretos, simplifica CORS y puede mejorar rendimiento."
+  },
+  {
+    "name": "Worker con URL hardcodeada vieja",
+    "category": "Backend",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -75,
+    "tags": [
+      "Backend",
+      "APIs",
+      "Legacy"
+    ],
+    "clues": [
+      "Funcionaba antes del cambio de dominio.",
+      "Nadie actualizó variables de entorno.",
+      "Los errores son 502 intermitentes."
+    ],
+    "extra": "El deploy correcto está en otra cuenta.",
+    "explanation": "Un proxy apuntando a un origen viejo genera bugs fantasma difíciles de diagnosticar."
+  },
+  {
+    "name": "Backup automático diario",
+    "category": "DevOps",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 95,
+    "tags": [
+      "DevOps",
+      "Seguridad"
+    ],
+    "clues": [
+      "Se ejecuta sin intervención.",
+      "Guarda varias versiones.",
+      "Se probó una restauración real."
+    ],
+    "extra": "Avisa si falla el backup.",
+    "explanation": "Un backup que se ha probado vale muchísimo más que una promesa de backup."
+  },
+  {
+    "name": "Backup que nunca se ha restaurado",
+    "category": "DevOps",
+    "rarity": "Común",
+    "risk": "Alto",
+    "value": -40,
+    "tags": [
+      "DevOps",
+      "Legacy"
+    ],
+    "clues": [
+      "Existe una carpeta llamada backups_final_final.",
+      "Nadie sabe si está completa.",
+      "Pesa muchísimo."
+    ],
+    "extra": "El último archivo tiene fecha sospechosa.",
+    "explanation": "Un backup no probado es casi una superstición. Puede salvarte o fallar justo cuando importa."
+  },
+  {
+    "name": "Logo SVG con colores editables",
+    "category": "Diseño",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 65,
+    "tags": [
+      "Diseño",
+      "Frontend"
+    ],
+    "clues": [
+      "Usa currentColor.",
+      "No trae raster incrustado.",
+      "Escala sin pixelarse."
+    ],
+    "extra": "Se adapta a tema claro y oscuro.",
+    "explanation": "Un SVG limpio y adaptable encaja perfecto en una web con temas y personalización."
+  },
+  {
+    "name": "Logo PNG a 128px",
+    "category": "Diseño",
+    "rarity": "Común",
+    "risk": "Medio",
+    "value": -10,
+    "tags": [
+      "Diseño"
+    ],
+    "clues": [
+      "Se ve bien en pequeño.",
+      "En pantallas retina se emborrona.",
+      "No puedes cambiar color fácilmente."
+    ],
+    "extra": "El fondo blanco viene pegado.",
+    "explanation": "No es inútil, pero limita temas, escalado y acabado profesional."
+  },
+  {
+    "name": "Formulario con validación real",
+    "category": "Frontend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 80,
+    "tags": [
+      "Frontend",
+      "UX",
+      "Seguridad"
+    ],
+    "clues": [
+      "Valida en cliente y servidor.",
+      "Muestra errores útiles.",
+      "Evita envíos duplicados."
+    ],
+    "extra": "Incluye estados loading y success.",
+    "explanation": "Un formulario robusto parece simple, pero evita muchos fallos reales de producto."
+  },
+  {
+    "name": "Formulario que solo valida en frontend",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -85,
+    "tags": [
+      "Frontend",
+      "Seguridad"
+    ],
+    "clues": [
+      "El botón se desactiva con JS.",
+      "El backend confía en todo.",
+      "Con DevTools se salta fácil."
+    ],
+    "extra": "No sanitiza campos en servidor.",
+    "explanation": "La validación frontend ayuda a UX, pero la seguridad debe vivir también en backend."
+  },
+  {
+    "name": "Sistema de emails con doble opt-in",
+    "category": "Backend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 90,
+    "tags": [
+      "Backend",
+      "UX",
+      "Seguridad"
+    ],
+    "clues": [
+      "Confirma suscripción por correo.",
+      "Reduce registros falsos.",
+      "Evita quejas de spam."
+    ],
+    "extra": "Guarda fecha y origen del consentimiento.",
+    "explanation": "Para newsletters, un opt-in bien hecho mejora entregabilidad y confianza."
+  },
+  {
+    "name": "Newsletter sin baja visible",
+    "category": "UX",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -90,
+    "tags": [
+      "UX",
+      "Seguridad"
+    ],
+    "clues": [
+      "Enviar es fácil, darse de baja no.",
+      "El enlace está escondido.",
+      "Los usuarios se enfadan rápido."
+    ],
+    "extra": "Los correos acaban en spam por quejas.",
+    "explanation": "Sin baja clara, el sistema pierde confianza y puede dañar la reputación del dominio."
+  },
+  {
+    "name": "Migración SQL reversible",
+    "category": "MySQL",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 115,
+    "tags": [
+      "MySQL",
+      "Backend",
+      "DevOps"
+    ],
+    "clues": [
+      "Tiene up y down.",
+      "Se probó en staging.",
+      "No bloquea tablas enormes."
+    ],
+    "extra": "Incluye copia previa de seguridad.",
+    "explanation": "Una migración pensada reduce miedo al deploy y permite corregir errores con rapidez."
+  },
+  {
+    "name": "ALTER TABLE en producción sin backup",
+    "category": "MySQL",
+    "rarity": "Maldito",
+    "risk": "Crítico",
+    "value": -170,
+    "tags": [
+      "MySQL",
+      "DevOps",
+      "Legacy"
+    ],
+    "clues": [
+      "La tabla es grande.",
+      "Se ejecuta viernes tarde.",
+      "No hay plan de rollback."
+    ],
+    "extra": "El comando lo copió alguien de StackOverflow sin leerlo entero.",
+    "explanation": "Modificar estructura en producción sin backup ni plan puede tumbar la web y perder datos."
+  },
+  {
+    "name": "README con instalación clara",
+    "category": "GitHub",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 55,
+    "tags": [
+      "GitHub",
+      "UX"
+    ],
+    "clues": [
+      "Explica requisitos.",
+      "Tiene comandos de instalación.",
+      "Incluye variables de entorno de ejemplo."
+    ],
+    "extra": "También dice cómo ejecutar tests/build.",
+    "explanation": "Un buen README baja la barrera de entrada y evita perder tiempo preguntando lo básico."
+  },
+  {
+    "name": "README que dice 'próximamente'",
+    "category": "GitHub",
+    "rarity": "Común",
+    "risk": "Medio",
+    "value": -20,
+    "tags": [
+      "GitHub",
+      "Legacy"
+    ],
+    "clues": [
+      "El proyecto parece interesante.",
+      "No explica cómo arrancarlo.",
+      "El autor lo entendía en 2022."
+    ],
+    "extra": "Hay capturas de una versión que ya no existe.",
+    "explanation": "Sin instrucciones, cada instalación se convierte en arqueología."
+  },
+  {
+    "name": "Dockerfile pequeño y limpio",
+    "category": "DevOps",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 85,
+    "tags": [
+      "DevOps",
+      "Backend"
+    ],
+    "clues": [
+      "Usa imagen ligera.",
+      "No copia secretos.",
+      "Cachea capas bien."
+    ],
+    "extra": "El contenedor arranca con usuario no root.",
+    "explanation": "Un Dockerfile bien hecho facilita despliegues reproducibles y reduce riesgos."
+  },
+  {
+    "name": "Dockerfile de 2 GB",
+    "category": "DevOps",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -60,
+    "tags": [
+      "DevOps",
+      "Performance"
+    ],
+    "clues": [
+      "Instala medio sistema operativo.",
+      "Copia node_modules del host.",
+      "Tarda siglos en build."
+    ],
+    "extra": "Incluye herramientas de debug en producción.",
+    "explanation": "Una imagen gigante cuesta tiempo, transferencia y superficie de ataque."
+  },
+  {
+    "name": "Test E2E del flujo principal",
+    "category": "Testing",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 80,
+    "tags": [
+      "Testing",
+      "UX"
+    ],
+    "clues": [
+      "Cubre el camino feliz.",
+      "Falla cuando rompe login o compra.",
+      "Corre en CI."
+    ],
+    "extra": "Graba screenshot al fallar.",
+    "explanation": "Un test E2E bien elegido detecta roturas importantes sin probarlo todo manualmente."
+  },
+  {
+    "name": "Test que siempre pasa",
+    "category": "Testing",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -35,
+    "tags": [
+      "Testing",
+      "Legacy"
+    ],
+    "clues": [
+      "Comprueba que true es true.",
+      "El coverage parece alto.",
+      "No cubre nada crítico."
+    ],
+    "extra": "Si borra media app, sigue verde.",
+    "explanation": "Los tests decorativos dan falsa seguridad. Peor que no tenerlos, porque engañan."
+  },
+  {
+    "name": "Sistema de temas claro/oscuro",
+    "category": "Frontend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 70,
+    "tags": [
+      "Frontend",
+      "Diseño",
+      "UX"
+    ],
+    "clues": [
+      "Usa variables CSS.",
+      "Respeta preferencias del sistema.",
+      "No rompe contraste."
+    ],
+    "extra": "Los SVG también heredan color.",
+    "explanation": "Un buen sistema de temas mejora percepción y mantenimiento visual."
+  },
+  {
+    "name": "Tema claro con texto gris sobre blanco",
+    "category": "UX",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -55,
+    "tags": [
+      "UX",
+      "Diseño"
+    ],
+    "clues": [
+      "Se ve minimalista en la maqueta.",
+      "En portátil barato no se lee.",
+      "Los botones parecen desactivados."
+    ],
+    "extra": "El contraste no pasa WCAG básico.",
+    "explanation": "El diseño bonito que no se lee pierde su función. La accesibilidad también es calidad."
+  },
+  {
+    "name": "Analítica respetuosa sin cookies invasivas",
+    "category": "Privacidad",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 65,
+    "tags": [
+      "UX",
+      "Seguridad"
+    ],
+    "clues": [
+      "Mide lo necesario.",
+      "No persigue al usuario por internet.",
+      "Carga rápido."
+    ],
+    "extra": "No bloquea la página si falla.",
+    "explanation": "Saber qué ocurre sin invadir al usuario es un equilibrio valioso."
+  },
+  {
+    "name": "Pop-up de cookies gigante",
+    "category": "UX",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -45,
+    "tags": [
+      "UX",
+      "Legacy"
+    ],
+    "clues": [
+      "Ocupa media pantalla.",
+      "El botón aceptar brilla más.",
+      "Reaparece demasiado."
+    ],
+    "extra": "En móvil tapa el CTA principal.",
+    "explanation": "Un mal banner puede arruinar la primera impresión y bajar conversiones."
+  },
+  {
+    "name": "Buscador con debounce",
+    "category": "JavaScript",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 60,
+    "tags": [
+      "JavaScript",
+      "UX",
+      "Performance"
+    ],
+    "clues": [
+      "No dispara petición por cada tecla.",
+      "Muestra loading corto.",
+      "Cancela resultados viejos."
+    ],
+    "extra": "Maneja búsqueda vacía sin romper.",
+    "explanation": "El debounce correcto hace que una búsqueda parezca fluida y no machaque la API."
+  },
+  {
+    "name": "Buscador que consulta cada tecla",
+    "category": "Performance",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -50,
+    "tags": [
+      "JavaScript",
+      "Performance"
+    ],
+    "clues": [
+      "Funciona en local.",
+      "En producción hace demasiadas peticiones.",
+      "Los resultados llegan desordenados."
+    ],
+    "extra": "No cancela fetch anteriores.",
+    "explanation": "Sin control de frecuencia, la búsqueda carga el backend y crea resultados inconsistentes."
+  },
+  {
+    "name": "Autenticación con sesiones seguras",
+    "category": "Seguridad",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 125,
+    "tags": [
+      "Backend",
+      "Seguridad"
+    ],
+    "clues": [
+      "Cookies HttpOnly.",
+      "Expiración razonable.",
+      "Protección CSRF donde toca."
+    ],
+    "extra": "No guarda tokens en localStorage sin necesidad.",
+    "explanation": "La autenticación bien diseñada evita sustos grandes y da confianza al sistema."
+  },
+  {
+    "name": "Token JWT eterno en localStorage",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -100,
+    "tags": [
+      "Seguridad",
+      "Backend"
+    ],
+    "clues": [
+      "No caduca nunca.",
+      "Se lee desde cualquier script.",
+      "La app no sabe revocarlo."
+    ],
+    "extra": "Un XSS pequeño se vuelve un incendio grande.",
+    "explanation": "Los tokens eternos y accesibles por JS amplifican el daño de cualquier vulnerabilidad frontend."
+  },
+  {
+    "name": "Optimización de imágenes con srcset",
+    "category": "Performance",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 75,
+    "tags": [
+      "Performance",
+      "Frontend"
+    ],
+    "clues": [
+      "Sirve tamaños distintos.",
+      "Usa formatos modernos.",
+      "No manda imagen enorme a móvil."
+    ],
+    "extra": "Incluye width/height para evitar saltos.",
+    "explanation": "Imágenes optimizadas aceleran carga y mejoran estabilidad visual."
+  },
+  {
+    "name": "Hero con vídeo de 80 MB",
+    "category": "Performance",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -85,
+    "tags": [
+      "Performance",
+      "Diseño"
+    ],
+    "clues": [
+      "Queda espectacular en fibra.",
+      "En móvil tarda demasiado.",
+      "No tiene poster ligero."
+    ],
+    "extra": "Se reproduce antes de que el usuario quiera verlo.",
+    "explanation": "Un vídeo pesado puede hacer que nadie vea lo bonito que era. Rendimiento primero."
+  },
+  {
+    "name": "Mini juego frontend en un solo HTML",
+    "category": "Frontend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 70,
+    "tags": [
+      "Frontend",
+      "Diseño"
+    ],
+    "clues": [
+      "No necesita backend.",
+      "Tiene CSS y JS ordenados.",
+      "Se puede copiar y probar rápido."
+    ],
+    "extra": "El footer acredita al autor correctamente.",
+    "explanation": "Una demo autocontenida es práctica para portfolio y para enseñar trabajo sin instalación."
+  },
+  {
+    "name": "Demo que depende de 14 CDNs",
+    "category": "Frontend",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -55,
+    "tags": [
+      "Frontend",
+      "Performance",
+      "Legacy"
+    ],
+    "clues": [
+      "Carga si todos los CDNs responden.",
+      "Cada librería hace una cosa mínima.",
+      "Offline no muestra nada."
+    ],
+    "extra": "Uno de los CDNs tiene CORS raro.",
+    "explanation": "Demasiadas dependencias externas vuelven la demo frágil y lenta."
+  },
+  {
+    "name": "Sistema de logs con contexto",
+    "category": "Backend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 80,
+    "tags": [
+      "Backend",
+      "DevOps"
+    ],
+    "clues": [
+      "Incluye request id.",
+      "No filtra contraseñas.",
+      "Permite rastrear errores reales."
+    ],
+    "extra": "Distingue warning, error y info.",
+    "explanation": "Los logs buenos convierten bugs misteriosos en problemas localizables."
+  },
+  {
+    "name": "Logs que imprimen tokens",
+    "category": "Seguridad",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -120,
+    "tags": [
+      "Seguridad",
+      "Backend"
+    ],
+    "clues": [
+      "Ayudaron a depurar una vez.",
+      "Ahora guardan secretos en texto plano.",
+      "Nadie limpia los logs antiguos."
+    ],
+    "extra": "Los backups también guardan esos logs.",
+    "explanation": "Loguear secretos crea fugas silenciosas. Debug barato, riesgo caro."
+  },
+  {
+    "name": "Mapa interactivo accesible",
+    "category": "Frontend",
+    "rarity": "Épico",
+    "risk": "Medio",
+    "value": 110,
+    "tags": [
+      "Frontend",
+      "UX",
+      "Accesibilidad"
+    ],
+    "clues": [
+      "Funciona con ratón y teclado.",
+      "Tiene estados hover/focus.",
+      "No depende solo del color."
+    ],
+    "extra": "La versión mobile usa lista alternativa.",
+    "explanation": "Una interacción compleja bien resuelta demuestra calidad real y atención al detalle."
+  },
+  {
+    "name": "Mapa que solo funciona con hover",
+    "category": "UX",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -50,
+    "tags": [
+      "UX",
+      "Frontend"
+    ],
+    "clues": [
+      "En escritorio parece guay.",
+      "En móvil no existe hover.",
+      "No hay alternativa táctil."
+    ],
+    "extra": "Los usuarios no saben qué pulsar.",
+    "explanation": "Diseñar solo para hover rompe móvil y accesibilidad. La interacción debe tener alternativa."
+  },
+  {
+    "name": "Pipeline de build limpio",
+    "category": "DevOps",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 90,
+    "tags": [
+      "DevOps",
+      "Performance"
+    ],
+    "clues": [
+      "Instala dependencias reproducibles.",
+      "Genera dist limpio.",
+      "Falla si hay errores de sintaxis."
+    ],
+    "extra": "No sube archivos temporales al deploy.",
+    "explanation": "Un build fiable reduce errores tontos y hace los cambios más seguros."
+  },
+  {
+    "name": "Dist mezclado con archivos viejos",
+    "category": "DevOps",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -70,
+    "tags": [
+      "DevOps",
+      "Legacy"
+    ],
+    "clues": [
+      "A veces se ve la versión nueva.",
+      "A veces carga JS antiguo.",
+      "Nadie limpió dist antes de compilar."
+    ],
+    "extra": "Hay assets duplicados con nombres parecidos.",
+    "explanation": "Mezclar builds viejos y nuevos provoca bugs fantasma y cachés imposibles."
+  },
+  {
+    "name": "Iconos SVG propios",
+    "category": "Diseño",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 65,
+    "tags": [
+      "Diseño",
+      "Frontend"
+    ],
+    "clues": [
+      "No dependen de fuentes externas.",
+      "Se pueden colorear con CSS.",
+      "Escalan bien."
+    ],
+    "extra": "Tienen fallback si no carga nada.",
+    "explanation": "Iconos controlados y ligeros evitan glitches de fuentes y mantienen estilo consistente."
+  },
+  {
+    "name": "FontAwesome roto en producción",
+    "category": "Frontend",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -40,
+    "tags": [
+      "Frontend",
+      "UX"
+    ],
+    "clues": [
+      "En local se veía perfecto.",
+      "En producción salen cuadrados raros.",
+      "La fuente no carga por ruta/CORS."
+    ],
+    "extra": "Los botones pierden significado sin icono.",
+    "explanation": "Depender de fuentes externas para iconos puede romper UI. Mejor tener símbolos o SVG de respaldo."
+  },
+  {
+    "name": "Prompt de IA muy específico",
+    "category": "IA/Hype",
+    "rarity": "Común",
+    "risk": "Bajo",
+    "value": 55,
+    "tags": [
+      "IA",
+      "UX"
+    ],
+    "clues": [
+      "Da contexto y restricciones.",
+      "Pide formato de salida claro.",
+      "Incluye ejemplos."
+    ],
+    "extra": "También dice qué NO debe hacer.",
+    "explanation": "Un buen prompt no es magia, pero reduce iteraciones y resultados basura."
+  },
+  {
+    "name": "Prompt de IA 'hazlo bonito'",
+    "category": "IA/Hype",
+    "rarity": "Común",
+    "risk": "Medio",
+    "value": -15,
+    "tags": [
+      "IA",
+      "Hype"
+    ],
+    "clues": [
+      "Es muy breve.",
+      "No define objetivo.",
+      "Luego toca corregirlo todo."
+    ],
+    "extra": "El resultado tiene lorem ipsum con neones.",
+    "explanation": "Sin dirección clara, la IA rellena huecos con clichés. Sale rápido, pero no necesariamente útil."
+  },
+  {
+    "name": "Sistema de feature flags",
+    "category": "Backend",
+    "rarity": "Épico",
+    "risk": "Bajo",
+    "value": 105,
+    "tags": [
+      "Backend",
+      "DevOps"
+    ],
+    "clues": [
+      "Permite activar funciones poco a poco.",
+      "Tiene rollback rápido.",
+      "Se puede segmentar por usuario."
+    ],
+    "extra": "Los flags viejos se limpian.",
+    "explanation": "Los feature flags reducen riesgo en lanzamientos y hacen más seguro experimentar."
+  },
+  {
+    "name": "Función beta activada a todos",
+    "category": "DevOps",
+    "rarity": "Maldito",
+    "risk": "Alto",
+    "value": -95,
+    "tags": [
+      "DevOps",
+      "UX"
+    ],
+    "clues": [
+      "Solo se probó en local.",
+      "No tiene rollback.",
+      "Los usuarios descubren los bugs."
+    ],
+    "extra": "El botón beta está en producción sin aviso.",
+    "explanation": "Lanzar sin control convierte usuarios en testers involuntarios y complica revertir."
+  },
+  {
+    "name": "Accesibilidad de teclado completa",
+    "category": "Accesibilidad",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 85,
+    "tags": [
+      "Accesibilidad",
+      "UX",
+      "Frontend"
+    ],
+    "clues": [
+      "Todo se puede tabular.",
+      "El foco se ve claro.",
+      "Enter/Escape hacen lo esperado."
+    ],
+    "extra": "El orden de tabulación tiene sentido.",
+    "explanation": "La navegación por teclado mejora accesibilidad y también la sensación de calidad general."
+  },
+  {
+    "name": "Botón invisible al foco",
+    "category": "Accesibilidad",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -35,
+    "tags": [
+      "Accesibilidad",
+      "UX"
+    ],
+    "clues": [
+      "Con ratón parece funcionar.",
+      "Con teclado no sabes dónde estás.",
+      "El outline fue eliminado por estética."
+    ],
+    "extra": "No hay estilo :focus-visible.",
+    "explanation": "Quitar el foco visible rompe navegación por teclado. Es un fallo pequeño con impacto grande."
+  },
+  {
+    "name": "Cache busting por hash",
+    "category": "Performance",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 75,
+    "tags": [
+      "Performance",
+      "DevOps"
+    ],
+    "clues": [
+      "Los assets cambian de nombre al compilar.",
+      "Permite cache largo.",
+      "Evita JS viejo tras deploy."
+    ],
+    "extra": "El HTML referencia siempre el asset correcto.",
+    "explanation": "El cache busting bien hecho evita que el usuario juegue con una versión antigua sin saberlo."
+  },
+  {
+    "name": "Ctrl+F5 como estrategia de deploy",
+    "category": "DevOps",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -45,
+    "tags": [
+      "DevOps",
+      "UX"
+    ],
+    "clues": [
+      "Funciona si el usuario obedece.",
+      "No escala.",
+      "Cada bug parece caché."
+    ],
+    "extra": "El soporte empieza todas las frases con 'prueba a refrescar'.",
+    "explanation": "Forzar refrescos manuales es síntoma de pipeline/cache mal configurados."
+  },
+  {
+    "name": "Sistema de i18n con diccionario",
+    "category": "Frontend",
+    "rarity": "Raro",
+    "risk": "Bajo",
+    "value": 80,
+    "tags": [
+      "Frontend",
+      "UX"
+    ],
+    "clues": [
+      "Textos separados por idioma.",
+      "Mantiene estado al cambiar idioma.",
+      "No duplica HTML entero."
+    ],
+    "extra": "Los botones se adaptan a textos largos.",
+    "explanation": "Un i18n ordenado permite crecer sin convertir cada cambio en tres copias manuales."
+  },
+  {
+    "name": "Traducción pegada en HTML duplicado",
+    "category": "Frontend",
+    "rarity": "Maldito",
+    "risk": "Medio",
+    "value": -55,
+    "tags": [
+      "Frontend",
+      "Legacy"
+    ],
+    "clues": [
+      "Funciona al principio.",
+      "Cada idioma tiene markup distinto.",
+      "Un bug se arregla en un idioma y en otro no."
+    ],
+    "extra": "El selector de idioma no sabe qué versión está activa.",
+    "explanation": "Duplicar estructura por idioma escala fatal y provoca inconsistencias."
+  }
+]
+JSON;
+    return add_pool_ids('subasta', json_decode($json, true) ?: []);
 }
+function subasta_total_rounds(array $players): int { return count($players) <= 1 ? 7 : 8; }
+function subasta_bid_ms(array $state): int {
+    $event = $state['marketEvents'][(string)(int)($state['current'] ?? 0)] ?? [];
+    $ms = (int)($event['bidMs'] ?? 30000);
+    // Nunca dejamos Subasta en 10-15s: el jugador necesita leer lote, pistas, herramientas y confirmar.
+    if (($event['id'] ?? '') === 'turbo') return max(22000, $ms);
+    return max(30000, $ms);
+}
+function subasta_reveal_ms(): int { return 8500; }
+function subasta_min_decision_ms(): int { return 9000; }
+function subasta_can_resolve_early(array $state): bool {
+    $started = (int)($state['phaseStartedMs'] ?? 0);
+    return $started > 0 && now_ms() - $started >= subasta_min_decision_ms();
+}
+function subasta_start_credits(array $players): int { return count($players) <= 1 ? 150 : 120; }
+function subasta_event_pool(): array {
+    return [
+        ['id'=>'normal','label'=>'Mercado estable','note'=>'Tienes 30 segundos: lee pistas, decide puja y confirma.','bidMs'=>30000],
+        ['id'=>'black-friday','label'=>'Black Friday técnico','note'=>'Analizar cuesta 5 créditos menos. Buena ronda para mirar una pista extra antes de apostar.','bidMs'=>30000,'analyzeDiscount'=>5],
+        ['id'=>'ia-hype','label'=>'Hype de IA','note'=>'Los lotes de IA pueden ser oro o humo. Mira riesgo y pistas antes de dejarte llevar.','bidMs'=>30000,'tag'=>'IA','valueGood'=>35,'valueBad'=>-35],
+        ['id'=>'legacy-crisis','label'=>'Crisis Legacy','note'=>'Lo antiguo puede ser reliquia o deuda técnica. Ojo con mantenimiento y compatibilidad.','bidMs'=>30000,'tag'=>'Legacy','valueGood'=>-20,'valueBad'=>-40],
+        ['id'=>'security-panic','label'=>'Pánico de seguridad','note'=>'Seguridad y backups suben. Los lotes inseguros se vuelven mucho más peligrosos.','bidMs'=>30000,'tag'=>'Seguridad','valueGood'=>30,'valueBad'=>-35],
+        ['id'=>'turbo','label'=>'Ronda turbo','note'=>'Ronda más rápida, pero no instantánea: 22 segundos para decidir.','bidMs'=>22000],
+        ['id'=>'glitch','label'=>'Ronda glitch','note'=>'Una pista puede sonar demasiado optimista. Analizar es especialmente útil.','bidMs'=>30000,'glitch'=>true],
+        ['id'=>'jackpot','label'=>'Jackpot del mercado','note'=>'Valor extremo amplificado: puedes remontar o hundirte. Seguro recomendado si dudas.','bidMs'=>30000,'valueMultiplier'=>1.25],
+    ];
+}
+function subasta_pick_event(int $roundIndex): array {
+    $pool = subasta_event_pool();
+    if ($roundIndex === 0) return $pool[0];
+    $event = $pool[random_int(0, count($pool) - 1)];
+    return $event;
+}
+function subasta_pick_sequence(PDO $pdo, int $roomId, array $players): array {
+    $total = subasta_total_rounds($players);
+    $pool = subasta_pool();
+    $used = used_content_ids($pdo, $roomId, 'subasta');
+    $available = array_values(array_filter($pool, fn($lot) => !isset($used[(string)($lot['id'] ?? '')])));
+    if (count($available) < $total) $available = $pool;
+    shuffle($available);
+    return array_slice($available, 0, $total);
+}
+function subasta_bot_profiles(): array {
+    return [
+        ['id'=>'bot_conservador','name'=>'AuditBot','avatar'=>'bot-blue','style'=>'conservative','mood'=>'Puja poco y evita riesgos altos.'],
+        ['id'=>'bot_hype','name'=>'HypeBot','avatar'=>'bot-pink','style'=>'hype','mood'=>'Se emociona con rarezas épicas y legendarias.'],
+        ['id'=>'bot_troll','name'=>'TrollBid','avatar'=>'bot-yellow','style'=>'troll','mood'=>'A veces sube el precio solo para meter presión.'],
+    ];
+}
+function subasta_init_state(PDO $pdo, int $roomId, array $players): array {
+    $lots = subasta_pick_sequence($pdo, $roomId, $players);
+    $start = subasta_start_credits($players);
+    $credits = [];
+    foreach ($players as $p) $credits[(string)(int)$p['id']] = $start;
+    $bots = [];
+    if (count($players) <= 1) {
+        $bots = subasta_bot_profiles();
+        foreach ($bots as $bot) $credits[(string)$bot['id']] = $start;
+    }
+    $events = [];
+    foreach ($lots as $i => $_) $events[(string)$i] = subasta_pick_event($i);
+    return [
+        'contentId'=>'subasta-set-' . substr(sha1(jenc(array_map(fn($l) => $l['id'] ?? '', $lots))), 0, 12),
+        'lots'=>$lots,
+        'challenge'=>$lots[0] ?? [],
+        'current'=>0,
+        'total'=>count($lots),
+        'initialCredits'=>$start,
+        'credits'=>$credits,
+        'clarityVersion'=>5,
+        'phaseStartedMs'=>now_ms(),
+        'bots'=>$bots,
+        'marketEvents'=>$events,
+        'bids'=>[],
+        'revealedClues'=>[],
+        'owned'=>[],
+        'history'=>[],
+        'effects'=>[],
+        'submissions'=>[],
+        'scores'=>[],
+        'instructions'=>[
+            'Objetivo: acabar con más capital que los rivales.',
+            'Cada lote tiene valor real oculto. Puja menos de lo que crees que vale.',
+            'Si ganas: valor real menos puja = beneficio o pérdida. Analizar y seguro ayudan a decidir.'
+        ],
+    ];
+}
+function subasta_current_key(array $state): string { return (string)(int)($state['current'] ?? 0); }
+function subasta_current_lot(array $state): array { $i = (int)($state['current'] ?? 0); return $state['lots'][$i] ?? ($state['challenge'] ?? []); }
+function subasta_current_event(array $state): array { return $state['marketEvents'][subasta_current_key($state)] ?? ['id'=>'normal','label'=>'Mercado estable','note'=>'Tienes 30 segundos para leer, analizar y confirmar.','bidMs'=>30000]; }
+function subasta_analyze_cost(array $state, string $pid): int {
+    $cost = 10 - (int)(subasta_current_event($state)['analyzeDiscount'] ?? 0);
+    if (!empty(($state['effects'][$pid] ?? [])['audit'])) $cost = max(0, $cost - 5);
+    return max(0, $cost);
+}
+function subasta_insurance_cost(array $state, string $pid): int { return !empty(($state['effects'][$pid] ?? [])['cheapInsurance']) ? 10 : 15; }
+function subasta_actual_value(array $lot, array $event): int {
+    $value = (int)($lot['value'] ?? 0);
+    $tags = array_map('strval', $lot['tags'] ?? []);
+    if (!empty($event['tag']) && in_array((string)$event['tag'], $tags, true)) {
+        $value += $value >= 0 ? (int)($event['valueGood'] ?? 0) : (int)($event['valueBad'] ?? 0);
+    }
+    if (!empty($event['valueMultiplier'])) $value = (int)round($value * (float)$event['valueMultiplier']);
+    return $value;
+}
+function subasta_active_player_keys(array $players): array {
+    $online = array_values(array_filter($players, fn($p) => !empty($p['online'])));
+    if (!$online) $online = $players;
+    return array_map(fn($p) => (string)(int)$p['id'], $online);
+}
+function subasta_bid_bucket(array $lot, array $event): int {
+    $value = subasta_actual_value($lot, $event);
+    $risk = (string)($lot['risk'] ?? 'Medio');
+    $rarity = (string)($lot['rarity'] ?? 'Común');
+    $expected = $value * 0.55;
+    if (in_array($risk, ['Alto','Crítico'], true)) $expected -= 25;
+    if (in_array($rarity, ['Épico','Legendario'], true)) $expected += 20;
+    if ($rarity === 'Maldito') $expected -= 45;
+    return (int)round(max(0, min(140, $expected)) / 5) * 5;
+}
+function subasta_bot_bid(array $bot, array $lot, array $event, int $credits): array {
+    $base = subasta_bid_bucket($lot, $event);
+    $style = (string)($bot['style'] ?? 'conservative');
+    if ($style === 'conservative') $base = (int)round($base * 0.72);
+    if ($style === 'hype' && in_array((string)($lot['rarity'] ?? ''), ['Épico','Legendario'], true)) $base += 35;
+    if ($style === 'troll') $base += random_int(-15, 45);
+    $risk = (string)($lot['risk'] ?? 'Medio');
+    if ($risk === 'Crítico') $base -= 45;
+    if ($risk === 'Alto') $base -= 20;
+    $bid = max(0, min($credits, (int)round($base / 5) * 5));
+    $stance = $bid <= 0 ? 'Paso' : ($bid >= max(80, $credits * 0.55) ? 'Voy fuerte' : 'Me interesa');
+    return ['bid'=>$bid,'insurance'=>false,'stance'=>$stance,'at'=>now_ms() + random_int(20, 900),'bot'=>true];
+}
+function subasta_all_bids_ready(array $state, array $players): bool {
+    $key = subasta_current_key($state);
+    $bids = $state['bids'][$key] ?? [];
+    foreach (subasta_active_player_keys($players) as $pid) {
+        if (!isset($bids[$pid])) return false;
+    }
+    return true;
+}
+function subasta_prepare_missing_and_bots(array &$state, array $players): void {
+    $key = subasta_current_key($state);
+    if (!isset($state['bids'][$key]) || !is_array($state['bids'][$key])) $state['bids'][$key] = [];
+    foreach (subasta_active_player_keys($players) as $pid) {
+        if (!isset($state['bids'][$key][$pid])) $state['bids'][$key][$pid] = ['bid'=>0,'insurance'=>false,'stance'=>'Paso','at'=>now_ms(),'auto'=>true];
+    }
+    $lot = subasta_current_lot($state);
+    $event = subasta_current_event($state);
+    foreach (($state['bots'] ?? []) as $bot) {
+        $bid = (string)$bot['id'];
+        if (!isset($state['bids'][$key][$bid])) $state['bids'][$key][$bid] = subasta_bot_bid($bot, $lot, $event, (int)(($state['credits'] ?? [])[$bid] ?? 0));
+    }
+}
+function subasta_participant_name(string $id, array $players, array $state): string {
+    foreach ($players as $p) if ((string)(int)$p['id'] === $id) return (string)$p['name'];
+    foreach (($state['bots'] ?? []) as $bot) if ((string)$bot['id'] === $id) return (string)$bot['name'];
+    return 'Mercader';
+}
+function subasta_lot_label(int $value, int $net): string {
+    if ($value < -80 || $net < -90) return 'Bomba técnica';
+    if ($value < 0) return 'Estafa';
+    if ($net >= 100) return 'Tesorazo';
+    if ($net >= 45) return 'Chollazo';
+    if ($net >= 0) return 'Compra decente';
+    return 'Sobrepago';
+}
+function subasta_apply_lot_effect(string $winner, array $lot, array &$state, array &$notes): void {
+    $name = (string)($lot['name'] ?? '');
+    $tags = array_map('strval', $lot['tags'] ?? []);
+    if (strpos($name, 'CDN') !== false || in_array('Performance', $tags, true)) {
+        $state['effects'][$winner]['audit'] = true;
+        $notes[] = 'Efecto: tus próximos análisis cuestan un poco menos.';
+    }
+    if (strpos($name, 'Backup') !== false) {
+        $state['effects'][$winner]['backup'] = true;
+        $notes[] = 'Efecto: backup preparado para amortiguar una pérdida futura.';
+    }
+    if (strpos($name, 'Seguridad') !== false || in_array('Seguridad', $tags, true)) {
+        $state['effects'][$winner]['cheapInsurance'] = true;
+        $notes[] = 'Efecto: el seguro te cuesta menos en futuras rondas.';
+    }
+}
+function subasta_resolve_lot(PDO $pdo, array $players, array &$state): void {
+    $key = subasta_current_key($state);
+    if (!empty(($state['history'][$key] ?? [])['resolved'])) return;
+    subasta_prepare_missing_and_bots($state, $players);
+    $lot = subasta_current_lot($state);
+    $event = subasta_current_event($state);
+    $bids = $state['bids'][$key] ?? [];
+    $winner = null; $winnerBid = 0; $winnerAt = PHP_INT_MAX;
+    foreach ($bids as $pid => $entry) {
+        $bid = max(0, (int)($entry['bid'] ?? 0));
+        $at = (int)($entry['at'] ?? PHP_INT_MAX);
+        if ($bid > $winnerBid || ($bid === $winnerBid && $bid > 0 && $at < $winnerAt)) {
+            $winner = (string)$pid; $winnerBid = $bid; $winnerAt = $at;
+        }
+    }
+    $value = subasta_actual_value($lot, $event);
+    $net = 0; $label = 'Sin venta'; $notes = [];
+    if ($winner !== null && $winnerBid > 0) {
+        $net = $value - $winnerBid;
+        if (!empty(($state['effects'][$winner] ?? [])['backup']) && $net < 0) {
+            $net += min(35, abs($net));
+            unset($state['effects'][$winner]['backup']);
+            $notes[] = 'Backup usado: la pérdida se amortigua.';
+        }
+        $insured = !empty($bids[$winner]['insurance']);
+        if ($insured && $net < 0) {
+            $net = (int)ceil($net / 2);
+            $notes[] = 'Seguro activado: pérdida reducida a la mitad.';
+        }
+        $state['credits'][$winner] = max(0, (int)(($state['credits'][$winner] ?? 0)) + $net);
+        $state['owned'][$winner][] = ['id'=>$lot['id'] ?? '', 'name'=>$lot['name'] ?? '', 'tags'=>$lot['tags'] ?? [], 'value'=>$value, 'bid'=>$winnerBid, 'net'=>$net, 'rarity'=>$lot['rarity'] ?? 'Común'];
+        subasta_apply_lot_effect($winner, $lot, $state, $notes);
+        $label = subasta_lot_label($value, $net);
+    }
+    $rows = [];
+    foreach ($bids as $pid => $entry) {
+        $rows[] = ['playerId'=>(string)$pid,'name'=>subasta_participant_name((string)$pid, $players, $state),'bid'=>(int)($entry['bid'] ?? 0),'insurance'=>!empty($entry['insurance']),'stance'=>(string)($entry['stance'] ?? ''),'bot'=>!empty($entry['bot']),'winner'=>$winner !== null && (string)$pid === $winner,'auto'=>!empty($entry['auto'])];
+    }
+    usort($rows, fn($a, $b) => ($b['bid'] <=> $a['bid']));
+    $state['history'][$key] = [
+        'resolved'=>true,
+        'lot'=>$lot,
+        'event'=>$event,
+        'winner'=>$winner,
+        'winnerName'=>$winner ? subasta_participant_name($winner, $players, $state) : 'Sin comprador',
+        'winnerBid'=>$winnerBid,
+        'value'=>$value,
+        'net'=>$net,
+        'label'=>$label,
+        'rows'=>$rows,
+        'notes'=>$notes,
+        'explanation'=>(string)($lot['explanation'] ?? 'El valor real dependía de riesgo, mantenimiento y utilidad del lote.'),
+    ];
+    $state['lastResult'] = $state['history'][$key];
+}
+function subasta_combo_bonus(array $owned): array {
+    $tags = [];
+    foreach ($owned as $lot) foreach (($lot['tags'] ?? []) as $tag) $tags[(string)$tag] = ($tags[(string)$tag] ?? 0) + 1;
+    $bonus = 0; $labels = [];
+    if (($tags['Frontend'] ?? 0) >= 1 && (($tags['Backend'] ?? 0) >= 1) && (($tags['MySQL'] ?? 0) >= 1)) { $bonus += 50; $labels[] = 'Stack completo +50'; }
+    if (($tags['Hosting'] ?? 0) >= 1 && (($tags['Seguridad'] ?? 0) >= 1) && (($tags['Performance'] ?? 0) >= 1)) { $bonus += 45; $labels[] = 'Infraestructura decente +45'; }
+    foreach ($tags as $tag => $count) {
+        if ($count >= 3 && !in_array($tag, ['Legacy'], true)) { $bonus += 30; $labels[] = "Colección {$tag} +30"; break; }
+    }
+    if (($tags['Legacy'] ?? 0) >= 3) { $bonus -= 40; $labels[] = 'Deuda técnica legacy -40'; }
+    return ['bonus'=>$bonus,'labels'=>$labels,'tags'=>$tags];
+}
+function subasta_finish_game(PDO $pdo, array $players, array &$state): void {
+    if (!empty($state['resolved'])) return;
+    $summary = [];
+    $start = (int)($state['initialCredits'] ?? 120);
+    foreach (($state['credits'] ?? []) as $pid => $credits) {
+        $owned = $state['owned'][$pid] ?? [];
+        $combo = subasta_combo_bonus($owned);
+        $final = max(0, (int)$credits + (int)$combo['bonus']);
+        $summary[(string)$pid] = [
+            'playerId'=>(string)$pid,
+            'name'=>subasta_participant_name((string)$pid, $players, $state),
+            'credits'=>(int)$credits,
+            'comboBonus'=>(int)$combo['bonus'],
+            'finalCredits'=>$final,
+            'ownedCount'=>count($owned),
+            'combos'=>$combo['labels'],
+            'bot'=>strpos((string)$pid, 'bot_') === 0,
+        ];
+    }
+    $rows = array_values($summary);
+    usort($rows, fn($a, $b) => ($b['finalCredits'] <=> $a['finalCredits']));
+    $bestBuy = null; $worstBuy = null; $allIn = null;
+    foreach (($state['history'] ?? []) as $r) {
+        if (empty($r['winner'])) continue;
+        $entry = ['playerId'=>$r['winner'], 'name'=>$r['winnerName'], 'lot'=>$r['lot']['name'] ?? 'Lote', 'net'=>(int)$r['net'], 'bid'=>(int)$r['winnerBid']];
+        if ($bestBuy === null || $entry['net'] > $bestBuy['net']) $bestBuy = $entry;
+        if ($worstBuy === null || $entry['net'] < $worstBuy['net']) $worstBuy = $entry;
+        if ($entry['bid'] >= $start * 0.75 && ($allIn === null || $entry['net'] > $allIn['net'])) $allIn = $entry;
+    }
+    foreach ($players as $p) {
+        $pid = (string)(int)$p['id'];
+        $points = max(0, (int)(($summary[$pid] ?? [])['finalCredits'] ?? 0));
+        add_score($pdo, (int)$p['id'], $points);
+        $state['scores'][$pid] = $points;
+    }
+    $state['summary'] = $summary;
+    $state['finalRows'] = $rows;
+    $state['medals'] = ['winner'=>$rows[0] ?? null, 'bestBuy'=>$bestBuy, 'worstBuy'=>$worstBuy, 'allIn'=>$allIn];
+    $state['resolved'] = true;
+}
+function subasta_next_or_finish(PDO $pdo, array $players, array &$state): string {
+    $next = (int)($state['current'] ?? 0) + 1;
+    $total = count($state['lots'] ?? []);
+    if ($next >= $total) {
+        subasta_finish_game($pdo, $players, $state);
+        return 'results';
+    }
+    $state['current'] = $next;
+    $state['challenge'] = $state['lots'][$next] ?? [];
+    unset($state['lastResult']);
+    return 'bid';
+}
+function subasta_auto_progress_room(PDO $pdo, array $room): void {
+    if ($pdo->inTransaction()) return;
+    $round = active_round($pdo, (int)$room['id']);
+    if (!$round || (string)$round['mode'] !== 'subasta' || (string)$round['status'] !== 'playing') return;
+    $phase = (string)$round['phase'];
+    if (!in_array($phase, ['bid','reveal'], true)) return;
+    $state = jdec($round['state_json']);
+    $players = players_for_room($pdo, (int)$room['id']);
+    // Repara rondas creadas con la versión antigua de 11-15s para que el jugador tenga tiempo real.
+    if ($phase === 'bid' && (int)($state['clarityVersion'] ?? 0) < 5) {
+        $state['clarityVersion'] = 5;
+        $state['phaseStartedMs'] = now_ms();
+        $pdo->prepare("UPDATE party_rounds SET state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + subasta_bid_ms($state), (int)$round['id']]);
+        return;
+    }
+    $due = !empty($round['ends_at_ms']) && now_ms() >= (int)$round['ends_at_ms'];
+    $ready = $phase === 'bid' && subasta_all_bids_ready($state, $players) && subasta_can_resolve_early($state);
+    if (!$due && !$ready) return;
+    $pdo->beginTransaction();
+    try {
+        $roomLocked = room_by_code($pdo, (string)$room['code'], true);
+        if (!$roomLocked) { $pdo->rollBack(); return; }
+        $lockedRound = active_round($pdo, (int)$roomLocked['id'], true);
+        if (!$lockedRound || (string)$lockedRound['mode'] !== 'subasta' || (string)$lockedRound['status'] !== 'playing') { $pdo->rollBack(); return; }
+        $phase = (string)$lockedRound['phase'];
+        $state = jdec($lockedRound['state_json']);
+        $players = players_for_room($pdo, (int)$roomLocked['id']);
+        if ($phase === 'bid') {
+            subasta_resolve_lot($pdo, $players, $state);
+            $state['phaseStartedMs'] = now_ms();
+            $pdo->prepare("UPDATE party_rounds SET phase = 'reveal', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + subasta_reveal_ms(), (int)$lockedRound['id']]);
+            $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+        } elseif ($phase === 'reveal') {
+            $nextPhase = subasta_next_or_finish($pdo, $players, $state);
+            if ($nextPhase === 'results') {
+                $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$lockedRound['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } else {
+                $state['phaseStartedMs'] = now_ms();
+                $state['clarityVersion'] = 3;
+                $pdo->prepare("UPDATE party_rounds SET phase = 'bid', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + subasta_bid_ms($state), (int)$lockedRound['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            }
+        }
+        $pdo->commit();
+    } catch (Throwable $e) {
+        if ($pdo->inTransaction()) $pdo->rollBack();
+    }
+}
+
 function boss_pool(): array {
     return add_pool_ids('boss', [
         ['name'=>'EL BUG SUPREMO', 'hpMult'=>1.00, 'dmgMult'=>1.00, 'armor'=>4, 'trait'=>'Mutación adaptativa', 'weak'=>'attack', 'icon'=>'fa-solid fa-bug', 'flavor'=>'Aprende de cada error del equipo. Cuando nadie le cubre, castiga al más vulnerable sin piedad.'],
@@ -2689,38 +4473,98 @@ function rhythm_pool(): array {
         ['title'=>'Syntax Fever', 'bpm'=>145],
     ]);
 }
-function button_pool(?PDO $pdo = null, int $roomId = 0): array {
-    $buttons = add_pool_ids('button', [
-        ['label'=>'AZUL', 'icon'=>'fa-solid fa-shield-halved', 'effect'=>'Seguro', 'points'=>250, 'title'=>'Botón seguro', 'text'=>'Has elegido un botón estable. Nada explota, por ahora.'],
-        ['label'=>'ROJO', 'icon'=>'fa-solid fa-bomb', 'effect'=>'Prohibido', 'points'=>-250, 'title'=>'Botón prohibido', 'text'=>'Has pulsado el botón maldito. Dolor arcade.'],
-        ['label'=>'VERDE', 'icon'=>'fa-solid fa-bolt', 'effect'=>'Crítico', 'points'=>650, 'title'=>'Crítico eléctrico', 'text'=>'Combo limpio. La clase te mira con respeto.'],
-        ['label'=>'MORADO', 'icon'=>'fa-solid fa-virus', 'effect'=>'Glitch', 'points'=>-100, 'title'=>'Glitch', 'text'=>'El sistema parpadea y pierdes algunos puntos.'],
-        ['label'=>'DORADO', 'icon'=>'fa-solid fa-crown', 'effect'=>'Jackpot', 'points'=>900, 'title'=>'Jackpot', 'text'=>'Te llevas el premio grande de la ronda.'],
-        ['label'=>'GRIS', 'icon'=>'fa-solid fa-circle', 'effect'=>'Nada', 'points'=>0, 'title'=>'Nada de nada', 'text'=>'Has pulsado un botón triste. Al menos sigues vivo.'],
-        ['label'=>'CYAN', 'icon'=>'fa-solid fa-water', 'effect'=>'Flujo', 'points'=>320, 'title'=>'Flujo limpio', 'text'=>'Te mueves como agua entre bugs.'],
-        ['label'=>'NEGRO', 'icon'=>'fa-solid fa-skull', 'effect'=>'Crash', 'points'=>-400, 'title'=>'Crash oscuro', 'text'=>'Pantallazo simbólico. Toca remontar.'],
-        ['label'=>'BLANCO', 'icon'=>'fa-regular fa-circle', 'effect'=>'Reset', 'points'=>80, 'title'=>'Reset suave', 'text'=>'Poco premio, pero la ronda sigue viva.'],
-        ['label'=>'NARANJA', 'icon'=>'fa-solid fa-fire', 'effect'=>'Fuego', 'points'=>500, 'title'=>'Fuego arcade', 'text'=>'Has encendido el combo justo a tiempo.'],
-        ['label'=>'LIMA', 'icon'=>'fa-solid fa-seedling', 'effect'=>'Buff', 'points'=>420, 'title'=>'Buff verde', 'text'=>'Pequeña mejora, grandes vibras.'],
-        ['label'=>'ROSA', 'icon'=>'fa-solid fa-heart', 'effect'=>'Curación', 'points'=>300, 'title'=>'Curación', 'text'=>'Recuperas energía y puntos.'],
-        ['label'=>'PLATA', 'icon'=>'fa-solid fa-gem', 'effect'=>'Premio', 'points'=>550, 'title'=>'Premio plateado', 'text'=>'Buen loot, sin hacer mucho ruido.'],
-        ['label'=>'VIOLETA', 'icon'=>'fa-solid fa-wand-magic-sparkles', 'effect'=>'Magia', 'points'=>700, 'title'=>'Hechizo perfecto', 'text'=>'La magia compila a la primera.'],
-        ['label'=>'MARRÓN', 'icon'=>'fa-solid fa-poo', 'effect'=>'Castaña', 'points'=>-150, 'title'=>'Castaña', 'text'=>'No era venenoso, pero casi.'],
-        ['label'=>'TURQUESA', 'icon'=>'fa-solid fa-wave-square', 'effect'=>'Pulso', 'points'=>360, 'title'=>'Pulso estable', 'text'=>'Sincronía bastante limpia.'],
-        ['label'=>'MAGENTA', 'icon'=>'fa-solid fa-bug', 'effect'=>'Bug', 'points'=>-220, 'title'=>'Bug escondido', 'text'=>'Te ha mordido un bug pequeño pero pesado.'],
-        ['label'=>'ÍNDIGO', 'icon'=>'fa-solid fa-moon', 'effect'=>'Sombra', 'points'=>120, 'title'=>'Sombra rara', 'text'=>'No sabes qué ha pasado, pero sumas algo.'],
-        ['label'=>'ESMERALDA', 'icon'=>'fa-solid fa-leaf', 'effect'=>'Racha', 'points'=>480, 'title'=>'Racha esmeralda', 'text'=>'Acierto sólido, elegante y limpio.'],
-        ['label'=>'CARMESÍ', 'icon'=>'fa-solid fa-triangle-exclamation', 'effect'=>'Trampa', 'points'=>-320, 'title'=>'Trampa carmesí', 'text'=>'Demasiado bonito para ser verdad.'],
-    ]);
-    if ($pdo && $roomId > 0) {
-        $used = used_button_ids($pdo, $roomId);
-        $usedFingerprints = used_content_fingerprints($pdo, $roomId, 'boton-prohibido');
-        $available = array_values(array_filter($buttons, fn($button) => !isset($used[pool_item_id($button)]) && !isset($usedFingerprints[content_fingerprint($button)])));
-        if (count($available) >= 5) $buttons = $available;
-    }
-    shuffle($buttons);
-    return array_slice($buttons, 0, 5);
+function forbidden_button_bank(): array {
+    $items = json_decode(<<<'JSON'
+[{"name": "Botón de Producción", "kind": "trap", "risk": "Alto", "clue": "No lo pruebes en viernes.", "hint": "Huele a trampa: aguantar suele ser mejor que tocar producción.", "explanation": "Pulsar en producción sin contexto casi siempre sale caro. Quien aguantó demostró sangre fría."}, {"name": "Botón de Deploy Dorado", "kind": "prize", "risk": "Medio", "clue": "El primero que se atreva puede llevarse el release.", "hint": "Puede premiar al primer click, pero si todos dudan se escapa.", "explanation": "Era una ventana de deploy limpia: el primero en pulsar se llevó el premio principal."}, {"name": "Botón de Merge Conflict", "kind": "split", "risk": "Alto", "clue": "Demasiadas manos rompen la rama.", "hint": "Si crees que varios pulsarán, aguantar puede ser la jugada buena.", "explanation": "Un merge conflict castiga el caos: un único click era controlado, varios clicks rompían la rama."}, {"name": "Botón Bomba de Caché", "kind": "bomb", "risk": "Muy alto", "clue": "Si nadie lo toca, el sistema se estabiliza solo.", "hint": "Parece peligroso para todos. Aguantar tiene valor.", "explanation": "Era una bomba compartida: si alguien la tocaba, el equipo sufría. No tocarla era la solución."}, {"name": "Botón Jackpot del Último Segundo", "kind": "jackpot", "risk": "Alto", "clue": "El último segundo brilla más que todos los demás.", "hint": "Si vas a pulsar, el timing importa muchísimo.", "explanation": "Solo valía la pena pulsar casi al final. El click temprano era puro ansia."}, {"name": "Botón Mentiroso", "kind": "liar", "risk": "Medio", "clue": "La advertencia parece demasiado obvia para ser verdad.", "hint": "La pista puede estar intentando asustarte.", "explanation": "Era un botón mentiroso: parecía mala idea, pero castigaba la indecisión."}, {"name": "Botón Ladrón de Ranking", "kind": "thief", "risk": "Medio", "clue": "El líder debería vigilar su bolsillo.", "hint": "Sirve para remontar si alguien va por delante.", "explanation": "El botón robaba valor del líder simbólico. Buena herramienta para recortar distancia."}, {"name": "Botón Sacrificio de Backup", "kind": "sacrifice", "risk": "Medio", "clue": "Pulsarlo ayuda... pero quizá no a quien lo pulsa.", "hint": "Puede ser útil si quieres salvar puntos del grupo.", "explanation": "El pulsador pagaba parte del coste para que los demás sumaran. Muy noble, poco rentable para el dedo."}, {"name": "Botón Glitch de Milisegundos", "kind": "glitch", "risk": "Variable", "clue": "El efecto cambia mientras lo miras.", "hint": "No es seguro: el momento exacto puede alterar el resultado.", "explanation": "Era un glitch temporal. Pulsar podía salir bien o mal según el instante."}, {"name": "Botón Eco del Turno Anterior", "kind": "echo", "risk": "Variable", "clue": "Este botón recuerda lo que acaba de pasar.", "hint": "Piensa en la ronda anterior: puede repetir su lógica.", "explanation": "El botón eco imitaba la energía de la ronda anterior, así que la memoria importaba."}, {"name": "Botón Cookie Sospechosa", "kind": "thief", "risk": "Medio", "clue": "Aceptar todo sin leer suele beneficiar a alguien.", "hint": "Puede robar valor al que va ganando.", "explanation": "Como una cookie agresiva: quien pulsa acepta condiciones raras y mueve puntos."}, {"name": "Botón de Semáforo Rojo", "kind": "trap", "risk": "Alto", "clue": "Está rojo por una razón.", "hint": "La paciencia parece más segura.", "explanation": "La señal era honesta. Pulsar el rojo era comerse la penalización."}, {"name": "Botón de Semáforo Verde", "kind": "prize", "risk": "Bajo", "clue": "La luz verde no dura para siempre.", "hint": "Si confías en la pista, pulsar temprano puede pagar.", "explanation": "Era una oportunidad clara: el primer click se llevó el bonus."}, {"name": "Botón Anti-Spam", "kind": "split", "risk": "Alto", "clue": "Un click bien. Dos clicks, desastre.", "hint": "Si todos parecen nerviosos, mejor aguantar.", "explanation": "El sistema toleraba un solo click; varios clicks activaban el castigo anti-spam."}, {"name": "Botón de Pánico General", "kind": "bomb", "risk": "Muy alto", "clue": "El panel dice: calma. Literalmente calma.", "hint": "Si nadie pulsa, se gana más de lo que parece.", "explanation": "El pánico era el enemigo. Nadie necesitaba tocarlo para ganar."}, {"name": "Botón del Último Frame", "kind": "jackpot", "risk": "Alto", "clue": "Quien espere demasiado poco pierde; quien espere justo gana.", "hint": "Busca la ventana final si eres valiente.", "explanation": "La ronda premiaba timing, no solo valor. Pulsar al final era la jugada maestra."}, {"name": "Botón de Clickbait", "kind": "liar", "risk": "Medio", "clue": "NO PULSES. Premio garantizado. Seguro. De verdad.", "hint": "Suena contradictorio porque lo es.", "explanation": "Era clickbait: la frase intentaba manipularte. Había que leer entre líneas."}, {"name": "Botón Firewall", "kind": "shield", "risk": "Medio", "clue": "Protegerse puede convertir el peligro en puntos.", "hint": "Blindaje tiene premio extra en esta ronda.", "explanation": "El firewall premiaba cubrirse: blindarse fue mejor que arriesgar un click."}, {"name": "Botón de Auditoría", "kind": "wait", "risk": "Bajo", "clue": "Revisar antes de actuar evita bugs caros.", "hint": "Aguantar es una decisión activa, no pasar de jugar.", "explanation": "La auditoría recompensaba no precipitarse. Esperar también es jugar."}, {"name": "Botón de Hype IA", "kind": "trap", "risk": "Alto", "clue": "Promete hacerlo todo en un click.", "hint": "Demasiado bonito para ser verdad.", "explanation": "El hype vendía humo. Pulsar compraba la promesa; aguantar evitaba la estafa."}, {"name": "Botón Open Source Legendario", "kind": "prize", "risk": "Medio", "clue": "Mucha gente lo usa, pero alguien tiene que dar el primer paso.", "hint": "Puede ser una oportunidad buena si eres rápido.", "explanation": "Era un proyecto sólido. Pulsar primero fue como encontrar una joya mantenida."}, {"name": "Botón de Base de Datos en Producción", "kind": "bomb", "risk": "Muy alto", "clue": "Una consulta sin WHERE puede doler a todos.", "hint": "Si alguien toca esto, salpica.", "explanation": "Era una bomba de base de datos: un click irresponsable afectaba a todos."}, {"name": "Botón de Hotfix Nocturno", "kind": "jackpot", "risk": "Alto", "clue": "A veces el arreglo bueno llega al límite.", "hint": "El final de la cuenta atrás puede valer mucho.", "explanation": "El hotfix necesitaba temple. Pulsar demasiado pronto no arreglaba nada."}, {"name": "Botón de Pull Request", "kind": "split", "risk": "Medio", "clue": "Una revisión basta. Diez revisiones bloquean el merge.", "hint": "Un solo pulsador sale bien; varios generan caos.", "explanation": "Una persona tomando responsabilidad funcionaba. Demasiada gente tocando a la vez lo rompía."}, {"name": "Botón de Revert", "kind": "wait", "risk": "Bajo", "clue": "A veces la mejor acción es no añadir otro cambio.", "hint": "Aguantar puede darte puntos limpios.", "explanation": "No tocar el sistema evitó empeorar el fallo. Buen autocontrol."}, {"name": "Botón de Licencia Dudosa", "kind": "trap", "risk": "Alto", "clue": "Gratis hasta que lees la letra pequeña.", "hint": "Blindaje ayuda, aguantar ayuda más.", "explanation": "La letra pequeña castigaba el click impulsivo."}, {"name": "Botón de Dominio Premium", "kind": "prize", "risk": "Medio", "clue": "El nombre bueno se lo lleva quien decide rápido.", "hint": "Puede premiar la valentía temprana.", "explanation": "Era una oportunidad limitada: quien actuó primero consiguió valor."}, {"name": "Botón de Rate Limit", "kind": "split", "risk": "Medio", "clue": "Demasiadas peticiones y la API te echa.", "hint": "Si pulsan muchos, el sistema castiga.", "explanation": "La API soportaba una acción, no una avalancha."}, {"name": "Botón de CORS Maldito", "kind": "liar", "risk": "Medio", "clue": "Bloqueado por política extraña. Quizá el bloqueo es el engaño.", "hint": "Puede que pulsar rompa el bloqueo.", "explanation": "La advertencia era más confusa que útil. El botón mentía sobre su peligro real."}, {"name": "Botón de SSL Caducado", "kind": "trap", "risk": "Alto", "clue": "El navegador ya te está avisando.", "hint": "No ignores señales de seguridad.", "explanation": "El aviso de seguridad era real. Pulsarlo no era valentía, era accidente."}, {"name": "Botón CDN Estable", "kind": "shield", "risk": "Bajo", "clue": "La protección bien puesta mejora todo.", "hint": "Blindarse puede ser la jugada óptima.", "explanation": "El CDN actuó como escudo: quien se blindó aprovechó mejor la ronda."}, {"name": "Botón Stack Overflow 2012", "kind": "glitch", "risk": "Variable", "clue": "Funciona... dependiendo del día.", "hint": "Puede salir bien o mal según el timing.", "explanation": "La solución vieja era impredecible. A veces salva, a veces rompe."}, {"name": "Botón de Memoria Caché", "kind": "echo", "risk": "Variable", "clue": "Lo que hiciste antes todavía está en memoria.", "hint": "Recuerda la ronda anterior.", "explanation": "La caché repetía patrones. Quien recordaba la ronda anterior tenía ventaja."}, {"name": "Botón de Oferta Limitada", "kind": "prize", "risk": "Medio", "clue": "Solo el primero ve el descuento.", "hint": "Premia decisión rápida.", "explanation": "Era una oferta real: el primer click capturó el valor."}, {"name": "Botón de Malware Bonito", "kind": "trap", "risk": "Muy alto", "clue": "Tiene icono precioso y cero confianza.", "hint": "La estética no lo hace seguro.", "explanation": "Era malware con maquillaje. Pulsarlo fue caer en la portada."}, {"name": "Botón de Rama Protegida", "kind": "shield", "risk": "Medio", "clue": "La protección de rama existe por algo.", "hint": "Blindaje gana valor aquí.", "explanation": "La rama protegida premió cubrirse antes de actuar."}, {"name": "Botón de Silencio Incómodo", "kind": "wait", "risk": "Bajo", "clue": "Nadie dice nada. Eso también es información.", "hint": "Aguantar puede ser la lectura correcta.", "explanation": "El silencio era la respuesta: no había que tocarlo."}, {"name": "Botón de All-In Sospechoso", "kind": "jackpot", "risk": "Muy alto", "clue": "Si vas, ve al final. Si no, no vayas.", "hint": "Pulsar temprano es mala idea.", "explanation": "Era una apuesta extrema: solo el timing perfecto la hacía rentable."}, {"name": "Botón de Líder Codicioso", "kind": "thief", "risk": "Medio", "clue": "Quien va primero tiene más que perder.", "hint": "Puede servir para recortar al líder.", "explanation": "El botón movía puntos desde arriba hacia quien arriesgaba."}, {"name": "Botón de Equipo Noble", "kind": "sacrifice", "risk": "Medio", "clue": "Uno cae para que otros avancen.", "hint": "Pulsar puede beneficiar al resto más que a ti.", "explanation": "Fue una jugada de equipo: el pulsador asumió coste y otros ganaron."}, {"name": "Botón de Latencia", "kind": "glitch", "risk": "Variable", "clue": "El retardo cambia la jugada.", "hint": "Timing raro: no todo click vale igual.", "explanation": "La latencia convirtió el botón en una ruleta controlada por segundos."}, {"name": "Botón de Commit Limpio", "kind": "prize", "risk": "Bajo", "clue": "Todo está verde. ¿Quién firma el commit?", "hint": "Pulsar primero parece razonable.", "explanation": "El commit estaba limpio: decidir rápido sumó puntos."}, {"name": "Botón de Console.log Olvidado", "kind": "trap", "risk": "Medio", "clue": "Parece inofensivo, hasta que llega producción.", "hint": "No todo lo pequeño es seguro.", "explanation": "El detalle olvidado generó coste. Aguantar evitó ruido."}, {"name": "Botón de Variables de Entorno", "kind": "bomb", "risk": "Muy alto", "clue": "Un secreto filtrado no afecta solo a una persona.", "hint": "Cuidado: puede castigar a todos.", "explanation": "Tocar secretos en caliente salpicó a todo el equipo."}, {"name": "Botón de Diseño Perfecto", "kind": "prize", "risk": "Medio", "clue": "El primer mockup convincente gana la sala.", "hint": "Puede premiar iniciativa.", "explanation": "Era una buena decisión visual. El primero se llevó el impacto."}, {"name": "Botón de Modal Infinito", "kind": "split", "risk": "Alto", "clue": "Si todos abren un modal, nadie ve la página.", "hint": "Un click quizá vale; varios bloquean.", "explanation": "Demasiados modales causaron desastre. Un solo click era manejable."}, {"name": "Botón de Rollback Seguro", "kind": "wait", "risk": "Bajo", "clue": "Antes de correr, respira y mira el historial.", "hint": "Aguantar tiene premio.", "explanation": "La paciencia evitó empeorar el despliegue."}, {"name": "Botón de Feature Flag", "kind": "shield", "risk": "Medio", "clue": "Activar con protección permite apagar rápido.", "hint": "Blindaje es fuerte aquí.", "explanation": "La feature flag premió cubrirse: riesgo controlado, puntos limpios."}, {"name": "Botón de Framework con Hype", "kind": "liar", "risk": "Medio", "clue": "Todos dicen que no lo pulses porque no lo entienden.", "hint": "La masa puede equivocarse.", "explanation": "El rechazo era más miedo que realidad. Pulsar tuvo premio."}, {"name": "Botón de Node Modules", "kind": "bomb", "risk": "Alto", "clue": "Si lo tocas, pesa para todos.", "hint": "Puede convertirse en problema global.", "explanation": "La carpeta infinita castigó al grupo cuando alguien la tocó."}, {"name": "Botón de Minificación", "kind": "glitch", "risk": "Variable", "clue": "Al comprimir, algo puede cambiar.", "hint": "El timing decide si optimiza o rompe.", "explanation": "La minificación tuvo resultado variable: potencia o bug según momento."}, {"name": "Botón de Preview Local", "kind": "prize", "risk": "Bajo", "clue": "En local todo parece funcionar.", "hint": "Puede ser premio fácil, pero no te confíes siempre.", "explanation": "Esta vez la preview era real y útil. Click rápido, puntos limpios."}, {"name": "Botón de Viernes 18:00", "kind": "trap", "risk": "Muy alto", "clue": "El calendario grita que no.", "hint": "Aguantar es casi seguro.", "explanation": "Desplegar en viernes tarde es deporte extremo. Mala idea tocarlo."}, {"name": "Botón de Dependencia Fantasma", "kind": "echo", "risk": "Variable", "clue": "El pasado de tu package-lock vuelve.", "hint": "La ronda anterior importa.", "explanation": "Una dependencia fantasma repitió patrones antiguos. Memoria = ventaja."}, {"name": "Botón de Refactor Valiente", "kind": "jackpot", "risk": "Alto", "clue": "Si lo haces al final, parece magia. Si lo haces antes, caos.", "hint": "La ventana final es clave.", "explanation": "El refactor necesitaba el momento justo. Premió el último segundo."}, {"name": "Botón de QA Paciente", "kind": "wait", "risk": "Bajo", "clue": "El test que no ejecutas es el que falla.", "hint": "Aguantar y revisar suma.", "explanation": "QA premió la paciencia. No pulsar también era una decisión."}, {"name": "Botón de Escudo Humano", "kind": "shield", "risk": "Medio", "clue": "Si dudas, cúbrete. Esta vez no es cobardía.", "hint": "Blindaje puede ser el mejor movimiento.", "explanation": "El escudo absorbió el riesgo y convirtió duda en puntos."}, {"name": "Botón de Oferta Clickbait", "kind": "liar", "risk": "Medio", "clue": "Última oportunidad, 100% seguro, sin riesgos.", "hint": "La frase suena falsa, pero el juego puede estar doblando el engaño.", "explanation": "Era una ronda mentirosa: la pista exagerada escondía una oportunidad real."}, {"name": "Botón de Cola de Builds", "kind": "split", "risk": "Medio", "clue": "Una build entra; cinco builds atascan todo.", "hint": "Si crees que otros pulsarán, espera.", "explanation": "La cola aceptaba una acción. Múltiples clicks bloquearon el pipeline."}, {"name": "Botón de Incidencia Global", "kind": "bomb", "risk": "Muy alto", "clue": "Un toque y soporte recibe tickets.", "hint": "Peligro compartido: mejor calma.", "explanation": "Era una incidencia global. El botón afectó a todos cuando alguien lo pulsó."}]
+JSON, true);
+    return add_pool_ids('forbidden', $items ?: []);
 }
+function forbidden_decision_ms(): int { return 14000; }
+function forbidden_reveal_ms(): int { return 7500; }
+function forbidden_round_count(array $players): int { return count($players) <= 1 ? 8 : 7; }
+function forbidden_pick_sequence(PDO $pdo, int $roomId, array $players): array {
+    $pool = forbidden_button_bank();
+    $used = used_content_fingerprints($pdo, $roomId, 'boton-prohibido');
+    $available = array_values(array_filter($pool, fn($item) => !isset($used[content_fingerprint($item)])));
+    if (count($available) < forbidden_round_count($players)) $available = $pool;
+    shuffle($available);
+    return array_slice($available, 0, forbidden_round_count($players));
+}
+function forbidden_current_button(array $state): array {
+    $idx = (int)($state['current'] ?? 0);
+    return $state['sequence'][$idx] ?? ['name'=>'Botón misterioso','kind'=>'trap','risk'=>'?','clue'=>'Algo no encaja.','hint'=>'Elige con cuidado.','explanation'=>'El botón no tenía datos suficientes.'];
+}
+function forbidden_key(array $state): string { return (string)(int)($state['current'] ?? 0); }
+function forbidden_action_label(string $action): string { return ['press'=>'Pulsar','wait'=>'Aguantar','shield'=>'Blindaje','locked'=>'Candado'][$action] ?? 'Sin decidir'; }
+function forbidden_action_icon(string $action): string { return ['press'=>'🔴','wait'=>'🧊','shield'=>'🛡','locked'=>'🔒'][$action] ?? '•'; }
+function forbidden_kind_title(string $kind): string { return ['prize'=>'Botón premio','trap'=>'Botón trampa','bomb'=>'Botón bomba','thief'=>'Botón ladrón','sacrifice'=>'Botón sacrificio','jackpot'=>'Botón jackpot','liar'=>'Botón mentiroso','echo'=>'Botón eco','glitch'=>'Botón glitch','split'=>'Botón reparto','shield'=>'Botón blindaje','wait'=>'Botón paciencia'][$kind] ?? 'Botón prohibido'; }
+function forbidden_init_state(PDO $pdo, int $roomId, array $players): array {
+    $sequence = forbidden_pick_sequence($pdo, $roomId, $players);
+    return ['contentId'=>'forbidden-set-' . substr(sha1(jenc(array_map(fn($b) => $b['id'] ?? $b['name'], $sequence))), 0, 12),'sequence'=>$sequence,'current'=>0,'total'=>count($sequence),'phaseStartedMs'=>now_ms(),'durationMs'=>forbidden_decision_ms(),'choices'=>[],'outcomes'=>[],'scores'=>[],'stats'=>[],'history'=>[],'tools'=>[],'instructions'=>['Lee la pista del botón.','Elige Pulsar, Aguantar o Blindaje antes de que acabe el tiempo.','Pulsar puede dar premio o castigo; Aguantar gana contra trampas; Blindaje reduce riesgos.']];
+}
+function forbidden_ensure_state(array &$state, PDO $pdo, int $roomId, array $players): void {
+    if (!isset($state['sequence']) || !is_array($state['sequence']) || !$state['sequence']) $state = forbidden_init_state($pdo, $roomId, $players);
+    if (!isset($state['total'])) $state['total'] = count($state['sequence']);
+    if (!isset($state['durationMs'])) $state['durationMs'] = forbidden_decision_ms();
+    if (!isset($state['phaseStartedMs'])) $state['phaseStartedMs'] = now_ms();
+}
+function forbidden_choice_count(array $state, array $players): int { $key = forbidden_key($state); $choices = $state['choices'][$key] ?? []; $count = 0; foreach ($players as $p) if (isset($choices[(string)(int)$p['id']])) $count++; return $count; }
+function forbidden_all_chose(array $state, array $players): bool { return count($players) > 0 && forbidden_choice_count($state, $players) >= count($players); }
+function forbidden_add_stat(array &$state, string $pid, string $key, int $inc = 1): void { if (!isset($state['stats'][$pid])) $state['stats'][$pid] = []; $state['stats'][$pid][$key] = (int)($state['stats'][$pid][$key] ?? 0) + $inc; }
+function forbidden_score_player(PDO $pdo, int $playerId, int $points): void { if ($points !== 0) add_score($pdo, $playerId, $points); }
+function forbidden_calc_points(string $kind, string $action, bool $isFirst, bool $late, bool $anyPress, int $pressCount): array {
+    $points=0; $title=''; $text=''; $tone='info';
+    if ($kind === 'prize') { if ($action==='press' && $isFirst) { $points=120; $title='Primer click ganador'; $text='Te atreviste antes que nadie y capturaste el premio.'; $tone='good'; } elseif ($action==='press') { $points=45; $title='Click tardío'; $text='Pulsaste, pero alguien llegó antes.'; } elseif ($action==='shield') { $points=5; $title='Demasiada cautela'; $text='Era un premio. El blindaje no hacía falta.'; } else { $points=0; $title='Oportunidad perdida'; $text='Era un botón bueno, pero decidiste no tocarlo.'; } }
+    elseif ($kind === 'trap') { if ($action==='press') { $points=-80; $title='Caíste en la trampa'; $text='La pista avisaba: este botón castigaba el click impulsivo.'; $tone='bad'; } elseif ($action==='shield') { $points=30; $title='Blindaje correcto'; $text='Evitaste la trampa casi entera.'; $tone='good'; } else { $points=55; $title='Sangre fría'; $text='Aguantaste una trampa y sumaste limpio.'; $tone='good'; } }
+    elseif ($kind === 'bomb') { if ($anyPress) { if ($action==='press') { $points=-85; $title='Activaste la bomba'; $text='El botón salpicaba a toda la sala.'; $tone='bad'; } elseif ($action==='shield') { $points=-5; $title='Escudo a tiempo'; $text='Alguien pulsó, pero tu blindaje amortiguó el golpe.'; } else { $points=-25; $title='Daño colateral'; $text='No pulsaste, pero la bomba era compartida.'; $tone='bad'; } } else { if ($action==='shield') { $points=35; $title='Protección tranquila'; $text='Nadie pulsó. Tu escudo fue prudente.'; $tone='good'; } else { $points=65; $title='Equipo paciente'; $text='Nadie tocó la bomba. Perfecto.'; $tone='good'; } } }
+    elseif ($kind === 'split') { if ($pressCount===1) { if ($action==='press') { $points=145; $title='Único valiente'; $text='Solo tú pulsaste: el sistema lo aceptó.'; $tone='good'; } elseif ($action==='shield') { $points=15; $title='Escudo conservador'; $text='Alguien se llevó el premio único.'; } else { $points=20; $title='Aguantaste el caos'; $text='No ganaste el premio, pero evitaste bloquear la ronda.'; } } elseif ($pressCount>1) { if ($action==='press') { $points=-65; $title='Conflicto de clicks'; $text='Demasiados pulsaron y el sistema castigó.'; $tone='bad'; } elseif ($action==='shield') { $points=25; $title='Te cubriste del conflicto'; $text='Buen escudo ante el spam de clicks.'; $tone='good'; } else { $points=55; $title='No entraste al conflicto'; $text='Dejaste que otros rompieran la rama.'; $tone='good'; } } else { $points=$action==='shield'?20:35; $title='Todos aguantaron'; $text='Nadie arriesgó, pero tampoco hubo desastre.'; $tone='good'; } }
+    elseif ($kind === 'jackpot') { if ($action==='press' && $late) { $points=175; $title='Último frame'; $text='Pulsaste en la ventana perfecta.'; $tone='good'; } elseif ($action==='press') { $points=-55; $title='Demasiado pronto'; $text='El jackpot solo pagaba al final.'; $tone='bad'; } elseif ($action==='shield') { $points=0; $title='Blindaje inútil'; $text='No había daño si no pulsabas.'; } else { $points=10; $title='Sin riesgo'; $text='No te la jugaste. Poco premio, cero drama.'; } }
+    elseif ($kind === 'liar') { if ($action==='press') { $points=115; $title='Leíste el engaño'; $text='La pista intentaba asustarte. Pulsar era correcto.'; $tone='good'; } elseif ($action==='shield') { $points=15; $title='Duda razonable'; $text='Te protegiste, pero el botón no era tan malo.'; } else { $points=-30; $title='Te engañó la pista'; $text='Parecía trampa, pero esa era la trampa mental.'; $tone='bad'; } }
+    elseif ($kind === 'thief') { if ($action==='press') { $points=85; $title='Robo ejecutado'; $text='Usaste el botón para recortar distancia.'; $tone='good'; } elseif ($action==='shield') { $points=20; $title='Cartera cerrada'; $text='Te cubriste por si había robo.'; } else { $points=5; $title='Miraste el robo pasar'; $text='No arriesgaste, casi no sumas.'; } }
+    elseif ($kind === 'sacrifice') { if ($action==='press') { $points=-35; $title='Sacrificio noble'; $text='Pagaste un coste para ayudar a los demás.'; $tone='bad'; } elseif ($anyPress) { $points=$action==='shield'?35:50; $title='Te beneficiaron'; $text='Alguien se sacrificó y tú sumaste.'; $tone='good'; } else { $points=$action==='shield'?10:15; $title='Nadie se sacrificó'; $text='Ronda tranquila, premio pequeño.'; } }
+    elseif ($kind === 'shield') { if ($action==='shield') { $points=80; $title='Escudo perfecto'; $text='Esta ronda premiaba blindarse.'; $tone='good'; } elseif ($action==='press') { $points=-25; $title='Te faltó protección'; $text='Pulsar sin escudo no era la jugada.'; $tone='bad'; } else { $points=25; $title='Prudente'; $text='Aguantar funcionó, pero el escudo valía más.'; } }
+    elseif ($kind === 'wait') { if ($action==='wait') { $points=85; $title='Paciencia premium'; $text='La mejor acción era no tocar nada.'; $tone='good'; } elseif ($action==='shield') { $points=35; $title='Cautela decente'; $text='Te protegiste, aunque aguantar bastaba.'; } else { $points=-45; $title='Click innecesario'; $text='Pulsar rompió una ronda que pedía calma.'; $tone='bad'; } }
+    else { if ($action==='press') { $points=$late?110:-45; $title=$points>=0?'Glitch favorable':'Glitch hostil'; $text=$points>=0?'El momento exacto te favoreció.':'El glitch te mordió por timing.'; $tone=$points>=0?'good':'bad'; } elseif ($action==='shield') { $points=25; $title='Escudo contra glitch'; $text='No brilló, pero redujo incertidumbre.'; } else { $points=15; $title='Observador prudente'; $text='No entraste en el glitch.'; } }
+    return ['points'=>$points,'title'=>$title,'text'=>$text,'tone'=>$tone];
+}
+function forbidden_resolve_round(PDO $pdo, array $players, array &$state, bool $fillMissing = true): void {
+    $idx=(int)($state['current']??0); $key=(string)$idx; $button=forbidden_current_button($state); $kind=(string)($button['kind']??'trap');
+    if ($kind==='echo') { $prev=$state['history'][(string)($idx-1)]??null; $kind=(string)(($prev['resolvedKind']??null)?:'trap'); if ($kind==='echo') $kind='trap'; }
+    $started=(int)($state['phaseStartedMs']??now_ms()); $duration=(int)($state['durationMs']??forbidden_decision_ms());
+    if (!isset($state['choices'][$key])) $state['choices'][$key]=[];
+    if ($fillMissing) foreach ($players as $p) { $pid=(string)(int)$p['id']; if (!isset($state['choices'][$key][$pid])) $state['choices'][$key][$pid]=['action'=>'wait','auto'=>true,'at'=>now_ms()]; }
+    $choices=$state['choices'][$key]??[]; $pressers=[]; $first=null; $firstAt=PHP_INT_MAX;
+    foreach ($players as $p) { $pid=(string)(int)$p['id']; if (($choices[$pid]['action']??'wait')==='press') { $pressers[]=$pid; $at=(int)($choices[$pid]['at']??now_ms()); if ($at<$firstAt) { $firstAt=$at; $first=$pid; } } }
+    $anyPress=count($pressers)>0; $pressCount=count($pressers); $rows=[]; $leader=null; $leaderScore=-1;
+    foreach ($players as $p) if ((int)($p['score']??0)>$leaderScore) { $leaderScore=(int)($p['score']??0); $leader=(string)(int)$p['id']; }
+    $extra=[];
+    foreach ($players as $p) {
+        $pid=(string)(int)$p['id']; $choice=$choices[$pid]??['action'=>'wait','auto'=>true,'at'=>now_ms()]; $action=(string)($choice['action']??'wait'); if ($action==='locked') $action='wait';
+        $elapsed=max(0,(int)($choice['at']??now_ms())-$started); $late=$elapsed>=max(0,$duration-2300);
+        $r=forbidden_calc_points($kind,$action,$pid===$first,$late,$anyPress,$pressCount); $points=(int)$r['points'];
+        if ($kind==='thief' && $action==='press' && $leader && $leader!==$pid) $extra[$leader]=($extra[$leader]??0)-25;
+        if (!empty($choice['locked'])) { $points += 10; $r['title'].=' 🔒'; $r['text'].=' El candado añadió autocontrol.'; }
+        if ($points>0) forbidden_add_stat($state,$pid,$action==='press'?'goodPress':($action==='shield'?'goodShield':'goodWait'));
+        if ($points<0) forbidden_add_stat($state,$pid,'badClicks');
+        forbidden_add_stat($state,$pid,$action==='press'?'presses':($action==='shield'?'shields':'waits'));
+        $state['scores'][$pid]=(int)($state['scores'][$pid]??0)+$points; forbidden_score_player($pdo,(int)$pid,$points);
+        $rows[]=['playerId'=>$pid,'name'=>(string)($p['name']??('Jugador '.$pid)),'action'=>$action,'actionLabel'=>forbidden_action_label($action),'icon'=>forbidden_action_icon($action),'points'=>$points,'title'=>$r['title'],'text'=>$r['text'],'tone'=>$r['tone'],'elapsedMs'=>$action==='press'?$elapsed:null,'auto'=>!empty($choice['auto']),'locked'=>!empty($choice['locked'])];
+    }
+    foreach ($extra as $pid=>$delta) { $state['scores'][$pid]=(int)($state['scores'][$pid]??0)+(int)$delta; forbidden_score_player($pdo,(int)$pid,(int)$delta); foreach ($rows as &$row) if ((string)$row['playerId']===(string)$pid) { $row['points']+=(int)$delta; $row['text'].=' El botón ladrón te quitó 25 pts.'; if ($row['points']<0) $row['tone']='bad'; } unset($row); }
+    $best=null; $worst=null; foreach ($rows as $row) { if ($best===null || (int)$row['points']>(int)$best['points']) $best=$row; if ($worst===null || (int)$row['points']<(int)$worst['points']) $worst=$row; }
+    $state['outcomes'][$key]=$rows; $state['lastOutcome']=['round'=>$idx+1,'button'=>$button,'resolvedKind'=>$kind,'kindTitle'=>forbidden_kind_title($kind),'anyPress'=>$anyPress,'pressCount'=>$pressCount,'best'=>$best,'worst'=>$worst,'rows'=>$rows,'explanation'=>(string)($button['explanation']??'')]; $state['history'][$key]=$state['lastOutcome'];
+}
+function forbidden_next_or_finish(array $players, array &$state): string { $next=(int)($state['current']??0)+1; if ($next>=(int)($state['total']??count($state['sequence']??[]))) { forbidden_finish_game($players,$state); return 'results'; } $state['current']=$next; $state['phaseStartedMs']=now_ms(); $state['durationMs']=forbidden_decision_ms(); return 'press'; }
+function forbidden_finish_game(array $players, array &$state): void {
+    $rows=[]; foreach ($players as $p) { $pid=(string)(int)$p['id']; $st=$state['stats'][$pid]??[]; $rows[]=['playerId'=>$pid,'name'=>(string)($p['name']??('Jugador '.$pid)),'points'=>(int)($state['scores'][$pid]??0),'presses'=>(int)($st['presses']??0),'waits'=>(int)($st['waits']??0),'shields'=>(int)($st['shields']??0),'badClicks'=>(int)($st['badClicks']??0),'goodPress'=>(int)($st['goodPress']??0),'goodWait'=>(int)($st['goodWait']??0),'goodShield'=>(int)($st['goodShield']??0)]; }
+    usort($rows, fn($a,$b)=>(int)$b['points']<=>(int)$a['points']);
+    $state['finalRows']=$rows; $state['medals']=['winner'=>$rows[0]??null,'coldBlood'=>$rows?array_reduce($rows,fn($best,$r)=>$best===null||(int)$r['goodWait']>(int)$best['goodWait']?$r:$best):null,'clickAddict'=>$rows?array_reduce($rows,fn($best,$r)=>$best===null||(int)$r['presses']>(int)$best['presses']?$r:$best):null,'shield'=>$rows?array_reduce($rows,fn($best,$r)=>$best===null||(int)$r['goodShield']>(int)$best['goodShield']?$r:$best):null,'victim'=>$rows?array_reduce($rows,fn($best,$r)=>$best===null||(int)$r['badClicks']>(int)$best['badClicks']?$r:$best):null];
+}
+function forbidden_auto_progress_room(PDO $pdo, array $room): void {
+    $round=active_round($pdo,(int)$room['id']); if (!$round || (string)$round['mode']!=='boton-prohibido' || (string)$round['status']!=='playing') return; if (empty($round['ends_at_ms']) || now_ms() < (int)$round['ends_at_ms']) return;
+    try { $pdo->beginTransaction(); $roomLocked=room_by_code($pdo,(string)$room['code'],true); $lockedRound=active_round($pdo,(int)$roomLocked['id'],true); if (!$lockedRound || (string)$lockedRound['mode']!=='boton-prohibido' || (string)$lockedRound['status']!=='playing') { $pdo->rollBack(); return; } $state=jdec($lockedRound['state_json']); $players=players_for_room($pdo,(int)$roomLocked['id']); forbidden_ensure_state($state,$pdo,(int)$roomLocked['id'],$players); $phase=(string)$lockedRound['phase']; if ($phase==='press') { forbidden_resolve_round($pdo,$players,$state,true); $pdo->prepare("UPDATE party_rounds SET phase = 'reveal', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms()+forbidden_reveal_ms(), (int)$lockedRound['id']]); } elseif ($phase==='reveal') { $next=forbidden_next_or_finish($players,$state); if ($next==='results') { $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state),(int)$lockedRound['id']]); $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]); } else { $pdo->prepare("UPDATE party_rounds SET phase = 'press', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms()+forbidden_decision_ms(), (int)$lockedRound['id']]); } } $pdo->commit(); } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); error_log('Forbidden auto progress failed: '.$e->getMessage()); }
+}
+
 function add_score(PDO $pdo, int $playerId, int $points): void {
     if ($points >= 0) {
         $pdo->prepare('UPDATE party_players SET score = score + ? WHERE id = ?')->execute([$points, $playerId]);
@@ -3021,15 +4865,13 @@ try {
             ];
             $phase = 'answer';
         } elseif ($mode === 'boton-prohibido') {
-            $buttons = button_pool($pdo, (int)$room['id']);
-            $state = ['contentId'=>'buttons-' . implode('-', array_map(fn($button) => $button['id'], $buttons)), 'buttons'=>$buttons, 'outcomes'=>[], 'scores'=>[]];
+            $state = forbidden_init_state($pdo, (int)$room['id'], $players);
             $phase = 'press';
-            $duration = 16000;
+            $duration = forbidden_decision_ms();
         } elseif ($mode === 'subasta') {
-            $challenge = pick_unused_answer_item($pdo, (int)$room['id'], 'subasta', subasta_pool());
-            $state = ['contentId'=>$challenge['id'], 'challenge'=>$challenge, 'submissions'=>[], 'scores'=>[]];
-            $phase = 'answer';
-            $duration = 26000;
+            $state = subasta_init_state($pdo, (int)$room['id'], $players);
+            $phase = 'bid';
+            $duration = subasta_bid_ms($state);
         } else {
             fail('Modo no válido.');
         }
@@ -3042,6 +4884,14 @@ try {
             $state['questionStartedAtMs'] = $started;
             $state['questionEndsAtMs'] = $started + $duration;
             $ends = (int)$state['questionEndsAtMs'];
+        } elseif ($mode === 'boton-prohibido' && $phase === 'press') {
+            $state['phaseStartedMs'] = $started;
+            $state['durationMs'] = $duration;
+            $ends = $started + $duration;
+        } elseif ($mode === 'subasta' && $phase === 'bid') {
+            $state['phaseStartedMs'] = $started;
+            $state['clarityVersion'] = 3;
+            $ends = $started + $duration;
         } else {
             $ends = $started + $duration;
         }
@@ -3187,32 +5037,96 @@ try {
             } elseif ($phase === 'reveal') {
                 $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + quiz_reveal_duration()));
             }
-        } elseif ($mode === 'boton-prohibido' && $phase === 'press') {
-            if (isset($state['outcomes'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
-            $buttonIndex = max(0, min(count($state['buttons'] ?? []) - 1, (int)($payload['button'] ?? 0)));
-            $button = $state['buttons'][$buttonIndex] ?? ['points'=>0,'label'=>'???','title'=>'Nada','text'=>'No ha pasado nada.','effect'=>'Nada'];
-            $points = (int)($button['points'] ?? 0);
-            $state['outcomes'][$pid] = ['button'=>$buttonIndex, 'label'=>$button['label'] ?? '???', 'effect'=>$button['effect'] ?? 'Nada', 'title'=>$button['title'] ?? 'Resultado', 'text'=>$button['text'] ?? '', 'points'=>$points, 'at'=>now_ms()];
-            add_score($pdo, (int)$viewer['id'], $points);
-            if (count($state['outcomes']) >= count(players_for_room($pdo, (int)$room['id']))) {
-                $phase = 'results';
-                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
-                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
+        } elseif ($mode === 'boton-prohibido') {
+            $playersNow = players_for_room($pdo, (int)$room['id']);
+            forbidden_ensure_state($state, $pdo, (int)$room['id'], $playersNow);
+            $key = forbidden_key($state);
+            if (!isset($state['choices'][$key]) || !is_array($state['choices'][$key])) $state['choices'][$key] = [];
+            if (!isset($state['tools'][$pid]) || !is_array($state['tools'][$pid])) $state['tools'][$pid] = [];
+            if ($phase === 'press') {
+                $tool = (string)($payload['forbiddenTool'] ?? '');
+                if ($tool === 'scan') {
+                    if (empty($state['tools'][$pid]['scan'])) {
+                        $button = forbidden_current_button($state);
+                        $kind = (string)($button['kind'] ?? 'trap');
+                        $dangerKinds = ['trap','bomb','split'];
+                        $scanText = in_array($kind, $dangerKinds, true) ? 'Lectura: peligro alto. Aguantar o blindarse parece razonable.' : (in_array($kind, ['prize','liar','jackpot'], true) ? 'Lectura: hay premio potencial. Pulsar puede ser buena idea si el timing encaja.' : 'Lectura: resultado raro. El blindaje reduce sustos.');
+                        $state['tools'][$pid]['scan'] = true;
+                        $state['tools'][$pid]['scanResult'] = $scanText;
+                    }
+                    $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + forbidden_decision_ms()));
+                } else {
+                    $actionChoice = (string)($payload['forbiddenAction'] ?? 'press');
+                    if (!in_array($actionChoice, ['press','wait','shield','lock'], true)) $actionChoice = 'press';
+                    $locked = false;
+                    if ($actionChoice === 'lock') {
+                        if (!empty($state['tools'][$pid]['lock'])) { $pdo->rollBack(); fail('Ya usaste Candado en esta partida.', 422); }
+                        $state['tools'][$pid]['lock'] = true;
+                        $actionChoice = 'wait';
+                        $locked = true;
+                    }
+                    $state['choices'][$key][$pid] = ['action'=>$actionChoice, 'at'=>now_ms(), 'locked'=>$locked];
+                    if (forbidden_all_chose($state, $playersNow)) {
+                        forbidden_resolve_round($pdo, $playersNow, $state, true);
+                        $phase = 'reveal';
+                        $endsAtMs = now_ms() + forbidden_reveal_ms();
+                    } else {
+                        $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + forbidden_decision_ms()));
+                    }
+                }
+            } elseif ($phase === 'reveal') {
+                $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + forbidden_reveal_ms()));
             }
-        } elseif ($mode === 'subasta' && $phase === 'answer') {
-            if (isset($state['submissions'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
-            $answer = (int)($payload['answer'] ?? -1);
-            $wager = max(100, min(500, (int)($payload['wager'] ?? 100)));
-            $correct = (int)($state['challenge']['correct'] ?? -2);
-            $isCorrect = $answer === $correct;
-            $remaining = max(0, ((int)$round['ends_at_ms'] - now_ms()) / 1000);
-            $points = $isCorrect ? ($wager + 180 + (int)round($remaining * 12)) : -max(50, (int)round($wager * 0.6));
-            $state['submissions'][$pid] = ['answer'=>$answer, 'wager'=>$wager, 'correct'=>$isCorrect, 'points'=>$points, 'at'=>now_ms()];
-            add_score($pdo, (int)$viewer['id'], $points);
-            if (count($state['submissions']) >= count(players_for_room($pdo, (int)$room['id']))) {
-                $phase = 'results';
-                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
-                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
+        } elseif ($mode === 'subasta') {
+            $playersNow = players_for_room($pdo, (int)$room['id']);
+            $key = subasta_current_key($state);
+            if (!isset($state['bids'][$key]) || !is_array($state['bids'][$key])) $state['bids'][$key] = [];
+            if ($phase === 'bid') {
+                $auctionAction = (string)($payload['auctionAction'] ?? 'bid');
+                $credits = (int)(($state['credits'][$pid] ?? $state['initialCredits'] ?? 120));
+                if ($auctionAction === 'analyze') {
+                    if (!isset($state['revealedClues'][$key])) $state['revealedClues'][$key] = [];
+                    if (!isset($state['revealedClues'][$key][$pid])) {
+                        $cost = subasta_analyze_cost($state, $pid);
+                        if ($credits < $cost) { $pdo->rollBack(); fail('No tienes créditos suficientes para analizar.', 422); }
+                        $lot = subasta_current_lot($state);
+                        $state['credits'][$pid] = max(0, $credits - $cost);
+                        $state['revealedClues'][$key][$pid] = (string)($lot['extra'] ?? 'No hay pista extra: el mercado también sabe callarse.');
+                        $points = -$cost;
+                    }
+                    $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + subasta_bid_ms($state)));
+                } else {
+                    $bid = (int)($payload['bid'] ?? 0);
+                    if (!empty($payload['allIn'])) $bid = $credits;
+                    $bid = max(0, min($credits, $bid));
+                    $bid = (int)round($bid / 5) * 5;
+                    $insurance = !empty($payload['insurance']);
+                    $prevInsurance = !empty(($state['bids'][$key][$pid] ?? [])['insurance']);
+                    $insuranceCost = subasta_insurance_cost($state, $pid);
+                    if ($insurance && !$prevInsurance) {
+                        if ($credits < $insuranceCost) { $pdo->rollBack(); fail('No tienes créditos suficientes para activar seguro.', 422); }
+                        $state['credits'][$pid] = max(0, $credits - $insuranceCost);
+                        $credits = (int)$state['credits'][$pid];
+                        $bid = min($bid, $credits);
+                    } elseif (!$insurance && $prevInsurance) {
+                        $state['credits'][$pid] = $credits + $insuranceCost;
+                        $credits = (int)$state['credits'][$pid];
+                    }
+                    $stance = trim(strip_tags((string)($payload['stance'] ?? 'Secreto')));
+                    $stance = mb_substr($stance !== '' ? $stance : 'Secreto', 0, 24);
+                    $state['bids'][$key][$pid] = ['bid'=>$bid, 'insurance'=>$insurance, 'stance'=>$stance, 'at'=>now_ms()];
+                    $state['submissions'][$pid] = ['bid'=>$bid, 'insurance'=>$insurance, 'stance'=>$stance, 'round'=>(int)$key, 'at'=>now_ms()];
+                    if (subasta_all_bids_ready($state, $playersNow) && subasta_can_resolve_early($state)) {
+                        subasta_resolve_lot($pdo, $playersNow, $state);
+                        $state['phaseStartedMs'] = now_ms();
+                        $phase = 'reveal';
+                        $endsAtMs = now_ms() + subasta_reveal_ms();
+                    } else {
+                        $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + subasta_bid_ms($state)));
+                    }
+                }
+            } elseif ($phase === 'reveal') {
+                $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + subasta_reveal_ms()));
             }
         } elseif ($mode === 'boss-coop' && $phase === 'battle') {
             boss_ensure_state($state, players_for_room($pdo, (int)$room['id']));
@@ -3352,6 +5266,25 @@ try {
                 quiz_finish_game($playersNow, $state);
                 $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$round['id']]);
                 $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            }
+        } elseif ($round && (string)$round['mode'] === 'boton-prohibido' && (string)$round['status'] === 'playing') {
+            $state = jdec($round['state_json']);
+            $playersNow = players_for_room($pdo, (int)$roomLocked['id']);
+            forbidden_ensure_state($state, $pdo, (int)$roomLocked['id'], $playersNow);
+            $roundPhase = (string)$round['phase'];
+            if ($roundPhase === 'press') {
+                forbidden_resolve_round($pdo, $playersNow, $state, true);
+                $pdo->prepare("UPDATE party_rounds SET phase = 'reveal', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + forbidden_reveal_ms(), (int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } elseif ($roundPhase === 'reveal') {
+                $nextPhase = forbidden_next_or_finish($playersNow, $state);
+                if ($nextPhase === 'results') {
+                    $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$round['id']]);
+                    $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+                } else {
+                    $pdo->prepare("UPDATE party_rounds SET phase = 'press', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + forbidden_decision_ms(), (int)$round['id']]);
+                    $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+                }
             }
         } else {
             $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', ended_at = NOW() WHERE room_id = ? AND status = 'playing'")->execute([(int)$roomLocked['id']]);

@@ -73,21 +73,8 @@
         <article><i class="fa-solid fa-bomb"></i><strong>Boton</strong><span>Riesgo total</span></article>
         <article><i class="fa-solid fa-gavel"></i><strong>Subasta</strong><span>Apuesta puntos</span></article>
       </section>
-      <button class="api-settings" data-open-settings><i class="fa-solid fa-server"></i> Configurar API</button>
     </section>
   </template>
-
-  <dialog id="settingsDialog" class="settings-dialog">
-    <form method="dialog">
-      <h2>API del hosting</h2>
-      <p>Cuando subas la API PHP al hosting, pega aquí la URL. Ejemplo: <code>https://danielux-api-proxy.dlux135.workers.dev/api/party</code></p>
-      <input id="apiUrlInput" placeholder="https://danielux-api-proxy.dlux135.workers.dev/api/party">
-      <menu>
-        <button value="cancel">Cancelar</button>
-        <button value="save" id="saveApiUrl">Guardar</button>
-      </menu>
-    </form>
-  </dialog>
 
   <script src="./app.js" type="module"></script>
 </body>
