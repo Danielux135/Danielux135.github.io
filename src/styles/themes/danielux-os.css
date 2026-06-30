@@ -377,7 +377,7 @@ html.os-mode #hero canvas {
 }
 /* p1: acento principal lleno · p2: mismo acento atenuado → contraste garantizado en cualquier paleta */
 .os-logo-svg .os-logo-p1 { fill: rgb(var(--accent-1-rgb)); }
-.os-logo-svg .os-logo-p2 { fill: rgba(var(--accent-1-rgb), 0.28); }
+.os-logo-svg .os-logo-p2 { fill: rgb(var(--accent-1-rgb) / 0.28); }
 
 .osm-logo .os-logo-svg {
     width: 40px;
