@@ -329,6 +329,148 @@
           ]
         }
       ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin sigue bajo presi?n tras perder los 60.000$ al cierre de junio",
+            "en": "Bitcoin stays under pressure after losing $60K into month-end",
+            "val": "Bitcoin continua sota pressi? despr?s de perdre els 60.000$ al tancament de juny"
+          },
+          "summary": {
+            "es": "La jornada del 24 de junio ya hab?a dejado el mercado muy sensible y el 25 sigui? dominado por la b?squeda de soporte en Bitcoin y Ethereum. M?s que un giro brusco, lo que se ve es continuidad de la volatilidad y la dependencia de los flujos macro y de derivados, algo que CoinDesk y Cointelegraph vienen marcando desde hace d?as.",
+            "en": "June 25 kept markets focused on support hunting in Bitcoin and Ethereum after a tense 24th. Rather than a sharp turn, the picture is still one of volatility and heavy dependence on macro and derivatives flows, which CoinDesk and Cointelegraph have been flagging for days.",
+            "val": "El 25 de juny el mercat continua buscant suport en Bitcoin i Ethereum despr?s d?un dia 24 molt tens. M?s que un gir brusc, el panorama seguix sent de volatilitat i depend?ncia dels fluxos macro i de derivats, una lectura que CoinDesk i Cointelegraph venen remarcat des de fa dies."
+          },
+          "shortTerm": {
+            "es": "Sigue mandando el rango y la volatilidad, con atenci?n a cualquier dato macro o liquidaci?n forzada.",
+            "en": "Range trading and volatility keep dominating, with attention on any macro print or forced liquidation.",
+            "val": "Continuen dominant els rangs i la volatilitat, amb atenci? a qualsevol dada macro o liquidaci? for?ada."
+          },
+          "longTerm": {
+            "es": "A largo plazo, el foco sigue en regulaci?n, adopci?n institucional e infraestructura.",
+            "en": "Long term, regulation, institutional adoption and infrastructure remain the key drivers.",
+            "val": "A llarg termini, el focus continua en regulaci?, adopci? institucional i infraestructura."
+          },
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk",
+                "en": "CoinDesk",
+                "val": "CoinDesk"
+              },
+              "url": "https://www.coindesk.com"
+            },
+            {
+              "title": {
+                "es": "Cointelegraph",
+                "en": "Cointelegraph",
+                "val": "Cointelegraph"
+              },
+              "url": "https://cointelegraph.com"
+            }
+          ],
+          "source": "CoinDesk / Cointelegraph",
+          "url": "https://www.coindesk.com"
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "El hardware de junio sigue en modo comparativa, no en modo sorpresa",
+            "en": "June hardware coverage stays in review mode, not surprise-launch mode",
+            "val": "El hardware de juny continua en mode comparativa, no en mode sorpresa"
+          },
+          "summary": {
+            "es": "En el d?a previo ya dominaban las pruebas y comparativas de procesadores, GPUs y port?tiles en Xataka y Tom's Hardware, y el 25 esa tendencia segu?a intacta. La lectura ?til para el lector es pr?ctica: rendimiento, consumo y precio siguen pesando m?s que cualquier anuncio ruidoso.",
+            "en": "The day before was already dominated by reviews and comparisons of CPUs, GPUs and laptops on Xataka and Tom's Hardware, and June 25 kept that same pattern. The useful takeaway is practical: performance, power draw and price still matter more than any noisy announcement.",
+            "val": "El dia anterior ja estava dominat per proves i comparatives de processadors, GPUs i port?tils en Xataka i Tom's Hardware, i el 25 mant? eixe patr?. La lectura ?til per al lector ?s pr?ctica: rendiment, consum i preu continuen pesant m?s que qualsevol anunci soroll?s."
+          },
+          "source": "Xataka / Tom's Hardware",
+          "url": "https://www.tomshardware.com",
+          "links": [
+            {
+              "title": {
+                "es": "Tom's Hardware",
+                "en": "Tom's Hardware",
+                "val": "Tom's Hardware"
+              },
+              "url": "https://www.tomshardware.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "Ciberseguridad sin gran 0-day, pero con parches que no conviene dejar pasar",
+            "en": "Cybersecurity without a headline 0-day, but with patches worth applying",
+            "val": "Ciberseguretat sense un gran 0-day, per? amb peda?os que no conv? deixar passar"
+          },
+          "summary": {
+            "es": "La referencia del d?a sigue siendo la vigilancia continua: INCIBE, CISA y The Hacker News mantienen avisos activos sobre campa?as de malware y vulnerabilidades recientes. No hay una brecha ?nica que monopolice el ciclo, pero s? una lista de parches y recomendaciones que sigue creciendo.",
+            "en": "The day's reference point remains sustained vigilance: INCIBE, CISA and The Hacker News keep live advisories on malware campaigns and recent vulnerabilities. There is no single breach monopolizing the news cycle, but there is a growing list of patches and recommendations.",
+            "val": "La refer?ncia del dia continua sent la vigil?ncia constant: INCIBE, CISA i The Hacker News mantenen avisos actius sobre campanyes de malware i vulnerabilitats recents. No hi ha una bretxa ?nica que monopolitze el cicle, per? s? una llista de peda?os i recomanacions que seguix creixent."
+          },
+          "source": "INCIBE / CISA / The Hacker News",
+          "url": "https://www.incibe.es",
+          "links": [
+            {
+              "title": {
+                "es": "INCIBE",
+                "en": "INCIBE",
+                "val": "INCIBE"
+              },
+              "url": "https://www.incibe.es"
+            },
+            {
+              "title": {
+                "es": "CISA",
+                "en": "CISA",
+                "val": "CISA"
+              },
+              "url": "https://www.cisa.gov"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "La televisi?n mantiene el pulso del fin de semana con reportajes de fondo",
+            "en": "TV keeps the weekend pulse alive with long-form reporting",
+            "val": "La televisi? mant? el pols del cap de setmana amb reportatges de fons"
+          },
+          "summary": {
+            "es": "El 24 ya apuntaba a una agenda muy de cierre de semana y el 25 la televisi?n p?blica segu?a ocupando ese espacio con piezas de contexto y actualidad. Es un recordatorio de que, cuando no hay gran estreno, la agenda cultural la marcan bien los programas de fondo y las coberturas largas.",
+            "en": "June 24 already pointed to a very end-of-week agenda, and June 25 kept public TV in that lane with context-heavy current-affairs pieces. It is a reminder that when there is no major premiere, the cultural agenda is shaped by long-form reporting and background programmes.",
+            "val": "El 24 ja apuntava a una agenda molt de tancament de setmana i el 25 la televisi? p?blica seguia en eixa l?nia amb peces de context i actualitat. ?s un recordatori que, quan no hi ha gran estrena, l?agenda cultural la marquen b? els programes de fons i les cobertures llargues."
+          },
+          "source": "RTVE",
+          "url": "https://www.rtve.es/play/",
+          "links": [
+            {
+              "title": {
+                "es": "RTVE Play",
+                "en": "RTVE Play",
+                "val": "RTVE Play"
+              },
+              "url": "https://www.rtve.es/play/"
+            }
+          ]
+        }
+      ]
     }
   ],
   "tags": [

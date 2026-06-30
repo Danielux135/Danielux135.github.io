@@ -460,6 +460,147 @@ html.os-mode #hero canvas {
     line-height: 1;
 }
 
+/* selector de idioma */
+.os-tb-lang {
+    font-family: var(--os-font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--os-ink-dim);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--os-radius-sm);
+    padding: 3px 6px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 28px;
+    text-align: center;
+}
+.os-tb-lang:hover {
+    color: var(--os-ink);
+    border-color: var(--os-wire-mid);
+    background: var(--os-chrome-2);
+}
+
+/* iconos de apps abiertas en el tray */
+.os-tb-open-apps {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+.os-tb-open-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--os-radius-sm);
+    color: var(--os-ink-dim);
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.12s, border-color 0.12s, background 0.12s;
+    flex-shrink: 0;
+    position: relative;
+}
+.os-tb-open-ico::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--os-accent);
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.os-tb-open-ico:hover {
+    color: var(--os-ink);
+    border-color: var(--os-wire);
+    background: var(--os-chrome-2);
+}
+.os-tb-open-ico--active {
+    color: var(--os-accent);
+    border-color: var(--os-wire-hot);
+    background: rgb(var(--accent-1-rgb) / 0.1);
+}
+.os-tb-open-ico--active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* control de volumen */
+.os-tb-vol-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+.os-tb-vol-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    color: var(--os-ink-dim);
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: color 0.15s;
+    flex-shrink: 0;
+    padding: 0;
+}
+.os-tb-vol-ico:hover { color: var(--os-ink); }
+.os-tb-vol-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 68px;
+    height: 3px;
+    background: linear-gradient(
+        to right,
+        var(--os-accent) 0%,
+        var(--os-accent) calc(var(--val, 80) * 1%),
+        var(--os-chrome-3) calc(var(--val, 80) * 1%),
+        var(--os-chrome-3) 100%
+    );
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    flex-shrink: 0;
+}
+.os-tb-vol-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--os-ink);
+    border: 1px solid var(--os-wire-hot);
+    transition: background 0.12s, transform 0.12s;
+}
+.os-tb-vol-slider::-webkit-slider-thumb:hover {
+    background: var(--os-accent);
+    transform: scale(1.2);
+}
+.os-tb-vol-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--os-ink);
+    border: 1px solid var(--os-wire-hot);
+}
+
+@media (max-width: 767px) {
+    .os-tb-vol-slider { width: 44px; }
+    .os-tb-lang { display: none; }
+}
+
 /* ─────────────────────────────────────────────────────
    VENTANAS
    ───────────────────────────────────────────────────── */

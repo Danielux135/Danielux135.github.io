@@ -384,7 +384,11 @@ function applyTranslations(language) {
     if (window._ctaUpdateText) window._ctaUpdateText();
     if (window._studioUpdateText) window._studioUpdateText();
     resetTypewriter();
+    // notifica al OS taskbar si está montado
+    if (window._osTaskbarSetLang) window._osTaskbarSetLang(language);
 }
+// expone el cambio de idioma para que el OS taskbar pueda dispararlo
+window._setPortfolioLang = applyTranslations;
 // conecta cada botón de idioma con applyTranslations
 languageButtons.forEach((button) => {
     button.addEventListener('click', () => applyTranslations(button.dataset.lang));

@@ -305,6 +305,122 @@
           ]
         }
       ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "La cripto entra en una jornada de vencimiento y lectura t?cnica",
+            "en": "Crypto enters an expiry day with technical focus",
+            "val": "La cripto entra en una jornada de venciment i lectura t?cnica"
+          },
+          "summary": {
+            "es": "El 26 de junio el foco se desplaza al vencimiento de opciones y al comportamiento de Bitcoin en un entorno ya tenso desde el d?a anterior. La fotograf?a que dejan CoinDesk y Cointelegraph es menos de titular explosivo y m?s de mercado en b?squeda de equilibrio, con soporte y resistencia mandando.",
+            "en": "On June 26 the focus shifts to options expiry and Bitcoin's behavior in an already tense environment from the previous day. The picture left by CoinDesk and Cointelegraph is less about a blow-up headline and more about a market searching for balance, with support and resistance in charge.",
+            "val": "El 26 de juny el focus es despla?a al venciment d?opcions i al comportament de Bitcoin en un entorn ja tens des del dia anterior. La fotografia que deixen CoinDesk i Cointelegraph ?s menys de titular explosiu i m?s de mercat buscant equilibri, amb suport i resist?ncia manant."
+          },
+          "source": "CoinDesk / Cointelegraph",
+          "url": "https://www.coindesk.com",
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk",
+                "en": "CoinDesk",
+                "val": "CoinDesk"
+              },
+              "url": "https://www.coindesk.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Procesadores, pantallas y autonom?a siguen dominando la conversaci?n de hardware",
+            "en": "CPUs, displays and battery life still dominate hardware talk",
+            "val": "Processadors, pantalles i autonomia continuen dominant la conversa de hardware"
+          },
+          "summary": {
+            "es": "La cobertura del 26 no necesita inventar un gran lanzamiento: la conversaci?n real sigue en las comparativas de CPU, GPU y m?viles de ?ltima generaci?n. Lo importante para el lector es que el criterio de compra pasa por eficiencia y equilibrio, no por el ruido del anuncio de turno.",
+            "en": "June 26 does not need a fake blockbuster launch: the real conversation stays in CPU, GPU and latest-phone comparisons. What matters to readers is that buying decisions hinge on efficiency and balance, not on the noise of whichever announcement is trending.",
+            "val": "La cobertura del 26 no necessita inventar un gran llan?ament: la conversa real seguix en les comparatives de CPU, GPU i m?bils d??ltima generaci?. El que importa per al lector ?s que el criteri de compra passa per efici?ncia i equilibri, no pel soroll de l?anunci de torn."
+          },
+          "source": "Xataka / Computer Hoy",
+          "url": "https://www.xataka.com",
+          "links": [
+            {
+              "title": {
+                "es": "Xataka",
+                "en": "Xataka",
+                "val": "Xataka"
+              },
+              "url": "https://www.xataka.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "Seguimiento de vulnerabilidades y ransomware, sin un incidente dominante",
+            "en": "Vulnerability and ransomware tracking continues, without a dominant incident",
+            "val": "Seguiment de vulnerabilitats i ransomware, sense un incident dominant"
+          },
+          "summary": {
+            "es": "INCIBE y CISA siguen siendo las referencias para el 26 de junio: parches, campa?as de phishing y ransomware marcan el d?a m?s que una sola alerta de urgencia m?xima. Ese tipo de panorama pide disciplina operativa, no p?nico.",
+            "en": "INCIBE and CISA remain the references on June 26: patches, phishing campaigns and ransomware define the day more than a single top-severity alert. That kind of landscape calls for operational discipline, not panic.",
+            "val": "INCIBE i CISA continuen sent les refer?ncies del 26 de juny: peda?os, campanyes de phishing i ransomware definixen el dia m?s que una sola alerta d?urg?ncia m?xima. Eixe panorama demana disciplina operativa, no p?nic."
+          },
+          "source": "INCIBE / CISA",
+          "url": "https://www.cisa.gov",
+          "links": [
+            {
+              "title": {
+                "es": "CISA",
+                "en": "CISA",
+                "val": "CISA"
+              },
+              "url": "https://www.cisa.gov"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "La programaci?n cultural cierra junio con relatos de contexto, no de escaparte",
+            "en": "Cultural programming closes June with context, not escape",
+            "val": "La programaci? cultural tanca juny amb relats de context, no d?evasi?"
+          },
+          "summary": {
+            "es": "A 26 de junio, el bloque de entretenimiento funciona m?s como acompa?amiento de agenda que como gran titular. La televisi?n y el streaming siguen aportando contexto sobre pol?tica, sociedad y cultura, una f?rmula que encaja bien en un cierre de mes cargado de ruido informativo.",
+            "en": "On June 26, the entertainment block works more as agenda accompaniment than as a headline generator. Television and streaming keep adding context on politics, society and culture, a formula that fits a month-end overloaded with news noise.",
+            "val": "A 26 de juny, el bloc d?entreteniment funciona m?s com a acompanyament d?agenda que com a gran titular. La televisi? i el streaming continuen aportant context sobre pol?tica, societat i cultura, una f?rmula que encaixa b? en un tancament de mes carregat de soroll informatiu."
+          },
+          "source": "RTVE",
+          "url": "https://www.rtve.es",
+          "links": [
+            {
+              "title": {
+                "es": "RTVE",
+                "en": "RTVE",
+                "val": "RTVE"
+              },
+              "url": "https://www.rtve.es"
+            }
+          ]
+        }
+      ]
     }
   ],
   "tags": [

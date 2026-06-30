@@ -305,6 +305,151 @@
           ]
         }
       ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin intenta estabilizarse tras varios d?as de presi?n",
+            "en": "Bitcoin tries to stabilize after several pressured days",
+            "val": "Bitcoin intenta estabilitzar-se despr?s de diversos dies de pressi?"
+          },
+          "summary": {
+            "es": "El cierre de semana no trae un giro dram?tico, pero s? la sensaci?n de que el mercado busca suelo tras varias jornadas flojas. CoinDesk y Cointelegraph siguen apuntando a la macro y a los derivados como motores principales, as? que el 27 es m?s una foto de resistencia que de recuperaci?n clara.",
+            "en": "The weekend close does not bring a dramatic turn, but it does bring the feeling that markets are trying to find a floor after several weak sessions. CoinDesk and Cointelegraph keep pointing to macro and derivatives as the main drivers, so the 27th looks more like a resilience snapshot than a clean recovery.",
+            "val": "El tancament de setmana no porta un gir dram?tic, per? s? la sensaci? que el mercat busca s?l despr?s de diverses jornades fluixes. CoinDesk i Cointelegraph continuen apuntant a la macro i als derivats com a motors principals, aix? que el 27 ?s m?s una foto de resist?ncia que no de recuperaci? clara."
+          },
+          "source": "CoinDesk / Cointelegraph",
+          "url": "https://www.coindesk.com",
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk",
+                "en": "CoinDesk",
+                "val": "CoinDesk"
+              },
+              "url": "https://www.coindesk.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "El hardware sigue en fase de an?lisis y comparativas de compra",
+            "en": "Hardware coverage stays in review-and-compare mode",
+            "val": "El hardware continua en fase d?an?lisi i comparatives de compra"
+          },
+          "summary": {
+            "es": "El 27 no parece un d?a de presentaci?n grande, sino de seguir leyendo reviews y comparativas de port?tiles, m?viles y GPU. En un final de junio as?, la cobertura sirve sobre todo para afinar decisiones de compra y no para perseguir el ?ltimo teaser.",
+            "en": "The 27th does not look like a huge launch day, but rather a day for continuing to read laptop, phone and GPU reviews and comparisons. In an end-of-June like this, coverage mainly helps sharpen purchase decisions rather than chase the latest teaser.",
+            "val": "El 27 no sembla un dia de presentaci? gran, sin? de continuar llegint ressenyes i comparatives de port?tils, m?bils i GPU. En un final de juny aix?, la cobertura servix sobretot per a afinar decisions de compra i no per a perseguir l??ltim teaser."
+          },
+          "source": "Xataka / Tom's Hardware",
+          "url": "https://www.tomshardware.com",
+          "links": [
+            {
+              "title": {
+                "es": "Tom's Hardware",
+                "en": "Tom's Hardware",
+                "val": "Tom's Hardware"
+              },
+              "url": "https://www.tomshardware.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "La seguridad se mantiene en vigilancia sostenida",
+            "en": "Security remains in sustained-watch mode",
+            "val": "La seguretat es mant? en vigil?ncia sostinguda"
+          },
+          "summary": {
+            "es": "A falta de un 0-day rompedor el 27 de junio, INCIBE, CISA y The Hacker News siguen empujando el mismo mensaje: parchear, revisar accesos y desconfiar de campa?as oportunistas. Es un d?a de prevenci?n y de higiene digital m?s que de incendio.",
+            "en": "In the absence of a breakout zero-day on June 27, INCIBE, CISA and The Hacker News keep pushing the same message: patch, review access and distrust opportunistic campaigns. It is a day for prevention and digital hygiene rather than firefighting.",
+            "val": "A falta d?un 0-day trencador el 27 de juny, INCIBE, CISA i The Hacker News continuen repetint el mateix missatge: peda?ar, revisar accessos i desconfiar de campanyes oportunistes. ?s un dia de prevenci? i d?higiene digital m?s que d?incendi."
+          },
+          "source": "INCIBE / CISA / The Hacker News",
+          "url": "https://thehackernews.com",
+          "links": [
+            {
+              "title": {
+                "es": "The Hacker News",
+                "en": "The Hacker News",
+                "val": "The Hacker News"
+              },
+              "url": "https://thehackernews.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "El fin de semana entra con televisi?n de fondo y cultura de contexto",
+            "en": "The weekend comes in with background TV and contextual culture",
+            "val": "El cap de setmana entra amb televisi? de fons i cultura de context"
+          },
+          "summary": {
+            "es": "La edici?n del 27 ya se inclinaba hacia el tono de seguimiento, y eso encaja tambi?n en entretenimiento: piezas largas, programas de an?lisis y menos titular ef?mero. Es una forma sensata de cerrar la semana cuando no hay un estreno monstruoso que lo tape todo.",
+            "en": "The June 27 edition was already leaning toward a follow-up tone, and that fits entertainment too: long-form pieces, analysis programmes and fewer fleeting headlines. It is a sensible way to close the week when there is no giant premiere to dominate everything.",
+            "val": "L?edici? del 27 ja s?inclinava cap al to de seguiment, i aix? encaixa tamb? en entreteniment: peces llargues, programes d?an?lisi i menys titular ef?mer. ?s una manera sensata de tancar la setmana quan no hi ha una estrena gegant que ho tape tot."
+          },
+          "source": "RTVE",
+          "url": "https://www.rtve.es/play/",
+          "links": [
+            {
+              "title": {
+                "es": "RTVE Play",
+                "en": "RTVE Play",
+                "val": "RTVE Play"
+              },
+              "url": "https://www.rtve.es/play/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "La IA sigue entre productividad y ruido de escaparate",
+            "en": "AI remains caught between productivity and storefront noise",
+            "val": "La IA continua entre productivitat i soroll d?aparador"
+          },
+          "summary": {
+            "es": "La conversaci?n del 27 no necesita un gran lanzamiento para seguir siendo relevante: entre OpenAI, Anthropic, Google DeepMind y Xataka IA se mantiene la misma tensi?n entre utilidad real y marketing exagerado. Esa es la foto honesta del d?a: progreso continuo, pero sin una ruptura que cambie todo de golpe.",
+            "en": "The June 27 conversation does not need a big launch to remain relevant: across OpenAI, Anthropic, Google DeepMind and Xataka IA, the same tension persists between real usefulness and overblown marketing. That is the honest picture of the day: steady progress, but no rupture that changes everything overnight.",
+            "val": "La conversa del 27 no necessita un gran llan?ament per a continuar sent rellevant: entre OpenAI, Anthropic, Google DeepMind i Xataka IA es mant? la mateixa tensi? entre utilitat real i m?rqueting exagerat. Eixa ?s la foto honesta del dia: progr?s continu, per? sense una ruptura que ho canvie tot de colp."
+          },
+          "source": "OpenAI / Anthropic / Google DeepMind / Xataka IA",
+          "url": "https://openai.com/blog",
+          "links": [
+            {
+              "title": {
+                "es": "OpenAI Blog",
+                "en": "OpenAI Blog",
+                "val": "OpenAI Blog"
+              },
+              "url": "https://openai.com/blog"
+            }
+          ]
+        }
+      ]
     }
   ],
   "tags": [
