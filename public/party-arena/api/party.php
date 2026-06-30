@@ -153,6 +153,7 @@ function assert_host(array $room, ?array $player, array $body): void {
 }
 function public_round_state(array $round, ?array $viewer, array $players): array {
     $state = jdec($round['state_json'] ?? '{}');
+    $rawState = $state;
     $mode = (string)$round['mode'];
     $viewerId = $viewer ? (int)$viewer['id'] : 0;
 
@@ -168,10 +169,32 @@ function public_round_state(array $round, ?array $viewer, array $players): array
         }
     }
     if ($mode === 'mentira') {
-        $yourFakeAnswer = $state['fakeAnswers'][(string)$viewerId] ?? null;
-        if (($round['phase'] ?? '') !== 'vote' && ($round['phase'] ?? '') !== 'results') {
+        $phase = (string)($round['phase'] ?? '');
+        $viewerKey = (string)$viewerId;
+        $yourFakeEntry = $state['fakeAnswers'][$viewerKey] ?? null;
+        if ($yourFakeEntry !== null) {
+            $state['yourFakeAnswer'] = mentira_fake_text($yourFakeEntry);
+            if (is_array($yourFakeEntry)) $state['yourDoubleBluff'] = !empty($yourFakeEntry['double']);
+        }
+        if ($viewerId > 0 && $yourFakeEntry !== null) $state['yourOptionId'] = 'p_' . $viewerId;
+        $state['canUseFifty'] = empty(($state['jokers'][$viewerKey] ?? [])['fifty']);
+        $state['fiftyRemoved'] = ($state['jokers'][$viewerKey] ?? [])['removed'] ?? [];
+        if ($phase !== 'results') {
+            unset($state['realAnswer'], $state['fakeBank'], $state['explanation'], $state['scoreBreakdown'], $state['pointsAwarded'], $state['medals'], $state['summary'], $state['fooledBy'], $state['votesResolved'], $state['detectiveStreaks']);
+            if (!empty(($state['modifier'] ?? [])['hideCategory'])) unset($state['category']);
+            if ($phase === 'vote') {
+                $publicOptions = [];
+                foreach (($state['options'] ?? []) as $option) {
+                    $publicOptions[] = ['id'=>(string)($option['id'] ?? ''), 'text'=>(string)($option['text'] ?? '')];
+                }
+                $state['options'] = $publicOptions;
+                $ownVote = ($rawState['votes'] ?? [])[$viewerKey] ?? null;
+                $state['votes'] = $ownVote !== null ? [$viewerKey => $ownVote] : [];
+                unset($state['voteTimes'], $state['jokers']);
+            } else {
+                unset($state['options'], $state['votes'], $state['voteTimes'], $state['jokers']);
+            }
             unset($state['fakeAnswers']);
-            if ($yourFakeAnswer !== null) $state['yourFakeAnswer'] = $yourFakeAnswer;
         }
     }
     if ($mode === 'boton-prohibido' && (($round['phase'] ?? '') !== 'results')) {
@@ -179,20 +202,33 @@ function public_round_state(array $round, ?array $viewer, array $players): array
             unset($state['buttons'][$i]['id'], $state['buttons'][$i]['effect'], $state['buttons'][$i]['points'], $state['buttons'][$i]['title'], $state['buttons'][$i]['text']);
         }
     }
+    if ($mode === 'quiz') {
+        $viewerKey = (string)$viewerId;
+        $idx = (string)(int)($rawState['current'] ?? 0);
+        $state['yourQuizAnswer'] = ($rawState['answers'][$idx][$viewerKey] ?? null);
+        $state['canUseFifty'] = empty(($rawState['jokers'][$viewerKey] ?? [])['fifty']);
+        $state['canUseFreeze'] = empty(($rawState['jokers'][$viewerKey] ?? [])['freeze']);
+        $state['fiftyRemoved'] = ($rawState['jokers'][$viewerKey] ?? [])['removed'] ?? [];
+    }
 
     $submitted = [];
-    foreach (($state['answers'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
-    foreach (($state['clues'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
-    foreach (($state['fakeAnswers'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
-    foreach (($state['votes'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    if ($mode === 'quiz') {
+        $quizIndexKey = (string)(int)($rawState['current'] ?? 0);
+        foreach ((($rawState['answers'] ?? [])[$quizIndexKey] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    } else {
+        foreach (($rawState['answers'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    }
+    foreach (($rawState['clues'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    foreach (($rawState['fakeAnswers'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    foreach (($rawState['votes'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
     if ($mode === 'boss-coop') {
         $turnKey = (string)(int)($state['turn'] ?? 1);
-        foreach ((($state['choices'] ?? [])[$turnKey] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+        foreach ((($rawState['choices'] ?? [])[$turnKey] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
     } else {
-        foreach (($state['hits'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+        foreach (($rawState['hits'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
     }
-    foreach (($state['outcomes'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
-    foreach (($state['submissions'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    foreach (($rawState['outcomes'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
+    foreach (($rawState['submissions'] ?? []) as $pid => $_) $submitted[(string)$pid] = true;
 
     $publicEndsAtMs = $round['ends_at_ms'] ? (int)$round['ends_at_ms'] : null;
     // Boss Cooperativo funciona por subturnos dentro de una misma ronda.
@@ -219,6 +255,8 @@ function public_round_state(array $round, ?array $viewer, array $players): array
 function state_response(PDO $pdo, array $room, ?array $viewer = null): array {
     if ($viewer) update_online($pdo, (int)$viewer['id']);
     boss_auto_progress_room($pdo, $room);
+    mentira_auto_progress_room($pdo, $room);
+    quiz_auto_progress_room($pdo, $room);
     $room = room_by_code($pdo, (string)$room['code']) ?: $room;
     $players = players_for_room($pdo, (int)$room['id']);
     $round = active_round($pdo, (int)$room['id']);
@@ -538,68 +576,1529 @@ function word_pairs(): array {
 
 
 function mentira_pool(): array {
-    return add_pool_ids('mentira', [
-        ['question'=>'¿Qué significa realmente CSS?', 'real'=>'Cascading Style Sheets'],
-        ['question'=>'¿Qué comando sube cambios a GitHub?', 'real'=>'git push'],
-        ['question'=>'¿Qué lenguaje ejecuta el navegador de forma nativa?', 'real'=>'JavaScript'],
-        ['question'=>'¿Qué etiqueta carga una hoja CSS externa?', 'real'=>'link'],
-        ['question'=>'¿Qué método convierte JSON texto en objeto JS?', 'real'=>'JSON.parse'],
-        ['question'=>'¿Qué método convierte un objeto JS en texto JSON?', 'real'=>'JSON.stringify'],
-        ['question'=>'¿Qué propiedad CSS pone un elemento en flexbox?', 'real'=>'display: flex'],
-        ['question'=>'¿Qué selector CSS apunta a una clase llamada card?', 'real'=>'.card'],
-        ['question'=>'¿Qué selector CSS apunta a un id llamado app?', 'real'=>'#app'],
-        ['question'=>'¿Qué atributo mejora la accesibilidad de una imagen?', 'real'=>'alt'],
-        ['question'=>'¿Qué sentencia SQL filtra resultados?', 'real'=>'WHERE'],
-        ['question'=>'¿Qué sentencia SQL agrupa resultados?', 'real'=>'GROUP BY'],
-        ['question'=>'¿Qué sentencia SQL filtra grupos agregados?', 'real'=>'HAVING'],
-        ['question'=>'¿Qué comando crea una rama en Git?', 'real'=>'git branch'],
-        ['question'=>'¿Qué comando cambia de rama en Git?', 'real'=>'git checkout o git switch'],
-        ['question'=>'¿Qué archivo suele guardar variables privadas en local?', 'real'=>'.env.local'],
-        ['question'=>'¿Qué cabecera indica que una API devuelve JSON?', 'real'=>'Content-Type: application/json'],
-        ['question'=>'¿Qué código HTTP suele indicar “no encontrado”?', 'real'=>'404'],
-        ['question'=>'¿Qué código HTTP suele indicar “todo correcto”?', 'real'=>'200'],
-        ['question'=>'¿Qué función PHP codifica datos como JSON?', 'real'=>'json_encode'],
-        ['question'=>'¿Qué función PHP decodifica JSON?', 'real'=>'json_decode'],
-        ['question'=>'¿Qué método del DOM selecciona el primer elemento que coincide?', 'real'=>'document.querySelector'],
-        ['question'=>'¿Qué método del DOM selecciona varios elementos?', 'real'=>'document.querySelectorAll'],
-        ['question'=>'¿Qué evento se dispara al pulsar un botón?', 'real'=>'click'],
-    ]);
+    $json = <<<'JSON'
+[
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué etiqueta HTML se usaba antiguamente para texto parpadeante?",
+    "real": "<blink>",
+    "fakes": [
+      "<flash>",
+      "<pulse>",
+      "<marquee-blink>"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué etiqueta enlaza una hoja CSS externa?",
+    "real": "<link>",
+    "fakes": [
+      "<style src=\"style.css\">",
+      "<css href=\"style.css\">",
+      "<script rel=\"stylesheet\">"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué atributo da texto alternativo a una imagen?",
+    "real": "alt",
+    "fakes": [
+      "title",
+      "label",
+      "description"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué etiqueta representa la navegación principal?",
+    "real": "<nav>",
+    "fakes": [
+      "<navbar>",
+      "<menuitem>",
+      "<navigation>"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué etiqueta representa el contenido principal de la página?",
+    "real": "<main>",
+    "fakes": [
+      "<content>",
+      "<primary>",
+      "<body-main>"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 1,
+    "question": "¿Qué atributo conecta un label con un input?",
+    "real": "for",
+    "fakes": [
+      "to",
+      "target",
+      "namefor"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 2,
+    "question": "¿Qué etiqueta permite cargar JavaScript externo?",
+    "real": "<script src=\"app.js\"></script>",
+    "fakes": [
+      "<js href=\"app.js\">",
+      "<link script=\"app.js\">",
+      "<code src=\"app.js\">"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 2,
+    "question": "¿Qué atributo abre un enlace en una pestaña nueva?",
+    "real": "target=\"_blank\"",
+    "fakes": [
+      "newtab=\"true\"",
+      "href=\"blank\"",
+      "window=\"new\""
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 2,
+    "question": "¿Qué atributo hace obligatorio un input?",
+    "real": "required",
+    "fakes": [
+      "mandatory",
+      "needed",
+      "validate"
+    ]
+  },
+  {
+    "category": "HTML",
+    "difficulty": 2,
+    "question": "¿Qué etiqueta agrupa opciones dentro de un select?",
+    "real": "<optgroup>",
+    "fakes": [
+      "<optiongroup>",
+      "<selectgroup>",
+      "<groupoption>"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué propiedad CSS activa Flexbox?",
+    "real": "display: flex",
+    "fakes": [
+      "flex: true",
+      "layout: flex",
+      "position: flex"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué propiedad CSS activa Grid?",
+    "real": "display: grid",
+    "fakes": [
+      "grid: true",
+      "layout: grid",
+      "position: grid"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué selector apunta a una clase llamada card?",
+    "real": ".card",
+    "fakes": [
+      "#card",
+      "card",
+      "@card"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué selector apunta a un id llamado app?",
+    "real": "#app",
+    "fakes": [
+      ".app",
+      "app",
+      "@app"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué propiedad controla el espacio interno?",
+    "real": "padding",
+    "fakes": [
+      "margin",
+      "gap",
+      "outline"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 1,
+    "question": "¿Qué propiedad controla el espacio externo?",
+    "real": "margin",
+    "fakes": [
+      "padding",
+      "border-spacing",
+      "inset"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 2,
+    "question": "¿Qué propiedad redondea esquinas?",
+    "real": "border-radius",
+    "fakes": [
+      "corner-radius",
+      "radius-border",
+      "round-corners"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 2,
+    "question": "¿Qué propiedad controla el orden de capas?",
+    "real": "z-index",
+    "fakes": [
+      "layer-index",
+      "stack-order",
+      "depth"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 2,
+    "question": "¿Qué propiedad define columnas en CSS Grid?",
+    "real": "grid-template-columns",
+    "fakes": [
+      "grid-columns-template",
+      "columns-grid",
+      "template-grid-columns"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 2,
+    "question": "¿Qué propiedad separa elementos en flex/grid?",
+    "real": "gap",
+    "fakes": [
+      "space-between-items",
+      "item-spacing",
+      "grid-gap-only"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 3,
+    "question": "¿Qué pseudoclase detecta el foco de teclado visible?",
+    "real": "focus-visible",
+    "fakes": [
+      "keyboard-focus",
+      "focus-keyboard",
+      "tab-focus"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 3,
+    "question": "¿Qué función CSS permite elegir entre mínimo, ideal y máximo?",
+    "real": "clamp()",
+    "fakes": [
+      "range()",
+      "between()",
+      "limit()"
+    ]
+  },
+  {
+    "category": "CSS",
+    "difficulty": 3,
+    "question": "¿Qué unidad equivale al 1% del ancho del viewport?",
+    "real": "vw",
+    "fakes": [
+      "vh",
+      "vmin",
+      "remw"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 1,
+    "question": "¿Qué método convierte texto JSON en objeto JavaScript?",
+    "real": "JSON.parse()",
+    "fakes": [
+      "JSON.decode()",
+      "JSON.toObject()",
+      "parse.JSON()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 1,
+    "question": "¿Qué método convierte un objeto en texto JSON?",
+    "real": "JSON.stringify()",
+    "fakes": [
+      "JSON.encode()",
+      "JSON.toText()",
+      "string.JSON()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 1,
+    "question": "¿Qué método selecciona el primer elemento que coincide?",
+    "real": "document.querySelector()",
+    "fakes": [
+      "document.selectOne()",
+      "document.getFirst()",
+      "document.find()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 1,
+    "question": "¿Qué método añade un listener de evento?",
+    "real": "addEventListener()",
+    "fakes": [
+      "listenEvent()",
+      "onEventAdd()",
+      "eventPush()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 1,
+    "question": "¿Qué evento se dispara al pulsar un botón?",
+    "real": "click",
+    "fakes": [
+      "press",
+      "tapbutton",
+      "buttondown"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 2,
+    "question": "¿Qué método de array transforma cada elemento?",
+    "real": "map()",
+    "fakes": [
+      "filter()",
+      "reduce()",
+      "find()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 2,
+    "question": "¿Qué método de array deja solo algunos elementos?",
+    "real": "filter()",
+    "fakes": [
+      "map()",
+      "sliceEach()",
+      "where()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 2,
+    "question": "¿Qué palabra espera una Promise dentro de async?",
+    "real": "await",
+    "fakes": [
+      "wait",
+      "yield promise",
+      "pause"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 2,
+    "question": "¿Qué API permite guardar datos simples en el navegador?",
+    "real": "localStorage",
+    "fakes": [
+      "browserDB",
+      "clientFiles",
+      "DOMStorageOnly"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 2,
+    "question": "¿Qué propiedad permite leer atributos data-*?",
+    "real": "dataset",
+    "fakes": [
+      "dataMap",
+      "attributes.data",
+      "dataList"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 3,
+    "question": "¿Qué método cancela el comportamiento por defecto de un formulario?",
+    "real": "preventDefault()",
+    "fakes": [
+      "stopDefault()",
+      "cancelSubmit()",
+      "blockEvent()"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 3,
+    "question": "¿Qué operador evita errores al acceder a propiedades opcionales?",
+    "real": "?.",
+    "fakes": [
+      "??",
+      "::",
+      ".?"
+    ]
+  },
+  {
+    "category": "JavaScript",
+    "difficulty": 3,
+    "question": "¿Qué función programa una ejecución repetida por intervalo?",
+    "real": "setInterval()",
+    "fakes": [
+      "repeatTimeout()",
+      "loopTimer()",
+      "setLoop()"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 1,
+    "question": "¿Qué cláusula SQL filtra filas?",
+    "real": "WHERE",
+    "fakes": [
+      "FILTER",
+      "HAVING ROWS",
+      "ONLY"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 1,
+    "question": "¿Qué cláusula SQL ordena resultados?",
+    "real": "ORDER BY",
+    "fakes": [
+      "SORT BY",
+      "GROUP SORT",
+      "ORDER ASC BY"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 1,
+    "question": "¿Qué cláusula SQL limita la cantidad de filas?",
+    "real": "LIMIT",
+    "fakes": [
+      "COUNT ONLY",
+      "MAX ROWS",
+      "STOP AT"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 2,
+    "question": "¿Qué cláusula SQL agrupa filas?",
+    "real": "GROUP BY",
+    "fakes": [
+      "COLLECT BY",
+      "MERGE BY",
+      "BUNDLE BY"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 2,
+    "question": "¿Qué cláusula SQL filtra grupos agregados?",
+    "real": "HAVING",
+    "fakes": [
+      "WHERE GROUP",
+      "FILTER GROUPS",
+      "ONLY GROUP"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 2,
+    "question": "¿Qué sentencia SQL inserta datos?",
+    "real": "INSERT INTO",
+    "fakes": [
+      "PUSH INTO",
+      "ADD ROW",
+      "CREATE DATA"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 2,
+    "question": "¿Qué sentencia SQL modifica filas existentes?",
+    "real": "UPDATE",
+    "fakes": [
+      "CHANGE",
+      "MODIFY ROW",
+      "SET TABLE"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 2,
+    "question": "¿Qué sentencia SQL elimina filas?",
+    "real": "DELETE FROM",
+    "fakes": [
+      "REMOVE ROW",
+      "DROP ROW",
+      "ERASE FROM"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 3,
+    "question": "¿Qué tipo de unión devuelve coincidencias de ambas tablas?",
+    "real": "INNER JOIN",
+    "fakes": [
+      "CENTER JOIN",
+      "MATCH JOIN",
+      "BOTH JOIN"
+    ]
+  },
+  {
+    "category": "MySQL",
+    "difficulty": 3,
+    "question": "¿Qué mecanismo evita inyección SQL en consultas PHP/MySQL?",
+    "real": "consultas preparadas",
+    "fakes": [
+      "concatenar strings",
+      "escapar con CSS",
+      "usar SELECT *"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 1,
+    "question": "¿Qué función PHP codifica datos como JSON?",
+    "real": "json_encode()",
+    "fakes": [
+      "json_pack()",
+      "to_json()",
+      "json_stringify()"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 1,
+    "question": "¿Qué función PHP decodifica JSON?",
+    "real": "json_decode()",
+    "fakes": [
+      "json_parse()",
+      "from_json()",
+      "json_unstringify()"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 2,
+    "question": "¿Qué superglobal contiene datos enviados por POST?",
+    "real": "$_POST",
+    "fakes": [
+      "$POST",
+      "$_BODY",
+      "$_FORM"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 2,
+    "question": "¿Qué método de PDO prepara una consulta?",
+    "real": "prepare()",
+    "fakes": [
+      "ready()",
+      "statement()",
+      "sqlPrepare()"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 2,
+    "question": "¿Qué función inicia una sesión en PHP?",
+    "real": "session_start()",
+    "fakes": [
+      "start_session()",
+      "session_open()",
+      "cookie_session()"
+    ]
+  },
+  {
+    "category": "PHP",
+    "difficulty": 3,
+    "question": "¿Qué función convierte caracteres especiales en entidades HTML?",
+    "real": "htmlspecialchars()",
+    "fakes": [
+      "html_escape()",
+      "safe_html()",
+      "escapeTags()"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 1,
+    "question": "¿Qué comando guarda cambios en el repositorio local?",
+    "real": "git commit",
+    "fakes": [
+      "git push",
+      "git save",
+      "git upload"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 1,
+    "question": "¿Qué comando sube commits al remoto?",
+    "real": "git push",
+    "fakes": [
+      "git pull",
+      "git send",
+      "git upload"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 1,
+    "question": "¿Qué comando descarga cambios del remoto?",
+    "real": "git pull",
+    "fakes": [
+      "git push",
+      "git download",
+      "git syncdown"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 2,
+    "question": "¿Qué comando muestra archivos cambiados?",
+    "real": "git status",
+    "fakes": [
+      "git state",
+      "git changes",
+      "git current"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 2,
+    "question": "¿Qué comando crea una rama?",
+    "real": "git branch",
+    "fakes": [
+      "git fork",
+      "git path",
+      "git split"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 2,
+    "question": "¿Qué comando cambia de rama de forma moderna?",
+    "real": "git switch",
+    "fakes": [
+      "git jump",
+      "git change",
+      "git move"
+    ]
+  },
+  {
+    "category": "Git",
+    "difficulty": 3,
+    "question": "¿Qué archivo evita subir cosas al repo?",
+    "real": ".gitignore",
+    "fakes": [
+      "git.exclude",
+      "ignore.json",
+      ".gitblock"
+    ]
+  },
+  {
+    "category": "HTTP",
+    "difficulty": 1,
+    "question": "¿Qué código HTTP significa “No encontrado”?",
+    "real": "404",
+    "fakes": [
+      "403",
+      "500",
+      "204"
+    ]
+  },
+  {
+    "category": "HTTP",
+    "difficulty": 1,
+    "question": "¿Qué código HTTP suele indicar éxito?",
+    "real": "200",
+    "fakes": [
+      "201 siempre",
+      "100",
+      "302"
+    ]
+  },
+  {
+    "category": "HTTP",
+    "difficulty": 2,
+    "question": "¿Qué código HTTP indica error interno del servidor?",
+    "real": "500",
+    "fakes": [
+      "404",
+      "301",
+      "204"
+    ]
+  },
+  {
+    "category": "HTTP",
+    "difficulty": 2,
+    "question": "¿Qué método HTTP suele crear recursos?",
+    "real": "POST",
+    "fakes": [
+      "GET",
+      "TRACE",
+      "HEAD"
+    ]
+  },
+  {
+    "category": "HTTP",
+    "difficulty": 3,
+    "question": "¿Qué cabecera indica que una API devuelve JSON?",
+    "real": "Content-Type: application/json",
+    "fakes": [
+      "Accept: text/html",
+      "JSON-Type: true",
+      "Response: json"
+    ]
+  },
+  {
+    "category": "APIs",
+    "difficulty": 2,
+    "question": "¿Qué función del navegador hace peticiones HTTP modernas?",
+    "real": "fetch()",
+    "fakes": [
+      "requestHTTP()",
+      "ajaxFetch()",
+      "http.get()"
+    ]
+  },
+  {
+    "category": "APIs",
+    "difficulty": 2,
+    "question": "¿Qué significa CORS?",
+    "real": "Cross-Origin Resource Sharing",
+    "fakes": [
+      "Client-Origin Request Security",
+      "Cross Online Resource Sync",
+      "Cloudflare Origin Redirect System"
+    ]
+  },
+  {
+    "category": "APIs",
+    "difficulty": 3,
+    "question": "¿Qué formato se usa mucho para intercambiar datos en APIs web?",
+    "real": "JSON",
+    "fakes": [
+      "PSD",
+      "EXE",
+      "WAV"
+    ]
+  },
+  {
+    "category": "Seguridad",
+    "difficulty": 2,
+    "question": "¿Qué ataque intenta inyectar JavaScript en una página?",
+    "real": "XSS",
+    "fakes": [
+      "CSRF",
+      "DDoS",
+      "SMTP"
+    ]
+  },
+  {
+    "category": "Seguridad",
+    "difficulty": 3,
+    "question": "¿Qué ataque aprovecha peticiones autenticadas sin permiso del usuario?",
+    "real": "CSRF",
+    "fakes": [
+      "XSS",
+      "SQL JOIN",
+      "CORS OK"
+    ]
+  },
+  {
+    "category": "Seguridad",
+    "difficulty": 3,
+    "question": "¿Qué debes hacer antes de imprimir texto de usuario en HTML?",
+    "real": "escaparlo",
+    "fakes": [
+      "comprimirlo",
+      "subirlo a Git",
+      "ponerlo en mayúsculas"
+    ]
+  },
+  {
+    "category": "Vite",
+    "difficulty": 1,
+    "question": "¿Qué carpeta suele generar Vite al compilar?",
+    "real": "dist",
+    "fakes": [
+      "builded",
+      "public_html_php",
+      "node_cache"
+    ]
+  },
+  {
+    "category": "Vite",
+    "difficulty": 2,
+    "question": "¿Qué comando suele compilar un proyecto Vite?",
+    "real": "npm run build",
+    "fakes": [
+      "npm run preview",
+      "vite upload",
+      "git build"
+    ]
+  },
+  {
+    "category": "Vite",
+    "difficulty": 2,
+    "question": "¿Qué carpeta se copia tal cual al build en Vite?",
+    "real": "public",
+    "fakes": [
+      "src",
+      "node_modules",
+      "api_private"
+    ]
+  },
+  {
+    "category": "Accesibilidad",
+    "difficulty": 2,
+    "question": "¿Qué atributo indica a lectores de pantalla el nombre de un botón sin texto?",
+    "real": "aria-label",
+    "fakes": [
+      "screen-name",
+      "reader-text",
+      "alt-button"
+    ]
+  },
+  {
+    "category": "Accesibilidad",
+    "difficulty": 2,
+    "question": "¿Qué elemento HTML debe usarse para acciones clicables?",
+    "real": "button",
+    "fakes": [
+      "div",
+      "span",
+      "article"
+    ]
+  },
+  {
+    "category": "Curiosidades tech",
+    "difficulty": 3,
+    "question": "¿Cuál fue el primer dominio .com registrado?",
+    "real": "symbolics.com",
+    "fakes": [
+      "internet.com",
+      "web.net",
+      "computer.com"
+    ]
+  },
+  {
+    "category": "Curiosidades tech",
+    "difficulty": 3,
+    "question": "¿Qué etiqueta famosa hacía desplazarse texto horizontalmente?",
+    "real": "<marquee>",
+    "fakes": [
+      "<scroll>",
+      "<slide>",
+      "<move>"
+    ]
+  }
+]
+
+JSON;
+    $items = json_decode($json, true);
+    return add_pool_ids('mentira', is_array($items) ? $items : []);
 }
 
-function quiz_pool(): array {
-    return add_pool_ids('quiz', [
-        ['question'=>'¿Qué significa CSS?', 'options'=>['Cascading Style Sheets','Creative Server Script','Computer Style System','Código Sin Servidor'], 'correct'=>0],
-        ['question'=>'¿Qué comando descarga cambios de GitHub?', 'options'=>['git pull','git push','git init','git save'], 'correct'=>0],
-        ['question'=>'¿Qué etiqueta se usa para enlazar CSS?', 'options'=>['<link>','<script>','<style src="">','<css>'], 'correct'=>0],
-        ['question'=>'¿Qué base de datos estamos usando para Party Arena?', 'options'=>['MariaDB/MySQL','MongoDB','SQLite local','Excel'], 'correct'=>0],
-        ['question'=>'¿Qué protocolo necesita la web pública para llamar a la API sin bloqueos?', 'options'=>['HTTPS','FTP','SSH','SMTP'], 'correct'=>0],
-        ['question'=>'¿Qué significa API?', 'options'=>['Application Programming Interface','Arcade Party Instance','Audio Pulse Input','Automatic PHP Installer'], 'correct'=>0],
-        ['question'=>'¿Qué hace `const` en JavaScript?', 'options'=>['Declara una referencia que no puede reasignarse','Crea una variable global siempre','Convierte texto en número','Define una clase CSS'], 'correct'=>0],
-        ['question'=>'¿Qué método evita inyección SQL en PHP/MySQL?', 'options'=>['Consultas preparadas','Concatenar $_GET','Guardar SQL en localStorage','Usar SELECT * siempre'], 'correct'=>0],
-        ['question'=>'¿Qué propiedad CSS controla el espacio interno?', 'options'=>['padding','margin','gap-only','border-radius'], 'correct'=>0],
-        ['question'=>'¿Qué propiedad CSS controla el espacio externo?', 'options'=>['margin','padding','outline','line-height'], 'correct'=>0],
-        ['question'=>'¿Qué método añade un listener de evento?', 'options'=>['addEventListener','listenEvent','onEventAdd','eventPush'], 'correct'=>0],
-        ['question'=>'¿Qué devuelve `querySelectorAll`?', 'options'=>['Una NodeList','Un único string','Un JSON','Un array SQL'], 'correct'=>0],
-        ['question'=>'¿Qué etiqueta define navegación principal?', 'options'=>['<nav>','<menuitem>','<navbar>','<section nav>'], 'correct'=>0],
-        ['question'=>'¿Qué etiqueta debe usarse para el contenido principal?', 'options'=>['<main>','<body-main>','<content>','<primary>'], 'correct'=>0],
-        ['question'=>'¿Qué atributo conecta un label con un input?', 'options'=>['for','href','target','src'], 'correct'=>0],
-        ['question'=>'¿Qué sentencia SQL ordena resultados?', 'options'=>['ORDER BY','SORT WITH','GROUP SORT','ORDER ASC BY'], 'correct'=>0],
-        ['question'=>'¿Qué sentencia SQL inserta datos?', 'options'=>['INSERT INTO','PUSH INTO','ADD ROW','CREATE DATA'], 'correct'=>0],
-        ['question'=>'¿Qué sentencia SQL modifica filas?', 'options'=>['UPDATE','CHANGE','MODIFY ROW','SET TABLE'], 'correct'=>0],
-        ['question'=>'¿Qué comando guarda cambios en Git localmente?', 'options'=>['git commit','git push','git upload','git cloud'], 'correct'=>0],
-        ['question'=>'¿Qué archivo evita subir cosas al repo?', 'options'=>['.gitignore','package.json','index.html','robots.txt'], 'correct'=>0],
-        ['question'=>'¿Qué hace `await fetch()`?', 'options'=>['Espera una respuesta HTTP','Crea una tabla SQL','Compila CSS','Sube archivos a Git'], 'correct'=>0],
-        ['question'=>'¿Qué código HTTP indica error de servidor?', 'options'=>['500','200','301','101'], 'correct'=>0],
-        ['question'=>'¿Qué problema soluciona CORS?', 'options'=>['Permisos entre orígenes al llamar APIs','Tamaños de imágenes','Orden de z-index','Nombres de ramas Git'], 'correct'=>0],
-        ['question'=>'¿Qué comando crea un proyecto Vite normalmente?', 'options'=>['npm create vite@latest','npm make html','vite upload','git vite init'], 'correct'=>0],
-        ['question'=>'¿Qué propiedad CSS permite columnas en grid?', 'options'=>['grid-template-columns','column-grid-template','display-columns','grid-column-template'], 'correct'=>0],
-        ['question'=>'¿Qué método de array transforma cada elemento?', 'options'=>['map','filter','reduce','find'], 'correct'=>0],
-        ['question'=>'¿Qué método de array deja solo algunos elementos?', 'options'=>['filter','map','join','push'], 'correct'=>0],
-        ['question'=>'¿Qué comando instala dependencias de npm?', 'options'=>['npm install','npm build','node push','git npm'], 'correct'=>0],
-        ['question'=>'¿Qué carpeta suele generar Vite al compilar?', 'options'=>['dist','public_html_php','node_cache','src-build'], 'correct'=>0],
-        ['question'=>'¿Qué evita XSS al imprimir datos de usuario?', 'options'=>['Escapar/sanitizar la salida','Usar más z-index','Poner todo en GET','Desactivar HTTPS'], 'correct'=>0],
-    ]);
+function mentira_modifiers(): array {
+    return [
+        ['id'=>'normal', 'label'=>'Ronda clásica', 'desc'=>'Miente creíble y encuentra la verdad.', 'writeMs'=>30000, 'voteMs'=>15000, 'deceptionMult'=>1, 'hideCategory'=>false, 'strict'=>false],
+        ['id'=>'relampago', 'label'=>'Ronda relámpago', 'desc'=>'Menos tiempo para inventar. Decide rápido.', 'writeMs'=>22000, 'voteMs'=>12000, 'deceptionMult'=>1, 'hideCategory'=>false, 'strict'=>false],
+        ['id'=>'doble', 'label'=>'Doble farol', 'desc'=>'Las mentiras que engañan valen más.', 'writeMs'=>30000, 'voteMs'=>15000, 'deceptionMult'=>2, 'hideCategory'=>false, 'strict'=>false],
+        ['id'=>'maldita', 'label'=>'Ronda maldita', 'desc'=>'La categoría se oculta hasta la revelación.', 'writeMs'=>30000, 'voteMs'=>15000, 'deceptionMult'=>1, 'hideCategory'=>true, 'strict'=>false],
+        ['id'=>'espejo', 'label'=>'Ronda espejo', 'desc'=>'No vale copiar demasiado la respuesta real.', 'writeMs'=>30000, 'voteMs'=>15000, 'deceptionMult'=>1, 'hideCategory'=>false, 'strict'=>true],
+    ];
 }
+
+function mentira_pick_modifier(int $roundNumber): array {
+    $mods = mentira_modifiers();
+    if ($roundNumber <= 1) return $mods[0];
+    $idx = abs(crc32('mentira-' . $roundNumber . '-' . now_ms())) % count($mods);
+    return $mods[$idx];
+}
+
+function mentira_latest_streaks(PDO $pdo, int $roomId): array {
+    $st = $pdo->prepare("SELECT state_json FROM party_rounds WHERE room_id = ? AND mode = 'mentira' AND status IN ('results','finished') ORDER BY id DESC LIMIT 1");
+    $st->execute([$roomId]);
+    $row = $st->fetch();
+    if (!$row) return [];
+    $state = jdec($row['state_json'] ?? '{}');
+    return is_array($state['detectiveStreaks'] ?? null) ? $state['detectiveStreaks'] : [];
+}
+
+function mentira_pick_question(PDO $pdo, int $roomId, int $roundNumber): array {
+    $targetDifficulty = $roundNumber <= 2 ? 1 : ($roundNumber <= 5 ? 2 : 3);
+    $pool = array_values(array_filter(mentira_pool(), function ($item) use ($targetDifficulty) {
+        return (int)($item['difficulty'] ?? 1) <= $targetDifficulty;
+    }));
+    if (!$pool) $pool = mentira_pool();
+    return pick_unused_pool_item($pdo, $roomId, 'mentira', $pool);
+}
+
+
+function mentira_category_context(string $category): string {
+    $key = strtolower(trim($category));
+    $map = [
+        'git' => 'Estás en una carpeta de proyecto usando Git/GitHub desde la terminal.',
+        'mysql' => 'Estás escribiendo una consulta SQL para una base de datos MySQL/MariaDB.',
+        'sql' => 'Estás escribiendo una consulta SQL para una base de datos MySQL/MariaDB.',
+        'javascript' => 'Estás programando lógica de navegador con JavaScript.',
+        'html' => 'Estás escribiendo la estructura de una página web con HTML.',
+        'css' => 'Estás ajustando el diseño visual de una web con CSS.',
+        'php' => 'Estás tocando backend PHP, normalmente recibiendo datos y hablando con MySQL.',
+        'http' => 'Estás revisando una petición o respuesta HTTP entre frontend y servidor.',
+        'apis' => 'Estás conectando el frontend con un servicio externo o endpoint de backend.',
+        'seguridad' => 'Estás evitando fallos típicos de seguridad web.',
+        'vite' => 'Estás trabajando en un proyecto frontend moderno compilado con Vite.',
+        'npm' => 'Estás usando Node/npm para instalar dependencias o ejecutar scripts.',
+    ];
+    return $map[$key] ?? 'Estás resolviendo una pregunta técnica de desarrollo web.';
+}
+
+function mentira_lie_tip_for(array $q): string {
+    $category = strtolower((string)($q['category'] ?? 'Tech'));
+    $real = (string)($q['real'] ?? '');
+    $map = [
+        'git' => 'Haz que tu mentira parezca un comando de Git real, por ejemplo con formato “git algo”.',
+        'mysql' => 'Usa palabras que suenen a SQL, como SELECT, WHERE, ROW, TABLE o UPDATE.',
+        'sql' => 'Usa palabras que suenen a SQL, como SELECT, WHERE, ROW, TABLE o UPDATE.',
+        'javascript' => 'Una mentira buena parece una API real de JS: camelCase, paréntesis o JSON.',
+        'html' => 'Puedes inventar una etiqueta o atributo que suene semántico, pero no copies la respuesta real.',
+        'css' => 'Las mentiras de CSS cuelan mejor si parecen propiedades reales con guiones.',
+        'php' => 'Haz que parezca una función de PHP: snake_case o nombre técnico.',
+        'http' => 'Usa códigos, métodos o cabeceras que parezcan de red.',
+    ];
+    return $map[$category] ?? ('Intenta que tu mentira tenga el mismo estilo que “' . $real . '”, pero con un detalle falso.');
+}
+
+function mentira_explanation_for(array $q): string {
+    $category = strtolower((string)($q['category'] ?? 'Tech'));
+    $real = (string)($q['real'] ?? '');
+    $question = (string)($q['question'] ?? '');
+    $map = [
+        'git' => 'En Git/GitHub, “' . $real . '” es la opción correcta para esa acción del repositorio.',
+        'mysql' => 'En MySQL/MariaDB, “' . $real . '” es la palabra o sentencia usada en ese tipo de consulta.',
+        'sql' => 'En MySQL/MariaDB, “' . $real . '” es la palabra o sentencia usada en ese tipo de consulta.',
+        'javascript' => 'En JavaScript, “' . $real . '” es la API, método o sintaxis correcta para ese caso.',
+        'html' => 'En HTML, “' . $real . '” es la etiqueta o atributo correcto para esa parte de la página.',
+        'css' => 'En CSS, “' . $real . '” es la propiedad o valor correcto para conseguir ese efecto visual.',
+        'php' => 'En PHP, “' . $real . '” es la función o técnica correcta para ese trabajo de backend.',
+        'http' => 'En HTTP, “' . $real . '” es el código, método o concepto correcto para esa situación.',
+        'apis' => 'En una integración con APIs, “' . $real . '” es el concepto o técnica correcta.',
+        'seguridad' => 'En seguridad web, “' . $real . '” es la opción correcta para reducir ese riesgo.',
+    ];
+    $base = $map[$category] ?? ('La respuesta correcta era “' . $real . '”.');
+    return $base . ' Pregunta: ' . $question;
+}
+
+function mentira_required_players(array $players): array {
+    $online = array_values(array_filter($players, fn($p) => !empty($p['online'])));
+    return $online ?: array_values($players);
+}
+
+function mentira_clean_text($value, int $max = 100): string {
+    $text = (string)$value;
+    $text = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $text) ?? '';
+    $text = preg_replace('/\s+/u', ' ', trim($text)) ?? '';
+    if (function_exists('mb_substr')) return mb_substr($text, 0, $max, 'UTF-8');
+    return substr($text, 0, $max);
+}
+
+function mentira_norm($value): string {
+    $text = html_entity_decode(mentira_clean_text($value, 160), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $text = function_exists('mb_strtolower') ? mb_strtolower($text, 'UTF-8') : strtolower($text);
+    $text = preg_replace('/[`"\']+/u', '', $text) ?? $text;
+    $text = preg_replace('/\s+/u', ' ', trim($text)) ?? '';
+    return $text;
+}
+
+function mentira_fake_text($entry): string {
+    if (is_array($entry)) return mentira_clean_text($entry['text'] ?? '', 100);
+    return mentira_clean_text($entry, 100);
+}
+
+function mentira_validate_fake(string $fake, array $state): ?string {
+    $real = (string)($state['realAnswer'] ?? '');
+    $norm = mentira_norm($fake);
+    $realNorm = mentira_norm($real);
+    $len = function_exists('mb_strlen') ? mb_strlen($fake, 'UTF-8') : strlen($fake);
+    if ($len < 3) return 'Esa mentira es demasiado corta.';
+    if (!preg_match('/[\p{L}\p{N}_#.<>():$\-]/u', $fake)) return 'Escribe algo que parezca una respuesta real.';
+    $banned = ['xd','x d','asdf','qwerty','patata','no se','no sé','ni idea','aaaa','test','prueba'];
+    if (in_array($norm, $banned, true)) return 'Esa mentira es demasiado obvia. Intenta que parezca real.';
+    if ($norm === $realNorm) return 'No puedes escribir la respuesta verdadera como mentira.';
+    foreach (($state['fakeAnswers'] ?? []) as $entry) {
+        if (mentira_norm(mentira_fake_text($entry)) === $norm) return 'Ya existe una mentira igual. Inventa otra.';
+    }
+    $pct = 0.0;
+    if ($realNorm !== '' && $norm !== '') similar_text($norm, $realNorm, $pct);
+    $strict = !empty(($state['modifier'] ?? [])['strict']);
+    if ($pct >= ($strict ? 78 : 92)) return 'Se parece demasiado a la respuesta real. Haz un farol distinto.';
+    return null;
+}
+
+function mentira_generated_fake(array $state, array $used, int $slot = 0): string {
+    $bank = $state['fakeBank'] ?? [];
+    if (!is_array($bank)) $bank = [];
+    $generic = ['undefined', 'null', 'auto', 'default', 'main()', 'server.push()', 'data-bind', 'response.ok()', 'index.html', 'npm run fix', 'SELECT ALL', 'git save', 'display: auto', 'HTTP 299'];
+    $candidates = array_values(array_merge($bank, $generic));
+    $offset = count($candidates) ? ($slot % count($candidates)) : 0;
+    for ($i = 0; $i < count($candidates); $i++) {
+        $candidate = mentira_clean_text($candidates[($offset + $i) % count($candidates)], 100);
+        if ($candidate === '') continue;
+        $norm = mentira_norm($candidate);
+        if (!isset($used[$norm]) && $norm !== mentira_norm($state['realAnswer'] ?? '')) return $candidate;
+    }
+    return 'respuesta_' . ($slot + 1);
+}
+
+function mentira_prepare_options(array $players, array &$state): void {
+    if (!empty($state['optionsPrepared']) && !empty($state['options'])) return;
+    if (!isset($state['fakeAnswers']) || !is_array($state['fakeAnswers'])) $state['fakeAnswers'] = [];
+    $used = [mentira_norm($state['realAnswer'] ?? '') => true];
+    foreach ($state['fakeAnswers'] as $pid => $entry) {
+        $text = mentira_fake_text($entry);
+        if ($text === '') { unset($state['fakeAnswers'][$pid]); continue; }
+        if (!is_array($entry)) $state['fakeAnswers'][$pid] = ['text'=>$text, 'auto'=>false, 'double'=>false, 'at'=>now_ms()];
+        else $state['fakeAnswers'][$pid]['text'] = $text;
+        $used[mentira_norm($text)] = true;
+    }
+
+    $required = mentira_required_players($players);
+    $slot = 0;
+    foreach ($required as $p) {
+        $pid = (string)(int)$p['id'];
+        if (isset($state['fakeAnswers'][$pid])) continue;
+        $auto = mentira_generated_fake($state, $used, $slot++);
+        $state['fakeAnswers'][$pid] = ['text'=>$auto, 'auto'=>true, 'double'=>false, 'at'=>now_ms()];
+        $used[mentira_norm($auto)] = true;
+    }
+
+    $options = [['id'=>'real', 'text'=>mentira_clean_text($state['realAnswer'] ?? 'Respuesta real', 100), 'kind'=>'real', 'ownerId'=>null, 'auto'=>false, 'double'=>false]];
+    foreach ($state['fakeAnswers'] as $pid => $entry) {
+        $text = mentira_fake_text($entry);
+        if ($text === '') continue;
+        $options[] = ['id'=>'p_' . (int)$pid, 'text'=>$text, 'kind'=>'player', 'ownerId'=>(int)$pid, 'auto'=>!empty($entry['auto']), 'double'=>!empty($entry['double'])];
+    }
+    $botIndex = 0;
+    while (count($options) < 4) {
+        $bot = mentira_generated_fake($state, $used, 20 + $botIndex);
+        $used[mentira_norm($bot)] = true;
+        $options[] = ['id'=>'bot_' . $botIndex, 'text'=>$bot, 'kind'=>'bot', 'ownerId'=>null, 'auto'=>true, 'double'=>false];
+        $botIndex++;
+    }
+    shuffle($options);
+    $state['options'] = $options;
+    $state['optionsPrepared'] = true;
+    $state['voteStartedAtMs'] = now_ms();
+    if (!isset($state['jokers']) || !is_array($state['jokers'])) $state['jokers'] = [];
+}
+
+function mentira_option_map(array $state): array {
+    $map = [];
+    foreach (($state['options'] ?? []) as $option) {
+        if (isset($option['id'])) $map[(string)$option['id']] = $option;
+    }
+    return $map;
+}
+
+function mentira_all_wrote(array $state, array $players): bool {
+    $required = mentira_required_players($players);
+    if (!$required) return true;
+    foreach ($required as $p) {
+        if (!isset(($state['fakeAnswers'] ?? [])[(string)(int)$p['id']])) return false;
+    }
+    return true;
+}
+
+function mentira_all_voted(array $state, array $players): bool {
+    $required = mentira_required_players($players);
+    if (!$required) return true;
+    foreach ($required as $p) {
+        if (!isset(($state['votes'] ?? [])[(string)(int)$p['id']])) return false;
+    }
+    return true;
+}
+
+function mentira_vote_ms(array $state): int {
+    return (int)(($state['modifier'] ?? [])['voteMs'] ?? 10000);
+}
+
+function mentira_apply_fifty(array &$state, string $pid): void {
+    mentira_prepare_options([], $state);
+    if (!empty(($state['jokers'][$pid] ?? [])['fifty'])) return;
+    $own = 'p_' . (int)$pid;
+    $candidates = [];
+    foreach (($state['options'] ?? []) as $option) {
+        $id = (string)($option['id'] ?? '');
+        if ($id !== 'real' && $id !== $own) $candidates[] = $id;
+    }
+    shuffle($candidates);
+    $removeCount = count($state['options'] ?? []) >= 5 ? 2 : 1;
+    $removed = array_slice($candidates, 0, $removeCount);
+    $state['jokers'][$pid]['fifty'] = true;
+    $state['jokers'][$pid]['removed'] = $removed;
+}
+
+function mentira_resolve_round(PDO $pdo, array $players, array &$state): void {
+    if (!empty($state['resolved'])) return;
+    mentira_prepare_options($players, $state);
+    $map = mentira_option_map($state);
+    $votes = $state['votes'] ?? [];
+    $voteTimes = $state['voteTimes'] ?? [];
+    $scores = [];
+    $breakdown = [];
+    $fooledBy = [];
+    $lieVotes = [];
+    $rows = [];
+    $streaks = $state['streaks'] ?? [];
+    $newStreaks = [];
+    $deceptionMult = (int)(($state['modifier'] ?? [])['deceptionMult'] ?? 1);
+
+    foreach ($players as $p) {
+        $pid = (string)(int)$p['id'];
+        $scores[$pid] = 0;
+        $breakdown[$pid] = [];
+        $fooledBy[$pid] = [];
+        $newStreaks[$pid] = 0;
+    }
+
+    foreach ($votes as $voter => $voteIdRaw) {
+        $voter = (string)(int)$voter;
+        $voteId = (string)$voteIdRaw;
+        $option = $map[$voteId] ?? null;
+        if (!$option) continue;
+        $isReal = $voteId === 'real';
+        $votedText = (string)($option['text'] ?? '');
+        if ($isReal) {
+            $scores[$voter] = ($scores[$voter] ?? 0) + 100;
+            $breakdown[$voter][] = '+100 por encontrar la verdad';
+            $at = (int)($voteTimes[$voter] ?? now_ms());
+            if (!empty($state['voteStartedAtMs']) && ($at - (int)$state['voteStartedAtMs']) <= 4000) {
+                $scores[$voter] += 20;
+                $breakdown[$voter][] = '+20 por votar rápido y acertar';
+            }
+            $newStreaks[$voter] = (int)($streaks[$voter] ?? 0) + 1;
+            if ($newStreaks[$voter] >= 3) {
+                $scores[$voter] += 40;
+                $breakdown[$voter][] = '+40 racha detective x' . $newStreaks[$voter];
+            }
+        } else {
+            $owner = isset($option['ownerId']) ? (string)(int)$option['ownerId'] : '';
+            $newStreaks[$voter] = 0;
+            if ($owner !== '' && $owner !== $voter && empty($option['auto'])) {
+                $mult = $deceptionMult * (!empty($option['double']) ? 2 : 1);
+                $gain = 50 * $mult;
+                $scores[$owner] = ($scores[$owner] ?? 0) + $gain;
+                $breakdown[$owner][] = '+' . $gain . ' por engañar a ' . $voter;
+                $fooledBy[$owner][] = $voter;
+                $lieVotes[$owner] = ($lieVotes[$owner] ?? 0) + 1;
+            }
+        }
+        $rows[] = ['playerId'=>(int)$voter, 'vote'=>$voteId, 'text'=>$votedText, 'correct'=>$isReal, 'ownerId'=>$option['ownerId'] ?? null, 'auto'=>!empty($option['auto'])];
+    }
+
+    $topOwner = null;
+    $topVotes = 0;
+    foreach ($lieVotes as $owner => $count) {
+        if ($count > $topVotes) { $topVotes = $count; $topOwner = (string)$owner; }
+    }
+    if ($topOwner !== null && $topVotes > 0) {
+        $scores[$topOwner] = ($scores[$topOwner] ?? 0) + 25;
+        $breakdown[$topOwner][] = '+25 mentira más votada';
+    }
+
+    foreach (($state['fakeAnswers'] ?? []) as $pid => $entry) {
+        $pid = (string)(int)$pid;
+        if (!empty($entry['double']) && empty($entry['auto']) && empty($fooledBy[$pid])) {
+            $scores[$pid] = ($scores[$pid] ?? 0) - 25;
+            $breakdown[$pid][] = '-25 doble farol fallido';
+        }
+    }
+
+    foreach ($scores as $pid => $points) {
+        $points = (int)$points;
+        if ($points !== 0) add_score($pdo, (int)$pid, $points);
+        $scores[$pid] = $points;
+    }
+
+    $fastest = null;
+    foreach ($rows as $row) {
+        $pid = (string)$row['playerId'];
+        if (!$row['correct']) continue;
+        $t = (int)($voteTimes[$pid] ?? PHP_INT_MAX);
+        if ($fastest === null || $t < $fastest['at']) $fastest = ['playerId'=>(int)$pid, 'at'=>$t];
+    }
+    $premiumText = '';
+    if ($topOwner !== null) {
+        foreach (($state['options'] ?? []) as $option) {
+            if ((string)($option['ownerId'] ?? '') === $topOwner) { $premiumText = (string)($option['text'] ?? ''); break; }
+        }
+    }
+
+    $state['pointsAwarded'] = $scores;
+    $state['scoreBreakdown'] = $breakdown;
+    $state['fooledBy'] = $fooledBy;
+    $state['votesResolved'] = $rows;
+    $state['detectiveStreaks'] = $newStreaks;
+    $state['medals'] = [
+        'bestLiar' => $topOwner ? ['playerId'=>(int)$topOwner, 'fooled'=>$topVotes] : null,
+        'bestDetective' => $fastest ? ['playerId'=>(int)$fastest['playerId']] : null,
+        'premiumLie' => $premiumText ? ['playerId'=>(int)$topOwner, 'text'=>$premiumText, 'votes'=>$topVotes] : null,
+    ];
+    $state['summary'] = [
+        'realAnswer'=>(string)($state['realAnswer'] ?? ''),
+        'correctVotes'=>count(array_filter($rows, fn($r) => !empty($r['correct']))),
+        'fooledVotes'=>count(array_filter($rows, fn($r) => empty($r['correct']))),
+    ];
+    $state['resolved'] = true;
+}
+
+function mentira_auto_progress_room(PDO $pdo, array $room): void {
+    if ($pdo->inTransaction()) return;
+    $round = active_round($pdo, (int)$room['id']);
+    if (!$round || (string)$round['mode'] !== 'mentira' || (string)$round['status'] !== 'playing') return;
+    $phase = (string)$round['phase'];
+    if (!in_array($phase, ['write','vote'], true)) return;
+    $state = jdec($round['state_json']);
+    $players = players_for_room($pdo, (int)$room['id']);
+    $due = !empty($round['ends_at_ms']) && now_ms() >= (int)$round['ends_at_ms'];
+    $ready = $phase === 'write' ? mentira_all_wrote($state, $players) : mentira_all_voted($state, $players);
+    if (!$due && !$ready) return;
+    $pdo->beginTransaction();
+    try {
+        $roomLocked = room_by_code($pdo, (string)$room['code'], true);
+        if (!$roomLocked) { $pdo->rollBack(); return; }
+        $lockedRound = active_round($pdo, (int)$roomLocked['id'], true);
+        if (!$lockedRound || (string)$lockedRound['mode'] !== 'mentira' || (string)$lockedRound['status'] !== 'playing') { $pdo->rollBack(); return; }
+        $phase = (string)$lockedRound['phase'];
+        $state = jdec($lockedRound['state_json']);
+        $players = players_for_room($pdo, (int)$roomLocked['id']);
+        if ($phase === 'write') {
+            mentira_prepare_options($players, $state);
+            $ends = now_ms() + mentira_vote_ms($state);
+            $pdo->prepare("UPDATE party_rounds SET phase = 'vote', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), $ends, (int)$lockedRound['id']]);
+            $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+        } elseif ($phase === 'vote') {
+            mentira_resolve_round($pdo, $players, $state);
+            $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$lockedRound['id']]);
+            $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+        }
+        $pdo->commit();
+    } catch (Throwable $e) {
+        if ($pdo->inTransaction()) $pdo->rollBack();
+    }
+}
+
+
+function quiz_pool(): array {
+    $items = json_decode(<<<'JSON'
+[{"category":"HTML","difficulty":1,"context":"Estás creando un enlace en una página HTML para llevar al usuario a otra sección.","question":"¿Qué etiqueta se usa para crear un enlace?","options":["<a>","<link>","<href>","<navlink>"],"correct":0,"explanation":"La etiqueta <a> crea enlaces. El destino se indica normalmente con el atributo href."},{"category":"HTML","difficulty":1,"context":"Estás añadiendo una imagen de perfil y quieres que sea accesible para lectores de pantalla.","question":"¿Qué atributo describe una imagen?","options":["alt","title","aria-img","description"],"correct":0,"explanation":"alt proporciona texto alternativo para imágenes cuando no se ven o se leen con tecnologías de asistencia."},{"category":"HTML","difficulty":1,"context":"Estás organizando la estructura principal de una página con cabecera, contenido y pie.","question":"¿Qué etiqueta representa el contenido principal?","options":["<main>","<primary>","<content>","<body-main>"],"correct":0,"explanation":"<main> marca el contenido principal y ayuda a navegación semántica y accesibilidad."},{"category":"HTML","difficulty":1,"context":"Estás creando un formulario y quieres que al pulsar el texto del label se enfoque el input correcto.","question":"¿Qué atributo del label debe coincidir con el id del input?","options":["for","href","target","name"],"correct":0,"explanation":"El atributo for del label debe coincidir con el id del input asociado."},{"category":"HTML","difficulty":2,"context":"Estás cargando un archivo JavaScript externo llamado app.js en tu HTML.","question":"¿Qué etiqueta es correcta?","options":["<script src=\"app.js\"></script>","<js href=\"app.js\">","<script href=\"app.js\">","<link src=\"app.js\">"],"correct":0,"explanation":"JavaScript externo se carga con <script src=\"...\"></script>. La etiqueta script no se autocierra."},{"category":"HTML","difficulty":2,"context":"Tienes una zona de navegación principal con enlaces a Inicio, Blog y Contacto.","question":"¿Qué etiqueta semántica encaja mejor?","options":["<nav>","<section role=\"links\">","<navbar>","<menuitem>"],"correct":0,"explanation":"<nav> representa una sección de navegación principal o relevante."},{"category":"HTML","difficulty":2,"context":"Estás haciendo una lista de elementos dentro de un <ul>.","question":"¿Qué etiqueta debe envolver cada elemento de la lista?","options":["<li>","<item>","<span>","<row>"],"correct":0,"explanation":"En listas <ul> u <ol>, cada elemento debe ir dentro de <li>."},{"category":"HTML","difficulty":2,"context":"Quieres abrir un enlace externo en una pestaña nueva.","question":"¿Qué atributo se usa normalmente?","options":["target=\"_blank\"","newtab=\"true\"","open=\"tab\"","href=\"_blank\""],"correct":0,"explanation":"target=\"_blank\" abre el enlace en una pestaña o ventana nueva."},{"category":"HTML","difficulty":2,"context":"Estás añadiendo un campo donde el usuario escribe su correo.","question":"¿Qué type de input ayuda a validar email?","options":["email","mail","text-email","address"],"correct":0,"explanation":"<input type=\"email\"> activa validación y teclado adaptado en móviles."},{"category":"HTML","difficulty":3,"context":"Quieres que un botón dentro de un formulario no envíe el formulario al hacer clic.","question":"¿Qué atributo conviene añadir?","options":["type=\"button\"","submit=\"false\"","role=\"static\"","prevent=\"submit\""],"correct":0,"explanation":"Un <button> dentro de un formulario puede enviar por defecto; type=\"button\" evita ese envío."},{"category":"CSS","difficulty":1,"context":"Estás diseñando una tarjeta y quieres separar su contenido del borde interior.","question":"¿Qué propiedad controla el espacio interno?","options":["padding","margin","gap","outline"],"correct":0,"explanation":"padding es el espacio entre el contenido y el borde del elemento."},{"category":"CSS","difficulty":1,"context":"Quieres separar una tarjeta de otros elementos de alrededor.","question":"¿Qué propiedad controla el espacio externo?","options":["margin","padding","border-spacing","inner-gap"],"correct":0,"explanation":"margin crea espacio por fuera del elemento."},{"category":"CSS","difficulty":1,"context":"Estás centrando elementos con Flexbox en horizontal.","question":"¿Qué propiedad alinea en el eje principal?","options":["justify-content","align-text","center-items","content-align"],"correct":0,"explanation":"justify-content alinea elementos en el eje principal de un contenedor flex."},{"category":"CSS","difficulty":1,"context":"Quieres activar Flexbox en un contenedor.","question":"¿Qué declaración CSS es correcta?","options":["display: flex","display: flexbox","layout: flex","position: flex"],"correct":0,"explanation":"display: flex activa el modelo Flexbox."},{"category":"CSS","difficulty":2,"context":"Estás creando un layout de tarjetas en filas y columnas.","question":"¿Qué propiedad define columnas en CSS Grid?","options":["grid-template-columns","grid-columns-template","columns-grid","template-grid-columns"],"correct":0,"explanation":"grid-template-columns define el tamaño y número de columnas de una grid."},{"category":"CSS","difficulty":2,"context":"Un modal aparece por detrás de otros elementos y necesitas controlar el apilado.","question":"¿Qué propiedad controla la capa visual?","options":["z-index","layer","depth","stack-order"],"correct":0,"explanation":"z-index controla el orden de apilado, pero funciona con elementos posicionados."},{"category":"CSS","difficulty":2,"context":"Quieres redondear las esquinas de un botón.","question":"¿Qué propiedad usas?","options":["border-radius","corner-radius","radius-border","box-round"],"correct":0,"explanation":"border-radius redondea las esquinas de cajas y botones."},{"category":"CSS","difficulty":2,"context":"Estás haciendo una animación suave al pasar el ratón por un botón.","question":"¿Qué propiedad define la transición?","options":["transition","animation-delay","smooth","transform-time"],"correct":0,"explanation":"transition permite animar cambios de propiedades como transform, opacity o background."},{"category":"CSS","difficulty":3,"context":"Quieres que una barra superior se mantenga visible al hacer scroll.","question":"¿Qué posición la fija respecto al viewport?","options":["position: fixed","position: static","display: fixed","float: viewport"],"correct":0,"explanation":"position: fixed coloca el elemento respecto a la ventana del navegador."},{"category":"CSS","difficulty":3,"context":"Estás adaptando la web para móvil con una media query.","question":"¿Qué unidad falta normalmente en max-width: 768?","options":["px","rem-only","vh","fr"],"correct":0,"explanation":"Las media queries de anchura suelen usar unidades como px: max-width: 768px."},{"category":"CSS","difficulty":3,"context":"Quieres cambiar el color de texto de todos los enlaces dentro de .menu.","question":"¿Qué selector apunta a enlaces dentro de .menu?","options":[".menu a",".menu + a","#menu.a","a.menu > all"],"correct":0,"explanation":".menu a selecciona cualquier enlace descendiente dentro de un elemento con clase menu."},{"category":"CSS","difficulty":3,"context":"Estás creando variables de color para cambiar temas fácilmente.","question":"¿Cómo se usa una variable CSS llamada --accent?","options":["color: var(--accent)","color: use(--accent)","color: $accent","var-color: accent"],"correct":0,"explanation":"Las custom properties se leen con var(--nombre)."},{"category":"JavaScript","difficulty":1,"context":"Quieres declarar una variable cuyo valor pueda cambiar más tarde.","question":"¿Qué palabra clave usarías?","options":["let","const","fixed","define"],"correct":0,"explanation":"let permite reasignar el valor de una variable."},{"category":"JavaScript","difficulty":1,"context":"Quieres declarar una referencia que no se pueda reasignar.","question":"¿Qué palabra clave usarías?","options":["const","let","var mutable","lock"],"correct":0,"explanation":"const impide reasignar la variable, aunque objetos y arrays internos puedan mutarse."},{"category":"JavaScript","difficulty":1,"context":"Tienes un objeto y quieres convertirlo en texto JSON para enviarlo a una API.","question":"¿Qué método usas?","options":["JSON.stringify()","JSON.parse()","Object.toJSON()","JSON.text()"],"correct":0,"explanation":"JSON.stringify() convierte valores JavaScript en texto JSON."},{"category":"JavaScript","difficulty":1,"context":"Recibes texto JSON desde una API y quieres convertirlo en objeto JavaScript.","question":"¿Qué método usas?","options":["JSON.parse()","JSON.stringify()","JSON.object()","parse.JSON()"],"correct":0,"explanation":"JSON.parse() convierte texto JSON válido en valores JavaScript."},{"category":"JavaScript","difficulty":2,"context":"Seleccionas varios botones con document.querySelectorAll(\".btn\").","question":"¿Qué devuelve querySelectorAll?","options":["Una NodeList","Un único elemento","Un string HTML","Un objeto JSON"],"correct":0,"explanation":"querySelectorAll devuelve una NodeList con todos los elementos que coinciden."},{"category":"JavaScript","difficulty":2,"context":"Quieres reaccionar al clic de un botón sin escribir onclick en HTML.","question":"¿Qué método añade un listener?","options":["addEventListener","listenClick","onEventAdd","eventPush"],"correct":0,"explanation":"addEventListener permite registrar funciones para eventos como click, input o submit."},{"category":"JavaScript","difficulty":2,"context":"Tienes un array de números y quieres crear otro array con cada número duplicado.","question":"¿Qué método encaja mejor?","options":["map","filter","find","join"],"correct":0,"explanation":"map transforma cada elemento y devuelve un nuevo array."},{"category":"JavaScript","difficulty":2,"context":"Tienes un array de productos y quieres quedarte solo con los baratos.","question":"¿Qué método filtra elementos?","options":["filter","map","reduce","split"],"correct":0,"explanation":"filter devuelve un nuevo array con los elementos que cumplen una condición."},{"category":"JavaScript","difficulty":3,"context":"Llamas a fetch y quieres esperar a que termine antes de seguir.","question":"¿Qué palabra clave se usa en funciones async?","options":["await","pause","waitFor","hold"],"correct":0,"explanation":"await espera una promesa dentro de una función async."},{"category":"JavaScript","difficulty":3,"context":"Quieres comprobar valor y tipo para evitar conversiones raras.","question":"¿Qué operador compara estrictamente?","options":["===","==","=","=>"],"correct":0,"explanation":"=== compara valor y tipo. == puede hacer conversiones implícitas."},{"category":"JavaScript","difficulty":3,"context":"Estás guardando una preferencia simple del usuario en el navegador.","question":"¿Qué API persiste datos entre sesiones?","options":["localStorage","sessionFrame","cookieCSS","browserFile"],"correct":0,"explanation":"localStorage guarda pares clave/valor en el navegador hasta que se borran."},{"category":"JavaScript","difficulty":3,"context":"Quieres evitar que un formulario recargue la página al enviarse.","question":"¿Qué método llamas en el evento submit?","options":["event.preventDefault()","event.stopPage()","form.noReload()","submit.cancelReload()"],"correct":0,"explanation":"preventDefault() cancela el comportamiento por defecto, como enviar y recargar."},{"category":"JavaScript","difficulty":4,"context":"Tienes una operación asíncrona que puede fallar y quieres capturar errores.","question":"¿Qué bloque se usa normalmente?","options":["try/catch","if/error","catch/then/if","error {}"],"correct":0,"explanation":"try/catch captura errores lanzados en código síncrono y con await dentro de async."},{"category":"JavaScript","difficulty":4,"context":"Quieres copiar un array sin modificar el original usando sintaxis moderna.","question":"¿Qué operador puede expandir elementos?","options":["...","+++","spread()","=>"],"correct":0,"explanation":"El spread operator (...) permite copiar o expandir arrays y objetos."},{"category":"Git/GitHub","difficulty":1,"context":"Estás trabajando en un proyecto con Git y quieres ver qué archivos han cambiado antes de hacer commit.","question":"¿Qué comando usarías?","options":["git status","git pull","git init","git history"],"correct":0,"explanation":"git status muestra archivos modificados, staged y sin seguimiento."},{"category":"Git/GitHub","difficulty":1,"context":"Has cambiado archivos y quieres preparar uno para el próximo commit.","question":"¿Qué comando lo añade al área staging?","options":["git add archivo","git save archivo","git stage-upload","git commit archivo"],"correct":0,"explanation":"git add prepara cambios para incluirlos en el próximo commit."},{"category":"Git/GitHub","difficulty":1,"context":"Ya has preparado cambios y quieres guardar una versión local con mensaje.","question":"¿Qué comando crea el commit?","options":["git commit -m \"mensaje\"","git push -m \"mensaje\"","git save -m \"mensaje\"","git upload commit"],"correct":0,"explanation":"git commit guarda los cambios preparados en el historial local."},{"category":"Git/GitHub","difficulty":2,"context":"Tienes commits locales y quieres subirlos a GitHub.","question":"¿Qué comando usas normalmente?","options":["git push","git pull","git clone","git status"],"correct":0,"explanation":"git push envía commits locales al repositorio remoto."},{"category":"Git/GitHub","difficulty":2,"context":"Quieres traer cambios nuevos de GitHub a tu copia local.","question":"¿Qué comando descarga e integra cambios?","options":["git pull","git push","git upload","git commit"],"correct":0,"explanation":"git pull trae cambios del remoto y los integra en la rama actual."},{"category":"Git/GitHub","difficulty":2,"context":"Vas a empezar una funcionalidad sin tocar directamente main.","question":"¿Qué comando crea una rama nueva?","options":["git branch nombre","git main nombre","git fork local","git path nombre"],"correct":0,"explanation":"git branch nombre crea una rama. También puedes usar git checkout -b o git switch -c."},{"category":"Git/GitHub","difficulty":3,"context":"Quieres cambiarte a una rama existente llamada feature-ui.","question":"¿Qué comando moderno usarías?","options":["git switch feature-ui","git jump feature-ui","git branch use feature-ui","git move feature-ui"],"correct":0,"explanation":"git switch cambia entre ramas de forma clara."},{"category":"Git/GitHub","difficulty":3,"context":"No quieres subir node_modules ni archivos temporales al repositorio.","question":"¿Qué archivo define exclusiones?","options":[".gitignore","package-lock.json","robots.txt","ignore.git"],"correct":0,"explanation":".gitignore indica patrones de archivos que Git debe ignorar."},{"category":"Git/GitHub","difficulty":3,"context":"Quieres ver los commits recientes del proyecto.","question":"¿Qué comando muestra el historial?","options":["git log","git history","git commits","git timeline"],"correct":0,"explanation":"git log muestra el historial de commits."},{"category":"Git/GitHub","difficulty":4,"context":"Has hecho cambios locales pero quieres guardarlos temporalmente sin commitear.","question":"¿Qué comando los guarda en una pila temporal?","options":["git stash","git pause","git shelf-save","git temp commit"],"correct":0,"explanation":"git stash guarda cambios temporalmente para recuperarlos después."},{"category":"MySQL","difficulty":1,"context":"Estás consultando una tabla de usuarios y quieres traer datos.","question":"¿Qué sentencia SQL lee filas?","options":["SELECT","READ","GET","SHOW ROWS"],"correct":0,"explanation":"SELECT consulta datos de una o varias tablas."},{"category":"MySQL","difficulty":1,"context":"Quieres filtrar resultados para mostrar solo usuarios activos.","question":"¿Qué cláusula filtra filas?","options":["WHERE","FILTER BY","ONLY","HAVING ROWS"],"correct":0,"explanation":"WHERE filtra filas antes de devolver resultados."},{"category":"MySQL","difficulty":1,"context":"Quieres ordenar productos por precio de menor a mayor.","question":"¿Qué cláusula ordena resultados?","options":["ORDER BY","SORT","GROUP SORT","ARRANGE BY"],"correct":0,"explanation":"ORDER BY ordena los resultados por una o varias columnas."},{"category":"MySQL","difficulty":2,"context":"Quieres añadir un nuevo usuario a una tabla.","question":"¿Qué sentencia inserta filas?","options":["INSERT INTO","ADD ROW","PUSH INTO","CREATE DATA"],"correct":0,"explanation":"INSERT INTO añade nuevas filas a una tabla."},{"category":"MySQL","difficulty":2,"context":"Quieres cambiar el email de un usuario existente.","question":"¿Qué sentencia modifica filas existentes?","options":["UPDATE","CHANGE ROW","MODIFY TABLE ROW","ALTER VALUE"],"correct":0,"explanation":"UPDATE modifica filas existentes, normalmente combinado con WHERE."},{"category":"MySQL","difficulty":2,"context":"Quieres borrar una fila concreta de una tabla.","question":"¿Qué sentencia elimina filas?","options":["DELETE","REMOVE ROW","DROP VALUE","CLEAR ONE"],"correct":0,"explanation":"DELETE elimina filas. DROP se usa para eliminar tablas u objetos completos."},{"category":"MySQL","difficulty":3,"context":"Quieres evitar inyección SQL al usar datos de formularios en PHP.","question":"¿Qué técnica es la más segura?","options":["Consultas preparadas","Concatenar strings","Usar GET siempre","Quitar comillas manualmente"],"correct":0,"explanation":"Las consultas preparadas separan SQL de datos y evitan inyecciones comunes."},{"category":"MySQL","difficulty":3,"context":"Tienes pedidos y usuarios en tablas separadas y quieres combinarlos.","question":"¿Qué operación combina filas relacionadas?","options":["JOIN","MERGE VIEW","CONNECT ROWS","UNION WHERE"],"correct":0,"explanation":"JOIN combina datos de tablas relacionadas mediante una condición."},{"category":"MySQL","difficulty":3,"context":"Quieres contar cuántos pedidos hay por usuario.","question":"¿Qué cláusula agrupa resultados?","options":["GROUP BY","COUNT BY","ORDER GROUP","SUM ROWS"],"correct":0,"explanation":"GROUP BY agrupa filas para usar funciones como COUNT, SUM o AVG."},{"category":"MySQL","difficulty":4,"context":"Quieres limitar una consulta a los 10 primeros resultados para una lista compacta.","question":"¿Qué cláusula usas en MySQL?","options":["LIMIT 10","TOP 10","ONLY 10","MAXROWS 10"],"correct":0,"explanation":"LIMIT restringe cuántas filas devuelve MySQL."},{"category":"PHP/backend","difficulty":1,"context":"Estás recibiendo datos JSON enviados al backend PHP.","question":"¿Qué función decodifica JSON en PHP?","options":["json_decode","json_parse","JSON.decode","decode_json_file"],"correct":0,"explanation":"json_decode convierte JSON en arrays u objetos PHP."},{"category":"PHP/backend","difficulty":1,"context":"Quieres devolver una respuesta JSON desde una API en PHP.","question":"¿Qué función codifica datos como JSON?","options":["json_encode","json_stringify","JSON.encode","encode_json_file"],"correct":0,"explanation":"json_encode convierte arrays u objetos PHP en texto JSON."},{"category":"PHP/backend","difficulty":2,"context":"Estás usando PDO para conectarte a MySQL.","question":"¿Qué método ejecuta una consulta preparada?","options":["execute()","run()","send()","queryPrepared()"],"correct":0,"explanation":"En PDO, prepare() crea la consulta y execute() la ejecuta con datos."},{"category":"PHP/backend","difficulty":2,"context":"Quieres leer el cuerpo crudo de una petición POST con JSON.","question":"¿Qué stream especial se usa en PHP?","options":["php://input","request://body","$_POST_RAW","body://json"],"correct":0,"explanation":"php://input permite leer el cuerpo crudo de la petición."},{"category":"PHP/backend","difficulty":3,"context":"Quieres enviar una cabecera indicando que la respuesta es JSON.","question":"¿Qué Content-Type corresponde?","options":["application/json","text/json-html","json/plain","application/php-json"],"correct":0,"explanation":"application/json es el tipo MIME estándar para respuestas JSON."},{"category":"PHP/backend","difficulty":3,"context":"Una operación puede fallar y quieres capturar excepciones en PHP.","question":"¿Qué estructura se usa?","options":["try/catch","if fail","error block","catch only"],"correct":0,"explanation":"try/catch captura excepciones lanzadas dentro del bloque try."},{"category":"PHP/backend","difficulty":4,"context":"Quieres evitar que un valor de usuario rompa HTML al imprimirlo.","question":"¿Qué función ayuda a escapar salida HTML en PHP?","options":["htmlspecialchars","strip_sql","safe_echo","escapeHTMLNow"],"correct":0,"explanation":"htmlspecialchars convierte caracteres especiales en entidades HTML seguras."},{"category":"PHP/backend","difficulty":4,"context":"Quieres iniciar una transacción para varias operaciones SQL que deben completarse juntas.","question":"¿Qué método de PDO la inicia?","options":["beginTransaction()","startSafe()","transactionOpen()","lockBegin()"],"correct":0,"explanation":"beginTransaction() inicia una transacción que luego puedes confirmar o revertir."},{"category":"HTTP/APIs","difficulty":1,"context":"Haces una petición web y todo ha ido bien.","question":"¿Qué código HTTP indica éxito general?","options":["200","404","500","301"],"correct":0,"explanation":"200 OK indica que la petición se completó correctamente."},{"category":"HTTP/APIs","difficulty":1,"context":"El usuario entra en una URL que no existe.","question":"¿Qué código HTTP significa “No encontrado”?","options":["404","403","500","201"],"correct":0,"explanation":"404 Not Found indica que el recurso solicitado no existe o no se encuentra."},{"category":"HTTP/APIs","difficulty":2,"context":"Creas un recurso nuevo desde una API.","question":"¿Qué código HTTP suele indicar “creado”?","options":["201","200","204","302"],"correct":0,"explanation":"201 Created se usa cuando la petición crea un recurso correctamente."},{"category":"HTTP/APIs","difficulty":2,"context":"Tu frontend llama a una API en otro dominio y el navegador la bloquea.","question":"¿Qué política está interviniendo?","options":["CORS","DNSSEC","FTP","OAuth"],"correct":0,"explanation":"CORS controla qué orígenes pueden leer respuestas de una API desde el navegador."},{"category":"HTTP/APIs","difficulty":2,"context":"Quieres pedir datos sin modificar nada en el servidor.","question":"¿Qué método HTTP se usa normalmente?","options":["GET","POST","PATCH","DELETE"],"correct":0,"explanation":"GET se usa para solicitar datos sin efectos secundarios intencionados."},{"category":"HTTP/APIs","difficulty":3,"context":"Quieres enviar datos para crear algo en una API.","question":"¿Qué método HTTP se usa normalmente?","options":["POST","GET","HEAD","OPTIONS"],"correct":0,"explanation":"POST suele enviar datos para crear recursos o ejecutar acciones."},{"category":"HTTP/APIs","difficulty":3,"context":"Quieres modificar parcialmente un recurso existente.","question":"¿Qué método HTTP encaja mejor?","options":["PATCH","TRACE","CONNECT","HEAD"],"correct":0,"explanation":"PATCH se usa para actualizaciones parciales de un recurso."},{"category":"HTTP/APIs","difficulty":3,"context":"Una API te responde “sin contenido” tras borrar algo correctamente.","question":"¿Qué código HTTP lo representa?","options":["204","200","404","418"],"correct":0,"explanation":"204 No Content indica éxito sin cuerpo de respuesta."},{"category":"HTTP/APIs","difficulty":4,"context":"Quieres autenticar peticiones con un token enviado en cabecera.","question":"¿Qué cabecera se usa comúnmente?","options":["Authorization","Auth-Token-HTML","Login","X-Password"],"correct":0,"explanation":"Authorization suele transportar tokens, por ejemplo Bearer tokens."},{"category":"HTTP/APIs","difficulty":4,"context":"El navegador hace una petición previa OPTIONS antes de ciertas llamadas CORS.","question":"¿Cómo se llama esa comprobación?","options":["preflight","warmup","handshake CSS","beforefetch"],"correct":0,"explanation":"El preflight es una petición OPTIONS que verifica permisos CORS antes de la petición real."},{"category":"Vite/npm","difficulty":1,"context":"Has descargado un proyecto con package.json y necesitas instalar dependencias.","question":"¿Qué comando ejecutas?","options":["npm install","npm build","node install package","git npm install"],"correct":0,"explanation":"npm install instala las dependencias definidas en package.json."},{"category":"Vite/npm","difficulty":2,"context":"Quieres arrancar el servidor de desarrollo de un proyecto Vite.","question":"¿Qué script suele usarse?","options":["npm run dev","npm start vite-html","vite deploy","node public/index.html"],"correct":0,"explanation":"En Vite, npm run dev suele iniciar el servidor de desarrollo."},{"category":"Vite/npm","difficulty":2,"context":"Quieres generar la versión final optimizada de la web.","question":"¿Qué comando suele compilar el proyecto?","options":["npm run build","npm run dev","git build","node compile-web"],"correct":0,"explanation":"npm run build genera los archivos optimizados normalmente en dist."},{"category":"Vite/npm","difficulty":2,"context":"Has compilado con Vite y quieres probar el build localmente.","question":"¿Qué script suele servir una preview?","options":["npm run preview","npm run dev-build","vite test html","git preview"],"correct":0,"explanation":"npm run preview sirve localmente el resultado del build."},{"category":"Vite/npm","difficulty":3,"context":"Vite genera archivos para subir a producción.","question":"¿Qué carpeta suele contener el build final?","options":["dist","build_cache","public_html_src","vite_modules"],"correct":0,"explanation":"dist suele contener los archivos finales generados por Vite."},{"category":"Accesibilidad/UX","difficulty":2,"context":"Quieres que un botón sea entendible sin depender solo de un icono.","question":"¿Qué mejora ayuda a accesibilidad?","options":["Texto visible o aria-label","Solo color rojo","Más z-index","Quitar focus"],"correct":0,"explanation":"Los controles deben tener nombre accesible mediante texto visible o aria-label."},{"category":"Accesibilidad/UX","difficulty":2,"context":"Un usuario navega con teclado y necesita ver dónde está el foco.","question":"¿Qué no deberías eliminar sin alternativa?","options":["outline/focus visible","border-radius","box-shadow","background-image"],"correct":0,"explanation":"El foco visible es clave para navegación con teclado."},{"category":"Seguridad web","difficulty":3,"context":"Imprimes texto escrito por usuarios dentro de HTML.","question":"¿Qué riesgo aparece si no escapas la salida?","options":["XSS","CORS","DNS","FTP leak"],"correct":0,"explanation":"XSS ocurre cuando contenido no confiable se interpreta como código en la página."},{"category":"Seguridad web","difficulty":3,"context":"Guardas contraseñas de usuarios en una base de datos.","question":"¿Qué deberías guardar en vez de la contraseña en claro?","options":["Un hash seguro","El texto original","Base64 reversible","El email como contraseña"],"correct":0,"explanation":"Las contraseñas deben almacenarse como hashes seguros, no en texto plano."}]
+JSON, true);
+    return add_pool_ids('quiz', is_array($items) ? $items : []);
+}
+
+function quiz_required_players(array $players): array {
+    $online = array_values(array_filter($players, fn($p) => !empty($p['online'])));
+    return $online ?: $players;
+}
+function quiz_total_questions(array $players): int {
+    $active = count(quiz_required_players($players));
+    return $active <= 1 ? 10 : 8;
+}
+function quiz_used_question_ids(PDO $pdo, int $roomId): array {
+    $st = $pdo->prepare('SELECT state_json FROM party_rounds WHERE room_id = ? AND mode = ? ORDER BY id DESC LIMIT 80');
+    $st->execute([$roomId, 'quiz']);
+    $used = [];
+    foreach ($st->fetchAll() as $row) {
+        $state = jdec($row['state_json'] ?? '{}');
+        foreach (($state['quizIds'] ?? []) as $id) $used[(string)$id] = true;
+        if (isset($state['contentId'])) $used[(string)$state['contentId']] = true;
+        if (isset($state['challenge']['id'])) $used[(string)$state['challenge']['id']] = true;
+    }
+    return $used;
+}
+function quiz_modifier_for(int $index, array $question): array {
+    $n = $index + 1;
+    if ($n % 7 === 0) return ['id'=>'jackpot','label'=>'Ronda jackpot','short'=>'Jackpot','pointsMult'=>1.35,'speedMult'=>1.35,'timeMs'=>11000,'note'=>'Más puntos si aciertas.'];
+    if ($n % 5 === 0) return ['id'=>'turbo','label'=>'Ronda turbo','short'=>'Turbo','pointsMult'=>1.0,'speedMult'=>2.0,'timeMs'=>7000,'note'=>'Menos tiempo, más bonus de velocidad.'];
+    if (($question['difficulty'] ?? 1) >= 3 && $n % 4 === 0) return ['id'=>'trampa','label'=>'Ronda trampa','short'=>'Trampa','pointsMult'=>1.15,'speedMult'=>1.0,'timeMs'=>10500,'note'=>'Opciones parecidas. Lee fino.'];
+    if ($n % 6 === 0) return ['id'=>'blind','label'=>'Categoría oculta','short'=>'Oculta','pointsMult'=>1.1,'speedMult'=>1.0,'timeMs'=>10000,'hideCategory'=>true,'note'=>'La categoría se revela después.'];
+    if ($n % 3 === 0) return ['id'=>'seguridad','label'=>'Ronda seguridad','short'=>'Seguridad','pointsMult'=>1.0,'speedMult'=>1.0,'timeMs'=>12000,'note'=>'Pregunta algo más táctica: fallar rompe la racha.'];
+    return ['id'=>'classic','label'=>'Ronda clásica','short'=>'Clásica','pointsMult'=>1.0,'speedMult'=>1.0,'timeMs'=>10000,'note'=>'Acierta rápido para sumar más.'];
+}
+function quiz_pick_sequence(PDO $pdo, int $roomId, array $players): array {
+    $pool = quiz_pool();
+    $used = quiz_used_question_ids($pdo, $roomId);
+    $available = array_values(array_filter($pool, fn($q) => !isset($used[pool_item_id($q)])));
+    if (count($available) < quiz_total_questions($players)) $available = $pool;
+    shuffle($available);
+    $total = min(quiz_total_questions($players), count($available));
+    $sequence = [];
+    for ($i = 0; $i < $total; $i++) {
+        $q = shuffle_answer_options($available[$i]);
+        $q['id'] = pool_item_id($q);
+        $q['number'] = $i + 1;
+        $q['total'] = $total;
+        $q['modifier'] = quiz_modifier_for($i, $q);
+        $sequence[] = $q;
+    }
+    return $sequence;
+}
+function quiz_current_question(array $state): array {
+    $idx = max(0, (int)($state['current'] ?? 0));
+    return (($state['questions'] ?? [])[$idx] ?? ($state['challenge'] ?? [])) ?: [];
+}
+function quiz_question_duration(array $question): int {
+    return (int)(($question['modifier'] ?? [])['timeMs'] ?? 10000);
+}
+function quiz_reveal_duration(): int { return 3200; }
+function quiz_current_answers(array $state): array {
+    $idx = (string)(int)($state['current'] ?? 0);
+    return (($state['answers'] ?? [])[$idx] ?? []);
+}
+function quiz_all_answered(array $state, array $players): bool {
+    $required = quiz_required_players($players);
+    if (!$required) return false;
+    $answers = quiz_current_answers($state);
+    foreach ($required as $p) {
+        if (!isset($answers[(string)(int)$p['id']])) return false;
+    }
+    return true;
+}
+function quiz_init_player(array &$state, int $pid): void {
+    $key = (string)$pid;
+    if (!isset($state['stats'][$key])) $state['stats'][$key] = ['correct'=>0,'wrong'=>0,'miss'=>0,'points'=>0,'fastestMs'=>null,'hot'=>0,'lightningHits'=>0];
+    if (!isset($state['streaks'][$key])) $state['streaks'][$key] = 0;
+    if (!isset($state['bestStreaks'][$key])) $state['bestStreaks'][$key] = 0;
+    if (!isset($state['lightning'][$key])) $state['lightning'][$key] = 0;
+}
+function quiz_apply_fifty(array &$state, int $pid): void {
+    $key = (string)$pid;
+    if (!empty(($state['jokers'][$key] ?? [])['fifty'])) return;
+    $q = quiz_current_question($state);
+    $correct = (int)($q['correct'] ?? -1);
+    $wrong = [];
+    foreach (($q['options'] ?? []) as $i => $_) if ((int)$i !== $correct) $wrong[] = (int)$i;
+    shuffle($wrong);
+    $state['jokers'][$key]['fifty'] = true;
+    $state['jokers'][$key]['removed'] = array_slice($wrong, 0, 2);
+}
+function quiz_apply_freeze(array &$state, int $pid): void {
+    $key = (string)$pid;
+    if (!empty(($state['jokers'][$key] ?? [])['freeze'])) return;
+    $state['jokers'][$key]['freeze'] = true;
+    $state['freezeUsedBy'][$key] = now_ms();
+    $state['questionEndsAtMs'] = max((int)($state['questionEndsAtMs'] ?? 0), now_ms()) + 3000;
+}
+function quiz_resolve_question(PDO $pdo, array $players, array &$state): void {
+    $idx = (int)($state['current'] ?? 0);
+    $idxKey = (string)$idx;
+    if (!empty(($state['resolvedQuestions'] ?? [])[$idxKey])) return;
+    $q = quiz_current_question($state);
+    $correctIndex = (int)($q['correct'] ?? -1);
+    $duration = max(1000, (int)($state['questionDurationMs'] ?? quiz_question_duration($q)));
+    $started = (int)($state['questionStartedAtMs'] ?? now_ms());
+    $modifier = $q['modifier'] ?? ['id'=>'classic','pointsMult'=>1,'speedMult'=>1];
+    $answers = quiz_current_answers($state);
+    $rows = [];
+    foreach (quiz_required_players($players) as $p) {
+        $pid = (int)$p['id'];
+        $key = (string)$pid;
+        quiz_init_player($state, $pid);
+        $entry = $answers[$key] ?? null;
+        if (!is_array($entry)) {
+            $entry = ['answer'=>-1,'at'=>now_ms(),'timeout'=>true];
+            $state['answers'][$idxKey][$key] = $entry;
+        }
+        $answer = (int)($entry['answer'] ?? -1);
+        $elapsed = max(0, (int)($entry['at'] ?? now_ms()) - $started);
+        $correct = $answer === $correctIndex;
+        $hot = $elapsed <= 2000 && empty($entry['timeout']);
+        $points = 0;
+        $speedBonus = 0;
+        $streakBonus = 0;
+        $hotBonus = 0;
+        $lightningBonus = 0;
+        if ($correct) {
+            $state['streaks'][$key] = (int)($state['streaks'][$key] ?? 0) + 1;
+            $state['bestStreaks'][$key] = max((int)($state['bestStreaks'][$key] ?? 0), (int)$state['streaks'][$key]);
+            $speedRatio = max(0, min(1, 1 - ($elapsed / $duration)));
+            $speedBonus = (int)round($speedRatio * 60 * (float)($modifier['speedMult'] ?? 1));
+            $streak = (int)$state['streaks'][$key];
+            $streakBonus = $streak >= 2 ? min(90, 12 * $streak) : 0;
+            $hotBonus = $hot ? 50 : 0;
+            $subtotal = 100 + $speedBonus + $streakBonus + $hotBonus;
+            if (($modifier['id'] ?? '') === 'jackpot') $subtotal += 100;
+            if (($modifier['id'] ?? '') === 'trampa') $subtotal += 35;
+            if (($modifier['id'] ?? '') === 'blind') $subtotal += 25;
+            if ((int)($state['lightning'][$key] ?? 0) > 0) {
+                $lightningBonus = (int)round($subtotal * 0.5);
+                $subtotal += $lightningBonus;
+                $state['lightning'][$key] = max(0, (int)$state['lightning'][$key] - 1);
+                $state['stats'][$key]['lightningHits'] = (int)($state['stats'][$key]['lightningHits'] ?? 0) + 1;
+            }
+            if ($streak >= 5 && (int)($state['lightning'][$key] ?? 0) === 0) {
+                $state['lightning'][$key] = 2;
+                $state['lightningActivated'][$key] = true;
+            }
+            $points = (int)round($subtotal * (float)($modifier['pointsMult'] ?? 1));
+            $state['stats'][$key]['correct'] = (int)($state['stats'][$key]['correct'] ?? 0) + 1;
+            if ($hot) $state['stats'][$key]['hot'] = (int)($state['stats'][$key]['hot'] ?? 0) + 1;
+            $fast = $state['stats'][$key]['fastestMs'];
+            if ($fast === null || $elapsed < (int)$fast) $state['stats'][$key]['fastestMs'] = $elapsed;
+        } else {
+            $wasHotWrong = $hot && $answer >= 0;
+            $points = $wasHotWrong ? -25 : 0;
+            $state['streaks'][$key] = 0;
+            if (!empty($entry['timeout'])) $state['stats'][$key]['miss'] = (int)($state['stats'][$key]['miss'] ?? 0) + 1;
+            else $state['stats'][$key]['wrong'] = (int)($state['stats'][$key]['wrong'] ?? 0) + 1;
+        }
+        $state['answers'][$idxKey][$key]['correct'] = $correct;
+        $state['answers'][$idxKey][$key]['points'] = $points;
+        $state['answers'][$idxKey][$key]['elapsedMs'] = $elapsed;
+        $state['answers'][$idxKey][$key]['hot'] = $hot;
+        $state['answers'][$idxKey][$key]['speedBonus'] = $speedBonus;
+        $state['answers'][$idxKey][$key]['streakBonus'] = $streakBonus;
+        $state['answers'][$idxKey][$key]['hotBonus'] = $hotBonus;
+        $state['answers'][$idxKey][$key]['lightningBonus'] = $lightningBonus;
+        $state['stats'][$key]['points'] = (int)($state['stats'][$key]['points'] ?? 0) + $points;
+        if ($points !== 0) add_score($pdo, $pid, $points);
+        $rows[] = ['playerId'=>$pid,'answer'=>$answer,'correct'=>$correct,'points'=>$points,'elapsedMs'=>$elapsed,'timeout'=>!empty($entry['timeout']),'streak'=>(int)($state['streaks'][$key] ?? 0)];
+    }
+    usort($rows, fn($a, $b) => ($b['points'] <=> $a['points']) ?: ($a['elapsedMs'] <=> $b['elapsedMs']));
+    $state['lastResult'] = ['index'=>$idx,'correct'=>$correctIndex,'question'=>$q['question'] ?? '', 'explanation'=>$q['explanation'] ?? '', 'rows'=>$rows, 'modifier'=>$modifier];
+    $state['resolvedQuestions'][$idxKey] = true;
+}
+function quiz_finish_game(array $players, array &$state): void {
+    $summary = [];
+    foreach (quiz_required_players($players) as $p) {
+        $pid = (int)$p['id'];
+        $key = (string)$pid;
+        quiz_init_player($state, $pid);
+        $stats = $state['stats'][$key] ?? [];
+        $correct = (int)($stats['correct'] ?? 0);
+        $wrong = (int)($stats['wrong'] ?? 0);
+        $miss = (int)($stats['miss'] ?? 0);
+        $total = max(1, count($state['questions'] ?? []));
+        $accuracy = (int)round(($correct / $total) * 100);
+        $rank = 'Aprendiz HTML';
+        if ($accuracy >= 95) $rank = 'Máquina de StackOverflow';
+        elseif ($accuracy >= 85) $rank = 'Debugger Legendario';
+        elseif ($accuracy >= 70) $rank = 'Dev Relámpago';
+        elseif ($accuracy >= 50) $rank = 'Junior con Café';
+        $summary[$key] = [
+            'playerId'=>$pid,
+            'correct'=>$correct,
+            'wrong'=>$wrong,
+            'miss'=>$miss,
+            'points'=>(int)($stats['points'] ?? 0),
+            'bestStreak'=>(int)($state['bestStreaks'][$key] ?? 0),
+            'fastestMs'=>$stats['fastestMs'] ?? null,
+            'hot'=>(int)($stats['hot'] ?? 0),
+            'accuracy'=>$accuracy,
+            'rank'=>$rank,
+        ];
+    }
+    $rows = array_values($summary);
+    usort($rows, fn($a, $b) => ($b['points'] <=> $a['points']) ?: ($b['correct'] <=> $a['correct']));
+    $fastRows = array_values(array_filter($rows, fn($r) => $r['fastestMs'] !== null));
+    usort($fastRows, fn($a, $b) => (int)$a['fastestMs'] <=> (int)$b['fastestMs']);
+    $streakRows = $rows; usort($streakRows, fn($a, $b) => $b['bestStreak'] <=> $a['bestStreak']);
+    $state['summary'] = $summary;
+    $state['medals'] = [
+        'brain'=> $rows[0] ?? null,
+        'speed'=> $fastRows[0] ?? null,
+        'streak'=> $streakRows[0] ?? null,
+    ];
+    $state['resolved'] = true;
+}
+function quiz_next_or_finish(PDO $pdo, array $players, array &$state): string {
+    $next = (int)($state['current'] ?? 0) + 1;
+    $total = count($state['questions'] ?? []);
+    if ($next >= $total) {
+        quiz_finish_game($players, $state);
+        return 'results';
+    }
+    $state['current'] = $next;
+    $q = $state['questions'][$next];
+    $state['challenge'] = $q;
+    $state['questionStartedAtMs'] = now_ms();
+    $state['questionDurationMs'] = quiz_question_duration($q);
+    $state['questionEndsAtMs'] = now_ms() + (int)$state['questionDurationMs'];
+    unset($state['lastResult']);
+    return 'answer';
+}
+function quiz_auto_progress_room(PDO $pdo, array $room): void {
+    $round = active_round($pdo, (int)$room['id']);
+    if (!$round || (string)$round['mode'] !== 'quiz' || (string)$round['status'] !== 'playing') return;
+    $phase = (string)$round['phase'];
+    $state = jdec($round['state_json']);
+    $players = players_for_room($pdo, (int)$room['id']);
+    $due = !empty($round['ends_at_ms']) && now_ms() >= (int)$round['ends_at_ms'];
+    $ready = $phase === 'answer' && quiz_all_answered($state, $players);
+    if (!$due && !$ready) return;
+    $pdo->beginTransaction();
+    try {
+        $roomLocked = room_by_code($pdo, (string)$room['code'], true);
+        if (!$roomLocked) { $pdo->rollBack(); return; }
+        $lockedRound = active_round($pdo, (int)$roomLocked['id'], true);
+        if (!$lockedRound || (string)$lockedRound['mode'] !== 'quiz' || (string)$lockedRound['status'] !== 'playing') { $pdo->rollBack(); return; }
+        $phase = (string)$lockedRound['phase'];
+        $state = jdec($lockedRound['state_json']);
+        $players = players_for_room($pdo, (int)$roomLocked['id']);
+        if ($phase === 'answer') {
+            quiz_resolve_question($pdo, $players, $state);
+            $pdo->prepare("UPDATE party_rounds SET phase = 'reveal', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + quiz_reveal_duration(), (int)$lockedRound['id']]);
+            $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+        } elseif ($phase === 'reveal') {
+            $nextPhase = quiz_next_or_finish($pdo, $players, $state);
+            if ($nextPhase === 'results') {
+                $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$lockedRound['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } else {
+                $pdo->prepare("UPDATE party_rounds SET phase = 'answer', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), (int)$state['questionEndsAtMs'], (int)$lockedRound['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            }
+        }
+        $pdo->commit();
+    } catch (Throwable $e) {
+        if ($pdo->inTransaction()) $pdo->rollBack();
+    }
+}
+
 function subasta_pool(): array {
     return add_pool_ids('subasta', [
         ['question'=>'¿Cuál es el puerto FTP normal?', 'options'=>['21','22','23','443'], 'correct'=>0],
@@ -1475,15 +2974,52 @@ try {
             $phase = 'rhythm';
             $duration = 34000;
         } elseif ($mode === 'mentira') {
-            $q = pick_unused_pool_item($pdo, (int)$room['id'], 'mentira', mentira_pool());
-            $state = ['contentId'=>$q['id'], 'question'=>$q['question'], 'realAnswer'=>$q['real'], 'fakeAnswers'=>[], 'votes'=>[], 'scores'=>[]];
+            $roundNumber = (int)($room['round_number'] ?? 0) + 1;
+            $q = mentira_pick_question($pdo, (int)$room['id'], $roundNumber);
+            $modifier = mentira_pick_modifier($roundNumber);
+            $state = [
+                'contentId'=>$q['id'],
+                'question'=>$q['question'],
+                'context'=>$q['context'] ?? mentira_category_context((string)($q['category'] ?? 'Tech')),
+                'lieTip'=>$q['lieTip'] ?? mentira_lie_tip_for($q),
+                'explanation'=>$q['explanation'] ?? mentira_explanation_for($q),
+                'realAnswer'=>$q['real'],
+                'category'=>$q['category'] ?? 'Tech',
+                'difficulty'=>(int)($q['difficulty'] ?? 1),
+                'fakeBank'=>$q['fakes'] ?? [],
+                'fakeAnswers'=>[],
+                'votes'=>[],
+                'voteTimes'=>[],
+                'scores'=>[],
+                'streaks'=>mentira_latest_streaks($pdo, (int)$room['id']),
+                'modifier'=>$modifier,
+                'instructions'=>[
+                    'Inventa una respuesta falsa que parezca real.',
+                    'Luego vota cuál de todas las cartas es la verdadera.',
+                    'Puntúas por acertar la verdad y por engañar a otros.'
+                ]
+            ];
             $phase = 'write';
-            $duration = 45000;
+            $duration = (int)($modifier['writeMs'] ?? 30000);
         } elseif ($mode === 'quiz') {
-            $challenge = pick_unused_answer_item($pdo, (int)$room['id'], 'quiz', quiz_pool());
-            $state = ['contentId'=>$challenge['id'], 'challenge'=>$challenge, 'answers'=>[], 'scores'=>[]];
+            $sequence = quiz_pick_sequence($pdo, (int)$room['id'], $players);
+            if (!$sequence) fail('No hay preguntas de quiz disponibles.', 500);
+            $first = $sequence[0];
+            $duration = quiz_question_duration($first);
+            $startedQuiz = now_ms();
+            $state = [
+                'contentId'=>'quiz-set-' . substr(sha1(jenc(array_map(fn($q) => $q['id'] ?? '', $sequence))), 0, 12),
+                'quizIds'=>array_map(fn($q) => (string)($q['id'] ?? ''), $sequence),
+                'questions'=>$sequence,
+                'challenge'=>$first,
+                'current'=>0,
+                'questionStartedAtMs'=>$startedQuiz,
+                'questionDurationMs'=>$duration,
+                'questionEndsAtMs'=>$startedQuiz + $duration,
+                'answers'=>[], 'scores'=>[], 'stats'=>[], 'streaks'=>[], 'bestStreaks'=>[], 'jokers'=>[], 'lightning'=>[], 'events'=>[],
+                'instructions'=>['Lee el contexto.', 'Responde antes de que acabe el tiempo.', 'Acierto + velocidad + racha = más puntos.']
+            ];
             $phase = 'answer';
-            $duration = 18000;
         } elseif ($mode === 'boton-prohibido') {
             $buttons = button_pool($pdo, (int)$room['id']);
             $state = ['contentId'=>'buttons-' . implode('-', array_map(fn($button) => $button['id'], $buttons)), 'buttons'=>$buttons, 'outcomes'=>[], 'scores'=>[]];
@@ -1502,6 +3038,10 @@ try {
             $state['turnStartedAtMs'] = $started;
             $state['turnEndsAtMs'] = $started + (int)($state['turnDurationMs'] ?? 8000);
             $ends = (int)$state['turnEndsAtMs'];
+        } elseif ($mode === 'quiz' && $phase === 'answer') {
+            $state['questionStartedAtMs'] = $started;
+            $state['questionEndsAtMs'] = $started + $duration;
+            $ends = (int)$state['questionEndsAtMs'];
         } else {
             $ends = $started + $duration;
         }
@@ -1579,34 +3119,73 @@ try {
                 }
             }
         } elseif ($mode === 'mentira') {
+            $playersNow = players_for_room($pdo, (int)$room['id']);
             if ($phase === 'write') {
-                $fake = mb_substr(trim(strip_tags((string)($payload['fake'] ?? ''))), 0, 100);
-                if ($fake !== '') $state['fakeAnswers'][$pid] = $fake;
-                if (count($state['fakeAnswers']) >= count(players_for_room($pdo, (int)$room['id']))) $phase = 'vote';
+                if (isset($state['fakeAnswers'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+                $fake = mentira_clean_text($payload['fake'] ?? '', 100);
+                $error = $fake !== '' ? mentira_validate_fake($fake, $state) : 'Escribe una mentira antes de enviar.';
+                if ($error !== null) { $pdo->rollBack(); fail($error, 422); }
+                $state['fakeAnswers'][$pid] = ['text'=>$fake, 'auto'=>false, 'double'=>!empty($payload['doubleBluff']), 'at'=>now_ms()];
+                if (mentira_all_wrote($state, $playersNow)) {
+                    mentira_prepare_options($playersNow, $state);
+                    $phase = 'vote';
+                    $endsAtMs = now_ms() + mentira_vote_ms($state);
+                } else {
+                    $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + 30000));
+                }
             } elseif ($phase === 'vote') {
-                if (!isset($state['votes'][$pid])) $state['votes'][$pid] = (string)($payload['vote'] ?? 'real');
-                if (count($state['votes']) >= count(players_for_room($pdo, (int)$room['id']))) {
-                    foreach ($state['votes'] as $voter => $vote) {
-                        if ($vote === 'real') $pdo->prepare('UPDATE party_players SET score = score + 500 WHERE id = ?')->execute([(int)$voter]);
-                        elseif (isset($state['fakeAnswers'][$vote])) $pdo->prepare('UPDATE party_players SET score = score + 350 WHERE id = ?')->execute([(int)$vote]);
+                mentira_prepare_options($playersNow, $state);
+                if (!empty($payload['joker']) && (string)$payload['joker'] === 'fifty') {
+                    mentira_apply_fifty($state, $pid);
+                    $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + mentira_vote_ms($state)));
+                } else {
+                    if (isset($state['votes'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+                    $vote = mentira_clean_text($payload['vote'] ?? '', 40);
+                    $map = mentira_option_map($state);
+                    if (!isset($map[$vote])) { $pdo->rollBack(); fail('Esa opción ya no está disponible.', 422); }
+                    if ($vote === ('p_' . (int)$pid)) { $pdo->rollBack(); fail('No puedes votar tu propia mentira.', 422); }
+                    $removed = ($state['jokers'][$pid] ?? [])['removed'] ?? [];
+                    if (in_array($vote, $removed, true)) { $pdo->rollBack(); fail('Esa opción fue descartada por tu comodín.', 422); }
+                    $state['votes'][$pid] = $vote;
+                    $state['voteTimes'][$pid] = now_ms();
+                    if (mentira_all_voted($state, $playersNow)) {
+                        mentira_resolve_round($pdo, $playersNow, $state);
+                        $phase = 'results';
+                        $endsAtMs = null;
+                        $points = (int)(($state['pointsAwarded'] ?? [])[$pid] ?? 0);
+                        $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([(int)$round['id']]);
+                        $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$room['id']]);
+                    } else {
+                        $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + mentira_vote_ms($state)));
                     }
-                    $phase = 'results';
-                    $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
-                    $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
                 }
             }
-        } elseif ($mode === 'quiz' && $phase === 'answer') {
-            if (isset($state['answers'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
-            $answer = (int)($payload['answer'] ?? -1);
-            $correct = (int)($state['challenge']['correct'] ?? -2);
-            $remaining = max(0, ((int)$round['ends_at_ms'] - now_ms()) / 1000);
-            $points = ($answer === $correct) ? (420 + (int)round($remaining * 35)) : 0;
-            $state['answers'][$pid] = ['answer'=>$answer, 'correct'=>$answer === $correct, 'points'=>$points, 'at'=>now_ms()];
-            if ($points > 0) add_score($pdo, (int)$viewer['id'], $points);
-            if (count($state['answers']) >= count(players_for_room($pdo, (int)$room['id']))) {
-                $phase = 'results';
-                $pdo->prepare('UPDATE party_rounds SET status = \'results\', phase = \'results\', ended_at = NOW() WHERE id = ?')->execute([(int)$round['id']]);
-                $pdo->prepare('UPDATE party_rooms SET status = \'results\' WHERE id = ?')->execute([(int)$room['id']]);
+        } elseif ($mode === 'quiz') {
+            $playersNow = players_for_room($pdo, (int)$room['id']);
+            $idxKey = (string)(int)($state['current'] ?? 0);
+            if ($phase === 'answer') {
+                if (!empty($payload['joker'])) {
+                    $joker = (string)$payload['joker'];
+                    if ($joker === 'fifty') quiz_apply_fifty($state, (int)$viewer['id']);
+                    if ($joker === 'freeze') quiz_apply_freeze($state, (int)$viewer['id']);
+                    $endsAtMs = (int)($state['questionEndsAtMs'] ?? $round['ends_at_ms'] ?? (now_ms() + 10000));
+                } else {
+                    if (isset($state['answers'][$idxKey][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
+                    $q = quiz_current_question($state);
+                    $answer = (int)($payload['answer'] ?? -1);
+                    $optionCount = count($q['options'] ?? []);
+                    if ($answer < 0 || $answer >= $optionCount) { $pdo->rollBack(); fail('Respuesta no válida.', 422); }
+                    $state['answers'][$idxKey][$pid] = ['answer'=>$answer, 'at'=>now_ms()];
+                    if (quiz_all_answered($state, $playersNow)) {
+                        quiz_resolve_question($pdo, $playersNow, $state);
+                        $phase = 'reveal';
+                        $endsAtMs = now_ms() + quiz_reveal_duration();
+                    } else {
+                        $endsAtMs = (int)($state['questionEndsAtMs'] ?? $round['ends_at_ms'] ?? (now_ms() + quiz_question_duration($q)));
+                    }
+                }
+            } elseif ($phase === 'reveal') {
+                $endsAtMs = (int)($round['ends_at_ms'] ?? (now_ms() + quiz_reveal_duration()));
             }
         } elseif ($mode === 'boton-prohibido' && $phase === 'press') {
             if (isset($state['outcomes'][$pid])) { $pdo->commit(); out(state_response($pdo, $room, $viewer)); }
@@ -1719,6 +3298,23 @@ try {
                     $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
                 }
             }
+        } elseif ($round && (string)$round['mode'] === 'mentira' && (string)$round['status'] === 'playing') {
+            $state = jdec($round['state_json']);
+            $playersNow = players_for_room($pdo, (int)$roomLocked['id']);
+            $roundPhase = (string)$round['phase'];
+            if ($roundPhase === 'write') {
+                mentira_prepare_options($playersNow, $state);
+                $nextEnds = now_ms() + mentira_vote_ms($state);
+                $pdo->prepare("UPDATE party_rounds SET phase = 'vote', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), $nextEnds, (int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } elseif ($roundPhase === 'vote') {
+                mentira_resolve_round($pdo, $playersNow, $state);
+                $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } else {
+                $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', ended_at = NOW() WHERE id = ?")->execute([(int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            }
         } elseif ($round && (string)$round['mode'] === 'impostor' && (string)$round['status'] === 'playing') {
             $state = jdec($round['state_json']);
             $roundPhase = (string)$round['phase'];
@@ -1733,6 +3329,28 @@ try {
                 $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
             } else {
                 $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', ended_at = NOW() WHERE id = ?")->execute([(int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            }
+        } elseif ($round && (string)$round['mode'] === 'quiz' && (string)$round['status'] === 'playing') {
+            $state = jdec($round['state_json']);
+            $playersNow = players_for_room($pdo, (int)$roomLocked['id']);
+            $roundPhase = (string)$round['phase'];
+            if ($roundPhase === 'answer') {
+                quiz_resolve_question($pdo, $playersNow, $state);
+                $pdo->prepare("UPDATE party_rounds SET phase = 'reveal', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), now_ms() + quiz_reveal_duration(), (int)$round['id']]);
+                $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+            } elseif ($roundPhase === 'reveal') {
+                $nextPhase = quiz_next_or_finish($pdo, $playersNow, $state);
+                if ($nextPhase === 'results') {
+                    $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$round['id']]);
+                    $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+                } else {
+                    $pdo->prepare("UPDATE party_rounds SET phase = 'answer', state_json = ?, ends_at_ms = ? WHERE id = ?")->execute([jenc($state), (int)$state['questionEndsAtMs'], (int)$round['id']]);
+                    $pdo->prepare("UPDATE party_rooms SET status = 'playing' WHERE id = ?")->execute([(int)$roomLocked['id']]);
+                }
+            } else {
+                quiz_finish_game($playersNow, $state);
+                $pdo->prepare("UPDATE party_rounds SET status = 'results', phase = 'results', state_json = ?, ended_at = NOW(), ends_at_ms = NULL WHERE id = ?")->execute([jenc($state), (int)$round['id']]);
                 $pdo->prepare("UPDATE party_rooms SET status = 'results' WHERE id = ?")->execute([(int)$roomLocked['id']]);
             }
         } else {

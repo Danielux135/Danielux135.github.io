@@ -174,6 +174,71 @@ function displayWord(word) {
   return word || '???';
 }
 
+function lieDifficultyLabel(value) {
+  const n = Number(value || 1);
+  return n <= 1 ? 'Fácil' : n === 2 ? 'Media' : 'Difícil';
+}
+
+function lieOptionLabel(index) {
+  return String.fromCharCode(65 + Number(index || 0));
+}
+
+function lieOptionById(id) {
+  const options = state?.round?.state?.options || [];
+  return options.find((option) => String(option.id) === String(id));
+}
+
+function liePlayerName(id) {
+  return id ? playerNameById(id) : 'Sistema';
+}
+
+
+function lieMetaParts(s) {
+  const category = s.category || 'Categoría oculta';
+  const modifier = s.modifier || {};
+  return [category, lieDifficultyLabel(s.difficulty), modifier.label || 'Ronda clásica'].filter(Boolean).map(escapeHtml).join(' · ');
+}
+
+function lieContextPanel(s, phase) {
+  const context = s.context || 'Contexto: lee la pista, piensa en una respuesta realista y usa el formato de la categoría.';
+  const tip = s.lieTip || 'Consejo: una buena mentira se parece a la respuesta real, pero tiene un pequeño detalle falso.';
+  const modifier = s.modifier || {};
+  const phaseText = phase === 'vote'
+    ? 'Objetivo: encuentra la única carta verdadera. Las demás son mentiras de jugadores o del sistema.'
+    : 'Objetivo: escribe una mentira creíble. Después todos votarán cuál carta parece verdadera.';
+  const modifierText = modifier.desc ? `<span><strong>Regla:</strong> ${escapeHtml(modifier.desc)}</span>` : '';
+  return `<div class="lie-context-panel">
+    <span><strong>Contexto:</strong> ${escapeHtml(context)}</span>
+    <span><strong>${phase === 'vote' ? 'Pista' : 'Consejo'}:</strong> ${escapeHtml(phase === 'vote' ? phaseText : tip)}</span>
+    ${modifierText}
+  </div>`;
+}
+
+function lieSubmittedPanel(s) {
+  const fake = s.yourFakeAnswer || '';
+  const double = s.yourDoubleBluff ? '<span class="lie-mini-badge danger">Doble farol activo</span>' : '';
+  return `<div class="lie-submitted-panel">
+    <strong>Mentira enviada</strong>
+    <span>${escapeHtml(fake)}</span>
+    ${double}
+    <small>Esperando al resto. Si alguien no responde, el sistema añadirá una mentira automática para que la ronda no se rompa.</small>
+  </div>${roundFeedbackHtml()}`;
+}
+
+function lieJokerPanel(s, voted, removed) {
+  if (voted) return '';
+  const removedCount = removed.size;
+  if (removedCount > 0) {
+    return `<div class="lie-joker-used"><strong>Comodín usado</strong><span>${removedCount} mentira${removedCount === 1 ? '' : 's'} descartada${removedCount === 1 ? '' : 's'}.</span></div>`;
+  }
+  if (!s.canUseFifty) return '';
+  return `<button class="lie-joker-card" data-lie-joker="fifty" type="button">
+    <span class="lie-joker-icon">✂</span>
+    <strong>Comodín 50/50</strong>
+    <small>Descarta una mentira incorrecta que no sea tuya. Úsalo antes de votar.</small>
+  </button>`;
+}
+
 function playableModes() {
   const modes = MODES.filter((mode) => !excludedModes.has(mode.id));
   return modes.length ? modes : MODES;
@@ -403,8 +468,8 @@ function renderResults() {
     <h1 class="game-title">RESULTADOS</h1>
     <p class="subtitle">${escapeHtml(mode.title)} - Siguiente: ${escapeHtml(next.title)}</p>
     ${roundReviewHtml()}
-    ${state?.round?.mode === 'impostor' ? '' : roundFeedbackHtml()}
-    ${state?.round?.mode === 'impostor' ? '' : `<div class="ranking-list">${sortedPlayers().map((p, i) => `<div class="rank-row"><span class="rank-no">${i + 1}</span><strong>${escapeHtml(p.name)}</strong><span class="score">${p.score || 0}</span></div>`).join('')}</div>`}
+    ${['impostor', 'mentira', 'quiz'].includes(state?.round?.mode) ? '' : roundFeedbackHtml()}
+    ${['impostor', 'quiz'].includes(state?.round?.mode) ? '' : `<div class="ranking-list">${sortedPlayers().map((p, i) => `<div class="rank-row"><span class="rank-no">${i + 1}</span><strong>${escapeHtml(p.name)}</strong><span class="score">${p.score || 0}</span></div>`).join('')}</div>`}
     <div class="big-actions">${isHost() ? '<button class="primary-btn" data-repeat-round><i class="fa-solid fa-repeat"></i> REPETIR MINIJUEGO</button><button class="secondary-btn" data-next-round><i class="fa-solid fa-forward"></i> SIGUIENTE DE ROTACION</button><button class="secondary-btn" data-back-lobby><i class="fa-solid fa-house"></i> VOLVER AL LOBBY</button>' : '<p>Esperando al host...</p>'}</div>
   </main>${rankingPanel()}</section>`;
   bindCommon();
@@ -598,7 +663,7 @@ function roundFeedback() {
   const pid = playerIdKey();
   if (!round || !pid) return null;
 
-  if (round.mode === 'bug-race' || round.mode === 'quiz') {
+  if (round.mode === 'bug-race') {
     const answer = s.answers?.[pid];
     const challenge = s.challenge || {};
     if (!answer) return null;
@@ -611,6 +676,31 @@ function roundFeedback() {
       title: isCorrect ? '¡Correcto!' : 'Has fallado',
       message: isCorrect ? `Has ganado ${signedPoints(answer.points)}.` : `La correcta era ${optionLabel(correctIndex)}: ${optionText(challenge.options, correctIndex)}.`,
       details: isCorrect ? [`Elegiste ${optionLabel(selectedIndex)}: ${optionText(challenge.options, selectedIndex)}`] : [`Tu respuesta: ${optionLabel(selectedIndex)}: ${optionText(challenge.options, selectedIndex)}`, 'No sumas puntos en esta ronda.'],
+    };
+  }
+
+  if (round.mode === 'quiz') {
+    const answer = quizMyAnswer();
+    const challenge = quizQuestion();
+    if (!answer) return null;
+    const selectedIndex = Number(answer.answer ?? -1);
+    if (answer.correct === undefined && round.phase === 'answer') {
+      return {
+        tone: 'info',
+        icon: 'fa-solid fa-bolt',
+        title: 'Respuesta bloqueada',
+        message: `Has elegido ${optionLabel(selectedIndex)}. La solución se revela al acabar el tiempo o responder todos.`,
+        details: ['Cuanto antes aciertes, más bonus de velocidad.'],
+      };
+    }
+    const correctIndex = Number(challenge.correct ?? -1);
+    const isCorrect = Boolean(answer.correct);
+    return {
+      tone: isCorrect ? 'good' : 'bad',
+      icon: isCorrect ? 'fa-solid fa-bolt' : 'fa-solid fa-xmark',
+      title: isCorrect ? '¡Correcto relámpago!' : (answer.timeout ? 'Tiempo agotado' : 'Has fallado'),
+      message: isCorrect ? `Has ganado ${signedPoints(answer.points)}.` : `La correcta era ${optionLabel(correctIndex)}: ${optionText(challenge.options, correctIndex)}.`,
+      details: [challenge.explanation || '', isCorrect ? `Velocidad +${Number(answer.speedBonus || 0)} · Racha +${Number(answer.streakBonus || 0)} · Caliente +${Number(answer.hotBonus || 0)}` : 'Racha rota.'].filter(Boolean),
     };
   }
 
@@ -702,26 +792,41 @@ function roundFeedback() {
 
   if (round.mode === 'mentira') {
     if (round.phase === 'write') {
-      const fake = s.yourFakeAnswer ?? s.fakeAnswers?.[pid];
+      const fake = s.yourFakeAnswer;
       if (!fake) return null;
-      return { tone: 'info', icon: 'fa-solid fa-comment-dots', title: 'Mentira enviada', message: 'Tu respuesta falsa ya esta guardada.', details: [`Tu mentira: ${fake}`] };
+      const double = Boolean(s.yourDoubleBluff);
+      return {
+        tone: 'info',
+        icon: 'fa-solid fa-comment-dots',
+        title: 'Mentira enviada',
+        message: double ? 'Doble farol activado: engañar vale más, fallar penaliza.' : 'Tu respuesta falsa ya está guardada.',
+        details: [`Tu mentira: ${fake}`, 'Ahora toca descubrir cuál carta es la verdadera.'],
+      };
     }
     if (round.phase === 'vote') {
       const vote = s.votes?.[pid];
       if (!vote) return null;
-      const votedReal = vote === 'real';
-      return { tone: votedReal ? 'good' : 'bad', icon: votedReal ? 'fa-solid fa-check' : 'fa-solid fa-face-grin-tongue-wink', title: votedReal ? 'Has elegido la real' : 'Te han colado una mentira', message: votedReal ? 'Correcto: votaste la respuesta real.' : `Votaste la mentira de ${playerNameById(vote)}.`, details: [votedReal ? 'Sumaras puntos al cerrar la ronda.' : 'El autor de esa mentira recibira puntos.'] };
+      const option = lieOptionById(vote);
+      return {
+        tone: 'info',
+        icon: 'fa-solid fa-check-to-slot',
+        title: 'Voto registrado',
+        message: option ? `Has elegido: ${option.text}` : 'Has votado una opción.',
+        details: ['La verdad se revelará cuando voten todos o acabe el tiempo.'],
+      };
     }
     if (round.phase === 'results') {
+      const points = Number(s.pointsAwarded?.[pid] || 0);
+      const fooled = (s.fooledBy?.[pid] || []).length;
       const vote = s.votes?.[pid];
-      const fooled = Object.values(s.votes || {}).filter((value) => String(value) === pid).length;
       const votedReal = vote === 'real';
+      const lines = (s.scoreBreakdown?.[pid] || []).slice(0, 3);
       return {
-        tone: votedReal || fooled > 0 ? 'good' : 'bad',
+        tone: points > 0 ? 'good' : points < 0 ? 'bad' : 'info',
         icon: 'fa-solid fa-comment-dots',
-        title: votedReal ? 'Detectaste la respuesta real' : fooled > 0 ? 'Tu mentira ha funcionado' : 'No has puntuado esta vez',
-        message: s.realAnswer ? `Respuesta real: ${s.realAnswer}` : 'Ronda resuelta.',
-        details: [vote ? (votedReal ? 'Tu voto fue correcto.' : `Tu voto: mentira de ${playerNameById(vote)}.`) : 'No votaste.', `Jugadores engañados por tu mentira: ${fooled}`],
+        title: votedReal ? 'Detectaste la verdad' : fooled > 0 ? 'Tu mentira funcionó' : 'Ronda revelada',
+        message: `Resultado personal: ${signedPoints(points)}.`,
+        details: [`Verdad: ${s.realAnswer || '???'}`, `Jugadores engañados: ${fooled}`, ...lines],
       };
     }
   }
@@ -910,13 +1015,32 @@ function roundReviewHtml() {
   const s = round?.state || {};
   if (!round) return '';
 
-  if (round.mode === 'bug-race' || round.mode === 'quiz') {
+  if (round.mode === 'bug-race') {
     const c = s.challenge || {};
     const result = answerResultFromAnswers() || { answer: -999, correctIndex: Number(c.correct ?? -1) };
-    const prompt = round.mode === 'bug-race'
-      ? `<span class="code-lang">${escapeHtml(c.lang || 'JS')}</span><pre class="code-box compact">${escapeHtml(c.code || c.question || 'Selecciona la respuesta correcta')}</pre>`
-      : `<h2>${escapeHtml(c.question || 'Pregunta rapida')}</h2>`;
+    const prompt = `<span class="code-lang">${escapeHtml(c.lang || 'JS')}</span><pre class="code-box compact">${escapeHtml(c.code || c.question || 'Selecciona la respuesta correcta')}</pre>`;
     return `<div class="round-review glass-card"><h3>Revision de tu respuesta</h3>${prompt}${reviewAnswerButtons(c.options, result)}</div>`;
+  }
+
+  if (round.mode === 'quiz') {
+    const questions = s.questions || [];
+    const summary = s.summary || {};
+    const rows = Object.values(summary).sort((a, b) => Number(b.points || 0) - Number(a.points || 0));
+    const you = summary[playerIdKey()] || {};
+    const medals = s.medals || {};
+    const medalChips = [
+      medals.brain ? `🧠 Cerebro limpio: ${playerNameById(medals.brain.playerId)}` : '',
+      medals.speed ? `⚡ Dedo rápido: ${playerNameById(medals.speed.playerId)} (${(Number(medals.speed.fastestMs || 0) / 1000).toFixed(1)}s)` : '',
+      medals.streak ? `🔥 Mejor racha: ${playerNameById(medals.streak.playerId)} x${Number(medals.streak.bestStreak || 0)}` : '',
+    ].filter(Boolean);
+    const statCards = `<div class="quiz-final-stats">
+      <div><span>Aciertos</span><strong>${Number(you.correct || 0)}/${questions.length || 0}</strong></div>
+      <div><span>Precisión</span><strong>${Number(you.accuracy || 0)}%</strong></div>
+      <div><span>Mejor racha</span><strong>x${Number(you.bestStreak || 0)}</strong></div>
+      <div><span>Rango</span><strong>${escapeHtml(you.rank || 'Aprendiz HTML')}</strong></div>
+    </div>`;
+    const table = `<div class="quiz-final-ranking">${rows.map((row, i) => `<div class="quiz-player-row ${String(row.playerId) === playerIdKey() ? 'you' : ''}"><span>${i + 1}</span><strong>${escapeHtml(playerNameById(row.playerId))}</strong><em>${Number(row.correct || 0)} aciertos · ${Number(row.accuracy || 0)}%</em><b>${Number(row.points || 0)}</b></div>`).join('')}</div>`;
+    return `<div class="round-review glass-card quiz-final-card"><h3>Fin del Quiz Relámpago</h3><h2>${escapeHtml(you.rank || 'Código a Contrarreloj')}</h2>${statCards}${table}${medalChips.length ? `<div class="lie-medals quiz-medals">${medalChips.map((m) => `<span>${escapeHtml(m)}</span>`).join('')}</div>` : ''}</div>`;
   }
 
   if (round.mode === 'subasta') {
@@ -935,11 +1059,35 @@ function roundReviewHtml() {
 
   if (round.mode === 'mentira' && round.phase === 'results') {
     const vote = String(s.votes?.[playerIdKey()] ?? '');
-    const fake = Object.entries(s.fakeAnswers || {});
-    return `<div class="round-review glass-card"><h3>Revision de votos</h3><p>${escapeHtml(s.question || '')}</p><div class="answers answers-review">
-      <button class="answer-btn ${vote === 'real' ? 'is-selected ' : ''}is-correct" disabled aria-disabled="true"><span class="answer-copy">${escapeHtml(s.realAnswer || 'Respuesta real')}</span>${vote === 'real' ? '<span class="answer-tag choice">Tu eleccion</span>' : ''}<span class="answer-tag correct">Real</span></button>
-      ${fake.map(([id, txt]) => `<button class="answer-btn ${vote === String(id) ? 'is-selected is-wrong' : ''}" disabled aria-disabled="true"><span class="answer-copy">${escapeHtml(txt)}</span>${vote === String(id) ? '<span class="answer-tag choice">Tu eleccion</span>' : ''}</button>`).join('')}
-    </div></div>`;
+    const options = s.options || [];
+    const rows = s.votesResolved || [];
+    const points = Number(s.pointsAwarded?.[playerIdKey()] || 0);
+    const medals = s.medals || {};
+    const medalText = [
+      medals.bestLiar ? `Pinocho Supremo: ${playerNameById(medals.bestLiar.playerId)} (${medals.bestLiar.fooled} voto${Number(medals.bestLiar.fooled) === 1 ? '' : 's'} engañado${Number(medals.bestLiar.fooled) === 1 ? '' : 's'})` : '',
+      medals.bestDetective ? `Detector de humo: ${playerNameById(medals.bestDetective.playerId)}` : '',
+      medals.premiumLie ? `Mentira premium: “${medals.premiumLie.text}”` : '',
+    ].filter(Boolean);
+    const optionCards = options.map((option, i) => {
+      const id = String(option.id || '');
+      const isReal = id === 'real';
+      const selected = vote === id;
+      const owner = option.ownerId ? playerNameById(option.ownerId) : option.kind === 'bot' ? 'Sistema' : '';
+      const classes = ['answer-btn', 'lie-option-card'];
+      if (selected) classes.push('is-selected');
+      if (isReal) classes.push('is-correct');
+      else if (selected) classes.push('is-wrong');
+      const votes = rows.filter((row) => String(row.vote) === id).length;
+      return `<button class="${classes.join(' ')}" disabled aria-disabled="true">
+        <b>${lieOptionLabel(i)}</b>
+        <span class="answer-copy">${escapeHtml(option.text || '')}</span>
+        ${selected ? '<span class="answer-tag choice">Tu elección</span>' : ''}
+        ${isReal ? '<span class="answer-tag correct">Real</span>' : `<span class="answer-tag">${votes} voto${votes === 1 ? '' : 's'}${owner ? ` · ${escapeHtml(owner)}` : ''}</span>`}
+      </button>`;
+    }).join('');
+    const voteRows = rows.slice(0, 8).map((row) => `<div class="lie-vote-row ${row.correct ? 'good' : 'bad'}"><strong>${escapeHtml(playerNameById(row.playerId))}</strong><span>${row.correct ? '✅ encontró la verdad' : `❌ cayó en “${escapeHtml(row.text || 'mentira')}”`}</span></div>`).join('');
+    const explanation = s.explanation ? `<div class="lie-explanation"><strong>Por qué era esa</strong><span>${escapeHtml(s.explanation)}</span></div>` : '';
+    return `<div class="round-review glass-card lie-results-review"><h3>Verdad revelada</h3><h2>${escapeHtml(s.question || '')}</h2><p class="player-meta">${escapeHtml(s.category || 'Categoría oculta')} · ${escapeHtml(lieDifficultyLabel(s.difficulty))} · ${escapeHtml((s.modifier || {}).label || 'Ronda clásica')} · Tú: ${signedPoints(points)}</p>${s.context ? `<p class="lie-context-line">${escapeHtml(s.context)}</p>` : ''}<div class="answers answers-review lie-options-grid">${optionCards}</div>${explanation}${voteRows ? `<div class="lie-vote-list">${voteRows}</div>` : ''}${medalText.length ? `<div class="lie-medals">${medalText.map((txt) => `<span>${escapeHtml(txt)}</span>`).join('')}</div>` : ''}</div>`;
   }
 
   if (round.mode === 'impostor' && round.phase === 'results') {
@@ -1020,8 +1168,109 @@ function roundReviewHtml() {
   return '';
 }
 
+
+function quizQuestion() {
+  const s = state.round?.state || {};
+  return s.challenge || (s.questions || [])[Number(s.current || 0)] || {};
+}
+
+function quizIndex() {
+  return Number(state.round?.state?.current || 0);
+}
+
+function quizTotal() {
+  const s = state.round?.state || {};
+  return Number(quizQuestion().total || (s.questions || []).length || 10);
+}
+
+function quizMyAnswer() {
+  const s = state.round?.state || {};
+  const idx = String(quizIndex());
+  const pid = playerIdKey();
+  return s.yourQuizAnswer || s.answers?.[idx]?.[pid] || null;
+}
+
+function quizDifficultyLabel(value) {
+  const n = Number(value || 1);
+  if (n <= 1) return 'Fácil';
+  if (n === 2) return 'Media';
+  if (n === 3) return 'Difícil';
+  return 'Experta';
+}
+
+function quizModifierLabel(mod = {}) {
+  return mod.short || mod.label || 'Clásica';
+}
+
+function quizProgressPct() {
+  const s = state.round?.state || {};
+  const duration = Math.max(1000, Number(s.questionDurationMs || 10000));
+  return Math.max(0, Math.min(100, Math.round((msLeft() / duration) * 100)));
+}
+
+function quizStreak() {
+  const value = Number((state.round?.state?.streaks || {})[playerIdKey()] || 0);
+  return value;
+}
+
+function quizLightningLeft() {
+  return Number((state.round?.state?.lightning || {})[playerIdKey()] || 0);
+}
+
+function quizAnswerResult(showCorrect = false) {
+  const c = quizQuestion();
+  const answer = quizMyAnswer();
+  if (!answer) return null;
+  return {
+    answer: Number(answer.answer ?? -1),
+    correctIndex: showCorrect || answer.correct !== undefined ? Number(c.correct ?? -1) : -999,
+  };
+}
+
+function quizPlayerRows(rows = []) {
+  if (!rows.length) return '';
+  return `<div class="quiz-player-rows">${rows.slice(0, 6).map((row, index) => {
+    const answer = Number(row.answer ?? -1);
+    const name = playerNameById(row.playerId);
+    const time = row.timeout ? 'sin responder' : `${(Number(row.elapsedMs || 0) / 1000).toFixed(1)}s`;
+    return `<div class="quiz-player-row ${row.correct ? 'good' : 'bad'}"><span>${index + 1}</span><strong>${escapeHtml(name)}</strong><em>${row.correct ? 'Correcto' : row.timeout ? 'Tiempo' : 'Falló'} · ${time}</em><b>${signedPoints(row.points || 0)}</b></div>`;
+  }).join('')}</div>`;
+}
+
+function quizAnswerButtons(c, showCorrect = false) {
+  const result = quizAnswerResult(showCorrect);
+  const selected = Number(result?.answer ?? -999);
+  const correct = Number(result?.correctIndex ?? -999);
+  const submitted = selected >= 0 || Boolean(quizMyAnswer());
+  const phase = state.round?.phase || 'answer';
+  const removed = (state.round?.state?.fiftyRemoved || []).map(Number);
+  const disabledAll = phase !== 'answer' || submitted;
+  return `<div class="answers quiz-options">${(c.options || []).map((op, i) => {
+    const isRemoved = removed.includes(i) && !showCorrect;
+    const classes = ['answer-btn', 'quiz-answer'];
+    if (submitted && selected === i) classes.push('is-selected');
+    if (showCorrect && correct === i) classes.push('is-correct');
+    if (showCorrect && submitted && selected === i && correct !== i) classes.push('is-wrong');
+    if (isRemoved) classes.push('is-removed');
+    const disabled = disabledAll || isRemoved;
+    const tag = isRemoved ? '<span class="answer-tag">Descartada</span>' : answerTags(selected, correct, i, submitted && showCorrect);
+    return `<button class="${classes.join(' ')}" data-answer="${i}"${disabled ? ' disabled aria-disabled="true"' : ''}><b>${'ABCD'[i] || i + 1}</b><span class="answer-copy">${escapeHtml(op)}</span>${tag}</button>`;
+  }).join('')}</div>`;
+}
+
+function quizMetaLine(c) {
+  const mod = c.modifier || {};
+  const category = mod.hideCategory && state.round?.phase === 'answer' ? 'Categoría oculta' : (c.category || 'Tech');
+  return `<div class="quiz-meta-line"><span>${escapeHtml(category)}</span><span>${escapeHtml(quizDifficultyLabel(c.difficulty))}</span><span class="special">${escapeHtml(quizModifierLabel(mod))}</span>${quizStreak() ? `<span>Racha x${quizStreak()}</span>` : ''}${quizLightningLeft() ? `<span class="lightning">Modo relámpago x${quizLightningLeft()}</span>` : ''}</div>`;
+}
+
 function answerResultFromAnswers() {
   const c = state.round?.state?.challenge || {};
+  if (state.round?.mode === 'quiz') {
+    const answer = quizMyAnswer();
+    if (!answer) return null;
+    return { answer: Number(answer.answer ?? -1), correctIndex: Number(c.correct ?? -1) };
+  }
   const answer = state.round?.state?.answers?.[playerIdKey()];
   if (!answer) return null;
   return { answer: Number(answer.answer ?? -1), correctIndex: Number(c.correct ?? -1) };
@@ -1045,10 +1294,42 @@ function renderBugRace() {
 }
 
 function renderQuiz() {
-  const c = state.round?.state?.challenge || {};
-  return `<h1 class="game-title">QUIZ RELAMPAGO</h1><p class="subtitle">RESPONDE RAPIDO - <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card">
-    <h2>${escapeHtml(c.question || 'Pregunta rapida')}</h2>
-    ${answerButtons(c.options, 'data-answer', answerResultFromAnswers())}
+  const s = state.round?.state || {};
+  const c = quizQuestion();
+  const phase = state.round?.phase || 'answer';
+  const idx = quizIndex();
+  const total = quizTotal();
+  const answered = Boolean(quizMyAnswer());
+  const mod = c.modifier || {};
+  const hot = msLeft() > Math.max(0, Number(s.questionDurationMs || 10000) - 2000) && !answered;
+
+  if (phase === 'reveal') {
+    const answer = quizMyAnswer();
+    const correct = Boolean(answer?.correct);
+    const rows = s.lastResult?.rows || [];
+    const points = Number(answer?.points || 0);
+    return `<h1 class="game-title compact-title">QUIZ RELÁMPAGO</h1><p class="subtitle compact-subtitle">REVELACIÓN · SIGUIENTE EN <span class="timer">${secondsLeft()}s</span></p>
+    <div class="glass-card game-card quiz-card quiz-reveal ${correct ? 'good' : 'bad'}">
+      <div class="quiz-topline"><strong>Pregunta ${idx + 1}/${total}</strong>${quizMetaLine(c)}</div>
+      <h2>${escapeHtml(c.question || 'Pregunta rápida')}</h2>
+      ${quizAnswerButtons(c, true)}
+      <div class="quiz-explain ${correct ? 'good' : 'bad'}"><strong>${correct ? `Correcto · ${signedPoints(points)}` : answer?.timeout ? 'Tiempo agotado' : 'Incorrecto'}</strong><span>${escapeHtml(c.explanation || 'La respuesta correcta queda marcada en verde.')}</span></div>
+      ${quizPlayerRows(rows)}
+    </div>`;
+  }
+
+  return `<h1 class="game-title compact-title">QUIZ RELÁMPAGO</h1><p class="subtitle compact-subtitle">CÓDIGO A CONTRARRELOJ · <span class="timer">${secondsLeft()}s</span></p>
+  <div class="glass-card game-card quiz-card">
+    <div class="quiz-topline"><strong>Pregunta ${idx + 1}/${total}</strong>${quizMetaLine(c)}</div>
+    <div class="quiz-timebar"><i style="width:${quizProgressPct()}%"></i><span>${hot ? 'Respuesta en caliente disponible' : answered ? 'Respuesta enviada' : 'Elige antes de que acabe'}</span></div>
+    <div class="quiz-context"><strong>Contexto</strong><span>${escapeHtml(c.context || 'Piensa en una situación real de desarrollo web.')}</span></div>
+    <h2>${escapeHtml(c.question || 'Pregunta rápida')}</h2>
+    ${quizAnswerButtons(c, false)}
+    <div class="quiz-tools">
+      <button class="lie-joker-card quiz-tool" data-quiz-joker="fifty" ${(!s.canUseFifty || answered) ? 'disabled aria-disabled="true"' : ''}><span class="lie-joker-icon">50</span><span class="lie-joker-copy"><strong>50/50</strong><small>Descarta dos respuestas falsas.</small></span></button>
+      <button class="lie-joker-card quiz-tool" data-quiz-joker="freeze" ${(!s.canUseFreeze || answered) ? 'disabled aria-disabled="true"' : ''}><span class="lie-joker-icon">⏱</span><span class="lie-joker-copy"><strong>Congelar</strong><small>Añade 3s al reloj de la sala.</small></span></button>
+      <div class="quiz-rule"><strong>${escapeHtml(mod.label || 'Ronda clásica')}</strong><span>${escapeHtml(mod.note || 'Acierta rápido para sumar más.')}</span></div>
+    </div>
     ${roundFeedbackHtml()}
   </div>`;
 }
@@ -1133,20 +1414,56 @@ function renderRhythm() {
 
 function renderMentira() {
   const s = state.round?.state || {};
-  if (state.round?.phase === 'vote') {
-    const fake = Object.entries(s.fakeAnswers || {});
+  const phase = state.round?.phase || 'write';
+  const meta = lieMetaParts(s);
+  const question = escapeHtml(s.question || 'Inventa una mentira convincente');
+  if (phase === 'vote') {
+    const options = s.options || [];
     const voted = String(s.votes?.[playerIdKey()] ?? '');
-    return `<h1 class="game-title">MENTIRA EXPRESS</h1><p class="subtitle">VOTA LA REAL - <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card"><div class="answers">
-      <button class="answer-btn ${voted === 'real' ? 'is-selected is-correct' : ''}" data-lie-vote="real" ${voted ? 'disabled aria-disabled="true"' : ''}>La respuesta real</button>
-      ${fake.map(([id, txt]) => `<button class="answer-btn ${voted === String(id) ? 'is-selected is-wrong' : ''}" data-lie-vote="${id}" ${voted ? 'disabled aria-disabled="true"' : ''}>${escapeHtml(txt)}</button>`).join('')}
-    </div>${roundFeedbackHtml()}</div>`;
+    const own = String(s.yourOptionId || '');
+    const removed = new Set((s.fiftyRemoved || []).map(String));
+    const buttons = options.map((option, i) => {
+      const id = String(option.id || '');
+      const disabled = Boolean(voted) || id === own || removed.has(id);
+      const classes = ['answer-btn', 'lie-option-card'];
+      if (voted === id) classes.push('is-selected');
+      if (removed.has(id)) classes.push('is-wrong', 'is-discarded');
+      return `<button class="${classes.join(' ')}" data-lie-vote="${escapeHtml(id)}" ${disabled ? 'disabled aria-disabled="true"' : ''}>
+        <b>${lieOptionLabel(i)}</b>
+        <span class="answer-copy">${escapeHtml(option.text || '')}</span>
+        ${id === own ? '<span class="answer-tag choice">Tu mentira</span>' : ''}
+        ${removed.has(id) ? '<span class="answer-tag">Descartada</span>' : ''}
+      </button>`;
+    }).join('');
+    return `<h1 class="game-title">MENTIRA EXPRESS</h1><p class="subtitle">VOTA LA VERDAD · <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card lie-card">
+      <p class="player-meta">${meta}</p>
+      <h2>${question}</h2>
+      ${lieContextPanel(s, 'vote')}
+      <div class="answers lie-options-grid">${buttons}</div>
+      ${lieJokerPanel(s, voted, removed)}
+      ${roundFeedbackHtml()}
+    </div>`;
   }
-  return `<h1 class="game-title">MENTIRA EXPRESS</h1><p class="subtitle">INVENTA UNA RESPUESTA - <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card">
-    <p>${escapeHtml(s.question || 'Escribe una mentira convincente')}</p>
-    ${(s.yourFakeAnswer ?? s.fakeAnswers?.[playerIdKey()]) ? roundFeedbackHtml() : '<form data-fake><input name="fake" maxlength="100" placeholder="Tu mentira" autocomplete="off" required><button class="primary-btn">ENVIAR</button></form>'}
+  const submitted = Boolean(s.yourFakeAnswer);
+  const form = `<form data-fake class="lie-form">
+    <input name="fake" maxlength="100" placeholder="Ej: una respuesta falsa, pero con pinta de real..." autocomplete="off" required>
+    <input name="doubleBluff" type="hidden" value="0">
+    <button type="button" class="lie-bluff-toggle" data-lie-bluff aria-pressed="false">
+      <span class="lie-joker-icon">🎭</span>
+      <span class="lie-joker-copy">
+        <strong>Doble farol</strong>
+        <small>Actívalo si quieres arriesgar: tu mentira vale más si alguien cae, pero pierdes 25 pts si nadie la vota.</small>
+      </span>
+    </button>
+    <button class="primary-btn">ENVIAR MENTIRA</button>
+  </form>`;
+  return `<h1 class="game-title">MENTIRA EXPRESS</h1><p class="subtitle">INVENTA UNA RESPUESTA · <span class="timer">${secondsLeft()}s</span></p><div class="glass-card game-card lie-card">
+    <p class="player-meta">${meta}</p>
+    <h2>${question}</h2>
+    ${lieContextPanel(s, 'write')}
+    ${submitted ? lieSubmittedPanel(s) : form}
   </div>`;
 }
-
 function renderForbiddenButton() {
   const buttons = state.round?.state?.buttons || [];
   const outcome = state.round?.state?.outcomes?.[playerIdKey()];
@@ -1192,13 +1509,28 @@ function markSelectionPending(btn) {
 }
 
 function bindGameActions() {
+  app.querySelector('[data-lie-bluff]')?.addEventListener('click', (event) => {
+    const btn = event.currentTarget;
+    const form = btn.closest('form');
+    const input = form?.elements?.doubleBluff;
+    const active = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    btn.classList.toggle('active', active);
+    if (input) input.value = active ? '1' : '0';
+  });
   app.querySelector('[data-clue]')?.addEventListener('submit', (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const clue = form.clue.value.trim();
     if (clue) submitPayload({ clue });
   });
-  app.querySelector('[data-fake]')?.addEventListener('submit', (event) => submitFormValue(event, 'fake'));
+  app.querySelector('[data-fake]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const fake = form.fake.value.trim();
+    const doubleBluff = form.doubleBluff?.value === '1' || Boolean(form.doubleBluff?.checked);
+    if (fake) submitPayload({ fake, doubleBluff });
+  });
   app.querySelectorAll('[data-vote]').forEach((btn) => btn.addEventListener('click', () => {
     markSelectionPending(btn);
     const wordGuess = app.querySelector('[data-word-guess]')?.value?.trim() || '';
@@ -1219,6 +1551,8 @@ function bindGameActions() {
   }));
   app.querySelectorAll('[data-button]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ button: Number(btn.dataset.button) }); }));
   app.querySelectorAll('[data-lie-vote]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ vote: btn.dataset.lieVote }); }));
+  app.querySelectorAll('[data-lie-joker]').forEach((btn) => btn.addEventListener('click', () => { btn.disabled = true; submitPayload({ joker: btn.dataset.lieJoker }); }));
+  app.querySelectorAll('[data-quiz-joker]').forEach((btn) => btn.addEventListener('click', () => { btn.disabled = true; submitPayload({ joker: btn.dataset.quizJoker }); }));
   app.querySelector('[data-rhythm-start]')?.addEventListener('click', startRhythmLocal);
   app.querySelector('[data-rhythm-hit]')?.addEventListener('click', rhythmHit);
   app.querySelector('[data-rhythm-submit]')?.addEventListener('click', finishRhythmLocal);
@@ -1278,6 +1612,8 @@ async function finishExpiredRound() {
       // En Boss cualquier cliente puede pedir el tick seguro: el servidor solo resuelve
       // si el turno ha terminado o si ya eligieron los jugadores online.
       await api('bossTick');
+    } else if (state?.round?.mode === 'quiz') {
+      await api('getState');
     } else if (isHost()) {
       await api('finishRound');
     } else {
