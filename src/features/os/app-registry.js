@@ -44,7 +44,7 @@ export const APP_REGISTRY = [
     },
     {
         id: 'webs',
-        icon: 'fa-globe',
+        icon: 'fa-sitemap',
         title: { es: 'Webs',      en: 'Webs',      val: 'Webs'       },
         section: '#webs',
         width: 660, height: 480,

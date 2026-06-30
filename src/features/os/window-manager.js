@@ -91,12 +91,18 @@ export function closeAllWindows() {
 // ─── drag con overlay ─────────────────────────────────────────────────────────
 function _initDrag(win) {
     const bar = win.querySelector('.os-win-titlebar');
-    let ox = 0, oy = 0, sx = 0, sy = 0, dragging = false;
+let ox = 0, oy = 0, sx = 0, sy = 0, dragging = false;
+let settleTimer = null;
 
     bar.addEventListener('pointerdown', e => {
-        if (e.target.closest('.os-win-controls')) return;
-        if (win.classList.contains('os-window--maximized')) return;
-        dragging = true;
+if (e.target.closest('.os-win-controls')) return;
+if (win.classList.contains('os-window--maximized')) return;
+if (settleTimer) {
+clearTimeout(settleTimer);
+settleTimer = null;
+}
+win.classList.remove('os-window--drag-settle');
+dragging = true;
         ox = win.offsetLeft; oy = win.offsetTop;
         sx = e.clientX;      sy = e.clientY;
         bar.setPointerCapture(e.pointerId);
@@ -111,11 +117,16 @@ function _initDrag(win) {
         win.style.top  = `${Math.max(0, oy + e.clientY - sy)}px`;
     });
     const end = () => {
-        if (!dragging) return;
-        dragging = false;
-        win.classList.remove('os-window--dragging');
-        _dragOverlay?.remove(); _dragOverlay = null;
-    };
+if (!dragging) return;
+dragging = false;
+win.classList.add('os-window--drag-settle');
+win.classList.remove('os-window--dragging');
+_dragOverlay?.remove(); _dragOverlay = null;
+settleTimer = setTimeout(() => {
+win.classList.remove('os-window--drag-settle');
+settleTimer = null;
+}, 80);
+};
     bar.addEventListener('pointerup', end);
     bar.addEventListener('pointercancel', end);
 }
@@ -302,7 +313,7 @@ function _buildProjects(lang) {
 }
 
 function _buildWebs(lang) {
-    const app = { icon: 'fa-globe', title: { es:'Webs', en:'Webs', val:'Webs' }, desc: { es:'Demos de webs y aplicaciones', en:'Web demos & apps', val:'Demos de webs i aplicacions' } };
+    const app = { icon: 'fa-sitemap', title: { es:'Webs', en:'Webs', val:'Webs' }, desc: { es:'Demos de webs y aplicaciones', en:'Web demos & apps', val:'Demos de webs i aplicacions' } };
     const projects = window._osDemoProjects ?? [];
     const demos = projects.map(p => {
         const icon   = p.icon ?? 'fa-globe';
