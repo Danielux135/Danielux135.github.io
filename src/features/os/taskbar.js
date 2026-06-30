@@ -1,6 +1,7 @@
 // barra de tareas del OS
 import { APP_REGISTRY, getApp, getAppTitle } from './app-registry.js';
 import { focusWindow } from './window-manager.js';
+import { OS_LOGO_SVG } from './os-logo.js';
 
 let _el = null;
 let _clockInterval = null;
@@ -15,7 +16,7 @@ export function mount({ onAppClick, onStartClick, lang = 'es' } = {}) {
     _el.innerHTML = `
         <div class="os-tb-start">
             <button class="os-tb-logo" id="osStartBtn" aria-label="Menú inicio" aria-expanded="false">
-                <i class="fa-solid fa-desktop"></i>
+                ${OS_LOGO_SVG}
                 <span>DanieluxOS</span>
             </button>
         </div>

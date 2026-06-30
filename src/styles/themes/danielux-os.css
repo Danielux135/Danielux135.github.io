@@ -367,6 +367,22 @@ html.os-mode #hero canvas {
     height: 32px;
 }
 .os-tb-logo i { font-size: 0.85rem; }
+
+/* logo svg reactivo al tema de color */
+.os-logo-svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    display: block;
+}
+.os-logo-svg .os-logo-p1 { fill: rgb(var(--accent-1-rgb)); }
+.os-logo-svg .os-logo-p2 { fill: rgb(var(--accent-2-rgb)); }
+
+.osm-logo .os-logo-svg {
+    width: 38px;
+    height: 38px;
+}
+
 .os-tb-logo:hover {
     background: rgb(var(--accent-1-rgb) / 0.18);
     box-shadow: 0 0 12px var(--os-glow);
@@ -790,6 +806,8 @@ html.os-mode #hero canvas {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--os-chrome-3) transparent;
+    /* altura explícita para que los hijos puedan usar height:100% */
+    min-height: 0;
 }
 .os-win-body::-webkit-scrollbar { width: 5px; }
 .os-win-body::-webkit-scrollbar-track { background: transparent; }
@@ -798,12 +816,27 @@ html.os-mode #hero canvas {
     border-radius: 3px;
 }
 
+.os-win-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    min-height: 120px;
+    color: var(--os-ink-2);
+    font-family: var(--os-font-mono);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+.os-win-loading i { color: var(--os-accent); }
+
 .os-win-content-wrap {
     padding: 20px;
     font-family: var(--os-font-body);
     font-size: 0.87rem;
     color: var(--os-ink);
     min-height: 100%;
+    box-sizing: border-box;
 }
 
 .os-win-loading,

@@ -2,6 +2,7 @@
 import { APP_REGISTRY, getAppTitle } from './app-registry.js';
 import { applyStyleTheme }           from '../../core/theme.js';
 import { hslToRgb }                  from '../../visuals/color-utils.js';
+import { OS_LOGO_SVG }               from './os-logo.js';
 
 let _el = null;
 let _visible = false;
@@ -58,7 +59,7 @@ function _build() {
 
     _el.innerHTML = `
         <div class="osm-header">
-            <div class="osm-logo"><i class="fa-solid fa-desktop"></i></div>
+            <div class="osm-logo">${OS_LOGO_SVG}</div>
             <div class="osm-header-info">
                 <span class="osm-title">Danielux OS</span>
                 <span class="osm-subtitle">Developer · Músico · Creator</span>

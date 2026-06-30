@@ -60,6 +60,9 @@ export function closeWindow(win) {
     win.dispatchEvent(new Event('os:close'));
     win.classList.add('os-window--closing');
     _taskbarCallbacks.close?.(win.dataset.app);
+    if (win.dataset.app === 'music-player') {
+        import('./music-player.js').then(m => m.destroyPlayerContent?.()).catch(() => {});
+    }
     setTimeout(() => win.remove(), 200);
 }
 
@@ -135,9 +138,16 @@ async function _loadContent(win, app, lang) {
     if (!wrap) return;
 
     if (app.id === 'music-player') {
-        const { buildPlayerContent } = await import('./music-player.js');
-        wrap.innerHTML = '';
-        buildPlayerContent(wrap);
+        wrap.innerHTML = '<div class="os-win-loading"><i class="fa-solid fa-compact-disc fa-spin"></i> Cargando reproductor…</div>';
+        try {
+            const { buildPlayerContent } = await import('./music-player.js');
+            if (!win.isConnected) return;
+            wrap.innerHTML = '';
+            buildPlayerContent(wrap);
+        } catch (e) {
+            console.error('[OS] Error al cargar reproductor:', e);
+            wrap.innerHTML = '<div class="os-win-loading"><i class="fa-solid fa-triangle-exclamation"></i> Error al cargar el reproductor</div>';
+        }
         return;
     }
 
@@ -444,9 +454,10 @@ function _buildArcade(lang) {
         <div class="os-game-grid">${cards}</div>`;
 }
 
-// precarga datos
+// precarga datos y módulos para que la primera apertura sea instantánea
 import('../../data/tracks.js').then(m => { window._osTrackCache = m; });
 import('../../data/demo-hub/projects.js').then(m => { window._osDemoProjects = m.DEMO_PROJECTS; });
+import('./music-player.js').catch(() => {});
 
 // delegación de clicks en web cards → ventana-browser
 document.addEventListener('click', e => {
