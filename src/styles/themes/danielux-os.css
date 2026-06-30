@@ -357,7 +357,7 @@ html.os-mode #hero canvas {
     font-size: 0.73rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    padding: 6px 12px;
+    padding: 3px 8px;
     cursor: pointer;
     transition:
         background 0.15s ease,
@@ -370,17 +370,18 @@ html.os-mode #hero canvas {
 
 /* logo svg reactivo al tema de color */
 .os-logo-svg {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
     display: block;
 }
+/* p1: acento principal lleno · p2: mismo acento atenuado → contraste garantizado en cualquier paleta */
 .os-logo-svg .os-logo-p1 { fill: rgb(var(--accent-1-rgb)); }
-.os-logo-svg .os-logo-p2 { fill: rgb(var(--accent-2-rgb)); }
+.os-logo-svg .os-logo-p2 { fill: rgba(var(--accent-1-rgb), 0.28); }
 
 .osm-logo .os-logo-svg {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
 }
 
 .os-tb-logo:hover {

@@ -17,7 +17,6 @@ export function mount({ onAppClick, onStartClick, lang = 'es' } = {}) {
         <div class="os-tb-start">
             <button class="os-tb-logo" id="osStartBtn" aria-label="Menú inicio" aria-expanded="false">
                 ${OS_LOGO_SVG}
-                <span>DanieluxOS</span>
             </button>
         </div>
         <div class="os-tb-sep"></div>
