@@ -55,6 +55,17 @@ const apiUrlInput = document.getElementById('apiUrlInput');
 const saveApiUrl = document.getElementById('saveApiUrl');
 const DEFAULT_PARTY_API_URL = 'https://danielux-api-proxy.dlux135.workers.dev/api/party';
 
+const AVATAR_OPTIONS = [
+  { id: 'char-warrior', icon: 'fa-solid fa-khanda',      label: 'Guerrero' },
+  { id: 'char-mage',    icon: 'fa-solid fa-hat-wizard',  label: 'Mago'     },
+  { id: 'char-bot',     icon: 'fa-solid fa-robot',       label: 'Bot'      },
+  { id: 'char-ghost',   icon: 'fa-solid fa-ghost',       label: 'Fantasma' },
+  { id: 'char-ninja',   icon: 'fa-solid fa-user-ninja',  label: 'Ninja'    },
+  { id: 'char-cat',     icon: 'fa-solid fa-cat',         label: 'Gato'     },
+  { id: 'char-alien',   icon: 'fa-solid fa-bug',         label: 'Bug'      },
+  { id: 'char-dragon',  icon: 'fa-solid fa-dragon',      label: 'Dragón'   },
+];
+
 let state = null;
 let pollId = null;
 let rhythm = null;
@@ -65,6 +76,7 @@ let lastServerNowMs = Date.now();
 let lastSyncAtMs = Date.now();
 let auctionDraft = { bid: null, insurance: false, stance: 'Secreto', key: '' };
 let timerUiId = null;
+let bossAnimTurn = -1;
 
 function normalizeApiUrl(value) {
   const url = String(value || '').trim();
@@ -303,8 +315,13 @@ function currentMusicTrack() {
 }
 
 function avatarHtml(player) {
+  const av = player?.avatar || 'bot-cyan';
+  const opt = AVATAR_OPTIONS.find((o) => o.id === av);
   const initial = escapeHtml((player?.name || '?').trim().slice(0, 1).toUpperCase() || '?');
-  return `<span class="avatar ${escapeHtml(player?.avatar || 'bot-cyan')}" aria-hidden="true"><span class="avatar-letter">${initial}</span></span>`;
+  const inner = opt
+    ? `<i class="${opt.icon} avatar-emoji" aria-hidden="true"></i>`
+    : `<span class="avatar-letter">${initial}</span>`;
+  return `<span class="avatar ${escapeHtml(av)}${opt ? ' has-emoji' : ''}" aria-hidden="true">${inner}</span>`;
 }
 
 function bossAvatarHtml(player) {
@@ -400,12 +417,22 @@ function renderHome() {
   });
 }
 
+function avatarPickerHtml() {
+  const current = state?.you?.avatar || 'bot-cyan';
+  const btns = AVATAR_OPTIONS.map((opt) => `
+    <button class="avatar-pick-btn${current === opt.id ? ' active' : ''}" data-pick-avatar="${opt.id}" title="${escapeHtml(opt.label)}">
+      <span class="avatar ${opt.id} has-emoji"><i class="${opt.icon} avatar-emoji" aria-hidden="true"></i></span>
+    </button>`).join('');
+  return `<div class="avatar-picker-wrap glass-card"><p class="avatar-picker-label">Tu personaje</p><div class="avatar-picker">${btns}</div></div>`;
+}
+
 function renderLobby() {
   const mode = modeInfo(effectiveLobbyMode());
   app.innerHTML = `<section class="layout">
     ${playersPanel()}
     <main class="game-shell">
       ${roomHeader()}
+      ${avatarPickerHtml()}
       <h1 class="screen-title">PARTY ARENA</h1>
       <p class="subtitle">SALA ONLINE - ${MODES.length} MINIJUEGOS</p>
       <h2 class="panel-title" style="justify-content:center">Ronda unica: ${escapeHtml(mode.title)} · Rotacion: ${playableModes().length}/${MODES.length}</h2>
@@ -454,6 +481,20 @@ function renderLobby() {
     hostAction('startRound', { mode });
   });
   app.querySelector('[data-reset]')?.addEventListener('click', () => hostAction('resetRoom'));
+
+  // selector de avatar
+  app.querySelectorAll('[data-pick-avatar]').forEach((btn) => btn.addEventListener('click', async () => {
+    const av = btn.dataset.pickAvatar;
+    app.querySelectorAll('[data-pick-avatar]').forEach((b) => b.classList.toggle('active', b.dataset.pickAvatar === av));
+    try {
+      await api('changeAvatar', { avatar: av });
+      // render ligero: solo actualiza avatares en el panel sin rehacer toda la UI
+      app.querySelectorAll('[data-player-avatar]').forEach((el) => {
+        const pid = el.dataset.playerAvatar;
+        if (pid && pid === String(state?.you?.id)) el.outerHTML = avatarHtml(state.you);
+      });
+    } catch (err) { toast(err.message); }
+  }));
 }
 
 function renderGame() {
@@ -472,6 +513,7 @@ function renderGame() {
   app.innerHTML = `<section class="layout">${playersPanel()}<main class="game-shell">${(views[mode] || renderUnsupported)()}</main>${rankingPanel()}</section>`;
   bindCommon();
   bindGameActions();
+  if (mode === 'boss-coop') scheduleBossAnims();
 }
 
 function renderResults() {
@@ -869,6 +911,11 @@ function bossCurrentChoices() {
   return s.choices?.[turnKey] || {};
 }
 
+function bossResolutionChoices(s = state?.round?.state || {}) {
+  const resolution = s.lastResolution || {};
+  return resolution.choices || {};
+}
+
 function bossOnlinePlayers() {
   const players = state?.players || [];
   const online = players.filter((p) => p.online);
@@ -968,7 +1015,7 @@ function bossFighterCards() {
     if (you) classes.push('you');
     if (hp <= 0) classes.push('down');
     if (choice) classes.push('chosen');
-    return `<article class="${classes.join(' ')}">
+    return `<article class="${classes.join(' ')}" data-fighter="${escapeHtml(String(player.id))}">
       <div class="fighter-top">${bossAvatarHtml(player)}<div><strong>${escapeHtml(player.name)}</strong><span>${you ? 'Tú' : 'Aliado'} · ${hp <= 0 ? 'CAÍDO' : 'Activo'}</span></div></div>
       <div class="fighter-life-label ${hp <= 0 ? 'dead' : hp / Math.max(1, maxHp) <= 0.35 ? 'low' : ''}"><span>VIDA</span><strong>${hp}/${maxHp}</strong></div>
       ${bossHpMeter(hp, maxHp, 'mini')}
@@ -1626,6 +1673,153 @@ function renderBoss() {
   </div>`;
 }
 
+function spawnFloatingDmg(x, y, text, cls) {
+  const el = document.createElement('span');
+  el.className = `dmg-float ${cls}`;
+  el.textContent = text;
+  el.style.left = x + 'px';
+  el.style.top  = y + 'px';
+  document.body.appendChild(el);
+  el.addEventListener('animationend', () => el.remove(), { once: true });
+}
+
+function playBossCombatAnims(s) {
+  const portrait = document.querySelector('.boss-portrait');
+  const arena = document.querySelector('.boss-arena-v3');
+  const partyGrid = document.querySelector('.boss-party-grid');
+  if (!portrait || !arena || !partyGrid) return;
+
+  const resolution = s.lastResolution || {};
+  const resolutionChoices = bossResolutionChoices(s);
+  const hitEvents = (resolution.events || []).filter((e) => e.type === 'hit');
+  const hasSynergy = (resolution.synergies || []).length > 0;
+  const rage = Number(s.rage || 0);
+  const isEnrage = rage >= 6 || Number(s.bossHp || s.hp || 1) / Math.max(1, Number(s.maxBossHp || s.maxHp || 1)) <= 0.28;
+  const spellType = resolution.intent?.type || s.intent?.type || 'sweep';
+  const spellClass = isEnrage ? 'ba-spell-enrage' : `ba-spell-${spellType}`;
+  const hitTargets = hitEvents
+    .map((ev) => {
+      const pid = String(ev.playerId ?? '');
+      const card = partyGrid.querySelector(`.boss-fighter-card[data-fighter="${pid}"]`);
+      return pid && card ? { pid, ev, card } : null;
+    })
+    .filter(Boolean);
+
+  partyGrid.querySelectorAll('.boss-fighter-card').forEach((card) => {
+    const pid = String(card.dataset.fighter || '');
+    const move = resolutionChoices[pid]?.move || '';
+    const anim = move === 'attack'
+      ? 'ba-strike'
+      : move === 'protect'
+        ? 'ba-shield'
+        : move === 'boost'
+          ? 'ba-boost'
+          : null;
+    if (!anim) return;
+    card.classList.remove('ba-strike', 'ba-shield', 'ba-boost');
+    void card.offsetWidth;
+    card.classList.add(anim);
+    setTimeout(() => card.classList.remove(anim), 700);
+  });
+
+  setTimeout(() => {
+    const topCard = document.querySelector('.boss-top-card.v3');
+    portrait.classList.remove('ba-recoil');
+    topCard?.classList.remove('ba-card-shake');
+    void portrait.offsetWidth;
+    portrait.classList.add('ba-recoil');
+    topCard?.classList.add('ba-card-shake');
+    setTimeout(() => {
+      portrait.classList.remove('ba-recoil');
+      topCard?.classList.remove('ba-card-shake');
+    }, 620);
+    if ((resolution.teamDamage ?? 0) > 0) {
+      const pR = portrait.getBoundingClientRect();
+      const offsetX = (Math.random() - 0.5) * 30;
+      spawnFloatingDmg(pR.left + pR.width / 2 + offsetX, pR.top + 10, `-${resolution.teamDamage} HP`, 'dmg-boss');
+    }
+  }, 350);
+
+  setTimeout(() => {
+    portrait.classList.remove('ba-lunge');
+    void portrait.offsetWidth;
+    portrait.classList.add('ba-lunge');
+
+    const pRect = portrait.getBoundingClientRect();
+    const startX = pRect.left + pRect.width / 2;
+    const startY = pRect.bottom - 4;
+    const targets = hitTargets.length
+      ? hitTargets
+      : [{
+          pid: '',
+          ev: { damage: 0, blocked: 0 },
+          card: partyGrid.querySelector('.boss-fighter-card'),
+        }].filter((row) => row.card);
+
+    targets.forEach(({ ev, card }, index) => {
+      const spell = document.createElement('div');
+      spell.className = `ba-spell ${spellClass}`;
+      spell.style.position = 'fixed';
+      spell.style.left = `${startX}px`;
+      spell.style.top = `${startY}px`;
+      spell.style.transform = 'translate(-50%, 0) scale(1)';
+      spell.style.opacity = '1';
+      spell.style.animation = 'none';
+      spell.style.transition = 'transform .5s cubic-bezier(.22,.61,.36,1), opacity .5s ease-out';
+      document.body.appendChild(spell);
+
+      const targetRect = card.getBoundingClientRect();
+      const targetX = targetRect.left + targetRect.width / 2;
+      const targetY = targetRect.top + targetRect.height * 0.36;
+      const deltaX = targetX - startX;
+      const deltaY = targetY - startY;
+
+      requestAnimationFrame(() => {
+        spell.style.transform = `translate(calc(-50% + ${deltaX}px), ${deltaY}px) scale(1.7)`;
+        spell.style.opacity = '0';
+      });
+
+      setTimeout(() => {
+        card.classList.remove('ba-hit');
+        void card.offsetWidth;
+        card.classList.add('ba-hit');
+        setTimeout(() => card.classList.remove('ba-hit'), 440);
+
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2 + (Math.random() - 0.5) * 24;
+        const cy = r.top + r.height * 0.3;
+        const dmg = Number(ev.damage ?? 0);
+        const blocked = Number(ev.blocked ?? 0);
+        if (dmg > 0) spawnFloatingDmg(cx, cy, `-${dmg} HP`, 'dmg-player');
+        if (blocked > 0) spawnFloatingDmg(cx + 18, cy + 12, `🛡 ${blocked}`, 'dmg-block');
+      }, 380 + index * 50);
+
+      setTimeout(() => spell.remove(), 650 + index * 50);
+    });
+
+    setTimeout(() => {
+      portrait.classList.remove('ba-lunge');
+    }, 950);
+  }, 950);
+
+  if (hasSynergy) {
+    setTimeout(() => {
+      arena.classList.add('ba-synergy');
+      setTimeout(() => arena.classList.remove('ba-synergy'), 820);
+    }, 1650);
+  }
+}
+
+function scheduleBossAnims() {
+  if (state?.round?.mode !== 'boss-coop') return;
+  const s = state.round?.state || {};
+  const currentTurn = Number(s.turn || 1);
+  if (currentTurn === 1) { bossAnimTurn = 1; return; }
+  if (currentTurn <= bossAnimTurn) return;
+  bossAnimTurn = currentTurn;
+  playBossCombatAnims(s);
+}
+
 function renderRhythm() {
   const track = currentMusicTrack();
   const options = MUSIC_TRACKS.map((song) => `<option value="${escapeHtml(song.file)}" ${song.file === track.file ? 'selected' : ''}>${escapeHtml(song.title)}</option>`).join('');
@@ -1863,7 +2057,13 @@ function bindGameActions() {
     const wordGuess = app.querySelector('[data-word-guess]')?.value?.trim() || '';
     submitPayload({ vote: Number(btn.dataset.vote), wordGuess });
   }));
-  app.querySelectorAll('[data-answer]').forEach((btn) => btn.addEventListener('click', () => { markSelectionPending(btn); submitPayload({ answer: Number(btn.dataset.answer) }); }));
+  app.querySelectorAll('[data-answer]').forEach((btn) => btn.addEventListener('click', () => {
+    btn.classList.remove('pressed');
+    void btn.offsetWidth; // reiniciar la animación
+    btn.classList.add('pressed');
+    markSelectionPending(btn);
+    submitPayload({ answer: Number(btn.dataset.answer) });
+  }));
   app.querySelectorAll('[data-auction-bid-chip]').forEach((btn) => btn.addEventListener('click', () => {
     const input = app.querySelector('[data-auction-bid]');
     const credits = auctionCreditsFor();
@@ -2022,9 +2222,38 @@ function stopPoll() {
 function startTimerUi() {
   stopTimerUi();
   timerUiId = setInterval(async () => {
+    const secs = secondsLeft();
+    const ms = msLeft();
+    const urgent = secs <= 5;
+
+    // texto del timer
     app.querySelectorAll('.timer').forEach((el) => {
-      el.textContent = `${secondsLeft()}s`;
+      el.textContent = `${secs}s`;
+      el.classList.toggle('urgent', urgent);
     });
+
+    // barra turno boss
+    const bossTurnbarEl = app.querySelector('.boss-turnbar');
+    const bossTurnbarFill = bossTurnbarEl?.querySelector('i');
+    if (bossTurnbarFill) {
+      const s = state?.round?.state || {};
+      const dur = Math.max(5000, Math.min(10000, Number(s.turnDurationMs || 8000)));
+      const pct = Math.max(0, Math.min(100, (Math.min(dur, ms) / dur) * 100));
+      bossTurnbarFill.style.width = pct + '%';
+      bossTurnbarEl.classList.toggle('urgent', urgent);
+    }
+
+    // barra de tiempo quiz
+    const quizTimebar = app.querySelector('.quiz-timebar');
+    const quizFill = quizTimebar?.querySelector('i');
+    if (quizFill) {
+      const s = state?.round?.state || {};
+      const dur = Math.max(1000, Number(s.questionDurationMs || 10000));
+      const pct = Math.max(0, Math.min(100, (ms / dur) * 100));
+      quizFill.style.width = pct + '%';
+      quizTimebar.classList.toggle('urgent', urgent);
+    }
+
     if (roundExpired()) {
       const didFinish = await finishExpiredRound();
       if (didFinish) render();

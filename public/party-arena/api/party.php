@@ -4315,7 +4315,7 @@ function boss_resolve_turn(PDO $pdo, array $players, array &$state, bool $fast =
     $bossDamageDone = 0;
     $bossText = '';
     if ((int)$state['bossHp'] <= 0) {
-        $state['lastResolution'] = ['turn'=>$turn, 'teamDamage'=>$teamDamage, 'bossDamage'=>0, 'synergies'=>$synergies, 'intent'=>$intent, 'events'=>$turnEvents, 'summary'=>'El equipo tumba al boss antes de su ataque.', 'counts'=>$counts];
+        $state['lastResolution'] = ['turn'=>$turn, 'teamDamage'=>$teamDamage, 'bossDamage'=>0, 'synergies'=>$synergies, 'intent'=>$intent, 'events'=>$turnEvents, 'summary'=>'El equipo tumba al boss antes de su ataque.', 'counts'=>$counts, 'choices'=>$choices, 'interrupted'=>$interrupted];
         $state['events'] = array_slice(array_merge($state['events'], $turnEvents), -24);
         return boss_finish($pdo, $players, $state, 'victory', 'El equipo ha destruido al boss.');
     }
@@ -4404,7 +4404,7 @@ function boss_resolve_turn(PDO $pdo, array $players, array &$state, bool $fast =
 
     $turnEvents[] = ['type'=>'boss', 'label'=>$intent['label'] ?? 'Ataque del boss', 'text'=>$bossText, 'damage'=>$bossDamageDone, 'at'=>now_ms()];
     $summary = $teamDamage . ' daño al boss · ' . $bossDamageDone . ' daño recibido';
-    $state['lastResolution'] = ['turn'=>$turn, 'teamDamage'=>$teamDamage, 'bossDamage'=>$bossDamageDone, 'synergies'=>$synergies, 'intent'=>$intent, 'events'=>$turnEvents, 'summary'=>$summary, 'interrupted'=>$interrupted, 'counts'=>$counts];
+    $state['lastResolution'] = ['turn'=>$turn, 'teamDamage'=>$teamDamage, 'bossDamage'=>$bossDamageDone, 'synergies'=>$synergies, 'intent'=>$intent, 'events'=>$turnEvents, 'summary'=>$summary, 'interrupted'=>$interrupted, 'counts'=>$counts, 'choices'=>$choices];
     $state['turnHistory'][] = $state['lastResolution'];
     $state['turnHistory'] = array_slice($state['turnHistory'], -10);
     $state['events'] = array_slice(array_merge($state['events'], $turnEvents), -24);
@@ -5302,6 +5302,19 @@ try {
         $pdo->prepare('UPDATE party_rooms SET status = \'lobby\', current_mode = NULL, round_number = 0 WHERE id = ?')->execute([(int)$room['id']]);
         $pdo->prepare('UPDATE party_players SET score = 0, damage = 0 WHERE room_id = ?')->execute([(int)$room['id']]);
         $room = room_by_code($pdo, $code);
+        out(state_response($pdo, $room, $viewer));
+    }
+
+    if ($action === 'changeAvatar') {
+        $validAvatars = [
+            'char-warrior','char-mage','char-bot','char-ghost',
+            'char-ninja','char-cat','char-alien','char-dragon',
+            'bot-cyan','bot-purple','bot-green','bot-red','bot-pink','bot-yellow',
+        ];
+        $avatar = (string)($body['avatar'] ?? '');
+        if (!in_array($avatar, $validAvatars, true)) fail('Avatar no válido.', 400);
+        $pdo->prepare('UPDATE party_players SET avatar = ? WHERE id = ?')->execute([$avatar, (int)$viewer['id']]);
+        $viewer['avatar'] = $avatar;
         out(state_response($pdo, $room, $viewer));
     }
 
