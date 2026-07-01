@@ -303,7 +303,8 @@ export const translations = {
                 retro: 'Retro',
                 gamer: 'Gamer',
                 os: 'Danielux OS',
-                developer: 'DevMode'
+                developer: 'DevMode',
+                abyss: 'Abyss'
             }
         }
     },
@@ -607,7 +608,8 @@ export const translations = {
                 retro: 'Retro',
                 gamer: 'Gamer',
                 os: 'Danielux OS',
-                developer: 'DevMode'
+                developer: 'DevMode',
+                abyss: 'Abyss'
             }
         }
     },
@@ -911,7 +913,8 @@ export const translations = {
                 retro: 'Retro',
                 gamer: 'Gamer',
                 os: 'Danielux OS',
-                developer: 'DevMode'
+                developer: 'DevMode',
+                abyss: 'Abyss'
             }
         }
     }

@@ -1,0 +1,417 @@
+/* ─────────────────────────────────────────────────────────────
+   ABYSS — océano profundo bioluminiscente
+   Paleta: negro abisal + cian bioluminiscente + violeta + verde ácido
+   Firma: plancton a la deriva + ficha de "escaneo" al pasar por las cards
+   ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── tokens del tema ─────────────────────────────────────────── */
+html.theme-abyss {
+    --abyss-black:   #030711;
+    --abyss-deep:    #050d18;
+    --abyss-surface: rgba(8, 24, 38, 0.62);
+    --abyss-card:    rgba(12, 37, 52, 0.5);
+    --abyss-acid:    #b8ff5c;
+
+    --bg: var(--abyss-black);
+    --bg-alt: var(--abyss-deep);
+    --surface: var(--abyss-surface);
+    --surface-hover: rgba(0, 245, 212, 0.08);
+    --border: rgba(0, 245, 212, 0.22);
+    --accent-1: #00f5d4;
+    --accent-2: #7b2ff7;
+    --accent-1-rgb: 0 245 212;
+    --accent-2-rgb: 123 47 247;
+    --text: #e8fbff;
+    --muted: #7fa3b3;
+    --white: #f2feff;
+    --font-head: 'Fraunces', serif;
+    --font-body: 'Sora', sans-serif;
+    --radius: 20px;
+    --radius-sm: 13px;
+    --ease: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── fondo: capas de profundidad ─────────────────────────────── */
+html.theme-abyss body {
+    background:
+        radial-gradient(ellipse 60% 50% at 12% 8%,  rgba(123, 47, 247, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 45% at 88% 92%, rgba(0, 245, 212, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 60% at 90% 15%, rgba(184, 255, 92, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 60% at 10% 90%, rgba(123, 47, 247, 0.08) 0%, transparent 60%),
+        var(--bg);
+    /* fija: los halos quedan anclados al viewport mientras se hace scroll, dando sensación de capas */
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+/* viñeta fija: oscurece los bordes, marco de profundidad tipo "ventanilla de sumergible" */
+html.theme-abyss body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(ellipse 75% 65% at 50% 42%, transparent 0%, transparent 40%, rgba(1, 3, 8, 0.62) 100%);
+}
+
+/* niebla flotante en dos capas a distinta velocidad — capa media y capa lejana */
+html.theme-abyss body::after {
+    content: '';
+    position: fixed;
+    inset: -10%;
+    pointer-events: none;
+    z-index: 1;
+    background:
+        radial-gradient(circle 620px at 22% 28%, rgba(0, 245, 212, 0.08), transparent 60%),
+        radial-gradient(circle 520px at 78% 66%, rgba(184, 255, 92, 0.06), transparent 60%),
+        radial-gradient(circle 900px at 55% 90%, rgba(123, 47, 247, 0.08), transparent 65%),
+        radial-gradient(circle 700px at 8% 82%, rgba(0, 245, 212, 0.06), transparent 60%),
+        radial-gradient(circle 500px at 92% 18%, rgba(123, 47, 247, 0.06), transparent 60%);
+    animation: abyss-drift 34s ease-in-out infinite alternate;
+    filter: blur(2px);
+}
+
+/* respiro ambiental por sección: cada bloque tiene su propio halo bioluminiscente,
+   así el scroll se siente como bajar de un nivel de profundidad a otro */
+html.theme-abyss section {
+    position: relative;
+}
+html.theme-abyss .section-alt {
+    background:
+        radial-gradient(ellipse 65% 55% at 50% 0%, rgba(0, 245, 212, 0.06) 0%, transparent 62%),
+        radial-gradient(ellipse 50% 40% at 15% 100%, rgba(123, 47, 247, 0.05) 0%, transparent 60%),
+        var(--bg-alt);
+}
+html.theme-abyss section:not(.section-alt) {
+    background:
+        radial-gradient(ellipse 55% 45% at 85% 0%, rgba(184, 255, 92, 0.035) 0%, transparent 60%),
+        transparent;
+}
+@keyframes abyss-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(-3%, 2%) scale(1.05); }
+    100% { transform: translate(2%, -3%) scale(1.09); }
+}
+
+/* ── tipografía ───────────────────────────────────────────────── */
+html.theme-abyss h1,
+html.theme-abyss h2,
+html.theme-abyss h3,
+html.theme-abyss h4,
+html.theme-abyss .section-title {
+    font-family: var(--font-head);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+html.theme-abyss .section-title {
+    background: linear-gradient(120deg, rgb(var(--accent-1-rgb)) 0%, rgb(var(--accent-2-rgb)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 calc(10px + var(--beat-alpha, 0) * 14px) rgb(var(--accent-1-rgb) / calc(0.25 + var(--beat-alpha, 0) * 0.35)));
+}
+
+/* ── navbar ───────────────────────────────────────────────────── */
+html.theme-abyss #navbar {
+    background: rgba(3, 7, 17, 0.35);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px) saturate(140%);
+}
+html.theme-abyss #navbar.scrolled {
+    background: rgba(3, 7, 17, 0.82);
+    box-shadow: 0 1px 30px rgba(0, 245, 212, 0.06);
+}
+html.theme-abyss .nav-links a {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+html.theme-abyss .nav-links a:hover,
+html.theme-abyss .nav-links a.active {
+    color: rgb(var(--accent-1-rgb));
+    text-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.55);
+}
+html.theme-abyss .theme-toggle,
+html.theme-abyss .cmd-palette-trigger {
+    border-color: var(--border);
+    color: var(--muted);
+    backdrop-filter: blur(8px);
+}
+html.theme-abyss .theme-toggle:hover,
+html.theme-abyss .cmd-palette-trigger:hover {
+    border-color: rgb(var(--accent-1-rgb) / 0.6);
+    background: rgb(var(--accent-1-rgb) / 0.08);
+    color: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 16px rgb(var(--accent-1-rgb) / 0.25);
+}
+
+/* ── hero ─────────────────────────────────────────────────────── */
+html.theme-abyss #hero::before {
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgb(var(--accent-1-rgb) / calc(0.08 + var(--beat-alpha, 0) * 0.14)) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 55% at 70% 70%, rgb(var(--accent-2-rgb) / calc(0.06 + var(--beat-alpha, 0) * 0.12)) 0%, transparent 60%);
+}
+html.theme-abyss .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--abyss-acid);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+html.theme-abyss .hero-name {
+    font-family: var(--font-head);
+    font-weight: 500;
+    color: var(--text);
+    text-shadow:
+        0 0 18px rgb(var(--accent-1-rgb) / calc(0.35 + var(--beat-alpha, 0) * 0.35)),
+        0 0 46px rgb(var(--accent-2-rgb) / calc(0.18 + var(--beat-alpha, 0) * 0.3));
+}
+html.theme-abyss .hero-name span {
+    color: rgb(var(--accent-1-rgb));
+}
+html.theme-abyss .hero-subtitle {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--muted);
+}
+html.theme-abyss #typewriter::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 6px;
+    border-radius: 50%;
+    background: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / 0.8);
+    animation: abyss-pulse-dot 1.6s ease-in-out infinite;
+    vertical-align: middle;
+}
+@keyframes abyss-pulse-dot {
+    0%, 100% { opacity: 0.35; transform: scale(0.8); }
+    50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+html.theme-abyss .hero-status-pill {
+    border-color: var(--border);
+    background: var(--abyss-surface);
+    backdrop-filter: blur(10px);
+}
+html.theme-abyss .hero-status-dot {
+    background: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 10px rgb(var(--accent-1-rgb) / calc(0.6 + var(--beat-alpha, 0) * 0.4));
+}
+
+/* botones — onda líquida al pasar el cursor */
+html.theme-abyss .btn-primary,
+html.theme-abyss .btn-outline {
+    font-family: var(--font-body);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+html.theme-abyss .btn-primary {
+    background: linear-gradient(120deg, rgb(var(--accent-1-rgb)) 0%, rgb(var(--accent-2-rgb)) 100%);
+    color: #021014;
+    box-shadow: 0 4px 28px rgb(var(--accent-1-rgb) / 0.28);
+}
+html.theme-abyss .btn-outline {
+    background: rgba(0, 245, 212, 0.04);
+    border-color: var(--border);
+    color: rgb(var(--accent-1-rgb));
+}
+html.theme-abyss .btn-primary::before,
+html.theme-abyss .btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 60%);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
+html.theme-abyss .btn-primary:hover,
+html.theme-abyss .btn-outline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 34px rgb(var(--accent-1-rgb) / 0.4);
+}
+html.theme-abyss .btn-primary:hover::before,
+html.theme-abyss .btn-outline:hover::before {
+    transform: scale(2.2);
+    opacity: 1;
+}
+
+html.theme-abyss .hero-social a { color: var(--muted); }
+html.theme-abyss .hero-social a:hover {
+    color: rgb(var(--accent-1-rgb));
+    text-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.7);
+}
+
+html.theme-abyss .about-avatar::after {
+    background: var(--bg);
+    box-shadow: 0 0 0 2px rgb(var(--accent-1-rgb) / 0.3);
+}
+
+/* ── secciones como cápsulas submarinas ──────────────────────── */
+html.theme-abyss .section-tag {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.14em;
+    color: var(--abyss-acid);
+    border-color: rgb(184 255 92 / 0.3);
+    background: rgb(184 255 92 / 0.06);
+}
+
+/* ── cards: cristal líquido + ficha de escaneo ───────────────── */
+html.theme-abyss .project-card,
+html.theme-abyss .demo-card,
+html.theme-abyss .about-card,
+html.theme-abyss .eduardo-card,
+html.theme-abyss .legacy-card,
+html.theme-abyss .legacy-roles-card,
+html.theme-abyss .contact-card,
+html.theme-abyss .platform-card {
+    background: var(--abyss-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(16px) saturate(120%);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.04),
+        0 12px 40px rgba(0, 0, 0, 0.35);
+    transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+    position: relative;
+    /* visible: el pulso de sonar (box-shadow) se expande fuera del borde de la card */
+    overflow: visible;
+}
+html.theme-abyss .project-card:hover,
+html.theme-abyss .demo-card:hover,
+html.theme-abyss .about-card:hover,
+html.theme-abyss .eduardo-card:hover,
+html.theme-abyss .legacy-card:hover,
+html.theme-abyss .legacy-roles-card:hover,
+html.theme-abyss .contact-card:hover,
+html.theme-abyss .platform-card:hover {
+    transform: translateY(-6px);
+    border-color: rgb(var(--accent-1-rgb) / 0.55);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.06),
+        0 20px 60px rgba(0, 245, 212, 0.12),
+        var(--beat-glow-soft, none);
+    animation: abyss-sonar 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* sonar: pulso que sale de todo el perímetro de la tarjeta al entrar el cursor */
+@keyframes abyss-sonar {
+    0% {
+        box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 0.06),
+            0 20px 60px rgba(0, 245, 212, 0.12),
+            0 0 0 0 rgb(var(--accent-1-rgb) / 0.45);
+    }
+    100% {
+        box-shadow:
+            inset 0 1px 0 rgb(255 255 255 / 0.06),
+            0 20px 60px rgba(0, 245, 212, 0.12),
+            0 0 0 24px rgb(var(--accent-1-rgb) / 0);
+    }
+}
+
+/* tags de proyecto */
+html.theme-abyss .project-tag {
+    background: rgb(var(--accent-1-rgb) / 0.08);
+    color: rgb(var(--accent-1-rgb));
+    border: 1px solid rgb(var(--accent-1-rgb) / 0.25);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+}
+
+/* navegación entre secciones */
+html.theme-abyss .section-nav-btn {
+    border-color: var(--border);
+    background: rgba(3, 7, 17, 0.5);
+    backdrop-filter: blur(8px);
+}
+html.theme-abyss .section-nav-btn:hover:not(:disabled) {
+    border-color: rgb(var(--accent-1-rgb));
+    background: rgb(var(--accent-1-rgb) / 0.08);
+    box-shadow: 0 0 14px rgb(var(--accent-1-rgb) / 0.3);
+}
+
+/* studio FAB de personalización */
+html.theme-abyss .studio-fab {
+    border-color: var(--border);
+    background: rgba(3, 7, 17, 0.75);
+    color: rgb(var(--accent-1-rgb));
+    backdrop-filter: blur(10px);
+}
+html.theme-abyss .studio-fab:hover {
+    border-color: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 16px rgb(var(--accent-1-rgb) / 0.35);
+}
+html.theme-abyss .studio-label {
+    font-family: 'Space Mono', monospace;
+    color: rgb(var(--accent-1-rgb));
+}
+html.theme-abyss .studio-bg-btn.active {
+    border-color: rgb(var(--accent-1-rgb));
+    background: rgb(var(--accent-1-rgb) / 0.15);
+    color: rgb(var(--accent-1-rgb));
+}
+
+/* inputs */
+html.theme-abyss input:not(.ai-chat-input),
+html.theme-abyss textarea {
+    background: rgba(8, 24, 38, 0.4);
+    border-color: var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    backdrop-filter: blur(6px);
+}
+html.theme-abyss input:focus,
+html.theme-abyss textarea:focus {
+    border-color: rgb(var(--accent-1-rgb));
+    box-shadow: 0 0 0 3px rgb(var(--accent-1-rgb) / 0.14);
+    outline: none;
+}
+
+/* footer / player */
+html.theme-abyss #footer,
+html.theme-abyss #contacto {
+    border-top: 1px solid var(--border);
+}
+html.theme-abyss .now-playing-bar,
+html.theme-abyss #playerStage,
+html.theme-abyss .player-stage {
+    background: rgba(3, 7, 17, 0.85);
+    border-top: 1px solid var(--border);
+    border-color: var(--border);
+    backdrop-filter: blur(16px);
+}
+
+/* scrollbar */
+html.theme-abyss ::-webkit-scrollbar { width: 8px; height: 8px; }
+html.theme-abyss ::-webkit-scrollbar-track { background: var(--abyss-black); }
+html.theme-abyss ::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(var(--accent-1-rgb) / 0.5), rgb(var(--accent-2-rgb) / 0.5));
+    border-radius: 4px;
+}
+html.theme-abyss ::-webkit-scrollbar-thumb:hover { background: rgb(var(--accent-1-rgb)); }
+
+/* selección de texto */
+html.theme-abyss ::selection {
+    background: rgb(var(--accent-1-rgb) / 0.28);
+    color: var(--white);
+}
+
+/* respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    html.theme-abyss body::after { animation: none; }
+    html.theme-abyss #typewriter::after { animation: none; }
+    html.theme-abyss .project-card:hover::before,
+    html.theme-abyss .demo-card:hover::before { animation: none; }
+}

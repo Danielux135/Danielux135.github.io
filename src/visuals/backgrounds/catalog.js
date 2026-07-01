@@ -18,4 +18,5 @@ export const HERO_BACKGROUNDS = [
     { id: 16, es: 'Hexágonos',     en: 'Hexagons',         val: 'Hexàgons',         icon: 'fa-cube'         },
     { id: 18, es: 'Bokeh',         en: 'Bokeh',            val: 'Bokeh',            icon: 'fa-circle'       },
     { id: 19, es: 'Caleidoscopio', en: 'Kaleidoscope',     val: 'Calidoscopi',      icon: 'fa-snowflake'    },
+    { id: 20, es: 'Abismo',        en: 'Abyss',            val: 'Abisme',           icon: 'fa-fish'         },
 ];

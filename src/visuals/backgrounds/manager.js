@@ -23,6 +23,7 @@ const THEME_LOADERS = {
     16: () => import('./themes/hexagons.js'),
     18: () => import('./themes/bokeh.js'),
     19: () => import('./themes/kaleidoscope.js'),
+    20: () => import('./themes/abyss.js'),
     _neonRain: () => import('./themes/neon-rain.js'),
     _confetti: () => import('./themes/confetti.js'),
 };
@@ -123,6 +124,7 @@ export function drawActiveBackground(beat, dt, time) {
         case 16: mod.drawHexagons(beat, dt, time);      break;
         case 18: mod.drawFlowField(beat, dt, time);     break;
         case 19: mod.drawPlasma(beat, dt, time);        break;
+        case 20: mod.drawAbyss(beat, dt, time);         break;
         default: mod.drawConstellation(beat);            break;
     }
 }

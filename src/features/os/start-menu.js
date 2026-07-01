@@ -27,6 +27,7 @@ const STYLE_THEMES = [
     { id: 'retro', label: 'Retro',   icon: 'fa-terminal'            },
     { id: 'gamer', label: 'Gamer',   icon: 'fa-gamepad'             },
     { id: 'os',    label: 'OS',      icon: 'fa-desktop'             },
+    { id: 'abyss', label: 'Abyss',   icon: 'fa-fish'                },
 ];
 
 export function init({ onAppOpen, onRestart } = {}) {

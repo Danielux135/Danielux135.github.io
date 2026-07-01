@@ -301,6 +301,7 @@ function initStudio() {
             { id: 'gamer', labelKey: 'gamer',   icon: 'fa-gamepad',             defaultBg: 7,    defaultH1: 270, defaultH2: 325 },
             { id: 'os',        labelKey: 'os',        icon: 'fa-desktop',             defaultBg: 4,    defaultH1: 210, defaultH2: 260 },
             { id: 'developer', labelKey: 'developer', icon: 'fa-code',                defaultBg: 1,    defaultH1: 38,  defaultH2: 22  },
+            { id: 'abyss',     labelKey: 'abyss',     icon: 'fa-fish',                defaultBg: 20,   defaultH1: 174, defaultH2: 272 },
         ];
         const currentStyle = document.documentElement.getAttribute('data-style-theme') || null;
         STYLE_THEMES.forEach(t => {

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#150f0c"/><stop offset="100%" stop-color="#241a15"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff9052"/><stop offset="100%" stop-color="#e8622c"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <circle cx="256" cy="230" r="150" fill="#0e0908" opacity=".6"/>
+  <path d="M180 150l152 0 26 150c0 60-46 96-102 96s-102-36-102-96z" fill="none" stroke="url(#flame)" stroke-width="16"/>
+  <path d="M204 150c8-30 30-46 52-46s44 16 52 46z" fill="url(#flame)"/>
+  <circle cx="256" cy="220" r="10" fill="#ffd9ad"/>
+  <text x="256" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#f4ead9">STAR DONER</text>
+</svg>

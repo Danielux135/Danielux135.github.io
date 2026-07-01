@@ -3,7 +3,7 @@
 /* Mantiene las clases de tema como API visual principal.
    Los data-* se conservan para compatibilidad con código existente y herramientas. */
 export const THEME_ROOT = document.documentElement;
-const STYLE_THEME_CLASSES = ['theme-retro', 'theme-gamer', 'theme-os', 'theme-developer'];
+const STYLE_THEME_CLASSES = ['theme-retro', 'theme-gamer', 'theme-os', 'theme-developer', 'theme-abyss'];
 
 export function applyColorTheme(theme, { persist = true } = {}) {
     const light = theme === 'light';
@@ -16,7 +16,7 @@ export function applyColorTheme(theme, { persist = true } = {}) {
 export function applyStyleTheme(theme, { persist = true } = {}) {
     const prev = THEME_ROOT.getAttribute('data-style-theme') || null;
     STYLE_THEME_CLASSES.forEach((name) => THEME_ROOT.classList.remove(name));
-    if (theme === 'retro' || theme === 'gamer' || theme === 'os' || theme === 'developer') {
+    if (theme === 'retro' || theme === 'gamer' || theme === 'os' || theme === 'developer' || theme === 'abyss') {
         THEME_ROOT.classList.add(`theme-${theme}`);
         THEME_ROOT.setAttribute('data-style-theme', theme);
         if (persist) localStorage.setItem('portfolioStyleTheme', theme);
