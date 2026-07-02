@@ -1,199 +1,239 @@
 {
   "profile": {
     "username": "dalibarber.11",
-    "displayName": "Barberia Dali",
-    "avatar": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/e799667fce20c9db1cdbee851edf6cba~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=7a1adaff&x-expires=1782432000&x-signature=BnnesfaTt1tjSP%2FXbVRoM0tjgBA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-    "bio": "TikTok de Barberia Dali. Videos, cortes y transformaciones.",
+    "displayName": "dalibarber.11",
+    "avatar": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/e799667fce20c9db1cdbee851edf6cba~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=b43b15fa&x-expires=1783166400&x-signature=qmSfXro5wwbOF8VdTKFuelWkIng%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+    "bio": "💈Barbero : ⭐️⭐️⭐️⭐️⭐️  \n📍Castellón de La Plana  🇪🇸💍\n  Con y Sin Cita  📞",
     "url": "https://www.tiktok.com/@dalibarber.11"
   },
   "stats": {
-    "followers": 1294,
-    "following": 165,
-    "likes": 2852,
-    "videos": 30
+    "followers": 1297,
+    "following": 167,
+    "likes": 2937,
+    "videos": 31
   },
   "latestVideos": [
+    {
+      "id": "7564753901870681365",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7564753901870681365",
+      "caption": "bigote 💈\n.\n.\n.\n#paratiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii #barber #barbershop #castellon #LIVEIncentiveProgram ",
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20251024114845-7564753901870681365.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20251024114845-7564753901870681365.jpg",
+      "oEmbedThumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o8QS2R3ISC2jTAj2kZQAnFEDVzDhjeRfrfQNzo~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=d1guk%2Fak6qtaqr0BWED7QmPToXM%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7564753901870681365?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7564753901870681365?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "videoUrl": null,
+      "likes": 136,
+      "comments": 2,
+      "shares": 1,
+      "plays": 4082,
+      "duration": 27,
+      "timestamp": "2025-10-24T11:48:45.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": null
+      }
+    },
+    {
+      "id": "7563637085723315476",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7563637085723315476",
+      "caption": "Bin dia 🤝 🇪🇸\n.\n.\n.\n##barber##paratiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii##barbershop##castellon",
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20251021113458-7563637085723315476.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20251021113458-7563637085723315476.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o0sDVxR5Ycj8IjXILtAf1QQG3AR47tdCGJetAf~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=b2SqCWSUdw7LfSC7QWE04jvvo9w%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7563637085723315476?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7563637085723315476?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "videoUrl": null,
+      "likes": 235,
+      "comments": 13,
+      "shares": 6,
+      "plays": 10100,
+      "duration": 41,
+      "timestamp": "2025-10-21T11:34:58.000Z",
+      "music": {
+        "song": "sonido original",
+        "artist": "dalibarber.11",
+        "original": null
+      }
+    },
+    {
+      "id": "7433375142262148358",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7433375142262148358",
+      "caption": "JDID M3AKOM HNA \n#barber #barbershop #barbero #jrl #flowers #albacete #morroco🇲🇦 #españa #paratiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii ",
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20241104105210-7433375142262148358.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20241104105210-7433375142262148358.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-p-0068/ooookE7IYecqpEpIAg41AlD3fueescFRIhuGgo~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=1GpSchRQ58clAo8wGU%2FbHyVh%2B5M%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7433375142262148358?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7433375142262148358?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "videoUrl": null,
+      "likes": 93,
+      "comments": 10,
+      "shares": 0,
+      "plays": 1604,
+      "duration": 32,
+      "timestamp": "2024-11-04T10:52:10.000Z",
+      "music": {
+        "song": "Tu Me Quieres - Prod. by Higashi x Roberto Ferrante",
+        "artist": "Baby Gang & Omega & Higashi & Roberto Ferrante",
+        "original": null
+      }
+    },
+    {
+      "id": "7656570133996932368",
+      "url": "https://www.tiktok.com/@dalibarber.11/video/7656570133996932368",
+      "caption": "#barbero #maruecos🇲🇦españa🇪🇸 #castellon #barberia #pelo ",
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260628220313-7656570133996932368.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260628220313-7656570133996932368.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oUUDQ5AQIzGAg4nLzgC5aUNLs5fDjIOiQeHqea~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=R1lNvtLOnSg7785DDTE7zcKS8Yg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7656570133996932368?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7656570133996932368?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "videoUrl": null,
+      "likes": 60,
+      "comments": 0,
+      "shares": 1,
+      "plays": 1355,
+      "duration": 29,
+      "timestamp": "2026-06-28T22:03:13.000Z",
+      "music": {
+        "song": "Maghrabi",
+        "artist": "3robi & Ashafar & DJEZJA",
+        "original": null
+      }
+    },
     {
       "id": "7649008104880753936",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7649008104880753936",
       "caption": "#figoshin #barbero #maruecos🇲🇦españa🇪🇸 #castellon ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260608125831-7649008104880753936.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260608125831-7649008104880753936.jpg",
+      "oEmbedThumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/owHmGoOemQIQRvsFGAITfeG8fwzA0XIMFYAFiv~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=E5ci%2FlSDgficMzFr6PyQhbbH0CE%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7649008104880753936?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7649008104880753936?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 52,
+      "likes": 55,
       "comments": 0,
       "shares": 2,
-      "plays": 952,
+      "plays": 1042,
       "duration": 14,
       "timestamp": "2026-06-08T12:58:31.000Z",
       "music": {
         "song": "sonido original",
         "artist": "dalibarber.11",
-        "original": true
+        "original": null
       }
     },
     {
       "id": "7636772315228851457",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7636772315228851457",
       "caption": "#figoshin #barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260506133723-7636772315228851457.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260506133723-7636772315228851457.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/owHfBfxtEi5UIBRL6GpgiB27IiRaAXWCHBjKhD~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=2TtpT5wbyKwIT6cTKMtrMWuQ2K0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7636772315228851457?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7636772315228851457?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 52,
+      "likes": 55,
       "comments": 2,
       "shares": 0,
-      "plays": 1331,
+      "plays": 1383,
       "duration": 16,
       "timestamp": "2026-05-06T13:37:23.000Z",
       "music": {
         "song": "sonido original",
         "artist": "dalibarber.11",
-        "original": true
+        "original": null
       }
     },
     {
       "id": "7628959222419524880",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7628959222419524880",
       "caption": "#barbero #castellon #barberia #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260415121819-7628959222419524880.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260415121819-7628959222419524880.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oAUMADeIfAvBTxo4bgCHjyAKgogqLnIWG1NwBf~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=YhdLaNJw9%2BaPJ78VAOjjKgJnuTM%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7628959222419524880?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7628959222419524880?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 74,
+      "likes": 76,
       "comments": 2,
       "shares": 1,
-      "plays": 1532,
+      "plays": 1567,
       "duration": 10,
       "timestamp": "2026-04-15T12:18:19.000Z",
       "music": {
         "song": "Originalton",
         "artist": "່",
-        "original": true
+        "original": null
       }
     },
     {
       "id": "7628729927734545680",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7628729927734545680",
       "caption": "#barbero #castellon #barberia #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260414212943-7628729927734545680.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260414212943-7628729927734545680.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oM02aeNIWjQ6vhcTAKFQjsfLqeOaynIgDGaCAG~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=qSZKlfvljsCGU21LDCrE35Vmfnw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7628729927734545680?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7628729927734545680?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 43,
+      "likes": 45,
       "comments": 1,
       "shares": 1,
-      "plays": 1196,
+      "plays": 1217,
       "duration": 10,
       "timestamp": "2026-04-14T21:29:43.000Z",
       "music": {
         "song": "sonido original",
         "artist": "barbero_hmz",
-        "original": true
+        "original": null
       }
     },
     {
       "id": "7628629791687642385",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7628629791687642385",
       "caption": "Castellón 🩸💈#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260414150020-7628629791687642385.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260414150020-7628629791687642385.jpg",
+      "oEmbedThumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o8eEAvDK7QTZFG1w24fCjXfio4YdVKIQAEDExQ~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=1Yi5IrEbIt%2FBanwr5oqnKeu%2BH4o%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7628629791687642385?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7628629791687642385?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 40,
+      "likes": 41,
       "comments": 0,
       "shares": 0,
-      "plays": 1392,
+      "plays": 1407,
       "duration": 14,
       "timestamp": "2026-04-14T15:00:20.000Z",
       "music": {
         "song": "son original",
         "artist": "𝗖𝗛𝕠𝕜𝕣𝕚🥷🏻",
-        "original": true
+        "original": null
       }
     },
     {
       "id": "7615602725190995216",
       "url": "https://www.tiktok.com/@dalibarber.11/video/7615602725190995216",
       "caption": "#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
+      "cover": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260310122847-7615602725190995216.jpg",
+      "thumbnail": "https://api.apify.com/v2/key-value-stores/o87SVEAIsk8asndjw/records/cover-dalibarber-20260310122847-7615602725190995216.jpg",
+      "oEmbedThumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o0EPw0zCLAAZqwIw6iIAiiiAZDBjB2CwOfD0Xu~tplv-tiktokx-origin.image?dr=9636&x-expires=1783166400&x-signature=QYK10nK%2FiIuPWaLa05Uh%2BrFzrt0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "playerUrl": "https://www.tiktok.com/player/v1/7615602725190995216?autoplay=0&controls=1&description=0&music_info=0&rel=0",
+      "embedUrl": "https://www.tiktok.com/player/v1/7615602725190995216?autoplay=0&controls=1&description=0&music_info=0&rel=0",
       "videoUrl": null,
-      "likes": 37,
+      "likes": 38,
       "comments": 2,
       "shares": 0,
-      "plays": 1448,
+      "plays": 1458,
       "duration": 45,
       "timestamp": "2026-03-10T12:28:47.000Z",
       "music": {
         "song": "Way down We Go",
         "artist": "KELAO",
-        "original": false
-      }
-    },
-    {
-      "id": "7615600685178031376",
-      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600685178031376",
-      "caption": "#barbero #barberia #castellon ",
-      "cover": null,
-      "videoUrl": null,
-      "likes": 60,
-      "comments": 3,
-      "shares": 1,
-      "plays": 1976,
-      "duration": 28,
-      "timestamp": "2026-03-10T12:20:56.000Z",
-      "music": {
-        "song": "original sound",
-        "artist": "Josh Bailey",
-        "original": true
-      }
-    },
-    {
-      "id": "7615600489782185232",
-      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600489782185232",
-      "caption": "Castellón de la plana #barbero #barberia #castellon ",
-      "cover": null,
-      "videoUrl": null,
-      "likes": 20,
-      "comments": 0,
-      "shares": 1,
-      "plays": 1284,
-      "duration": 25,
-      "timestamp": "2026-03-10T12:20:19.000Z",
-      "music": {
-        "song": "sonido original",
-        "artist": "dalibarber.11",
-        "original": true
-      }
-    },
-    {
-      "id": "7615600192896765201",
-      "url": "https://www.tiktok.com/@dalibarber.11/video/7615600192896765201",
-      "caption": "💈🩸#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
-      "videoUrl": null,
-      "likes": 23,
-      "comments": 0,
-      "shares": 0,
-      "plays": 1163,
-      "duration": 32,
-      "timestamp": "2026-03-10T12:18:56.000Z",
-      "music": {
-        "song": "sonido original",
-        "artist": "dalibarber.11",
-        "original": true
-      }
-    },
-    {
-      "id": "7614836252575141136",
-      "url": "https://www.tiktok.com/@dalibarber.11/video/7614836252575141136",
-      "caption": "🩸💈#barbero #barberia #castellon #maruecos🇲🇦españa🇪🇸 ",
-      "cover": null,
-      "videoUrl": null,
-      "likes": 28,
-      "comments": 0,
-      "shares": 0,
-      "plays": 1264,
-      "duration": 32,
-      "timestamp": "2026-03-08T10:54:37.000Z",
-      "music": {
-        "song": "suono originale",
-        "artist": "SHITOSBARBER🥷🏻",
-        "original": true
+        "original": null
       }
     }
   ],
-  "updatedAt": "2026-06-24T00:58:19.113Z",
-  "source": "static-json-snapshot"
+  "updatedAt": "2026-07-02T12:23:02.626Z",
+  "source": "weekly-static-snapshot"
 }
