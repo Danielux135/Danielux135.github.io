@@ -1447,18 +1447,37 @@ function loadSocialCardMedia(card){
 }
 
 function renderLazyFallback(holder,post,platform,index){
-  const isTikTokPost=platform==='tiktok';
-  const player=isTikTokPost?(tiktokPlayerUrl(post,{controls:false})||post.embedUrl):null;
-  if(player){
-    holder.classList.add('sjl-post-frame');
-    holder.appendChild(createTikTokIframeElement({...post,embedUrl:player},{controls:false,thumb:true,loading:index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy'}));
-    return;
-  }
+const isTikTokPost=platform==='tiktok';
+const cover=instagramMediaUrl(post.cover||post.images?.[0])||'media/dali-logo.jpg';
+const player=isTikTokPost?(tiktokPlayerUrl(post,{controls:false})||post.embedUrl):null;
+if(isTikTokPost&&!post.videoUrl){
   const img=document.createElement('img');
-  img.src='media/dali-logo.jpg';
-  img.alt='Barberia Dali';
+  img.src=cover;
+  img.alt='Preview de TikTok de Barberia Dali';
   img.loading=index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy';
+  img.decoding='async';
   holder.appendChild(img);
+  const open=document.createElement('a');
+  open.className='sjl-play';
+  open.href=post.url||'https://www.tiktok.com/@dalibarber.11';
+  open.target='_blank';
+  open.rel='noopener';
+  open.setAttribute('aria-label','Ver video en TikTok');
+  open.textContent='▶';
+  holder.appendChild(open);
+  return;
+}
+if(player){
+  holder.classList.add('sjl-post-frame');
+  holder.appendChild(createTikTokIframeElement({...post,embedUrl:player},{controls:false,thumb:true,loading:index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy'}));
+  return;
+}
+const img=document.createElement('img');
+img.src=cover;
+img.alt='Barberia Dali';
+img.loading=index<SOCIAL_EAGER_MEDIA_COUNT?'eager':'lazy';
+img.decoding='async';
+holder.appendChild(img);
 }
 
 function buildSocialCard(post,index,platform){
