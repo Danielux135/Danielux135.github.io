@@ -106,9 +106,8 @@
   .price-note{margin-top:22px;color:var(--stone);font-size:.85rem;font-family:var(--font-m)}
 
   /* GALLERY */
-  #gallery{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-left:0;padding-right:0}
-  #gallery .section-head{padding:0 28px}
-  .gal-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 28px 10px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
+  #gallery{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gal-scroll{display:flex;justify-content:center;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
   .gal-scroll::-webkit-scrollbar{height:6px}
   .gal-scroll::-webkit-scrollbar-thumb{background:var(--flame);border-radius:6px}
   .gal-scroll a{flex:0 0 auto;width:min(72vw,300px);border-radius:8px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);position:relative;scroll-snap-align:start}
@@ -242,18 +241,26 @@
 </section>
 
 <section id="gallery">
+ <div class="wrap">
   <div class="section-head reveal">
     <span class="eyebrow">Para abrir boca</span>
     <h2>Fotos</h2>
   </div>
   <div class="gal-scroll">
+    <a href="#" aria-label="Döner kebab recién hecho"><img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500&q=70" loading="lazy" alt="Döner kebab recién hecho con patatas fritas"></a>
     <a href="#" aria-label="Brochetas a la brasa"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=70" loading="lazy" alt="Brochetas de kebab a la brasa con verduras"></a>
     <a href="#" aria-label="Plato de kebab con falafel"><img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=500&q=70" loading="lazy" alt="Plato de kebab con falafel y pan"></a>
+    <a href="#" aria-label="Kebab en pan de pita"><img src="https://images.unsplash.com/photo-1633436375153-d7045cb93e38?w=500&q=70" loading="lazy" alt="Kebab envuelto en pan de pita"></a>
     <a href="#" aria-label="Falafel casero"><img src="https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=500&q=70" loading="lazy" alt="Falafel casero recién frito"></a>
+    <a href="#" aria-label="Bol de falafel con hummus"><img src="https://images.unsplash.com/photo-1615719413546-198b25453f85?w=500&q=70" loading="lazy" alt="Bol de falafel con hummus y ensalada"></a>
     <a href="#" aria-label="Pizza recién horneada"><img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70" loading="lazy" alt="Pizza recién horneada"></a>
     <a href="#" aria-label="Pizza margarita"><img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70" loading="lazy" alt="Pizza margarita con albahaca"></a>
+    <a href="#" aria-label="Porción de pizza"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70" loading="lazy" alt="Porción de pizza con queso fundido"></a>
+    <a href="#" aria-label="Patatas fritas crujientes"><img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=500&q=70" loading="lazy" alt="Ración de patatas fritas crujientes"></a>
+    <a href="#" aria-label="Patatas fritas con salsas"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70" loading="lazy" alt="Patatas fritas servidas con salsas"></a>
     <a href="#" aria-label="Refrescos bien fríos"><img src="https://images.unsplash.com/photo-1596803244618-8dbee441d70b?w=500&q=70" loading="lazy" alt="Latas de refresco con hielo"></a>
   </div>
+ </div>
 </section>
 
 <section id="location">
