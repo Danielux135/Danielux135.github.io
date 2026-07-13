@@ -1,0 +1,134 @@
+name: Publish FoskIA 2026-06-30
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.foskia-publish-2026-06-30-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild, validate and publish edition
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const zlib = require('zlib');
+          const crypto = require('crypto');
+
+          const date = '2026-06-30';
+          const sourceDir = '.foskia-tmp/2026-06-30';
+          const postPath = `public/foskia/posts/${date}.json`;
+          const indexPath = 'public/foskia/posts/index.json';
+          const expectedCategories = ['gaming','gratis','codigo','ciencia','economia','cripto','radar','ia','hardware','security','entretenimiento','curiosidades','ofertas','anime'];
+          const languages = ['es','en','val'];
+          const expectedHash = '6d0730f7dc85f32867a2908dac692fc91ba7a4d1b640094aa6183a1f5e98f21c';
+
+          function fail(message) { throw new Error(message); }
+          function validUrl(value) { return typeof value === 'string' && /^https?:\/\//.test(value); }
+          function completeText(value) {
+            return value && typeof value === 'object' && languages.every(lang => typeof value[lang] === 'string' && value[lang].trim());
+          }
+
+          const parts = fs.readdirSync(sourceDir)
+            .filter(name => /^part-\d{2}\.b64$/.test(name))
+            .sort();
+          if (parts.length !== 30) fail(`Expected 30 source parts, found ${parts.length}`);
+
+          const encoded = parts.map(name => fs.readFileSync(`${sourceDir}/${name}`, 'utf8').trim()).join('');
+          const decoded = zlib.gunzipSync(Buffer.from(encoded, 'base64'));
+          const actualHash = crypto.createHash('sha256').update(decoded).digest('hex');
+          if (actualHash !== expectedHash) fail(`Unexpected source hash: ${actualHash}`);
+
+          const edition = JSON.parse(decoded.toString('utf8'));
+          if (edition.date !== date) fail(`Wrong date: ${edition.date}`);
+          if (!completeText(edition.title) || !completeText(edition.intro) || !completeText(edition.summary)) fail('Incomplete root translations');
+          if (languages.some(lang => /^(FoskIA|Edici[oó]n del d[ií]a|Edition of the day)/i.test(edition.title[lang]))) fail('Forbidden title prefix');
+          if (!Array.isArray(edition.tags) || JSON.stringify(edition.tags) !== JSON.stringify(expectedCategories)) fail('Unexpected root tags');
+          if (!Array.isArray(edition.sections)) fail('sections must be an array');
+
+          const actualCategories = edition.sections.map(section => section.category);
+          if (JSON.stringify(actualCategories) !== JSON.stringify(expectedCategories)) fail(`Unexpected category order: ${actualCategories.join(',')}`);
+
+          let itemCount = 0;
+          for (const section of edition.sections) {
+            if (!Array.isArray(section.items) || section.items.length === 0) fail(`Empty category: ${section.category}`);
+            for (const [index, item] of section.items.entries()) {
+              itemCount++;
+              if (!validUrl(item.url)) fail(`${section.category}[${index}] invalid primary URL`);
+              if (!Array.isArray(item.links)) fail(`${section.category}[${index}] links must be an array`);
+              for (const link of item.links) {
+                if (!validUrl(link.url)) fail(`${section.category}[${index}] invalid link URL`);
+              }
+
+              if (section.category === 'ofertas') {
+                if (!languages.includes(item.market)) fail(`Offer ${index} has invalid market`);
+                for (const field of ['title','summary','originalPrice','salePrice','discount','until']) {
+                  const value = item[field];
+                  if (!value || typeof value !== 'object' || !String(value[item.market] || '').trim()) fail(`Offer ${index} incomplete ${field}`);
+                  for (const lang of languages) {
+                    if (lang !== item.market && String(value[lang] || '').trim()) fail(`Offer ${index} leaks ${field} into ${lang}`);
+                  }
+                }
+              } else {
+                if (!completeText(item.title) || !completeText(item.summary)) fail(`${section.category}[${index}] incomplete translations`);
+                if (item.links.length < 3) fail(`${section.category}[${index}] has fewer than three sources`);
+              }
+
+              if (section.category === 'cripto') {
+                if (!completeText(item.shortTerm) || !completeText(item.longTerm)) fail(`Crypto ${index} lacks analysis horizons`);
+              }
+            }
+          }
+          if (itemCount !== 34) fail(`Expected 34 items, found ${itemCount}`);
+
+          const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          if (!index || !Array.isArray(index.editions)) fail('Invalid index schema');
+          index.editions = index.editions.filter(entry => entry && entry.date !== date);
+          index.editions.push(edition);
+          index.editions.sort((a, b) => b.date.localeCompare(a.date));
+          if (index.editions.filter(entry => entry.date === date).length !== 1) fail('Edition duplicated in index');
+          if (index.editions.some((entry, i, arr) => i > 0 && arr[i - 1].date < entry.date)) fail('Index is not descending');
+
+          fs.writeFileSync(postPath, JSON.stringify(edition, null, 2) + '\n', 'utf8');
+          fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
+          JSON.parse(fs.readFileSync(postPath, 'utf8'));
+          JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          console.log(`Validation OK: ${actualCategories.length} categories, ${itemCount} items, index updated once.`);
+          NODE
+
+      - name: Commit edition
+        shell: bash
+        run: |
+          git config user.name "Danielux135"
+          git config user.email "dlux135@hotmail.com"
+          git add public/foskia/posts/2026-06-30.json public/foskia/posts/index.json
+          if git diff --cached --quiet; then
+            echo "No edition changes required"
+          else
+            git commit -m "Edición de FoskIA del 2026-06-30"
+            git push origin main
+          fi
+
+      - name: Remove temporary publication files
+        shell: bash
+        run: |
+          rm -rf .foskia-tmp/2026-06-30
+          rm -f .foskia-publish-2026-06-30-trigger
+          rm -f .github/workflows/publish-foskia-2026-06-30.yml
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No temporary files to remove"
+          else
+            git commit -m "Limpia archivos temporales de FoskIA del 2026-06-30"
+            git push origin main
+          fi
