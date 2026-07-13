@@ -1,0 +1,1488 @@
+{
+  "date": "2026-07-13",
+  "title": {
+    "es": "El petróleo vuelve a dispararse, Bitcoin cae y Europa cifra el coste mortal de la ola de calor",
+    "en": "Oil surges again, Bitcoin falls and Europe counts the deadly cost of the heatwave",
+    "val": "El petroli torna a disparar-se, Bitcoin cau i Europa xifra el cost mortal de l’onada de calor"
+  },
+  "intro": {
+    "es": "La edición del 13 de julio mira a las últimas 24 horas con un mercado condicionado por el nuevo choque entre Estados Unidos e Irán: el petróleo sube más de un 4%, el dólar se fortalece y Bitcoin y Ether retroceden. Europa cuantifica más de 10.000 muertes en exceso durante la ola de calor de finales de junio, TSMC marca ingresos récord por la demanda de IA y la seguridad vuelve a señalar al kernel de Linux. En entretenimiento, Moana lidera una taquilla por debajo de lo esperado; en gaming, Sony acelera el adiós al disco y Palworld 1.0 recupera una audiencia masiva.",
+    "en": "The July 13 edition looks back over the last 24 hours at markets shaped by the renewed U.S.-Iran clash: oil rises more than 4%, the dollar strengthens, and Bitcoin and Ether retreat. Europe counts more than 10,000 excess deaths during the late-June heatwave, TSMC posts record revenue on AI demand, and Linux kernel security is back in focus. In entertainment, Moana tops an underwhelming box office; in gaming, Sony accelerates the end of discs while Palworld 1.0 draws a huge audience.",
+    "val": "L’edició del 13 de juliol mira les últimes 24 hores amb un mercat condicionat pel nou xoc entre els Estats Units i l’Iran: el petroli puja més d’un 4%, el dòlar s’enfortix i Bitcoin i Ether retrocedixen. Europa quantifica més de 10.000 morts en excés durant l’onada de calor de finals de juny, TSMC marca ingressos rècord per la demanda d’IA i la seguretat torna a assenyalar el kernel de Linux. En entreteniment, Moana lidera una taquilla per davall del que s’esperava; en gaming, Sony accelera l’adeu al disc i Palworld 1.0 recupera una audiència massiva."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Sony fija 2028 como final del disco físico de PlayStation y reabre el debate sobre propiedad digital",
+            "en": "Sony sets 2028 as the end of physical PlayStation discs, reigniting the digital-ownership debate",
+            "val": "Sony fixa 2028 com a final del disc físic de PlayStation i reobri el debat sobre propietat digital"
+          },
+          "summary": {
+            "es": "Sony dejará de producir nuevos juegos físicos para PlayStation a partir del 1 de enero de 2028, una decisión que concentra todavía más la distribución en su tienda digital. La medida ha provocado críticas por el impacto sobre la segunda mano, el préstamo, la conservación y la competencia, con asociaciones de consumidores alertando del mayor control que tendrá la plataforma.",
+            "en": "Sony will stop producing new physical PlayStation games from January 1, 2028, concentrating even more distribution power in its digital storefront. The move has triggered criticism over resale, lending, preservation and competition, with consumer groups warning that the platform will gain much tighter control.",
+            "val": "Sony deixarà de produir nous jocs físics per a PlayStation a partir de l’1 de gener de 2028, una decisió que concentra encara més la distribució en la seua botiga digital. La mesura ha provocat crítiques per l’impacte sobre la segona mà, el préstec, la conservació i la competència, amb associacions de consumidors alertant del major control que tindrà la plataforma."
+          },
+          "source": "Cadena SER / The Guardian / Reuters",
+          "url": "https://cadenaser.com/nacional/2026/07/12/sony-tendra-el-poder-absoluto-no-habra-competencia-el-final-de-la-produccion-videojuegos-fisicos-revoluciona-el-mercado-audiovisual-cadena-ser/",
+          "links": [
+            {
+              "title": {
+                "es": "Cadena SER: impacto en consumidores",
+                "en": "Cadena SER: consumer impact",
+                "val": "Cadena SER: impacte en consumidors"
+              },
+              "url": "https://cadenaser.com/nacional/2026/07/12/sony-tendra-el-poder-absoluto-no-habra-competencia-el-final-de-la-produccion-videojuegos-fisicos-revoluciona-el-mercado-audiovisual-cadena-ser/"
+            },
+            {
+              "title": {
+                "es": "The Guardian: análisis del final del formato",
+                "en": "The Guardian: analysis of the format shift",
+                "val": "The Guardian: anàlisi del final del format"
+              },
+              "url": "https://www.theguardian.com/games/2026/jul/07/playstation-sony-ending-physical-game-production"
+            },
+            {
+              "title": {
+                "es": "Reuters: anuncio de Sony",
+                "en": "Reuters: Sony announcement",
+                "val": "Reuters: anunci de Sony"
+              },
+              "url": "https://www.reuters.com/world/asia-pacific/sony-end-discs-new-playstation-releases-gaming-shifts-online-2026-07-01/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Palworld 1.0 dispara su audiencia en Steam y alcanza un 96% de reseñas positivas",
+            "en": "Palworld 1.0 drives a major Steam surge and reaches 96% positive reviews",
+            "val": "Palworld 1.0 dispara l’audiència en Steam i arriba a un 96% de ressenyes positives"
+          },
+          "summary": {
+            "es": "La versión 1.0 de Palworld ha generado el mayor pico de jugadores del título desde su estreno en acceso anticipado, con más de 300.000 usuarios simultáneos observados durante el fin de semana. Pocketpair mantiene el precio en 29,99 dólares y acompaña el lanzamiento con 27 páginas de notas, biomas revisados, nuevos Pals y cambios profundos de progresión.",
+            "en": "Palworld 1.0 has produced the game’s biggest player spike since its early-access debut, with more than 300,000 concurrent users observed over the weekend. Pocketpair kept the price at $29.99 and paired the launch with 27 pages of patch notes, reworked biomes, new Pals and major progression changes.",
+            "val": "La versió 1.0 de Palworld ha generat el major pic de jugadors del títol des de l’estrena en accés anticipat, amb més de 300.000 usuaris simultanis observats durant el cap de setmana. Pocketpair manté el preu en 29,99 dòlars i acompanya el llançament amb 27 pàgines de notes, biomes revisats, nous Pals i canvis profunds de progressió."
+          },
+          "source": "GamesRadar / PC Gamer / Windows Central",
+          "url": "https://www.gamesradar.com/games/survival/palworld-1-0-sees-the-survival-games-biggest-steam-player-spike-since-its-record-breaking-early-access-launch-and-96-percent-positive-reviews-better-than-even-pokemon/",
+          "links": [
+            {
+              "title": {
+                "es": "GamesRadar: pico de jugadores y reseñas",
+                "en": "GamesRadar: player spike and reviews",
+                "val": "GamesRadar: pic de jugadors i ressenyes"
+              },
+              "url": "https://www.gamesradar.com/games/survival/palworld-1-0-sees-the-survival-games-biggest-steam-player-spike-since-its-record-breaking-early-access-launch-and-96-percent-positive-reviews-better-than-even-pokemon/"
+            },
+            {
+              "title": {
+                "es": "PC Gamer: precio sin subida",
+                "en": "PC Gamer: no price increase",
+                "val": "PC Gamer: preu sense pujada"
+              },
+              "url": "https://www.pcgamer.com/games/survival-crafting/palworld-wont-raise-its-price-for-1-0-as-a-small-way-of-saying-thank-you/"
+            },
+            {
+              "title": {
+                "es": "Windows Central: contenido de la versión 1.0",
+                "en": "Windows Central: version 1.0 content",
+                "val": "Windows Central: contingut de la versió 1.0"
+              },
+              "url": "https://www.windowscentral.com/gaming/palworld-full-release-new-trailer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Nova Lands — gratis en Epic Games Store",
+            "en": "Nova Lands — free on Epic Games Store",
+            "val": "Nova Lands — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "Juego de automatización, exploración y construcción de bases disponible para reclamar sin coste en su ficha de Epic. La promoción termina el 16 de julio; al añadirlo a la biblioteca queda asociado permanentemente a la cuenta.",
+            "en": "An automation, exploration and base-building game available to claim at no cost on its Epic page. The promotion ends on July 16; once added, it remains permanently tied to the account.",
+            "val": "Joc d’automatització, exploració i construcció de bases disponible per a reclamar sense cost en la seua fitxa d’Epic. La promoció acaba el 16 de juliol; en afegir-lo a la biblioteca queda associat permanentment al compte."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 16 de julio de 2026",
+            "en": "Until July 16, 2026",
+            "val": "Fins al 16 de juliol de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/nova-lands-4d1788",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha exacta en Epic",
+                "en": "Exact Epic store page",
+                "val": "Fitxa exacta en Epic"
+              },
+              "url": "https://store.epicgames.com/p/nova-lands-4d1788"
+            },
+            {
+              "title": {
+                "es": "Rotación semanal de Epic",
+                "en": "Epic weekly free rotation",
+                "val": "Rotació setmanal d’Epic"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            },
+            {
+              "title": {
+                "es": "Seguimiento de juegos gratis en PC Gamer",
+                "en": "PC Gamer free-games tracker",
+                "val": "Seguiment de jocs gratis en PC Gamer"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Tattoo Tycoon — gratis en Epic Games Store",
+            "en": "Tattoo Tycoon — free on Epic Games Store",
+            "val": "Tattoo Tycoon — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "Simulador de gestión de un estudio de tatuajes que puede reclamarse gratis en Epic durante la rotación actual. La oferta finaliza el 16 de julio y el juego se conserva en la biblioteca después de reclamarlo.",
+            "en": "A tattoo-studio management sim that can be claimed free during Epic’s current rotation. The offer ends on July 16 and the game stays in the library after it is claimed.",
+            "val": "Simulador de gestió d’un estudi de tatuatges que es pot reclamar gratis en Epic durant la rotació actual. L’oferta finalitza el 16 de juliol i el joc es conserva en la biblioteca després de reclamar-lo."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 16 de julio de 2026",
+            "en": "Until July 16, 2026",
+            "val": "Fins al 16 de juliol de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/tattoo-tycoon-b4352c",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha exacta en Epic",
+                "en": "Exact Epic store page",
+                "val": "Fitxa exacta en Epic"
+              },
+              "url": "https://store.epicgames.com/p/tattoo-tycoon-b4352c"
+            },
+            {
+              "title": {
+                "es": "Rotación semanal de Epic",
+                "en": "Epic weekly free rotation",
+                "val": "Rotació setmanal d’Epic"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            },
+            {
+              "title": {
+                "es": "Seguimiento de juegos gratis en PC Gamer",
+                "en": "PC Gamer free-games tracker",
+                "val": "Seguiment de jocs gratis en PC Gamer"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Call of Duty: Modern Warfare III — incluido con PS Plus Essential",
+            "en": "Call of Duty: Modern Warfare III — included with PS Plus Essential",
+            "val": "Call of Duty: Modern Warfare III — inclòs amb PS Plus Essential"
+          },
+          "summary": {
+            "es": "El paquete intergeneracional de acción militar, multijugador y Zombis forma parte de los juegos mensuales de julio para miembros de PS Plus. Puede reclamarse entre el 7 de julio y el 3 de agosto; después seguirá disponible para la cuenta mientras la suscripción permanezca activa.",
+            "en": "The cross-generation military-action package, including multiplayer and Zombies, is part of July’s monthly games for PS Plus members. It can be claimed from July 7 through August 3; afterward it remains available to the account while the subscription is active.",
+            "val": "El paquet intergeneracional d’acció militar, multijugador i Zombis forma part dels jocs mensuals de juliol per als membres de PS Plus. Es pot reclamar entre el 7 de juliol i el 3 d’agost; després continuarà disponible per al compte mentre la subscripció estiga activa."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.playstation.com/ps-plus/whats-new/",
+          "source": "PlayStation Plus",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio de la alineación de julio",
+                "en": "July lineup announcement",
+                "val": "Anunci de l’alineació de juliol"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/gaming/playstation-plus-monthly-games-for-july-announced-call-of-duty-modern-warfare-iii-crosscode-and-more/articleshow/132180813.cms"
+            },
+            {
+              "title": {
+                "es": "Detalles y plataformas en T3",
+                "en": "Platforms and details at T3",
+                "val": "Detalls i plataformes en T3"
+              },
+              "url": "https://www.t3.com/tech/gaming/ps-plus-free-games-for-ps5-pro-ps4-july-2026"
+            },
+            {
+              "title": {
+                "es": "Cobertura en MeriStation",
+                "en": "MeriStation coverage",
+                "val": "Cobertura en MeriStation"
+              },
+              "url": "https://as.com/meristation/noticias/los-juegos-de-ps-plus-essential-de-julio-de-2026-lo-tienen-todo-rpg-estrategia-call-of-duty-f202607-n/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "For the King II — incluido con PS Plus Essential",
+            "en": "For the King II — included with PS Plus Essential",
+            "val": "For the King II — inclòs amb PS Plus Essential"
+          },
+          "summary": {
+            "es": "La aventura de estrategia y rol cooperativo puede añadirse a la biblioteca mientras esté activa la selección mensual. Puede reclamarse entre el 7 de julio y el 3 de agosto; después seguirá disponible para la cuenta mientras la suscripción permanezca activa.",
+            "en": "The cooperative strategy RPG can be added to the library while the monthly selection is active. It can be claimed from July 7 through August 3; afterward it remains available to the account while the subscription is active.",
+            "val": "L’aventura d’estratègia i rol cooperatiu es pot afegir a la biblioteca mentre estiga activa la selecció mensual. Es pot reclamar entre el 7 de juliol i el 3 d’agost; després continuarà disponible per al compte mentre la subscripció estiga activa."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.playstation.com/ps-plus/whats-new/",
+          "source": "PlayStation Plus",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio de la alineación de julio",
+                "en": "July lineup announcement",
+                "val": "Anunci de l’alineació de juliol"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/gaming/playstation-plus-monthly-games-for-july-announced-call-of-duty-modern-warfare-iii-crosscode-and-more/articleshow/132180813.cms"
+            },
+            {
+              "title": {
+                "es": "Detalles y plataformas en T3",
+                "en": "Platforms and details at T3",
+                "val": "Detalls i plataformes en T3"
+              },
+              "url": "https://www.t3.com/tech/gaming/ps-plus-free-games-for-ps5-pro-ps4-july-2026"
+            },
+            {
+              "title": {
+                "es": "Cobertura en MeriStation",
+                "en": "MeriStation coverage",
+                "val": "Cobertura en MeriStation"
+              },
+              "url": "https://as.com/meristation/noticias/los-juegos-de-ps-plus-essential-de-julio-de-2026-lo-tienen-todo-rpg-estrategia-call-of-duty-f202607-n/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "CrossCode — incluido con PS Plus Essential",
+            "en": "CrossCode — included with PS Plus Essential",
+            "val": "CrossCode — inclòs amb PS Plus Essential"
+          },
+          "summary": {
+            "es": "El RPG de acción con estética de 16 bits completa la tanda mensual y queda jugable mientras se mantenga la suscripción. Puede reclamarse entre el 7 de julio y el 3 de agosto; después seguirá disponible para la cuenta mientras la suscripción permanezca activa.",
+            "en": "The 16-bit-style action RPG completes the monthly lineup and remains playable while the subscription stays active. It can be claimed from July 7 through August 3; afterward it remains available to the account while the subscription is active.",
+            "val": "L’RPG d’acció amb estètica de 16 bits completa la tanda mensual i queda jugable mentre es mantinga la subscripció. Es pot reclamar entre el 7 de juliol i el 3 d’agost; després continuarà disponible per al compte mentre la subscripció estiga activa."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.playstation.com/ps-plus/whats-new/",
+          "source": "PlayStation Plus",
+          "links": [
+            {
+              "title": {
+                "es": "Anuncio de la alineación de julio",
+                "en": "July lineup announcement",
+                "val": "Anunci de l’alineació de juliol"
+              },
+              "url": "https://timesofindia.indiatimes.com/technology/gaming/playstation-plus-monthly-games-for-july-announced-call-of-duty-modern-warfare-iii-crosscode-and-more/articleshow/132180813.cms"
+            },
+            {
+              "title": {
+                "es": "Detalles y plataformas en T3",
+                "en": "Platforms and details at T3",
+                "val": "Detalls i plataformes en T3"
+              },
+              "url": "https://www.t3.com/tech/gaming/ps-plus-free-games-for-ps5-pro-ps4-july-2026"
+            },
+            {
+              "title": {
+                "es": "Cobertura en MeriStation",
+                "en": "MeriStation coverage",
+                "val": "Cobertura en MeriStation"
+              },
+              "url": "https://as.com/meristation/noticias/los-juegos-de-ps-plus-essential-de-julio-de-2026-lo-tienen-todo-rpg-estrategia-call-of-duty-f202607-n/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "Godot veta las contribuciones generadas por IA para frenar el desgaste de sus mantenedores",
+            "en": "Godot bans AI-generated contributions to protect its maintainers from burnout",
+            "val": "Godot veta les contribucions generades per IA per a frenar el desgast dels seus mantenidors"
+          },
+          "summary": {
+            "es": "La Fundación Godot ha prohibido código, pull requests y comunicaciones redactadas por IA cuando el autor no comprende ni puede defender la aportación. El proyecto argumenta que la avalancha de cambios de baja calidad convierte el ahorro del remitente en horas de revisión humana y permite únicamente asistencia limitada y declarada para tareas mecánicas.",
+            "en": "The Godot Foundation has banned AI-authored code, pull requests and communications when contributors cannot understand or defend their submission. The project argues that floods of low-quality changes turn the sender’s time saving into hours of human review, allowing only limited and disclosed assistance for mechanical tasks.",
+            "val": "La Fundació Godot ha prohibit codi, pull requests i comunicacions redactades per IA quan l’autor no comprén ni pot defendre l’aportació. El projecte argumenta que l’allau de canvis de baixa qualitat convertix l’estalvi del remitent en hores de revisió humana i permet únicament assistència limitada i declarada per a tasques mecàniques."
+          },
+          "source": "Creative Bloq / GamesRadar / arXiv",
+          "url": "https://www.creativebloq.com/ai/godots-ai-ban-is-a-reality-check-for-vibe-coders",
+          "links": [
+            {
+              "title": {
+                "es": "Creative Bloq: nueva política de Godot",
+                "en": "Creative Bloq: Godot’s new policy",
+                "val": "Creative Bloq: nova política de Godot"
+              },
+              "url": "https://www.creativebloq.com/ai/godots-ai-ban-is-a-reality-check-for-vibe-coders"
+            },
+            {
+              "title": {
+                "es": "GamesRadar: presión sobre los mantenedores",
+                "en": "GamesRadar: pressure on maintainers",
+                "val": "GamesRadar: pressió sobre els mantenidors"
+              },
+              "url": "https://www.gamesradar.com/games/devs-failing-to-make-games-with-ai-wont-stop-flooding-the-godot-game-engine-with-slop-requests-and-its-project-manager-has-had-enough-does-the-author-understand-the-code-theyre-sending/"
+            },
+            {
+              "title": {
+                "es": "Estudio sobre supervivencia de código generado por agentes",
+                "en": "Study on survival of agent-generated code",
+                "val": "Estudi sobre supervivència de codi generat per agents"
+              },
+              "url": "https://arxiv.org/abs/2601.16809"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El código generado por IA desplaza el cuello de botella hacia la revisión y el gobierno del open source",
+            "en": "AI-generated code shifts the bottleneck toward review and open-source governance",
+            "val": "El codi generat per IA desplaça el coll de botella cap a la revisió i el govern de l’open source"
+          },
+          "summary": {
+            "es": "Investigaciones recientes muestran que el problema no puede reducirse a si el código de agentes «dura» o no: la calidad varía mucho entre herramientas y el coste organizativo de revisar, mantener y atribuir cambios sigue siendo decisivo. Para equipos reales, el aprendizaje práctico es establecer límites de alcance, pruebas automáticas y responsabilidad humana antes de aceptar volumen adicional.",
+            "en": "Recent research shows that the issue cannot be reduced to whether agent-written code “survives”: quality varies widely across tools, while the organisational cost of reviewing, maintaining and attributing changes remains decisive. For real teams, the practical lesson is to set scope limits, automated checks and human accountability before accepting more volume.",
+            "val": "Investigacions recents mostren que el problema no es pot reduir a si el codi d’agents «dura» o no: la qualitat varia molt entre eines i el cost organitzatiu de revisar, mantindre i atribuir canvis continua sent decisiu. Per als equips reals, l’aprenentatge pràctic és establir límits d’abast, proves automàtiques i responsabilitat humana abans d’acceptar més volum."
+          },
+          "source": "arXiv / Financial Times / Godot",
+          "url": "https://arxiv.org/abs/2601.16809",
+          "links": [
+            {
+              "title": {
+                "es": "Estudio sobre código de agentes",
+                "en": "Study on agent-generated code",
+                "val": "Estudi sobre codi d’agents"
+              },
+              "url": "https://arxiv.org/abs/2601.16809"
+            },
+            {
+              "title": {
+                "es": "Financial Times: carga para proyectos abiertos",
+                "en": "Financial Times: burden on open projects",
+                "val": "Financial Times: càrrega per a projectes oberts"
+              },
+              "url": "https://www.ft.com/content/cec8df9e-b43b-4cd1-8feb-c07e804e8d33"
+            },
+            {
+              "title": {
+                "es": "Caso Godot y contribuciones de IA",
+                "en": "Godot case and AI contributions",
+                "val": "Cas Godot i contribucions d’IA"
+              },
+              "url": "https://www.creativebloq.com/ai/godots-ai-ban-is-a-reality-check-for-vibe-coders"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "La NASA amplía su laboratorio cuántico orbital para estudiar el quinto estado de la materia",
+            "en": "NASA upgrades its orbital quantum lab to study the fifth state of matter",
+            "val": "La NASA amplia el seu laboratori quàntic orbital per a estudiar el quint estat de la matèria"
+          },
+          "summary": {
+            "es": "El Cold Atom Laboratory de la Estación Espacial Internacional ha recibido nuevas fuentes atómicas, instrumentos de medida y una trampa magnética rediseñada. En microgravedad puede mantener condensados de Bose-Einstein durante más tiempo que en la Tierra, lo que permite estudiar ondas de materia, superposición y futuras tecnologías de navegación y medición cuántica.",
+            "en": "The Cold Atom Laboratory aboard the International Space Station has received new atom sources, measurement instruments and a redesigned magnetic trap. In microgravity it can sustain Bose-Einstein condensates longer than on Earth, enabling studies of matter waves, superposition and future quantum navigation and sensing technologies.",
+            "val": "El Cold Atom Laboratory de l’Estació Espacial Internacional ha rebut noves fonts atòmiques, instruments de mesura i una trampa magnètica redissenyada. En microgravetat pot mantindre condensats de Bose-Einstein durant més temps que en la Terra, cosa que permet estudiar ones de matèria, superposició i futures tecnologies de navegació i mesura quàntica."
+          },
+          "source": "Live Science / NASA JPL / arXiv",
+          "url": "https://www.livescience.com/physics-mathematics/quantum-physics/nasa-is-creating-a-fifth-state-of-matter-on-the-iss-thanks-to-an-upgrade-to-a-mini-fridge-sized-quantum-lab",
+          "links": [
+            {
+              "title": {
+                "es": "Live Science: detalles de la actualización",
+                "en": "Live Science: upgrade details",
+                "val": "Live Science: detalls de l’actualització"
+              },
+              "url": "https://www.livescience.com/physics-mathematics/quantum-physics/nasa-is-creating-a-fifth-state-of-matter-on-the-iss-thanks-to-an-upgrade-to-a-mini-fridge-sized-quantum-lab"
+            },
+            {
+              "title": {
+                "es": "Proyecto Cold Atom Lab de JPL",
+                "en": "JPL Cold Atom Lab project",
+                "val": "Projecte Cold Atom Lab de JPL"
+              },
+              "url": "https://coldatomlab.jpl.nasa.gov/"
+            },
+            {
+              "title": {
+                "es": "Descripción científica del laboratorio",
+                "en": "Scientific overview of the laboratory",
+                "val": "Descripció científica del laboratori"
+              },
+              "url": "https://arxiv.org/abs/2305.13285"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Webb celebra cuatro años con una mirada infrarroja al choque galáctico de Centaurus A",
+            "en": "Webb marks four years with an infrared view of the Centaurus A galaxy collision",
+            "val": "Webb celebra quatre anys amb una mirada infraroja al xoc galàctic de Centaurus A"
+          },
+          "summary": {
+            "es": "El telescopio James Webb ha publicado una imagen de Centaurus A, una galaxia situada a unos 11 millones de años luz y marcada por una fusión ocurrida hace cerca de 2.000 millones de años. NIRCam y MIRI atraviesan el polvo central y revelan viveros estelares, gas ionizado y una estructura en forma de S cuyo origen todavía no está claro.",
+            "en": "The James Webb Space Telescope has released an image of Centaurus A, a galaxy roughly 11 million light-years away shaped by a merger about two billion years ago. NIRCam and MIRI pierce its central dust, revealing stellar nurseries, ionised gas and an S-shaped structure whose origin remains unclear.",
+            "val": "El telescopi James Webb ha publicat una imatge de Centaurus A, una galàxia situada a uns 11 milions d’anys llum i marcada per una fusió ocorreguda fa prop de 2.000 milions d’anys. NIRCam i MIRI travessen la pols central i revelen vivers estel·lars, gas ionitzat i una estructura en forma de S l’origen de la qual encara no està clar."
+          },
+          "source": "Space.com / ESA / NASA",
+          "url": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-celebrates-its-4th-birthday-with-stunning-image-of-a-galaxy-crash-site",
+          "links": [
+            {
+              "title": {
+                "es": "Space.com: imagen de aniversario",
+                "en": "Space.com: anniversary image",
+                "val": "Space.com: imatge d’aniversari"
+              },
+              "url": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-celebrates-its-4th-birthday-with-stunning-image-of-a-galaxy-crash-site"
+            },
+            {
+              "title": {
+                "es": "Misión Webb de la NASA",
+                "en": "NASA Webb mission",
+                "val": "Missió Webb de la NASA"
+              },
+              "url": "https://science.nasa.gov/mission/webb/"
+            },
+            {
+              "title": {
+                "es": "Webb en la Agencia Espacial Europea",
+                "en": "Webb at the European Space Agency",
+                "val": "Webb en l’Agència Espacial Europea"
+              },
+              "url": "https://www.esa.int/Science_Exploration/Space_Science/Webb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "El petróleo sube más de un 4% tras nuevos ataques y vuelve a tensar el estrecho de Ormuz",
+            "en": "Oil rises more than 4% after renewed strikes put the Strait of Hormuz under pressure again",
+            "val": "El petroli puja més d’un 4% després de nous atacs i torna a tensar l’estret d’Ormuz"
+          },
+          "summary": {
+            "es": "Brent y WTI avanzaron alrededor de un 4% después de que Estados Unidos e Irán intercambiaran nuevos ataques y Teherán afirmara que había vuelto a cerrar el estrecho de Ormuz. El tráfico marítimo cayó a mínimos de varias semanas, reactivando el temor a interrupciones de suministro y a una nueva presión inflacionaria global.",
+            "en": "Brent and WTI advanced by roughly 4% after the United States and Iran exchanged fresh strikes and Tehran said it had closed the Strait of Hormuz again. Shipping traffic fell to a multi-week low, reviving fears of supply disruption and renewed global inflation pressure.",
+            "val": "Brent i WTI van avançar al voltant d’un 4% després que els Estats Units i l’Iran intercanviaren nous atacs i Teheran afirmara que havia tornat a tancar l’estret d’Ormuz. El trànsit marítim va caure a mínims de diverses setmanes, reactivant el temor a interrupcions de subministrament i a una nova pressió inflacionària global."
+          },
+          "source": "Reuters / MarketWatch / AP",
+          "url": "https://www.reuters.com/business/energy/oil-jumps-more-than-3-after-us-iran-launch-strikes-mideast-2026-07-12/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: subida del crudo",
+                "en": "Reuters: crude-oil rise",
+                "val": "Reuters: pujada del cru"
+              },
+              "url": "https://www.reuters.com/business/energy/oil-jumps-more-than-3-after-us-iran-launch-strikes-mideast-2026-07-12/"
+            },
+            {
+              "title": {
+                "es": "MarketWatch: reacción de mercados",
+                "en": "MarketWatch: market reaction",
+                "val": "MarketWatch: reacció dels mercats"
+              },
+              "url": "https://www.marketwatch.com/story/oil-prices-rise-stock-futures-dip-after-latest-flare-up-of-strikes-between-u-s-and-iran-fef7f856"
+            },
+            {
+              "title": {
+                "es": "Reuters: situación del estrecho",
+                "en": "Reuters: Strait status",
+                "val": "Reuters: situació de l’estret"
+              },
+              "url": "https://www.reuters.com/business/energy/trump-says-strait-hormuz-open-commercial-traffic-2026-07-12/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "TSMC marca ingresos trimestrales récord y abre una semana clave para bancos, chips e inflación",
+            "en": "TSMC posts record quarterly revenue as a crucial week begins for banks, chips and inflation",
+            "val": "TSMC marca ingressos trimestrals rècord i obri una setmana clau per a bancs, xips i inflació"
+          },
+          "summary": {
+            "es": "TSMC registró 1,27 billones de dólares taiwaneses de ingresos en el segundo trimestre, un 36% más interanual y ligeramente por encima de las previsiones, impulsada por la demanda de IA. La semana continuará con resultados de los grandes bancos estadounidenses, Netflix y la propia TSMC, además de datos de inflación y ventas minoristas que pueden alterar las expectativas sobre tipos.",
+            "en": "TSMC recorded T$1.27 trillion in second-quarter revenue, up 36% year over year and slightly above forecasts, driven by AI demand. The week continues with earnings from major U.S. banks, Netflix and TSMC itself, alongside inflation and retail-sales data that could reshape rate expectations.",
+            "val": "TSMC va registrar 1,27 bilions de dòlars taiwanesos d’ingressos en el segon trimestre, un 36% més interanual i lleugerament per damunt de les previsions, impulsada per la demanda d’IA. La setmana continuarà amb resultats dels grans bancs estatunidencs, Netflix i la mateixa TSMC, a més de dades d’inflació i vendes minoristes que poden alterar les expectatives sobre els tipus."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/asia-pacific/tsmc-q2-revenue-jumps-36-year-earlier-beating-market-expectations-2026-07-13/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: ingresos récord de TSMC",
+                "en": "Reuters: TSMC record revenue",
+                "val": "Reuters: ingressos rècord de TSMC"
+              },
+              "url": "https://www.reuters.com/world/asia-pacific/tsmc-q2-revenue-jumps-36-year-earlier-beating-market-expectations-2026-07-13/"
+            },
+            {
+              "title": {
+                "es": "Reuters Take Five: semana de mercados",
+                "en": "Reuters Take Five: market week",
+                "val": "Reuters Take Five: setmana de mercats"
+              },
+              "url": "https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-07-10/"
+            },
+            {
+              "title": {
+                "es": "Reuters Morning Bid: petróleo y resultados",
+                "en": "Reuters Morning Bid: oil and earnings",
+                "val": "Reuters Morning Bid: petroli i resultats"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-07-13/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin cae hacia 62.800$ al volver el modo aversión al riesgo",
+            "en": "Bitcoin falls toward $62,800 as risk-off trading returns",
+            "val": "Bitcoin cau cap als 62.800$ amb el retorn de l’aversió al risc"
+          },
+          "summary": {
+            "es": "Bitcoin perdió alrededor de un 2,1% y cotizó cerca de 62.790 dólares mientras el dólar y el petróleo subían por la escalada en Oriente Medio. La caída muestra que, en este episodio, el mercado está tratando a las criptomonedas como activos de riesgo y no como refugio inmediato.",
+            "en": "Bitcoin lost about 2.1% and traded near $62,790 as the dollar and oil rose on the Middle East escalation. The move shows that, in this episode, markets are treating cryptocurrencies as risk assets rather than immediate safe havens.",
+            "val": "Bitcoin va perdre al voltant d’un 2,1% i va cotitzar prop de 62.790 dòlars mentre el dòlar i el petroli pujaven per l’escalada a l’Orient Mitjà. La caiguda mostra que, en este episodi, el mercat tracta les criptomonedes com a actius de risc i no com a refugi immediat."
+          },
+          "source": "Reuters / MarketWatch",
+          "url": "https://www.reuters.com/world/asia-pacific/dollar-jumps-renewed-middle-east-attacks-hormuz-closure-2026-07-13/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: dólar, petróleo y cripto",
+                "en": "Reuters: dollar, oil and crypto",
+                "val": "Reuters: dòlar, petroli i cripto"
+              },
+              "url": "https://www.reuters.com/world/asia-pacific/dollar-jumps-renewed-middle-east-attacks-hormuz-closure-2026-07-13/"
+            },
+            {
+              "title": {
+                "es": "MarketWatch: Bitcoin bajo 64.000$",
+                "en": "MarketWatch: Bitcoin below $64,000",
+                "val": "MarketWatch: Bitcoin baix de 64.000$"
+              },
+              "url": "https://www.marketwatch.com/story/oil-prices-rise-stock-futures-dip-after-latest-flare-up-of-strikes-between-u-s-and-iran-fef7f856"
+            },
+            {
+              "title": {
+                "es": "Reuters: mercados globales en modo defensivo",
+                "en": "Reuters: global risk-off markets",
+                "val": "Reuters: mercats globals en mode defensiu"
+              },
+              "url": "https://www.reuters.com/business/media-telecom/global-markets-global-markets-2026-07-13/"
+            }
+          ],
+          "shortTerm": {
+            "es": "A corto plazo, el precio queda condicionado por el petróleo, el dólar y cualquier noticia sobre Ormuz; recuperar con claridad los 64.000$ aliviaría la presión, mientras perder la zona de 62.000$ aumentaría el riesgo de nuevas liquidaciones.",
+            "en": "In the short term, price action is tied to oil, the dollar and any Hormuz headline; a clear recovery above $64,000 would ease pressure, while losing the $62,000 area would raise liquidation risk.",
+            "val": "A curt termini, el preu queda condicionat pel petroli, el dòlar i qualsevol notícia sobre Ormuz; recuperar amb claredat els 64.000$ alleujaria la pressió, mentre perdre la zona de 62.000$ augmentaria el risc de noves liquidacions."
+          },
+          "longTerm": {
+            "es": "A largo plazo, la tesis sigue dependiendo de adopción institucional, regulación y liquidez global; la reacción actual recuerda que incluso una oferta limitada no elimina la sensibilidad a tipos reales y episodios geopolíticos.",
+            "en": "Long term, the thesis still depends on institutional adoption, regulation and global liquidity; the current reaction is a reminder that limited supply does not remove sensitivity to real rates and geopolitical shocks.",
+            "val": "A llarg termini, la tesi continua depenent de l’adopció institucional, la regulació i la liquiditat global; la reacció actual recorda que una oferta limitada no elimina la sensibilitat als tipus reals i als episodis geopolítics."
+          }
+        },
+        {
+          "title": {
+            "es": "Ether pierde un 2,3% y Solana acompaña la corrección del mercado",
+            "en": "Ether drops 2.3% as Solana joins the broader market correction",
+            "val": "Ether perd un 2,3% i Solana acompanya la correcció del mercat"
+          },
+          "summary": {
+            "es": "Ether retrocedió aproximadamente un 2,3% hasta la zona de 1.779 dólares, en paralelo con Bitcoin y con el deterioro de los activos de riesgo. Solana y otras altcoins también quedaron expuestas al mismo movimiento, con menor liquidez y una volatilidad normalmente superior a la de BTC.",
+            "en": "Ether fell roughly 2.3% toward $1,779, moving with Bitcoin as risk assets weakened. Solana and other altcoins were exposed to the same move, with thinner liquidity and typically higher volatility than BTC.",
+            "val": "Ether va retrocedir aproximadament un 2,3% fins a la zona de 1.779 dòlars, en paral·lel amb Bitcoin i amb el deteriorament dels actius de risc. Solana i altres altcoins també van quedar exposades al mateix moviment, amb menor liquiditat i una volatilitat normalment superior a la de BTC."
+          },
+          "source": "Reuters / MarketWatch / Ethereum research",
+          "url": "https://www.reuters.com/world/asia-pacific/dollar-jumps-renewed-middle-east-attacks-hormuz-closure-2026-07-13/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: caída de Ether",
+                "en": "Reuters: Ether decline",
+                "val": "Reuters: caiguda d’Ether"
+              },
+              "url": "https://www.reuters.com/world/asia-pacific/dollar-jumps-renewed-middle-east-attacks-hormuz-closure-2026-07-13/"
+            },
+            {
+              "title": {
+                "es": "MarketWatch: corrección del riesgo",
+                "en": "MarketWatch: risk correction",
+                "val": "MarketWatch: correcció del risc"
+              },
+              "url": "https://www.marketwatch.com/story/oil-prices-rise-stock-futures-dip-after-latest-flare-up-of-strikes-between-u-s-and-iran-fef7f856"
+            },
+            {
+              "title": {
+                "es": "Estudio sobre costes de capa 2 de Ethereum",
+                "en": "Study on Ethereum layer-2 fees",
+                "val": "Estudi sobre costos de capa 2 d’Ethereum"
+              },
+              "url": "https://arxiv.org/abs/2606.22206"
+            }
+          ],
+          "shortTerm": {
+            "es": "ETH necesita estabilizarse por encima de 1.800$ para recuperar impulso; si la aversión al riesgo continúa, las altcoins pueden amplificar las caídas por su menor profundidad de mercado.",
+            "en": "ETH needs to stabilise above $1,800 to regain momentum; if risk aversion persists, altcoins may amplify declines because of shallower market depth.",
+            "val": "ETH necessita estabilitzar-se per damunt de 1.800$ per a recuperar impuls; si l’aversió al risc continua, les altcoins poden amplificar les caigudes per la menor profunditat de mercat."
+          },
+          "longTerm": {
+            "es": "La evolución estructural de Ethereum depende de la actividad de las capas 2, los ingresos de la red y la demanda institucional; en Solana, el foco continúa en fiabilidad, actividad económica real y adopción más allá de la especulación.",
+            "en": "Ethereum’s structural outlook depends on layer-2 activity, network revenue and institutional demand; for Solana, the focus remains reliability, real economic activity and adoption beyond speculation.",
+            "val": "L’evolució estructural d’Ethereum depén de l’activitat de les capes 2, els ingressos de la xarxa i la demanda institucional; en Solana, el focus continua en la fiabilitat, l’activitat econòmica real i l’adopció més enllà de l’especulació."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "Europa registra 10.650 muertes en exceso durante la ola de calor de finales de junio",
+            "en": "Europe records 10,650 excess deaths during the late-June heatwave",
+            "val": "Europa registra 10.650 morts en excés durant l’onada de calor de finals de juny"
+          },
+          "summary": {
+            "es": "Los datos agrupados de 27 países europeos contabilizan 10.650 muertes por encima de lo esperado en la semana del 22 al 28 de junio, con más de 9.000 entre mayores de 65 años. EuroMOMO advierte de que las cifras pueden revisarse, pero los expertos no identifican otro factor importante que explique el salto y vinculan el episodio con el calor extremo.",
+            "en": "Pooled data from 27 European countries counted 10,650 deaths above expectations in the week of June 22–28, with more than 9,000 among people over 65. EuroMOMO warns that figures may be revised, but experts identify no other major factor behind the spike and link the episode to extreme heat.",
+            "val": "Les dades agrupades de 27 països europeus comptabilitzen 10.650 morts per damunt del que s’esperava en la setmana del 22 al 28 de juny, amb més de 9.000 entre majors de 65 anys. EuroMOMO advertix que les xifres poden revisar-se, però els experts no identifiquen un altre factor important que explique el salt i vinculen l’episodi amb la calor extrema."
+          },
+          "source": "Reuters / EuroMOMO / The Guardian",
+          "url": "https://www.reuters.com/business/environment/europe-recorded-10000-excess-deaths-during-late-june-heatwave-data-show-2026-07-12/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: datos europeos de mortalidad",
+                "en": "Reuters: European mortality data",
+                "val": "Reuters: dades europees de mortalitat"
+              },
+              "url": "https://www.reuters.com/business/environment/europe-recorded-10000-excess-deaths-during-late-june-heatwave-data-show-2026-07-12/"
+            },
+            {
+              "title": {
+                "es": "EuroMOMO: seguimiento oficial",
+                "en": "EuroMOMO: official monitoring",
+                "val": "EuroMOMO: seguiment oficial"
+              },
+              "url": "https://www.euromomo.eu/graphs-and-maps"
+            },
+            {
+              "title": {
+                "es": "The Guardian: impacto de la ola de calor",
+                "en": "The Guardian: heatwave impact",
+                "val": "The Guardian: impacte de l’onada de calor"
+              },
+              "url": "https://www.theguardian.com/world/2026/jul/12/germany-drowning-deaths-heatwave-paris-france-spain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "Cientos de manifestantes recorren San Francisco para exigir que se detenga la carrera de la IA",
+            "en": "Hundreds march through San Francisco demanding a halt to the AI race",
+            "val": "Centenars de manifestants recorren San Francisco per a exigir que es detinga la carrera de la IA"
+          },
+          "summary": {
+            "es": "Alrededor de 200 personas marcharon ante las oficinas de OpenAI, Anthropic y Google DeepMind para pedir una moratoria global sobre nuevos modelos de frontera. La protesta mezcló preocupaciones por empleo, vivienda, consumo energético, concentración de poder y riesgos catastróficos, y muestra que el debate sobre IA ya ha salido de los laboratorios y reguladores.",
+            "en": "Around 200 people marched past the offices of OpenAI, Anthropic and Google DeepMind to demand a global moratorium on new frontier models. The protest combined concerns about jobs, housing, energy use, concentrated power and catastrophic risks, showing that the AI debate has moved beyond laboratories and regulators.",
+            "val": "Al voltant de 200 persones van marxar davant les oficines d’OpenAI, Anthropic i Google DeepMind per a demanar una moratòria global sobre nous models de frontera. La protesta va combinar preocupacions per l’ocupació, l’habitatge, el consum energètic, la concentració de poder i els riscos catastròfics, i mostra que el debat sobre IA ja ha eixit dels laboratoris i els reguladors."
+          },
+          "source": "San Francisco Chronicle / International AI Safety Report / Axios",
+          "url": "https://www.sfchronicle.com/tech/article/san-francisco-ai-protest-22340835.php",
+          "links": [
+            {
+              "title": {
+                "es": "San Francisco Chronicle: marcha del sábado",
+                "en": "San Francisco Chronicle: Saturday march",
+                "val": "San Francisco Chronicle: marxa de dissabte"
+              },
+              "url": "https://www.sfchronicle.com/tech/article/san-francisco-ai-protest-22340835.php"
+            },
+            {
+              "title": {
+                "es": "Informe Internacional de Seguridad de la IA 2026",
+                "en": "International AI Safety Report 2026",
+                "val": "Informe Internacional de Seguretat de la IA 2026"
+              },
+              "url": "https://arxiv.org/abs/2602.21012"
+            },
+            {
+              "title": {
+                "es": "Axios: retroceso de compromisos de seguridad",
+                "en": "Axios: retreat from safety commitments",
+                "val": "Axios: retrocés dels compromisos de seguretat"
+              },
+              "url": "https://www.axios.com/2026/07/07/report-ai-safety-pledges"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Un índice de seguridad acusa a las grandes compañías de IA de rebajar compromisos mientras aumentan sus capacidades",
+            "en": "A safety index says major AI companies are weakening commitments as capabilities grow",
+            "val": "Un índex de seguretat acusa les grans companyies d’IA de rebaixar compromisos mentre augmenten les capacitats"
+          },
+          "summary": {
+            "es": "El nuevo AI Safety Index sitúa a Anthropic en cabeza con una calificación C+, mientras OpenAI y Google DeepMind reciben una C, y señala la seguridad existencial como el apartado más débil del sector. El informe critica que varias empresas hayan suavizado o condicionado promesas de detener desarrollos cuando las medidas de protección no avanzaran al mismo ritmo.",
+            "en": "The new AI Safety Index ranks Anthropic first with a C+, while OpenAI and Google DeepMind receive a C, and identifies existential safety as the industry’s weakest area. The report criticises several companies for weakening or conditioning earlier promises to pause development when safeguards failed to keep pace.",
+            "val": "El nou AI Safety Index situa Anthropic al capdavant amb una qualificació C+, mentre OpenAI i Google DeepMind reben una C, i assenyala la seguretat existencial com l’apartat més dèbil del sector. L’informe critica que diverses empreses hagen suavitzat o condicionat promeses d’aturar desenvolupaments quan les mesures de protecció no avançaren al mateix ritme."
+          },
+          "source": "Axios / International AI Safety Report / Anthropic",
+          "url": "https://www.axios.com/2026/07/07/report-ai-safety-pledges",
+          "links": [
+            {
+              "title": {
+                "es": "Axios: resultados del índice",
+                "en": "Axios: index results",
+                "val": "Axios: resultats de l’índex"
+              },
+              "url": "https://www.axios.com/2026/07/07/report-ai-safety-pledges"
+            },
+            {
+              "title": {
+                "es": "Informe científico internacional",
+                "en": "International scientific report",
+                "val": "Informe científic internacional"
+              },
+              "url": "https://arxiv.org/abs/2602.21012"
+            },
+            {
+              "title": {
+                "es": "Política de escalado responsable de Anthropic",
+                "en": "Anthropic Responsible Scaling Policy",
+                "val": "Política d’escalat responsable d’Anthropic"
+              },
+              "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Apple compromete más de 30.000 millones de dólares en chips de Broadcom hasta 2031",
+            "en": "Apple commits more than $30 billion to Broadcom chips through 2031",
+            "val": "Apple compromet més de 30.000 milions de dòlars en xips de Broadcom fins a 2031"
+          },
+          "summary": {
+            "es": "Apple y Broadcom han ampliado hasta 2031 su acuerdo para desarrollar y suministrar filtros de radiofrecuencia y otros componentes de conectividad. Broadcom invertirá 1.500 millones de dólares en ampliar su planta de Colorado, mientras Apple asegura capacidad para al menos 15.000 millones de chips en un mercado tensionado por la demanda de IA.",
+            "en": "Apple and Broadcom have extended through 2031 their agreement to develop and supply radio-frequency filters and other connectivity components. Broadcom will invest $1.5 billion to expand its Colorado plant, while Apple secures capacity for at least 15 billion chips in a market strained by AI demand.",
+            "val": "Apple i Broadcom han ampliat fins a 2031 el seu acord per a desenvolupar i subministrar filtres de radiofreqüència i altres components de connectivitat. Broadcom invertirà 1.500 milions de dòlars a ampliar la seua planta de Colorado, mentre Apple assegura capacitat per a almenys 15.000 milions de xips en un mercat tensionat per la demanda d’IA."
+          },
+          "source": "Reuters / Apple / Broadcom",
+          "url": "https://www.reuters.com/business/apple-spend-30-billion-broadcom-chips-deal-that-will-see-colorado-factory-expand-2026-07-08/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: inversión y fábrica de Colorado",
+                "en": "Reuters: investment and Colorado factory",
+                "val": "Reuters: inversió i fàbrica de Colorado"
+              },
+              "url": "https://www.reuters.com/business/apple-spend-30-billion-broadcom-chips-deal-that-will-see-colorado-factory-expand-2026-07-08/"
+            },
+            {
+              "title": {
+                "es": "Reuters: extensión de la alianza",
+                "en": "Reuters: partnership extension",
+                "val": "Reuters: extensió de l’aliança"
+              },
+              "url": "https://www.reuters.com/technology/broadcom-apple-extend-chip-partnership-through-2031-2026-07-06/"
+            },
+            {
+              "title": {
+                "es": "Sala de prensa de Apple",
+                "en": "Apple Newsroom",
+                "val": "Sala de premsa d’Apple"
+              },
+              "url": "https://www.apple.com/newsroom/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Microsoft lleva Snapdragon X2 a Surface Laptop 8 y Surface Pro 12",
+            "en": "Microsoft brings Snapdragon X2 to Surface Laptop 8 and Surface Pro 12",
+            "val": "Microsoft porta Snapdragon X2 a Surface Laptop 8 i Surface Pro 12"
+          },
+          "summary": {
+            "es": "Microsoft ha renovado Surface Laptop 8 y Surface Pro 12 con chips Snapdragon X2, más rendimiento de IA local y nuevas configuraciones para empresa. Las versiones comerciales llegan el 14 de julio, mientras los modelos de consumo ya se han presentado con precios superiores a la generación anterior.",
+            "en": "Microsoft has refreshed Surface Laptop 8 and Surface Pro 12 with Snapdragon X2 chips, faster local AI processing and new business configurations. Commercial versions arrive on July 14, while consumer models have already been introduced at higher prices than the previous generation.",
+            "val": "Microsoft ha renovat Surface Laptop 8 i Surface Pro 12 amb xips Snapdragon X2, més rendiment d’IA local i noves configuracions per a empresa. Les versions comercials arriben el 14 de juliol, mentre els models de consum ja s’han presentat amb preus superiors als de la generació anterior."
+          },
+          "source": "The Verge / Windows Central / Tom's Guide",
+          "url": "https://www.theverge.com/tech/950146/microsoft-surface-laptop-8-surface-pro-12-snapdragon-x2-specs-price",
+          "links": [
+            {
+              "title": {
+                "es": "The Verge: especificaciones y precios",
+                "en": "The Verge: specifications and pricing",
+                "val": "The Verge: especificacions i preus"
+              },
+              "url": "https://www.theverge.com/tech/950146/microsoft-surface-laptop-8-surface-pro-12-snapdragon-x2-specs-price"
+            },
+            {
+              "title": {
+                "es": "Windows Central: confirmación de Snapdragon X2",
+                "en": "Windows Central: Snapdragon X2 confirmation",
+                "val": "Windows Central: confirmació de Snapdragon X2"
+              },
+              "url": "https://www.windowscentral.com/hardware/surface/microsoft-confirms-that-it-will-bring-snapdragon-x2-chips-to-surface-pro-and-surface-laptop-this-year"
+            },
+            {
+              "title": {
+                "es": "Tom's Guide: cambios de la gama Surface",
+                "en": "Tom's Guide: Surface lineup changes",
+                "val": "Tom's Guide: canvis de la gamma Surface"
+              },
+              "url": "https://www.tomsguide.com/computing/latest-microsoft-surface-devices-are-more-expensive-but-theres-some-good-news"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "GhostLock permite obtener root en Linux en segundos y escapar de contenedores",
+            "en": "GhostLock can grant Linux root access in seconds and escape containers",
+            "val": "GhostLock permet obtindre root en Linux en segons i escapar de contenidors"
+          },
+          "summary": {
+            "es": "GhostLock, identificada como CVE-2026-43499, es una vulnerabilidad de escalada local presente en el kernel desde 2011 y corregida en Linux 7.1. Investigadores afirman que un usuario sin privilegios puede alcanzar root en unos cinco segundos y que el fallo también permite escapar de ciertos contenedores, por lo que conviene actualizar kernels de servidores, equipos de desarrollo y runners de CI.",
+            "en": "GhostLock, tracked as CVE-2026-43499, is a local privilege-escalation flaw present in the kernel since 2011 and fixed in Linux 7.1. Researchers say an unprivileged user can gain root in about five seconds and that the flaw can also escape some containers, making kernel updates urgent for servers, developer machines and CI runners.",
+            "val": "GhostLock, identificada com CVE-2026-43499, és una vulnerabilitat d’escalada local present en el kernel des de 2011 i corregida en Linux 7.1. Els investigadors afirmen que un usuari sense privilegis pot arribar a root en uns cinc segons i que la fallada també permet escapar de certs contenidors, per la qual cosa convé actualitzar kernels de servidors, equips de desenvolupament i runners de CI."
+          },
+          "source": "ITPro / Wired / CVE",
+          "url": "https://www.itpro.com/software/linux/cyber-researchers-sound-alarm-over-a-15-year-old-linux-kernel-flaw-ghostlock-could-let-hackers-seize-unpatched-machines-in-just-five-seconds",
+          "links": [
+            {
+              "title": {
+                "es": "ITPro: alcance técnico de GhostLock",
+                "en": "ITPro: GhostLock technical impact",
+                "val": "ITPro: abast tècnic de GhostLock"
+              },
+              "url": "https://www.itpro.com/software/linux/cyber-researchers-sound-alarm-over-a-15-year-old-linux-kernel-flaw-ghostlock-could-let-hackers-seize-unpatched-machines-in-just-five-seconds"
+            },
+            {
+              "title": {
+                "es": "Wired: descubrimiento asistido por IA",
+                "en": "Wired: AI-assisted discovery",
+                "val": "Wired: descobriment assistit per IA"
+              },
+              "url": "https://www.wired.com/story/security-news-this-week-ai-found-a-root-bug-in-linux-that-everyone-missed-for-15-years"
+            },
+            {
+              "title": {
+                "es": "Registro oficial CVE-2026-43499",
+                "en": "Official CVE-2026-43499 record",
+                "val": "Registre oficial CVE-2026-43499"
+              },
+              "url": "https://www.cve.org/CVERecord?id=CVE-2026-43499"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "KDDI confirma una brecha que expone millones de correos y contraseñas",
+            "en": "KDDI confirms a breach exposing millions of email accounts and passwords",
+            "val": "KDDI confirma una bretxa que exposa milions de correus i contrasenyes"
+          },
+          "summary": {
+            "es": "El grupo japonés KDDI ha comunicado que un ataque contra sistemas compartidos por seis proveedores pudo comprometer unos 12,2 millones de cuentas de correo y 7,6 millones de contraseñas. Parte de las claves no estaba protegida mediante hash, por lo que los usuarios afectados deben cambiar credenciales reutilizadas y activar autenticación multifactor donde esté disponible.",
+            "en": "Japan’s KDDI group says an attack on systems shared by six providers may have compromised about 12.2 million email accounts and 7.6 million passwords. Some passwords were not hashed, so affected users should change reused credentials and enable multi-factor authentication wherever available.",
+            "val": "El grup japonés KDDI ha comunicat que un atac contra sistemes compartits per sis proveïdors podria haver compromés uns 12,2 milions de comptes de correu i 7,6 milions de contrasenyes. Una part de les claus no estava protegida mitjançant hash, per la qual cosa els usuaris afectats han de canviar credencials reutilitzades i activar autenticació multifactor quan estiga disponible."
+          },
+          "source": "TechRadar / KDDI / CISA",
+          "url": "https://www.techradar.com/pro/security/japanese-telco-giant-kddi-says-12-million-emails-exposed-in-major-cyberattack",
+          "links": [
+            {
+              "title": {
+                "es": "TechRadar: cifras de la brecha",
+                "en": "TechRadar: breach figures",
+                "val": "TechRadar: xifres de la bretxa"
+              },
+              "url": "https://www.techradar.com/pro/security/japanese-telco-giant-kddi-says-12-million-emails-exposed-in-major-cyberattack"
+            },
+            {
+              "title": {
+                "es": "Sala de prensa de KDDI",
+                "en": "KDDI newsroom",
+                "val": "Sala de premsa de KDDI"
+              },
+              "url": "https://newsroom.kddi.com/english/"
+            },
+            {
+              "title": {
+                "es": "Guía de CISA sobre contraseñas y MFA",
+                "en": "CISA guidance on passwords and MFA",
+                "val": "Guia de CISA sobre contrasenyes i MFA"
+              },
+              "url": "https://www.cisa.gov/secure-our-world/use-strong-passwords"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Moana lidera la taquilla, pero su estreno de 95 millones queda por debajo de las expectativas",
+            "en": "Moana tops the box office, but its $95 million opening falls short of expectations",
+            "val": "Moana lidera la taquilla, però la seua estrena de 95 milions queda per davall de les expectatives"
+          },
+          "summary": {
+            "es": "La adaptación de acción real recaudó 43 millones de dólares en Estados Unidos y Canadá y otros 52 millones en mercados internacionales. El total global de 95 millones resulta modesto frente a un presupuesto estimado de 250 millones y refleja la fuerte competencia entre películas familiares durante julio.",
+            "en": "The live-action adaptation earned $43 million in the United States and Canada and another $52 million internationally. Its $95 million global total is modest against a reported $250 million budget and reflects intense competition among family films in July.",
+            "val": "L’adaptació d’acció real va recaptar 43 milions de dòlars als Estats Units i el Canadà i altres 52 milions en mercats internacionals. El total global de 95 milions resulta modest davant un pressupost estimat de 250 milions i reflectix la forta competència entre pel·lícules familiars durant juliol."
+          },
+          "source": "Associated Press / Entertainment Weekly / Wall Street Journal",
+          "url": "https://apnews.com/article/b4a448b95edf0a5d9b47c471f9848104",
+          "links": [
+            {
+              "title": {
+                "es": "AP: resultados de taquilla",
+                "en": "AP: box-office results",
+                "val": "AP: resultats de taquilla"
+              },
+              "url": "https://apnews.com/article/b4a448b95edf0a5d9b47c471f9848104"
+            },
+            {
+              "title": {
+                "es": "Entertainment Weekly: balance del fin de semana",
+                "en": "Entertainment Weekly: weekend recap",
+                "val": "Entertainment Weekly: balanç del cap de setmana"
+              },
+              "url": "https://ew.com/moana-weak-43-million-us-box-office-debut-michael-crosses-record-1-billion-global-12016780"
+            },
+            {
+              "title": {
+                "es": "Wall Street Journal: análisis del estreno",
+                "en": "Wall Street Journal: opening analysis",
+                "val": "Wall Street Journal: anàlisi de l’estrena"
+              },
+              "url": "https://www.wsj.com/business/media/disneys-moana-remake-crashes-at-box-office-de48af2c"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "The Pitt encabeza los Emmy con 25 nominaciones y Hacks suma 24",
+            "en": "The Pitt leads the Emmys with 25 nominations, followed by Hacks with 24",
+            "val": "The Pitt encapçala els Emmy amb 25 nominacions i Hacks en suma 24"
+          },
+          "summary": {
+            "es": "Las nominaciones a los Emmy de 2026 colocan a The Pitt al frente con 25 candidaturas y a Hacks inmediatamente detrás con 24. Widow’s Bay, con 19, y Pluribus, con 18, consolidan además el peso de las nuevas series en una edición muy repartida entre drama, comedia y ciencia ficción.",
+            "en": "The 2026 Emmy nominations place The Pitt first with 25 nods and Hacks close behind with 24. Widow’s Bay, with 19, and Pluribus, with 18, also underline the strength of newer series in a field spread across drama, comedy and science fiction.",
+            "val": "Les nominacions als Emmy de 2026 situen The Pitt al capdavant amb 25 candidatures i Hacks immediatament darrere amb 24. Widow’s Bay, amb 19, i Pluribus, amb 18, consoliden a més el pes de les noves sèries en una edició molt repartida entre drama, comèdia i ciència-ficció."
+          },
+          "source": "Entertainment Weekly / Television Academy / Times of India",
+          "url": "https://ew.com/emmy-nominations-2026-full-list-12013543",
+          "links": [
+            {
+              "title": {
+                "es": "Lista completa en Entertainment Weekly",
+                "en": "Full list at Entertainment Weekly",
+                "val": "Llista completa en Entertainment Weekly"
+              },
+              "url": "https://ew.com/emmy-nominations-2026-full-list-12013543"
+            },
+            {
+              "title": {
+                "es": "Television Academy",
+                "en": "Television Academy",
+                "val": "Television Academy"
+              },
+              "url": "https://www.televisionacademy.com/"
+            },
+            {
+              "title": {
+                "es": "Resumen de nominaciones",
+                "en": "Nominations recap",
+                "val": "Resum de nominacions"
+              },
+              "url": "https://timesofindia.indiatimes.com/entertainment/english/hollywood/news/the-pitt-and-hacks-top-2026-emmy-nominations-but-widows-bay-and-pluribus-steal-the-spotlight/articleshow/132341384.cms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "El cometa interestelar 3I/ATLAS podría ser un relicto de hasta 12.000 millones de años",
+            "en": "Interstellar comet 3I/ATLAS may be a relic up to 12 billion years old",
+            "val": "El cometa interestel·lar 3I/ATLAS podria ser un relicte de fins a 12.000 milions d’anys"
+          },
+          "summary": {
+            "es": "El análisis de isótopos de carbono y nitrógeno sugiere que 3I/ATLAS se formó alrededor de una estrella antigua y pobre en metales, posiblemente hace entre 10.000 y 12.000 millones de años. Si se confirma, este tercer visitante interestelar conocido sería casi tres veces más antiguo que la Tierra y una cápsula química de los primeros tiempos de la Vía Láctea.",
+            "en": "Analysis of carbon and nitrogen isotopes suggests that 3I/ATLAS formed around an ancient, metal-poor star, possibly 10 to 12 billion years ago. If confirmed, the third known interstellar visitor would be nearly three times older than Earth and a chemical time capsule from the Milky Way’s early history.",
+            "val": "L’anàlisi d’isòtops de carboni i nitrogen suggerix que 3I/ATLAS es va formar al voltant d’una estrela antiga i pobra en metalls, possiblement fa entre 10.000 i 12.000 milions d’anys. Si es confirma, este tercer visitant interestel·lar conegut seria quasi tres vegades més antic que la Terra i una càpsula química dels primers temps de la Via Làctia."
+          },
+          "source": "The Times / arXiv / NASA",
+          "url": "https://www.thetimes.com/uk/science/article/comet-ancient-relic-distant-star-system-dh328xqx6",
+          "links": [
+            {
+              "title": {
+                "es": "The Times: composición y edad",
+                "en": "The Times: composition and age",
+                "val": "The Times: composició i edat"
+              },
+              "url": "https://www.thetimes.com/uk/science/article/comet-ancient-relic-distant-star-system-dh328xqx6"
+            },
+            {
+              "title": {
+                "es": "Descripción física de 3I/ATLAS",
+                "en": "Physical description of 3I/ATLAS",
+                "val": "Descripció física de 3I/ATLAS"
+              },
+              "url": "https://arxiv.org/abs/2507.05252"
+            },
+            {
+              "title": {
+                "es": "Misión y seguimiento de objetos interestelares",
+                "en": "NASA interstellar-object tracking",
+                "val": "Missió i seguiment d’objectes interestel·lars"
+              },
+              "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Webb detecta la misma firma química desconocida en Plutón y Titán",
+            "en": "Webb detects the same unidentified chemical signature on Pluto and Titan",
+            "val": "Webb detecta la mateixa firma química desconeguda en Plutó i Tità"
+          },
+          "summary": {
+            "es": "Observaciones independientes de Plutón y Titán muestran una banda de absorción en 5,113 micrómetros que no coincide con ningún compuesto de las bases espectroscópicas actuales. Los investigadores no afirman haber descubierto una molécula nueva: podría tratarse de una sustancia conocida en una mezcla o estado aún no estudiado, y necesitará simulaciones de laboratorio para resolverse.",
+            "en": "Independent observations of Pluto and Titan show an absorption band at 5.113 micrometres that matches no compound in current spectral databases. Researchers are not claiming a new molecule: it may be a known substance in an unstudied mixture or state, and laboratory simulations will be needed to solve the mystery.",
+            "val": "Observacions independents de Plutó i Tità mostren una banda d’absorció en 5,113 micròmetres que no coincidix amb cap compost de les bases espectroscòpiques actuals. Els investigadors no afirmen haver descobert una molècula nova: podria tractar-se d’una substància coneguda en una mescla o estat encara no estudiat, i necessitarà simulacions de laboratori per a resoldre’s."
+          },
+          "source": "Wired / NASA New Horizons / NASA Dragonfly",
+          "url": "https://www.wired.com/story/mysterious-compound-detected-on-pluto-and-titan",
+          "links": [
+            {
+              "title": {
+                "es": "Wired: firma química desconocida",
+                "en": "Wired: unidentified chemical signature",
+                "val": "Wired: firma química desconeguda"
+              },
+              "url": "https://www.wired.com/story/mysterious-compound-detected-on-pluto-and-titan"
+            },
+            {
+              "title": {
+                "es": "NASA New Horizons",
+                "en": "NASA New Horizons",
+                "val": "NASA New Horizons"
+              },
+              "url": "https://science.nasa.gov/mission/new-horizons/"
+            },
+            {
+              "title": {
+                "es": "NASA Dragonfly",
+                "en": "NASA Dragonfly",
+                "val": "NASA Dragonfly"
+              },
+              "url": "https://science.nasa.gov/mission/dragonfly/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "Auriculares de conducción ósea para natación con un 67% de descuento",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Los auriculares impermeables de conducción ósea incluidos en la selección semanal de Amazon bajan un 67%, con un ahorro anunciado de 87€. La oferta estaba vigente en la revisión del 10 de julio y puede cambiar por stock o precio dinámico; conviene comprobar la ficha antes de pagar.",
+            "en": "",
+            "val": ""
+          },
+          "source": "El País Escaparate",
+          "url": "https://elpais.com/escaparate/ofertas-y-descuentos/chollos-semana-amazon-10-julio-2026.html",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "Consultar ficha",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "Consultar ficha",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-67%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Mientras dure la oferta o el stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "Robot aspirador Roborock con un 49% de descuento",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Un robot aspirador Roborock aparece con una rebaja del 49% en la selección de chollos semanales de Amazon. El precio puede variar durante el día, por lo que la referencia válida es la ficha enlazada desde el recopilatorio y no una cifra fija no verificada.",
+            "en": "",
+            "val": ""
+          },
+          "source": "El País Escaparate",
+          "url": "https://elpais.com/escaparate/ofertas-y-descuentos/chollos-semana-amazon-10-julio-2026.html",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "Consultar ficha",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "Consultar ficha",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-49%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Mientras dure la oferta o el stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Auriculars de conducció òssia per a natació amb un 67% de descompte"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Els auriculars impermeables de conducció òssia inclosos en la selecció setmanal d’Amazon baixen un 67%, amb un estalvi anunciat de 87€. L’oferta estava vigent en la revisió del 10 de juliol i pot canviar per estoc o preu dinàmic; convé comprovar la fitxa abans de pagar."
+          },
+          "source": "El País Escaparate",
+          "url": "https://elpais.com/escaparate/ofertas-y-descuentos/chollos-semana-amazon-10-julio-2026.html",
+          "platform": "Amazon Espanya",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "Consultar fitxa"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "Consultar fitxa"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-67%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Mentre dure l’oferta o l’estoc"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Robot aspirador Roborock amb un 49% de descompte"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Un robot aspirador Roborock apareix amb una rebaixa del 49% en la selecció de xollos setmanals d’Amazon. El preu pot variar durant el dia, per la qual cosa la referència vàlida és la fitxa enllaçada des del recopilatori i no una xifra fixa no verificada."
+          },
+          "source": "El País Escaparate",
+          "url": "https://elpais.com/escaparate/ofertas-y-descuentos/chollos-semana-amazon-10-julio-2026.html",
+          "platform": "Amazon Espanya",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "Consultar fitxa"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "Consultar fitxa"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-49%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Mentre dure l’oferta o l’estoc"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Samsung T9 1TB portable SSD for $199.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "Samsung’s T9 1TB portable SSD drops from $287.99 to $199.99, a 31% discount and roughly $0.20 per gigabyte. The drive targets fast portable storage for PCs, consoles and creators; stock and pricing should be checked before checkout.",
+            "val": ""
+          },
+          "source": "Android Central",
+          "url": "https://www.androidcentral.com/accessories/storage/these-two-portable-samsung-ssds-are-up-to-31-percent-off-at-amazon-thats-1tb-of-storage-for-as-little-as-usd0-20-per-gig",
+          "platform": "Amazon US",
+          "originalPrice": {
+            "es": "",
+            "en": "$287.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$199.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-31%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "Limited time, while stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Volisun solar post lights for $23",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "A set of Volisun solar post lights is listed at $23 instead of $46, a 50% reduction. It is an outdoor-electronics deal rather than a computing product, but it meets the discount threshold and uses solar charging without wiring.",
+            "val": ""
+          },
+          "source": "Better Homes & Gardens",
+          "url": "https://www.bhg.com/amazon-overstock-outlet-weekend-deals-july-2026-12010662",
+          "platform": "Amazon US",
+          "originalPrice": {
+            "es": "",
+            "en": "$46",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$23",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-50%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "Limited time, while stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "The Guy She Was Interested in Wasn't a Guy at All llegará en enero de 2027 con música de Nirvana",
+            "en": "The Guy She Was Interested in Wasn't a Guy at All arrives in January 2027 with Nirvana music",
+            "val": "The Guy She Was Interested in Wasn't a Guy at All arribarà en gener de 2027 amb música de Nirvana"
+          },
+          "summary": {
+            "es": "CloverWorks estrenará en enero de 2027 la adaptación del manga de Sumiko Arai, una historia romántica marcada por el rock alternativo y la identidad. El tema de apertura será Breed, de Nirvana, y Dave Grohl ha respaldado públicamente el proyecto afirmando que a Kurt Cobain le habría encantado.",
+            "en": "CloverWorks will premiere its adaptation of Sumiko Arai’s manga in January 2027, a romance shaped by alternative rock and identity. Nirvana’s Breed will serve as the opening theme, and Dave Grohl has publicly endorsed the project, saying Kurt Cobain would have loved it.",
+            "val": "CloverWorks estrenarà en gener de 2027 l’adaptació del manga de Sumiko Arai, una història romàntica marcada pel rock alternatiu i la identitat. El tema d’obertura serà Breed, de Nirvana, i Dave Grohl ha recolzat públicament el projecte afirmant que a Kurt Cobain li hauria encantat."
+          },
+          "source": "GamesRadar / MeriStation / Crunchyroll",
+          "url": "https://www.gamesradar.com/entertainment/anime-shows/nirvana-and-foo-fighters-dave-grohl-says-kurt-cobain-wouldve-loved-this-new-anime-about-gay-girls/",
+          "links": [
+            {
+              "title": {
+                "es": "GamesRadar: anuncio y apoyo de Dave Grohl",
+                "en": "GamesRadar: announcement and Dave Grohl support",
+                "val": "GamesRadar: anunci i suport de Dave Grohl"
+              },
+              "url": "https://www.gamesradar.com/entertainment/anime-shows/nirvana-and-foo-fighters-dave-grohl-says-kurt-cobain-wouldve-loved-this-new-anime-about-gay-girls/"
+            },
+            {
+              "title": {
+                "es": "MeriStation: contexto musical del manga",
+                "en": "MeriStation: manga’s musical context",
+                "val": "MeriStation: context musical del manga"
+              },
+              "url": "https://as.com/meristation/manga-y-anime/dave-grohl-ex-bateria-de-nirvana-a-kurt-cobain-le-hubiera-encantado-este-manga-f202607-n/"
+            },
+            {
+              "title": {
+                "es": "Noticias de anime en Crunchyroll",
+                "en": "Anime news at Crunchyroll",
+                "val": "Notícies d’anime en Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/news"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La semana de anime suma Thunder 3, Tomb Raider King y nuevas tandas en Netflix, Prime Video y Crunchyroll",
+            "en": "Anime week adds Thunder 3, Tomb Raider King and new batches across Netflix, Prime Video and Crunchyroll",
+            "val": "La setmana d’anime suma Thunder 3, Tomb Raider King i noves tandes en Netflix, Prime Video i Crunchyroll"
+          },
+          "summary": {
+            "es": "La programación del 6 al 12 de julio ha renovado los catálogos con estrenos de acción, fantasía y adaptación de webtoon, entre ellos Thunder 3 y Tomb Raider King. La fragmentación entre servicios hace recomendable revisar el calendario regional de cada plataforma, porque la disponibilidad y el doblaje cambian según el país.",
+            "en": "The July 6–12 schedule refreshed catalogues with action, fantasy and webtoon adaptations, including Thunder 3 and Tomb Raider King. Fragmentation across services makes regional calendars essential, as availability and dubbing differ by country.",
+            "val": "La programació del 6 al 12 de juliol ha renovat els catàlegs amb estrenes d’acció, fantasia i adaptació de webtoon, entre elles Thunder 3 i Tomb Raider King. La fragmentació entre serveis fa recomanable revisar el calendari regional de cada plataforma, perquè la disponibilitat i el doblatge canvien segons el país."
+          },
+          "source": "Economic Times / Crunchyroll / Netflix",
+          "url": "https://m.economictimes.com/magazines/panache/new-anime-ott-releases-this-week-july-6july-12-thunder-3-tomb-raider-king-and-more-to-watch-on-netflix-prime-video-and-crunchyroll/articleshow/132254596.cms",
+          "links": [
+            {
+              "title": {
+                "es": "Economic Times: estrenos de la semana",
+                "en": "Economic Times: weekly releases",
+                "val": "Economic Times: estrenes de la setmana"
+              },
+              "url": "https://m.economictimes.com/magazines/panache/new-anime-ott-releases-this-week-july-6july-12-thunder-3-tomb-raider-king-and-more-to-watch-on-netflix-prime-video-and-crunchyroll/articleshow/132254596.cms"
+            },
+            {
+              "title": {
+                "es": "Calendario de simulcast de Crunchyroll",
+                "en": "Crunchyroll simulcast calendar",
+                "val": "Calendari de simulcast de Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/simulcastcalendar"
+            },
+            {
+              "title": {
+                "es": "Catálogo de anime de Netflix",
+                "en": "Netflix anime catalogue",
+                "val": "Catàleg d’anime de Netflix"
+              },
+              "url": "https://www.netflix.com/browse/genre/7424"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
