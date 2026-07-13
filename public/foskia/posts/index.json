@@ -1489,6 +1489,1594 @@
       ]
     },
     {
+      "date": "2026-06-29",
+      "title": {
+        "es": "El petróleo vuelve a subir, Europa prolonga la alerta por calor y Bitcoin rebota sobre los 60.000 dólares",
+        "en": "Oil rises again, Europe extends heat alerts and Bitcoin rebounds above $60,000",
+        "val": "El petroli torna a pujar, Europa prolonga l’alerta per calor i Bitcoin rebota sobre els 60.000 dòlars"
+      },
+      "intro": {
+        "es": "La edición del 29 de junio abre una semana corta en los mercados con rebote tecnológico, petróleo alrededor de 70 dólares y Bitcoin intentando recuperar los 60.000. Europa sigue bajo el impacto de una ola de calor histórica, mientras Estados Unidos e Irán vuelven a intercambiar ataques antes de retomar las negociaciones. En tecnología, el foco se reparte entre agentes de programación, control de sistemas de IA, nuevos chips para centros de datos y vulnerabilidades de Windows que ya están siendo explotadas.",
+        "en": "The June 29 edition opens a holiday-shortened market week with a tech rebound, oil near $70 and Bitcoin trying to reclaim $60,000. Europe remains under the impact of a historic heatwave, while the United States and Iran exchange new attacks before returning to negotiations. In technology, attention is split between coding agents, AI-control research, new data-centre chips and Windows vulnerabilities already being exploited.",
+        "val": "L’edició del 29 de juny obri una setmana curta als mercats amb rebot tecnològic, petroli al voltant dels 70 dòlars i Bitcoin intentant recuperar els 60.000. Europa continua sota l’impacte d’una onada de calor històrica, mentre els Estats Units i l’Iran tornen a intercanviar atacs abans de reprendre les negociacions. En tecnologia, el focus es repartix entre agents de programació, control de sistemes d’IA, nous xips per a centres de dades i vulnerabilitats de Windows que ja estan sent explotades."
+      },
+      "summary": {
+        "es": "Calor récord en Europa, tensión en Oriente Próximo, rebote de los mercados, Bitcoin sobre 60.000 dólares y una semana decisiva para IA, chips y seguridad.",
+        "en": "Record heat in Europe, Middle East tensions, a market rebound, Bitcoin above $60,000 and a decisive week for AI, chips and security.",
+        "val": "Calor rècord a Europa, tensió a Orient Pròxim, rebot dels mercats, Bitcoin sobre 60.000 dòlars i una setmana decisiva per a IA, xips i seguretat."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "sections": [
+        {
+          "category": "gaming",
+          "items": [
+            {
+              "title": {
+                "es": "Las rebajas de verano de Steam concentran miles de descuentos hasta el 9 de julio",
+                "en": "Steam Summer Sale gathers thousands of discounts through July 9",
+                "val": "Les rebaixes d’estiu de Steam concentren milers de descomptes fins al 9 de juliol"
+              },
+              "summary": {
+                "es": "La campaña veraniega de Valve sigue activa con descuentos profundos en prácticamente todos los géneros. Entre las referencias destacadas aparecen Mass Effect Legendary Edition, Red Dead Redemption 2 y Ghostwire: Tokyo; conviene revisar el histórico antes de comprar en la <a href=\"https://store.steampowered.com/\">tienda de Steam</a>.",
+                "en": "Valve’s summer campaign remains active with deep discounts across almost every genre. Highlights include Mass Effect Legendary Edition, Red Dead Redemption 2 and Ghostwire: Tokyo; checking price history before buying on the <a href=\"https://store.steampowered.com/\">Steam store</a> remains sensible.",
+                "val": "La campanya d’estiu de Valve continua activa amb descomptes profunds en pràcticament tots els gèneres. Entre les referències destacades apareixen Mass Effect Legendary Edition, Red Dead Redemption 2 i Ghostwire: Tokyo; convé revisar l’històric abans de comprar en la <a href=\"https://store.steampowered.com/\">botiga de Steam</a>."
+              },
+              "source": "PC Gamer / Steam / SteamDB",
+              "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/",
+              "links": [
+                {
+                  "title": {
+                    "es": "PC Gamer: arranque de las rebajas",
+                    "en": "PC Gamer: sale launch",
+                    "val": "PC Gamer: inici de les rebaixes"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                },
+                {
+                  "title": {
+                    "es": "Tienda de Steam",
+                    "en": "Steam storefront",
+                    "val": "Botiga de Steam"
+                  },
+                  "url": "https://store.steampowered.com/"
+                },
+                {
+                  "title": {
+                    "es": "Seguimiento de descuentos en SteamDB",
+                    "en": "SteamDB discount tracker",
+                    "val": "Seguiment de descomptes en SteamDB"
+                  },
+                  "url": "https://steamdb.info/sales/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Steam Next Fest deja una señal incómoda para la IA: solo una demo declarada entra entre las más jugadas",
+                "en": "Steam Next Fest sends an awkward AI signal: only one disclosed demo reaches the most-played list",
+                "val": "Steam Next Fest deixa un senyal incòmode per a la IA: només una demo declarada entra entre les més jugades"
+              },
+              "summary": {
+                "es": "Más de 500 demos declaraban algún uso de IA generativa, pero solo una logró entrar en el grupo de mayor audiencia. El dato no demuestra que la IA reduzca el interés, aunque sí cuestiona que una producción más rápida garantice tracción real; el análisis completo está en <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a>.",
+                "en": "More than 500 demos disclosed some use of generative AI, yet only one reached the highest-audience group. The figure does not prove that AI reduces interest, but it does challenge the idea that faster production guarantees genuine traction; the full analysis is available at <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a>.",
+                "val": "Més de 500 demos declaraven algun ús d’IA generativa, però només una va entrar en el grup de major audiència. La dada no demostra que la IA reduïsca l’interés, encara que sí qüestiona que una producció més ràpida garantisca tracció real; l’anàlisi completa està en <a href=\"https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/\">PC Gamer</a>."
+              },
+              "source": "PC Gamer / Steam / Tim Sweeney interview",
+              "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/",
+              "links": [
+                {
+                  "title": {
+                    "es": "PC Gamer: demos con IA",
+                    "en": "PC Gamer: AI-disclosed demos",
+                    "val": "PC Gamer: demos amb IA"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/"
+                },
+                {
+                  "title": {
+                    "es": "Página de Steam Next Fest",
+                    "en": "Steam Next Fest page",
+                    "val": "Pàgina de Steam Next Fest"
+                  },
+                  "url": "https://store.steampowered.com/sale/nextfest"
+                },
+                {
+                  "title": {
+                    "es": "Entrevista a Tim Sweeney sobre IA",
+                    "en": "Tim Sweeney interview on AI",
+                    "val": "Entrevista a Tim Sweeney sobre IA"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "gratis",
+          "items": [
+            {
+              "title": {
+                "es": "RollerCoaster Tycoon 3 Complete Edition y Voidwrought siguen gratis en Epic",
+                "en": "RollerCoaster Tycoon 3 Complete Edition and Voidwrought remain free on Epic",
+                "val": "RollerCoaster Tycoon 3 Complete Edition i Voidwrought continuen gratis en Epic"
+              },
+              "summary": {
+                "es": "La rotación vigente permite añadir ambos juegos a la biblioteca sin coste hasta el 2 de julio a las 17:00 CEST. El primero ofrece gestión de parques y el segundo un metroidvania oscuro; se reclaman desde la <a href=\"https://store.epicgames.com/free-games\">página de juegos gratis de Epic</a>.",
+                "en": "The current rotation lets users add both games to their library at no cost until July 2 at 3:00 PM UTC. The first is a theme-park management game and the second a dark metroidvania; both are claimed from the <a href=\"https://store.epicgames.com/free-games\">Epic free-games page</a>.",
+                "val": "La rotació vigent permet afegir els dos jocs a la biblioteca sense cost fins al 2 de juliol a les 17.00 CEST. El primer oferix gestió de parcs i el segon un metroidvania fosc; es reclamen des de la <a href=\"https://store.epicgames.com/free-games\">pàgina de jocs gratis d’Epic</a>."
+              },
+              "source": "Epic Games Store / PC Gamer",
+              "url": "https://store.epicgames.com/free-games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Epic Games Store: juegos gratis",
+                    "en": "Epic Games Store: free games",
+                    "val": "Epic Games Store: jocs gratis"
+                  },
+                  "url": "https://store.epicgames.com/free-games"
+                },
+                {
+                  "title": {
+                    "es": "Historial semanal de PC Gamer",
+                    "en": "PC Gamer weekly history",
+                    "val": "Historial setmanal de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+                },
+                {
+                  "title": {
+                    "es": "Búsqueda de RollerCoaster Tycoon 3 en Epic",
+                    "en": "RollerCoaster Tycoon 3 search on Epic",
+                    "val": "Cerca de RollerCoaster Tycoon 3 en Epic"
+                  },
+                  "url": "https://store.epicgames.com/en-US/browse?q=RollerCoaster%20Tycoon%203&sortBy=relevancy&sortDir=DESC&count=40"
+                }
+              ],
+              "platform": "Epic Games Store",
+              "until": {
+                "es": "Hasta el 2 de julio de 2026, 17:00 CEST",
+                "en": "Until July 2, 2026, 3:00 PM UTC",
+                "val": "Fins al 2 de juliol de 2026, 17.00 CEST"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Prime Gaming incorpora Terraforming Mars y Lost Eidolons: Veil of the Witch",
+                "en": "Prime Gaming adds Terraforming Mars and Lost Eidolons: Veil of the Witch",
+                "val": "Prime Gaming incorpora Terraforming Mars i Lost Eidolons: Veil of the Witch"
+              },
+              "summary": {
+                "es": "La tanda de cierre de junio añade estrategia de mesa digital y combate táctico por turnos para usuarios de Prime. Las fechas de retirada cambian según el juego y el launcher, por lo que conviene reclamarlos desde el <a href=\"https://gaming.amazon.com/\">hub de Prime Gaming</a> cuanto antes.",
+                "en": "The late-June batch adds digital board-game strategy and turn-based tactical combat for Prime members. Removal dates vary by game and launcher, so claiming them through the <a href=\"https://gaming.amazon.com/\">Prime Gaming hub</a> promptly is advisable.",
+                "val": "La tanda de tancament de juny afig estratègia de tauler digital i combat tàctic per torns per als usuaris de Prime. Les dates de retirada canvien segons el joc i el launcher, per la qual cosa convé reclamar-los des del <a href=\"https://gaming.amazon.com/\">hub de Prime Gaming</a> com més prompte millor."
+              },
+              "source": "Prime Gaming / Amazon Luna / The Sun",
+              "url": "https://gaming.amazon.com/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Prime Gaming",
+                    "en": "Prime Gaming",
+                    "val": "Prime Gaming"
+                  },
+                  "url": "https://gaming.amazon.com/"
+                },
+                {
+                  "title": {
+                    "es": "Cobertura de los regalos de junio",
+                    "en": "Coverage of June rewards",
+                    "val": "Cobertura dels regals de juny"
+                  },
+                  "url": "https://www.thesun.co.uk/tech/39295898/amazon-prime-members-get-free-gifts/"
+                },
+                {
+                  "title": {
+                    "es": "Amazon Luna",
+                    "en": "Amazon Luna",
+                    "val": "Amazon Luna"
+                  },
+                  "url": "https://luna.amazon.com/"
+                }
+              ],
+              "platform": "Prime Gaming",
+              "until": {
+                "es": "Fechas variables según el juego",
+                "en": "Dates vary by game",
+                "val": "Dates variables segons el joc"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Grounded, Darktide y Nickelodeon All-Star Brawl 2 continúan en PS Plus Essential",
+                "en": "Grounded, Darktide and Nickelodeon All-Star Brawl 2 remain on PS Plus Essential",
+                "val": "Grounded, Darktide i Nickelodeon All-Star Brawl 2 continuen en PS Plus Essential"
+              },
+              "summary": {
+                "es": "La selección mensual combina supervivencia cooperativa, acción contra hordas y lucha de plataformas. Puede añadirse a la biblioteca hasta el 6 de julio, aunque requiere mantener una suscripción activa; la lista está resumida en <a href=\"https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/\">MeriStation</a>.",
+                "en": "The monthly selection combines co-op survival, horde action and platform fighting. It can be added to the library until July 6, although an active subscription is required; the lineup is summarised by <a href=\"https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/\">MeriStation</a>.",
+                "val": "La selecció mensual combina supervivència cooperativa, acció contra hordes i lluita de plataformes. Es pot afegir a la biblioteca fins al 6 de juliol, encara que requerix mantindre una subscripció activa; la llista està resumida en <a href=\"https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/\">MeriStation</a>."
+              },
+              "source": "PlayStation Plus / MeriStation / TechRadar",
+              "url": "https://www.playstation.com/en-us/ps-plus/whats-new/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Novedades de PlayStation Plus",
+                    "en": "PlayStation Plus latest games",
+                    "val": "Novetats de PlayStation Plus"
+                  },
+                  "url": "https://www.playstation.com/en-us/ps-plus/whats-new/"
+                },
+                {
+                  "title": {
+                    "es": "MeriStation: juegos de junio",
+                    "en": "MeriStation: June games",
+                    "val": "MeriStation: jocs de juny"
+                  },
+                  "url": "https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/"
+                },
+                {
+                  "title": {
+                    "es": "TechRadar: análisis de la selección",
+                    "en": "TechRadar: lineup analysis",
+                    "val": "TechRadar: anàlisi de la selecció"
+                  },
+                  "url": "https://www.techradar.com/gaming/playstation/the-free-playstation-plus-essential-games-for-june-have-been-revealed-and-they-include-an-xbox-published-game"
+                }
+              ],
+              "platform": "PS Plus Essential",
+              "until": {
+                "es": "Hasta el 6 de julio de 2026",
+                "en": "Until July 6, 2026",
+                "val": "Fins al 6 de juliol de 2026"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Persona 5 Royal encabeza un junio cargado en Xbox Game Pass",
+                "en": "Persona 5 Royal leads a packed June on Xbox Game Pass",
+                "val": "Persona 5 Royal encapçala un juny carregat en Xbox Game Pass"
+              },
+              "summary": {
+                "es": "El catálogo de junio suma Persona 5 Royal junto a títulos como Solarpunk, Starseeker: Astroneer Expeditions y Junkster. Son accesos ligados a la suscripción y pueden abandonar el servicio más adelante; la relación de altas está recogida por <a href=\"https://www.techradar.com/gaming/one-of-my-all-time-favourite-jrpgs-has-been-announced-for-the-xbox-game-pass-lineup-for-june-ahead-of-the-xbox-games-showcase\">TechRadar</a>.",
+                "en": "June’s catalogue adds Persona 5 Royal alongside games such as Solarpunk, Starseeker: Astroneer Expeditions and Junkster. Access is subscription-based and titles may leave later; the additions are listed by <a href=\"https://www.techradar.com/gaming/one-of-my-all-time-favourite-jrpgs-has-been-announced-for-the-xbox-game-pass-lineup-for-june-ahead-of-the-xbox-games-showcase\">TechRadar</a>.",
+                "val": "El catàleg de juny suma Persona 5 Royal junt amb títols com Solarpunk, Starseeker: Astroneer Expeditions i Junkster. Són accessos lligats a la subscripció i poden abandonar el servici més avant; la relació d’altes està recollida per <a href=\"https://www.techradar.com/gaming/one-of-my-all-time-favourite-jrpgs-has-been-announced-for-the-xbox-game-pass-lineup-for-june-ahead-of-the-xbox-games-showcase\">TechRadar</a>."
+              },
+              "source": "Xbox Game Pass / Xbox Wire / TechRadar",
+              "url": "https://www.xbox.com/xbox-game-pass/games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Catálogo de Xbox Game Pass",
+                    "en": "Xbox Game Pass catalogue",
+                    "val": "Catàleg de Xbox Game Pass"
+                  },
+                  "url": "https://www.xbox.com/xbox-game-pass/games"
+                },
+                {
+                  "title": {
+                    "es": "Noticias oficiales de Game Pass",
+                    "en": "Official Game Pass news",
+                    "val": "Notícies oficials de Game Pass"
+                  },
+                  "url": "https://news.xbox.com/en-us/xbox-game-pass/"
+                },
+                {
+                  "title": {
+                    "es": "TechRadar: altas de junio",
+                    "en": "TechRadar: June additions",
+                    "val": "TechRadar: altes de juny"
+                  },
+                  "url": "https://www.techradar.com/gaming/one-of-my-all-time-favourite-jrpgs-has-been-announced-for-the-xbox-game-pass-lineup-for-june-ahead-of-the-xbox-games-showcase"
+                }
+              ],
+              "platform": "Xbox Game Pass",
+              "until": {
+                "es": "Mientras permanezcan en el catálogo",
+                "en": "While they remain in the catalogue",
+                "val": "Mentre continuen en el catàleg"
+              },
+              "urgent": false
+            }
+          ]
+        },
+        {
+          "category": "codigo",
+          "items": [
+            {
+              "title": {
+                "es": "Codex muestra el salto real hacia flujos con varios agentes en paralelo",
+                "en": "Codex data shows the real shift toward parallel multi-agent workflows",
+                "val": "Codex mostra el salt real cap a fluxos amb diversos agents en paral·lel"
+              },
+              "summary": {
+                "es": "Un estudio sobre el uso de Codex durante el primer semestre de 2026 indica que sus usuarios activos se multiplicaron por más de cinco y que más del 10 % gestionó tres o más agentes simultáneos cada semana. La lectura importante no es solo el crecimiento: el trabajo de desarrollo empieza a organizarse como supervisión de tareas concurrentes, según el <a href=\"https://arxiv.org/abs/2606.26959\">estudio</a>.",
+                "en": "A study of Codex usage during the first half of 2026 says active users increased more than fivefold and over 10% managed three or more concurrent agents each week. The important point is not growth alone: software work is starting to look like supervision of parallel tasks, according to the <a href=\"https://arxiv.org/abs/2606.26959\">study</a>.",
+                "val": "Un estudi sobre l’ús de Codex durant el primer semestre de 2026 indica que els usuaris actius es van multiplicar per més de cinc i que més del 10 % va gestionar tres o més agents simultanis cada setmana. La lectura important no és només el creixement: el treball de desenvolupament comença a organitzar-se com a supervisió de tasques concurrents, segons l’<a href=\"https://arxiv.org/abs/2606.26959\">estudi</a>."
+              },
+              "source": "arXiv / OpenAI Codex / Stack Overflow",
+              "url": "https://arxiv.org/abs/2606.26959",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio sobre el uso de Codex",
+                    "en": "Codex usage study",
+                    "val": "Estudi sobre l’ús de Codex"
+                  },
+                  "url": "https://arxiv.org/abs/2606.26959"
+                },
+                {
+                  "title": {
+                    "es": "Página oficial de Codex",
+                    "en": "Official Codex page",
+                    "val": "Pàgina oficial de Codex"
+                  },
+                  "url": "https://openai.com/codex/"
+                },
+                {
+                  "title": {
+                    "es": "Stack Overflow: experiencia de desarrollo",
+                    "en": "Stack Overflow: developer experience",
+                    "val": "Stack Overflow: experiència de desenvolupament"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "La verificación gana peso frente a la generación automática de código",
+                "en": "Verification gains importance as code generation becomes automated",
+                "val": "La verificació guanya pes davant de la generació automàtica de codi"
+              },
+              "summary": {
+                "es": "La literatura reciente sobre la profesión del software apunta a que revisar, validar y definir límites será más valioso que producir grandes volúmenes de sugerencias. Los agentes aceleran tareas, pero también pueden multiplicar decisiones y errores si el contexto no está bien acotado; Stack Overflow lo resume como <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">fatiga de decisión</a>.",
+                "en": "Recent research on the software profession suggests that reviewing, validating and setting boundaries will become more valuable than producing large volumes of suggestions. Agents speed up tasks, but they can also multiply decisions and errors when context is poorly constrained; Stack Overflow describes this as <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">decision fatigue</a>.",
+                "val": "La literatura recent sobre la professió del programari apunta que revisar, validar i definir límits serà més valuós que produir grans volums de suggeriments. Els agents acceleren tasques, però també poden multiplicar decisions i errors si el context no està ben acotat; Stack Overflow ho resumix com a <a href=\"https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/\">fatiga de decisió</a>."
+              },
+              "source": "arXiv / Stack Overflow / Hacker News",
+              "url": "https://arxiv.org/abs/2606.21894",
+              "links": [
+                {
+                  "title": {
+                    "es": "Futuro de la profesión del software",
+                    "en": "Future of the software profession",
+                    "val": "Futur de la professió del programari"
+                  },
+                  "url": "https://arxiv.org/abs/2606.21894"
+                },
+                {
+                  "title": {
+                    "es": "Stack Overflow: fatiga con agentes",
+                    "en": "Stack Overflow: agent decision fatigue",
+                    "val": "Stack Overflow: fatiga amb agents"
+                  },
+                  "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/"
+                },
+                {
+                  "title": {
+                    "es": "Debate de la comunidad en Hacker News",
+                    "en": "Community discussion on Hacker News",
+                    "val": "Debat de la comunitat en Hacker News"
+                  },
+                  "url": "https://news.ycombinator.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ciencia",
+          "items": [
+            {
+              "title": {
+                "es": "Francia cierra junio con una ola de calor sin precedentes y cientos de récords",
+                "en": "France ends June with an unprecedented heatwave and hundreds of records",
+                "val": "França tanca juny amb una onada de calor sense precedents i centenars de rècords"
+              },
+              "summary": {
+                "es": "Más del 40 % de la Francia continental superó los 40 °C durante los días más extremos y París rebasó ese umbral dos jornadas consecutivas. Météo-France contabilizó 114 superaciones de 40 °C en su red de referencia hasta el 29 de junio, frente a 88 en toda la ola de 2003; los datos están recopilados por <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde</a>.",
+                "en": "More than 40% of mainland France exceeded 40°C during the most extreme days, and Paris crossed that threshold on two consecutive days. Météo-France counted 114 crossings of 40°C in its reference network by June 29, compared with 88 during the entire 2003 heatwave; the data is compiled by <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde</a>.",
+                "val": "Més del 40 % de la França continental va superar els 40 °C durant els dies més extrems i París va ultrapassar eixe llindar dos jornades consecutives. Météo-France va comptabilitzar 114 superacions de 40 °C en la seua xarxa de referència fins al 29 de juny, davant de 88 en tota l’onada de 2003; les dades estan recopilades per <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde</a>."
+              },
+              "source": "Le Monde / Météo-France / World Weather Attribution",
+              "url": "https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html",
+              "links": [
+                {
+                  "title": {
+                    "es": "Le Monde: escala de la ola de calor",
+                    "en": "Le Monde: heatwave scale",
+                    "val": "Le Monde: escala de l’onada de calor"
+                  },
+                  "url": "https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html"
+                },
+                {
+                  "title": {
+                    "es": "Météo-France",
+                    "en": "Météo-France",
+                    "val": "Météo-France"
+                  },
+                  "url": "https://meteofrance.com/"
+                },
+                {
+                  "title": {
+                    "es": "World Weather Attribution",
+                    "en": "World Weather Attribution",
+                    "val": "World Weather Attribution"
+                  },
+                  "url": "https://www.worldweatherattribution.org/fossil-fuel-emissions-have-rapidly-worsened-european-heatwaves-in-just-a-few-decades/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Francia publica la primera estimación sanitaria del episodio extremo",
+                "en": "France publishes the first health estimate from the extreme heat episode",
+                "val": "França publica la primera estimació sanitària de l’episodi extrem"
+              },
+              "summary": {
+                "es": "Las autoridades sanitarias comienzan a medir el impacto sobre mortalidad, urgencias y fallecimientos en domicilios mientras continúan las temperaturas anómalas. La estimación inicial todavía puede revisarse, pero refuerza la necesidad de vigilar noches cálidas, aislamiento y enfermedades previas; el primer balance fue publicado por <a href=\"https://www.lemonde.fr/en/health/article/2026/06/29/france-releases-first-estimate-of-heatwave-mortality-as-at-home-deaths-rise_6754966_14.html\">Le Monde</a>.",
+                "en": "Health authorities are beginning to measure the impact on mortality, emergency admissions and deaths at home while anomalous temperatures continue. The initial estimate may still be revised, but it reinforces the need to monitor hot nights, isolation and pre-existing conditions; the first assessment was published by <a href=\"https://www.lemonde.fr/en/health/article/2026/06/29/france-releases-first-estimate-of-heatwave-mortality-as-at-home-deaths-rise_6754966_14.html\">Le Monde</a>.",
+                "val": "Les autoritats sanitàries comencen a mesurar l’impacte sobre mortalitat, urgències i defuncions en domicilis mentre continuen les temperatures anòmales. L’estimació inicial encara pot revisar-se, però reforça la necessitat de vigilar nits càlides, aïllament i malalties prèvies; el primer balanç va ser publicat per <a href=\"https://www.lemonde.fr/en/health/article/2026/06/29/france-releases-first-estimate-of-heatwave-mortality-as-at-home-deaths-rise_6754966_14.html\">Le Monde</a>."
+              },
+              "source": "Le Monde / EuroMOMO / WHO",
+              "url": "https://www.lemonde.fr/en/health/article/2026/06/29/france-releases-first-estimate-of-heatwave-mortality-as-at-home-deaths-rise_6754966_14.html",
+              "links": [
+                {
+                  "title": {
+                    "es": "Primer balance sanitario francés",
+                    "en": "First French health assessment",
+                    "val": "Primer balanç sanitari francés"
+                  },
+                  "url": "https://www.lemonde.fr/en/health/article/2026/06/29/france-releases-first-estimate-of-heatwave-mortality-as-at-home-deaths-rise_6754966_14.html"
+                },
+                {
+                  "title": {
+                    "es": "EuroMOMO: mortalidad europea",
+                    "en": "EuroMOMO: European mortality",
+                    "val": "EuroMOMO: mortalitat europea"
+                  },
+                  "url": "https://www.euromomo.eu/graphs-and-maps"
+                },
+                {
+                  "title": {
+                    "es": "OMS: riesgos de las olas de calor",
+                    "en": "WHO: heatwave health risks",
+                    "val": "OMS: riscos de les onades de calor"
+                  },
+                  "url": "https://www.who.int/health-topics/heatwaves"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "economia",
+          "items": [
+            {
+              "title": {
+                "es": "Los futuros de Wall Street rebotan mientras el petróleo ronda los 70 dólares",
+                "en": "Wall Street futures rebound as oil trades near $70",
+                "val": "Els futurs de Wall Street reboten mentre el petroli ronda els 70 dòlars"
+              },
+              "summary": {
+                "es": "Los futuros del S&P 500 y del Nasdaq avanzan alrededor de un 0,9 % y un 1,2 % después de cinco sesiones bajistas, con el sector tecnológico intentando recuperar terreno. El WTI se mueve cerca de 70 dólares y el bono estadounidense a diez años ronda el 4,38 %, según el resumen de apertura de <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "en": "S&P 500 and Nasdaq futures rise roughly 0.9% and 1.2% after five losing sessions, with technology shares trying to recover. WTI trades near $70 and the US 10-year Treasury yield sits around 4.38%, according to <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia’s</a> opening brief.",
+                "val": "Els futurs de l’S&P 500 i del Nasdaq avancen al voltant d’un 0,9 % i un 1,2 % després de cinc sessions baixistes, amb el sector tecnològic intentant recuperar terreny. El WTI es mou prop dels 70 dòlars i el bo nord-americà a deu anys ronda el 4,38 %, segons el resum d’obertura d’<a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>."
+              },
+              "source": "Investopedia / Reuters Markets / Nasdaq",
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262",
+              "links": [
+                {
+                  "title": {
+                    "es": "Investopedia: claves de apertura",
+                    "en": "Investopedia: market-open brief",
+                    "val": "Investopedia: claus d’obertura"
+                  },
+                  "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262"
+                },
+                {
+                  "title": {
+                    "es": "Reuters Markets",
+                    "en": "Reuters Markets",
+                    "val": "Reuters Markets"
+                  },
+                  "url": "https://www.reuters.com/markets/"
+                },
+                {
+                  "title": {
+                    "es": "Actividad de mercado en Nasdaq",
+                    "en": "Nasdaq market activity",
+                    "val": "Activitat de mercat en Nasdaq"
+                  },
+                  "url": "https://www.nasdaq.com/market-activity"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Comcast separará sus negocios de medios y tecnología y se dispara en bolsa",
+                "en": "Comcast will split its media and technology businesses, sending shares sharply higher",
+                "val": "Comcast separarà els negocis de mitjans i tecnologia i es dispara en borsa"
+              },
+              "summary": {
+                "es": "El grupo anuncia una nueva división corporativa tras haber segregado previamente activos de cable. La reacción inicial eleva las acciones alrededor de un 22 % en la preapertura, una señal de que el mercado espera estructuras más simples y valoraciones separadas; el movimiento aparece en el informe de <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "en": "The group is announcing a new corporate split after previously separating cable assets. The initial reaction lifts shares by roughly 22% in premarket trading, signalling that investors expect simpler structures and separate valuations; the move is covered by <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "val": "El grup anuncia una nova divisió corporativa després d’haver segregat prèviament actius de cable. La reacció inicial eleva les accions al voltant d’un 22 % en la preobertura, un senyal que el mercat espera estructures més simples i valoracions separades; el moviment apareix en l’informe d’<a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>."
+              },
+              "source": "Investopedia / Comcast / NBCUniversal",
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262",
+              "links": [
+                {
+                  "title": {
+                    "es": "Investopedia: anuncio y reacción bursátil",
+                    "en": "Investopedia: announcement and market reaction",
+                    "val": "Investopedia: anunci i reacció borsària"
+                  },
+                  "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262"
+                },
+                {
+                  "title": {
+                    "es": "Comcast corporativo",
+                    "en": "Comcast corporate",
+                    "val": "Comcast corporatiu"
+                  },
+                  "url": "https://corporate.comcast.com/"
+                },
+                {
+                  "title": {
+                    "es": "NBCUniversal",
+                    "en": "NBCUniversal",
+                    "val": "NBCUniversal"
+                  },
+                  "url": "https://www.nbcuniversal.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "cripto",
+          "items": [
+            {
+              "title": {
+                "es": "Bitcoin rebota desde 58.000 dólares, pero los 60.000 siguen siendo una zona de batalla",
+                "en": "Bitcoin rebounds from $58,000, but $60,000 remains a battleground",
+                "val": "Bitcoin rebota des dels 58.000 dòlars, però els 60.000 continuen sent una zona de batalla"
+              },
+              "summary": {
+                "es": "Bitcoin cotiza alrededor de 60.400 dólares después de haber tocado 58.000 a finales de la semana, su nivel más bajo desde finales de 2024. El rebote reduce la presión inmediata, aunque todavía no confirma un cambio de tendencia; el punto de partida del día aparece en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "en": "Bitcoin trades around $60,400 after touching $58,000 late last week, its lowest level since late 2024. The rebound eases immediate pressure but does not yet confirm a trend reversal; the day’s starting point is reported by <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "val": "Bitcoin cotitza al voltant de 60.400 dòlars després d’haver tocat 58.000 a finals de la setmana, el nivell més baix des de finals de 2024. El rebot reduïx la pressió immediata, encara que encara no confirma un canvi de tendència; el punt de partida del dia apareix en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>."
+              },
+              "source": "Investopedia / CoinGecko / Business Insider",
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262",
+              "links": [
+                {
+                  "title": {
+                    "es": "Precio y contexto del 29 de junio",
+                    "en": "June 29 price and context",
+                    "val": "Preu i context del 29 de juny"
+                  },
+                  "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262"
+                },
+                {
+                  "title": {
+                    "es": "Histórico de Bitcoin en CoinGecko",
+                    "en": "Bitcoin history on CoinGecko",
+                    "val": "Històric de Bitcoin en CoinGecko"
+                  },
+                  "url": "https://www.coingecko.com/en/coins/bitcoin/historical_data"
+                },
+                {
+                  "title": {
+                    "es": "Business Insider: invierno cripto",
+                    "en": "Business Insider: crypto winter",
+                    "val": "Business Insider: hivern cripto"
+                  },
+                  "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6"
+                }
+              ],
+              "shortTerm": {
+                "es": "El primer soporte visible queda entre 58.000 y 60.000 dólares. Recuperar con volumen la franja de 62.000–64.000 aliviaría la estructura; perder 58.000 reabriría el riesgo de otra extensión bajista.",
+                "en": "The first visible support lies between $58,000 and $60,000. Reclaiming the $62,000–$64,000 area with volume would improve the structure; losing $58,000 would reopen the risk of another leg lower.",
+                "val": "El primer suport visible queda entre 58.000 i 60.000 dòlars. Recuperar amb volum la franja de 62.000–64.000 milloraria l’estructura; perdre 58.000 reobriria el risc d’una altra extensió baixista."
+              },
+              "longTerm": {
+                "es": "La tesis de largo plazo sigue dependiendo de adopción, liquidez global y regulación, pero el mercado ha demostrado que las caídas pueden ser profundas incluso dentro de ciclos de expansión. La gestión del tamaño y el horizonte importa más que adivinar un único suelo.",
+                "en": "The long-term thesis still depends on adoption, global liquidity and regulation, but the market has shown that drawdowns can be deep even within expansion cycles. Position sizing and time horizon matter more than guessing a single bottom.",
+                "val": "La tesi de llarg termini continua depenent d’adopció, liquiditat global i regulació, però el mercat ha demostrat que les caigudes poden ser profundes inclús dins de cicles d’expansió. La gestió de la mida i l’horitzó importa més que endevinar un únic sòl."
+              }
+            },
+            {
+              "title": {
+                "es": "Ethereum y las altcoins siguen sin confirmar un suelo mientras el capital busca refugio",
+                "en": "Ethereum and altcoins still fail to confirm a bottom as capital seeks safety",
+                "val": "Ethereum i les altcoins continuen sense confirmar un sòl mentre el capital busca refugi"
+              },
+              "summary": {
+                "es": "El rebote de Bitcoin no se traduce todavía en una recuperación uniforme del mercado: Ether y buena parte de las altcoins mantienen una estructura más débil y menor apetito de riesgo. Los históricos de <a href=\"https://www.coingecko.com/en/coins/ethereum/historical_data\">CoinGecko</a> ayudan a separar movimientos diarios de una tendencia sostenida.",
+                "en": "Bitcoin’s rebound is not yet translating into a broad market recovery: Ether and many altcoins retain a weaker structure and lower risk appetite. <a href=\"https://www.coingecko.com/en/coins/ethereum/historical_data\">CoinGecko’s</a> historical data helps separate daily moves from a sustained trend.",
+                "val": "El rebot de Bitcoin no es traduïx encara en una recuperació uniforme del mercat: Ether i bona part de les altcoins mantenen una estructura més dèbil i menor apetit de risc. Els històrics de <a href=\"https://www.coingecko.com/en/coins/ethereum/historical_data\">CoinGecko</a> ajuden a separar moviments diaris d’una tendència sostinguda."
+              },
+              "source": "CoinGecko / Reuters / CoinDesk",
+              "url": "https://www.coingecko.com/en/coins/ethereum/historical_data",
+              "links": [
+                {
+                  "title": {
+                    "es": "Histórico de Ethereum",
+                    "en": "Ethereum historical data",
+                    "val": "Històric d’Ethereum"
+                  },
+                  "url": "https://www.coingecko.com/en/coins/ethereum/historical_data"
+                },
+                {
+                  "title": {
+                    "es": "Reuters: análisis técnico de Ether",
+                    "en": "Reuters: Ether technical analysis",
+                    "val": "Reuters: anàlisi tècnica d’Ether"
+                  },
+                  "url": "https://www.reuters.com/markets/global-markets-technicals-2026-05-22/"
+                },
+                {
+                  "title": {
+                    "es": "Mercados de CoinDesk",
+                    "en": "CoinDesk markets",
+                    "val": "Mercats de CoinDesk"
+                  },
+                  "url": "https://www.coindesk.com/markets/"
+                }
+              ],
+              "shortTerm": {
+                "es": "Mientras Ether no recupere máximos decrecientes y mejore su fuerza relativa frente a Bitcoin, los rebotes deben tratarse como frágiles. Una nueva pérdida de soportes recientes ampliaría la presión sobre las altcoins.",
+                "en": "Until Ether breaks its sequence of lower highs and improves relative strength against Bitcoin, rebounds should be treated as fragile. A fresh loss of recent support would increase pressure on altcoins.",
+                "val": "Mentre Ether no trenque la seqüència de màxims decreixents i millore la força relativa davant de Bitcoin, els rebots s’han de tractar com a fràgils. Una nova pèrdua de suports recents ampliaria la pressió sobre les altcoins."
+              },
+              "longTerm": {
+                "es": "Ethereum conserva una base de desarrolladores y aplicaciones relevante, pero debe demostrar crecimiento de uso y captura de valor frente a competidores y capas secundarias. En altcoins, la selección importa más que una exposición indiscriminada al conjunto del mercado.",
+                "en": "Ethereum retains a meaningful developer and application base, but it must demonstrate usage growth and value capture against competitors and layer-two networks. In altcoins, selection matters more than indiscriminate exposure to the entire market.",
+                "val": "Ethereum conserva una base de desenvolupadors i aplicacions rellevant, però ha de demostrar creixement d’ús i captura de valor davant de competidors i capes secundàries. En altcoins, la selecció importa més que una exposició indiscriminada al conjunt del mercat."
+              }
+            }
+          ]
+        },
+        {
+          "category": "radar",
+          "items": [
+            {
+              "title": {
+                "es": "Estados Unidos e Irán intercambian nuevos ataques antes de volver a negociar",
+                "en": "The United States and Iran exchange new strikes before returning to talks",
+                "val": "Els Estats Units i l’Iran intercanvien nous atacs abans de tornar a negociar"
+              },
+              "summary": {
+                "es": "La tensión repunta durante el fin de semana con ataques relacionados con el estrecho de Ormuz y represalias iraníes contra países que albergan bases estadounidenses. Los últimos informes apuntan a una pausa de las operaciones para retomar las conversaciones sobre el estrecho y el programa nuclear; el resumen está en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "en": "Tensions rise over the weekend with attacks linked to the Strait of Hormuz and Iranian retaliation against countries hosting US bases. The latest reports point to a pause in operations so talks on the strait and the nuclear programme can resume; the situation is summarised by <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "val": "La tensió repunta durant el cap de setmana amb atacs relacionats amb l’estret d’Ormuz i represàlies iranianes contra països que alberguen bases nord-americanes. Els últims informes apunten a una pausa de les operacions per a reprendre les converses sobre l’estret i el programa nuclear; el resum està en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>."
+              },
+              "source": "Investopedia / Reuters / Associated Press",
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262",
+              "links": [
+                {
+                  "title": {
+                    "es": "Resumen de la escalada y la pausa",
+                    "en": "Summary of escalation and pause",
+                    "val": "Resum de l’escalada i la pausa"
+                  },
+                  "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262"
+                },
+                {
+                  "title": {
+                    "es": "Reuters: Oriente Próximo",
+                    "en": "Reuters: Middle East",
+                    "val": "Reuters: Orient Pròxim"
+                  },
+                  "url": "https://www.reuters.com/world/middle-east/"
+                },
+                {
+                  "title": {
+                    "es": "Associated Press: cobertura de Irán",
+                    "en": "Associated Press: Iran coverage",
+                    "val": "Associated Press: cobertura de l’Iran"
+                  },
+                  "url": "https://apnews.com/hub/iran"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "SpaceX entrará en el Nasdaq 100 el 7 de julio",
+                "en": "SpaceX will join the Nasdaq 100 on July 7",
+                "val": "SpaceX entrarà en el Nasdaq 100 el 7 de juliol"
+              },
+              "summary": {
+                "es": "Nasdaq incorporará a SpaceX antes de la apertura del 7 de julio como parte de sus ajustes del índice. La entrada aumenta la exposición pasiva a una compañía que combina lanzamientos, conectividad y proyectos de IA, y añade otra gran tecnológica al índice; el anuncio aparece en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "en": "Nasdaq will add SpaceX before the July 7 market open as part of its index adjustments. The inclusion increases passive exposure to a company spanning launches, connectivity and AI projects, adding another major technology name to the index; the announcement is reported by <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>.",
+                "val": "Nasdaq incorporarà SpaceX abans de l’obertura del 7 de juliol com a part dels ajustos de l’índex. L’entrada augmenta l’exposició passiva a una companyia que combina llançaments, connectivitat i projectes d’IA, i afig una altra gran tecnològica a l’índex; l’anunci apareix en <a href=\"https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262\">Investopedia</a>."
+              },
+              "source": "Investopedia / Nasdaq / SpaceX",
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262",
+              "links": [
+                {
+                  "title": {
+                    "es": "Investopedia: incorporación al índice",
+                    "en": "Investopedia: index inclusion",
+                    "val": "Investopedia: incorporació a l’índex"
+                  },
+                  "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-june-29-2026-12008262"
+                },
+                {
+                  "title": {
+                    "es": "Nasdaq 100",
+                    "en": "Nasdaq 100",
+                    "val": "Nasdaq 100"
+                  },
+                  "url": "https://www.nasdaq.com/solutions/global-indexes/nasdaq-100"
+                },
+                {
+                  "title": {
+                    "es": "SpaceX",
+                    "en": "SpaceX",
+                    "val": "SpaceX"
+                  },
+                  "url": "https://www.spacex.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ia",
+          "items": [
+            {
+              "title": {
+                "es": "DeepMind prepara una hoja de ruta para controlar agentes que se desvíen",
+                "en": "DeepMind prepares a roadmap for controlling agents that go off course",
+                "val": "DeepMind prepara un full de ruta per a controlar agents que es desvien"
+              },
+              "summary": {
+                "es": "Google DeepMind está estructurando métodos para detectar, evaluar y contener agentes capaces de actuar de forma no prevista. La propuesta parte de que los sistemas más autónomos necesitarán controles durante la ejecución, no solo filtros antes del despliegue; Axios explica la iniciativa en su <a href=\"https://www.axios.com/2026/06/18/google-deepmind-prepares-for-rogue-ai-agents\">cobertura</a>.",
+                "en": "Google DeepMind is structuring methods to detect, evaluate and contain agents capable of acting in unintended ways. The proposal assumes that more autonomous systems will need controls during execution, not only filters before deployment; Axios explains the initiative in its <a href=\"https://www.axios.com/2026/06/18/google-deepmind-prepares-for-rogue-ai-agents\">coverage</a>.",
+                "val": "Google DeepMind està estructurant mètodes per a detectar, avaluar i contindre agents capaços d’actuar de manera no prevista. La proposta partix que els sistemes més autònoms necessitaran controls durant l’execució, no sols filtres abans del desplegament; Axios explica la iniciativa en la seua <a href=\"https://www.axios.com/2026/06/18/google-deepmind-prepares-for-rogue-ai-agents\">cobertura</a>."
+              },
+              "source": "Axios / Google DeepMind",
+              "url": "https://www.axios.com/2026/06/18/google-deepmind-prepares-for-rogue-ai-agents",
+              "links": [
+                {
+                  "title": {
+                    "es": "Axios: hoja de ruta de control",
+                    "en": "Axios: AI-control roadmap",
+                    "val": "Axios: full de ruta de control"
+                  },
+                  "url": "https://www.axios.com/2026/06/18/google-deepmind-prepares-for-rogue-ai-agents"
+                },
+                {
+                  "title": {
+                    "es": "DeepMind: responsabilidad y seguridad",
+                    "en": "DeepMind: responsibility and safety",
+                    "val": "DeepMind: responsabilitat i seguretat"
+                  },
+                  "url": "https://deepmind.google/about/responsibility-safety/"
+                },
+                {
+                  "title": {
+                    "es": "Blog de Google DeepMind",
+                    "en": "Google DeepMind blog",
+                    "val": "Blog de Google DeepMind"
+                  },
+                  "url": "https://deepmind.google/discover/blog/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "El AI Index 2026 advierte de que evaluación y gobernanza avanzan más despacio que las capacidades",
+                "en": "AI Index 2026 warns that evaluation and governance are lagging behind capabilities",
+                "val": "L’AI Index 2026 advertix que l’avaluació i la governança avancen més lentament que les capacitats"
+              },
+              "summary": {
+                "es": "El informe reúne métricas de rendimiento, inversión, adopción y regulación para mostrar una industria que mejora deprisa, pero con comparativas y controles todavía fragmentados. La consecuencia práctica es clara: anunciar un modelo más potente no equivale a demostrar que sea más seguro o útil en condiciones reales; el documento puede consultarse en <a href=\"https://arxiv.org/abs/2606.15708\">arXiv</a>.",
+                "en": "The report gathers performance, investment, adoption and regulation metrics to show an industry improving rapidly while benchmarks and controls remain fragmented. The practical consequence is clear: announcing a more powerful model is not the same as proving it safer or more useful in real conditions; the document is available on <a href=\"https://arxiv.org/abs/2606.15708\">arXiv</a>.",
+                "val": "L’informe reunix mètriques de rendiment, inversió, adopció i regulació per a mostrar una indústria que millora de pressa, però amb comparatives i controls encara fragmentats. La conseqüència pràctica és clara: anunciar un model més potent no equival a demostrar que siga més segur o útil en condicions reals; el document es pot consultar en <a href=\"https://arxiv.org/abs/2606.15708\">arXiv</a>."
+              },
+              "source": "AI Index / Stanford HAI / MIT Technology Review",
+              "url": "https://arxiv.org/abs/2606.15708",
+              "links": [
+                {
+                  "title": {
+                    "es": "AI Index 2026 en arXiv",
+                    "en": "AI Index 2026 on arXiv",
+                    "val": "AI Index 2026 en arXiv"
+                  },
+                  "url": "https://arxiv.org/abs/2606.15708"
+                },
+                {
+                  "title": {
+                    "es": "Stanford AI Index",
+                    "en": "Stanford AI Index",
+                    "val": "Stanford AI Index"
+                  },
+                  "url": "https://aiindex.stanford.edu/report/"
+                },
+                {
+                  "title": {
+                    "es": "MIT Technology Review: IA",
+                    "en": "MIT Technology Review: AI",
+                    "val": "MIT Technology Review: IA"
+                  },
+                  "url": "https://www.technologyreview.com/topic/artificial-intelligence/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "hardware",
+          "items": [
+            {
+              "title": {
+                "es": "Qualcomm fija un objetivo de 15.000 millones de dólares en chips para centros de datos",
+                "en": "Qualcomm targets $15 billion in data-centre chip sales",
+                "val": "Qualcomm fixa un objectiu de 15.000 milions de dòlars en xips per a centres de dades"
+              },
+              "summary": {
+                "es": "La compañía espera alcanzar esa cifra en 2029 y reducir su dependencia del mercado móvil. Microsoft utilizará chips HBC y Meta adoptará la CPU Dragonfly C1000, mientras dos grandes clientes adicionales recibirán diseños personalizados; Reuters detalla el plan en su <a href=\"https://www.reuters.com/business/retail-consumer/qualcomm-bets-ai-chips-break-smartphone-reliance-faces-crowded-race-2026-06-24/\">informe</a>.",
+                "en": "The company expects to reach that figure in 2029 and reduce its dependence on smartphones. Microsoft will use HBC chips and Meta will adopt the Dragonfly C1000 CPU, while two additional hyperscalers receive custom designs; Reuters details the plan in its <a href=\"https://www.reuters.com/business/retail-consumer/qualcomm-bets-ai-chips-break-smartphone-reliance-faces-crowded-race-2026-06-24/\">report</a>.",
+                "val": "La companyia espera arribar a eixa xifra en 2029 i reduir la dependència del mercat mòbil. Microsoft utilitzarà xips HBC i Meta adoptarà la CPU Dragonfly C1000, mentre dos grans clients addicionals rebran dissenys personalitzats; Reuters detalla el pla en el seu <a href=\"https://www.reuters.com/business/retail-consumer/qualcomm-bets-ai-chips-break-smartphone-reliance-faces-crowded-race-2026-06-24/\">informe</a>."
+              },
+              "source": "Reuters / Qualcomm / Microsoft",
+              "url": "https://www.reuters.com/business/retail-consumer/qualcomm-bets-ai-chips-break-smartphone-reliance-faces-crowded-race-2026-06-24/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters: estrategia de Qualcomm",
+                    "en": "Reuters: Qualcomm strategy",
+                    "val": "Reuters: estratègia de Qualcomm"
+                  },
+                  "url": "https://www.reuters.com/business/retail-consumer/qualcomm-bets-ai-chips-break-smartphone-reliance-faces-crowded-race-2026-06-24/"
+                },
+                {
+                  "title": {
+                    "es": "Qualcomm Cloud AI",
+                    "en": "Qualcomm Cloud AI",
+                    "val": "Qualcomm Cloud AI"
+                  },
+                  "url": "https://www.qualcomm.com/products/technology/processors/cloud-ai"
+                },
+                {
+                  "title": {
+                    "es": "Microsoft: soluciones de IA",
+                    "en": "Microsoft: AI solutions",
+                    "val": "Microsoft: solucions d’IA"
+                  },
+                  "url": "https://azure.microsoft.com/en-us/solutions/ai"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Nvidia y Microsoft empujan el PC de IA local con nuevas plataformas",
+                "en": "Nvidia and Microsoft push local AI PCs with new platforms",
+                "val": "Nvidia i Microsoft impulsen el PC d’IA local amb noves plataformes"
+              },
+              "summary": {
+                "es": "La nueva generación busca ejecutar modelos, asistentes y tareas creativas en el propio equipo para reducir latencia y dependencia de la nube. La apuesta combina chips de Nvidia, Windows y equipos compactos orientados a desarrollo, aunque precio, memoria y consumo marcarán su adopción; Reuters explica <a href=\"https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/\">qué diferencia a estos PC</a>.",
+                "en": "The new generation aims to run models, assistants and creative workloads on the device, reducing latency and cloud dependence. The push combines Nvidia silicon, Windows and compact developer systems, although price, memory and power use will determine adoption; Reuters explains <a href=\"https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/\">what makes these PCs different</a>.",
+                "val": "La nova generació busca executar models, assistents i tasques creatives en el mateix equip per a reduir latència i dependència del núvol. L’aposta combina xips de Nvidia, Windows i equips compactes orientats a desenvolupament, encara que preu, memòria i consum marcaran l’adopció; Reuters explica <a href=\"https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/\">què diferencia estos PC</a>."
+              },
+              "source": "Reuters / Nvidia / Microsoft",
+              "url": "https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters: qué es un PC de IA",
+                    "en": "Reuters: what is an AI PC",
+                    "val": "Reuters: què és un PC d’IA"
+                  },
+                  "url": "https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/"
+                },
+                {
+                  "title": {
+                    "es": "Reuters: Nvidia en Computex",
+                    "en": "Reuters: Nvidia at Computex",
+                    "val": "Reuters: Nvidia en Computex"
+                  },
+                  "url": "https://www.reuters.com/world/china/nvidia-ceo-kick-off-dominate-computex-gathering-taipei-2026-05-31/"
+                },
+                {
+                  "title": {
+                    "es": "Reuters: primeros PC Windows con Nvidia",
+                    "en": "Reuters: first Nvidia Windows PCs",
+                    "val": "Reuters: primers PC Windows amb Nvidia"
+                  },
+                  "url": "https://www.reuters.com/business/first-windows-pc-powered-by-nvidia-chips-debut-next-week-axios-reports-2026-05-30/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "security",
+          "items": [
+            {
+              "title": {
+                "es": "CISA marca BlueHammer como explotada activamente en campañas de ransomware",
+                "en": "CISA marks BlueHammer as actively exploited in ransomware campaigns",
+                "val": "CISA marca BlueHammer com a explotada activament en campanyes de ransomware"
+              },
+              "summary": {
+                "es": "La vulnerabilidad de Windows Defender permite obtener una consola con privilegios SYSTEM mediante una condición de carrera. Microsoft publicó el parche el 14 de abril, pero la explotación activa demuestra que distribuir una actualización no garantiza que llegue a todos los equipos; <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> recoge la alerta.",
+                "en": "The Windows Defender race condition can provide a SYSTEM-level shell. Microsoft released a patch on April 14, but active exploitation shows that publishing an update does not guarantee deployment across every device; <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> covers the warning.",
+                "val": "La vulnerabilitat de Windows Defender permet obtindre una consola amb privilegis SYSTEM mitjançant una condició de carrera. Microsoft va publicar el pedaç el 14 d’abril, però l’explotació activa demostra que distribuir una actualització no garantix que arribe a tots els equips; <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> recull l’alerta."
+              },
+              "source": "Tom's Hardware / CISA / Microsoft",
+              "url": "https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14",
+              "links": [
+                {
+                  "title": {
+                    "es": "Tom’s Hardware: explotación activa",
+                    "en": "Tom’s Hardware: active exploitation",
+                    "val": "Tom’s Hardware: explotació activa"
+                  },
+                  "url": "https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14"
+                },
+                {
+                  "title": {
+                    "es": "Catálogo KEV de CISA",
+                    "en": "CISA KEV catalogue",
+                    "val": "Catàleg KEV de CISA"
+                  },
+                  "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+                },
+                {
+                  "title": {
+                    "es": "Guía de actualizaciones de Microsoft",
+                    "en": "Microsoft update guide",
+                    "val": "Guia d’actualitzacions de Microsoft"
+                  },
+                  "url": "https://msrc.microsoft.com/update-guide/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Estados Unidos reduce a tres días el plazo para corregir vulnerabilidades críticas",
+                "en": "The US cuts the deadline for fixing critical vulnerabilities to three days",
+                "val": "Els Estats Units reduïxen a tres dies el termini per a corregir vulnerabilitats crítiques"
+              },
+              "summary": {
+                "es": "La nueva directiva federal acorta drásticamente la ventana para fallos críticos explotados o con riesgo inmediato, frente a plazos anteriores mucho más amplios. La decisión refleja la velocidad de automatización de ataques y obliga a mejorar inventario, pruebas y despliegue de parches; Reuters resume el cambio en su <a href=\"https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/\">cobertura</a>.",
+                "en": "The new federal directive sharply shortens the window for exploited or immediately dangerous critical flaws compared with much longer previous deadlines. The decision reflects faster attack automation and forces organisations to improve inventory, testing and patch deployment; Reuters summarises the change in its <a href=\"https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/\">coverage</a>.",
+                "val": "La nova directiva federal acurta dràsticament la finestra per a fallades crítiques explotades o amb risc immediat, davant de terminis anteriors molt més amplis. La decisió reflectix la velocitat d’automatització dels atacs i obliga a millorar inventari, proves i desplegament de pedaços; Reuters resumix el canvi en la seua <a href=\"https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/\">cobertura</a>."
+              },
+              "source": "Reuters / CISA",
+              "url": "https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters: nueva ventana de tres días",
+                    "en": "Reuters: new three-day window",
+                    "val": "Reuters: nova finestra de tres dies"
+                  },
+                  "url": "https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/"
+                },
+                {
+                  "title": {
+                    "es": "Catálogo de vulnerabilidades explotadas",
+                    "en": "Known exploited vulnerabilities catalogue",
+                    "val": "Catàleg de vulnerabilitats explotades"
+                  },
+                  "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+                },
+                {
+                  "title": {
+                    "es": "Avisos de ciberseguridad de CISA",
+                    "en": "CISA cybersecurity advisories",
+                    "val": "Avisos de ciberseguretat de CISA"
+                  },
+                  "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "entretenimiento",
+          "items": [
+            {
+              "title": {
+                "es": "Alan Jackson cierra su carrera en directo ante decenas de miles de seguidores",
+                "en": "Alan Jackson ends his live career before tens of thousands of fans",
+                "val": "Alan Jackson tanca la seua carrera en directe davant de desenes de milers de seguidors"
+              },
+              "summary": {
+                "es": "El concierto final en el Nissan Stadium de Nashville reúne a unas 55.000 personas y pone fin a más de tres décadas de actuaciones. La producción será convertida en un especial televisivo y de streaming, con Sam Wrench al frente; los detalles de emisión están resumidos por <a href=\"https://www.countryliving.com/life/entertainment/a71747080/alan-jackson-final-concert-tv/\">Country Living</a>.",
+                "en": "The final concert at Nashville’s Nissan Stadium draws about 55,000 people and closes more than three decades of live performances. The production will become a television and streaming special directed by Sam Wrench; broadcast details are summarised by <a href=\"https://www.countryliving.com/life/entertainment/a71747080/alan-jackson-final-concert-tv/\">Country Living</a>.",
+                "val": "El concert final en el Nissan Stadium de Nashville reunix unes 55.000 persones i posa fi a més de tres dècades d’actuacions. La producció es convertirà en un especial televisiu i de streaming, amb Sam Wrench al capdavant; els detalls d’emissió estan resumits per <a href=\"https://www.countryliving.com/life/entertainment/a71747080/alan-jackson-final-concert-tv/\">Country Living</a>."
+              },
+              "source": "Country Living / Times of India / Alan Jackson",
+              "url": "https://www.countryliving.com/life/entertainment/a71747080/alan-jackson-final-concert-tv/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Country Living: concierto y emisión",
+                    "en": "Country Living: concert and broadcast",
+                    "val": "Country Living: concert i emissió"
+                  },
+                  "url": "https://www.countryliving.com/life/entertainment/a71747080/alan-jackson-final-concert-tv/"
+                },
+                {
+                  "title": {
+                    "es": "Times of India: película del concierto",
+                    "en": "Times of India: concert film",
+                    "val": "Times of India: pel·lícula del concert"
+                  },
+                  "url": "https://timesofindia.indiatimes.com/entertainment/english/music/news/country-star-alan-jackson-performs-farewell-concert-film-directed-by-sam-wrench-to-stream-soon-on-ott-platform/articleshow/131531996.cms"
+                },
+                {
+                  "title": {
+                    "es": "Web oficial de Alan Jackson",
+                    "en": "Alan Jackson official site",
+                    "val": "Web oficial d’Alan Jackson"
+                  },
+                  "url": "https://www.alanjackson.com/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "The Invite inicia su recorrido limitado tras una puja de más de 12 millones de dólares",
+                "en": "The Invite begins its limited run after a bidding war above $12 million",
+                "val": "The Invite inicia el recorregut limitat després d’una licitació de més de 12 milions de dòlars"
+              },
+              "summary": {
+                "es": "La comedia dirigida por Olivia Wilde y protagonizada por Seth Rogen, Penélope Cruz y Edward Norton llega a salas seleccionadas después de convertirse en una de las ventas más disputadas de Sundance. A24 prepara una expansión posterior, mientras el estreno limitado permite medir la respuesta inicial; <a href=\"https://pagesix.com/2026/06/26/hollywood/indie-film-legend-behind-the-invite-dishes-on-his-intense-festival-schedule-and-how-it-shows-up-in-the-olivia-wilde-directed-comedy/\">Page Six</a> repasa su recorrido.",
+                "en": "The comedy directed by Olivia Wilde and starring Seth Rogen, Penélope Cruz and Edward Norton reaches selected theatres after becoming one of Sundance’s most contested sales. A24 is preparing a later expansion while the limited opening tests initial demand; <a href=\"https://pagesix.com/2026/06/26/hollywood/indie-film-legend-behind-the-invite-dishes-on-his-intense-festival-schedule-and-how-it-shows-up-in-the-olivia-wilde-directed-comedy/\">Page Six</a> reviews its path.",
+                "val": "La comèdia dirigida per Olivia Wilde i protagonitzada per Seth Rogen, Penélope Cruz i Edward Norton arriba a sales seleccionades després de convertir-se en una de les vendes més disputades de Sundance. A24 prepara una expansió posterior, mentre l’estrena limitada permet mesurar la resposta inicial; <a href=\"https://pagesix.com/2026/06/26/hollywood/indie-film-legend-behind-the-invite-dishes-on-his-intense-festival-schedule-and-how-it-shows-up-in-the-olivia-wilde-directed-comedy/\">Page Six</a> repassa el seu recorregut."
+              },
+              "source": "Page Six / Entertainment Weekly / Decider",
+              "url": "https://pagesix.com/2026/06/26/hollywood/indie-film-legend-behind-the-invite-dishes-on-his-intense-festival-schedule-and-how-it-shows-up-in-the-olivia-wilde-directed-comedy/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Page Six: estreno y recorrido",
+                    "en": "Page Six: release and festival path",
+                    "val": "Page Six: estrena i recorregut"
+                  },
+                  "url": "https://pagesix.com/2026/06/26/hollywood/indie-film-legend-behind-the-invite-dishes-on-his-intense-festival-schedule-and-how-it-shows-up-in-the-olivia-wilde-directed-comedy/"
+                },
+                {
+                  "title": {
+                    "es": "Calendario de estrenos de Entertainment Weekly",
+                    "en": "Entertainment Weekly release calendar",
+                    "val": "Calendari d’estrenes d’Entertainment Weekly"
+                  },
+                  "url": "https://ew.com/2026-movie-release-premiere-dates-11877222"
+                },
+                {
+                  "title": {
+                    "es": "Decider: distribución de The Invite",
+                    "en": "Decider: The Invite distribution",
+                    "val": "Decider: distribució de The Invite"
+                  },
+                  "url": "https://decider.com/2026/07/09/watch-the-invite-movie-streaming-netflix-hbo-max-olivia-wilde/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "curiosidades",
+          "items": [
+            {
+              "title": {
+                "es": "Francia acumula en medio año más alertas rojas por calor que en los 21 años anteriores juntos",
+                "en": "France logs more red heat-alert days in half a year than in the previous 21 years combined",
+                "val": "França acumula en mig any més alertes roges per calor que en els 21 anys anteriors junts"
+              },
+              "summary": {
+                "es": "El balance acumulado alcanza 366 jornadas departamentales de alerta roja durante los primeros seis meses de 2026. París también supera 40 °C dos días seguidos, algo excepcional en una serie de 150 años; las cifras aparecen en el análisis gráfico de <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde</a>.",
+                "en": "The cumulative total reaches 366 department-level red-alert days during the first six months of 2026. Paris also exceeds 40°C on two consecutive days, an exceptional event in a 150-year record; the figures appear in <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde’s</a> visual analysis.",
+                "val": "El balanç acumulat arriba a 366 jornades departamentals d’alerta roja durant els primers sis mesos de 2026. París també supera 40 °C dos dies seguits, un fet excepcional en una sèrie de 150 anys; les xifres apareixen en l’anàlisi gràfica de <a href=\"https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html\">Le Monde</a>."
+              },
+              "source": "Le Monde / Météo-France / World Weather Attribution",
+              "url": "https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html",
+              "links": [
+                {
+                  "title": {
+                    "es": "Le Monde: récords de calor",
+                    "en": "Le Monde: heat records",
+                    "val": "Le Monde: rècords de calor"
+                  },
+                  "url": "https://www.lemonde.fr/en/les-decodeurs/article/2026/07/03/four-graphs-to-visualize-the-unprecedented-scale-of-france-s-june-2026-heatwave_6755104_8.html"
+                },
+                {
+                  "title": {
+                    "es": "Météo-France",
+                    "en": "Météo-France",
+                    "val": "Météo-France"
+                  },
+                  "url": "https://meteofrance.com/"
+                },
+                {
+                  "title": {
+                    "es": "World Weather Attribution",
+                    "en": "World Weather Attribution",
+                    "val": "World Weather Attribution"
+                  },
+                  "url": "https://www.worldweatherattribution.org/fossil-fuel-emissions-have-rapidly-worsened-european-heatwaves-in-just-a-few-decades/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Más del 10 % de los usuarios activos de Codex ya coordina tres o más agentes cada semana",
+                "en": "More than 10% of active Codex users already coordinate three or more agents each week",
+                "val": "Més del 10 % dels usuaris actius de Codex ja coordina tres o més agents cada setmana"
+              },
+              "summary": {
+                "es": "El dato muestra que la programación asistida está dejando de ser una única conversación para convertirse en gestión simultánea de tareas. Además, un 26,6 % de los usuarios emplea skills reutilizables, señal de que los flujos empiezan a estandarizarse; las cifras proceden del <a href=\"https://arxiv.org/abs/2606.26959\">estudio de uso</a>.",
+                "en": "The figure shows that assisted programming is moving beyond a single conversation toward simultaneous task management. In addition, 26.6% of users employ reusable skills, indicating that workflows are beginning to standardise; the figures come from the <a href=\"https://arxiv.org/abs/2606.26959\">usage study</a>.",
+                "val": "La dada mostra que la programació assistida està deixant de ser una única conversa per a convertir-se en gestió simultània de tasques. A més, un 26,6 % dels usuaris empra skills reutilitzables, senyal que els fluxos comencen a estandarditzar-se; les xifres procedixen de l’<a href=\"https://arxiv.org/abs/2606.26959\">estudi d’ús</a>."
+              },
+              "source": "arXiv / OpenAI Codex / Stack Overflow",
+              "url": "https://arxiv.org/abs/2606.26959",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio de uso de Codex",
+                    "en": "Codex usage study",
+                    "val": "Estudi d’ús de Codex"
+                  },
+                  "url": "https://arxiv.org/abs/2606.26959"
+                },
+                {
+                  "title": {
+                    "es": "Codex",
+                    "en": "Codex",
+                    "val": "Codex"
+                  },
+                  "url": "https://openai.com/codex/"
+                },
+                {
+                  "title": {
+                    "es": "Experiencia de desarrollo",
+                    "en": "Developer experience",
+                    "val": "Experiència de desenvolupament"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ofertas",
+          "items": [
+            {
+              "market": "es",
+              "title": {
+                "es": "Samsung Galaxy Buds3 por 79 €",
+                "en": "",
+                "val": ""
+              },
+              "summary": {
+                "es": "Los Galaxy Buds3 con cancelación activa de ruido, audio de alta resolución y resistencia IP57 bajan de 159 € a 79 € en Amazon España. El descuento ronda el 50 % y depende del stock disponible. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Ver el chollo</a>.",
+                "en": "",
+                "val": ""
+              },
+              "source": "Chollometro",
+              "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+              "platform": "Amazon España",
+              "originalPrice": {
+                "es": "159 €",
+                "en": "",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "79 €",
+                "en": "",
+                "val": ""
+              },
+              "discount": {
+                "es": "-50 %",
+                "en": "",
+                "val": ""
+              },
+              "until": {
+                "es": "Hasta agotar stock",
+                "en": "",
+                "val": ""
+              },
+              "urgent": true,
+              "links": [
+                {
+                  "title": {
+                    "es": "Chollometro: Galaxy Buds3",
+                    "en": "Chollometro: Galaxy Buds3",
+                    "val": "Chollometro: Galaxy Buds3"
+                  },
+                  "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505"
+                }
+              ]
+            },
+            {
+              "market": "es",
+              "title": {
+                "es": "Red Dead Redemption 2 por 15 € en Steam",
+                "en": "",
+                "val": ""
+              },
+              "summary": {
+                "es": "La aventura de Rockstar baja a 15 € durante las rebajas de verano de Steam, un 75 % menos que su precio habitual. La promoción permanece activa hasta el 9 de julio. <a href=\"https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/\">Ver la ficha</a>.",
+                "en": "",
+                "val": ""
+              },
+              "source": "Steam / PC Gamer",
+              "url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+              "platform": "Steam",
+              "originalPrice": {
+                "es": "59,99 €",
+                "en": "",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "15 €",
+                "en": "",
+                "val": ""
+              },
+              "discount": {
+                "es": "-75 %",
+                "en": "",
+                "val": ""
+              },
+              "until": {
+                "es": "Hasta el 9 de julio de 2026",
+                "en": "",
+                "val": ""
+              },
+              "urgent": false,
+              "links": [
+                {
+                  "title": {
+                    "es": "Ficha de Red Dead Redemption 2",
+                    "en": "Red Dead Redemption 2 page",
+                    "val": "Fitxa de Red Dead Redemption 2"
+                  },
+                  "url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"
+                },
+                {
+                  "title": {
+                    "es": "Selección de PC Gamer",
+                    "en": "PC Gamer selection",
+                    "val": "Selecció de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                }
+              ]
+            },
+            {
+              "market": "val",
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Samsung Galaxy Buds3 per 79 €"
+              },
+              "summary": {
+                "es": "",
+                "en": "",
+                "val": "Els Galaxy Buds3 amb cancel·lació activa de soroll, àudio d’alta resolució i resistència IP57 baixen de 159 € a 79 € en Amazon Espanya. El descompte ronda el 50 % i depén de l’estoc disponible. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Vore el xollo</a>."
+              },
+              "source": "Chollometro",
+              "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+              "platform": "Amazon Espanya",
+              "originalPrice": {
+                "es": "",
+                "en": "",
+                "val": "159 €"
+              },
+              "salePrice": {
+                "es": "",
+                "en": "",
+                "val": "79 €"
+              },
+              "discount": {
+                "es": "",
+                "en": "",
+                "val": "-50 %"
+              },
+              "until": {
+                "es": "",
+                "en": "",
+                "val": "Fins a esgotar estoc"
+              },
+              "urgent": true,
+              "links": [
+                {
+                  "title": {
+                    "es": "Chollometro: Galaxy Buds3",
+                    "en": "Chollometro: Galaxy Buds3",
+                    "val": "Chollometro: Galaxy Buds3"
+                  },
+                  "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505"
+                }
+              ]
+            },
+            {
+              "market": "val",
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Red Dead Redemption 2 per 15 € en Steam"
+              },
+              "summary": {
+                "es": "",
+                "en": "",
+                "val": "L’aventura de Rockstar baixa a 15 € durant les rebaixes d’estiu de Steam, un 75 % menys que el preu habitual. La promoció continua activa fins al 9 de juliol. <a href=\"https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/\">Vore la fitxa</a>."
+              },
+              "source": "Steam / PC Gamer",
+              "url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+              "platform": "Steam",
+              "originalPrice": {
+                "es": "",
+                "en": "",
+                "val": "59,99 €"
+              },
+              "salePrice": {
+                "es": "",
+                "en": "",
+                "val": "15 €"
+              },
+              "discount": {
+                "es": "",
+                "en": "",
+                "val": "-75 %"
+              },
+              "until": {
+                "es": "",
+                "en": "",
+                "val": "Fins al 9 de juliol de 2026"
+              },
+              "urgent": false,
+              "links": [
+                {
+                  "title": {
+                    "es": "Fitxa de Red Dead Redemption 2",
+                    "en": "Red Dead Redemption 2 page",
+                    "val": "Fitxa de Red Dead Redemption 2"
+                  },
+                  "url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"
+                },
+                {
+                  "title": {
+                    "es": "Selecció de PC Gamer",
+                    "en": "PC Gamer selection",
+                    "val": "Selecció de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                }
+              ]
+            },
+            {
+              "market": "en",
+              "title": {
+                "es": "",
+                "en": "Mass Effect Legendary Edition for $4.79",
+                "val": ""
+              },
+              "summary": {
+                "es": "",
+                "en": "BioWare’s remastered trilogy falls to $4.79 in the Steam Summer Sale, a 92% discount from its standard $59.99 price. The sale runs through July 9. <a href=\"https://store.steampowered.com/app/1328670/Mass_Effect_Legendary_Edition/\">View the store page</a>.",
+                "val": ""
+              },
+              "source": "Steam / PC Gamer",
+              "url": "https://store.steampowered.com/app/1328670/Mass_Effect_Legendary_Edition/",
+              "platform": "Steam",
+              "originalPrice": {
+                "es": "",
+                "en": "$59.99",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "",
+                "en": "$4.79",
+                "val": ""
+              },
+              "discount": {
+                "es": "",
+                "en": "-92%",
+                "val": ""
+              },
+              "until": {
+                "es": "",
+                "en": "Until July 9, 2026",
+                "val": ""
+              },
+              "urgent": false,
+              "links": [
+                {
+                  "title": {
+                    "es": "Ficha de Mass Effect",
+                    "en": "Mass Effect store page",
+                    "val": "Fitxa de Mass Effect"
+                  },
+                  "url": "https://store.steampowered.com/app/1328670/Mass_Effect_Legendary_Edition/"
+                },
+                {
+                  "title": {
+                    "es": "Selección de PC Gamer",
+                    "en": "PC Gamer selection",
+                    "val": "Selecció de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                }
+              ]
+            },
+            {
+              "market": "en",
+              "title": {
+                "es": "",
+                "en": "Ghostwire: Tokyo for $6",
+                "val": ""
+              },
+              "summary": {
+                "es": "",
+                "en": "Tango Gameworks’ supernatural action game drops to $6 during Steam’s summer event, a 90% reduction from the usual $59.99. The promotional price is scheduled to last until July 9. <a href=\"https://store.steampowered.com/app/1475810/Ghostwire_Tokyo/\">View the store page</a>.",
+                "val": ""
+              },
+              "source": "Steam / PC Gamer",
+              "url": "https://store.steampowered.com/app/1475810/Ghostwire_Tokyo/",
+              "platform": "Steam",
+              "originalPrice": {
+                "es": "",
+                "en": "$59.99",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "",
+                "en": "$6",
+                "val": ""
+              },
+              "discount": {
+                "es": "",
+                "en": "-90%",
+                "val": ""
+              },
+              "until": {
+                "es": "",
+                "en": "Until July 9, 2026",
+                "val": ""
+              },
+              "urgent": false,
+              "links": [
+                {
+                  "title": {
+                    "es": "Ficha de Ghostwire: Tokyo",
+                    "en": "Ghostwire: Tokyo store page",
+                    "val": "Fitxa de Ghostwire: Tokyo"
+                  },
+                  "url": "https://store.steampowered.com/app/1475810/Ghostwire_Tokyo/"
+                },
+                {
+                  "title": {
+                    "es": "Selección de PC Gamer",
+                    "en": "PC Gamer selection",
+                    "val": "Selecció de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "anime",
+          "items": [
+            {
+              "title": {
+                "es": "Black Torch prepara su estreno del 4 de julio en Crunchyroll",
+                "en": "Black Torch prepares for its July 4 premiere on Crunchyroll",
+                "val": "Black Torch prepara l’estrena del 4 de juliol en Crunchyroll"
+              },
+              "summary": {
+                "es": "La adaptación del manga de Tsuyoshi Takaki sigue a Jiro Azuma, un joven capaz de comunicarse con animales que se fusiona con un gato mononoke. El proyecto combina acción sobrenatural y ciencia ficción, con diseño de personajes de Go Suzuki y música de Yutaka Yamada; <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirma fecha y plataforma.",
+                "en": "The adaptation of Tsuyoshi Takaki’s manga follows Jiro Azuma, a young man who can communicate with animals and merges with a mononoke cat. The project combines supernatural action and science fiction, with character designs by Go Suzuki and music by Yutaka Yamada; <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirms the date and platform.",
+                "val": "L’adaptació del manga de Tsuyoshi Takaki seguix Jiro Azuma, un jove capaç de comunicar-se amb animals que es fusiona amb un gat mononoke. El projecte combina acció sobrenatural i ciència-ficció, amb disseny de personatges de Go Suzuki i música de Yutaka Yamada; <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirma data i plataforma."
+              },
+              "source": "MeriStation / GamesRadar / Crunchyroll",
+              "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/",
+              "links": [
+                {
+                  "title": {
+                    "es": "MeriStation: fecha y detalles",
+                    "en": "MeriStation: date and details",
+                    "val": "MeriStation: data i detalls"
+                  },
+                  "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/"
+                },
+                {
+                  "title": {
+                    "es": "Calendario de anime de GamesRadar",
+                    "en": "GamesRadar anime calendar",
+                    "val": "Calendari d’anime de GamesRadar"
+                  },
+                  "url": "https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/"
+                },
+                {
+                  "title": {
+                    "es": "Noticias de Crunchyroll",
+                    "en": "Crunchyroll News",
+                    "val": "Notícies de Crunchyroll"
+                  },
+                  "url": "https://www.crunchyroll.com/news"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "The Ghost in the Shell vuelve el 7 de julio con Science Saru y Prime Video",
+                "en": "The Ghost in the Shell returns July 7 with Science Saru and Prime Video",
+                "val": "The Ghost in the Shell torna el 7 de juliol amb Science Saru i Prime Video"
+              },
+              "summary": {
+                "es": "La nueva serie recupera el manga original de Masamune Shirow con una lectura visual renovada a cargo del estudio de Dandadan. Prime Video tendrá la distribución internacional y la temporada se emitirá semanalmente; la guía de <a href=\"https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/\">GamesRadar</a> sitúa el estreno el 7 de julio.",
+                "en": "The new series returns to Masamune Shirow’s original manga with a fresh visual approach from the studio behind Dandadan. Prime Video holds international distribution and the season will air weekly; <a href=\"https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/\">GamesRadar’s</a> guide places the premiere on July 7.",
+                "val": "La nova sèrie recupera el manga original de Masamune Shirow amb una lectura visual renovada a càrrec de l’estudi de Dandadan. Prime Video tindrà la distribució internacional i la temporada s’emetrà setmanalment; la guia de <a href=\"https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/\">GamesRadar</a> situa l’estrena el 7 de juliol."
+              },
+              "source": "GamesRadar / Science Saru / Prime Video",
+              "url": "https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/",
+              "links": [
+                {
+                  "title": {
+                    "es": "GamesRadar: calendario 2026",
+                    "en": "GamesRadar: 2026 schedule",
+                    "val": "GamesRadar: calendari 2026"
+                  },
+                  "url": "https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/"
+                },
+                {
+                  "title": {
+                    "es": "Ficha de la serie",
+                    "en": "Series reference",
+                    "val": "Fitxa de la sèrie"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)"
+                },
+                {
+                  "title": {
+                    "es": "Science Saru",
+                    "en": "Science Saru",
+                    "val": "Science Saru"
+                  },
+                  "url": "https://www.sciencesaru.com/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-06-28",
       "title": {
         "es": "Europa bate récords de calor, Steam abre sus rebajas y Bitcoin pelea por los 60.000 dólares",
