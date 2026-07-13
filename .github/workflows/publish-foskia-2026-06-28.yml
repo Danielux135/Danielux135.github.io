@@ -23,13 +23,23 @@ jobs:
           const zlib = require('zlib');
 
           const date = '2026-06-28';
-          const sourcePath = '.foskia-tmp/2026-06-28.json.gz.b64';
+          const sourcePaths = [
+            '.foskia-tmp/2026-06-28.part0',
+            '.foskia-tmp/2026-06-28.part1',
+            '.foskia-tmp/2026-06-28.part2',
+            '.foskia-tmp/2026-06-28.part3',
+            '.foskia-tmp/2026-06-28.part4a',
+            '.foskia-tmp/2026-06-28.part4b',
+            '.foskia-tmp/2026-06-28.part5a',
+            '.foskia-tmp/2026-06-28.part5b'
+          ];
           const postPath = `public/foskia/posts/${date}.json`;
           const indexPath = 'public/foskia/posts/index.json';
           const expected = ['gaming','gratis','codigo','ciencia','economia','cripto','radar','ia','hardware','security','entretenimiento','curiosidades','ofertas','anime'];
           const langs = ['es','en','val'];
 
-          const encoded = fs.readFileSync(sourcePath, 'utf8').trim();
+          const encoded = sourcePaths.map(path => fs.readFileSync(path, 'utf8').trim()).join('');
+          if (encoded.length !== 22888) throw new Error(`Unexpected encoded length: ${encoded.length}`);
           const decoded = zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
           const edition = JSON.parse(decoded);
 
