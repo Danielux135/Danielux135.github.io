@@ -1489,6 +1489,1508 @@
       ]
     },
     {
+      "date": "2026-06-28",
+      "title": {
+        "es": "Europa bate récords de calor, Steam abre sus rebajas y Bitcoin pelea por los 60.000 dólares",
+        "en": "Europe breaks heat records, Steam opens its sale and Bitcoin fights for $60,000",
+        "val": "Europa bat rècords de calor, Steam obri les seues rebaixes i Bitcoin lluita pels 60.000 dòlars"
+      },
+      "intro": {
+        "es": "La edición del 28 de junio ordena un fin de semana marcado por la ola de calor europea, el doble terremoto de Venezuela y un mercado cripto todavía frágil. En tecnología, Codex refleja el salto hacia flujos con varios agentes, Nvidia y Microsoft empujan el PC local de IA y Steam concentra la atención del gaming con sus rebajas de verano. También repasamos los principales juegos de suscripción o reclamación activos, vulnerabilidades críticas, estrenos, anime y ofertas de cierre de Prime Week.",
+        "en": "The June 28 edition organises a weekend shaped by Europe’s heatwave, Venezuela’s double earthquake and a still-fragile crypto market. In technology, Codex reflects the shift towards multi-agent workflows, Nvidia and Microsoft push local AI PCs, and Steam dominates gaming attention with its Summer Sale. We also review the main active subscription and claimable games, critical vulnerabilities, releases, anime and final Prime Week deals.",
+        "val": "L’edició del 28 de juny ordena un cap de setmana marcat per l’onada de calor europea, el doble terratrémol de Veneçuela i un mercat cripto encara fràgil. En tecnologia, Codex reflectix el salt cap a fluxos amb diversos agents, Nvidia i Microsoft impulsen el PC local d’IA i Steam concentra l’atenció del gaming amb les seues rebaixes d’estiu. També repassem els principals jocs de subscripció o reclamació actius, vulnerabilitats crítiques, estrenes, anime i ofertes de tancament de Prime Week."
+      },
+      "summary": {
+        "es": "Ola de calor histórica en Europa, emergencia sísmica en Venezuela, rebajas de Steam, juegos gratis y un Bitcoin atrapado alrededor de 60.000 dólares.",
+        "en": "A historic European heatwave, Venezuela’s earthquake emergency, Steam sales, free games and Bitcoin trapped around $60,000.",
+        "val": "Onada de calor històrica a Europa, emergència sísmica a Veneçuela, rebaixes de Steam, jocs gratis i Bitcoin atrapat al voltant dels 60.000 dòlars."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "sections": [
+        {
+          "category": "gaming",
+          "items": [
+            {
+              "title": {
+                "es": "Las rebajas de verano de Steam arrancan con miles de descuentos hasta el 9 de julio",
+                "en": "Steam Summer Sale opens with thousands of discounts through July 9",
+                "val": "Les rebaixes d’estiu de Steam arranquen amb milers de descomptes fins al 9 de juliol"
+              },
+              "summary": {
+                "es": "Valve abrió el 25 de junio su gran campaña veraniega, con miles de juegos rebajados durante dos semanas. El fin de semana del 28 concentra buena parte del tráfico de PC, aunque conviene comprobar el histórico de cada precio antes de comprar.",
+                "en": "Valve opened its major summer promotion on June 25, discounting thousands of games for two weeks. The June 28 weekend is a major PC shopping moment, although checking each title’s price history remains wise.",
+                "val": "Valve va obrir el 25 de juny la seua gran campanya d’estiu, amb milers de jocs rebaixats durant dos setmanes. El cap de setmana del 28 concentra bona part del trànsit de PC, encara que convé comprovar l’històric de cada preu abans de comprar."
+              },
+              "source": "PC Gamer / Steam / SteamDB",
+              "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Cobertura de PC Gamer",
+                    "en": "PC Gamer coverage",
+                    "val": "Cobertura de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+                },
+                {
+                  "title": {
+                    "es": "Tienda de Steam",
+                    "en": "Steam storefront",
+                    "val": "Botiga de Steam"
+                  },
+                  "url": "https://store.steampowered.com/"
+                },
+                {
+                  "title": {
+                    "es": "Histórico en SteamDB",
+                    "en": "SteamDB history",
+                    "val": "Històric en SteamDB"
+                  },
+                  "url": "https://steamdb.info/sales/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Steam Next Fest deja una señal incómoda para la IA: solo una demo declarada entra entre las más jugadas",
+                "en": "Steam Next Fest sends an awkward AI signal: only one disclosed demo reaches the most-played list",
+                "val": "Steam Next Fest deixa un senyal incòmode per a la IA: només una demo declarada entra entre les més jugades"
+              },
+              "summary": {
+                "es": "Más de 500 demos indicaban algún uso de IA generativa, pero solo una llegó a la lista de las más jugadas. La cifra no prueba causalidad, aunque sí muestra que producir más contenido con IA no garantiza interés real.",
+                "en": "More than 500 demos disclosed some use of generative AI, yet only one reached the most-played list. The figure proves no causality, but it shows that producing more AI-assisted content does not guarantee genuine interest.",
+                "val": "Més de 500 demos declaraven algun ús d’IA generativa, però només una va arribar a la llista de les més jugades. La xifra no prova causalitat, encara que sí mostra que produir més contingut amb IA no garantix interés real."
+              },
+              "source": "PC Gamer / Steam",
+              "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Análisis de PC Gamer",
+                    "en": "PC Gamer analysis",
+                    "val": "Anàlisi de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/steam-next-fests-top-played-games-include-only-1-of-over-500-demos-with-an-ai-disclosure/"
+                },
+                {
+                  "title": {
+                    "es": "Steam Next Fest",
+                    "en": "Steam Next Fest",
+                    "val": "Steam Next Fest"
+                  },
+                  "url": "https://store.steampowered.com/sale/nextfest"
+                },
+                {
+                  "title": {
+                    "es": "Entrevista a Tim Sweeney",
+                    "en": "Tim Sweeney interview",
+                    "val": "Entrevista a Tim Sweeney"
+                  },
+                  "url": "https://www.pcgamer.com/gaming-industry/tim-sweeney-on-the-future-of-games-ai-and-whether-valve-will-ever-join-forces-with-epic-its-now-clear-that-nobodys-going-to-end-up-with-an-absolute-monopoly/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "gratis",
+          "items": [
+            {
+              "title": {
+                "es": "RollerCoaster Tycoon 3 Complete Edition y Voidwrought, gratis en Epic",
+                "en": "RollerCoaster Tycoon 3 Complete Edition and Voidwrought are free on Epic",
+                "val": "RollerCoaster Tycoon 3 Complete Edition i Voidwrought, gratis en Epic"
+              },
+              "summary": {
+                "es": "La rotación activa desde el 25 de junio permite añadir ambos títulos sin coste hasta el 2 de julio. El primero ofrece gestión de parques y el segundo un metroidvania oscuro.",
+                "en": "The rotation active since June 25 lets users add both titles for free until July 2. The first offers theme-park management and the second a dark metroidvania.",
+                "val": "La rotació activa des del 25 de juny permet afegir els dos títols sense cost fins al 2 de juliol. El primer oferix gestió de parcs i el segon un metroidvania fosc."
+              },
+              "source": "Epic Games Store / PC Gamer",
+              "url": "https://store.epicgames.com/free-games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Juegos gratis de Epic",
+                    "en": "Epic free games",
+                    "val": "Jocs gratis d’Epic"
+                  },
+                  "url": "https://store.epicgames.com/free-games"
+                },
+                {
+                  "title": {
+                    "es": "Historial de PC Gamer",
+                    "en": "PC Gamer history",
+                    "val": "Historial de PC Gamer"
+                  },
+                  "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+                },
+                {
+                  "title": {
+                    "es": "Búsqueda en Epic",
+                    "en": "Epic search",
+                    "val": "Cerca en Epic"
+                  },
+                  "url": "https://store.epicgames.com/en-US/browse?q=RollerCoaster%20Tycoon%203&sortBy=relevancy&sortDir=DESC&count=40"
+                }
+              ],
+              "platform": "Epic Games Store",
+              "until": {
+                "es": "Hasta el 2 de julio de 2026, 17:00 CEST",
+                "en": "Until July 2, 2026, 3:00 PM UTC",
+                "val": "Fins al 2 de juliol de 2026, 17.00 CEST"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Prime Gaming añade Terraforming Mars y Lost Eidolons: Veil of the Witch",
+                "en": "Prime Gaming adds Terraforming Mars and Lost Eidolons: Veil of the Witch",
+                "val": "Prime Gaming afig Terraforming Mars i Lost Eidolons: Veil of the Witch"
+              },
+              "summary": {
+                "es": "La tanda del 25 de junio incorpora dos juegos para PC dentro del paquete mensual de Prime. Las fechas de retirada varían por juego y launcher, por lo que conviene reclamarlos desde el hub.",
+                "en": "The June 25 batch adds two PC games to Prime’s monthly package. Removal dates vary by game and launcher, so claiming them from the hub is worthwhile.",
+                "val": "La tanda del 25 de juny incorpora dos jocs per a PC dins del paquet mensual de Prime. Les dates de retirada varien segons el joc i el launcher, per la qual cosa convé reclamar-los des del hub."
+              },
+              "source": "Prime Gaming / The Sun",
+              "url": "https://gaming.amazon.com/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Prime Gaming",
+                    "en": "Prime Gaming",
+                    "val": "Prime Gaming"
+                  },
+                  "url": "https://gaming.amazon.com/"
+                },
+                {
+                  "title": {
+                    "es": "Promoción de junio",
+                    "en": "June promotion",
+                    "val": "Promoció de juny"
+                  },
+                  "url": "https://www.thesun.co.uk/tech/39295898/amazon-prime-members-get-free-gifts/"
+                },
+                {
+                  "title": {
+                    "es": "Amazon Luna",
+                    "en": "Amazon Luna",
+                    "val": "Amazon Luna"
+                  },
+                  "url": "https://luna.amazon.com/"
+                }
+              ],
+              "platform": "Prime Gaming",
+              "until": {
+                "es": "Fechas variables según el juego",
+                "en": "Dates vary by game",
+                "val": "Dates variables segons el joc"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Grounded, Darktide y Nickelodeon All-Star Brawl 2 siguen en PS Plus Essential",
+                "en": "Grounded, Darktide and Nickelodeon All-Star Brawl 2 remain on PS Plus Essential",
+                "val": "Grounded, Darktide i Nickelodeon All-Star Brawl 2 continuen en PS Plus Essential"
+              },
+              "summary": {
+                "es": "La selección mensual de junio reúne supervivencia cooperativa, acción contra hordas y lucha de plataformas. Son licencias de suscripción y requieren mantener la membresía activa.",
+                "en": "June’s monthly selection combines co-op survival, horde action and platform fighting. These are subscription licences and require an active membership.",
+                "val": "La selecció mensual de juny reunix supervivència cooperativa, acció contra hordes i lluita de plataformes. Són llicències de subscripció i exigixen mantindre la membresia activa."
+              },
+              "source": "PlayStation Plus / MeriStation / TechRadar",
+              "url": "https://www.playstation.com/ps-plus/whats-new/",
+              "links": [
+                {
+                  "title": {
+                    "es": "MeriStation",
+                    "en": "MeriStation",
+                    "val": "MeriStation"
+                  },
+                  "url": "https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/"
+                },
+                {
+                  "title": {
+                    "es": "TechRadar",
+                    "en": "TechRadar",
+                    "val": "TechRadar"
+                  },
+                  "url": "https://www.techradar.com/gaming/playstation/the-free-playstation-plus-essential-games-for-june-have-been-revealed-and-they-include-an-xbox-published-game"
+                },
+                {
+                  "title": {
+                    "es": "PS Plus oficial",
+                    "en": "Official PS Plus",
+                    "val": "PS Plus oficial"
+                  },
+                  "url": "https://www.playstation.com/ps-plus/whats-new/"
+                }
+              ],
+              "platform": "PS Plus Essential",
+              "until": {
+                "es": "Hasta la renovación de julio",
+                "en": "Until the July refresh",
+                "val": "Fins a la renovació de juliol"
+              },
+              "urgent": false
+            },
+            {
+              "title": {
+                "es": "Persona 5 Royal encabeza el bloque de junio de Xbox Game Pass",
+                "en": "Persona 5 Royal leads Xbox Game Pass’s June batch",
+                "val": "Persona 5 Royal encapçala el bloc de juny de Xbox Game Pass"
+              },
+              "summary": {
+                "es": "El JRPG de Atlus regresó al servicio acompañado por Solarpunk, Starseeker, Herdling y otros títulos. La disponibilidad varía según plataforma y nivel de suscripción.",
+                "en": "Atlus’s JRPG returned alongside Solarpunk, Starseeker, Herdling and other titles. Availability varies by platform and subscription tier.",
+                "val": "El JRPG d’Atlus va tornar acompanyat per Solarpunk, Starseeker, Herdling i altres títols. La disponibilitat varia segons la plataforma i el nivell de subscripció."
+              },
+              "source": "Xbox / Windows Central",
+              "url": "https://www.xbox.com/xbox-game-pass/games",
+              "links": [
+                {
+                  "title": {
+                    "es": "Windows Central",
+                    "en": "Windows Central",
+                    "val": "Windows Central"
+                  },
+                  "url": "https://www.windowscentral.com/gaming/persona-5-royal-returns-to-xbox-game-pass-and-its-bringing-with-it-some-cosy-and-survival-titles-for-xbox-game-passs-first-june-2026-batch-of-games"
+                },
+                {
+                  "title": {
+                    "es": "Catálogo de Game Pass",
+                    "en": "Game Pass catalogue",
+                    "val": "Catàleg de Game Pass"
+                  },
+                  "url": "https://www.xbox.com/xbox-game-pass/games"
+                },
+                {
+                  "title": {
+                    "es": "Persona 5 Royal",
+                    "en": "Persona 5 Royal",
+                    "val": "Persona 5 Royal"
+                  },
+                  "url": "https://www.xbox.com/games/store/persona-5-royal/9nzdhxl9sjj8"
+                }
+              ],
+              "platform": "Xbox Game Pass",
+              "until": {
+                "es": "Mientras permanezca en el catálogo",
+                "en": "While it remains in the catalogue",
+                "val": "Mentres romanga en el catàleg"
+              },
+              "urgent": false
+            }
+          ]
+        },
+        {
+          "category": "codigo",
+          "items": [
+            {
+              "title": {
+                "es": "Codex muestra el salto del asistente puntual al trabajo con varios agentes",
+                "en": "Codex data shows the shift from occasional assistance to multi-agent work",
+                "val": "Les dades de Codex mostren el pas de l’assistència puntual al treball amb diversos agents"
+              },
+              "summary": {
+                "es": "Un estudio del 25 de junio señala que los usuarios activos crecieron más de cinco veces en la primera mitad de 2026. Más del 10% coordina tres o más agentes semanalmente y el 26,6% utiliza skills reutilizables.",
+                "en": "A June 25 study reports that active users grew more than fivefold in the first half of 2026. More than 10% coordinate three or more agents weekly and 26.6% use reusable skills.",
+                "val": "Un estudi del 25 de juny assenyala que els usuaris actius van créixer més de cinc vegades en la primera mitat de 2026. Més del 10% coordina tres o més agents setmanalment i el 26,6% utilitza skills reutilitzables."
+              },
+              "source": "arXiv / Stack Overflow",
+              "url": "https://arxiv.org/abs/2606.26959",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio de Codex",
+                    "en": "Codex study",
+                    "val": "Estudi de Codex"
+                  },
+                  "url": "https://arxiv.org/abs/2606.26959"
+                },
+                {
+                  "title": {
+                    "es": "Developer Experience",
+                    "en": "Developer Experience",
+                    "val": "Developer Experience"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
+                },
+                {
+                  "title": {
+                    "es": "Fatiga de decisión",
+                    "en": "Decision fatigue",
+                    "val": "Fatiga de decisió"
+                  },
+                  "url": "https://stackoverflow.blog/2026/05/21/coding-agents-are-giving-everyone-decision-fatigue/"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "GitHub registra su mejor mes mientras la programación con IA tensiona precios y servicio",
+                "en": "GitHub records its best month as AI coding strains pricing and reliability",
+                "val": "GitHub registra el seu millor mes mentres la programació amb IA tensiona preus i servici"
+              },
+              "summary": {
+                "es": "El auge de asistentes y agentes eleva el consumo de infraestructura y empuja a modelos de precio más ligados al uso. El crecimiento confirma la demanda, pero hace más visibles los costes, las caídas y la necesidad de revisión humana.",
+                "en": "The boom in assistants and agents is increasing infrastructure consumption and pushing pricing toward usage. Growth confirms demand while making costs, outages and human review more visible.",
+                "val": "L’auge d’assistents i agents eleva el consum d’infraestructura i espenta cap a models de preu més lligats a l’ús. El creixement confirma la demanda, però fa més visibles els costos, les caigudes i la necessitat de revisió humana."
+              },
+              "source": "Business Insider / GitHub / arXiv",
+              "url": "https://www.businessinsider.com/github-best-month-ever-internal-meeting-2026-6",
+              "links": [
+                {
+                  "title": {
+                    "es": "Mes récord de GitHub",
+                    "en": "GitHub record month",
+                    "val": "Mes rècord de GitHub"
+                  },
+                  "url": "https://www.businessinsider.com/github-best-month-ever-internal-meeting-2026-6"
+                },
+                {
+                  "title": {
+                    "es": "Blog de GitHub",
+                    "en": "GitHub Blog",
+                    "val": "Blog de GitHub"
+                  },
+                  "url": "https://github.blog/"
+                },
+                {
+                  "title": {
+                    "es": "Deuda técnica del código con IA",
+                    "en": "AI-code technical debt",
+                    "val": "Deute tècnic del codi amb IA"
+                  },
+                  "url": "https://arxiv.org/abs/2603.28592"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ciencia",
+          "items": [
+            {
+              "title": {
+                "es": "La ola de calor rompe récords europeos y lleva a Alemania hasta 41,5 °C",
+                "en": "Heatwave shatters European records and pushes Germany to 41.5°C",
+                "val": "L’onada de calor trenca rècords europeus i porta Alemanya fins als 41,5 °C"
+              },
+              "summary": {
+                "es": "Una masa de aire atrapada por un bloqueo atmosférico elevó las temperaturas por encima de 40 °C. El episodio afectó al transporte, las carreteras, la electricidad y la salud pública en numerosos países.",
+                "en": "Air trapped by a blocking pattern pushed temperatures above 40°C. The episode disrupted transport, roads, electricity and public health across numerous countries.",
+                "val": "Una massa d’aire atrapada per un bloqueig atmosfèric va elevar les temperatures per damunt de 40 °C. L’episodi va afectar el transport, les carreteres, l’electricitat i la salut pública en nombrosos països."
+              },
+              "source": "Reuters / Copernicus / WHO",
+              "url": "https://www.reuters.com/business/environment/germany-poland-poised-soaring-temperatures-heatwave-moves-east-2026-06-27/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/business/environment/germany-poland-poised-soaring-temperatures-heatwave-moves-east-2026-06-27/"
+                },
+                {
+                  "title": {
+                    "es": "Copernicus",
+                    "en": "Copernicus",
+                    "val": "Copernicus"
+                  },
+                  "url": "https://climate.copernicus.eu/"
+                },
+                {
+                  "title": {
+                    "es": "OMS: calor y salud",
+                    "en": "WHO: heat and health",
+                    "val": "OMS: calor i salut"
+                  },
+                  "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "El ciclo solar recorta miles de años acumulados de vida útil a satélites en órbita baja",
+                "en": "Solar activity cuts thousands of cumulative mission-years from low-orbit satellites",
+                "val": "L’activitat solar retalla milers d’anys acumulats de vida útil a satèl·lits en òrbita baixa"
+              },
+              "summary": {
+                "es": "Un estudio estima que la densidad atmosférica fue de dos a tres veces mayor de lo previsto en 2022–2026. El arrastre adicional habría eliminado entre 688 y 2.472 años de misión, con un coste directo mínimo de hasta 2.770 millones de dólares.",
+                "en": "A study estimates atmospheric density was two to three times higher than forecast in 2022–2026. Extra drag may have erased 688 to 2,472 mission-years, with a conservative direct cost up to $2.77 billion.",
+                "val": "Un estudi estima que la densitat atmosfèrica va ser de dos a tres vegades major del que s’havia previst en 2022–2026. L’arrossegament addicional hauria eliminat entre 688 i 2.472 anys de missió, amb un cost directe mínim de fins a 2.770 milions de dòlars."
+              },
+              "source": "arXiv / NOAA / NASA",
+              "url": "https://arxiv.org/abs/2606.24687",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio completo",
+                    "en": "Full study",
+                    "val": "Estudi complet"
+                  },
+                  "url": "https://arxiv.org/abs/2606.24687"
+                },
+                {
+                  "title": {
+                    "es": "NOAA Space Weather",
+                    "en": "NOAA Space Weather",
+                    "val": "NOAA Space Weather"
+                  },
+                  "url": "https://www.swpc.noaa.gov/"
+                },
+                {
+                  "title": {
+                    "es": "NASA Orbital Debris",
+                    "en": "NASA Orbital Debris",
+                    "val": "NASA Orbital Debris"
+                  },
+                  "url": "https://orbitaldebris.jsc.nasa.gov/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "economia",
+          "items": [
+            {
+              "title": {
+                "es": "Prime Day cierra una semana de guerra de precios entre Amazon y sus rivales",
+                "en": "Prime Day caps a week-long price war between Amazon and its rivals",
+                "val": "Prime Day tanca una setmana de guerra de preus entre Amazon i els seus rivals"
+              },
+              "summary": {
+                "es": "Amazon adelantó su gran campaña a junio y provocó promociones paralelas en Walmart, Target, Best Buy y Newegg. El cierre del 27–28 muestra un consumo tecnológico fuerte, pero cada vez más dependiente de descuentos y membresías.",
+                "en": "Amazon moved its major sale to June and triggered parallel promotions at Walmart, Target, Best Buy and Newegg. The June 27–28 close shows strong tech demand, but one increasingly dependent on discounts and memberships.",
+                "val": "Amazon va avançar la seua gran campanya a juny i va provocar promocions paral·leles en Walmart, Target, Best Buy i Newegg. El tancament del 27–28 mostra un consum tecnològic fort, però cada vegada més dependent de descomptes i membresies."
+              },
+              "source": "The Verge / Windows Central / Tom's Guide",
+              "url": "https://www.theverge.com/gadgets/945942/prime-day-2026-frequently-asked-questions",
+              "links": [
+                {
+                  "title": {
+                    "es": "The Verge",
+                    "en": "The Verge",
+                    "val": "The Verge"
+                  },
+                  "url": "https://www.theverge.com/gadgets/945942/prime-day-2026-frequently-asked-questions"
+                },
+                {
+                  "title": {
+                    "es": "Windows Central",
+                    "en": "Windows Central",
+                    "val": "Windows Central"
+                  },
+                  "url": "https://www.windowscentral.com/hardware/amazon-prime-day-2026"
+                },
+                {
+                  "title": {
+                    "es": "Tom’s Guide",
+                    "en": "Tom’s Guide",
+                    "val": "Tom’s Guide"
+                  },
+                  "url": "https://www.tomsguide.com/news/best-prime-day-deals-and-sales"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "El calor extremo golpea transporte, energía y productividad en Europa",
+                "en": "Extreme heat hits transport, energy and productivity across Europe",
+                "val": "La calor extrema colpeja transport, energia i productivitat a Europa"
+              },
+              "summary": {
+                "es": "Los récords obligaron a reducir trenes, dañaron carreteras y limitaron centrales que dependen de agua de refrigeración. Además del coste sanitario, el episodio convierte el clima extremo en un problema económico inmediato.",
+                "en": "Record temperatures forced rail reductions, damaged roads and constrained power plants relying on cooling water. Beyond health costs, the episode turns extreme weather into an immediate economic problem.",
+                "val": "Els rècords van obligar a reduir trens, van danyar carreteres i van limitar centrals que depenen d’aigua de refrigeració. A més del cost sanitari, l’episodi convertix el clima extrem en un problema econòmic immediat."
+              },
+              "source": "Reuters / Copernicus / EEA",
+              "url": "https://www.reuters.com/business/environment/germany-poland-poised-soaring-temperatures-heatwave-moves-east-2026-06-27/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/business/environment/germany-poland-poised-soaring-temperatures-heatwave-moves-east-2026-06-27/"
+                },
+                {
+                  "title": {
+                    "es": "Copernicus",
+                    "en": "Copernicus",
+                    "val": "Copernicus"
+                  },
+                  "url": "https://climate.copernicus.eu/"
+                },
+                {
+                  "title": {
+                    "es": "Agencia Europea de Medio Ambiente",
+                    "en": "European Environment Agency",
+                    "val": "Agència Europea de Medi Ambient"
+                  },
+                  "url": "https://www.eea.europa.eu/en/topics/in-depth/climate-change-impacts-risks-and-adaptation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "cripto",
+          "items": [
+            {
+              "title": {
+                "es": "Bitcoin pierde los 60.000 dólares y los ETF agravan la presión vendedora",
+                "en": "Bitcoin falls below $60,000 as ETF outflows add selling pressure",
+                "val": "Bitcoin perd els 60.000 dòlars i les eixides dels ETF agreugen la pressió venedora"
+              },
+              "summary": {
+                "es": "Bitcoin se mueve cerca de mínimos de dos años tras perder más del 30% en 2026 y encadenar salidas de fondos cotizados. La zona de 59.000–60.000 dólares intenta actuar como soporte, pero el tono sigue siendo defensivo.",
+                "en": "Bitcoin is trading near two-year lows after losing more than 30% in 2026 and suffering ETF outflows. The $59,000–$60,000 area is trying to act as support, but sentiment remains defensive.",
+                "val": "Bitcoin es mou prop de mínims de dos anys després de perdre més del 30% en 2026 i encadenar eixides de fons cotitzats. La zona de 59.000–60.000 dòlars intenta actuar com a suport, però el to continua sent defensiu."
+              },
+              "source": "Investopedia / Business Insider / Yahoo Finance",
+              "url": "https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861",
+              "links": [
+                {
+                  "title": {
+                    "es": "Perspectivas del segundo semestre",
+                    "en": "Second-half outlook",
+                    "val": "Perspectives del segon semestre"
+                  },
+                  "url": "https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861"
+                },
+                {
+                  "title": {
+                    "es": "Análisis de la caída",
+                    "en": "Selloff analysis",
+                    "val": "Anàlisi de la caiguda"
+                  },
+                  "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6"
+                },
+                {
+                  "title": {
+                    "es": "Seguimiento de precios",
+                    "en": "Price tracking",
+                    "val": "Seguiment de preus"
+                  },
+                  "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-monday-june-22-2026-prices-moving-higher-this-morning-133853515.html"
+                }
+              ],
+              "shortTerm": {
+                "es": "Recuperar 60.000–62.000 dólares aliviaría la presión; perder 58.000 reabriría el riesgo bajista.",
+                "en": "Reclaiming $60,000–$62,000 would ease pressure; losing $58,000 would reopen downside risk.",
+                "val": "Recuperar 60.000–62.000 dòlars alleujaria la pressió; perdre 58.000 reobriria el risc baixista."
+              },
+              "longTerm": {
+                "es": "La tesis depende de que regresen los flujos de ETF y mejore el entorno macro; algunos escenarios extremos apuntan a 40.000–46.000 dólares.",
+                "en": "The thesis depends on ETF flows returning and macro conditions improving; some extreme scenarios point to $40,000–$46,000.",
+                "val": "La tesi depén que tornen els fluxos d’ETF i millore l’entorn macro; alguns escenaris extrems apunten a 40.000–46.000 dòlars."
+              }
+            },
+            {
+              "title": {
+                "es": "Ethereum cae más que Bitcoin mientras Solana y XRP buscan catalizadores propios",
+                "en": "Ethereum underperforms Bitcoin while Solana and XRP seek their own catalysts",
+                "val": "Ethereum cau més que Bitcoin mentres Solana i XRP busquen catalitzadors propis"
+              },
+              "summary": {
+                "es": "Ether acumula un descenso anual más acusado y comparte la presión institucional de Bitcoin. Solana y XRP muestran momentos de fortaleza por ETF, mejoras técnicas y expectativas regulatorias, aunque dependen del apetito general por riesgo.",
+                "en": "Ether has posted a steeper yearly decline and shares Bitcoin’s institutional pressure. Solana and XRP show pockets of strength through ETFs, upgrades and regulatory expectations, but still depend on broader risk appetite.",
+                "val": "Ether acumula un descens anual més acusat i compartix la pressió institucional de Bitcoin. Solana i XRP mostren moments de fortalesa per ETF, millores tècniques i expectatives reguladores, encara que depenen de l’apetit general pel risc."
+              },
+              "source": "Business Insider / Crypto Times / CoinDCX",
+              "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6",
+              "links": [
+                {
+                  "title": {
+                    "es": "Contexto de mercado",
+                    "en": "Market context",
+                    "val": "Context de mercat"
+                  },
+                  "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6"
+                },
+                {
+                  "title": {
+                    "es": "XRP y Solana",
+                    "en": "XRP and Solana",
+                    "val": "XRP i Solana"
+                  },
+                  "url": "https://www.cryptotimes.io/2026/06/17/eth-xrp-or-solana-which-altcoin-will-lead-next-massive-rally-in-2026/"
+                },
+                {
+                  "title": {
+                    "es": "Niveles de Solana",
+                    "en": "Solana levels",
+                    "val": "Nivells de Solana"
+                  },
+                  "url": "https://coindcx.com/blog/price-predictions/solana-price-weekly/"
+                }
+              ],
+              "shortTerm": {
+                "es": "ETH necesita recuperar 1.900 dólares; en SOL, la zona de 72 dólares actúa como primera resistencia.",
+                "en": "ETH needs to reclaim $1,900; for SOL, the $72 area is the first resistance.",
+                "val": "ETH necessita recuperar 1.900 dòlars; en SOL, la zona de 72 dòlars actua com a primera resistència."
+              },
+              "longTerm": {
+                "es": "ETF, regulación y mejoras de red pesarán más que un rebote aislado de fin de semana.",
+                "en": "ETFs, regulation and network upgrades will matter more than an isolated weekend bounce.",
+                "val": "Els ETF, la regulació i les millores de xarxa pesaran més que un rebot aïllat de cap de setmana."
+              }
+            }
+          ]
+        },
+        {
+          "category": "radar",
+          "items": [
+            {
+              "title": {
+                "es": "Venezuela supera los 1.400 muertos por el doble terremoto y acelera los rescates",
+                "en": "Venezuela earthquake death toll passes 1,400 as rescue efforts intensify",
+                "val": "Veneçuela supera els 1.400 morts pel doble terratrémol i accelera els rescats"
+              },
+              "summary": {
+                "es": "Equipos internacionales se suman a la búsqueda tras los terremotos de magnitud 7,2 y 7,5. Los daños en edificios, carreteras, electricidad y el principal aeropuerto complican una emergencia con miles de heridos y desplazados.",
+                "en": "International teams are joining the search after magnitude 7.2 and 7.5 earthquakes. Damage to buildings, roads, electricity and the main airport is complicating an emergency with thousands injured and displaced.",
+                "val": "Equips internacionals se sumen a la busca després dels terratrémols de magnitud 7,2 i 7,5. Els danys en edificis, carreteres, electricitat i l’aeroport principal compliquen una emergència amb milers de ferits i desplaçats."
+              },
+              "source": "Reuters / El País / AP",
+              "url": "https://www.reuters.com/world/americas/venezuela-welcomes-1600-foreign-rescuers-urgent-search-quake-survivors-2026-06-27/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/world/americas/venezuela-welcomes-1600-foreign-rescuers-urgent-search-quake-survivors-2026-06-27/"
+                },
+                {
+                  "title": {
+                    "es": "El País",
+                    "en": "El País",
+                    "val": "El País"
+                  },
+                  "url": "https://elpais.com/america/2026-06-27/ultima-hora-del-terremoto-en-venezuela-en-directo.html"
+                },
+                {
+                  "title": {
+                    "es": "Associated Press",
+                    "en": "Associated Press",
+                    "val": "Associated Press"
+                  },
+                  "url": "https://apnews.com/article/6ef83f995a311c03dbbbba413d046fa5"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "El Pacto Europeo de Migración entra en su fase decisiva de aplicación",
+                "en": "The EU Migration Pact enters its decisive implementation phase",
+                "val": "El Pacte Europeu de Migració entra en la seua fase decisiva d’aplicació"
+              },
+              "summary": {
+                "es": "El paquete reforma los procedimientos de asilo, el control fronterizo y el reparto de responsabilidades entre estados. Su aplicación durante junio convierte la migración en uno de los grandes expedientes políticos europeos.",
+                "en": "The package reforms asylum procedures, border screening and responsibility-sharing among states. Its June implementation makes migration one of Europe’s defining political files.",
+                "val": "El paquet reforma els procediments d’asil, el control fronterer i el repartiment de responsabilitats entre estats. La seua aplicació durant juny convertix la migració en un dels grans expedients polítics europeus."
+              },
+              "source": "European Commission / Parliament / Council",
+              "url": "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/pact-migration-and-asylum_en",
+              "links": [
+                {
+                  "title": {
+                    "es": "Comisión Europea",
+                    "en": "European Commission",
+                    "val": "Comissió Europea"
+                  },
+                  "url": "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/pact-migration-and-asylum_en"
+                },
+                {
+                  "title": {
+                    "es": "Parlamento Europeo",
+                    "en": "European Parliament",
+                    "val": "Parlament Europeu"
+                  },
+                  "url": "https://www.europarl.europa.eu/topics/en/article/20170627STO78418/eu-asylum-and-migration-policy"
+                },
+                {
+                  "title": {
+                    "es": "Consejo de la UE",
+                    "en": "Council of the EU",
+                    "val": "Consell de la UE"
+                  },
+                  "url": "https://www.consilium.europa.eu/en/policies/eu-migration-policy/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ia",
+          "items": [
+            {
+              "title": {
+                "es": "La IA agéntica deja de ser una prueba: Codex multiplica usuarios y complejidad",
+                "en": "Agentic AI moves beyond experimentation as Codex usage and task complexity surge",
+                "val": "La IA agèntica deixa de ser una prova: Codex multiplica usuaris i complexitat"
+              },
+              "summary": {
+                "es": "Los datos muestran adopción acelerada fuera del público programador y un fuerte aumento de tareas estimadas en más de ocho horas humanas. El cambio abre oportunidades de productividad y dudas sobre control, empleo y medición.",
+                "en": "Data shows rapid adoption beyond developers and a sharp increase in tasks estimated above eight human hours. The shift opens productivity opportunities and questions about control, jobs and measurement.",
+                "val": "Les dades mostren adopció accelerada fora del públic programador i un fort augment de tasques estimades en més de huit hores humanes. El canvi obri oportunitats de productivitat i dubtes sobre control, ocupació i mesurament."
+              },
+              "source": "arXiv / Stack Overflow",
+              "url": "https://arxiv.org/abs/2606.26959",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio de Codex",
+                    "en": "Codex study",
+                    "val": "Estudi de Codex"
+                  },
+                  "url": "https://arxiv.org/abs/2606.26959"
+                },
+                {
+                  "title": {
+                    "es": "Developer Experience",
+                    "en": "Developer Experience",
+                    "val": "Developer Experience"
+                  },
+                  "url": "https://stackoverflow.blog/developer-experience/"
+                },
+                {
+                  "title": {
+                    "es": "Deuda técnica con IA",
+                    "en": "AI technical debt",
+                    "val": "Deute tècnic amb IA"
+                  },
+                  "url": "https://arxiv.org/abs/2603.28592"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Anthropic ficha al cocreador de AlphaFold y refuerza la carrera por la IA científica",
+                "en": "Anthropic hires an AlphaFold co-creator, intensifying the scientific AI race",
+                "val": "Anthropic fitxa el cocreador d’AlphaFold i reforça la carrera per la IA científica"
+              },
+              "summary": {
+                "es": "John Jumper deja Google DeepMind tras casi nueve años y se incorpora a Anthropic. El movimiento lleva a una figura clave de la biología computacional a una empresa de modelos fundacionales.",
+                "en": "John Jumper is leaving Google DeepMind after nearly nine years to join Anthropic. The move brings a key computational-biology figure to a foundation-model company.",
+                "val": "John Jumper deixa Google DeepMind després de quasi nou anys i s’incorpora a Anthropic. El moviment porta una figura clau de la biologia computacional a una empresa de models fundacionals."
+              },
+              "source": "Reuters / DeepMind / Anthropic",
+              "url": "https://www.reuters.com/technology/us-scientist-john-jumper-leave-google-deepmind-anthropic-2026-06-19/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/technology/us-scientist-john-jumper-leave-google-deepmind-anthropic-2026-06-19/"
+                },
+                {
+                  "title": {
+                    "es": "AlphaFold",
+                    "en": "AlphaFold",
+                    "val": "AlphaFold"
+                  },
+                  "url": "https://deepmind.google/science/alphafold/"
+                },
+                {
+                  "title": {
+                    "es": "Anthropic News",
+                    "en": "Anthropic News",
+                    "val": "Anthropic News"
+                  },
+                  "url": "https://www.anthropic.com/news"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "hardware",
+          "items": [
+            {
+              "title": {
+                "es": "Nvidia lleva Blackwell y Grace al portátil con RTX Spark y desafía a Intel y AMD",
+                "en": "Nvidia brings Blackwell and Grace to laptops with RTX Spark, challenging Intel and AMD",
+                "val": "Nvidia porta Blackwell i Grace al portàtil amb RTX Spark i desafia Intel i AMD"
+              },
+              "summary": {
+                "es": "La plataforma combina CPU, GPU y más de 128 GB de memoria unificada para ejecutar modelos y agentes en local. Asus, Dell, HP, Lenovo y Microsoft preparan equipos para otoño, aunque precio y autonomía decidirán su alcance.",
+                "en": "The platform combines CPU, GPU and more than 128GB of unified memory for local models and agents. Asus, Dell, HP, Lenovo and Microsoft are preparing fall systems, although pricing and battery life will decide its reach.",
+                "val": "La plataforma combina CPU, GPU i més de 128 GB de memòria unificada per a executar models i agents en local. Asus, Dell, HP, Lenovo i Microsoft preparen equips per a la tardor, encara que el preu i l’autonomia decidiran el seu abast."
+              },
+              "source": "El País / Reuters / AP",
+              "url": "https://elpais.com/economia/2026-06-01/nvidia-anuncia-la-reinvencion-del-ordenador-personal-con-un-chip-de-ia-con-el-que-reta-a-intel-y-amd.html",
+              "links": [
+                {
+                  "title": {
+                    "es": "El País",
+                    "en": "El País",
+                    "val": "El País"
+                  },
+                  "url": "https://elpais.com/economia/2026-06-01/nvidia-anuncia-la-reinvencion-del-ordenador-personal-con-un-chip-de-ia-con-el-que-reta-a-intel-y-amd.html"
+                },
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/world/asia-pacific/what-are-ai-pcs-that-nvidias-jensen-huang-is-betting-2026-06-01/"
+                },
+                {
+                  "title": {
+                    "es": "Associated Press",
+                    "en": "Associated Press",
+                    "val": "Associated Press"
+                  },
+                  "url": "https://apnews.com/article/c807f7333b93b9927b62b1240dcf65a1"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Microsoft convierte el RTX Spark Dev Box en una estación local para modelos y agentes",
+                "en": "Microsoft turns the RTX Spark Dev Box into a local workstation for models and agents",
+                "val": "Microsoft convertix l’RTX Spark Dev Box en una estació local per a models i agents"
+              },
+              "summary": {
+                "es": "El equipo presentado en Build combina el chip de Nvidia con 128 GB de memoria y encaja con el giro de Windows hacia terminales, contenedores y herramientas agénticas. El PC de desarrollo vuelve a diferenciarse por memoria y aceleración.",
+                "en": "The Build-announced machine pairs Nvidia’s chip with 128GB of memory and fits Windows’ shift toward terminals, containers and agent tooling. Developer PCs are again being differentiated by memory and acceleration.",
+                "val": "L’equip presentat en Build combina el xip de Nvidia amb 128 GB de memòria i encaixa amb el gir de Windows cap a terminals, contenidors i eines agèntiques. El PC de desenvolupament torna a diferenciar-se per memòria i acceleració."
+              },
+              "source": "The Verge / Microsoft / Tom's Hardware",
+              "url": "https://www.theverge.com/tech/941738/microsoft-build-2026-biggest-announcements",
+              "links": [
+                {
+                  "title": {
+                    "es": "The Verge",
+                    "en": "The Verge",
+                    "val": "The Verge"
+                  },
+                  "url": "https://www.theverge.com/tech/941738/microsoft-build-2026-biggest-announcements"
+                },
+                {
+                  "title": {
+                    "es": "Windows Developer Blog",
+                    "en": "Windows Developer Blog",
+                    "val": "Windows Developer Blog"
+                  },
+                  "url": "https://blogs.windows.com/windowsdeveloper/"
+                },
+                {
+                  "title": {
+                    "es": "Tom’s Hardware",
+                    "en": "Tom’s Hardware",
+                    "val": "Tom’s Hardware"
+                  },
+                  "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/jensen-huang-says-nvidia-wants-to-reinvent-the-single-most-important-tool-of-humanity-with-rtx-spark-nvidia-ceo-touts-support-of-literally-every-computer-maker-in-the-world-for-its-agentic-ai-pc-platform"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "security",
+          "items": [
+            {
+              "title": {
+                "es": "Oracle alerta de ataques contra PeopleSoft tras comprometerse cientos de servidores",
+                "en": "Oracle warns of PeopleSoft attacks after hundreds of servers are compromised",
+                "val": "Oracle alerta d’atacs contra PeopleSoft després de comprometre’s centenars de servidors"
+              },
+              "summary": {
+                "es": "CVE-2026-35273, con puntuación 9,8, permite ataques remotos contra instalaciones expuestas y fue explotada antes del despliegue amplio del parche. Se recomienda actualizar, revisar accesos y rotar credenciales.",
+                "en": "CVE-2026-35273, rated 9.8, enables remote attacks against exposed deployments and was exploited before the patch was widely installed. Organisations should patch, review access and rotate credentials.",
+                "val": "CVE-2026-35273, amb puntuació 9,8, permet atacs remots contra instal·lacions exposades i va ser explotada abans del desplegament ampli del pegat. Es recomana actualitzar, revisar accessos i rotar credencials."
+              },
+              "source": "TechRadar / Oracle / CISA",
+              "url": "https://www.techradar.com/pro/security/oracle-warns-customers-of-critical-peoplesoft-attack-after-hundreds-of-servers-hacked-by-apparent-shinyhunters-data-theft-attacks",
+              "links": [
+                {
+                  "title": {
+                    "es": "TechRadar",
+                    "en": "TechRadar",
+                    "val": "TechRadar"
+                  },
+                  "url": "https://www.techradar.com/pro/security/oracle-warns-customers-of-critical-peoplesoft-attack-after-hundreds-of-servers-hacked-by-apparent-shinyhunters-data-theft-attacks"
+                },
+                {
+                  "title": {
+                    "es": "Oracle Security Alerts",
+                    "en": "Oracle Security Alerts",
+                    "val": "Oracle Security Alerts"
+                  },
+                  "url": "https://www.oracle.com/security-alerts/"
+                },
+                {
+                  "title": {
+                    "es": "CISA KEV",
+                    "en": "CISA KEV",
+                    "val": "CISA KEV"
+                  },
+                  "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Solo el 1,7% de infraestructuras críticas chilenas publica un canal verificable de vulnerabilidades",
+                "en": "Only 1.7% of Chilean critical operators publish a verifiable vulnerability channel",
+                "val": "Només l’1,7% d’infraestructures crítiques xilenes publica un canal verificable de vulnerabilitats"
+              },
+              "summary": {
+                "es": "Un estudio revisó 915 operadores esenciales y encontró solo 16 con un contacto compatible con security.txt. También detectó fallos de autenticación de correo y componentes obsoletos que dificultan la divulgación responsable.",
+                "en": "A study reviewed 915 essential operators and found only 16 with a security.txt-compatible contact. It also found email-authentication failures and outdated components that hinder responsible disclosure.",
+                "val": "Un estudi va revisar 915 operadors essencials i en va trobar només 16 amb un contacte compatible amb security.txt. També va detectar fallades d’autenticació de correu i components obsolets que dificulten la divulgació responsable."
+              },
+              "source": "arXiv / IETF / CISA",
+              "url": "https://arxiv.org/abs/2606.05594",
+              "links": [
+                {
+                  "title": {
+                    "es": "Estudio completo",
+                    "en": "Full study",
+                    "val": "Estudi complet"
+                  },
+                  "url": "https://arxiv.org/abs/2606.05594"
+                },
+                {
+                  "title": {
+                    "es": "RFC 9116",
+                    "en": "RFC 9116",
+                    "val": "RFC 9116"
+                  },
+                  "url": "https://www.rfc-editor.org/rfc/rfc9116"
+                },
+                {
+                  "title": {
+                    "es": "CISA BOD 20-01",
+                    "en": "CISA BOD 20-01",
+                    "val": "CISA BOD 20-01"
+                  },
+                  "url": "https://www.cisa.gov/news-events/directives/binding-operational-directive-20-01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "entretenimiento",
+          "items": [
+            {
+              "title": {
+                "es": "Supergirl llega a los cines como el gran estreno de estudio del fin de semana",
+                "en": "Supergirl arrives in cinemas as the weekend’s major studio release",
+                "val": "Supergirl arriba als cinemes com la gran estrena d’estudi del cap de setmana"
+              },
+              "summary": {
+                "es": "La película de DC se estrena el 26 de junio y concentra la atención de una cartelera veraniega competitiva. Su arranque pondrá a prueba la nueva estrategia del estudio y la capacidad del género para recuperar público.",
+                "en": "The DC film opens June 26 and dominates a competitive summer theatrical market. Its opening will test the studio’s new strategy and the genre’s ability to regain audiences.",
+                "val": "La pel·lícula de DC s’estrena el 26 de juny i concentra l’atenció d’una cartellera d’estiu competitiva. El seu inici posarà a prova la nova estratègia de l’estudi i la capacitat del gènere per a recuperar públic."
+              },
+              "source": "Warner Bros. / DC / release calendars",
+              "url": "https://www.warnerbros.com/movies/supergirl",
+              "links": [
+                {
+                  "title": {
+                    "es": "Warner Bros.",
+                    "en": "Warner Bros.",
+                    "val": "Warner Bros."
+                  },
+                  "url": "https://www.warnerbros.com/movies/supergirl"
+                },
+                {
+                  "title": {
+                    "es": "DC",
+                    "en": "DC",
+                    "val": "DC"
+                  },
+                  "url": "https://www.dc.com/"
+                },
+                {
+                  "title": {
+                    "es": "Calendario de Warner",
+                    "en": "Warner release calendar",
+                    "val": "Calendari de Warner"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/List_of_Warner_Bros._films_(2020%E2%80%932029)"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "Apple prepara más películas y series mientras desarrolla una secuela de F1",
+                "en": "Apple plans more films and series while developing an F1 sequel",
+                "val": "Apple prepara més pel·lícules i sèries mentres desenvolupa una seqüela de F1"
+              },
+              "summary": {
+                "es": "Eddy Cue afirma que Apple quiere ampliar el volumen sin abandonar la calidad, combinando streaming con estrenos cinematográficos. La compañía también trabaja en una continuación de F1 tras su fuerte rendimiento.",
+                "en": "Eddy Cue says Apple wants to increase output without abandoning quality, combining streaming with theatrical releases. The company is also developing an F1 sequel after the film’s strong performance.",
+                "val": "Eddy Cue afirma que Apple vol ampliar el volum sense abandonar la qualitat, combinant streaming amb estrenes cinematogràfiques. La companyia també treballa en una continuació de F1 després del seu fort rendiment."
+              },
+              "source": "Reuters / Apple TV / Cannes Lions",
+              "url": "https://www.reuters.com/business/media-telecom/apple-aims-better-more-entertainment-offerings-executive-cue-says-2026-06-24/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Reuters",
+                    "en": "Reuters",
+                    "val": "Reuters"
+                  },
+                  "url": "https://www.reuters.com/business/media-telecom/apple-aims-better-more-entertainment-offerings-executive-cue-says-2026-06-24/"
+                },
+                {
+                  "title": {
+                    "es": "Apple TV Press",
+                    "en": "Apple TV Press",
+                    "val": "Apple TV Press"
+                  },
+                  "url": "https://www.apple.com/tv-pr/"
+                },
+                {
+                  "title": {
+                    "es": "Cannes Lions",
+                    "en": "Cannes Lions",
+                    "val": "Cannes Lions"
+                  },
+                  "url": "https://www.canneslions.com/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "curiosidades",
+          "items": [
+            {
+              "title": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "summary": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "source": "Egyptian antiquities authorities / archaeology references",
+              "url": "https://en.wikipedia.org/wiki/2026_in_archaeology",
+              "links": [
+                {
+                  "title": {
+                    "es": "Resumen del hallazgo",
+                    "en": "Find summary",
+                    "val": "Resum de la troballa"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/2026_in_archaeology"
+                },
+                {
+                  "title": {
+                    "es": "Contexto arqueológico de Luxor",
+                    "en": "Luxor archaeological context",
+                    "val": "Context arqueològic de Luxor"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/Luxor"
+                },
+                {
+                  "title": {
+                    "es": "Arqueología del Egipto antiguo",
+                    "en": "Archaeology of ancient Egypt",
+                    "val": "Arqueologia de l’Egipte antic"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/Archaeology_of_ancient_Egypt"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "summary": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "source": "Templo Mayor archaeology references",
+              "url": "https://en.wikipedia.org/wiki/2026_in_archaeology",
+              "links": [
+                {
+                  "title": {
+                    "es": "Registro de la excavación",
+                    "en": "Excavation record",
+                    "val": "Registre de l’excavació"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/2026_in_archaeology"
+                },
+                {
+                  "title": {
+                    "es": "Templo Mayor",
+                    "en": "Templo Mayor",
+                    "val": "Templo Mayor"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/Templo_Mayor"
+                },
+                {
+                  "title": {
+                    "es": "Arqueología de América",
+                    "en": "Archaeology of the Americas",
+                    "val": "Arqueologia d’Amèrica"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/Archaeology_of_the_Americas"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "ofertas",
+          "items": [
+            {
+              "market": "es",
+              "title": {
+                "es": "Samsung Galaxy Buds3 por 79 €",
+                "en": "",
+                "val": ""
+              },
+              "summary": {
+                "es": "Los Galaxy Buds3 con cancelación activa de ruido, audio de alta resolución y resistencia IP57 bajan de 159 € a 79 € en Amazon España. El descuento ronda el 50 % y depende del stock disponible. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Ver el chollo</a>.",
+                "en": "",
+                "val": ""
+              },
+              "source": "Chollometro",
+              "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+              "platform": "Amazon España",
+              "originalPrice": {
+                "es": "159 €",
+                "en": "",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "79 €",
+                "en": "",
+                "val": ""
+              },
+              "discount": {
+                "es": "-50 %",
+                "en": "",
+                "val": ""
+              },
+              "until": {
+                "es": "Hasta agotar stock",
+                "en": "",
+                "val": ""
+              },
+              "urgent": true,
+              "links": []
+            },
+            {
+              "market": "es",
+              "title": {
+                "es": "Gigabyte GeForce RTX 5070 Gaming OC 12 GB por 609 €",
+                "en": "",
+                "val": ""
+              },
+              "summary": {
+                "es": "La RTX 5070 Gaming OC de Gigabyte, con memoria GDDR7 y soporte para DLSS 4, aparece a 609 € en PcComponentes. Es uno de sus precios más competitivos del momento y la disponibilidad puede variar durante la campaña. <a href=\"https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4\">Ver la ficha</a>.",
+                "en": "",
+                "val": ""
+              },
+              "source": "PcComponentes",
+              "url": "https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4",
+              "platform": "PcComponentes",
+              "originalPrice": {
+                "es": "669 €",
+                "en": "",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "609 €",
+                "en": "",
+                "val": ""
+              },
+              "discount": {
+                "es": "Precio destacado",
+                "en": "",
+                "val": ""
+              },
+              "until": {
+                "es": "Hasta agotar stock",
+                "en": "",
+                "val": ""
+              },
+              "urgent": true,
+              "links": []
+            },
+            {
+              "market": "val",
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Samsung Galaxy Buds3 per 79 €"
+              },
+              "summary": {
+                "es": "",
+                "en": "",
+                "val": "Els Galaxy Buds3 amb cancel·lació activa de soroll, àudio d’alta resolució i resistència IP57 baixen de 159 € a 79 € en Amazon Espanya. El descompte ronda el 50 % i depén de l’estoc disponible. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Vore el xollo</a>."
+              },
+              "source": "Chollometro",
+              "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+              "platform": "Amazon Espanya",
+              "originalPrice": {
+                "es": "",
+                "en": "",
+                "val": "159 €"
+              },
+              "salePrice": {
+                "es": "",
+                "en": "",
+                "val": "79 €"
+              },
+              "discount": {
+                "es": "",
+                "en": "",
+                "val": "-50 %"
+              },
+              "until": {
+                "es": "",
+                "en": "",
+                "val": "Fins a esgotar estoc"
+              },
+              "urgent": true,
+              "links": []
+            },
+            {
+              "market": "val",
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Gigabyte GeForce RTX 5070 Gaming OC 12 GB per 609 €"
+              },
+              "summary": {
+                "es": "",
+                "en": "",
+                "val": "La RTX 5070 Gaming OC de Gigabyte, amb memòria GDDR7 i suport per a DLSS 4, apareix a 609 € en PcComponentes. És un dels seus preus més competitius del moment i la disponibilitat pot variar durant la campanya. <a href=\"https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4\">Vore la fitxa</a>."
+              },
+              "source": "PcComponentes",
+              "url": "https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4",
+              "platform": "PcComponentes",
+              "originalPrice": {
+                "es": "",
+                "en": "",
+                "val": "669 €"
+              },
+              "salePrice": {
+                "es": "",
+                "en": "",
+                "val": "609 €"
+              },
+              "discount": {
+                "es": "",
+                "en": "",
+                "val": "Preu destacat"
+              },
+              "until": {
+                "es": "",
+                "en": "",
+                "val": "Fins a esgotar estoc"
+              },
+              "urgent": true,
+              "links": []
+            },
+            {
+              "market": "en",
+              "title": {
+                "es": "",
+                "en": "Acer Nitro V 16S RTX 5070 gaming laptop for about $999.99",
+                "val": ""
+              },
+              "summary": {
+                "es": "",
+                "en": "Acer’s thin 16-inch Nitro V configuration with an RTX 5070 was highlighted around $999.99 during the final stretch of Prime Week, roughly $300 below its usual listed price. Stock and the exact configuration can change quickly. <a href=\"https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/\">See the live deal tracker</a>.",
+                "val": ""
+              },
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/",
+              "platform": "Amazon US / Prime Week",
+              "originalPrice": {
+                "es": "",
+                "en": "$1,299.99",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "",
+                "en": "$999.99",
+                "val": ""
+              },
+              "discount": {
+                "es": "",
+                "en": "About -23%",
+                "val": ""
+              },
+              "until": {
+                "es": "",
+                "en": "Final Prime Week stock",
+                "val": ""
+              },
+              "urgent": true,
+              "links": []
+            },
+            {
+              "market": "en",
+              "title": {
+                "es": "",
+                "en": "Acer QD-OLED gaming monitor for about $315",
+                "val": ""
+              },
+              "summary": {
+                "es": "",
+                "en": "An Acer QD-OLED gaming monitor was tracked at roughly $315 during Prime Week, around 30% below its typical $450 level. It is an unusually low entry price for OLED gaming, but availability and coupons may change. <a href=\"https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/\">See the live deal tracker</a>.",
+                "val": ""
+              },
+              "source": "PC Gamer",
+              "url": "https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/",
+              "platform": "Amazon US / Prime Week",
+              "originalPrice": {
+                "es": "",
+                "en": "About $450",
+                "val": ""
+              },
+              "salePrice": {
+                "es": "",
+                "en": "About $315",
+                "val": ""
+              },
+              "discount": {
+                "es": "",
+                "en": "Around -30%",
+                "val": ""
+              },
+              "until": {
+                "es": "",
+                "en": "Final Prime Week stock",
+                "val": ""
+              },
+              "urgent": true,
+              "links": []
+            }
+          ]
+        },
+        {
+          "category": "anime",
+          "items": [
+            {
+              "title": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "summary": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "source": "Meristation / Crunchyroll / anime references",
+              "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/",
+              "links": [
+                {
+                  "title": {
+                    "es": "Meristation",
+                    "en": "Meristation",
+                    "val": "Meristation"
+                  },
+                  "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/"
+                },
+                {
+                  "title": {
+                    "es": "Noticias de Crunchyroll",
+                    "en": "Crunchyroll News",
+                    "val": "Notícies de Crunchyroll"
+                  },
+                  "url": "https://www.crunchyroll.com/news"
+                },
+                {
+                  "title": {
+                    "es": "Ficha de Black Torch",
+                    "en": "Black Torch reference",
+                    "val": "Fitxa de Black Torch"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/Black_Torch"
+                }
+              ]
+            },
+            {
+              "title": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "summary": {
+                "es": "es",
+                "en": "en",
+                "val": "val"
+              },
+              "source": "Science Saru / Prime Video / release references",
+              "url": "https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)",
+              "links": [
+                {
+                  "title": {
+                    "es": "Ficha de la serie",
+                    "en": "Series reference",
+                    "val": "Fitxa de la sèrie"
+                  },
+                  "url": "https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)"
+                },
+                {
+                  "title": {
+                    "es": "Prime Video",
+                    "en": "Prime Video",
+                    "val": "Prime Video"
+                  },
+                  "url": "https://www.primevideo.com/"
+                },
+                {
+                  "title": {
+                    "es": "Science Saru",
+                    "en": "Science Saru",
+                    "val": "Science Saru"
+                  },
+                  "url": "https://www.sciencesaru.com/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-06-27",
       "title": {
         "es": "Fin de semana de seguimiento para Epic, Roman, Steam e IA mientras Bitcoin rebota hacia 60.000$",
