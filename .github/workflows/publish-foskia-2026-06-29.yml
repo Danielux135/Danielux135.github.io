@@ -1,0 +1,126 @@
+name: Publish FoskIA 2026-06-29
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.foskia-publish-2026-06-29-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Join, decode, validate and update FoskIA
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const zlib = require('zlib');
+
+          const date = '2026-06-29';
+          const sourceDir = '.foskia-tmp/2026-06-29';
+          const postPath = `public/foskia/posts/${date}.json`;
+          const indexPath = 'public/foskia/posts/index.json';
+          const expected = ['gaming','gratis','codigo','ciencia','economia','cripto','radar','ia','hardware','security','entretenimiento','curiosidades','ofertas','anime'];
+          const langs = ['es','en','val'];
+
+          const parts = fs.readdirSync(sourceDir)
+            .filter(name => /^part-\d+\.b64$/.test(name))
+            .sort();
+          if (parts.length !== 6) throw new Error(`Expected 6 source parts, found ${parts.length}`);
+
+          const encoded = parts.map(name => fs.readFileSync(`${sourceDir}/${name}`, 'utf8').trim()).join('');
+          const decoded = zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
+          if (decoded.includes('\uFFFD')) throw new Error('Damaged replacement character found');
+          const edition = JSON.parse(decoded);
+
+          function fail(message) { throw new Error(message); }
+          function validUrl(value) { return typeof value === 'string' && /^https?:\/\//.test(value); }
+          function completeText(value) {
+            return value && typeof value === 'object' &&
+              langs.every(lang => typeof value[lang] === 'string' && value[lang].trim());
+          }
+          function placeholder(value) {
+            return value && typeof value === 'object' &&
+              langs.some(lang => ['es','en','val'].includes(String(value[lang] || '').trim().toLowerCase()));
+          }
+
+          if (edition.date !== date) fail(`Wrong date: ${edition.date}`);
+          if (!completeText(edition.title) || !completeText(edition.intro) || !completeText(edition.summary)) fail('Incomplete root translations');
+          if (placeholder(edition.title) || placeholder(edition.intro) || placeholder(edition.summary)) fail('Placeholder root text');
+          if (langs.some(lang => /^(FoskIA|Edici[oó]n del d[ií]a|Edition of the day)/i.test(edition.title[lang]))) fail('Forbidden title prefix');
+          if (!Array.isArray(edition.tags) || expected.some(cat => !edition.tags.includes(cat))) fail('Incomplete root tags');
+          if (!Array.isArray(edition.sections)) fail('sections must be an array');
+
+          const actual = edition.sections.map(section => section.category);
+          if (JSON.stringify(actual) !== JSON.stringify(expected)) fail(`Unexpected category order: ${actual.join(',')}`);
+
+          let itemCount = 0;
+          for (const section of edition.sections) {
+            if (!Array.isArray(section.items) || section.items.length === 0) fail(`Empty category: ${section.category}`);
+            for (const [index, item] of section.items.entries()) {
+              itemCount++;
+              if (!validUrl(item.url)) fail(`${section.category}[${index}] invalid primary URL`);
+              if (!Array.isArray(item.links)) fail(`${section.category}[${index}] links must be an array`);
+              for (const link of item.links) {
+                if (!validUrl(link.url)) fail(`${section.category}[${index}] invalid link URL`);
+              }
+
+              if (section.category === 'ofertas') {
+                if (!langs.includes(item.market)) fail(`Offer ${index} has invalid market`);
+                if (item.links.length < 1) fail(`Offer ${index} has no supporting link`);
+                for (const field of ['title','summary','originalPrice','salePrice','discount','until']) {
+                  const value = item[field];
+                  if (!value || typeof value !== 'object' || !String(value[item.market] || '').trim()) fail(`Offer ${index} incomplete ${field}`);
+                  for (const lang of langs) {
+                    if (lang !== item.market && String(value[lang] || '').trim()) fail(`Offer ${index} leaks ${field} into ${lang}`);
+                  }
+                }
+              } else {
+                if (!completeText(item.title) || !completeText(item.summary)) fail(`${section.category}[${index}] incomplete translations`);
+                if (placeholder(item.title) || placeholder(item.summary)) fail(`${section.category}[${index}] placeholder text`);
+                if (item.links.length < 3) fail(`${section.category}[${index}] has fewer than three sources`);
+              }
+
+              if (section.category === 'cripto') {
+                if (!completeText(item.shortTerm) || !completeText(item.longTerm)) fail(`Crypto ${index} lacks analysis horizons`);
+              }
+            }
+          }
+
+          const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          if (!index || !Array.isArray(index.editions)) fail('Invalid index schema');
+          index.editions = index.editions.filter(entry => entry && entry.date !== date);
+          index.editions.push(edition);
+          index.editions.sort((a, b) => b.date.localeCompare(a.date));
+
+          if (index.editions.filter(entry => entry.date === date).length !== 1) fail('Edition duplicated in index');
+          if (index.editions.some((entry, i, arr) => i > 0 && arr[i - 1].date < entry.date)) fail('Index is not descending');
+
+          fs.writeFileSync(postPath, JSON.stringify(edition, null, 2) + '\n', 'utf8');
+          fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
+
+          JSON.parse(fs.readFileSync(postPath, 'utf8'));
+          JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          console.log(`Validation OK: ${expected.length} categories, ${itemCount} items, index updated once.`);
+          NODE
+
+      - name: Commit edition
+        shell: bash
+        run: |
+          git config user.name "Danielux135"
+          git config user.email "dlux135@hotmail.com"
+          git add public/foskia/posts/2026-06-29.json public/foskia/posts/index.json
+          if git diff --cached --quiet; then
+            echo "No changes required"
+            exit 0
+          fi
+          git commit -m "Edición de FoskIA del 2026-06-29"
+          git push origin main
