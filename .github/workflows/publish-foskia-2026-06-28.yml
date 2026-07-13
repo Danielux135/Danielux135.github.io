@@ -3,8 +3,6 @@ name: Publish FoskIA 2026-06-28
 on:
   push:
     branches: [main]
-    paths:
-      - '.foskia-publish-2026-06-28-trigger'
 
 permissions:
   contents: write
