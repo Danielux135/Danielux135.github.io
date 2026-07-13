@@ -1,0 +1,87 @@
+name: Fix FoskIA title prefixes 25-27
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.foskia-fix-title-prefixes-25-27-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove title prefixes and validate
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const files = [
+            'public/foskia/posts/2026-06-25.json',
+            'public/foskia/posts/2026-06-26.json',
+            'public/foskia/posts/2026-06-27.json',
+            'public/foskia/posts/index.json'
+          ];
+
+          const replacements = [
+            ['FoskIA 25/06: Epic renueva regalos, Bitcoin pierde los 60.000$ y Bruselas reabre el debate del juego digital', 'Epic renueva regalos, Bitcoin pierde los 60.000$ y Bruselas reabre el debate del juego digital'],
+            ['FoskIA 25/06: Epic refreshes freebies, Bitcoin loses $60K and Brussels reopens the digital-games debate', 'Epic refreshes freebies, Bitcoin loses $60K and Brussels reopens the digital-games debate'],
+            ['FoskIA 25/06: Epic renova regals, Bitcoin perd els 60.000$ i Brussel·les reobri el debat del joc digital', 'Epic renova regals, Bitcoin perd els 60.000$ i Brussel·les reobri el debat del joc digital'],
+            ['FoskIA 26/06: Steam discute la IA visual, Prime y Epic siguen activos y Bitcoin encara el gran vencimiento', 'Steam discute la IA visual, Prime y Epic siguen activos y Bitcoin encara el gran vencimiento'],
+            ['FoskIA 26/06: Steam debates visual AI, Prime and Epic stay active, and Bitcoin heads into the big expiry', 'Steam debates visual AI, Prime and Epic stay active, and Bitcoin heads into the big expiry'],
+            ['FoskIA 26/06: Steam discuteix la IA visual, Prime i Epic continuen actius i Bitcoin afronta el gran venciment', 'Steam discuteix la IA visual, Prime i Epic continuen actius i Bitcoin afronta el gran venciment'],
+            ['FoskIA 27/06: fin de semana de seguimiento para Epic, Roman, Steam e IA mientras Bitcoin rebota hacia 60.000$', 'Fin de semana de seguimiento para Epic, Roman, Steam e IA mientras Bitcoin rebota hacia 60.000$'],
+            ['FoskIA 27/06: a weekend follow-up for Epic, Roman, Steam and AI as Bitcoin rebounds toward $60K', 'A weekend follow-up for Epic, Roman, Steam and AI as Bitcoin rebounds toward $60K'],
+            ['FoskIA 27/06: cap de setmana de seguiment per a Epic, Roman, Steam i IA mentre Bitcoin rebota cap als 60.000$', 'Cap de setmana de seguiment per a Epic, Roman, Steam i IA mentre Bitcoin rebota cap als 60.000$']
+          ];
+
+          for (const path of files) {
+            let text = fs.readFileSync(path, 'utf8');
+            for (const [from, to] of replacements) {
+              text = text.split(from).join(to);
+            }
+            JSON.parse(text);
+            if (/FoskIA (25|26|27)\/06:/.test(text)) {
+              throw new Error(`${path}: forbidden title prefix remains`);
+            }
+            fs.writeFileSync(path, text, 'utf8');
+          }
+
+          for (const date of ['2026-06-25','2026-06-26','2026-06-27']) {
+            const post = JSON.parse(fs.readFileSync(`public/foskia/posts/${date}.json`, 'utf8'));
+            if (Object.values(post.title).some(v => /^FoskIA\s/i.test(v))) {
+              throw new Error(`${date}: root title still starts with FoskIA`);
+            }
+          }
+
+          const index = JSON.parse(fs.readFileSync('public/foskia/posts/index.json', 'utf8'));
+          for (const date of ['2026-06-25','2026-06-26','2026-06-27']) {
+            const ed = index.editions.find(e => e.date === date);
+            if (!ed) throw new Error(`Missing ${date} in index`);
+            if (Object.values(ed.title).some(v => /^FoskIA\s/i.test(v))) {
+              throw new Error(`${date}: index title still starts with FoskIA`);
+            }
+          }
+
+          console.log('Validation OK: prefixes removed from 25, 26 and 27 June.');
+          NODE
+
+      - name: Commit title corrections
+        shell: bash
+        run: |
+          git config user.name "Danielux135"
+          git config user.email "dlux135@hotmail.com"
+          git add public/foskia/posts/2026-06-25.json public/foskia/posts/2026-06-26.json public/foskia/posts/2026-06-27.json public/foskia/posts/index.json
+          if git diff --cached --quiet; then
+            echo "No changes required"
+            exit 0
+          fi
+          git commit -m "Corrige titulares de FoskIA del 25 al 27 de junio"
+          git push origin main
