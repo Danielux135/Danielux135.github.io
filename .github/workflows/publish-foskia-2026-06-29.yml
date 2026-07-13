@@ -32,9 +32,9 @@ jobs:
           const langs = ['es','en','val'];
 
           const parts = fs.readdirSync(sourceDir)
-            .filter(name => /^part-\d+\.b64$/.test(name))
+            .filter(name => /^part-\d{3}\.b64$/.test(name))
             .sort();
-          if (parts.length !== 6) throw new Error(`Expected 6 source parts, found ${parts.length}`);
+          if (parts.length !== 15) throw new Error(`Expected 15 source parts, found ${parts.length}`);
 
           const encoded = parts.map(name => fs.readFileSync(`${sourceDir}/${name}`, 'utf8').trim()).join('');
           const decoded = zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
