@@ -779,6 +779,12 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 function L(v){ if(v==null) return ""; if(typeof v==="string") return v; return v[lang]??v.es??Object.values(v)[0]??""; }
 function u(k){ return UI[lang][k]??""; }
 function catLabel(k){ return CATS[k]?CATS[k].label[lang]||CATS[k].label.es:k; }
+function editionTags(e){
+  return [...new Set([
+    ...(Array.isArray(e?.tags)?e.tags:[]),
+    ...(Array.isArray(e?.sections)?e.sections.map(s=>s?.category).filter(Boolean):[])
+  ])];
+}
 function fmtDate(iso){
   const [y,m,d]=iso.split("-").map(Number);
   if(lang==="en") return `${MONTHS.en[m-1]} ${d}, ${y}`;
@@ -859,7 +865,7 @@ async function init(){
 
 /* --- CHIPS ---------------------------------------------------------------- */
 function renderChips(){
-  const used=new Set(); EDITIONS.forEach(e=>(e.tags||[]).forEach(t=>used.add(t)));
+  const used=new Set(); EDITIONS.forEach(e=>editionTags(e).forEach(t=>used.add(t)));
   const chips=[`<button class="chip ${filter==="todo"?"on":""}" data-f="todo">${u("all")}</button>`];
   Object.keys(CATS).forEach(k=>{
     if(used.has(k)) chips.push(`<button class="chip ${filter===k?"on":""}" data-f="${k}"><i class="fa-solid ${CATS[k].icon}"></i> ${catLabel(k)}</button>`);
@@ -920,7 +926,7 @@ async function renderFeed(){
   const cat=filter;
   const box=document.getElementById("ed-list");
   box.innerHTML=`<div class="state"><div class="spinner"></div>${u("loading")}</div>`;
-  const eds=EDITIONS.filter(e=>(e.tags||[]).includes(cat));
+  const eds=EDITIONS.filter(e=>editionTags(e).includes(cat));
   const posts=await Promise.all(eds.map(e=>getPost(e.date)));
   if(filter!==cat) return;
   let items="",n=0;
