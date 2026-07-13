@@ -1,0 +1,1502 @@
+{
+  "date": "2026-06-30",
+  "title": {
+    "es": "Las bolsas firman un trimestre histórico, Europa arde y Bitcoin vuelve a los 60.000 dólares",
+    "en": "Stocks close a historic quarter, Europe burns and Bitcoin returns to $60,000",
+    "val": "Les borses firmen un trimestre històric, Europa crema i Bitcoin torna als 60.000 dòlars"
+  },
+  "intro": {
+    "es": "La edición del 30 de junio cierra el semestre con un contraste extremo: las bolsas viven su mejor trimestre en seis años gracias a los chips y la inteligencia artificial, mientras el petróleo se desploma, el yen toca mínimos de cuatro décadas y Bitcoin intenta sostener los 60.000 dólares. Europa continúa bajo una ola de calor visible desde el espacio, CISA alerta de una vulnerabilidad de Windows Defender ya explotada y Bethesda apaga definitivamente The Elder Scrolls: Blades.",
+    "en": "The June 30 edition closes the half-year with an extreme contrast: stocks enjoy their best quarter in six years thanks to chips and artificial intelligence, while oil collapses, the yen hits a four-decade low and Bitcoin tries to hold $60,000. Europe remains under a heatwave visible from space, CISA warns of an actively exploited Windows Defender vulnerability and Bethesda permanently shuts down The Elder Scrolls: Blades.",
+    "val": "L’edició del 30 de juny tanca el semestre amb un contrast extrem: les borses viuen el millor trimestre en sis anys gràcies als xips i la intel·ligència artificial, mentre el petroli s’afona, el ien toca mínims de quatre dècades i Bitcoin intenta sostindre els 60.000 dòlars. Europa continua sota una onada de calor visible des de l’espai, CISA alerta d’una vulnerabilitat de Windows Defender ja explotada i Bethesda apaga definitivament The Elder Scrolls: Blades."
+  },
+  "summary": {
+    "es": "Mercados en máximos, calor extremo en Europa, alerta de seguridad en Windows y el cierre definitivo de The Elder Scrolls: Blades.",
+    "en": "Markets at highs, extreme heat in Europe, a Windows security alert and the permanent closure of The Elder Scrolls: Blades.",
+    "val": "Mercats en màxims, calor extrema a Europa, alerta de seguretat en Windows i el tancament definitiu de The Elder Scrolls: Blades."
+  },
+  "tags": [
+    "gaming",
+    "gratis",
+    "codigo",
+    "ciencia",
+    "economia",
+    "cripto",
+    "radar",
+    "ia",
+    "hardware",
+    "security",
+    "entretenimiento",
+    "curiosidades",
+    "ofertas",
+    "anime"
+  ],
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "The Elder Scrolls: Blades apaga hoy sus servidores tras seis años",
+            "en": "The Elder Scrolls: Blades shuts down its servers today after six years",
+            "val": "The Elder Scrolls: Blades apaga hui els seus servidors després de sis anys"
+          },
+          "summary": {
+            "es": "Bethesda cierra definitivamente el RPG móvil el 30 de junio y, desde ese momento, deja de ser accesible incluso para quienes lo tenían instalado. Antes del apagado, la tienda redujo sus objetos a una gema o un sigilo y habilitó recompensas finales; <a href=\"https://www.gamesradar.com/games/the-elder-scrolls/after-6-years-the-elder-scrolls-blades-is-shutting-down-in-june-and-bethesdas-made-everything-in-the-rpg-super-easy-to-unlock-for-the-remaining-time-thank-you-for-playing/\">GamesRadar</a> resume la despedida.",
+            "en": "Bethesda permanently closes the mobile RPG on June 30, after which it becomes inaccessible even to players who kept it installed. Before shutdown, store items were reduced to one gem or sigil and final rewards were enabled; <a href=\"https://www.gamesradar.com/games/the-elder-scrolls/after-6-years-the-elder-scrolls-blades-is-shutting-down-in-june-and-bethesdas-made-everything-in-the-rpg-super-easy-to-unlock-for-the-remaining-time-thank-you-for-playing/\">GamesRadar</a> covers the farewell.",
+            "val": "Bethesda tanca definitivament l’RPG mòbil el 30 de juny i, des d’eixe moment, deixa de ser accessible fins i tot per a qui el tenia instal·lat. Abans de l’apagada, els objectes de la botiga van baixar a una gemma o un segell i es van habilitar recompenses finals; <a href=\"https://www.gamesradar.com/games/the-elder-scrolls/after-6-years-the-elder-scrolls-blades-is-shutting-down-in-june-and-bethesdas-made-everything-in-the-rpg-super-easy-to-unlock-for-the-remaining-time-thank-you-for-playing/\">GamesRadar</a> resumix el comiat."
+          },
+          "source": "GamesRadar / Windows Central / Bethesda",
+          "url": "https://www.gamesradar.com/games/the-elder-scrolls/after-6-years-the-elder-scrolls-blades-is-shutting-down-in-june-and-bethesdas-made-everything-in-the-rpg-super-easy-to-unlock-for-the-remaining-time-thank-you-for-playing/",
+          "links": [
+            {
+              "title": {
+                "es": "GamesRadar: cierre y recompensas finales",
+                "en": "GamesRadar: shutdown and final rewards",
+                "val": "GamesRadar: tancament i recompenses finals"
+              },
+              "url": "https://www.gamesradar.com/games/the-elder-scrolls/after-6-years-the-elder-scrolls-blades-is-shutting-down-in-june-and-bethesdas-made-everything-in-the-rpg-super-easy-to-unlock-for-the-remaining-time-thank-you-for-playing/"
+            },
+            {
+              "title": {
+                "es": "Windows Central: calendario del cierre",
+                "en": "Windows Central: shutdown schedule",
+                "val": "Windows Central: calendari del tancament"
+              },
+              "url": "https://www.windowscentral.com/gaming/zenimax-bethesda/bethesda-elder-scrolls-game-shutting-down-this-month"
+            },
+            {
+              "title": {
+                "es": "Página oficial de The Elder Scrolls: Blades",
+                "en": "Official The Elder Scrolls: Blades page",
+                "val": "Pàgina oficial de The Elder Scrolls: Blades"
+              },
+              "url": "https://elderscrolls.bethesda.net/en/blades"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Las rebajas de verano de Steam dominan el PC con miles de descuentos hasta el 9 de julio",
+            "en": "Steam Summer Sale dominates PC with thousands of discounts through July 9",
+            "val": "Les rebaixes d’estiu de Steam dominen el PC amb milers de descomptes fins al 9 de juliol"
+          },
+          "summary": {
+            "es": "La campaña de Valve sigue activa durante dos semanas y concentra descuentos en prácticamente todos los géneros. Conviene comparar cada rebaja con su histórico en <a href=\"https://steamdb.info/sales/\">SteamDB</a>, porque una etiqueta llamativa no siempre equivale al mínimo real.",
+            "en": "Valve’s two-week promotion remains active with discounts across virtually every genre. Checking each deal against its history on <a href=\"https://steamdb.info/sales/\">SteamDB</a> is sensible, because a large discount label does not always equal a true historical low.",
+            "val": "La campanya de Valve continua activa durant dos setmanes i concentra descomptes en pràcticament tots els gèneres. Convé comparar cada rebaixa amb el seu historial en <a href=\"https://steamdb.info/sales/\">SteamDB</a>, perquè una etiqueta cridanera no sempre equival al mínim real."
+          },
+          "source": "PC Gamer / Steam / SteamDB",
+          "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/",
+          "links": [
+            {
+              "title": {
+                "es": "PC Gamer: seguimiento de las rebajas",
+                "en": "PC Gamer: sale tracker",
+                "val": "PC Gamer: seguiment de les rebaixes"
+              },
+              "url": "https://www.pcgamer.com/games/steam-summer-sale-2026-live/"
+            },
+            {
+              "title": {
+                "es": "Tienda de Steam",
+                "en": "Steam storefront",
+                "val": "Botiga de Steam"
+              },
+              "url": "https://store.steampowered.com/"
+            },
+            {
+              "title": {
+                "es": "Histórico de precios de SteamDB",
+                "en": "SteamDB price history",
+                "val": "Historial de preus de SteamDB"
+              },
+              "url": "https://steamdb.info/sales/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "RollerCoaster Tycoon 3 Complete Edition y Voidwrought siguen gratis en Epic",
+            "en": "RollerCoaster Tycoon 3 Complete Edition and Voidwrought remain free on Epic",
+            "val": "RollerCoaster Tycoon 3 Complete Edition i Voidwrought continuen gratis en Epic"
+          },
+          "summary": {
+            "es": "La rotación vigente permite añadir ambos juegos a la biblioteca sin coste hasta el 2 de julio a las 17:00 CEST. El primero ofrece gestión de parques y el segundo un metroidvania oscuro; se reclaman desde la <a href=\"https://store.epicgames.com/free-games\">página de juegos gratis de Epic</a>.",
+            "en": "The current rotation lets users add both games to their library at no cost until July 2 at 3:00 PM UTC. The first is a theme-park management title and the second a dark metroidvania; both are claimed from the <a href=\"https://store.epicgames.com/free-games\">Epic free-games page</a>.",
+            "val": "La rotació vigent permet afegir els dos jocs a la biblioteca sense cost fins al 2 de juliol a les 17.00 CEST. El primer oferix gestió de parcs i el segon un metroidvania fosc; es reclamen des de la <a href=\"https://store.epicgames.com/free-games\">pàgina de jocs gratis d’Epic</a>."
+          },
+          "source": "Epic Games Store / PC Gamer",
+          "url": "https://store.epicgames.com/free-games",
+          "links": [
+            {
+              "title": {
+                "es": "Epic Games Store: juegos gratis",
+                "en": "Epic Games Store: free games",
+                "val": "Epic Games Store: jocs gratis"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            },
+            {
+              "title": {
+                "es": "PC Gamer: historial semanal",
+                "en": "PC Gamer: weekly history",
+                "val": "PC Gamer: historial setmanal"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            },
+            {
+              "title": {
+                "es": "Búsqueda de RollerCoaster Tycoon 3 en Epic",
+                "en": "RollerCoaster Tycoon 3 search on Epic",
+                "val": "Cerca de RollerCoaster Tycoon 3 en Epic"
+              },
+              "url": "https://store.epicgames.com/en-US/browse?q=RollerCoaster%20Tycoon%203&sortBy=relevancy&sortDir=DESC&count=40"
+            }
+          ],
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 2 de julio de 2026, 17:00 CEST",
+            "en": "Until July 2, 2026, 3:00 PM UTC",
+            "val": "Fins al 2 de juliol de 2026, 17.00 CEST"
+          },
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "Prime Gaming mantiene Terraforming Mars y Lost Eidolons: Veil of the Witch",
+            "en": "Prime Gaming keeps Terraforming Mars and Lost Eidolons: Veil of the Witch available",
+            "val": "Prime Gaming manté Terraforming Mars i Lost Eidolons: Veil of the Witch disponibles"
+          },
+          "summary": {
+            "es": "La tanda de cierre de junio incorpora estrategia de mesa digital y combate táctico por turnos para usuarios de Prime. Las fechas de retirada cambian según el launcher, así que conviene reclamarlos desde el <a href=\"https://gaming.amazon.com/\">hub de Prime Gaming</a>.",
+            "en": "The late-June batch adds digital board-game strategy and turn-based tactical combat for Prime members. Removal dates vary by launcher, so claiming them through the <a href=\"https://gaming.amazon.com/\">Prime Gaming hub</a> is advisable.",
+            "val": "La tanda de tancament de juny incorpora estratègia de tauler digital i combat tàctic per torns per als usuaris de Prime. Les dates de retirada canvien segons el launcher, per la qual cosa convé reclamar-los des del <a href=\"https://gaming.amazon.com/\">hub de Prime Gaming</a>."
+          },
+          "source": "Prime Gaming / Amazon Luna / The Sun",
+          "url": "https://gaming.amazon.com/",
+          "links": [
+            {
+              "title": {
+                "es": "Prime Gaming",
+                "en": "Prime Gaming",
+                "val": "Prime Gaming"
+              },
+              "url": "https://gaming.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Resumen de los regalos de junio",
+                "en": "June giveaway roundup",
+                "val": "Resum dels regals de juny"
+              },
+              "url": "https://www.thesun.co.uk/tech/39295898/amazon-prime-members-get-free-gifts/"
+            },
+            {
+              "title": {
+                "es": "Amazon Luna",
+                "en": "Amazon Luna",
+                "val": "Amazon Luna"
+              },
+              "url": "https://luna.amazon.com/"
+            }
+          ],
+          "platform": "Prime Gaming",
+          "until": {
+            "es": "Fechas variables según el juego",
+            "en": "Dates vary by game",
+            "val": "Dates variables segons el joc"
+          },
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Grounded, Darktide y Nickelodeon All-Star Brawl 2 continúan en PS Plus Essential",
+            "en": "Grounded, Darktide and Nickelodeon All-Star Brawl 2 remain on PS Plus Essential",
+            "val": "Grounded, Darktide i Nickelodeon All-Star Brawl 2 continuen en PS Plus Essential"
+          },
+          "summary": {
+            "es": "La selección mensual de junio combina supervivencia cooperativa, acción contra hordas y lucha de plataformas. Son licencias vinculadas a la suscripción y requieren mantener una membresía activa; la lista se consulta en <a href=\"https://www.playstation.com/en-us/ps-plus/whats-new/\">PlayStation Plus</a>.",
+            "en": "June’s monthly selection combines co-op survival, horde action and platform fighting. These are subscription licences that require an active membership; the lineup is listed on <a href=\"https://www.playstation.com/en-us/ps-plus/whats-new/\">PlayStation Plus</a>.",
+            "val": "La selecció mensual de juny combina supervivència cooperativa, acció contra hordes i lluita de plataformes. Són llicències vinculades a la subscripció i exigixen mantindre una membresia activa; la llista es consulta en <a href=\"https://www.playstation.com/en-us/ps-plus/whats-new/\">PlayStation Plus</a>."
+          },
+          "source": "PlayStation / MeriStation",
+          "url": "https://www.playstation.com/en-us/ps-plus/whats-new/",
+          "links": [
+            {
+              "title": {
+                "es": "Novedades de PlayStation Plus",
+                "en": "PlayStation Plus updates",
+                "val": "Novetats de PlayStation Plus"
+              },
+              "url": "https://www.playstation.com/en-us/ps-plus/whats-new/"
+            },
+            {
+              "title": {
+                "es": "MeriStation: juegos de junio",
+                "en": "MeriStation: June games",
+                "val": "MeriStation: jocs de juny"
+              },
+              "url": "https://as.com/meristation/noticias/estos-son-los-juegos-de-ps-plus-essential-en-junio-de-2026-f202605-n/"
+            },
+            {
+              "title": {
+                "es": "Página de Grounded en PlayStation",
+                "en": "Grounded on PlayStation",
+                "val": "Pàgina de Grounded en PlayStation"
+              },
+              "url": "https://www.playstation.com/en-us/games/grounded/"
+            }
+          ],
+          "platform": "PS Plus Essential",
+          "until": {
+            "es": "Hasta el cambio mensual de julio",
+            "en": "Until the July monthly refresh",
+            "val": "Fins al canvi mensual de juliol"
+          },
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "Game Pass mantiene su catálogo de junio mientras prepara el relevo de julio",
+            "en": "Game Pass keeps its June catalogue while preparing the July refresh",
+            "val": "Game Pass manté el catàleg de juny mentre prepara el relleu de juliol"
+          },
+          "summary": {
+            "es": "Los juegos incluidos siguen accesibles mientras la suscripción permanezca activa, pero las rotaciones pueden retirar títulos con poco margen. La recomendación es revisar la sección oficial de <a href=\"https://news.xbox.com/en-us/xbox-game-pass/\">novedades de Game Pass</a> antes del cambio de mes.",
+            "en": "Included games remain accessible while the subscription is active, but catalogue rotations can remove titles at short notice. Checking the official <a href=\"https://news.xbox.com/en-us/xbox-game-pass/\">Game Pass updates</a> before the monthly refresh is recommended.",
+            "val": "Els jocs inclosos continuen accessibles mentre la subscripció estiga activa, però les rotacions poden retirar títols amb poc marge. Es recomana revisar la secció oficial de <a href=\"https://news.xbox.com/en-us/xbox-game-pass/\">novetats de Game Pass</a> abans del canvi de mes."
+          },
+          "source": "Xbox / Xbox Wire",
+          "url": "https://www.xbox.com/en-US/xbox-game-pass",
+          "links": [
+            {
+              "title": {
+                "es": "Xbox Game Pass",
+                "en": "Xbox Game Pass",
+                "val": "Xbox Game Pass"
+              },
+              "url": "https://www.xbox.com/en-US/xbox-game-pass"
+            },
+            {
+              "title": {
+                "es": "Novedades oficiales de Game Pass",
+                "en": "Official Game Pass updates",
+                "val": "Novetats oficials de Game Pass"
+              },
+              "url": "https://news.xbox.com/en-us/xbox-game-pass/"
+            },
+            {
+              "title": {
+                "es": "Historial del servicio",
+                "en": "Service history",
+                "val": "Historial del servici"
+              },
+              "url": "https://en.wikipedia.org/wiki/Xbox_Game_Pass"
+            }
+          ],
+          "platform": "Xbox Game Pass",
+          "until": {
+            "es": "Catálogo rotativo; revisar antes de julio",
+            "en": "Rotating catalogue; check before July",
+            "val": "Catàleg rotatiu; revisar abans de juliol"
+          },
+          "urgent": true
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "Microsoft corta hoy la mayoría de licencias internas de Claude Code y empuja Copilot CLI",
+            "en": "Microsoft cuts most internal Claude Code licences today and pushes Copilot CLI",
+            "val": "Microsoft talla hui la majoria de llicències internes de Claude Code i impulsa Copilot CLI"
+          },
+          "summary": {
+            "es": "El 30 de junio es la fecha límite comunicada a buena parte de los equipos de Microsoft para dejar de usar Claude Code, con el coste y la estandarización como argumentos principales. La compañía orienta a sus desarrolladores hacia <a href=\"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\">GitHub Copilot CLI</a>, aunque los modelos de Anthropic siguen disponibles dentro de otros productos.",
+            "en": "June 30 is the cutoff communicated to many Microsoft teams for discontinuing Claude Code, with cost and standardisation cited as key reasons. Developers are being directed towards <a href=\"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\">GitHub Copilot CLI</a>, although Anthropic models remain available through other products.",
+            "val": "El 30 de juny és la data límit comunicada a bona part dels equips de Microsoft per a deixar d’usar Claude Code, amb el cost i l’estandardització com a arguments principals. La companyia orienta els desenvolupadors cap a <a href=\"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\">GitHub Copilot CLI</a>, encara que els models d’Anthropic continuen disponibles en altres productes."
+          },
+          "source": "The Verge / Anthropic / GitHub Docs",
+          "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad",
+          "links": [
+            {
+              "title": {
+                "es": "The Verge: cambio interno en Microsoft",
+                "en": "The Verge: Microsoft internal change",
+                "val": "The Verge: canvi intern en Microsoft"
+              },
+              "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad"
+            },
+            {
+              "title": {
+                "es": "Claude Code",
+                "en": "Claude Code",
+                "val": "Claude Code"
+              },
+              "url": "https://www.anthropic.com/claude-code"
+            },
+            {
+              "title": {
+                "es": "Documentación de Copilot CLI",
+                "en": "Copilot CLI documentation",
+                "val": "Documentació de Copilot CLI"
+              },
+              "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "GitHub cierra su mejor mes mientras la programación con IA cambia su modelo de negocio",
+            "en": "GitHub closes its best month as AI coding reshapes its business model",
+            "val": "GitHub tanca el seu millor mes mentre la programació amb IA transforma el negoci"
+          },
+          "summary": {
+            "es": "GitHub habría registrado en junio su mejor mes, impulsado por Copilot, los agentes de programación y la facturación basada en consumo. El crecimiento también eleva la presión sobre la fiabilidad del servicio y el coste de inferencia; el seguimiento de producto se concentra en el <a href=\"https://github.blog/ai-and-ml/github-copilot/\">blog de GitHub Copilot</a>.",
+            "en": "GitHub reportedly recorded its best month in June, driven by Copilot, coding agents and consumption-based billing. Growth also raises pressure on service reliability and inference costs; product developments are tracked on the <a href=\"https://github.blog/ai-and-ml/github-copilot/\">GitHub Copilot blog</a>.",
+            "val": "GitHub hauria registrat en juny el seu millor mes, impulsat per Copilot, els agents de programació i la facturació basada en consum. El creixement també augmenta la pressió sobre la fiabilitat del servici i el cost d’inferència; les novetats es concentren en el <a href=\"https://github.blog/ai-and-ml/github-copilot/\">blog de GitHub Copilot</a>."
+          },
+          "source": "Business Insider / GitHub Blog / GitHub Status",
+          "url": "https://www.businessinsider.com/github-best-month-ever-internal-meeting-2026-6",
+          "links": [
+            {
+              "title": {
+                "es": "Business Insider: mejor mes de GitHub",
+                "en": "Business Insider: GitHub’s best month",
+                "val": "Business Insider: millor mes de GitHub"
+              },
+              "url": "https://www.businessinsider.com/github-best-month-ever-internal-meeting-2026-6"
+            },
+            {
+              "title": {
+                "es": "Blog de GitHub Copilot",
+                "en": "GitHub Copilot blog",
+                "val": "Blog de GitHub Copilot"
+              },
+              "url": "https://github.blog/ai-and-ml/github-copilot/"
+            },
+            {
+              "title": {
+                "es": "Estado operativo de GitHub",
+                "en": "GitHub operational status",
+                "val": "Estat operatiu de GitHub"
+              },
+              "url": "https://www.githubstatus.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Sentinel-3 muestra desde el espacio una Europa con superficies de hasta 55 °C",
+            "en": "Sentinel-3 shows European surfaces reaching 55°C from space",
+            "val": "Sentinel-3 mostra des de l’espai una Europa amb superfícies de fins a 55 °C"
+          },
+          "summary": {
+            "es": "Las imágenes térmicas del satélite europeo muestran máximos de superficie de 55 °C en zonas de España, Francia y el norte de África, con Madrid cerca de 48 °C y Roma alrededor de 44 °C. La <a href=\"https://www.space.com/space-exploration/satellites/europes-deadly-heat-wave-seen-from-space-space-photo-of-the-day-for-june-30-2026\">imagen del día de Space.com</a> explica que estas cifras son temperatura del suelo, no del aire, pero reflejan la intensidad del episodio.",
+            "en": "Thermal imagery from the European satellite shows land-surface peaks of 55°C across parts of Spain, France and North Africa, with Madrid near 48°C and Rome around 44°C. <a href=\"https://www.space.com/space-exploration/satellites/europes-deadly-heat-wave-seen-from-space-space-photo-of-the-day-for-june-30-2026\">Space.com’s image of the day</a> notes that these are surface rather than air temperatures, but they reveal the event’s intensity.",
+            "val": "Les imatges tèrmiques del satèl·lit europeu mostren màxims de superfície de 55 °C en zones d’Espanya, França i el nord d’Àfrica, amb Madrid prop de 48 °C i Roma al voltant de 44 °C. La <a href=\"https://www.space.com/space-exploration/satellites/europes-deadly-heat-wave-seen-from-space-space-photo-of-the-day-for-june-30-2026\">imatge del dia de Space.com</a> explica que són temperatures del sòl, no de l’aire, però reflectixen la intensitat de l’episodi."
+          },
+          "source": "Space.com / ESA / Copernicus",
+          "url": "https://www.space.com/space-exploration/satellites/europes-deadly-heat-wave-seen-from-space-space-photo-of-the-day-for-june-30-2026",
+          "links": [
+            {
+              "title": {
+                "es": "Space.com: la ola de calor desde el espacio",
+                "en": "Space.com: heatwave from space",
+                "val": "Space.com: l’onada de calor des de l’espai"
+              },
+              "url": "https://www.space.com/space-exploration/satellites/europes-deadly-heat-wave-seen-from-space-space-photo-of-the-day-for-june-30-2026"
+            },
+            {
+              "title": {
+                "es": "ESA: misión Sentinel-3",
+                "en": "ESA: Sentinel-3 mission",
+                "val": "ESA: missió Sentinel-3"
+              },
+              "url": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-3"
+            },
+            {
+              "title": {
+                "es": "Servicio de Cambio Climático de Copernicus",
+                "en": "Copernicus Climate Change Service",
+                "val": "Servici de Canvi Climàtic de Copernicus"
+              },
+              "url": "https://climate.copernicus.eu/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La ola de calor europea obliga a tratar la noche como un riesgo sanitario propio",
+            "en": "Europe’s heatwave turns hot nights into a health risk of their own",
+            "val": "L’onada de calor europea convertix les nits càlides en un risc sanitari propi"
+          },
+          "summary": {
+            "es": "Los avisos se mantienen porque el calor nocturno impide al organismo recuperarse, eleva el estrés cardiovascular y agrava el riesgo para mayores y personas con patologías previas. La cobertura de <a href=\"https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates\">The Guardian</a> recoge cierres escolares, restricciones laborales y problemas de refrigeración en infraestructuras.",
+            "en": "Warnings remain in force because hot nights prevent the body from recovering, increase cardiovascular strain and worsen risks for older people and those with existing conditions. <a href=\"https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates\">The Guardian’s coverage</a> records school closures, work restrictions and cooling problems across infrastructure.",
+            "val": "Els avisos es mantenen perquè la calor nocturna impedix que l’organisme es recupere, augmenta l’estrés cardiovascular i agreuja el risc per a majors i persones amb patologies prèvies. La cobertura de <a href=\"https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates\">The Guardian</a> arreplega tancaments escolars, restriccions laborals i problemes de refrigeració en infraestructures."
+          },
+          "source": "The Guardian / Copernicus / WHO Europe",
+          "url": "https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates",
+          "links": [
+            {
+              "title": {
+                "es": "The Guardian: seguimiento de la ola de calor",
+                "en": "The Guardian: heatwave coverage",
+                "val": "The Guardian: seguiment de l’onada de calor"
+              },
+              "url": "https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates"
+            },
+            {
+              "title": {
+                "es": "Copernicus Climate Service",
+                "en": "Copernicus Climate Service",
+                "val": "Servici Climàtic de Copernicus"
+              },
+              "url": "https://climate.copernicus.eu/"
+            },
+            {
+              "title": {
+                "es": "OMS Europa: calor y salud",
+                "en": "WHO Europe: heat and health",
+                "val": "OMS Europa: calor i salut"
+              },
+              "url": "https://www.who.int/europe/health-topics/heatwaves"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Las bolsas cierran su mejor trimestre en seis años empujadas por chips e inteligencia artificial",
+            "en": "Stocks close their best quarter in six years, powered by chips and artificial intelligence",
+            "val": "Les borses tanquen el millor trimestre en sis anys impulsades pels xips i la intel·ligència artificial"
+          },
+          "summary": {
+            "es": "El índice MSCI mundial gana alrededor de un 14,5 % en el segundo trimestre, mientras el Nasdaq suma cerca de un 21 % y varios mercados asiáticos baten registros. <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> atribuye buena parte del movimiento al gasto en IA y al repunte de semiconductores, aunque advierte de valoraciones muy exigentes.",
+            "en": "The MSCI world index gains roughly 14.5% in the second quarter, while the Nasdaq adds about 21% and several Asian markets set records. <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> attributes much of the move to AI spending and semiconductor strength, while warning that valuations are demanding.",
+            "val": "L’índex MSCI mundial guanya al voltant d’un 14,5 % en el segon trimestre, mentre el Nasdaq suma prop d’un 21 % i diversos mercats asiàtics baten registres. <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> atribuïx bona part del moviment a la despesa en IA i al repunt dels semiconductors, encara que advertix de valoracions molt exigents."
+          },
+          "source": "Reuters / MSCI / Nasdaq",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: cierre del trimestre",
+                "en": "Reuters: quarter-end markets",
+                "val": "Reuters: tancament del trimestre"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Reuters Morning Bid",
+                "en": "Reuters Morning Bid",
+                "val": "Reuters Morning Bid"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Reuters Trading Day",
+                "en": "Reuters Trading Day",
+                "val": "Reuters Trading Day"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El petróleo firma su peor trimestre desde 2020 y el yen cae a mínimos de cuatro décadas",
+            "en": "Oil posts its worst quarter since 2020 as the yen hits a four-decade low",
+            "val": "El petroli firma el pitjor trimestre des de 2020 i el ien cau a mínims de quatre dècades"
+          },
+          "summary": {
+            "es": "El Brent termina junio cerca de 72,92 dólares, pero acumula una caída trimestral de aproximadamente el 38 %, mientras el oro también registra su peor trimestre desde 2013. Al mismo tiempo, el yen ronda 162,6 unidades por dólar; <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> sitúa ambos movimientos entre las grandes anomalías del cierre semestral.",
+            "en": "Brent ends June near $72.92 but records a quarterly fall of roughly 38%, while gold also posts its worst quarter since 2013. At the same time, the yen trades near 162.6 per dollar; <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> lists both moves among the major anomalies of the half-year close.",
+            "val": "El Brent acaba juny prop de 72,92 dòlars, però acumula una caiguda trimestral aproximada del 38 %, mentre l’or també registra el pitjor trimestre des de 2013. Al mateix temps, el ien ronda 162,6 unitats per dòlar; <a href=\"https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/\">Reuters</a> situa els dos moviments entre les grans anomalies del tancament semestral."
+          },
+          "source": "Reuters / ICE / Bank of Japan",
+          "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: materias primas y divisas",
+                "en": "Reuters: commodities and currencies",
+                "val": "Reuters: matèries primeres i divises"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Reuters: visión de Wall Street",
+                "en": "Reuters: Wall Street view",
+                "val": "Reuters: visió de Wall Street"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Banco de Japón",
+                "en": "Bank of Japan",
+                "val": "Banc del Japó"
+              },
+              "url": "https://www.boj.or.jp/en/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin recupera los 60.000 dólares tras tocar mínimos de 21 meses",
+            "en": "Bitcoin reclaims $60,000 after touching a 21-month low",
+            "val": "Bitcoin recupera els 60.000 dòlars després de tocar mínims de 21 mesos"
+          },
+          "summary": {
+            "es": "Bitcoin rebota alrededor de un 0,7 % hasta los 60.006 dólares después de haber caído a 58.075, favorecido por una mejora puntual del apetito por riesgo. <a href=\"https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf\">Barron’s</a> vincula el movimiento al alivio geopolítico y al rebote de los futuros estadounidenses, pero el volumen institucional sigue débil.",
+            "en": "Bitcoin rebounds roughly 0.7% to $60,006 after falling to $58,075, helped by a temporary improvement in risk appetite. <a href=\"https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf\">Barron’s</a> links the move to geopolitical relief and firmer U.S. futures, but institutional demand remains weak.",
+            "val": "Bitcoin rebota al voltant d’un 0,7 % fins als 60.006 dòlars després d’haver caigut a 58.075, afavorit per una millora puntual de l’apetit pel risc. <a href=\"https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf\">Barron’s</a> vincula el moviment a l’alleujament geopolític i al rebot dels futurs nord-americans, però la demanda institucional continua dèbil."
+          },
+          "source": "Barron’s / Investopedia / Business Insider",
+          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf",
+          "links": [
+            {
+              "title": {
+                "es": "Barron’s: rebote sobre 60.000 dólares",
+                "en": "Barron’s: rebound above $60,000",
+                "val": "Barron’s: rebot sobre 60.000 dòlars"
+              },
+              "url": "https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf"
+            },
+            {
+              "title": {
+                "es": "Investopedia: perspectivas para el segundo semestre",
+                "en": "Investopedia: second-half outlook",
+                "val": "Investopedia: perspectives per al segon semestre"
+              },
+              "url": "https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861"
+            },
+            {
+              "title": {
+                "es": "Business Insider: presión del criptoinvierno",
+                "en": "Business Insider: crypto-winter pressure",
+                "val": "Business Insider: pressió del criptohivern"
+              },
+              "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6"
+            }
+          ],
+          "shortTerm": {
+            "es": "Mientras mantenga 58.000–60.000 dólares, el mercado puede intentar un rebote hacia 63.000–65.000; perder el mínimo reciente reabriría la presión vendedora.",
+            "en": "While the $58,000–$60,000 area holds, the market may attempt a rebound towards $63,000–$65,000; losing the recent low would renew selling pressure.",
+            "val": "Mentre mantinga la zona de 58.000–60.000 dòlars, el mercat pot intentar un rebot cap als 63.000–65.000; perdre el mínim recent reobriria la pressió venedora."
+          },
+          "longTerm": {
+            "es": "La recuperación sostenible depende de que se frenen las salidas de ETF, mejore la liquidez y desaparezca el temor a tipos altos. Algunos escenarios bajistas todavía sitúan 40.000–46.000 dólares como zona de riesgo.",
+            "en": "A sustainable recovery depends on ETF outflows slowing, liquidity improving and high-rate fears easing. Some bearish scenarios still identify $40,000–$46,000 as a risk zone.",
+            "val": "La recuperació sostenible depén que es frenen les eixides d’ETF, millore la liquiditat i desaparega el temor a tipus alts. Alguns escenaris baixistes encara situen 40.000–46.000 dòlars com a zona de risc."
+          }
+        },
+        {
+          "title": {
+            "es": "Ether y las altcoins siguen más débiles que Bitcoin mientras el capital rota hacia la IA",
+            "en": "Ether and altcoins remain weaker than Bitcoin as capital rotates towards AI",
+            "val": "Ether i les altcoins continuen més dèbils que Bitcoin mentre el capital rota cap a la IA"
+          },
+          "summary": {
+            "es": "Ether acumula una corrección más profunda que Bitcoin durante 2026 y el mercado alternativo sufre por la salida de capital de los activos de mayor riesgo. El análisis de <a href=\"https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861\">Investopedia</a> destaca las retiradas de fondos cotizados, la falta de liquidez y el traslado de inversión hacia acciones vinculadas a IA.",
+            "en": "Ether has suffered a deeper 2026 correction than Bitcoin, while the altcoin market is hurt by capital leaving the riskiest assets. <a href=\"https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861\">Investopedia’s analysis</a> highlights ETF withdrawals, weak liquidity and investment rotating into AI-linked equities.",
+            "val": "Ether acumula una correcció més profunda que Bitcoin durant 2026 i el mercat alternatiu patix per l’eixida de capital dels actius de major risc. L’anàlisi d’<a href=\"https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861\">Investopedia</a> destaca les retirades de fons cotitzats, la falta de liquiditat i el trasllat d’inversió cap a accions vinculades a IA."
+          },
+          "source": "Investopedia / Business Insider / CoinDesk",
+          "url": "https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861",
+          "links": [
+            {
+              "title": {
+                "es": "Investopedia: mercado cripto en el segundo semestre",
+                "en": "Investopedia: crypto in the second half",
+                "val": "Investopedia: mercat cripto en el segon semestre"
+              },
+              "url": "https://www.investopedia.com/what-to-expect-from-bitcoin-crypto-in-the-second-half-2026-11990861"
+            },
+            {
+              "title": {
+                "es": "Business Insider: caída de Bitcoin y Ether",
+                "en": "Business Insider: Bitcoin and Ether decline",
+                "val": "Business Insider: caiguda de Bitcoin i Ether"
+              },
+              "url": "https://www.businessinsider.com/why-bitcoin-is-down-price-2-year-low-crypto-winter-2026-6"
+            },
+            {
+              "title": {
+                "es": "CoinDesk: mercados",
+                "en": "CoinDesk: markets",
+                "val": "CoinDesk: mercats"
+              },
+              "url": "https://www.coindesk.com/markets/"
+            }
+          ],
+          "shortTerm": {
+            "es": "Ether necesita estabilizarse y recuperar resistencias recientes antes de que las altcoins puedan acompañar un rebote. La volatilidad seguirá elevada alrededor de datos macro y flujos de ETF.",
+            "en": "Ether needs to stabilise and recover recent resistance before altcoins can join a rebound. Volatility should remain high around macro data and ETF flows.",
+            "val": "Ether necessita estabilitzar-se i recuperar resistències recents abans que les altcoins puguen acompanyar un rebot. La volatilitat continuarà elevada al voltant de dades macro i fluxos d’ETF."
+          },
+          "longTerm": {
+            "es": "La tesis de largo plazo depende del uso real de las redes, de una regulación más clara y de que vuelva el capital institucional. Sin esas condiciones, Bitcoin puede seguir absorbiendo la mayor parte de la liquidez cripto.",
+            "en": "The long-term thesis depends on real network usage, clearer regulation and the return of institutional capital. Without those conditions, Bitcoin may continue absorbing most crypto liquidity.",
+            "val": "La tesi de llarg termini depén de l’ús real de les xarxes, d’una regulació més clara i que torne el capital institucional. Sense eixes condicions, Bitcoin pot continuar absorbint la major part de la liquiditat cripto."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "Mónaco investiga como intento de asesinato un paquete bomba que deja tres heridos graves",
+            "en": "Monaco investigates a parcel bomb that left three seriously injured as an attempted assassination",
+            "val": "Mònaco investiga com a intent d’assassinat un paquet bomba que deixa tres ferits greus"
+          },
+          "summary": {
+            "es": "Las autoridades tratan la explosión como un ataque dirigido contra un empresario de origen ucraniano. El incidente se produce en un contexto europeo de tensión y máxima alerta; <a href=\"https://www.theguardian.com/world/live/2026/jun/30/monaco-bombing-ukraine-gerany-hungary-poland-baltics-heat-latest-news-updates\">The Guardian</a> recoge la investigación y el estado de los heridos.",
+            "en": "Authorities are treating the explosion as a targeted attack against a Ukrainian-born businessman. The incident comes amid heightened European tensions and security alerts; <a href=\"https://www.theguardian.com/world/live/2026/jun/30/monaco-bombing-ukraine-gerany-hungary-poland-baltics-heat-latest-news-updates\">The Guardian</a> reports on the investigation and the victims’ condition.",
+            "val": "Les autoritats tracten l’explosió com un atac dirigit contra un empresari d’origen ucraïnés. L’incident es produïx en un context europeu de tensió i màxima alerta; <a href=\"https://www.theguardian.com/world/live/2026/jun/30/monaco-bombing-ukraine-gerany-hungary-poland-baltics-heat-latest-news-updates\">The Guardian</a> arreplega la investigació i l’estat dels ferits."
+          },
+          "source": "The Guardian / Monaco authorities / AP",
+          "url": "https://www.theguardian.com/world/live/2026/jun/30/monaco-bombing-ukraine-gerany-hungary-poland-baltics-heat-latest-news-updates",
+          "links": [
+            {
+              "title": {
+                "es": "The Guardian: seguimiento en directo",
+                "en": "The Guardian: live coverage",
+                "val": "The Guardian: seguiment en directe"
+              },
+              "url": "https://www.theguardian.com/world/live/2026/jun/30/monaco-bombing-ukraine-gerany-hungary-poland-baltics-heat-latest-news-updates"
+            },
+            {
+              "title": {
+                "es": "Gobierno de Mónaco",
+                "en": "Monaco government",
+                "val": "Govern de Mònaco"
+              },
+              "url": "https://en.gouv.mc/"
+            },
+            {
+              "title": {
+                "es": "Associated Press: Europa",
+                "en": "Associated Press: Europe",
+                "val": "Associated Press: Europa"
+              },
+              "url": "https://apnews.com/hub/europe"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Estados Unidos e Irán vuelven a Doha con el estrecho de Ormuz como eje de las conversaciones",
+            "en": "The United States and Iran return to Doha with the Strait of Hormuz at the centre of talks",
+            "val": "Els Estats Units i l’Iran tornen a Doha amb l’estret d’Ormuz com a eix de les converses"
+          },
+          "summary": {
+            "es": "Los enviados retoman el diálogo después de nuevos ataques y con el mercado energético pendiente de cualquier señal sobre la navegación y el suministro. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/\">Reuters</a> señala que el descenso del petróleo y la recuperación bursátil reflejan una expectativa frágil de desescalada.",
+            "en": "Envoys resume dialogue after renewed attacks, with energy markets watching for signals on shipping and supply. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/\">Reuters</a> notes that falling oil prices and recovering stocks reflect a fragile expectation of de-escalation.",
+            "val": "Els enviats reprenen el diàleg després de nous atacs, amb els mercats energètics pendents de qualsevol senyal sobre la navegació i el subministrament. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/\">Reuters</a> assenyala que la baixada del petroli i la recuperació borsària reflectixen una expectativa fràgil de desescalada."
+          },
+          "source": "Reuters / Qatar Foreign Ministry / IAEA",
+          "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters Trading Day",
+                "en": "Reuters Trading Day",
+                "val": "Reuters Trading Day"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Reuters Morning Bid",
+                "en": "Reuters Morning Bid",
+                "val": "Reuters Morning Bid"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Ministerio de Exteriores de Catar",
+                "en": "Qatar Ministry of Foreign Affairs",
+                "val": "Ministeri d’Exteriors de Qatar"
+              },
+              "url": "https://mofa.gov.qa/en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "DeepMind formaliza una alineación con cuatro voces: usuario, sociedad, desarrollador y sistema",
+            "en": "DeepMind formalises a four-voice alignment model: user, society, developer and system",
+            "val": "DeepMind formalitza una alineació amb quatre veus: usuari, societat, desenvolupador i sistema"
+          },
+          "summary": {
+            "es": "El filósofo Iason Gabriel explica cómo el laboratorio intenta pasar de una idea técnica de alineación a un marco que incluya valores sociales, intereses del usuario, objetivos de los creadores y comportamiento del propio sistema. El perfil de <a href=\"https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind\">The Guardian</a> muestra también la tensión entre ética, seguridad y presión comercial.",
+            "en": "Philosopher Iason Gabriel explains how the lab is moving from a purely technical notion of alignment to a framework covering social values, user interests, developer goals and the system’s own behaviour. <a href=\"https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind\">The Guardian’s profile</a> also exposes tensions between ethics, safety and commercial pressure.",
+            "val": "El filòsof Iason Gabriel explica com el laboratori intenta passar d’una idea tècnica d’alineació a un marc que incloga valors socials, interessos de l’usuari, objectius dels creadors i comportament del mateix sistema. El perfil de <a href=\"https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind\">The Guardian</a> mostra també la tensió entre ètica, seguretat i pressió comercial."
+          },
+          "source": "The Guardian / Google DeepMind / European Commission",
+          "url": "https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind",
+          "links": [
+            {
+              "title": {
+                "es": "The Guardian: el filósofo de DeepMind",
+                "en": "The Guardian: DeepMind’s philosopher",
+                "val": "The Guardian: el filòsof de DeepMind"
+              },
+              "url": "https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind"
+            },
+            {
+              "title": {
+                "es": "Google DeepMind",
+                "en": "Google DeepMind",
+                "val": "Google DeepMind"
+              },
+              "url": "https://deepmind.google/"
+            },
+            {
+              "title": {
+                "es": "Marco europeo de inteligencia artificial",
+                "en": "European AI framework",
+                "val": "Marc europeu d’intel·ligència artificial"
+              },
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El BIS pide cautela ante una inversión en IA que ya domina chips, mercados y centros de datos",
+            "en": "BIS urges caution as AI investment dominates chips, markets and data centres",
+            "val": "El BIS demana cautela davant una inversió en IA que ja domina xips, mercats i centres de dades"
+          },
+          "summary": {
+            "es": "El Banco de Pagos Internacionales advierte de que la expansión de la IA puede elevar productividad, pero también concentrar riesgo financiero, energía y capacidad de cómputo. El resumen de <a href=\"https://www.reuters.com/podcasts/reuters-morning-bid/halfway-there-2026-06-29/\">Reuters Morning Bid</a> conecta esa cautela con el trimestre récord de los semiconductores.",
+            "en": "The Bank for International Settlements warns that AI expansion may raise productivity while concentrating financial risk, energy demand and compute capacity. <a href=\"https://www.reuters.com/podcasts/reuters-morning-bid/halfway-there-2026-06-29/\">Reuters Morning Bid</a> connects that caution with the semiconductor sector’s record quarter.",
+            "val": "El Banc de Pagaments Internacionals advertix que l’expansió de la IA pot elevar la productivitat, però també concentrar risc financer, energia i capacitat de còmput. El resum de <a href=\"https://www.reuters.com/podcasts/reuters-morning-bid/halfway-there-2026-06-29/\">Reuters Morning Bid</a> connecta eixa cautela amb el trimestre rècord dels semiconductors."
+          },
+          "source": "Reuters / BIS / OECD AI",
+          "url": "https://www.reuters.com/podcasts/reuters-morning-bid/halfway-there-2026-06-29/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters Morning Bid: balance de mitad de año",
+                "en": "Reuters Morning Bid: midyear review",
+                "val": "Reuters Morning Bid: balanç de meitat d’any"
+              },
+              "url": "https://www.reuters.com/podcasts/reuters-morning-bid/halfway-there-2026-06-29/"
+            },
+            {
+              "title": {
+                "es": "Banco de Pagos Internacionales",
+                "en": "Bank for International Settlements",
+                "val": "Banc de Pagaments Internacionals"
+              },
+              "url": "https://www.bis.org/"
+            },
+            {
+              "title": {
+                "es": "Observatorio de IA de la OCDE",
+                "en": "OECD AI Observatory",
+                "val": "Observatori d’IA de l’OCDE"
+              },
+              "url": "https://oecd.ai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "El auge de la IA lleva al índice de semiconductores a rozar el doble de su valor en seis meses",
+            "en": "The AI boom pushes the semiconductor index close to doubling in six months",
+            "val": "L’auge de la IA porta l’índex de semiconductors a fregar el doble del seu valor en sis mesos"
+          },
+          "summary": {
+            "es": "El SOX completa un semestre extraordinario y algunas acciones del sector acumulan avances de varios cientos por ciento. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/\">Reuters</a> destaca que la demanda de aceleradores, memoria y centros de datos sostiene el movimiento, aunque la concentración multiplica el riesgo de una corrección.",
+            "en": "The SOX completes an extraordinary half-year, with several sector stocks gaining hundreds of percent. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/\">Reuters</a> says demand for accelerators, memory and data centres supports the move, although concentration increases correction risk.",
+            "val": "El SOX completa un semestre extraordinari i algunes accions del sector acumulen avanços de diversos centenars per cent. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/\">Reuters</a> destaca que la demanda d’acceleradors, memòria i centres de dades sosté el moviment, encara que la concentració multiplica el risc d’una correcció."
+          },
+          "source": "Reuters / PHLX Semiconductor Index / Nasdaq",
+          "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters Morning Bid: chips e IA",
+                "en": "Reuters Morning Bid: chips and AI",
+                "val": "Reuters Morning Bid: xips i IA"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/"
+            },
+            {
+              "title": {
+                "es": "Índice de semiconductores de Filadelfia",
+                "en": "Philadelphia Semiconductor Index",
+                "val": "Índex de semiconductors de Filadèlfia"
+              },
+              "url": "https://www.nasdaq.com/market-activity/index/sox"
+            },
+            {
+              "title": {
+                "es": "Nasdaq: semiconductores",
+                "en": "Nasdaq: semiconductors",
+                "val": "Nasdaq: semiconductors"
+              },
+              "url": "https://www.nasdaq.com/solutions/global-indexes/semiconductors"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "RTX Spark, Xeon 6+ y nuevos Ryzen convierten el PC de IA en una batalla de arquitecturas",
+            "en": "RTX Spark, Xeon 6+ and new Ryzen chips turn the AI PC into an architecture battle",
+            "val": "RTX Spark, Xeon 6+ i els nous Ryzen convertixen el PC d’IA en una batalla d’arquitectures"
+          },
+          "summary": {
+            "es": "Nvidia apuesta por un superchip Arm con GPU Blackwell y memoria unificada, mientras Intel eleva el número de núcleos de Xeon y AMD prolonga la vida de AM5 y AM4. El resumen de <a href=\"https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6\">Tom’s Hardware</a> muestra que el mercado ya no compite solo en CPU o GPU, sino en plataformas completas para ejecutar IA local.",
+            "en": "Nvidia is betting on an Arm superchip with a Blackwell GPU and unified memory, while Intel raises Xeon core counts and AMD extends the life of AM5 and AM4. <a href=\"https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6\">Tom’s Hardware’s roundup</a> shows the market no longer competing only on CPU or GPU, but on complete local-AI platforms.",
+            "val": "Nvidia aposta per un superxip Arm amb GPU Blackwell i memòria unificada, mentre Intel eleva el nombre de nuclis de Xeon i AMD allarga la vida d’AM5 i AM4. El resum de <a href=\"https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6\">Tom’s Hardware</a> mostra que el mercat ja no competix només en CPU o GPU, sinó en plataformes completes per a executar IA local."
+          },
+          "source": "Tom’s Hardware / Nvidia / Intel",
+          "url": "https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6",
+          "links": [
+            {
+              "title": {
+                "es": "Tom’s Hardware: resumen de Computex",
+                "en": "Tom’s Hardware: Computex roundup",
+                "val": "Tom’s Hardware: resum de Computex"
+              },
+              "url": "https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6"
+            },
+            {
+              "title": {
+                "es": "Nvidia",
+                "en": "Nvidia",
+                "val": "Nvidia"
+              },
+              "url": "https://www.nvidia.com/"
+            },
+            {
+              "title": {
+                "es": "Intel Xeon",
+                "en": "Intel Xeon",
+                "val": "Intel Xeon"
+              },
+              "url": "https://www.intel.com/content/www/us/en/products/details/processors/xeon.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "CISA marca BlueHammer como explotada activamente pese a que Microsoft la parcheó en abril",
+            "en": "CISA marks BlueHammer as actively exploited despite Microsoft patching it in April",
+            "val": "CISA marca BlueHammer com a explotada activament malgrat que Microsoft la va corregir en abril"
+          },
+          "summary": {
+            "es": "La carrera de condición en Windows Defender permite obtener privilegios SYSTEM con un script pequeño y ya aparece vinculada a campañas de malware y ransomware. <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> subraya que el problema actual no es la ausencia de parche, sino el retraso medio con el que llega a equipos reales.",
+            "en": "The Windows Defender race condition can grant SYSTEM privileges through a small script and is now linked to malware and ransomware campaigns. <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> stresses that the current problem is not the absence of a patch, but how slowly it reaches real machines.",
+            "val": "La condició de carrera en Windows Defender permet obtindre privilegis SYSTEM amb un script menut i ja apareix vinculada a campanyes de programari maliciós i ransomware. <a href=\"https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14\">Tom’s Hardware</a> subratlla que el problema actual no és l’absència de correcció, sinó el retard amb què arriba als equips reals."
+          },
+          "source": "Tom’s Hardware / CISA / Microsoft Security",
+          "url": "https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14",
+          "links": [
+            {
+              "title": {
+                "es": "Tom’s Hardware: explotación de BlueHammer",
+                "en": "Tom’s Hardware: BlueHammer exploitation",
+                "val": "Tom’s Hardware: explotació de BlueHammer"
+              },
+              "url": "https://www.tomshardware.com/tech-industry/cyber-security/windows-defender-bluehammer-vulnerability-now-exploited-as-part-of-malware-campaigns-cisa-issues-warning-despite-patch-release-on-april-14"
+            },
+            {
+              "title": {
+                "es": "Catálogo de vulnerabilidades explotadas de CISA",
+                "en": "CISA Known Exploited Vulnerabilities catalogue",
+                "val": "Catàleg de vulnerabilitats explotades de CISA"
+              },
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+            },
+            {
+              "title": {
+                "es": "Guía de actualizaciones de Microsoft",
+                "en": "Microsoft Security Update Guide",
+                "val": "Guia d’actualitzacions de Microsoft"
+              },
+              "url": "https://msrc.microsoft.com/update-guide/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La actualización de junio de Windows cierra una vía de acceso a discos BitLocker y más de 200 fallos",
+            "en": "Windows’ June update closes a BitLocker disk-access path and more than 200 flaws",
+            "val": "L’actualització de juny de Windows tanca una via d’accés a discos BitLocker i més de 200 fallades"
+          },
+          "summary": {
+            "es": "Microsoft corrige tres vulnerabilidades de día cero y una técnica que permitía leer archivos de unidades protegidas mediante medios físicos preparados. La disputa con el investigador que publicó los fallos no cambia la recomendación: instalar el parche desde <a href=\"https://support.microsoft.com/windows/windows-11-update-history-9c5bc93f-5966-43f5-8916-f3a5fba2661c\">Windows Update</a> y revisar equipos que hayan quedado fuera de mantenimiento.",
+            "en": "Microsoft fixes three zero-days and a technique that allowed files on protected drives to be read through specially prepared physical media. The disclosure dispute does not change the recommendation: install the patch through <a href=\"https://support.microsoft.com/windows/windows-11-update-history-9c5bc93f-5966-43f5-8916-f3a5fba2661c\">Windows Update</a> and audit machines that may have missed servicing.",
+            "val": "Microsoft corregix tres vulnerabilitats de dia zero i una tècnica que permetia llegir fitxers d’unitats protegides amb suports físics preparats. La disputa amb l’investigador no canvia la recomanació: instal·lar el pedaç des de <a href=\"https://support.microsoft.com/windows/windows-11-update-history-9c5bc93f-5966-43f5-8916-f3a5fba2661c\">Windows Update</a> i revisar equips que hagen quedat fora de manteniment."
+          },
+          "source": "Windows Central / Microsoft / MSRC",
+          "url": "https://www.windowscentral.com/microsoft/windows-11s-june-update-shuts-down-an-intentional-bitlocker-backdoor-with-full-file-access-heres-what-changed",
+          "links": [
+            {
+              "title": {
+                "es": "Windows Central: cambios de seguridad",
+                "en": "Windows Central: security changes",
+                "val": "Windows Central: canvis de seguretat"
+              },
+              "url": "https://www.windowscentral.com/microsoft/windows-11s-june-update-shuts-down-an-intentional-bitlocker-backdoor-with-full-file-access-heres-what-changed"
+            },
+            {
+              "title": {
+                "es": "Historial de actualizaciones de Windows 11",
+                "en": "Windows 11 update history",
+                "val": "Historial d’actualitzacions de Windows 11"
+              },
+              "url": "https://support.microsoft.com/windows/windows-11-update-history-9c5bc93f-5966-43f5-8916-f3a5fba2661c"
+            },
+            {
+              "title": {
+                "es": "Microsoft Security Response Center",
+                "en": "Microsoft Security Response Center",
+                "val": "Microsoft Security Response Center"
+              },
+              "url": "https://msrc.microsoft.com/update-guide/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Supergirl abre con 68 millones de dólares mundiales y deja dudas sobre el nuevo universo DC",
+            "en": "Supergirl opens with $68 million worldwide, raising doubts over the new DC universe",
+            "val": "Supergirl obri amb 68 milions de dòlars mundials i deixa dubtes sobre el nou univers DC"
+          },
+          "summary": {
+            "es": "La película recauda alrededor de 38 millones en Estados Unidos y 68 millones en todo el mundo durante su primer fin de semana, frente a un presupuesto comunicado cercano a 170 millones. DC Studios defiende que forma parte de una estrategia a largo plazo, pero el análisis de <a href=\"https://ew.com/dc-reacts-supergirl-box-office-flop-12009000\">Entertainment Weekly</a> refleja una recepción crítica tibia.",
+            "en": "The film earns roughly $38 million domestically and $68 million worldwide in its opening weekend against a reported budget near $170 million. DC Studios argues that it belongs to a long-term strategy, but <a href=\"https://ew.com/dc-reacts-supergirl-box-office-flop-12009000\">Entertainment Weekly’s analysis</a> reflects a lukewarm critical reception.",
+            "val": "La pel·lícula recapta al voltant de 38 milions als Estats Units i 68 milions a tot el món durant el primer cap de setmana, davant d’un pressupost comunicat pròxim a 170 milions. DC Studios defensa que forma part d’una estratègia a llarg termini, però l’anàlisi d’<a href=\"https://ew.com/dc-reacts-supergirl-box-office-flop-12009000\">Entertainment Weekly</a> reflectix una recepció crítica tèbia."
+          },
+          "source": "Entertainment Weekly / DC / Box Office Mojo",
+          "url": "https://ew.com/dc-reacts-supergirl-box-office-flop-12009000",
+          "links": [
+            {
+              "title": {
+                "es": "Entertainment Weekly: resultado de taquilla",
+                "en": "Entertainment Weekly: box-office result",
+                "val": "Entertainment Weekly: resultat de taquilla"
+              },
+              "url": "https://ew.com/dc-reacts-supergirl-box-office-flop-12009000"
+            },
+            {
+              "title": {
+                "es": "Página oficial de Supergirl",
+                "en": "Official Supergirl page",
+                "val": "Pàgina oficial de Supergirl"
+              },
+              "url": "https://www.dc.com/movies/supergirl"
+            },
+            {
+              "title": {
+                "es": "Box Office Mojo",
+                "en": "Box Office Mojo",
+                "val": "Box Office Mojo"
+              },
+              "url": "https://www.boxofficemojo.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Robyn lleva Sexistential a Bruselas en una gira que vuelve a apostar por grandes recintos",
+            "en": "Robyn brings Sexistential to Brussels in a tour returning to major arenas",
+            "val": "Robyn porta Sexistential a Brussel·les en una gira que torna a apostar per grans recintes"
+          },
+          "summary": {
+            "es": "La artista sueca actúa el 30 de junio en el ING Arena dentro de una gira europea y norteamericana de 25 fechas. El montaje combina el nuevo disco con su repertorio electrónico y marca su regreso sostenido a las arenas; el calendario completo figura en la <a href=\"https://en.wikipedia.org/wiki/The_Sexistential_Tour\">relación de la gira</a>.",
+            "en": "The Swedish artist performs at Brussels’ ING Arena on June 30 as part of a 25-date European and North American tour. The production combines her new album with her electronic catalogue and marks a sustained return to arenas; the full schedule appears in the <a href=\"https://en.wikipedia.org/wiki/The_Sexistential_Tour\">tour listing</a>.",
+            "val": "L’artista sueca actua el 30 de juny a l’ING Arena dins d’una gira europea i nord-americana de 25 dates. El muntatge combina el nou disc amb el seu repertori electrònic i marca el retorn sostingut a les grans arenes; el calendari complet figura en la <a href=\"https://en.wikipedia.org/wiki/The_Sexistential_Tour\">relació de la gira</a>."
+          },
+          "source": "Robyn / Live Nation / tour listings",
+          "url": "https://en.wikipedia.org/wiki/The_Sexistential_Tour",
+          "links": [
+            {
+              "title": {
+                "es": "Calendario de Sexistential Tour",
+                "en": "Sexistential Tour schedule",
+                "val": "Calendari de Sexistential Tour"
+              },
+              "url": "https://en.wikipedia.org/wiki/The_Sexistential_Tour"
+            },
+            {
+              "title": {
+                "es": "Web oficial de Robyn",
+                "en": "Robyn official website",
+                "val": "Web oficial de Robyn"
+              },
+              "url": "https://www.robyn.com/"
+            },
+            {
+              "title": {
+                "es": "Live Nation",
+                "en": "Live Nation",
+                "val": "Live Nation"
+              },
+              "url": "https://www.livenation.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "Un padre y su hijo sobreviven cuatro días bajo los escombros de los terremotos de Venezuela",
+            "en": "A father and son survive four days beneath rubble after Venezuela’s earthquakes",
+            "val": "Un pare i el seu fill sobreviuen quatre dies davall dels enderrocs dels terratrémols de Veneçuela"
+          },
+          "summary": {
+            "es": "Los equipos necesitaron unas doce horas para completar la extracción en La Guaira, cuando las probabilidades de supervivencia ya caen con rapidez después de las primeras 72 horas. <a href=\"https://www.reuters.com/world/americas/father-son-rescued-after-four-days-buried-under-rubble-venezuelas-earthquakes-2026-06-29/\">Reuters</a> relata que ambos estaban deshidratados y débiles, pero vivos, después de que los especialistas localizaran señales bajo el edificio.",
+            "en": "Teams needed around twelve hours to complete the extraction in La Guaira, when survival probabilities normally fall sharply after the first 72 hours. <a href=\"https://www.reuters.com/world/americas/father-son-rescued-after-four-days-buried-under-rubble-venezuelas-earthquakes-2026-06-29/\">Reuters</a> reports that both were dehydrated and weak but alive after specialists detected signs beneath the building.",
+            "val": "Els equips van necessitar unes dotze hores per a completar l’extracció a La Guaira, quan les probabilitats de supervivència ja baixen ràpidament després de les primeres 72 hores. <a href=\"https://www.reuters.com/world/americas/father-son-rescued-after-four-days-buried-under-rubble-venezuelas-earthquakes-2026-06-29/\">Reuters</a> relata que els dos estaven deshidratats i dèbils, però vius, després que els especialistes localitzaren senyals davall de l’edifici."
+          },
+          "source": "Reuters / AP / UN OCHA",
+          "url": "https://www.reuters.com/world/americas/father-son-rescued-after-four-days-buried-under-rubble-venezuelas-earthquakes-2026-06-29/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: rescate después de cuatro días",
+                "en": "Reuters: rescue after four days",
+                "val": "Reuters: rescat després de quatre dies"
+              },
+              "url": "https://www.reuters.com/world/americas/father-son-rescued-after-four-days-buried-under-rubble-venezuelas-earthquakes-2026-06-29/"
+            },
+            {
+              "title": {
+                "es": "AP: imágenes de los terremotos",
+                "en": "AP: earthquake images",
+                "val": "AP: imatges dels terratrémols"
+              },
+              "url": "https://apnews.com/article/85c1445c757775c5c68acb8bf9a39347"
+            },
+            {
+              "title": {
+                "es": "ONU OCHA: respuesta humanitaria",
+                "en": "UN OCHA: humanitarian response",
+                "val": "ONU OCHA: resposta humanitària"
+              },
+              "url": "https://www.unocha.org/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Los modelos académicos de Bitcoin todavía no superan de forma robusta a repetir el precio de hoy",
+            "en": "Academic Bitcoin models still fail to robustly beat simply repeating today’s price",
+            "val": "Els models acadèmics de Bitcoin encara no superen de manera robusta repetir el preu de hui"
+          },
+          "summary": {
+            "es": "Una revisión de la literatura concluye que ningún enfoque ha demostrado ganar de forma consistente a la predicción ingenua de usar el precio actual a horizontes de uno a seis meses y en distintos regímenes. El trabajo, disponible en <a href=\"https://arxiv.org/abs/2606.00071\">arXiv</a>, señala sobreajuste, pruebas fuera de muestra débiles y costes de transacción ignorados.",
+            "en": "A literature review concludes that no approach has consistently beaten the naive forecast of using today’s price across one-to-six-month horizons and multiple market regimes. The paper, available on <a href=\"https://arxiv.org/abs/2606.00071\">arXiv</a>, highlights overfitting, weak out-of-sample testing and ignored transaction costs.",
+            "val": "Una revisió de la literatura conclou que cap enfocament ha demostrat guanyar de manera consistent a la predicció ingènua d’usar el preu actual en horitzons d’un a sis mesos i en diferents règims. El treball, disponible en <a href=\"https://arxiv.org/abs/2606.00071\">arXiv</a>, assenyala sobreajust, proves fora de mostra dèbils i costos de transacció ignorats."
+          },
+          "source": "arXiv / academic literature review / market data",
+          "url": "https://arxiv.org/abs/2606.00071",
+          "links": [
+            {
+              "title": {
+                "es": "Artículo sobre predicción de Bitcoin",
+                "en": "Bitcoin prediction paper",
+                "val": "Article sobre predicció de Bitcoin"
+              },
+              "url": "https://arxiv.org/abs/2606.00071"
+            },
+            {
+              "title": {
+                "es": "Repositorio arXiv",
+                "en": "arXiv repository",
+                "val": "Repositori arXiv"
+              },
+              "url": "https://arxiv.org/"
+            },
+            {
+              "title": {
+                "es": "Datos de mercado de CoinDesk",
+                "en": "CoinDesk market data",
+                "val": "Dades de mercat de CoinDesk"
+              },
+              "url": "https://www.coindesk.com/price/bitcoin/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "Samsung Galaxy Buds3 por 79 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Los auriculares con cancelación activa de ruido y resistencia IP57 bajan de 159 € a 79 € en Amazon España, alrededor de un 50 % de descuento. La disponibilidad depende del stock. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Ver el chollo</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "159 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "79 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-50 %",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Hasta agotar stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "Gigabyte GeForce RTX 5070 Gaming OC 12 GB por 609 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "La gráfica con memoria GDDR7 y soporte para DLSS 4 aparece a 609 € en PcComponentes frente a un precio de referencia de 669 €. No alcanza el 25 %, pero figura como precio destacado para este modelo y puede cambiar con el stock. <a href=\"https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4\">Ver la ficha</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "PcComponentes",
+          "url": "https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4",
+          "platform": "PcComponentes",
+          "originalPrice": {
+            "es": "669 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "609 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "Precio destacado",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Hasta agotar stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Samsung Galaxy Buds3 per 79 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Els auriculars amb cancel·lació activa de soroll i resistència IP57 baixen de 159 € a 79 € en Amazon Espanya, prop d’un 50 % de descompte. La disponibilitat depén de l’estoc. <a href=\"https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505\">Vore el xollo</a>."
+          },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+          "platform": "Amazon Espanya",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "159 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "79 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-50 %"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Fins a esgotar estoc"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Gigabyte GeForce RTX 5070 Gaming OC 12 GB per 609 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "La gràfica amb memòria GDDR7 i suport per a DLSS 4 apareix a 609 € en PcComponentes davant d’un preu de referència de 669 €. No arriba al 25 %, però figura com a preu destacat per a este model i pot canviar amb l’estoc. <a href=\"https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4\">Vore la fitxa</a>."
+          },
+          "source": "PcComponentes",
+          "url": "https://www.pccomponentes.com/tarjeta-grafica-gigabyte-geforce-rtx-5070-gaming-oc-12gb-gddr7-reflex-2-rtx-ai-dlss4",
+          "platform": "PcComponentes",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "669 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "609 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "Preu destacat"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Fins a esgotar estoc"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Acer Nitro V 16S RTX 5070 gaming laptop for about $999.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "Acer’s 16-inch RTX 5070 configuration is tracked near $999.99, roughly $300 below its usual listed price. Stock and coupons can change quickly during the campaign. <a href=\"https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/\">See the live deal tracker</a>.",
+            "val": ""
+          },
+          "source": "PC Gamer",
+          "url": "https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/",
+          "platform": "Amazon US / Prime Week",
+          "originalPrice": {
+            "es": "",
+            "en": "$1,299.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$999.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "About -23%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "While promotional stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Acer QD-OLED gaming monitor for about $315",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "An Acer QD-OLED gaming monitor is tracked near $315, around 30% below its typical $450 level. It is a low entry point for OLED gaming, but the exact coupon and stock may move. <a href=\"https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/\">See the live deal tracker</a>.",
+            "val": ""
+          },
+          "source": "PC Gamer",
+          "url": "https://www.pcgamer.com/hardware/live/news/prime-day-gaming-deals-live-2026/",
+          "platform": "Amazon US / Prime Week",
+          "originalPrice": {
+            "es": "",
+            "en": "About $450",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "About $315",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "Around -30%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "While promotional stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Black Torch entra en la cuenta atrás para su estreno del 4 de julio en Crunchyroll",
+            "en": "Black Torch enters the countdown to its July 4 premiere on Crunchyroll",
+            "val": "Black Torch entra en el compte arrere per a l’estrena del 4 de juliol en Crunchyroll"
+          },
+          "summary": {
+            "es": "La adaptación del manga de Tsuyoshi Takaki sigue a Jiro Azuma, un joven capaz de comunicarse con animales que se fusiona con un gato mononoke. <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirma la fecha, la plataforma y un equipo con diseño de personajes de Go Suzuki y música de Yutaka Yamada.",
+            "en": "The adaptation of Tsuyoshi Takaki’s manga follows Jiro Azuma, a young man who can communicate with animals and merges with a mononoke cat. <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirms the date, platform and a team featuring character designer Go Suzuki and composer Yutaka Yamada.",
+            "val": "L’adaptació del manga de Tsuyoshi Takaki seguix Jiro Azuma, un jove capaç de comunicar-se amb animals que es fusiona amb un gat mononoke. <a href=\"https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/\">MeriStation</a> confirma la data, la plataforma i un equip amb disseny de personatges de Go Suzuki i música de Yutaka Yamada."
+          },
+          "source": "MeriStation / Crunchyroll / GamesRadar",
+          "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/",
+          "links": [
+            {
+              "title": {
+                "es": "MeriStation: fecha y tráiler",
+                "en": "MeriStation: date and trailer",
+                "val": "MeriStation: data i tràiler"
+              },
+              "url": "https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/"
+            },
+            {
+              "title": {
+                "es": "Noticias de Crunchyroll",
+                "en": "Crunchyroll News",
+                "val": "Notícies de Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/news"
+            },
+            {
+              "title": {
+                "es": "Calendario de anime de GamesRadar",
+                "en": "GamesRadar anime schedule",
+                "val": "Calendari d’anime de GamesRadar"
+              },
+              "url": "https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "The Ghost in the Shell prepara su regreso del 7 de julio con Science Saru y Prime Video",
+            "en": "The Ghost in the Shell prepares its July 7 return with Science Saru and Prime Video",
+            "val": "The Ghost in the Shell prepara el retorn del 7 de juliol amb Science Saru i Prime Video"
+          },
+          "summary": {
+            "es": "La nueva serie recupera el manga de Masamune Shirow con una lectura visual del estudio responsable de Dandadan. Prime Video tendrá distribución internacional y la emisión será semanal; la <a href=\"https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)\">ficha de la producción</a> reúne el equipo y el calendario.",
+            "en": "The new series returns to Masamune Shirow’s manga with a visual approach from the studio behind Dandadan. Prime Video holds international distribution and episodes will air weekly; the <a href=\"https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)\">production page</a> lists the staff and schedule.",
+            "val": "La nova sèrie recupera el manga de Masamune Shirow amb una lectura visual de l’estudi responsable de Dandadan. Prime Video tindrà la distribució internacional i l’emissió serà setmanal; la <a href=\"https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)\">fitxa de la producció</a> reunix l’equip i el calendari."
+          },
+          "source": "Science Saru / Prime Video / release references",
+          "url": "https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)",
+          "links": [
+            {
+              "title": {
+                "es": "Ficha de la serie",
+                "en": "Series reference",
+                "val": "Fitxa de la sèrie"
+              },
+              "url": "https://en.wikipedia.org/wiki/The_Ghost_in_the_Shell_(2026_TV_series)"
+            },
+            {
+              "title": {
+                "es": "Science Saru",
+                "en": "Science Saru",
+                "val": "Science Saru"
+              },
+              "url": "https://www.sciencesaru.com/"
+            },
+            {
+              "title": {
+                "es": "Prime Video",
+                "en": "Prime Video",
+                "val": "Prime Video"
+              },
+              "url": "https://www.primevideo.com/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
