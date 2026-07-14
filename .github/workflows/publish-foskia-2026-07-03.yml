@@ -1,0 +1,267 @@
+name: Publish FoskIA 2026-07-03
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.foskia-publish-2026-07-03-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build, validate and publish edition
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const date = '2026-07-03';
+          const sourcePath = 'public/foskia/posts/2026-07-02.json';
+          const postPath = `public/foskia/posts/${date}.json`;
+          const indexPath = 'public/foskia/posts/index.json';
+          const categories = ['gaming','gratis','codigo','ciencia','economia','cripto','radar','ia','hardware','security','entretenimiento','curiosidades','ofertas','anime'];
+          const languages = ['es','en','val'];
+
+          function completeText(value) {
+            return value && typeof value === 'object' && languages.every(lang => typeof value[lang] === 'string' && value[lang].trim());
+          }
+          function fail(message) { throw new Error(message); }
+          function section(edition, category) {
+            const found = edition.sections.find(entry => entry.category === category);
+            if (!found) fail(`Missing category ${category}`);
+            return found;
+          }
+          function links(entries) {
+            return entries.map(([es,en,val,url]) => ({ title: {es,en,val}, url }));
+          }
+
+          const edition = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+          edition.date = date;
+          edition.title = {
+            es: 'Sony reconvierte su fábrica de discos, Epic estrena dos juegos gratis y Anime Expo acelera sus anuncios',
+            en: 'Sony repurposes its disc factory, Epic launches two free games and Anime Expo gathers momentum',
+            val: 'Sony reconvertix la fàbrica de discos, Epic estrena dos jocs gratis i Anime Expo accelera els anuncis'
+          };
+          edition.intro = {
+            es: 'La edición del 3 de julio confirma que el abandono del formato físico de PlayStation llevaba años preparándose: la planta austríaca que fabrica unos 600.000 discos diarios ya se reconvierte hacia microlentes y mantendrá a sus 300 trabajadores mediante formación. Epic renueva su promoción semanal con I Have No Mouth, and I Must Scream y River City Girls 2, mientras Anime Expo entra en su segunda jornada y Black Torch queda a horas de estrenarse. Europa continúa bajo calor extremo, los mercados consolidan el arranque del semestre y Bitcoin sigue defendiendo la zona de 60.000 dólares.',
+            en: 'The July 3 edition confirms that PlayStation’s move away from physical media had been planned for years: the Austrian plant producing roughly 600,000 discs a day is already being converted to microlens manufacturing, with all 300 employees set to be retrained. Epic refreshes its weekly giveaway with I Have No Mouth, and I Must Scream and River City Girls 2, while Anime Expo enters its second day and Black Torch is hours away from premiering. Europe remains under extreme heat, markets consolidate their start to the half-year and Bitcoin continues defending the $60,000 area.',
+            val: 'L’edició del 3 de juliol confirma que l’abandó del format físic de PlayStation feia anys que es preparava: la planta austríaca que fabrica uns 600.000 discos diaris ja es reconvertix cap a microlents i mantindrà els 300 treballadors mitjançant formació. Epic renova la promoció setmanal amb I Have No Mouth, and I Must Scream i River City Girls 2, mentre Anime Expo entra en la segona jornada i Black Torch queda a hores d’estrenar-se. Europa continua sota calor extrema, els mercats consoliden l’inici del semestre i Bitcoin continua defensant la zona dels 60.000 dòlars.'
+          };
+          edition.summary = {
+            es: 'Sony prepara su etapa sin discos, Epic cambia sus juegos gratuitos, Anime Expo concentra las miradas y Black Torch afronta su estreno.',
+            en: 'Sony prepares for a disc-less era, Epic changes its free games, Anime Expo takes centre stage and Black Torch approaches its premiere.',
+            val: 'Sony prepara l’etapa sense discos, Epic canvia els jocs gratuïts, Anime Expo concentra les mirades i Black Torch afronta l’estrena.'
+          };
+          edition.tags = [...categories];
+
+          section(edition, 'gaming').items = [
+            {
+              title: {
+                es: 'Shawn Layden avisa de que el adiós al disco de PlayStation puede arrastrar a Xbox y Nintendo',
+                en: 'Shawn Layden warns PlayStation’s disc exit could pull Xbox and Nintendo in the same direction',
+                val: 'Shawn Layden avisa que l’adeu al disc de PlayStation pot arrossegar Xbox i Nintendo'
+              },
+              summary: {
+                es: 'El antiguo responsable mundial de PlayStation Studios califica la decisión como “dramática” y advierte de que, cuando el líder del mercado cambia de modelo, sus rivales suelen verse presionados para seguirlo. La reacción amplía el debate desde Sony hacia la preservación, el préstamo, la reventa y la propiedad digital de toda la industria; <a href="https://www.gamesradar.com/games/playstations-disc-less-future-could-heavily-influence-xbox-and-nintendos-approach-to-physical-games-former-sony-boss-says-calling-the-decision-dramatic/">GamesRadar</a> recoge sus declaraciones.',
+                en: 'The former worldwide head of PlayStation Studios calls the decision “dramatic” and warns that when the market leader changes its model, rivals often face pressure to follow. The response broadens the debate beyond Sony to preservation, lending, resale and digital ownership across the industry; <a href="https://www.gamesradar.com/games/playstations-disc-less-future-could-heavily-influence-xbox-and-nintendos-approach-to-physical-games-former-sony-boss-says-calling-the-decision-dramatic/">GamesRadar</a> reports his comments.',
+                val: 'L’antic responsable mundial de PlayStation Studios qualifica la decisió de “dramàtica” i advertix que, quan el líder del mercat canvia de model, els rivals solen sentir pressió per a seguir-lo. La resposta amplia el debat des de Sony cap a la preservació, el préstec, la revenda i la propietat digital de tota la indústria; <a href="https://www.gamesradar.com/games/playstations-disc-less-future-could-heavily-influence-xbox-and-nintendos-approach-to-physical-games-former-sony-boss-says-calling-the-decision-dramatic/">GamesRadar</a> arreplega les declaracions.'
+              },
+              source: 'GamesRadar / industry figures / Stop Killing Games',
+              url: 'https://www.gamesradar.com/games/playstations-disc-less-future-could-heavily-influence-xbox-and-nintendos-approach-to-physical-games-former-sony-boss-says-calling-the-decision-dramatic/',
+              links: links([
+                ['GamesRadar: advertencia de Shawn Layden','GamesRadar: Shawn Layden warning','GamesRadar: advertència de Shawn Layden','https://www.gamesradar.com/games/playstations-disc-less-future-could-heavily-influence-xbox-and-nintendos-approach-to-physical-games-former-sony-boss-says-calling-the-decision-dramatic/'],
+                ['GamesRadar: propuestas de Mike Ybarra','GamesRadar: Mike Ybarra proposals','GamesRadar: propostes de Mike Ybarra','https://www.gamesradar.com/games/as-playstation-kills-discs-former-blizzard-boss-says-we-cant-live-in-a-world-of-fear-if-our-games-will-work-in-the-future-or-not/'],
+                ['Stop Killing Games','Stop Killing Games','Stop Killing Games','https://www.stopkillinggames.com/']
+              ])
+            },
+            {
+              title: {
+                es: 'La última gran fábrica de discos de Sony ya se transforma en una planta de microlentes',
+                en: 'Sony’s last major disc factory is already becoming a microlens plant',
+                val: 'L’última gran fàbrica de discos de Sony ja es transforma en una planta de microlents'
+              },
+              summary: {
+                es: 'La planta de Thalgau, en Austria, produce alrededor de 600.000 discos diarios —aproximadamente la mitad para PlayStation—, pero prevé reducir el volumen al 10 % en 2028. Sony invertirá unos 30 millones de euros en microóptica y formará a sus 300 empleados para fabricar microlentes destinadas a sectores como el automóvil; <a href="https://www.theverge.com/games/961203/sony-austria-thalgau-end-disc-production-microlenses-instead">The Verge</a> detalla la reconversión.',
+                en: 'The Thalgau plant in Austria produces around 600,000 discs a day—roughly half for PlayStation—but expects output to fall to 10% of current levels by 2028. Sony is investing about €30 million in micro-optics and will retrain all 300 employees to manufacture microlenses for sectors including automotive technology; <a href="https://www.theverge.com/games/961203/sony-austria-thalgau-end-disc-production-microlenses-instead">The Verge</a> details the transition.',
+                val: 'La planta de Thalgau, a Àustria, produïx al voltant de 600.000 discos diaris —aproximadament la mitat per a PlayStation—, però preveu reduir el volum al 10 % en 2028. Sony invertirà uns 30 milions d’euros en microòptica i formarà els 300 empleats per a fabricar microlents destinades a sectors com l’automòbil; <a href="https://www.theverge.com/games/961203/sony-austria-thalgau-end-disc-production-microlenses-instead">The Verge</a> detalla la reconversió.'
+              },
+              source: 'The Verge / GamesRadar / Sony DADC',
+              url: 'https://www.theverge.com/games/961203/sony-austria-thalgau-end-disc-production-microlenses-instead',
+              links: links([
+                ['The Verge: reconversión de la planta','The Verge: factory conversion','The Verge: reconversió de la planta','https://www.theverge.com/games/961203/sony-austria-thalgau-end-disc-production-microlenses-instead'],
+                ['GamesRadar: producción y empleo','GamesRadar: production and jobs','GamesRadar: producció i ocupació','https://www.gamesradar.com/games/sony-reportedly-already-has-another-use-for-its-disc-factory-after-announcing-end-of-physical-playstation-games/'],
+                ['Sony DADC','Sony DADC','Sony DADC','https://www.sonydadc.com/']
+              ])
+            }
+          ];
+
+          section(edition, 'gratis').items = [
+            {
+              title: {
+                es: 'I Have No Mouth, and I Must Scream — gratis en Epic hasta el 9 de julio',
+                en: 'I Have No Mouth, and I Must Scream — free on Epic through July 9',
+                val: 'I Have No Mouth, and I Must Scream — gratis en Epic fins al 9 de juliol'
+              },
+              summary: {
+                es: 'La aventura gráfica de terror basada en el relato de Harlan Ellison abre la nueva rotación semanal de Epic. Puede añadirse sin coste a la biblioteca hasta el 9 de julio y, una vez reclamado, permanece asociado a la cuenta; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> confirma el calendario.',
+                en: 'The horror adventure based on Harlan Ellison’s story leads Epic’s new weekly rotation. It can be added to the library at no cost through July 9 and remains tied to the account once claimed; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> confirms the schedule.',
+                val: 'L’aventura gràfica de terror basada en el relat de Harlan Ellison obri la nova rotació setmanal d’Epic. Es pot afegir sense cost a la biblioteca fins al 9 de juliol i, una vegada reclamat, queda associat al compte; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> confirma el calendari.'
+              },
+              source: 'Epic Games Store / PC Gamer / GOG',
+              url: 'https://store.epicgames.com/free-games',
+              links: links([
+                ['Epic Games Store: juegos gratis','Epic Games Store: free games','Epic Games Store: jocs gratis','https://store.epicgames.com/free-games'],
+                ['PC Gamer: rotación del 2 al 9 de julio','PC Gamer: July 2–9 rotation','PC Gamer: rotació del 2 al 9 de juliol','https://www.pcgamer.com/epic-games-store-free-games-list/'],
+                ['Ficha de referencia en GOG','Reference page on GOG','Fitxa de referència en GOG','https://www.gog.com/en/game/i_have_no_mouth_and_i_must_scream']
+              ]),
+              platform: 'Epic Games Store',
+              until: { es: 'Hasta el 9 de julio de 2026, 17:00 CEST', en: 'Until July 9, 2026, 3:00 PM UTC', val: 'Fins al 9 de juliol de 2026, 17.00 CEST' },
+              urgent: true
+            },
+            {
+              title: {
+                es: 'River City Girls 2 — gratis en Epic hasta el 9 de julio',
+                en: 'River City Girls 2 — free on Epic through July 9',
+                val: 'River City Girls 2 — gratis en Epic fins al 9 de juliol'
+              },
+              summary: {
+                es: 'El beat ’em up cooperativo de WayForward acompaña la promoción semanal con combate, progresión y juego local u online. La reclamación permanece abierta hasta el 9 de julio desde la página de juegos gratuitos de Epic; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> incluye el título en el historial de 2026.',
+                en: 'WayForward’s co-op beat ’em up joins the weekly giveaway with combat, progression and local or online play. The claim window remains open through July 9 on Epic’s free-games page; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> lists the title in its 2026 history.',
+                val: 'El beat ’em up cooperatiu de WayForward acompanya la promoció setmanal amb combat, progressió i joc local o en línia. La reclamació continua oberta fins al 9 de juliol des de la pàgina de jocs gratuïts d’Epic; <a href="https://www.pcgamer.com/epic-games-store-free-games-list/">PC Gamer</a> inclou el títol en l’historial de 2026.'
+              },
+              source: 'Epic Games Store / PC Gamer / WayForward',
+              url: 'https://store.epicgames.com/free-games',
+              links: links([
+                ['Epic Games Store: juegos gratis','Epic Games Store: free games','Epic Games Store: jocs gratis','https://store.epicgames.com/free-games'],
+                ['PC Gamer: historial de regalos','PC Gamer: giveaway history','PC Gamer: historial de regals','https://www.pcgamer.com/epic-games-store-free-games-list/'],
+                ['Web oficial de River City Girls 2','Official River City Girls 2 website','Web oficial de River City Girls 2','https://wayforward.com/games/river-city-girls-2/']
+              ]),
+              platform: 'Epic Games Store',
+              until: { es: 'Hasta el 9 de julio de 2026, 17:00 CEST', en: 'Until July 9, 2026, 3:00 PM UTC', val: 'Fins al 9 de juliol de 2026, 17.00 CEST' },
+              urgent: true
+            }
+          ];
+
+          const curiosity = section(edition, 'curiosidades');
+          curiosity.items[0] = {
+            title: {
+              es: 'Los Blu-ray bien conservados pueden sobrevivir décadas después del final de su fabricación',
+              en: 'Well-preserved Blu-rays may survive for decades after production ends',
+              val: 'Els Blu-ray ben conservats poden sobreviure dècades després del final de la fabricació'
+            },
+            summary: {
+              es: 'El debate sobre el “disc rot” ha vuelto con el anuncio de Sony, pero las estimaciones de la industria sitúan la vida útil de muchos soportes ópticos entre 30 y 100 años cuando se almacenan en lugares frescos, secos y sin luz directa. En numerosos casos fallará antes el lector o la electrónica de la consola que el propio disco; <a href="https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/">MeriStation</a> resume las recomendaciones.',
+              en: 'The “disc rot” debate has returned with Sony’s announcement, but industry estimates place the lifespan of many optical formats between 30 and 100 years when stored somewhere cool, dry and away from direct light. In many cases, a console’s drive or electronics may fail before the disc itself; <a href="https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/">MeriStation</a> summarises the guidance.',
+              val: 'El debat sobre el “disc rot” ha tornat amb l’anunci de Sony, però les estimacions de la indústria situen la vida útil de molts suports òptics entre 30 i 100 anys quan es guarden en llocs frescos, secs i sense llum directa. En molts casos fallarà abans el lector o l’electrònica de la consola que el mateix disc; <a href="https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/">MeriStation</a> resumix les recomanacions.'
+            },
+            source: 'MeriStation / Library of Congress / Sony DADC',
+            url: 'https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/',
+            links: links([
+              ['MeriStation: vida útil de los discos','MeriStation: optical-disc lifespan','MeriStation: vida útil dels discos','https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/'],
+              ['Biblioteca del Congreso: preservación digital','Library of Congress: digital preservation','Biblioteca del Congrés: preservació digital','https://www.loc.gov/preservation/'],
+              ['Sony DADC','Sony DADC','Sony DADC','https://www.sonydadc.com/']
+            ])
+          };
+
+          section(edition, 'anime').items = [
+            {
+              title: {
+                es: 'Anime Expo entra en su segunda jornada con Cyberpunk, Demon Slayer y Ghost in the Shell en el radar',
+                en: 'Anime Expo enters day two with Cyberpunk, Demon Slayer and Ghost in the Shell in focus',
+                val: 'Anime Expo entra en la segona jornada amb Cyberpunk, Demon Slayer i Ghost in the Shell en el radar'
+              },
+              summary: {
+                es: 'La convención de Los Ángeles continúa hasta el 5 de julio con paneles, estrenos y anuncios de estudios y plataformas. Entre los focos más esperados aparecen Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell y Steel Ball Run; <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar</a> reúne el calendario y las principales expectativas.',
+                en: 'The Los Angeles convention continues through July 5 with panels, premieres and announcements from studios and platforms. The most anticipated areas include Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell and Steel Ball Run; <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar</a> gathers the schedule and major expectations.',
+                val: 'La convenció de Los Angeles continua fins al 5 de juliol amb panells, estrenes i anuncis d’estudis i plataformes. Entre els focus més esperats apareixen Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell i Steel Ball Run; <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar</a> reunix el calendari i les principals expectatives.'
+              },
+              source: 'Anime Expo / GamesRadar / SPJA',
+              url: 'https://www.anime-expo.org/',
+              links: links([
+                ['Web oficial de Anime Expo','Official Anime Expo website','Web oficial d’Anime Expo','https://www.anime-expo.org/'],
+                ['GamesRadar: calendario y anuncios esperados','GamesRadar: schedule and expected announcements','GamesRadar: calendari i anuncis esperats','https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/'],
+                ['Society for the Promotion of Japanese Animation','Society for the Promotion of Japanese Animation','Society for the Promotion of Japanese Animation','https://spja.org/']
+              ])
+            },
+            {
+              title: {
+                es: 'Black Torch se estrena mañana en Crunchyroll con acción sobrenatural y mononoke',
+                en: 'Black Torch premieres tomorrow on Crunchyroll with supernatural action and mononoke',
+                val: 'Black Torch s’estrena demà en Crunchyroll amb acció sobrenatural i mononoke'
+              },
+              summary: {
+                es: 'La adaptación del manga de Tsuyoshi Takaki llega el 4 de julio y sigue a Jiro Azuma, un joven capaz de hablar con animales que se fusiona con un gato mononoke. El proyecto de 100studio cuenta con diseños de Go Suzuki y música de Yutaka Yamada; <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation</a> confirma fecha y plataforma.',
+                en: 'The adaptation of Tsuyoshi Takaki’s manga arrives on July 4 and follows Jiro Azuma, a young man who can speak with animals and merges with a mononoke cat. The 100studio production features character designs by Go Suzuki and music by Yutaka Yamada; <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation</a> confirms the date and platform.',
+                val: 'L’adaptació del manga de Tsuyoshi Takaki arriba el 4 de juliol i seguix Jiro Azuma, un jove capaç de parlar amb animals que es fusiona amb un gat mononoke. El projecte de 100studio compta amb dissenys de Go Suzuki i música de Yutaka Yamada; <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation</a> confirma la data i la plataforma.'
+              },
+              source: 'MeriStation / Crunchyroll / GamesRadar',
+              url: 'https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/',
+              links: links([
+                ['MeriStation: fecha, tráiler y plataforma','MeriStation: date, trailer and platform','MeriStation: data, tràiler i plataforma','https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/'],
+                ['Noticias de Crunchyroll','Crunchyroll News','Notícies de Crunchyroll','https://www.crunchyroll.com/news'],
+                ['GamesRadar: calendario de anime de 2026','GamesRadar: 2026 anime calendar','GamesRadar: calendari d’anime de 2026','https://www.gamesradar.com/new-anime-release-dates-upcoming-schedule/']
+              ])
+            }
+          ];
+
+          if (edition.sections.map(s => s.category).join(',') !== categories.join(',')) fail('Unexpected category order');
+          if (!completeText(edition.title) || !completeText(edition.intro) || !completeText(edition.summary)) fail('Incomplete root translations');
+          if (languages.some(lang => /^(FoskIA|Edici[oó]n del d[ií]a|Edition of the day)/i.test(edition.title[lang]))) fail('Forbidden title prefix');
+
+          let itemCount = 0;
+          for (const current of edition.sections) {
+            if (!Array.isArray(current.items) || current.items.length === 0) fail(`Empty category ${current.category}`);
+            for (const [i,item] of current.items.entries()) {
+              itemCount++;
+              if (typeof item.url !== 'string' || !/^https?:\/\//.test(item.url)) fail(`${current.category}[${i}] invalid url`);
+              if (!Array.isArray(item.links)) fail(`${current.category}[${i}] links missing`);
+              if (current.category === 'ofertas') {
+                if (!languages.includes(item.market)) fail(`Invalid offer market ${i}`);
+              } else {
+                if (!completeText(item.title) || !completeText(item.summary)) fail(`${current.category}[${i}] incomplete translations`);
+                if (item.links.length < 3) fail(`${current.category}[${i}] fewer than three sources`);
+              }
+              if (current.category === 'cripto' && (!completeText(item.shortTerm) || !completeText(item.longTerm))) fail(`Crypto ${i} lacks analysis`);
+            }
+          }
+          if (itemCount !== 32) fail(`Expected 32 items, found ${itemCount}`);
+
+          const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          if (!index || !Array.isArray(index.editions)) fail('Invalid index schema');
+          index.editions = index.editions.filter(entry => entry && entry.date !== date);
+          index.editions.push(edition);
+          index.editions.sort((a,b) => b.date.localeCompare(a.date));
+          if (index.editions.filter(entry => entry.date === date).length !== 1) fail('Edition duplicated');
+
+          fs.writeFileSync(postPath, JSON.stringify(edition, null, 2) + '\n');
+          fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n');
+          JSON.parse(fs.readFileSync(postPath, 'utf8'));
+          JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          console.log(`Validation OK: ${edition.sections.length} categories, ${itemCount} items.`);
+          NODE
+
+      - name: Commit edition
+        shell: bash
+        run: |
+          git config user.name "Danielux135"
+          git config user.email "dlux135@hotmail.com"
+          git add public/foskia/posts/2026-07-03.json public/foskia/posts/index.json
+          git commit -m "Edición de FoskIA del 2026-07-03"
+          git push origin main
+
+      - name: Clean temporary files
+        shell: bash
+        run: |
+          rm -f .foskia-publish-2026-07-03-trigger
+          rm -f .github/workflows/publish-foskia-2026-07-03.yml
+          git add -A
+          git commit -m "Limpia archivos temporales de FoskIA del 2026-07-03"
+          git push origin main
