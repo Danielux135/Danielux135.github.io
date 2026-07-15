@@ -51,6 +51,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://danielux.es/demos/ricardo-peris/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://danielux.es/demos/restaurante/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
