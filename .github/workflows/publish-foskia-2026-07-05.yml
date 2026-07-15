@@ -1,0 +1,189 @@
+name: Publish FoskIA 2026-07-05
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.foskia-publish-2026-07-05-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build and validate edition
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const date = '2026-07-05';
+          const sourcePath = 'public/foskia/posts/2026-07-04.json';
+          const postPath = `public/foskia/posts/${date}.json`;
+          const indexPath = 'public/foskia/posts/index.json';
+          const categories = ['gaming','gratis','codigo','ciencia','economia','cripto','radar','ia','hardware','security','entretenimiento','curiosidades','ofertas','anime'];
+          const languages = ['es','en','val'];
+          const edition = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+          const originalCount = edition.sections.reduce((sum, section) => sum + section.items.length, 0);
+
+          edition.date = date;
+          edition.title = {
+            es: 'Minions gana por la mínima, Anime Expo se despide y el calor prolonga el fin de semana',
+            en: 'Minions wins by a whisker, Anime Expo signs off and heat stretches across the weekend',
+            val: 'Minions guanya per la mínima, Anime Expo s’acomiada i la calor prolonga el cap de setmana'
+          };
+          edition.intro = {
+            es: 'La edición del 5 de julio cierra el fin de semana festivo con Minions & Monsters en lo más alto de la taquilla norteamericana: suma 36,4 millones de dólares durante el fin de semana y 61,4 millones desde el miércoles, apenas por delante de los 31 millones de Toy Story 5. Young Washington aprovecha el 250.º aniversario estadounidense para debutar tercero con 20,8 millones. Anime Expo celebra su última jornada en Los Ángeles, Black Torch ya tiene disponible su primer episodio y los avisos por calor siguen condicionando viajes, eventos y celebraciones.',
+            en: 'The July 5 edition closes the holiday weekend with Minions & Monsters on top of the North American box office: it earns $36.4 million over the weekend and $61.4 million since Wednesday, only just ahead of Toy Story 5 at $31 million. Young Washington uses the United States’ 250th anniversary to debut in third place with $20.8 million. Anime Expo holds its final day in Los Angeles, Black Torch now has its first episode available and heat alerts continue to shape travel, events and celebrations.',
+            val: 'L’edició del 5 de juliol tanca el cap de setmana festiu amb Minions & Monsters al capdamunt de la taquilla nord-americana: suma 36,4 milions de dòlars durant el cap de setmana i 61,4 milions des de dimecres, a penes per davant dels 31 milions de Toy Story 5. Young Washington aprofita el 250é aniversari dels Estats Units per a debutar tercera amb 20,8 milions. Anime Expo celebra l’última jornada a Los Angeles, Black Torch ja té disponible el primer episodi i els avisos per calor continuen condicionant viatges, esdeveniments i celebracions.'
+          };
+          edition.summary = {
+            es: 'Minions supera por poco a Toy Story 5, Young Washington sorprende, Anime Expo llega a su final y Black Torch inicia su recorrido.',
+            en: 'Minions narrowly beats Toy Story 5, Young Washington surprises, Anime Expo reaches its finale and Black Torch begins its run.',
+            val: 'Minions supera per poc Toy Story 5, Young Washington sorprén, Anime Expo arriba al final i Black Torch inicia el recorregut.'
+          };
+
+          const section = category => {
+            const found = edition.sections.find(entry => entry.category === category);
+            if (!found) throw new Error(`Missing category ${category}`);
+            return found;
+          };
+
+          section('entretenimiento').items = [
+            {
+              title: {
+                es: 'Minions & Monsters gana por poco a Toy Story 5 en la taquilla del 4 de julio',
+                en: 'Minions & Monsters narrowly beats Toy Story 5 at the Fourth of July box office',
+                val: 'Minions & Monsters guanya per poc Toy Story 5 en la taquilla del 4 de juliol'
+              },
+              summary: {
+                es: 'La película de Illumination recauda 36,4 millones de dólares durante el fin de semana y 61,4 millones en sus primeros cinco días, frente a los 31 millones de Toy Story 5. Su estreno mundial alcanza aproximadamente 160 millones, aunque la diferencia doméstica demuestra lo ajustada que fue la batalla familiar. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP publica las estimaciones de los estudios</a>.',
+                en: 'Illumination’s film earns $36.4 million over the weekend and $61.4 million across its first five days, compared with $31 million for Toy Story 5. Its worldwide launch reaches roughly $160 million, although the domestic gap shows how close the family-film race was. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP reports the studio estimates</a>.',
+                val: 'La pel·lícula d’Illumination recapta 36,4 milions de dòlars durant el cap de setmana i 61,4 milions en els primers cinc dies, davant dels 31 milions de Toy Story 5. L’estrena mundial arriba aproximadament als 160 milions, encara que la diferència domèstica demostra com d’ajustada va ser la batalla familiar. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP publica les estimacions dels estudis</a>.'
+              },
+              source: 'Associated Press / CinemaBlend / Box Office Mojo',
+              url: 'https://apnews.com/article/eac177369f003a675a9eba3a632eddb5',
+              links: [
+                { title: { es: 'AP: resultado del fin de semana', en: 'AP: weekend result', val: 'AP: resultat del cap de setmana' }, url: 'https://apnews.com/article/eac177369f003a675a9eba3a632eddb5' },
+                { title: { es: 'CinemaBlend: análisis de la carrera', en: 'CinemaBlend: analysis of the race', val: 'CinemaBlend: anàlisi de la carrera' }, url: 'https://www.cinemablend.com/movies/box-office/minions-and-monsters-tops-fourth-of-july-box-office-close-race-was' },
+                { title: { es: 'Box Office Mojo', en: 'Box Office Mojo', val: 'Box Office Mojo' }, url: 'https://www.boxofficemojo.com/' }
+              ]
+            },
+            {
+              title: {
+                es: 'Young Washington debuta tercero con 20,8 millones durante el 250.º aniversario de Estados Unidos',
+                en: 'Young Washington debuts third with $20.8 million during America’s 250th anniversary',
+                val: 'Young Washington debuta tercera amb 20,8 milions durant el 250é aniversari dels Estats Units'
+              },
+              summary: {
+                es: 'El drama histórico sobre los años anteriores a la presidencia de George Washington aprovecha el fin de semana conmemorativo para abrir en tercera posición. Sus 20,8 millones de dólares lo colocan por delante de Supergirl y convierten una película de enfoque patriótico en una de las sorpresas de la cartelera. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP recoge el resultado</a>.',
+                en: 'The historical drama about George Washington’s pre-presidential years uses the commemorative weekend to open in third place. Its $20.8 million puts it ahead of Supergirl and turns a patriotic release into one of the chart’s surprises. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP reports the result</a>.',
+                val: 'El drama històric sobre els anys anteriors a la presidència de George Washington aprofita el cap de setmana commemoratiu per a obrir en tercera posició. Els 20,8 milions de dòlars la situen per davant de Supergirl i convertixen una pel·lícula d’enfocament patriòtic en una de les sorpreses de la cartellera. <a href="https://apnews.com/article/eac177369f003a675a9eba3a632eddb5">AP arreplega el resultat</a>.'
+              },
+              source: 'Associated Press / Angel Studios / Tribeca Festival',
+              url: 'https://apnews.com/article/eac177369f003a675a9eba3a632eddb5',
+              links: [
+                { title: { es: 'AP: apertura en tercera posición', en: 'AP: third-place opening', val: 'AP: obertura en tercera posició' }, url: 'https://apnews.com/article/eac177369f003a675a9eba3a632eddb5' },
+                { title: { es: 'Angel Studios', en: 'Angel Studios', val: 'Angel Studios' }, url: 'https://www.angel.com/' },
+                { title: { es: 'Tribeca Festival', en: 'Tribeca Festival', val: 'Tribeca Festival' }, url: 'https://tribecafilm.com/' }
+              ]
+            }
+          ];
+
+          section('anime').items = [
+            {
+              title: {
+                es: 'Anime Expo cierra su edición de 2026 tras cuatro días de estrenos, paneles y anuncios',
+                en: 'Anime Expo closes its 2026 edition after four days of premieres, panels and announcements',
+                val: 'Anime Expo tanca l’edició de 2026 després de quatre dies d’estrenes, panells i anuncis'
+              },
+              summary: {
+                es: 'La convención de Los Ángeles celebra su jornada final después de concentrar novedades de Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell, Steel Ball Run y otras franquicias. La edición se desarrolló del 2 al 5 de julio y volvió a convertir la ciudad en el principal escaparate occidental del anime. <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar reúne el programa de los cuatro días</a>.',
+                en: 'The Los Angeles convention holds its final day after gathering news around Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell, Steel Ball Run and other franchises. The event ran from July 2–5 and once again turned the city into the leading Western showcase for anime. <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar collects the four-day schedule</a>.',
+                val: 'La convenció de Los Angeles celebra l’última jornada després de concentrar novetats de Cyberpunk: Edgerunners, Demon Slayer, The Apothecary Diaries, Ghost in the Shell, Steel Ball Run i altres franquícies. L’edició es va desenvolupar del 2 al 5 de juliol i va tornar a convertir la ciutat en el principal aparador occidental de l’anime. <a href="https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/">GamesRadar reunix el programa dels quatre dies</a>.'
+              },
+              source: 'Anime Expo / GamesRadar / SPJA',
+              url: 'https://www.anime-expo.org/',
+              links: [
+                { title: { es: 'Web oficial de Anime Expo', en: 'Official Anime Expo website', val: 'Web oficial d’Anime Expo' }, url: 'https://www.anime-expo.org/' },
+                { title: { es: 'GamesRadar: programa completo', en: 'GamesRadar: full schedule', val: 'GamesRadar: programa complet' }, url: 'https://www.gamesradar.com/entertainment/anime-shows/anime-expo-2026-schedule-announcements/' },
+                { title: { es: 'Society for the Promotion of Japanese Animation', en: 'Society for the Promotion of Japanese Animation', val: 'Society for the Promotion of Japanese Animation' }, url: 'https://spja.org/' }
+              ]
+            },
+            {
+              title: {
+                es: 'Black Torch ya tiene disponible su primer episodio en Crunchyroll',
+                en: 'Black Torch now has its first episode available on Crunchyroll',
+                val: 'Black Torch ja té disponible el primer episodi en Crunchyroll'
+              },
+              summary: {
+                es: 'La adaptación de Tsuyoshi Takaki inició su emisión el 4 de julio y presenta a Jiro Azuma, un joven capaz de hablar con animales que se fusiona con el mononoke Rago. 100studio produce la serie con dirección de Kei Umabiki, diseños de Go Suzuki y música de Yutaka Yamada. <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation resume fecha, tráiler y plataforma</a>.',
+                en: 'Tsuyoshi Takaki’s adaptation began airing on July 4 and introduces Jiro Azuma, a young man able to speak with animals who merges with the mononoke Rago. 100studio produces the series under director Kei Umabiki, with character designs by Go Suzuki and music by Yutaka Yamada. <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation summarises the date, trailer and platform</a>.',
+                val: 'L’adaptació de Tsuyoshi Takaki va iniciar l’emissió el 4 de juliol i presenta Jiro Azuma, un jove capaç de parlar amb animals que es fusiona amb el mononoke Rago. 100studio produïx la sèrie amb direcció de Kei Umabiki, dissenys de Go Suzuki i música de Yutaka Yamada. <a href="https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/">MeriStation resumix data, tràiler i plataforma</a>.'
+              },
+              source: 'MeriStation / Crunchyroll / Viz Media',
+              url: 'https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/',
+              links: [
+                { title: { es: 'MeriStation: fecha y plataforma', en: 'MeriStation: date and platform', val: 'MeriStation: data i plataforma' }, url: 'https://as.com/meristation/manga-y-anime/el-anime-de-accion-y-fantasia-mas-esperado-del-verano-es-inminente-fecha-trailer-y-plataforma-de-black-torch-f202606-n/' },
+                { title: { es: 'Noticias de Crunchyroll', en: 'Crunchyroll News', val: 'Notícies de Crunchyroll' }, url: 'https://www.crunchyroll.com/news' },
+                { title: { es: 'Viz Media: Black Torch', en: 'Viz Media: Black Torch', val: 'Viz Media: Black Torch' }, url: 'https://www.viz.com/black-torch' }
+              ]
+            }
+          ];
+
+          const actualCategories = edition.sections.map(entry => entry.category);
+          if (JSON.stringify(actualCategories) !== JSON.stringify(categories)) throw new Error(`Wrong category order: ${actualCategories.join(',')}`);
+          if (languages.some(lang => !edition.title[lang] || /^FoskIA\s+\d/i.test(edition.title[lang]))) throw new Error('Invalid title');
+
+          let itemCount = 0;
+          for (const current of edition.sections) {
+            if (!Array.isArray(current.items) || current.items.length === 0) throw new Error(`Empty section ${current.category}`);
+            for (const item of current.items) {
+              itemCount++;
+              if (!/^https?:\/\//.test(item.url || '')) throw new Error(`Invalid URL in ${current.category}`);
+              if (current.category !== 'ofertas') {
+                for (const field of ['title','summary']) {
+                  if (!item[field] || languages.some(lang => !String(item[field][lang] || '').trim())) throw new Error(`Incomplete ${field} in ${current.category}`);
+                }
+                if (!Array.isArray(item.links) || item.links.length < 3) throw new Error(`Insufficient sources in ${current.category}`);
+              }
+            }
+          }
+          if (itemCount !== originalCount) throw new Error(`Item count changed from ${originalCount} to ${itemCount}`);
+
+          const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          if (!index || !Array.isArray(index.editions)) throw new Error('Invalid index');
+          index.editions = index.editions.filter(entry => entry && entry.date !== date);
+          index.editions.push(edition);
+          index.editions.sort((a, b) => b.date.localeCompare(a.date));
+          if (index.editions.filter(entry => entry.date === date).length !== 1) throw new Error('Duplicate edition');
+
+          fs.writeFileSync(postPath, JSON.stringify(edition, null, 2) + '\n');
+          fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n');
+          JSON.parse(fs.readFileSync(postPath, 'utf8'));
+          JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+          console.log(`Validation OK: ${actualCategories.length} categories and ${itemCount} items.`);
+          NODE
+
+      - name: Commit edition
+        shell: bash
+        run: |
+          git config user.name "Danielux135"
+          git config user.email "dlux135@hotmail.com"
+          git add public/foskia/posts/2026-07-05.json public/foskia/posts/index.json
+          git commit -m "Edición de FoskIA del 2026-07-05"
+          git push origin main
+
+      - name: Clean temporary files
+        shell: bash
+        run: |
+          rm -f .foskia-publish-2026-07-05-trigger
+          rm -f .github/workflows/publish-foskia-2026-07-05.yml
+          git add -A
+          git commit -m "Limpia archivos temporales de FoskIA del 2026-07-05"
+          git push origin main
