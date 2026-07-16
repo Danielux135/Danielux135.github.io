@@ -1,0 +1,356 @@
+{
+  "date": "2026-07-06",
+  "title": {
+    "es": "Xbox afronta su mayor reestructuración, los chips sostienen los mercados y Bitcoin intenta afianzar los 60.000 dólares",
+    "en": "Xbox faces its biggest restructuring, chips support markets and Bitcoin tries to secure $60,000",
+    "val": "Xbox afronta la major reestructuració, els xips sostenen els mercats i Bitcoin intenta afermar els 60.000 dòlars"
+  },
+  "intro": {
+    "es": "La edición del 6 de julio abre la semana con una sacudida histórica en Xbox: miles de puestos quedan afectados y Microsoft concentra recursos en sus franquicias más rentables. Los semiconductores sostienen las bolsas, Bitcoin intenta convertir los 60.000 dólares en soporte, el calor sigue condicionando Europa y Estados Unidos y Anime Expo cierra con una larga lista de estrenos.",
+    "en": "The July 6 edition opens the week with a historic shake-up at Xbox: thousands of jobs are affected as Microsoft focuses resources on its most profitable franchises. Semiconductors support equities, Bitcoin tries to turn $60,000 into support, heat keeps affecting Europe and the United States, and Anime Expo closes with a long list of premieres.",
+    "val": "L’edició del 6 de juliol obri la setmana amb una sacsejada històrica en Xbox: milers de llocs queden afectats i Microsoft concentra recursos en les franquícies més rendibles. Els semiconductors sostenen les borses, Bitcoin intenta convertir els 60.000 dòlars en suport, la calor continua condicionant Europa i els Estats Units i Anime Expo tanca amb una llarga llista d’estrenes."
+  },
+  "summary": {
+    "es": "Xbox inicia una reestructuración histórica, los chips mantienen el pulso bursátil, Bitcoin defiende los 60.000 dólares y Anime Expo cierra su edición.",
+    "en": "Xbox begins a historic restructuring, chips keep markets afloat, Bitcoin defends $60,000 and Anime Expo closes its event.",
+    "val": "Xbox inicia una reestructuració històrica, els xips mantenen el pols borsari, Bitcoin defensa els 60.000 dòlars i Anime Expo tanca l’edició."
+  },
+  "tags": [
+    "gaming",
+    "gratis",
+    "codigo",
+    "ciencia",
+    "economia",
+    "cripto",
+    "radar",
+    "ia",
+    "hardware",
+    "security",
+    "entretenimiento",
+    "curiosidades",
+    "ofertas",
+    "anime"
+  ],
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Xbox recorta miles de puestos y reorganiza sus estudios",
+            "en": "Xbox cuts thousands of jobs and reorganises its studios",
+            "val": "Xbox retalla milers de llocs i reorganitza els estudis"
+          },
+          "summary": {
+            "es": "La mayor reestructuración de Xbox afecta a unos 3.200 puestos y cambia el rumbo de Bethesda, Obsidian, id Software y otros equipos. Microsoft prioriza Fallout, The Elder Scrolls y sus franquicias más rentables.",
+            "en": "Xbox’s largest restructuring affects about 3,200 jobs and changes the direction of Bethesda, Obsidian, id Software and other teams. Microsoft is prioritising Fallout, The Elder Scrolls and its most profitable franchises.",
+            "val": "La major reestructuració d’Xbox afecta uns 3.200 llocs i canvia el rumb de Bethesda, Obsidian, id Software i altres equips. Microsoft prioritza Fallout, The Elder Scrolls i les franquícies més rendibles."
+          },
+          "source": "GamesRadar / Microsoft Gaming",
+          "url": "https://www.gamesradar.com/games/whats-going-on-at-xbox-layoffs-studios-elder-scrolls-fallout-future/",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Dos juegos siguen gratis en Epic hasta el 9 de julio",
+            "en": "Two games remain free on Epic through July 9",
+            "val": "Dos jocs continuen gratis en Epic fins al 9 de juliol"
+          },
+          "summary": {
+            "es": "I Have No Mouth, and I Must Scream y River City Girls 2 pueden reclamarse sin coste y permanecen para siempre en la biblioteca.",
+            "en": "I Have No Mouth, and I Must Scream and River City Girls 2 can be claimed at no cost and remain permanently in the library.",
+            "val": "I Have No Mouth, and I Must Scream i River City Girls 2 es poden reclamar sense cost i queden per sempre en la biblioteca."
+          },
+          "source": "Epic Games Store / PC Gamer",
+          "url": "https://store.epicgames.com/free-games",
+          "links": [],
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 9 de julio de 2026, 17:00 CEST",
+            "en": "Until July 9, 2026, 3:00 PM UTC",
+            "val": "Fins al 9 de juliol de 2026, 17.00 CEST"
+          },
+          "urgent": true
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "Los agentes de terminal elevan un 24 % los pull requests fusionados",
+            "en": "Command-line agents raise merged pull requests by 24%",
+            "val": "Els agents de terminal eleven un 24 % els pull requests fusionats"
+          },
+          "summary": {
+            "es": "Un estudio sobre Claude Code y Copilot CLI observa más actividad, aunque advierte de que producir más cambios no garantiza mejor software.",
+            "en": "A study of Claude Code and Copilot CLI finds more activity, while warning that producing more changes does not guarantee better software.",
+            "val": "Un estudi sobre Claude Code i Copilot CLI observa més activitat, encara que advertix que produir més canvis no garantix millor programari."
+          },
+          "source": "arXiv / GitHub Docs",
+          "url": "https://arxiv.org/abs/2607.01418",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Las noches tropicales agravan el riesgo sanitario",
+            "en": "Tropical nights worsen health risks",
+            "val": "Les nits tropicals agreugen el risc sanitari"
+          },
+          "summary": {
+            "es": "El calor nocturno impide recuperar el organismo y eleva el estrés cardiovascular, sobre todo entre mayores y personas vulnerables.",
+            "en": "Night-time heat prevents the body from recovering and increases cardiovascular stress, especially among older and vulnerable people.",
+            "val": "La calor nocturna impedix recuperar l’organisme i eleva l’estrés cardiovascular, sobretot entre majors i persones vulnerables."
+          },
+          "source": "WHO Europe / Copernicus",
+          "url": "https://www.who.int/europe/health-topics/heatwaves",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Los chips sostienen las bolsas tras un semestre histórico",
+            "en": "Chips support equities after a historic half-year",
+            "val": "Els xips sostenen les borses després d’un semestre històric"
+          },
+          "summary": {
+            "es": "La demanda de IA mantiene a los índices cerca de máximos, pero la concentración del rally en pocas compañías aumenta el riesgo de corrección.",
+            "en": "AI demand keeps indices near record highs, but the rally’s concentration in a few companies increases correction risk.",
+            "val": "La demanda d’IA manté els índexs prop de màxims, però la concentració del ral·li en poques companyies augmenta el risc de correcció."
+          },
+          "source": "Reuters / Nasdaq",
+          "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-06-30/",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin intenta convertir los 60.000 dólares en soporte",
+            "en": "Bitcoin tries to turn $60,000 into support",
+            "val": "Bitcoin intenta convertir els 60.000 dòlars en suport"
+          },
+          "summary": {
+            "es": "Tras caer hacia 58.000 dólares, Bitcoin rebota. Los flujos de ETF, la liquidez y los tipos decidirán si el movimiento se consolida.",
+            "en": "After falling towards $58,000, Bitcoin rebounds. ETF flows, liquidity and rates will determine whether the move holds.",
+            "val": "Després de caure cap als 58.000 dòlars, Bitcoin rebota. Els fluxos d’ETF, la liquiditat i els tipus decidiran si el moviment es consolida."
+          },
+          "source": "Barron’s / Investopedia",
+          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-062926/card/bitcoin-edges-higher-along-with-u-s-stock-futures-xKY47AqJ9f1ZOkYwlWwf",
+          "links": [],
+          "shortTerm": {
+            "es": "Mantener 58.000–60.000 permitiría buscar 63.000–65.000.",
+            "en": "Holding $58,000–$60,000 could open a move to $63,000–$65,000.",
+            "val": "Mantindre 58.000–60.000 permetria buscar 63.000–65.000."
+          },
+          "longTerm": {
+            "es": "La recuperación depende de frenar salidas de ETF y mejorar la liquidez.",
+            "en": "Recovery depends on slowing ETF outflows and improving liquidity.",
+            "val": "La recuperació depén de frenar eixides d’ETF i millorar la liquiditat."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "El aniversario de Estados Unidos queda marcado por una cúpula de calor",
+            "en": "America’s anniversary is marked by a heat dome",
+            "val": "L’aniversari dels Estats Units queda marcat per una cúpula de calor"
+          },
+          "summary": {
+            "es": "Decenas de millones de personas mantienen avisos por temperaturas extremas y restricciones durante el fin de semana festivo.",
+            "en": "Tens of millions remain under extreme-temperature alerts and restrictions during the holiday weekend.",
+            "val": "Desenes de milions de persones mantenen avisos per temperatures extremes i restriccions durant el cap de setmana festiu."
+          },
+          "source": "Reuters Climate Monitor / NWS",
+          "url": "https://www.reuters.com/business/environment/see-how-abnormal-global-temperatures-are-right-now-2026-07-04/",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "DeepMind propone una alineación con cuatro voces",
+            "en": "DeepMind proposes alignment with four voices",
+            "val": "DeepMind proposa una alineació amb quatre veus"
+          },
+          "summary": {
+            "es": "El marco combina intereses del usuario, valores sociales, objetivos del desarrollador y comportamiento del sistema.",
+            "en": "The framework combines user interests, social values, developer goals and system behaviour.",
+            "val": "El marc combina interessos de l’usuari, valors socials, objectius del desenvolupador i comportament del sistema."
+          },
+          "source": "The Guardian / Google DeepMind",
+          "url": "https://www.theguardian.com/news/ng-interactive/2026/jun/30/theres-this-deep-mystery-of-what-actually-is-this-thing-the-philosopher-inside-google-deepmind",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "RTX Spark, Xeon 6+ y Ryzen convierten el PC de IA en una guerra de plataformas",
+            "en": "RTX Spark, Xeon 6+ and Ryzen turn the AI PC into a platform war",
+            "val": "RTX Spark, Xeon 6+ i Ryzen convertixen el PC d’IA en una guerra de plataformes"
+          },
+          "summary": {
+            "es": "Nvidia, Intel y AMD compiten por controlar CPU, GPU, memoria y software para ejecutar IA local.",
+            "en": "Nvidia, Intel and AMD compete to control CPU, GPU, memory and software for local AI.",
+            "val": "Nvidia, Intel i AMD competixen per controlar CPU, GPU, memòria i programari per a executar IA local."
+          },
+          "source": "Tom’s Hardware",
+          "url": "https://www.tomshardware.com/tech-industry/computex-2026-day-zero-wrap-up-nvidia-launches-rtx-spark-superchip-assault-on-laptop-and-desktop-markets-intel-readies-xeon-6",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "CISA mantiene BlueHammer entre los fallos explotados",
+            "en": "CISA keeps BlueHammer among exploited flaws",
+            "val": "CISA manté BlueHammer entre les fallades explotades"
+          },
+          "summary": {
+            "es": "La vulnerabilidad de Windows Defender puede otorgar privilegios SYSTEM y sigue activa en equipos sin parchear.",
+            "en": "The Windows Defender vulnerability can grant SYSTEM privileges and remains active on unpatched machines.",
+            "val": "La vulnerabilitat de Windows Defender pot atorgar privilegis SYSTEM i continua activa en equips sense pedaç."
+          },
+          "source": "CISA / Microsoft Security",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Minions gana por poco a Toy Story 5",
+            "en": "Minions narrowly beats Toy Story 5",
+            "val": "Minions guanya per poc Toy Story 5"
+          },
+          "summary": {
+            "es": "Minions & Monsters suma 36,4 millones de dólares en el fin de semana frente a los 31 millones de Toy Story 5.",
+            "en": "Minions & Monsters earns $36.4 million over the weekend against $31 million for Toy Story 5.",
+            "val": "Minions & Monsters suma 36,4 milions de dòlars en el cap de setmana davant dels 31 milions de Toy Story 5."
+          },
+          "source": "Associated Press",
+          "url": "https://apnews.com/article/eac177369f003a675a9eba3a632eddb5",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "Los Blu-ray bien conservados pueden durar entre 30 y 100 años",
+            "en": "Well-preserved Blu-rays may last 30 to 100 years",
+            "val": "Els Blu-ray ben conservats poden durar entre 30 i 100 anys"
+          },
+          "summary": {
+            "es": "El almacenamiento fresco, seco y sin luz directa prolonga su vida; a menudo fallará antes el lector que el disco.",
+            "en": "Cool, dry storage away from direct light extends their life; the drive may fail before the disc.",
+            "val": "Guardar-los en un lloc fresc, sec i sense llum directa allarga la vida; sovint fallarà abans el lector que el disc."
+          },
+          "source": "MeriStation / Library of Congress",
+          "url": "https://as.com/meristation/betech/sony-dejara-de-fabricar-juegos-fisicos-pero-tu-coleccion-podria-durar-hasta-100-anos-esta-es-la-vida-util-de-tus-cd-dvd-y-blu-ray-f202607-n/",
+          "links": []
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "title": {
+            "es": "Samsung Galaxy Buds3 por 79 €",
+            "en": "Samsung Galaxy Buds3 for €79",
+            "val": "Samsung Galaxy Buds3 per 79 €"
+          },
+          "summary": {
+            "es": "Los auriculares con cancelación de ruido bajan desde 159 € mientras haya stock promocional.",
+            "en": "The noise-cancelling earbuds drop from €159 while promotional stock lasts.",
+            "val": "Els auriculars amb cancel·lació de soroll baixen des de 159 € mentre hi haja estoc promocional."
+          },
+          "source": "Chollometro",
+          "url": "https://www.chollometro.com/ofertas/samsung-galaxy-buds-3-desde-espana-1767505",
+          "links": [],
+          "market": "all",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "159 €",
+            "en": "€159",
+            "val": "159 €"
+          },
+          "salePrice": {
+            "es": "79 €",
+            "en": "€79",
+            "val": "79 €"
+          },
+          "discount": {
+            "es": "-50 %",
+            "en": "-50%",
+            "val": "-50 %"
+          },
+          "until": {
+            "es": "Hasta agotar stock",
+            "en": "While stocks last",
+            "val": "Fins a esgotar estoc"
+          },
+          "urgent": true
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Anime Expo cierra y Black Torch inicia su emisión",
+            "en": "Anime Expo closes as Black Torch begins airing",
+            "val": "Anime Expo tanca i Black Torch inicia l’emissió"
+          },
+          "summary": {
+            "es": "La convención termina con anuncios de grandes franquicias y Black Torch ya ofrece su primer episodio en Crunchyroll.",
+            "en": "The convention ends with major-franchise announcements and Black Torch now offers its first episode on Crunchyroll.",
+            "val": "La convenció acaba amb anuncis de grans franquícies i Black Torch ja oferix el primer episodi en Crunchyroll."
+          },
+          "source": "Anime Expo / GamesRadar / Crunchyroll",
+          "url": "https://www.anime-expo.org/",
+          "links": []
+        }
+      ]
+    }
+  ]
+}
