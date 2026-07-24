@@ -47,3 +47,12 @@ Thumbs.db
 # Configuración local de endpoints PHP
 public/contact-api/config.local.php
 public/**/config.local.php
+
+# Backend/admin del chatbot (no se publica en el hub estático)
+**/chatbot.env
+**/*.chatbot.env
+**/backend/private/
+**/backend/database/
+**/chatbot-admin/
+**/api/chatbot/**/*.php
+backup-*/
