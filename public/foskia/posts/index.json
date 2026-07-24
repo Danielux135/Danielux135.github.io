@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-07-24",
+      "title": {
+        "es": "Xbox prueba el juego gratis con anuncios, el BCE mantiene tipos y Epic renueva su regalo",
+        "en": "Xbox tests free ad-supported gaming, the ECB holds rates and Epic refreshes its giveaway",
+        "val": "Xbox prova el joc gratis amb anuncis, el BCE manté els tipus i Epic renova el seu regal"
+      },
+      "summary": {
+        "es": "Xbox prueba juego en la nube con anuncios, el BCE mantiene el 2,25%, Epic regala Foretales y GitHub añade controles de aprobación a sus agentes.",
+        "en": "Xbox tests ad-supported cloud gaming, the ECB holds at 2.25%, Epic gives away Foretales and GitHub adds approval controls for agents.",
+        "val": "Xbox prova el joc al núvol amb anuncis, el BCE manté el 2,25%, Epic regala Foretales i GitHub incorpora controls d’aprovació als agents."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-07-23",
       "title": {
         "es": "La inversión en IA impulsa los chips, el petróleo roza los 96 dólares y una exoluna desafía las etiquetas",
