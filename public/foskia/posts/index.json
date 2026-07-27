@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-07-27",
+      "title": {
+        "es": "Nvidia estudia avalar 250.000 millones para OpenAI, la Soyuz regresa y The Odyssey arrasa",
+        "en": "Nvidia weighs a $250 billion OpenAI backstop, Soyuz returns and The Odyssey surges",
+        "val": "Nvidia estudia avalar 250.000 milions per a OpenAI, la Soyuz torna i The Odyssey arrasa"
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "summary": {
+        "es": "Nvidia estudia un aval histórico para OpenAI, la Soyuz MS-28 vuelve a Tierra y The Odyssey domina una rotación con 25 juegos gratuitos vigentes.",
+        "en": "Nvidia weighs a historic OpenAI backstop, Soyuz MS-28 returns to Earth, and The Odyssey leads an edition with 25 active free-game promotions.",
+        "val": "Nvidia estudia un aval històric per a OpenAI, la Soyuz MS-28 torna a la Terra i The Odyssey domina una edició amb 25 promocions de jocs gratuïts vigents."
+      }
+    },
+    {
       "date": "2026-07-26",
       "title": {
         "es": "Marvel abre Ghost Rider y Black Panther 3, Metal Gear se libera y Bitcoin rebota",
