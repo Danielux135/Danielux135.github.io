@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-07-28",
+      "title": {
+        "es": "Halo: Campaign Evolved desembarca, la industria abre la seguridad de la IA y Bitcoin cae a 63.000 dólares",
+        "en": "Halo: Campaign Evolved lands, the industry opens up AI security and Bitcoin falls to $63,000",
+        "val": "Halo: Campaign Evolved desembarca, la indústria obri la seguretat de la IA i Bitcoin cau als 63.000 dòlars"
+      },
+      "summary": {
+        "es": "La jornada reúne uno de los estrenos más simbólicos del año, una alianza tecnológica de 37 organizaciones y un mercado cripto que vuelve a perder soportes. También repasamos 15 juegos y promociones que todavía pueden reclamarse, las decisiones económicas que marcarán la semana y las principales novedades de ciencia, seguridad, hardware, cultura y anime.",
+        "en": "The day brings together one of the year’s most symbolic launches, a 37-member technology alliance and a crypto market losing support again. We also track 15 games and promotions that can still be claimed, the economic decisions shaping the week, and the main developments in science, security, hardware, culture and anime.",
+        "val": "La jornada reunix un dels llançaments més simbòlics de l’any, una aliança tecnològica de 37 organitzacions i un mercat cripto que torna a perdre suports. També repassem 15 jocs i promocions que encara es poden reclamar, les decisions econòmiques que marcaran la setmana i les principals novetats de ciència, seguretat, maquinari, cultura i anime."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-07-27",
       "title": {
         "es": "Nvidia estudia avalar 250.000 millones para OpenAI, la Soyuz regresa y The Odyssey arrasa",

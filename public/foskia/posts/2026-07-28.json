@@ -1,0 +1,1958 @@
+{
+  "date": "2026-07-28",
+  "title": {
+    "es": "Halo: Campaign Evolved desembarca, la industria abre la seguridad de la IA y Bitcoin cae a 63.000 dólares",
+    "en": "Halo: Campaign Evolved lands, the industry opens up AI security and Bitcoin falls to $63,000",
+    "val": "Halo: Campaign Evolved desembarca, la indústria obri la seguretat de la IA i Bitcoin cau als 63.000 dòlars"
+  },
+  "intro": {
+    "es": "La jornada reúne uno de los estrenos más simbólicos del año, una alianza tecnológica de 37 organizaciones y un mercado cripto que vuelve a perder soportes. También repasamos 15 juegos y promociones que todavía pueden reclamarse, las decisiones económicas que marcarán la semana y las principales novedades de ciencia, seguridad, hardware, cultura y anime.",
+    "en": "The day brings together one of the year’s most symbolic launches, a 37-member technology alliance and a crypto market losing support again. We also track 15 games and promotions that can still be claimed, the economic decisions shaping the week, and the main developments in science, security, hardware, culture and anime.",
+    "val": "La jornada reunix un dels llançaments més simbòlics de l’any, una aliança tecnològica de 37 organitzacions i un mercat cripto que torna a perdre suports. També repassem 15 jocs i promocions que encara es poden reclamar, les decisions econòmiques que marcaran la setmana i les principals novetats de ciència, seguretat, maquinari, cultura i anime."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Halo: Campaign Evolved se estrena en Xbox, PC y PS5",
+            "en": "Halo: Campaign Evolved launches on Xbox, PC and PS5",
+            "val": "Halo: Campaign Evolved s’estrena en Xbox, PC i PS5"
+          },
+          "summary": {
+            "es": "La reconstrucción en Unreal Engine 5 del primer Halo llega hoy, 28 de julio, con cooperativo para cuatro jugadores, progresión cruzada y lanzamiento simultáneo en Game Pass. La recepción inicial ronda el 81 en Metacritic y el 83 en OpenCritic, aunque parte de la crítica señala la ausencia de multijugador competitivo y problemas de acceso anticipado. <a href=\"https://www.theverge.com/games/939564/halo-campaign-evolved-xbox-games-showcase-2026\">Detalles del estreno</a>.",
+            "en": "The Unreal Engine 5 rebuild of the first Halo launches today, July 28, with four-player co-op, cross-progression and a simultaneous Game Pass release. Early reception sits around 81 on Metacritic and 83 on OpenCritic, although some reviewers flag the missing competitive multiplayer and early-access issues. <a href=\"https://www.theverge.com/games/939564/halo-campaign-evolved-xbox-games-showcase-2026\">Launch details</a>.",
+            "val": "La reconstrucció en Unreal Engine 5 del primer Halo arriba hui, 28 de juliol, amb cooperatiu per a quatre jugadors, progressió creuada i llançament simultani en Game Pass. La recepció inicial ronda el 81 en Metacritic i el 83 en OpenCritic, encara que una part de la crítica assenyala l’absència de multijugador competitiu i problemes d’accés anticipat. <a href=\"https://www.theverge.com/games/939564/halo-campaign-evolved-xbox-games-showcase-2026\">Detalls de l’estrena</a>."
+          },
+          "source": "The Verge / PC Gamer / Pure Xbox",
+          "url": "https://www.theverge.com/games/939564/halo-campaign-evolved-xbox-games-showcase-2026",
+          "links": [
+            {
+              "title": {
+                "es": "The Verge: fecha y plataformas",
+                "en": "The Verge: date and platforms",
+                "val": "The Verge: data i plataformes"
+              },
+              "url": "https://www.theverge.com/games/939564/halo-campaign-evolved-xbox-games-showcase-2026"
+            },
+            {
+              "title": {
+                "es": "PC Gamer: lanzamiento y acceso anticipado",
+                "en": "PC Gamer: launch and early access",
+                "val": "PC Gamer: llançament i accés anticipat"
+              },
+              "url": "https://www.pcgamer.com/games/halo/campaign-evolved-release-date-launch-times-early-access/"
+            },
+            {
+              "title": {
+                "es": "Pure Xbox: consenso de la crítica",
+                "en": "Pure Xbox: review consensus",
+                "val": "Pure Xbox: consens de la crítica"
+              },
+              "url": "https://www.purexbox.com/news/2026/07/roundup-heres-what-the-critics-are-saying-about-halo-campaign-evolved"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La semana abre una avalancha de lanzamientos entre Halo, Xenoblade y Mistfall Hunter",
+            "en": "The week opens with a launch rush spanning Halo, Xenoblade and Mistfall Hunter",
+            "val": "La setmana s’obri amb una allau de llançaments entre Halo, Xenoblade i Mistfall Hunter"
+          },
+          "summary": {
+            "es": "El calendario del 27 de julio al 2 de agosto incluye Halo: Campaign Evolved, la versión mejorada de Xenoblade Chronicles 2 para Switch 2 y el RPG de extracción Mistfall Hunter. La lista se completa con Gothic Classic en consolas, The Relic: First Guardian y una nutrida tanda independiente. <a href=\"https://as.com/meristation/noticias/los-lanzamientos-de-videojuegos-mas-destacados-de-la-semana-desde-el-27-de-julio-al-2-de-agosto-de-2026-para-pc-steam-switch-playstation-y-xbox-f202607-n/\">Calendario completo</a>.",
+            "en": "The July 27–August 2 calendar includes Halo: Campaign Evolved, the enhanced Switch 2 version of Xenoblade Chronicles 2 and extraction RPG Mistfall Hunter. Gothic Classic on consoles, The Relic: First Guardian and a substantial indie slate round out the week. <a href=\"https://as.com/meristation/noticias/los-lanzamientos-de-videojuegos-mas-destacados-de-la-semana-desde-el-27-de-julio-al-2-de-agosto-de-2026-para-pc-steam-switch-playstation-y-xbox-f202607-n/\">Full calendar</a>.",
+            "val": "El calendari del 27 de juliol al 2 d’agost inclou Halo: Campaign Evolved, la versió millorada de Xenoblade Chronicles 2 per a Switch 2 i l’RPG d’extracció Mistfall Hunter. La llista es completa amb Gothic Classic en consoles, The Relic: First Guardian i una nodrida tanda independent. <a href=\"https://as.com/meristation/noticias/los-lanzamientos-de-videojuegos-mas-destacados-de-la-semana-desde-el-27-de-julio-al-2-de-agosto-de-2026-para-pc-steam-switch-playstation-y-xbox-f202607-n/\">Calendari complet</a>."
+          },
+          "source": "Meristation / Xbox / Windows Central",
+          "url": "https://as.com/meristation/noticias/los-lanzamientos-de-videojuegos-mas-destacados-de-la-semana-desde-el-27-de-julio-al-2-de-agosto-de-2026-para-pc-steam-switch-playstation-y-xbox-f202607-n/",
+          "links": [
+            {
+              "title": {
+                "es": "Meristation: lanzamientos semanales",
+                "en": "Meristation: weekly releases",
+                "val": "Meristation: llançaments setmanals"
+              },
+              "url": "https://as.com/meristation/noticias/los-lanzamientos-de-videojuegos-mas-destacados-de-la-semana-desde-el-27-de-julio-al-2-de-agosto-de-2026-para-pc-steam-switch-playstation-y-xbox-f202607-n/"
+            },
+            {
+              "title": {
+                "es": "Xbox: información oficial",
+                "en": "Xbox: official information",
+                "val": "Xbox: informació oficial"
+              },
+              "url": "https://www.xbox.com/en-US/games/halo-campaign-evolved"
+            },
+            {
+              "title": {
+                "es": "Windows Central: segunda oleada de Game Pass",
+                "en": "Windows Central: second Game Pass wave",
+                "val": "Windows Central: segona onada de Game Pass"
+              },
+              "url": "https://www.windowscentral.com/gaming/halo-campaign-evolved-is-the-star-of-xbox-game-pass-2nd-july-wave-of-new-games-alongside-an-original-rpg-by-game-freak-and-a-classic-id-software-fps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Foretales — gratis en Epic Games Store",
+            "en": "Foretales — free on Epic Games Store",
+            "val": "Foretales — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "Foretales se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://store.epicgames.com/p/foretales-android-7c6e1c\">Ficha o página de canje</a>.",
+            "en": "Foretales can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://store.epicgames.com/p/foretales-android-7c6e1c\">Store or redemption page</a>.",
+            "val": "Foretales es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://store.epicgames.com/p/foretales-android-7c6e1c\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 30 de julio de 2026 a las 17:00 CEST",
+            "en": "Until July 30, 2026 at 5:00 p.m. CEST",
+            "val": "Fins al 30 de juliol de 2026 a les 17.00 CEST"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/foretales-android-7c6e1c",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://store.epicgames.com/p/foretales-android-7c6e1c"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.pcgamer.com/epic-games-store-free-games-list/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "CyClones — gratis en Prime Gaming / GOG",
+            "en": "CyClones — free on Prime Gaming / GOG",
+            "val": "CyClones — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "CyClones se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "CyClones can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "CyClones es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 1 de agosto de 2026",
+            "en": "Until August 1, 2026",
+            "val": "Fins a l’1 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Still There — gratis en Prime Gaming / GOG",
+            "en": "Still There — free on Prime Gaming / GOG",
+            "val": "Still There — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Still There se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "Still There can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "Still There es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 12 de agosto de 2026",
+            "en": "Until August 12, 2026",
+            "val": "Fins al 12 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Escape Academy — gratis en Prime Gaming / Epic Games Store",
+            "en": "Escape Academy — free on Prime Gaming / Epic Games Store",
+            "val": "Escape Academy — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Escape Academy se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "Escape Academy can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "Escape Academy es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 19 de agosto de 2026",
+            "en": "Until August 19, 2026",
+            "val": "Fins al 19 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / Epic",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "FRAMED Collection — gratis en Prime Gaming / GOG",
+            "en": "FRAMED Collection — free on Prime Gaming / GOG",
+            "val": "FRAMED Collection — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "FRAMED Collection se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "FRAMED Collection can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "FRAMED Collection es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 19 de agosto de 2026",
+            "en": "Until August 19, 2026",
+            "val": "Fins al 19 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Poly Vita — gratis en Prime Gaming / Legacy Games",
+            "en": "Poly Vita — free on Prime Gaming / Legacy Games",
+            "val": "Poly Vita — gratis en Prime Gaming / Legacy Games"
+          },
+          "summary": {
+            "es": "Poly Vita se puede jugar o reclamar sin coste durante la promoción. Conviene completar el proceso antes del límite indicado. <a href=\"https://luna.amazon.com/claims/home\">Ficha o página de canje</a>.",
+            "en": "Poly Vita can be played or claimed at no cost during the promotion. Complete the process before the stated deadline. <a href=\"https://luna.amazon.com/claims/home\">Store or redemption page</a>.",
+            "val": "Poly Vita es pot jugar o reclamar sense cost durant la promoció. Convé completar el procés abans del límit indicat. <a href=\"https://luna.amazon.com/claims/home\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Legacy Games",
+          "until": {
+            "es": "Hasta el 19 de agosto de 2026",
+            "en": "Until August 19, 2026",
+            "val": "Fins al 19 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/home",
+          "source": "Amazon Luna / Legacy Games",
+          "links": [
+            {
+              "title": {
+                "es": "Página de canje de Amazon Luna",
+                "en": "Amazon Luna claims page",
+                "val": "Pàgina de bescanvi d’Amazon Luna"
+              },
+              "url": "https://luna.amazon.com/claims/home"
+            },
+            {
+              "title": {
+                "es": "Amazon: catálogo oficial de julio",
+                "en": "Amazon: official July lineup",
+                "val": "Amazon: catàleg oficial de juliol"
+              },
+              "url": "https://www.amazongamestudios.com/en-gb/news/articles/luna-july-2026"
+            },
+            {
+              "title": {
+                "es": "Caducidad verificada",
+                "en": "Verified expiration",
+                "val": "Caducitat verificada"
+              },
+              "url": "https://www.allkeyshop.com/blog/en-us/amazon-prime-free-pc-games-july-2026-news-n/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Call of Duty: Modern Warfare III — gratis en PlayStation Plus Essential",
+            "en": "Call of Duty: Modern Warfare III — free on PlayStation Plus Essential",
+            "val": "Call of Duty: Modern Warfare III — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Call of Duty: Modern Warfare III se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://store.playstation.com/en-us/product/UP0002-PPSA01649_00-CODMW3CROSSGEN01\">Ficha o página de canje</a>.",
+            "en": "Call of Duty: Modern Warfare III can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://store.playstation.com/en-us/product/UP0002-PPSA01649_00-CODMW3CROSSGEN01\">Store or redemption page</a>.",
+            "val": "Call of Duty: Modern Warfare III es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://store.playstation.com/en-us/product/UP0002-PPSA01649_00-CODMW3CROSSGEN01\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/product/UP0002-PPSA01649_00-CODMW3CROSSGEN01",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://store.playstation.com/en-us/product/UP0002-PPSA01649_00-CODMW3CROSSGEN01"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://blog.playstation.com/2026/07/01/playstation-plus-monthly-games-for-july-call-of-duty-modern-warfare-iii-for-the-king-ii-crosscode/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://www.gamespot.com/articles/playstation-plus-essential-free-games-for-july-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "For the King II — gratis en PlayStation Plus Essential",
+            "en": "For the King II — free on PlayStation Plus Essential",
+            "val": "For the King II — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "For the King II se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://store.playstation.com/en-us/product/UP4395-PPSA23088_00-FORTHEKING200000\">Ficha o página de canje</a>.",
+            "en": "For the King II can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://store.playstation.com/en-us/product/UP4395-PPSA23088_00-FORTHEKING200000\">Store or redemption page</a>.",
+            "val": "For the King II es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://store.playstation.com/en-us/product/UP4395-PPSA23088_00-FORTHEKING200000\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/product/UP4395-PPSA23088_00-FORTHEKING200000",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://store.playstation.com/en-us/product/UP4395-PPSA23088_00-FORTHEKING200000"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://blog.playstation.com/2026/07/01/playstation-plus-monthly-games-for-july-call-of-duty-modern-warfare-iii-for-the-king-ii-crosscode/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://www.gamespot.com/articles/playstation-plus-essential-free-games-for-july-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "CrossCode — gratis en PlayStation Plus Essential",
+            "en": "CrossCode — free on PlayStation Plus Essential",
+            "val": "CrossCode — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "CrossCode se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://www.playstation.com/en-us/games/crosscode/\">Ficha o página de canje</a>.",
+            "en": "CrossCode can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://www.playstation.com/en-us/games/crosscode/\">Store or redemption page</a>.",
+            "val": "CrossCode es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://www.playstation.com/en-us/games/crosscode/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 3 de agosto de 2026",
+            "en": "Until August 3, 2026",
+            "val": "Fins al 3 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.playstation.com/en-us/games/crosscode/",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://www.playstation.com/en-us/games/crosscode/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://blog.playstation.com/2026/07/01/playstation-plus-monthly-games-for-july-call-of-duty-modern-warfare-iii-for-the-king-ii-crosscode/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://www.gamespot.com/articles/playstation-plus-essential-free-games-for-july-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "For Honor — gratis en Xbox / Ubisoft Free Week",
+            "en": "For Honor — free on Xbox / Ubisoft Free Week",
+            "val": "For Honor — gratis en Xbox / Ubisoft Free Week"
+          },
+          "summary": {
+            "es": "For Honor se puede jugar sin coste durante la promoción. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://www.xbox.com/en-US/games/store/for-honor/C3HQKX3B35PD\">Ficha o página de canje</a>.",
+            "en": "For Honor can be played at no cost during the promotion. Complete the process before the deadline shown by the store. <a href=\"https://www.xbox.com/en-US/games/store/for-honor/C3HQKX3B35PD\">Store or redemption page</a>.",
+            "val": "For Honor es pot jugar sense cost durant la promoció. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://www.xbox.com/en-US/games/store/for-honor/C3HQKX3B35PD\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Xbox / Ubisoft Free Week",
+          "until": {
+            "es": "Hasta el 4 de agosto de 2026",
+            "en": "Until August 4, 2026",
+            "val": "Fins al 4 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.xbox.com/en-US/games/store/for-honor/C3HQKX3B35PD",
+          "source": "Xbox / Ubisoft",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/for-honor/C3HQKX3B35PD"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.purexbox.com/news/2026/07/free-play-days-try-these-xbox-games-for-free-july-23-27"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://www.ubisoft.com/en-us"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "LoneStar — gratis en Prime Gaming / Epic Games Store",
+            "en": "LoneStar — free on Prime Gaming / Epic Games Store",
+            "val": "LoneStar — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "LoneStar se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "LoneStar can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "LoneStar es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 5 de agosto de 2026",
+            "en": "Until August 5, 2026",
+            "val": "Fins al 5 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / Epic",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Symphony of War: The Nephilim Saga — gratis en Prime Gaming / Epic Games Store",
+            "en": "Symphony of War: The Nephilim Saga — free on Prime Gaming / Epic Games Store",
+            "val": "Symphony of War: The Nephilim Saga — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Symphony of War: The Nephilim Saga se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "Symphony of War: The Nephilim Saga can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "Symphony of War: The Nephilim Saga es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 5 de agosto de 2026",
+            "en": "Until August 5, 2026",
+            "val": "Fins al 5 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / Epic",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Regular Factory: Escape Room — gratis en Prime Gaming / GOG",
+            "en": "Regular Factory: Escape Room — free on Prime Gaming / GOG",
+            "val": "Regular Factory: Escape Room — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Regular Factory: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "Regular Factory: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "Regular Factory: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 8 de agosto de 2026",
+            "en": "Until August 8, 2026",
+            "val": "Fins al 8 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-12-free-games-for-july-include-critically-acclaimed-rpg-symphony-of-war/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Mystic Academy: Escape Room — gratis en Prime Gaming / GOG",
+            "en": "Mystic Academy: Escape Room — free on Prime Gaming / GOG",
+            "val": "Mystic Academy: Escape Room — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Mystic Academy: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "Mystic Academy: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "Mystic Academy: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 22 de agosto de 2026",
+            "en": "Until August 22, 2026",
+            "val": "Fins al 22 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/amazon-luna-free-pc-games-july-in-sound-mind-news-n/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "In Sound Mind — gratis en Prime Gaming / Amazon Games App",
+            "en": "In Sound Mind — free on Prime Gaming / Amazon Games App",
+            "val": "In Sound Mind — gratis en Prime Gaming / Amazon Games App"
+          },
+          "summary": {
+            "es": "In Sound Mind se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/\">Ficha o página de canje</a>.",
+            "en": "In Sound Mind can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/\">Store or redemption page</a>.",
+            "val": "In Sound Mind es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/\">Fitxa o pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 23 de septiembre de 2026",
+            "en": "Until September 23, 2026",
+            "val": "Fins al 23 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/",
+          "source": "Amazon Luna / Amazon Games",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/amazon-luna-free-pc-games-july-in-sound-mind-news-n/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "GitHub Models afronta su retirada definitiva el 30 de julio",
+            "en": "GitHub Models faces final retirement on July 30",
+            "val": "GitHub Models afronta la retirada definitiva el 30 de juliol"
+          },
+          "summary": {
+            "es": "GitHub retirará por completo GitHub Models el 30 de julio y recomienda migrar las integraciones que aún dependan del servicio. Los equipos deben revisar secretos, endpoints y automatizaciones antes de la fecha para evitar fallos silenciosos en CI y aplicaciones. <a href=\"https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026/\">Aviso oficial</a>.",
+            "en": "GitHub will fully retire GitHub Models on July 30 and recommends migrating integrations that still depend on the service. Teams should review secrets, endpoints and automations before the deadline to avoid silent failures in CI and applications. <a href=\"https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026/\">Official notice</a>.",
+            "val": "GitHub retirarà completament GitHub Models el 30 de juliol i recomana migrar les integracions que encara depenguen del servici. Els equips han de revisar secrets, endpoints i automatitzacions abans de la data per a evitar fallades silencioses en CI i aplicacions. <a href=\"https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026/\">Avís oficial</a>."
+          },
+          "source": "GitHub Blog / GitHub Docs / GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026/",
+          "links": [
+            {
+              "title": {
+                "es": "GitHub Changelog: retirada",
+                "en": "GitHub Changelog: retirement",
+                "val": "GitHub Changelog: retirada"
+              },
+              "url": "https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026/"
+            },
+            {
+              "title": {
+                "es": "Documentación de GitHub Models",
+                "en": "GitHub Models documentation",
+                "val": "Documentació de GitHub Models"
+              },
+              "url": "https://docs.github.com/en/github-models"
+            },
+            {
+              "title": {
+                "es": "Archivo de cambios para desarrolladores",
+                "en": "Developer changelog archive",
+                "val": "Arxiu de canvis per a desenvolupadors"
+              },
+              "url": "https://github.blog/changelog/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "GitHub MCP Server se adelanta a la especificación sin estado",
+            "en": "GitHub MCP Server moves early to the stateless specification",
+            "val": "GitHub MCP Server s’avança a l’especificació sense estat"
+          },
+          "summary": {
+            "es": "El servidor MCP oficial ya admite la revisión del protocolo que pasa a un modelo sin estado el 28 de julio. Los SDK de nivel uno conservan compatibilidad hacia atrás, por lo que GitHub afirma que las integraciones actuales no necesitan cambios inmediatos. <a href=\"https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/\">Fuente principal</a>.",
+            "en": "The official MCP server already supports the protocol revision moving to a stateless model on July 28. Tier-one SDKs preserve backwards compatibility, so GitHub says existing integrations do not require immediate changes. <a href=\"https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/\">Primary source</a>.",
+            "val": "El servidor MCP oficial ja admet la revisió del protocol que passa a un model sense estat el 28 de juliol. Els SDK de nivell u conserven compatibilitat cap arrere, de manera que GitHub afirma que les integracions actuals no necessiten canvis immediats. <a href=\"https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/\">Font principal</a>."
+          },
+          "source": "GitHub / Model Context Protocol",
+          "url": "https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://modelcontextprotocol.io/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://github.com/github/github-mcp-server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Descubren el primer cáncer contagioso conocido en un animal de agua dulce",
+            "en": "Scientists identify the first known contagious cancer in a freshwater animal",
+            "val": "Descobrixen el primer càncer contagiós conegut en un animal d’aigua dolça"
+          },
+          "summary": {
+            "es": "Investigadores han identificado en bagres una forma de melanoma cuyas células tumorales pasan de un pez a otro, el primer caso documentado en agua dulce. El hallazgo amplía un fenómeno muy raro, conocido antes en demonios de Tasmania, perros y bivalvos, y ayudará a estudiar cómo un tumor evade el sistema inmunitario de otro individuo. <a href=\"https://scitechdaily.com/scientists-discover-the-first-contagious-cancer-in-a-freshwater-animal/\">Estudio y contexto</a>.",
+            "en": "Researchers have identified a melanoma in catfish whose tumor cells move from one fish to another, the first documented case in freshwater. The finding expands a very rare phenomenon previously known in Tasmanian devils, dogs and bivalves, and may clarify how a tumor evades another individual’s immune system. <a href=\"https://scitechdaily.com/scientists-discover-the-first-contagious-cancer-in-a-freshwater-animal/\">Study and context</a>.",
+            "val": "Investigadors han identificat en bagres una forma de melanoma les cèl·lules tumorals de la qual passen d’un peix a un altre, el primer cas documentat en aigua dolça. La troballa amplia un fenomen molt rar, conegut abans en dimonis de Tasmània, gossos i bivalves, i ajudarà a estudiar com un tumor evadeix el sistema immunitari d’un altre individu. <a href=\"https://scitechdaily.com/scientists-discover-the-first-contagious-cancer-in-a-freshwater-animal/\">Estudi i context</a>."
+          },
+          "source": "University of Vermont / SciTechDaily / Science",
+          "url": "https://scitechdaily.com/scientists-discover-the-first-contagious-cancer-in-a-freshwater-animal/",
+          "links": [
+            {
+              "title": {
+                "es": "SciTechDaily: resultados",
+                "en": "SciTechDaily: findings",
+                "val": "SciTechDaily: resultats"
+              },
+              "url": "https://scitechdaily.com/scientists-discover-the-first-contagious-cancer-in-a-freshwater-animal/"
+            },
+            {
+              "title": {
+                "es": "Science: revista y cobertura",
+                "en": "Science: journal and coverage",
+                "val": "Science: revista i cobertura"
+              },
+              "url": "https://www.science.org/"
+            },
+            {
+              "title": {
+                "es": "ScienceAlert: seguimiento científico",
+                "en": "ScienceAlert: science coverage",
+                "val": "ScienceAlert: seguiment científic"
+              },
+              "url": "https://www.sciencealert.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El agua de los subneptunos podría estar oculta demasiado abajo para Webb",
+            "en": "Water on sub-Neptunes may be hidden too deep for Webb",
+            "val": "L’aigua dels subneptuns podria estar massa oculta per a Webb"
+          },
+          "summary": {
+            "es": "Modelos de TOI-270 d indican que grandes cantidades de agua pueden quedar enterradas bajo atmósferas gruesas y brumosas, fuera del alcance directo del telescopio James Webb. Los subneptunos suman casi 3.300 de los más de 6.300 exoplanetas confirmados, pese a que el sistema solar no contiene ninguno. <a href=\"https://www.universetoday.com/articles/jwst-may-be-missing-water-hidden-deep-within-mini-neptune-worlds\">Análisis</a>.",
+            "en": "Models of TOI-270 d suggest that large amounts of water may be buried beneath thick, hazy atmospheres and beyond the James Webb telescope’s direct reach. Sub-Neptunes account for almost 3,300 of more than 6,300 confirmed exoplanets, even though our solar system has none. <a href=\"https://www.universetoday.com/articles/jwst-may-be-missing-water-hidden-deep-within-mini-neptune-worlds\">Analysis</a>.",
+            "val": "Els models de TOI-270 d indiquen que grans quantitats d’aigua poden quedar soterrades davall d’atmosferes gruixudes i boiroses, fora de l’abast directe del telescopi James Webb. Els subneptuns sumen quasi 3.300 dels més de 6.300 exoplanetes confirmats, encara que el sistema solar no en conté cap. <a href=\"https://www.universetoday.com/articles/jwst-may-be-missing-water-hidden-deep-within-mini-neptune-worlds\">Anàlisi</a>."
+          },
+          "source": "Universe Today / NASA / The Astrophysical Journal",
+          "url": "https://www.universetoday.com/articles/jwst-may-be-missing-water-hidden-deep-within-mini-neptune-worlds",
+          "links": [
+            {
+              "title": {
+                "es": "Universe Today: modelos de TOI-270 d",
+                "en": "Universe Today: TOI-270 d models",
+                "val": "Universe Today: models de TOI-270 d"
+              },
+              "url": "https://www.universetoday.com/articles/jwst-may-be-missing-water-hidden-deep-within-mini-neptune-worlds"
+            },
+            {
+              "title": {
+                "es": "NASA: exploración de exoplanetas",
+                "en": "NASA: exoplanet exploration",
+                "val": "NASA: exploració d’exoplanetes"
+              },
+              "url": "https://science.nasa.gov/exoplanets/"
+            },
+            {
+              "title": {
+                "es": "Archivo de The Astrophysical Journal",
+                "en": "The Astrophysical Journal archive",
+                "val": "Arxiu de The Astrophysical Journal"
+              },
+              "url": "https://iopscience.iop.org/journal/0004-637X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Wall Street cierra mixto a la espera de la Fed y de las grandes tecnológicas",
+            "en": "Wall Street ends mixed ahead of the Fed and big-tech earnings",
+            "val": "Wall Street tanca mixt a l’espera de la Fed i de les grans tecnològiques"
+          },
+          "summary": {
+            "es": "El S&P 500 avanzó un 0,02%, el Dow ganó un 0,51% y el Nasdaq cedió un 0,18% mientras los inversores esperaban a la Reserva Federal y los resultados de Microsoft, Amazon, Meta y Apple. El petróleo bajó con las señales de distensión entre Estados Unidos e Irán, pero el índice de semiconductores perdió un 2,2%. <a href=\"https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/\">Cierre de Reuters</a>.",
+            "en": "The S&P 500 gained 0.02%, the Dow rose 0.51% and the Nasdaq slipped 0.18% as investors waited for the Federal Reserve and results from Microsoft, Amazon, Meta and Apple. Oil fell on signs of easing U.S.–Iran tensions, while the semiconductor index lost 2.2%. <a href=\"https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/\">Reuters close</a>.",
+            "val": "L’S&P 500 va avançar un 0,02%, el Dow va guanyar un 0,51% i el Nasdaq va cedir un 0,18% mentre els inversors esperaven la Reserva Federal i els resultats de Microsoft, Amazon, Meta i Apple. El petroli va baixar amb els senyals de distensió entre els Estats Units i l’Iran, però l’índex de semiconductors va perdre un 2,2%. <a href=\"https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/\">Tancament de Reuters</a>."
+          },
+          "source": "Reuters / Investopedia / MarketWatch",
+          "url": "https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: cierre de Wall Street",
+                "en": "Reuters: Wall Street close",
+                "val": "Reuters: tancament de Wall Street"
+              },
+              "url": "https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "Investopedia: claves de la sesión",
+                "en": "Investopedia: session drivers",
+                "val": "Investopedia: claus de la sessió"
+              },
+              "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-monday-july-27-2026-12027189"
+            },
+            {
+              "title": {
+                "es": "Reuters: mercados globales",
+                "en": "Reuters: global markets",
+                "val": "Reuters: mercats globals"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-07-27/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La decisión de julio de la Fed se convierte en la más incierta en dos años",
+            "en": "July Fed decision becomes the most uncertain in two years",
+            "val": "La decisió de juliol de la Fed es convertix en la més incerta en dos anys"
+          },
+          "summary": {
+            "es": "La mayoría de los grandes bancos todavía espera que la Reserva Federal mantenga los tipos, pero varias firmas ya califican la votación como muy ajustada por el repunte del petróleo y la menor orientación del nuevo presidente. Los futuros asignan una probabilidad relevante a una subida, de modo que el comunicado puede mover bonos, dólar y activos de riesgo. <a href=\"https://www.reuters.com/business/growing-number-brokerages-see-july-fed-decision-as-close-call-2026-07-27/\">Análisis</a>.",
+            "en": "Most major banks still expect the Federal Reserve to hold rates, but several firms now call the vote a close one because of higher oil prices and reduced guidance from the new chair. Futures assign a meaningful probability to an increase, so the statement could move bonds, the dollar and risk assets. <a href=\"https://www.reuters.com/business/growing-number-brokerages-see-july-fed-decision-as-close-call-2026-07-27/\">Analysis</a>.",
+            "val": "La majoria dels grans bancs encara espera que la Reserva Federal mantinga els tipus, però diverses firmes ja qualifiquen la votació de molt ajustada pel repunt del petroli i la menor orientació del nou president. Els futurs assignen una probabilitat rellevant a una pujada, de manera que el comunicat pot moure bons, dòlar i actius de risc. <a href=\"https://www.reuters.com/business/growing-number-brokerages-see-july-fed-decision-as-close-call-2026-07-27/\">Anàlisi</a>."
+          },
+          "source": "Reuters / Financial Times / WSJ",
+          "url": "https://www.reuters.com/business/growing-number-brokerages-see-july-fed-decision-as-close-call-2026-07-27/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: previsiones de los bancos",
+                "en": "Reuters: bank forecasts",
+                "val": "Reuters: previsions dels bancs"
+              },
+              "url": "https://www.reuters.com/business/growing-number-brokerages-see-july-fed-decision-as-close-call-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "Reuters: agenda global",
+                "en": "Reuters: global agenda",
+                "val": "Reuters: agenda global"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "WSJ: economía y Reserva Federal",
+                "en": "WSJ: economy and Federal Reserve",
+                "val": "WSJ: economia i Reserva Federal"
+              },
+              "url": "https://www.wsj.com/economy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin cae hacia 63.200 dólares y pierde el soporte de 65.000",
+            "en": "Bitcoin falls toward $63,200 and loses the $65,000 support",
+            "val": "Bitcoin cau cap als 63.200 dòlars i perd el suport dels 65.000"
+          },
+          "summary": {
+            "es": "Bitcoin cotiza alrededor de 63.200 dólares tras caer cerca de un 3% en 24 horas y marcar un mínimo intradía próximo a 63.054. La debilidad coincide con la cautela previa a la Fed y con una sesión floja para los activos tecnológicos; 63.000 es el soporte inmediato y 65.600 la primera resistencia. <a href=\"https://www.coindesk.com/price/bitcoin\">Precio en tiempo real</a>.",
+            "en": "Bitcoin trades near $63,200 after falling about 3% in 24 hours and reaching an intraday low near $63,054. The weakness coincides with caution before the Fed and a soft technology session; $63,000 is the immediate support and $65,600 the first resistance. <a href=\"https://www.coindesk.com/price/bitcoin\">Live price</a>.",
+            "val": "Bitcoin cotitza prop dels 63.200 dòlars després de caure al voltant d’un 3% en 24 hores i marcar un mínim intradia pròxim a 63.054. La debilitat coincidix amb la cautela prèvia a la Fed i amb una sessió fluixa per als actius tecnològics; 63.000 és el suport immediat i 65.600 la primera resistència. <a href=\"https://www.coindesk.com/price/bitcoin\">Preu en temps real</a>."
+          },
+          "source": "CoinDesk / CoinMarketCap / Coinbase",
+          "url": "https://www.coindesk.com/price/bitcoin",
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk: precio de Bitcoin",
+                "en": "CoinDesk: Bitcoin price",
+                "val": "CoinDesk: preu de Bitcoin"
+              },
+              "url": "https://www.coindesk.com/price/bitcoin"
+            },
+            {
+              "title": {
+                "es": "CoinMarketCap: mercado y volumen",
+                "en": "CoinMarketCap: market and volume",
+                "val": "CoinMarketCap: mercat i volum"
+              },
+              "url": "https://coinmarketcap.com/currencies/bitcoin/"
+            },
+            {
+              "title": {
+                "es": "Coinbase: cotización de BTC",
+                "en": "Coinbase: BTC quote",
+                "val": "Coinbase: cotització de BTC"
+              },
+              "url": "https://www.coinbase.com/price/bitcoin"
+            }
+          ],
+          "shortTerm": {
+            "es": "Mientras no recupere 65.600 dólares, el sesgo sigue bajista; perder 63.000 abriría 61.500–62.000.",
+            "en": "Unless it retakes $65,600, the bias remains bearish; losing $63,000 would expose $61,500–$62,000.",
+            "val": "Mentre no recupere els 65.600 dòlars, el biaix continua baixista; perdre 63.000 obriria 61.500–62.000."
+          },
+          "longTerm": {
+            "es": "La zona 58.000–60.000 continúa siendo el soporte estructural; un cierre sostenido sobre 68.000 devolvería impulso al ciclo.",
+            "en": "The $58,000–$60,000 area remains structural support; a sustained close above $68,000 would restore cycle momentum.",
+            "val": "La zona 58.000–60.000 continua sent el suport estructural; un tancament sostingut sobre 68.000 retornaria impuls al cicle."
+          }
+        },
+        {
+          "title": {
+            "es": "Ethereum aguanta en 1.625 dólares y Solana ronda los 78",
+            "en": "Ethereum holds near $1,625 while Solana hovers around $78",
+            "val": "Ethereum aguanta en 1.625 dòlars i Solana ronda els 78"
+          },
+          "summary": {
+            "es": "Ethereum permanece cerca de 1.625 dólares y Solana alrededor de 78, con menos volatilidad diaria que Bitcoin pero sin una ruptura alcista clara. ETH necesita recuperar 1.700 y SOL la franja 82–85 para mejorar el tono; por debajo, 1.550 y 74 son los niveles de vigilancia. <a href=\"https://www.coindesk.com/price/ethereum\">Mercado de Ethereum</a>.",
+            "en": "Ethereum remains near $1,625 and Solana around $78, with less daily volatility than Bitcoin but no clear bullish break. ETH needs to reclaim $1,700 and SOL the $82–$85 area to improve momentum; below, $1,550 and $74 are the levels to watch. <a href=\"https://www.coindesk.com/price/ethereum\">Ethereum market</a>.",
+            "val": "Ethereum es manté prop dels 1.625 dòlars i Solana al voltant de 78, amb menys volatilitat diària que Bitcoin però sense una ruptura alcista clara. ETH necessita recuperar 1.700 i SOL la franja 82–85 per a millorar el to; per davall, 1.550 i 74 són els nivells de vigilància. <a href=\"https://www.coindesk.com/price/ethereum\">Mercat d’Ethereum</a>."
+          },
+          "source": "CoinDesk / CoinMarketCap",
+          "url": "https://www.coindesk.com/price/ethereum",
+          "links": [
+            {
+              "title": {
+                "es": "CoinDesk: precio de Ethereum",
+                "en": "CoinDesk: Ethereum price",
+                "val": "CoinDesk: preu d’Ethereum"
+              },
+              "url": "https://www.coindesk.com/price/ethereum"
+            },
+            {
+              "title": {
+                "es": "CoinMarketCap: Ethereum",
+                "en": "CoinMarketCap: Ethereum",
+                "val": "CoinMarketCap: Ethereum"
+              },
+              "url": "https://coinmarketcap.com/currencies/ethereum/"
+            },
+            {
+              "title": {
+                "es": "CoinMarketCap: Solana",
+                "en": "CoinMarketCap: Solana",
+                "val": "CoinMarketCap: Solana"
+              },
+              "url": "https://coinmarketcap.com/currencies/solana/"
+            }
+          ],
+          "shortTerm": {
+            "es": "ETH está lateral entre 1.550 y 1.700; SOL conserva 74 como soporte y 82–85 como resistencia.",
+            "en": "ETH is range-bound between $1,550 and $1,700; SOL holds $74 as support and $82–$85 as resistance.",
+            "val": "ETH està lateral entre 1.550 i 1.700; SOL conserva 74 com a suport i 82–85 com a resistència."
+          },
+          "longTerm": {
+            "es": "La mejora exige actividad sostenida y recuperación de 1.850 en ETH y 95 en SOL; perder los soportes aumentaría el riesgo de nuevos mínimos.",
+            "en": "Improvement requires sustained activity and a recovery of $1,850 in ETH and $95 in SOL; losing support would raise the risk of fresh lows.",
+            "val": "La millora exigix activitat sostinguda i recuperar 1.850 en ETH i 95 en SOL; perdre els suports augmentaria el risc de nous mínims."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "Estados Unidos e Irán pausan los ataques y el petróleo se desploma",
+            "en": "The United States and Iran pause attacks as oil plunges",
+            "val": "Els Estats Units i l’Iran pausen els atacs i el petroli es desploma"
+          },
+          "summary": {
+            "es": "Las señales de avance en las conversaciones mediadas han detenido temporalmente los ataques y provocado una caída del petróleo de entre el 7% y el 9%. Los mercados reciben la distensión con cautela: Washington advierte de que podría reanudar los golpes si fracasa la negociación y los inversores todavía descuentan inflación elevada. <a href=\"https://www.reuters.com/world/china/global-markets-view-europe-2026-07-27/\">Situación internacional</a>.",
+            "en": "Signs of progress in mediated talks have temporarily halted attacks and driven oil down 7%–9%. Markets are treating the détente cautiously: Washington warns strikes could resume if negotiations fail, while investors still price persistent inflation. <a href=\"https://www.reuters.com/world/china/global-markets-view-europe-2026-07-27/\">International situation</a>.",
+            "val": "Els senyals d’avanç en les converses mediades han detingut temporalment els atacs i han provocat una caiguda del petroli d’entre el 7% i el 9%. Els mercats reben la distensió amb cautela: Washington advertix que podria reprendre els colps si fracassa la negociació i els inversors encara descompten inflació elevada. <a href=\"https://www.reuters.com/world/china/global-markets-view-europe-2026-07-27/\">Situació internacional</a>."
+          },
+          "source": "Reuters",
+          "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-07-27/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: pausa y mercados",
+                "en": "Reuters: pause and markets",
+                "val": "Reuters: pausa i mercats"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "Reuters: petróleo y bonos",
+                "en": "Reuters: oil and bonds",
+                "val": "Reuters: petroli i bons"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "Reuters: apertura estadounidense",
+                "en": "Reuters: U.S. market open",
+                "val": "Reuters: obertura nord-americana"
+              },
+              "url": "https://www.reuters.com/business/wall-st-futures-rise-us-iran-pause-hostilities-2026-07-27/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "Nvidia y Microsoft crean una alianza abierta para proteger agentes de IA",
+            "en": "Nvidia and Microsoft launch an open alliance to secure AI agents",
+            "val": "Nvidia i Microsoft creen una aliança oberta per a protegir agents d’IA"
+          },
+          "summary": {
+            "es": "Nvidia y otras 36 organizaciones —entre ellas Microsoft, IBM, Cisco, Hugging Face y la Linux Foundation— han creado Open Secure AI Alliance. El grupo compartirá herramientas, evaluaciones y métodos abiertos para detectar, corregir y divulgar vulnerabilidades en modelos y agentes; OpenAI, Google y Anthropic no figuran entre los fundadores. <a href=\"https://blogs.nvidia.com/blog/open-secure-ai-alliance/\">Anuncio oficial</a>.",
+            "en": "Nvidia and 36 other organizations—including Microsoft, IBM, Cisco, Hugging Face and the Linux Foundation—have formed the Open Secure AI Alliance. The group will share open tools, evaluations and methods to find, fix and disclose vulnerabilities in models and agents; OpenAI, Google and Anthropic are not founding members. <a href=\"https://blogs.nvidia.com/blog/open-secure-ai-alliance/\">Official announcement</a>.",
+            "val": "Nvidia i 36 organitzacions més —entre elles Microsoft, IBM, Cisco, Hugging Face i la Linux Foundation— han creat Open Secure AI Alliance. El grup compartirà eines, avaluacions i mètodes oberts per a detectar, corregir i divulgar vulnerabilitats en models i agents; OpenAI, Google i Anthropic no figuren entre els fundadors. <a href=\"https://blogs.nvidia.com/blog/open-secure-ai-alliance/\">Anunci oficial</a>."
+          },
+          "source": "Nvidia / Reuters / The Verge",
+          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+          "links": [
+            {
+              "title": {
+                "es": "Nvidia: anuncio oficial",
+                "en": "Nvidia: official announcement",
+                "val": "Nvidia: anunci oficial"
+              },
+              "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/"
+            },
+            {
+              "title": {
+                "es": "Reuters: miembros y contexto",
+                "en": "Reuters: members and context",
+                "val": "Reuters: membres i context"
+              },
+              "url": "https://www.reuters.com/business/nvidia-forms-industry-alliance-open-ai-security-after-hugging-face-hack-2026-07-27/"
+            },
+            {
+              "title": {
+                "es": "The Verge: ausencias y objetivos",
+                "en": "The Verge: absences and goals",
+                "val": "The Verge: absències i objectius"
+              },
+              "url": "https://www.theverge.com/ai-artificial-intelligence/971281/nvidia-open-secure-ai-alliance-cybersecurity"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Nvidia invierte 5.000 millones en Safe Superintelligence de Ilya Sutskever",
+            "en": "Nvidia invests $5 billion in Ilya Sutskever’s Safe Superintelligence",
+            "val": "Nvidia invertix 5.000 milions en Safe Superintelligence d’Ilya Sutskever"
+          },
+          "summary": {
+            "es": "Nvidia ha cerrado una inversión de 5.000 millones de dólares y una alianza de largo plazo con SSI, la empresa de Ilya Sutskever. La compañía usará la plataforma Vera Rubin para multiplicar por diez su capacidad de cómputo en un año mientras explora un enfoque distinto al escalado convencional de grandes modelos. <a href=\"https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146\">Información del acuerdo</a>.",
+            "en": "Nvidia has agreed to invest $5 billion and form a long-term partnership with SSI, Ilya Sutskever’s company. SSI will use the Vera Rubin platform to increase its compute capacity tenfold within a year while pursuing an approach distinct from conventional large-model scaling. <a href=\"https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146\">Deal details</a>.",
+            "val": "Nvidia ha tancat una inversió de 5.000 milions de dòlars i una aliança de llarg termini amb SSI, l’empresa d’Ilya Sutskever. La companyia usarà la plataforma Vera Rubin per a multiplicar per deu la seua capacitat de còmput en un any mentre explora un enfocament diferent de l’escalat convencional de grans models. <a href=\"https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146\">Informació de l’acord</a>."
+          },
+          "source": "Financial Times / Reuters / Nvidia",
+          "url": "https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146",
+          "links": [
+            {
+              "title": {
+                "es": "Financial Times: inversión",
+                "en": "Financial Times: investment",
+                "val": "Financial Times: inversió"
+              },
+              "url": "https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146"
+            },
+            {
+              "title": {
+                "es": "Reuters: contexto de la IA",
+                "en": "Reuters: AI context",
+                "val": "Reuters: context de la IA"
+              },
+              "url": "https://www.reuters.com/technology/artificial-intelligence/"
+            },
+            {
+              "title": {
+                "es": "Nvidia: plataforma Vera Rubin",
+                "en": "Nvidia: Vera Rubin platform",
+                "val": "Nvidia: plataforma Vera Rubin"
+              },
+              "url": "https://www.nvidia.com/en-us/data-center/vera-rubin/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Intel y AMD atan pedidos de CPU de servidor en China mientras los precios suben más del 40%",
+            "en": "Intel and AMD lock in Chinese server CPU orders as prices jump over 40%",
+            "val": "Intel i AMD asseguren comandes de CPU de servidor a la Xina mentre els preus pugen més del 40%"
+          },
+          "summary": {
+            "es": "Ambas compañías negocian compromisos de compra de alrededor de un año —en algunos casos más largos— que fijan volúmenes, pero no precios. La demanda de IA ha extendido la escasez desde aceleradores y memoria hasta CPU de servidor, con plazos de entrega que pueden alcanzar varios meses. <a href=\"https://www.reuters.com/legal/transactional/intel-amd-sign-long-term-server-cpu-deals-with-chinese-clients-prices-surge-2026-07-23/\">Reuters</a>.",
+            "en": "Both companies are negotiating purchase commitments of around one year—sometimes longer—that lock in volumes but not prices. AI demand has spread shortages from accelerators and memory to server CPUs, with lead times reaching several months. <a href=\"https://www.reuters.com/legal/transactional/intel-amd-sign-long-term-server-cpu-deals-with-chinese-clients-prices-surge-2026-07-23/\">Reuters</a>.",
+            "val": "Les dos companyies negocien compromisos de compra d’aproximadament un any —en alguns casos més llargs— que fixen volums, però no preus. La demanda d’IA ha estés l’escassetat des d’acceleradors i memòria fins a CPU de servidor, amb terminis d’entrega que poden arribar a diversos mesos. <a href=\"https://www.reuters.com/legal/transactional/intel-amd-sign-long-term-server-cpu-deals-with-chinese-clients-prices-surge-2026-07-23/\">Reuters</a>."
+          },
+          "source": "Reuters / Tom's Hardware / Quartz",
+          "url": "https://www.reuters.com/legal/transactional/intel-amd-sign-long-term-server-cpu-deals-with-chinese-clients-prices-surge-2026-07-23/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: contratos y precios",
+                "en": "Reuters: contracts and prices",
+                "val": "Reuters: contractes i preus"
+              },
+              "url": "https://www.reuters.com/legal/transactional/intel-amd-sign-long-term-server-cpu-deals-with-chinese-clients-prices-surge-2026-07-23/"
+            },
+            {
+              "title": {
+                "es": "Tom's Hardware: impacto técnico",
+                "en": "Tom's Hardware: technical impact",
+                "val": "Tom's Hardware: impacte tècnic"
+              },
+              "url": "https://www.tomshardware.com/pc-components/cpus/intel-and-amd-sign-long-term-server-cpu-deals-with-chinese-customers-as-prices-jump-over-40-percent"
+            },
+            {
+              "title": {
+                "es": "Quartz: efecto en centros de datos",
+                "en": "Quartz: data-center impact",
+                "val": "Quartz: efecte en centres de dades"
+              },
+              "url": "https://qz.com/intel-amd-long-term-server-cpu-deals-china-072326"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "AMD pone en producción Helios para disputar a Nvidia los centros de datos de IA",
+            "en": "AMD puts Helios into production to challenge Nvidia in AI data centers",
+            "val": "AMD posa en producció Helios per a disputar a Nvidia els centres de dades d’IA"
+          },
+          "summary": {
+            "es": "AMD ha llevado a producción completa su sistema en rack Helios, que combina aceleradores MI455X, CPU EPYC Venice y redes Pensando. Los primeros envíos están previstos para el tercer trimestre de 2026 y OpenAI planea desplegar la plataforma más adelante este año. <a href=\"https://www.reuters.com/business/amd-expected-launch-next-generation-ai-infrastructure-challenge-nvidia-2026-07-23/\">Reuters</a>.",
+            "en": "AMD has moved its Helios rack-scale system into full production, combining MI455X accelerators, EPYC Venice CPUs and Pensando networking. Initial shipments are expected in the third quarter of 2026, and OpenAI plans to deploy the platform later this year. <a href=\"https://www.reuters.com/business/amd-expected-launch-next-generation-ai-infrastructure-challenge-nvidia-2026-07-23/\">Reuters</a>.",
+            "val": "AMD ha portat a producció completa el sistema en rack Helios, que combina acceleradors MI455X, CPU EPYC Venice i xarxes Pensando. Els primers enviaments estan previstos per al tercer trimestre de 2026 i OpenAI planeja desplegar la plataforma més avant enguany. <a href=\"https://www.reuters.com/business/amd-expected-launch-next-generation-ai-infrastructure-challenge-nvidia-2026-07-23/\">Reuters</a>."
+          },
+          "source": "Reuters / AMD / Tom's Hardware",
+          "url": "https://www.reuters.com/business/amd-expected-launch-next-generation-ai-infrastructure-challenge-nvidia-2026-07-23/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: producción y calendario",
+                "en": "Reuters: production and timeline",
+                "val": "Reuters: producció i calendari"
+              },
+              "url": "https://www.reuters.com/business/amd-expected-launch-next-generation-ai-infrastructure-challenge-nvidia-2026-07-23/"
+            },
+            {
+              "title": {
+                "es": "AMD Instinct: plataforma oficial",
+                "en": "AMD Instinct: official platform",
+                "val": "AMD Instinct: plataforma oficial"
+              },
+              "url": "https://www.amd.com/en/products/accelerators/instinct.html"
+            },
+            {
+              "title": {
+                "es": "Tom's Hardware: cobertura de servidores",
+                "en": "Tom's Hardware: server coverage",
+                "val": "Tom's Hardware: cobertura de servidors"
+              },
+              "url": "https://www.tomshardware.com/tech-industry/data-centers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "Rockwell corrige fallos de ejecución de código en su software industrial Arena",
+            "en": "Rockwell patches code-execution flaws in Arena industrial software",
+            "val": "Rockwell corregix fallades d’execució de codi en el programari industrial Arena"
+          },
+          "summary": {
+            "es": "Rockwell Automation ha publicado correcciones para vulnerabilidades que podían permitir ejecución de código en Arena Simulation Software, utilizado para modelar procesos industriales. Los administradores deben revisar versiones y aplicar las actualizaciones del fabricante, especialmente en redes de producción o ingeniería. <a href=\"https://www.securityweek.com/\">SecurityWeek</a>.",
+            "en": "Rockwell Automation has released fixes for vulnerabilities that could enable code execution in Arena Simulation Software, which is used to model industrial processes. Administrators should review versions and apply vendor updates, especially on production and engineering networks. <a href=\"https://www.securityweek.com/\">SecurityWeek</a>.",
+            "val": "Rockwell Automation ha publicat correccions per a vulnerabilitats que podien permetre l’execució de codi en Arena Simulation Software, utilitzat per a modelar processos industrials. Els administradors han de revisar versions i aplicar les actualitzacions del fabricant, especialment en xarxes de producció o enginyeria. <a href=\"https://www.securityweek.com/\">SecurityWeek</a>."
+          },
+          "source": "SecurityWeek / Rockwell Automation / CISA",
+          "url": "https://www.securityweek.com/",
+          "links": [
+            {
+              "title": {
+                "es": "SecurityWeek: alerta del 25 de julio",
+                "en": "SecurityWeek: July 25 alert",
+                "val": "SecurityWeek: alerta del 25 de juliol"
+              },
+              "url": "https://www.securityweek.com/"
+            },
+            {
+              "title": {
+                "es": "Rockwell Automation: soporte y avisos",
+                "en": "Rockwell Automation: support and advisories",
+                "val": "Rockwell Automation: suport i avisos"
+              },
+              "url": "https://www.rockwellautomation.com/en-us/support.html"
+            },
+            {
+              "title": {
+                "es": "CISA: avisos de sistemas industriales",
+                "en": "CISA: industrial-control advisories",
+                "val": "CISA: avisos de sistemes industrials"
+              },
+              "url": "https://www.cisa.gov/news-events/ics-advisories"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Una falsa app de Claude promocionada en Bing infecta al menos 29 organizaciones",
+            "en": "Fake Claude app promoted on Bing infects at least 29 organizations",
+            "val": "Una app falsa de Claude promocionada en Bing infecta almenys 29 organitzacions"
+          },
+          "summary": {
+            "es": "La campaña FakeAgent usó un Artifact alojado en el dominio legítimo claude.ai para redirigir a un instalador que desplegaba SectopRAT. Huntress observó infecciones en 29 organizaciones entre el 21 y el 22 de julio; la recomendación es descargar Claude únicamente desde la página oficial y revisar exclusiones de Defender y tareas programadas. <a href=\"https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat\">Análisis técnico</a>.",
+            "en": "The FakeAgent campaign used an Artifact hosted on the legitimate claude.ai domain to redirect victims to an installer deploying SectopRAT. Huntress observed infections at 29 organizations on July 21–22; users should download Claude only from the official page and inspect Defender exclusions and scheduled tasks. <a href=\"https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat\">Technical analysis</a>.",
+            "val": "La campanya FakeAgent va usar un Artifact allotjat en el domini legítim claude.ai per a redirigir les víctimes a un instal·lador que desplegava SectopRAT. Huntress va observar infeccions en 29 organitzacions entre el 21 i el 22 de juliol; cal descarregar Claude només des de la pàgina oficial i revisar exclusions de Defender i tasques programades. <a href=\"https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat\">Anàlisi tècnica</a>."
+          },
+          "source": "Huntress / BleepingComputer / TechRadar",
+          "url": "https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat",
+          "links": [
+            {
+              "title": {
+                "es": "Huntress: investigación de FakeAgent",
+                "en": "Huntress: FakeAgent investigation",
+                "val": "Huntress: investigació de FakeAgent"
+              },
+              "url": "https://www.huntress.com/blog/fakeagent-claude-desktop-malvertising-ends-in-dotnet-rat"
+            },
+            {
+              "title": {
+                "es": "BleepingComputer: SectopRAT",
+                "en": "BleepingComputer: SectopRAT",
+                "val": "BleepingComputer: SectopRAT"
+              },
+              "url": "https://www.bleepingcomputer.com/news/security/fake-claude-app-promoted-by-bing-ads-pushes-sectoprat-malware/"
+            },
+            {
+              "title": {
+                "es": "TechRadar: alcance de la campaña",
+                "en": "TechRadar: campaign impact",
+                "val": "TechRadar: abast de la campanya"
+              },
+              "url": "https://www.techradar.com/pro/security/hackers-hid-dangerous-malware-on-a-page-hidden-in-anthopics-claude-ai-domain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "The Odyssey recauda 87 millones en su segundo fin de semana y alcanza 639,6 millones globales",
+            "en": "The Odyssey earns $87 million in weekend two and reaches $639.6 million worldwide",
+            "val": "The Odyssey recapta 87 milions en el segon cap de setmana i arriba a 639,6 milions globals"
+          },
+          "summary": {
+            "es": "La película de Christopher Nolan cayó solo un 30% y firmó el mejor segundo fin de semana de su carrera. Acumula unos 639,6 millones de dólares globales, mientras Toy Story 5 ya ha superado los 1.000 millones. <a href=\"https://apnews.com/article/e092d63c2c092cf23ab36934aed598f2\">AP</a>.",
+            "en": "Christopher Nolan’s film fell only 30% and delivered the strongest second weekend of his career. It has reached about $639.6 million worldwide, while Toy Story 5 has now crossed $1 billion. <a href=\"https://apnews.com/article/e092d63c2c092cf23ab36934aed598f2\">AP</a>.",
+            "val": "La pel·lícula de Christopher Nolan va baixar només un 30% i va firmar el millor segon cap de setmana de la seua carrera. Acumula uns 639,6 milions de dòlars globals, mentre Toy Story 5 ja ha superat els 1.000 milions. <a href=\"https://apnews.com/article/e092d63c2c092cf23ab36934aed598f2\">AP</a>."
+          },
+          "source": "AP / Variety / Entertainment Weekly",
+          "url": "https://apnews.com/article/e092d63c2c092cf23ab36934aed598f2",
+          "links": [
+            {
+              "title": {
+                "es": "AP: taquilla del fin de semana",
+                "en": "AP: weekend box office",
+                "val": "AP: taquilla del cap de setmana"
+              },
+              "url": "https://apnews.com/article/e092d63c2c092cf23ab36934aed598f2"
+            },
+            {
+              "title": {
+                "es": "Variety: segundo fin de semana",
+                "en": "Variety: second weekend",
+                "val": "Variety: segon cap de setmana"
+              },
+              "url": "https://variety.com/2026/film/box-office/the-odyssey-box-office-massive-second-weekend-1236821417/"
+            },
+            {
+              "title": {
+                "es": "Entertainment Weekly: total global",
+                "en": "Entertainment Weekly: worldwide total",
+                "val": "Entertainment Weekly: total global"
+              },
+              "url": "https://ew.com/the-odyssey-sails-to-yet-another-box-office-victory-with-639-million-globally-12027147"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Supergirl llega hoy al alquiler digital tras una taquilla por debajo de lo esperado",
+            "en": "Supergirl reaches digital rental today after a weak box-office run",
+            "val": "Supergirl arriba hui al lloguer digital després d’una taquilla per davall de l’esperat"
+          },
+          "summary": {
+            "es": "La película protagonizada por Milly Alcock se estrena hoy, 28 de julio, en compra y alquiler digital por 24,99 y 19,99 dólares, respectivamente. Su recorrido en salas terminó alrededor de 124,4 millones globales frente a un presupuesto estimado de 170 millones; la edición física llegará el 8 de septiembre. <a href=\"https://decider.com/2026/07/27/supergirl-movie-streaming-hbo-max-release-date-supergirl-2026-digital/\">Fechas y plataformas</a>.",
+            "en": "The Milly Alcock film launches today, July 28, for digital purchase and rental at $24.99 and $19.99 respectively. Its theatrical run reached roughly $124.4 million worldwide against an estimated $170 million budget; the physical edition follows on September 8. <a href=\"https://decider.com/2026/07/27/supergirl-movie-streaming-hbo-max-release-date-supergirl-2026-digital/\">Dates and platforms</a>.",
+            "val": "La pel·lícula protagonitzada per Milly Alcock s’estrena hui, 28 de juliol, en compra i lloguer digital per 24,99 i 19,99 dòlars, respectivament. El seu recorregut en sales va acabar al voltant de 124,4 milions globals davant d’un pressupost estimat de 170 milions; l’edició física arribarà el 8 de setembre. <a href=\"https://decider.com/2026/07/27/supergirl-movie-streaming-hbo-max-release-date-supergirl-2026-digital/\">Dates i plataformes</a>."
+          },
+          "source": "Decider / Forbes / Variety",
+          "url": "https://decider.com/2026/07/27/supergirl-movie-streaming-hbo-max-release-date-supergirl-2026-digital/",
+          "links": [
+            {
+              "title": {
+                "es": "Decider: estreno digital",
+                "en": "Decider: digital release",
+                "val": "Decider: estrena digital"
+              },
+              "url": "https://decider.com/2026/07/27/supergirl-movie-streaming-hbo-max-release-date-supergirl-2026-digital/"
+            },
+            {
+              "title": {
+                "es": "Forbes: ventana doméstica",
+                "en": "Forbes: home window",
+                "val": "Forbes: finestra domèstica"
+              },
+              "url": "https://www.forbes.com/sites/timlammers/2026/07/25/supergirl-streaming-release-nears-after-dc-movie-flops-in-theaters/"
+            },
+            {
+              "title": {
+                "es": "Variety: rendimiento en taquilla",
+                "en": "Variety: box-office performance",
+                "val": "Variety: rendiment en taquilla"
+              },
+              "url": "https://variety.com/2026/film/box-office/supergirl-stumbles-box-office-opening-weekend-jackass-flops-toy-story-rules-1236797777/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "Un campamento romano conserva soldados arrojados a pozos hace 1.800 años",
+            "en": "Roman camp preserves soldiers thrown into wells 1,800 years ago",
+            "val": "Un campament romà conserva soldats llançats a pous fa 1.800 anys"
+          },
+          "summary": {
+            "es": "El campamento descubierto cerca de Šurany, en Eslovaquia, ocupa unas 7,4 hectáreas y contiene cuerpos enterrados apresuradamente en fosas, zanjas y pozos junto a armas y armaduras. Los clavos de las sandalias incluso permiten estimar el tamaño de los pies de algunos soldados de las guerras de Marco Aurelio. <a href=\"https://www.livescience.com/archaeology/romans/extremely-rare-roman-military-camp-found-in-slovakia-holds-hastily-buried-remains-of-marcus-aurelius-soldiers-with-some-dumped-in-wells\">Live Science</a>.",
+            "en": "The camp found near Šurany, Slovakia covers about 18.2 acres and contains bodies hastily buried in graves, ditches and wells alongside weapons and armor. Sandal nails even allow researchers to estimate the foot size of some soldiers from Marcus Aurelius’ wars. <a href=\"https://www.livescience.com/archaeology/romans/extremely-rare-roman-military-camp-found-in-slovakia-holds-hastily-buried-remains-of-marcus-aurelius-soldiers-with-some-dumped-in-wells\">Live Science</a>.",
+            "val": "El campament descobert prop de Šurany, a Eslovàquia, ocupa unes 7,4 hectàrees i conté cossos soterrats precipitadament en fosses, rases i pous al costat d’armes i armadures. Els claus de les sandàlies fins i tot permeten estimar la grandària dels peus d’alguns soldats de les guerres de Marc Aureli. <a href=\"https://www.livescience.com/archaeology/romans/extremely-rare-roman-military-camp-found-in-slovakia-holds-hastily-buried-remains-of-marcus-aurelius-soldiers-with-some-dumped-in-wells\">Live Science</a>."
+          },
+          "source": "Live Science / Slovak Academy of Sciences / Archaeology Magazine",
+          "url": "https://www.livescience.com/archaeology/romans/extremely-rare-roman-military-camp-found-in-slovakia-holds-hastily-buried-remains-of-marcus-aurelius-soldiers-with-some-dumped-in-wells",
+          "links": [
+            {
+              "title": {
+                "es": "Live Science: excavación",
+                "en": "Live Science: excavation",
+                "val": "Live Science: excavació"
+              },
+              "url": "https://www.livescience.com/archaeology/romans/extremely-rare-roman-military-camp-found-in-slovakia-holds-hastily-buried-remains-of-marcus-aurelius-soldiers-with-some-dumped-in-wells"
+            },
+            {
+              "title": {
+                "es": "Academia Eslovaca de Ciencias",
+                "en": "Slovak Academy of Sciences",
+                "val": "Acadèmia Eslovaca de Ciències"
+              },
+              "url": "https://www.sav.sk/?lang=en"
+            },
+            {
+              "title": {
+                "es": "Archaeology Magazine: actualidad",
+                "en": "Archaeology Magazine: latest discoveries",
+                "val": "Archaeology Magazine: actualitat"
+              },
+              "url": "https://archaeology.org/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Un naufragio bizantino escondía más de 600 gramos de oro y un anillo imperial",
+            "en": "A Byzantine shipwreck hid more than 600 grams of gold and an imperial ring",
+            "val": "Un naufragi bizantí amagava més de 600 grams d’or i un anell imperial"
+          },
+          "summary": {
+            "es": "El pecio localizado frente a la isla croata de Mljet contenía monedas, hebillas con piedras preciosas y un sello de oro con la imagen del emperador. El conjunto, datado en los siglos VII u VIII, sugiere que viajaba una figura de alto rango y constituye el mayor lote de oro recuperado de un naufragio mediterráneo de este periodo. <a href=\"https://www.reuters.com/lifestyle/byzantine-gold-objects-help-archaeologists-uncover-past-ship-wrecked-off-croatia-2026-07-23/\">Reuters</a>.",
+            "en": "The wreck off Croatia’s island of Mljet contained coins, gem-set buckles and a gold signet ring bearing the emperor’s image. Dated to the seventh or eighth century, the trove suggests a high-ranking passenger and is the largest amount of gold recovered from a Mediterranean wreck of this period. <a href=\"https://www.reuters.com/lifestyle/byzantine-gold-objects-help-archaeologists-uncover-past-ship-wrecked-off-croatia-2026-07-23/\">Reuters</a>.",
+            "val": "El derelicte localitzat davant de l’illa croata de Mljet contenia monedes, sivelles amb pedres precioses i un segell d’or amb la imatge de l’emperador. El conjunt, datat en els segles VII o VIII, suggerix que hi viatjava una figura d’alt rang i constituïx la major quantitat d’or recuperada d’un naufragi mediterrani d’este període. <a href=\"https://www.reuters.com/lifestyle/byzantine-gold-objects-help-archaeologists-uncover-past-ship-wrecked-off-croatia-2026-07-23/\">Reuters</a>."
+          },
+          "source": "Reuters / Croatian Conservation Institute / Stanford Archaeology",
+          "url": "https://www.reuters.com/lifestyle/byzantine-gold-objects-help-archaeologists-uncover-past-ship-wrecked-off-croatia-2026-07-23/",
+          "links": [
+            {
+              "title": {
+                "es": "Reuters: objetos y contexto",
+                "en": "Reuters: objects and context",
+                "val": "Reuters: objectes i context"
+              },
+              "url": "https://www.reuters.com/lifestyle/byzantine-gold-objects-help-archaeologists-uncover-past-ship-wrecked-off-croatia-2026-07-23/"
+            },
+            {
+              "title": {
+                "es": "Instituto Croata de Conservación",
+                "en": "Croatian Conservation Institute",
+                "val": "Institut Croat de Conservació"
+              },
+              "url": "https://www.h-r-z.hr/index.php/en/"
+            },
+            {
+              "title": {
+                "es": "Arqueología marítima de Stanford",
+                "en": "Stanford maritime archaeology",
+                "val": "Arqueologia marítima de Stanford"
+              },
+              "url": "https://archaeology.stanford.edu/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "Xiaomi 17T 12/256 GB a precio mínimo histórico",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Amazon España baja el Xiaomi 17T desde 749,99 € hasta 399 € al aplicar automáticamente el descuento en el carrito. La revisión publicada el 22 de julio lo sitúa en mínimo histórico; el precio puede variar por stock. <a href=\"https://www.compradiccion.com/moviles-y-smartphones/precio-minimo-historico-xiaomi-17t-pasa-costar-casi-750-euros-a-400-euros\">Ver oferta verificada</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "Compradicción",
+          "url": "https://www.compradiccion.com/moviles-y-smartphones/precio-minimo-historico-xiaomi-17t-pasa-costar-casi-750-euros-a-400-euros",
+          "platform": "Amazon España",
+          "originalPrice": {
+            "es": "749,99 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "399 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-47%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Mientras dure la oferta o el stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "Google Pixel 10 128 GB con 350 € de descuento",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "MediaMarkt ofrece el Pixel 10 de 128 GB por 549 € frente a 899 €. Es un modelo compacto de 6,3 pulgadas, con 12 GB de RAM y siete años de actualizaciones; conviene comprobar disponibilidad antes de pagar. <a href=\"https://www.compradiccion.com/moviles-y-smartphones/google-pixel-10-se-desploma-se-convierte-unos-dias-mejor-movil-compacto-calidad-precio\">Ver oferta verificada</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "Compradicción",
+          "url": "https://www.compradiccion.com/moviles-y-smartphones/google-pixel-10-se-desploma-se-convierte-unos-dias-mejor-movil-compacto-calidad-precio",
+          "platform": "MediaMarkt España",
+          "originalPrice": {
+            "es": "899 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "549 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-39%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Durante unos días o hasta agotar stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Xiaomi 17T 12/256 GB a preu mínim històric"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Amazon Espanya baixa el Xiaomi 17T de 749,99 € a 399 € en aplicar automàticament el descompte en la cistella. La revisió publicada el 22 de juliol el situa en mínim històric; el preu pot variar segons l’estoc. <a href=\"https://www.compradiccion.com/moviles-y-smartphones/precio-minimo-historico-xiaomi-17t-pasa-costar-casi-750-euros-a-400-euros\">Veure oferta verificada</a>."
+          },
+          "source": "Compradicción",
+          "url": "https://www.compradiccion.com/moviles-y-smartphones/precio-minimo-historico-xiaomi-17t-pasa-costar-casi-750-euros-a-400-euros",
+          "platform": "Amazon Espanya",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "749,99 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "399 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-47%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Mentre dure l’oferta o l’estoc"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Google Pixel 10 de 128 GB amb 350 € de descompte"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "MediaMarkt oferix el Pixel 10 de 128 GB per 549 € enfront de 899 €. És un model compacte de 6,3 polzades, amb 12 GB de RAM i set anys d’actualitzacions; convé comprovar la disponibilitat abans de pagar. <a href=\"https://www.compradiccion.com/moviles-y-smartphones/google-pixel-10-se-desploma-se-convierte-unos-dias-mejor-movil-compacto-calidad-precio\">Veure oferta verificada</a>."
+          },
+          "source": "Compradicción",
+          "url": "https://www.compradiccion.com/moviles-y-smartphones/google-pixel-10-se-desploma-se-convierte-unos-dias-mejor-movil-compacto-calidad-precio",
+          "platform": "MediaMarkt Espanya",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "899 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "549 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-39%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Durant uns dies o fins a esgotar existències"
+          },
+          "urgent": true,
+          "links": []
+        },
+        {
+          "title": {
+            "es": "",
+            "en": "Geekom A5 mini PC drops to $369 (32% off)",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "Best Buy cuts the Ryzen 5 7430U mini PC with 16 GB RAM and a 512 GB SSD from $539 to $369, a verified 32% reduction. The compact Windows 11 Pro machine supports up to four displays. <a href=\"https://www.techradar.com/pro/geekom-a5-mini-pc-for-work-study-and-everyday-computing-drops-below-usd370-in-best-buys-black-friday-in-july-sale\">Deal details</a>.",
+            "val": ""
+          },
+          "platform": "Best Buy US",
+          "market": "en",
+          "price": "$369",
+          "originalPrice": "$539",
+          "discount": "32%",
+          "urgent": true,
+          "url": "https://www.techradar.com/pro/geekom-a5-mini-pc-for-work-study-and-everyday-computing-drops-below-usd370-in-best-buys-black-friday-in-july-sale",
+          "source": "TechRadar / Best Buy",
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "TechRadar: verified price",
+                "val": ""
+              },
+              "url": "https://www.techradar.com/pro/geekom-a5-mini-pc-for-work-study-and-everyday-computing-drops-below-usd370-in-best-buys-black-friday-in-july-sale"
+            },
+            {
+              "title": {
+                "es": "",
+                "en": "Best Buy: current deals",
+                "val": ""
+              },
+              "url": "https://www.bestbuy.com/top-deals"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "",
+            "en": "Three months of Xbox Game Pass Ultimate for $39.01",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "The three-month digital membership falls from $69 to $39.01 through Eneba, a reduction of roughly 43%. It includes the Game Pass catalog, online multiplayer and cloud gaming, subject to regional activation terms. <a href=\"https://www.theverge.com/gadgets/970775/xbox-game-pass-ultimate-deal-sale\">Deal details</a>.",
+            "val": ""
+          },
+          "platform": "Eneba US",
+          "market": "en",
+          "price": "$39.01",
+          "originalPrice": "$69",
+          "discount": "43%",
+          "urgent": true,
+          "url": "https://www.theverge.com/gadgets/970775/xbox-game-pass-ultimate-deal-sale",
+          "source": "The Verge / Eneba",
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "The Verge: verified deal",
+                "val": ""
+              },
+              "url": "https://www.theverge.com/gadgets/970775/xbox-game-pass-ultimate-deal-sale"
+            },
+            {
+              "title": {
+                "es": "",
+                "en": "Xbox: Game Pass information",
+                "val": ""
+              },
+              "url": "https://www.xbox.com/en-US/xbox-game-pass"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "KONOSUBA confirma su cuarta temporada para 2027",
+            "en": "KONOSUBA confirms season four for 2027",
+            "val": "KONOSUBA confirma la quarta temporada per a 2027"
+          },
+          "summary": {
+            "es": "El evento del décimo aniversario confirmó la emisión en 2027, mostró una nueva imagen y detalló cambios en el equipo de producción. Takaomi Kanasaki continúa como director jefe y el reparto principal regresa. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/konosuba-gods-blessing-on-this-wonderful-world-season-4-anime-2027-release-date-teaser-visual-staff\">Anuncio</a>.",
+            "en": "The 10th-anniversary event confirmed a 2027 broadcast, unveiled a new visual and detailed production-staff changes. Takaomi Kanasaki remains chief director and the main cast returns. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/konosuba-gods-blessing-on-this-wonderful-world-season-4-anime-2027-release-date-teaser-visual-staff\">Announcement</a>.",
+            "val": "L’esdeveniment del desé aniversari va confirmar l’emissió en 2027, va mostrar una imatge nova i va detallar canvis en l’equip de producció. Takaomi Kanasaki continua com a director en cap i el repartiment principal torna. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/konosuba-gods-blessing-on-this-wonderful-world-season-4-anime-2027-release-date-teaser-visual-staff\">Anunci</a>."
+          },
+          "source": "Crunchyroll / Anime Trending / Oricon",
+          "url": "https://www.crunchyroll.com/news/latest/2026/7/26/konosuba-gods-blessing-on-this-wonderful-world-season-4-anime-2027-release-date-teaser-visual-staff",
+          "links": [
+            {
+              "title": {
+                "es": "Crunchyroll: anuncio de la temporada",
+                "en": "Crunchyroll: season announcement",
+                "val": "Crunchyroll: anunci de la temporada"
+              },
+              "url": "https://www.crunchyroll.com/news/latest/2026/7/26/konosuba-gods-blessing-on-this-wonderful-world-season-4-anime-2027-release-date-teaser-visual-staff"
+            },
+            {
+              "title": {
+                "es": "Anime Trending: estreno en 2027",
+                "en": "Anime Trending: 2027 premiere",
+                "val": "Anime Trending: estrena en 2027"
+              },
+              "url": "https://www.anitrendz.com/news/2026/07/26/konosuba-season-4-set-for-2027"
+            },
+            {
+              "title": {
+                "es": "Oricon: equipo y reparto",
+                "en": "Oricon: staff and cast",
+                "val": "Oricon: equip i repartiment"
+              },
+              "url": "https://us.oricon-group.com/news/9118/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Star Detective Precure! muestra su tráiler principal antes del estreno de septiembre",
+            "en": "Star Detective Precure! unveils its main trailer ahead of September release",
+            "val": "Star Detective Precure! mostra el tràiler principal abans de l’estrena de setembre"
+          },
+          "summary": {
+            "es": "La película ha presentado tráiler, imagen y detalles musicales para su estreno japonés del 18 de septiembre. La historia incorpora a Karin y las hadas Fran y Rain en un jardín afectado por una marca que inmoviliza objetos. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/star-detective-precure-anime-feature-film-main-trailer-new-visual-music-details\">Ver novedades</a>.",
+            "en": "The film has revealed its main trailer, visual and music details ahead of its September 18 Japanese opening. The story adds Karin and fairies Fran and Rain in a mysterious garden affected by a mark that freezes objects. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/star-detective-precure-anime-feature-film-main-trailer-new-visual-music-details\">See the update</a>.",
+            "val": "La pel·lícula ha presentat tràiler, imatge i detalls musicals per a l’estrena japonesa del 18 de setembre. La història incorpora Karin i les fades Fran i Rain en un jardí afectat per una marca que immobilitza objectes. <a href=\"https://www.crunchyroll.com/news/latest/2026/7/26/star-detective-precure-anime-feature-film-main-trailer-new-visual-music-details\">Veure novetats</a>."
+          },
+          "source": "Crunchyroll / Anime Trending / Toei Animation",
+          "url": "https://www.crunchyroll.com/news/latest/2026/7/26/star-detective-precure-anime-feature-film-main-trailer-new-visual-music-details",
+          "links": [
+            {
+              "title": {
+                "es": "Crunchyroll: tráiler y música",
+                "en": "Crunchyroll: trailer and music",
+                "val": "Crunchyroll: tràiler i música"
+              },
+              "url": "https://www.crunchyroll.com/news/latest/2026/7/26/star-detective-precure-anime-feature-film-main-trailer-new-visual-music-details"
+            },
+            {
+              "title": {
+                "es": "Anime Trending: tráiler principal",
+                "en": "Anime Trending: main trailer",
+                "val": "Anime Trending: tràiler principal"
+              },
+              "url": "https://www.anitrendz.com/news/2026/07/25/star-detective-precure-movie-drops-main-trailer"
+            },
+            {
+              "title": {
+                "es": "Toei Animation: sitio de la franquicia",
+                "en": "Toei Animation: franchise site",
+                "val": "Toei Animation: lloc de la franquícia"
+              },
+              "url": "https://www.toei-anim.co.jp/tv/precure/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
