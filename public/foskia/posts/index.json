@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-07-30",
+      "title": {
+        "es": "GPT-5.6 abarata la IA, la Fed congela tipos y Wall Street se desploma",
+        "en": "GPT-5.6 cuts AI costs, the Fed holds rates and Wall Street tumbles",
+        "val": "GPT-5.6 abaratix la IA, la Fed congela els tipus i Wall Street es desploma"
+      },
+      "summary": {
+        "es": "OpenAI detalla cómo GPT-5.6 Sol redujo un 20% el coste de servicio, la Reserva Federal mantuvo los tipos en el 3,50%–3,75% y Wall Street cerró con fuertes pérdidas por las dudas sobre el gasto en IA. La edición reúne además 15 juegos y promociones vigentes —Foretales y Yet Another Zombie Defense HD caducan hoy— y las novedades esenciales de ciencia, seguridad, hardware, cultura y anime.",
+        "en": "OpenAI explains how GPT-5.6 Sol cut serving costs by 20%, the Federal Reserve held rates at 3.50%–3.75%, and Wall Street closed sharply lower amid doubts over AI spending. The edition also tracks 15 active game offers—Foretales and Yet Another Zombie Defense HD expire today—and the essential developments across science, security, hardware, culture and anime.",
+        "val": "OpenAI detalla com GPT-5.6 Sol va reduir un 20% el cost de servici, la Reserva Federal va mantindre els tipus en el 3,50%–3,75% i Wall Street va tancar amb fortes pèrdues pels dubtes sobre la despesa en IA. L’edició reunix, a més, 15 jocs i promocions vigents —Foretales i Yet Another Zombie Defense HD caduquen hui— i les novetats essencials de ciència, seguretat, maquinari, cultura i anime."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-07-29",
       "title": {
         "es": "Apple alcanza los cinco billones, Halo tropieza y 1.100 trabajadores reclaman control para la IA",
