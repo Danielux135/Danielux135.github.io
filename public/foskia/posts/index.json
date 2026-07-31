@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-07-31",
+      "title": {
+        "es": "Microsoft suma 450.000 millones, CISA alerta sobre el agua y Epic estrena dos regalos",
+        "en": "Microsoft adds $450 billion, CISA warns on water systems and Epic launches two freebies",
+        "val": "Microsoft suma 450.000 milions, CISA alerta sobre l’aigua i Epic estrena dos regals"
+      },
+      "summary": {
+        "es": "Microsoft firmó la mayor ganancia diaria de valor bursátil de la historia tras convencer al mercado con Azure, mientras CISA elevó la alerta por los ataques contra sistemas de agua y Epic renovó su promoción con OTXO y Sol Cesto. La edición reúne 18 juegos y promociones vigentes —Liminal Lane y CyClones son los más urgentes— y las novedades esenciales de código, ciencia, cripto, hardware, cultura y anime.",
+        "en": "Microsoft posted the largest one-day market-value gain on record after Azure reassured investors, while CISA escalated its warning over attacks on water systems and Epic refreshed its giveaway with OTXO and Sol Cesto. This edition tracks 18 active games and promotions—Liminal Lane and CyClones are the most urgent—plus the essential developments in coding, science, crypto, hardware, culture and anime.",
+        "val": "Microsoft va firmar el major guany diari de valor borsari de la història després de convéncer el mercat amb Azure, mentre CISA elevava l’alerta pels atacs contra sistemes d’aigua i Epic renovava la promoció amb OTXO i Sol Cesto. L’edició reunix 18 jocs i promocions vigents —Liminal Lane i CyClones són els més urgents— i les novetats essencials de codi, ciència, cripto, maquinari, cultura i anime."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-07-30",
       "title": {
         "es": "GPT-5.6 abarata la IA, la Fed congela tipos y Wall Street se desploma",
