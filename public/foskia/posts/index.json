@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-02",
+      "title": {
+        "es": "Corea del Sur dispara sus exportaciones, Coldcard sufre un robo de 70 millones y Bitcoin recupera 63.000 dólares",
+        "en": "South Korea’s exports surge, Coldcard suffers a $70 million theft and Bitcoin reclaims $63,000",
+        "val": "Corea del Sud dispara les exportacions, Coldcard patix un robatori de 70 milions i Bitcoin recupera 63.000 dòlars"
+      },
+      "summary": {
+        "es": "La demanda de chips para IA disparó un 62,8% las exportaciones de Corea del Sur, mientras un fallo de Coldcard quedó vinculado a un robo de 70 millones de dólares y Bitcoin recuperó los 63.000. La edición reúne 16 juegos y promociones vigentes —los tres títulos de PS Plus de julio caducan el 3 de agosto—, además de los sandboxes gratuitos de AWS, la brecha de Amgen y las novedades de ciencia, hardware, cultura y anime.",
+        "en": "AI-chip demand drove South Korean exports up 62.8%, while a Coldcard flaw was linked to a $70 million theft and Bitcoin reclaimed $63,000. This edition tracks 16 active games and promotions—the three July PS Plus titles expire August 3—plus AWS’s free sandboxes, the Amgen breach and the essential developments in science, hardware, culture and anime.",
+        "val": "La demanda de xips per a IA va disparar un 62,8% les exportacions de Corea del Sud, mentre un error de Coldcard va quedar vinculat a un robatori de 70 milions de dòlars i Bitcoin va recuperar els 63.000. L’edició reunix 16 jocs i promocions vigents —els tres títols de PS Plus de juliol caduquen el 3 d’agost—, a més dels sandboxes gratuïts d’AWS, la bretxa d’Amgen i les novetats de ciència, maquinari, cultura i anime."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-01",
       "title": {
         "es": "OpenAI amplía su investigación, Amazon cierra 50.000 millones y los bonos tocan máximos",
