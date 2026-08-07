@@ -105,9 +105,9 @@
             "val": "Regular Factory: Escape Room — gratis en Prime Gaming / GOG"
           },
           "summary": {
-            "es": "Regular Factory: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18baclaims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Ficha o página de canje</a>.",
-            "en": "Regular Factory: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18baclaims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Store or redemption page</a>.",
-            "val": "Regular Factory: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18baclaims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Fitxa o pàgina de bescanvi</a>."
+            "es": "Regular Factory: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Ficha exacta de canje</a>.",
+            "en": "Regular Factory: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Exact claim page</a>.",
+            "val": "Regular Factory: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/regular-factory-escape-room-gog/dp/amzn1.pg.item.1b071387-e61c-48a3-bcdf-f3086b8d18ba\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / GOG",
           "until": {
@@ -142,6 +142,53 @@
                 "val": "Context i seguiment"
               },
               "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Moonlighter — gratis en Steam",
+            "en": "Moonlighter — free on Steam",
+            "val": "Moonlighter — gratis en Steam"
+          },
+          "summary": {
+            "es": "Moonlighter puede reclamarse ahora y conservarse después de la promoción. Completa el canje antes del límite indicado en la <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">ficha exacta</a>.",
+            "en": "Moonlighter can be claimed now and kept after the promotion. Complete the claim before the stated deadline on the <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">exact store page</a>.",
+            "val": "Moonlighter es pot reclamar ara i conservar-se després de la promoció. Completa el bescanvi abans del límit indicat en la <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">fitxa exacta</a>."
+          },
+          "platform": "Steam",
+          "until": {
+            "es": "Hasta el 9 de agosto de 2026 a las 19:00 CEST",
+            "en": "Until August 9, 2026 at 7:00 p.m. CEST",
+            "val": "Fins al 9 d’agost de 2026 a les 19.00 CEST"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/606150/Moonlighter/",
+          "source": "Steam / GamesRadar / Windows Central",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://store.steampowered.com/app/606150/Moonlighter/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.gamesradar.com/games/roguelike/you-have-4-days-to-get-one-of-our-favorite-roguelikes-for-free-on-steam-thanks-to-its-sequel-leaving-early-access/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.windowscentral.com/gaming/moonlighter-2-leaving-early-access-september"
             }
           ]
         },
@@ -241,24 +288,24 @@
         },
         {
           "title": {
-            "es": "Moonlighter — gratis en Steam",
-            "en": "Moonlighter — free on Steam",
-            "val": "Moonlighter — gratis en Steam"
+            "es": "Boots Quest DX — gratis en itch.io",
+            "en": "Boots Quest DX — free on itch.io",
+            "val": "Boots Quest DX — gratis en itch.io"
           },
           "summary": {
-            "es": "Moonlighter puede reclamarse ahora y conservarse después de la promoción. Completa el canje antes del límite indicado en la <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">ficha exacta</a>.",
-            "en": "Moonlighter can be claimed now and kept after the promotion. Complete the claim before the stated deadline on the <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">exact store page</a>.",
-            "val": "Moonlighter es pot reclamar ara i conservar-se després de la promoció. Completa el bescanvi abans del límit indicat en la <a href=\"https://store.steampowered.com/app/606150/Moonlighter/\">fitxa exacta</a>."
+            "es": "Boots Quest DX se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el canje antes del límite indicado. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Ficha exacta de canje</a>.",
+            "en": "Boots Quest DX can be claimed now and kept under the platform’s terms. Complete the claim before the stated deadline. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Exact redemption page</a>.",
+            "val": "Boots Quest DX es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el bescanvi abans del límit indicat. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Fitxa exacta de bescanvi</a>."
           },
-          "platform": "Steam",
+          "platform": "itch.io",
           "until": {
-            "es": "Hasta el 9 de agosto de 2026 a las 19:00 CEST",
-            "en": "Until August 9, 2026 at 7:00 p.m. CEST",
-            "val": "Fins al 9 d’agost de 2026 a les 19.00 CEST"
+            "es": "Hasta el 10 de agosto de 2026, 23:36 UTC",
+            "en": "Until August 10, 2026, 11:36 p.m. UTC",
+            "val": "Fins al 10 d’agost de 2026, 23:36 UTC"
           },
           "urgent": false,
-          "url": "https://store.steampowered.com/app/606150/Moonlighter/",
-          "source": "Steam / GamesRadar / Windows Central",
+          "url": "https://discountrealms.itch.io/boots-quest-dx",
+          "source": "itch.io / GamerPower",
           "links": [
             {
               "title": {
@@ -266,7 +313,7 @@
                 "en": "Source or reference",
                 "val": "Font o referència"
               },
-              "url": "https://store.steampowered.com/app/606150/Moonlighter/"
+              "url": "https://discountrealms.itch.io/boots-quest-dx"
             },
             {
               "title": {
@@ -274,7 +321,7 @@
                 "en": "Source or reference",
                 "val": "Font o referència"
               },
-              "url": "https://www.gamesradar.com/games/roguelike/you-have-4-days-to-get-one-of-our-favorite-roguelikes-for-free-on-steam-thanks-to-its-sequel-leaving-early-access/"
+              "url": "https://www.gamerpower.com/boots-quest-dx-itch-io-giveaway"
             },
             {
               "title": {
@@ -282,7 +329,7 @@
                 "en": "Source or reference",
                 "val": "Font o referència"
               },
-              "url": "https://www.windowscentral.com/gaming/moonlighter-2-leaving-early-access-september"
+              "url": "https://itch.io/s/2021/throwback-sale"
             }
           ]
         },
@@ -335,61 +382,14 @@
         },
         {
           "title": {
-            "es": "Boots Quest DX — gratis en itch.io",
-            "en": "Boots Quest DX — free on itch.io",
-            "val": "Boots Quest DX — gratis en itch.io"
-          },
-          "summary": {
-            "es": "Boots Quest DX se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el canje antes del límite indicado. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Ficha exacta de canje</a>.",
-            "en": "Boots Quest DX can be claimed now and kept under the platform’s terms. Complete the claim before the stated deadline. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Exact redemption page</a>.",
-            "val": "Boots Quest DX es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el bescanvi abans del límit indicat. <a href=\"https://discountrealms.itch.io/boots-quest-dx\">Fitxa exacta de bescanvi</a>."
-          },
-          "platform": "itch.io",
-          "until": {
-            "es": "Hasta el 10 de agosto de 2026, 23:36 UTC",
-            "en": "Until August 10, 2026, 11:36 p.m. UTC",
-            "val": "Fins al 10 d’agost de 2026, 23:36 UTC"
-          },
-          "urgent": false,
-          "url": "https://discountrealms.itch.io/boots-quest-dx",
-          "source": "itch.io / GamerPower",
-          "links": [
-            {
-              "title": {
-                "es": "Fuente o referencia",
-                "en": "Source or reference",
-                "val": "Font o referència"
-              },
-              "url": "https://discountrealms.itch.io/boots-quest-dx"
-            },
-            {
-              "title": {
-                "es": "Fuente o referencia",
-                "en": "Source or reference",
-                "val": "Font o referència"
-              },
-              "url": "https://www.gamerpower.com/boots-quest-dx-itch-io-giveaway"
-            },
-            {
-              "title": {
-                "es": "Fuente o referencia",
-                "en": "Source or reference",
-                "val": "Font o referència"
-              },
-              "url": "https://itch.io/s/2021/throwback-sale"
-            }
-          ]
-        },
-        {
-          "title": {
             "es": "Still There — gratis en Prime Gaming / GOG",
             "en": "Still There — free on Prime Gaming / GOG",
             "val": "Still There — gratis en Prime Gaming / GOG"
           },
           "summary": {
-            "es": "Still There se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Ficha o página de canje</a>.",
-            "en": "Still There can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Store or redemption page</a>.",
-            "val": "Still There es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Fitxa o pàgina de bescanvi</a>."
+            "es": "Still There se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Ficha exacta de canje</a>.",
+            "en": "Still There can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Exact claim page</a>.",
+            "val": "Still There es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/still-there-gog/dp/amzn1.pg.item.67c6d7c2-3050-431b-ae6d-91f34ad7d313\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / GOG",
           "until": {
@@ -622,9 +622,9 @@
             "val": "Escape Academy — gratis en Prime Gaming / Epic Games Store"
           },
           "summary": {
-            "es": "Escape Academy se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2dclaims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Ficha o página de canje</a>.",
-            "en": "Escape Academy can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2dclaims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Store or redemption page</a>.",
-            "val": "Escape Academy es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2dclaims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Fitxa o pàgina de bescanvi</a>."
+            "es": "Escape Academy se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Ficha exacta de canje</a>.",
+            "en": "Escape Academy can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Exact claim page</a>.",
+            "val": "Escape Academy es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/escape-academy-epic/dp/amzn1.pg.item.b1e0afe5-c3f4-464b-8731-e174e110ae2d\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / Epic Games Store",
           "until": {
@@ -669,9 +669,9 @@
             "val": "FRAMED Collection — gratis en Prime Gaming / GOG"
           },
           "summary": {
-            "es": "FRAMED Collection se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Ficha o página de canje</a>.",
-            "en": "FRAMED Collection can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Store or redemption page</a>.",
-            "val": "FRAMED Collection es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Fitxa o pàgina de bescanvi</a>."
+            "es": "FRAMED Collection se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Ficha exacta de canje</a>.",
+            "en": "FRAMED Collection can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Exact claim page</a>.",
+            "val": "FRAMED Collection es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/framed-collection-gog/dp/amzn1.pg.item.a06a5d0e-0f33-4a10-82e2-8ed97d4a8f03\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / GOG",
           "until": {
@@ -716,9 +716,9 @@
             "val": "Poly Vita — gratis en Prime Gaming / Legacy Games"
           },
           "summary": {
-            "es": "Poly Vita se puede jugar o reclamar sin coste durante la promoción. Conviene completar el proceso antes del límite indicado. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbcclaims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Ficha o página de canje</a>.",
-            "en": "Poly Vita can be played or claimed at no cost during the promotion. Complete the process before the stated deadline. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbcclaims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Store or redemption page</a>.",
-            "val": "Poly Vita es pot jugar o reclamar sense cost durant la promoció. Convé completar el procés abans del límit indicat. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbcclaims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Fitxa o pàgina de bescanvi</a>."
+            "es": "Poly Vita se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Ficha exacta de canje</a>.",
+            "en": "Poly Vita can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Exact claim page</a>.",
+            "val": "Poly Vita es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/poly-vita-legacy/dp/amzn1.pg.item.54ad3d4e-b323-4092-a8d1-f64e5de67cbc\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / Legacy Games",
           "until": {
@@ -763,9 +763,9 @@
             "val": "Mystic Academy: Escape Room — gratis en Prime Gaming / GOG"
           },
           "summary": {
-            "es": "Mystic Academy: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Ficha o página de canje</a>.",
-            "en": "Mystic Academy: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Store or redemption page</a>.",
-            "val": "Mystic Academy: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Fitxa o pàgina de bescanvi</a>."
+            "es": "Mystic Academy: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Ficha exacta de canje</a>.",
+            "en": "Mystic Academy: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Exact claim page</a>.",
+            "val": "Mystic Academy: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / GOG",
           "until": {
@@ -1045,9 +1045,9 @@
             "val": "In Sound Mind — gratis en Prime Gaming / Amazon Games App"
           },
           "summary": {
-            "es": "In Sound Mind se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Ficha o página de canje</a>.",
-            "en": "In Sound Mind can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Store or redemption page</a>.",
-            "val": "In Sound Mind es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Fitxa o pàgina de bescanvi</a>."
+            "es": "In Sound Mind se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Ficha exacta de canje</a>.",
+            "en": "In Sound Mind can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Exact claim page</a>.",
+            "val": "In Sound Mind es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Fitxa exacta de bescanvi</a>."
           },
           "platform": "Prime Gaming / Amazon Games App",
           "until": {
