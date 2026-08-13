@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-13",
+      "title": {
+        "es": "Pixel 11 estrena Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste en 64.000 dólares",
+        "en": "Pixel 11 debuts Tensor G6, US inflation cools and Bitcoin holds near $64,000",
+        "val": "Pixel 11 estrena Tensor G6, la inflació dels EUA es modera i Bitcoin resistix en 64.000 dòlars"
+      },
+      "summary": {
+        "es": "Google presenta Pixel 11 con Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste cerca de 64.000 dólares. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Google unveils Pixel 11 with Tensor G6, US inflation cools and Bitcoin holds near $64,000. This edition tracks 22 active games or promotions and six regional deals.",
+        "val": "Google presenta Pixel 11 amb Tensor G6, la inflació dels EUA es modera i Bitcoin resistix prop dels 64.000 dòlars. L’edició reunix 22 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-12",
       "title": {
         "es": "España se prepara para el eclipse total, Claude adopta marcas invisibles y Microsoft corrige 421 fallos",
@@ -1017,3 +1046,4 @@
     }
   ]
 }
+
