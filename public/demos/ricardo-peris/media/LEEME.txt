@@ -1,0 +1,27 @@
+Vídeo de fondo de la cabecera de "Sobre Ricardo Peris"
+======================================================
+
+Los estilos "Cinta", "Ventanal" y "Nave" (botón de estilo del modo admin)
+usan un vídeo a pantalla completa detrás del titular. Basta con dejar aquí
+los archivos con estos nombres exactos:
+
+  sobre-ricardo-peris.mp4    obligatorio (H.264 / AAC o sin audio)
+  sobre-ricardo-peris.webm   opcional, se sirve antes si el navegador lo admite
+  sobre-ricardo-peris.jpg    póster: primer fotograma, se ve mientras carga
+
+Mientras no existan, los tres estilos enseñan el degradado de marca
+(azul profundo -> grafito) y la página se ve terminada igual.
+
+Recomendaciones
+---------------
+- Formato apaisado 16:9, 1920x1080. El vídeo se recorta con object-fit:
+  cover, así que deja aire alrededor del motivo principal: en móvil se
+  recorta por los lados y en pantallas muy anchas por arriba y abajo.
+- Entre 8 y 15 segundos, en bucle limpio (que el último fotograma enlace
+  con el primero).
+- Sin audio: se reproduce silenciado, el audio solo suma peso.
+- Por debajo de 6 MB. Es lo primero que carga la página.
+- Movimiento lento y continuo. Los cortes de plano distraen del texto.
+
+Los archivos de esta carpeta se copian tal cual al compilar; se pueden
+sustituir en el servidor sin volver a compilar la web.
