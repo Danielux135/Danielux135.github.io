@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-14",
+      "title": {
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
+        "en": "Google launches Gemini 3.7 Flash, the S&P 500 hits a record and Epic gives away Caravan SandWitch",
+        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 bat rècord i Epic regala Caravan SandWitch"
+      },
+      "summary": {
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 cierra en récord y Epic regala Caravan SandWitch. La edición reúne 20 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Google launches Gemini 3.7 Flash, the S&P 500 closes at a record and Epic gives away Caravan SandWitch. This edition tracks 20 active games or promotions and six regional deals.",
+        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 tanca en rècord i Epic regala Caravan SandWitch. L’edició reunix 20 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-13",
       "title": {
         "es": "Pixel 11 estrena Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste en 64.000 dólares",
@@ -1046,4 +1075,3 @@
     }
   ]
 }
-
