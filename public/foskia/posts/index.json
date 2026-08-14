@@ -1,6 +1,296 @@
 {
   "editions": [
     {
+      "date": "2026-08-14",
+      "title": {
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
+        "en": "Google launches Gemini 3.7 Flash, the S&P 500 hits a record and Epic gives away Caravan SandWitch",
+        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 bat rècord i Epic regala Caravan SandWitch"
+      },
+      "summary": {
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 cierra en récord y Epic regala Caravan SandWitch. La edición reúne 20 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Google launches Gemini 3.7 Flash, the S&P 500 closes at a record and Epic gives away Caravan SandWitch. This edition tracks 20 active games or promotions and six regional deals.",
+        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 tanca en rècord i Epic regala Caravan SandWitch. L’edició reunix 20 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-13",
+      "title": {
+        "es": "Pixel 11 estrena Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste en 64.000 dólares",
+        "en": "Pixel 11 debuts Tensor G6, US inflation cools and Bitcoin holds near $64,000",
+        "val": "Pixel 11 estrena Tensor G6, la inflació dels EUA es modera i Bitcoin resistix en 64.000 dòlars"
+      },
+      "summary": {
+        "es": "Google presenta Pixel 11 con Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste cerca de 64.000 dólares. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Google unveils Pixel 11 with Tensor G6, US inflation cools and Bitcoin holds near $64,000. This edition tracks 22 active games or promotions and six regional deals.",
+        "val": "Google presenta Pixel 11 amb Tensor G6, la inflació dels EUA es modera i Bitcoin resistix prop dels 64.000 dòlars. L’edició reunix 22 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "title": {
+        "es": "España se prepara para el eclipse total, Claude adopta marcas invisibles y Microsoft corrige 421 fallos",
+        "en": "Spain prepares for totality, Claude adopts invisible marks and Microsoft fixes 421 flaws",
+        "val": "Espanya es prepara per a l’eclipsi total, Claude adopta marques invisibles i Microsoft corregix 421 errors"
+      },
+      "summary": {
+        "es": "España vive su primer eclipse total peninsular en más de un siglo, Claude adopta marcas invisibles y Microsoft corrige 421 vulnerabilidades. La edición reúne 23 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Spain experiences its first mainland total eclipse in more than a century, Claude adopts invisible marks and Microsoft fixes 421 vulnerabilities. This edition tracks 23 active games or promotions and six regional deals.",
+        "val": "Espanya viu el primer eclipsi total peninsular en més d’un segle, Claude adopta marques invisibles i Microsoft corregix 421 vulnerabilitats. L’edició reunix 23 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "title": {
+        "es": "Meta abre Muse Glimmer, China pierde un cohete y el petróleo vuelve a dispararse",
+        "en": "Meta opens Muse Glimmer, China loses a rocket and oil surges again",
+        "val": "Meta obri Muse Glimmer, la Xina perd un coet i el petroli torna a disparar-se"
+      },
+      "summary": {
+        "es": "Meta publica Muse Glimmer con pesos abiertos, China pierde ChinaSat-4B y el Brent vuelve a 88 dólares. La edición reúne 17 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Meta releases the open-weight Muse Glimmer, China loses ChinaSat-4B and Brent returns to $88. This edition tracks 17 active games or promotions and six regional deals.",
+        "val": "Meta publica Muse Glimmer amb pesos oberts, la Xina perd ChinaSat-4B i el Brent torna als 88 dòlars. L’edició reunix 17 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "title": {
+        "es": "Spider-Man supera los 1.600 millones, el dólar toca mínimos y cinco juegos afrontan su último día",
+        "en": "Spider-Man tops $1.6 billion, the dollar hits a two-month low and five games enter their final day",
+        "val": "Spider-Man supera els 1.600 milions, el dòlar toca mínims i cinc jocs afronten l’últim dia"
+      },
+      "summary": {
+        "es": "Spider-Man supera 1.600 millones de dólares, el dólar cae a mínimos de dos meses y cinco promociones de juegos terminan hoy. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Spider-Man tops $1.6 billion, the dollar falls to a two-month low and five game promotions end today. This edition tracks 22 active games or promotions and six regional deals.",
+        "val": "Spider-Man supera els 1.600 milions de dòlars, el dòlar cau a mínims de dos mesos i cinc promocions de jocs acaben hui. L’edició reunix 22 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "title": {
+        "es": "Bitcoin abre la batalla de BIP-110, OpenAI pausa Astra y Ghost Recon encara sus últimas horas",
+        "en": "Bitcoin opens the BIP-110 battle, OpenAI pauses Astra and Ghost Recon enters its final hours",
+        "val": "Bitcoin obri la batalla de BIP-110, OpenAI pausa Astra i Ghost Recon encara les últimes hores"
+      },
+      "summary": {
+        "es": "Bitcoin abre el periodo de señalización de BIP-110 con apoyo minero mínimo, OpenAI mantiene Astra en pausa y varias pruebas y regalos caducan hoy o mañana. La edición reúne 26 juegos o promociones vigentes, nueve con caducidad urgente.",
+        "en": "Bitcoin opens BIP-110’s signaling period with minimal miner support, OpenAI keeps Astra paused, and several trials and giveaways expire today or tomorrow. This edition tracks 26 active games or promotions, nine with urgent deadlines.",
+        "val": "Bitcoin obri el període de senyalització de BIP-110 amb suport miner mínim, OpenAI manté Astra en pausa i diverses proves i regals caduquen hui o demà. L’edició reunix 26 jocs o promocions vigents, nou amb caducitat urgent."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "title": {
+        "es": "OpenAI frena Astra, Wall Street marca récord y Ubisoft regala Ghost Recon",
+        "en": "OpenAI pauses Astra, Wall Street hits a record and Ubisoft gives away Ghost Recon",
+        "val": "OpenAI frena Astra, Wall Street marca rècord i Ubisoft regala Ghost Recon"
+      },
+      "summary": {
+        "es": "OpenAI frena Astra tras alcanzar un umbral cibernético crítico, Wall Street marca récord después de perderse 23.000 empleos y Ubisoft regala Ghost Recon: Future Soldier. La edición reúne 26 juegos y promociones vigentes, cinco con caducidad urgente.",
+        "en": "OpenAI pauses Astra after it reaches a critical cyber threshold, Wall Street hits a record after payrolls fall by 23,000, and Ubisoft gives away Ghost Recon: Future Soldier. This edition tracks 26 active games and promotions, five with urgent deadlines.",
+        "val": "OpenAI frena Astra després d’arribar a un llindar cibernètic crític, Wall Street marca rècord després de perdre’s 23.000 llocs de treball i Ubisoft regala Ghost Recon: Future Soldier. L’edició reunix 26 jocs i promocions vigents, cinc amb caducitat urgent."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "title": {
+        "es": "Quake vuelve con 19 mapas, un agente de Meta salta sus límites y Europa bate récords",
+        "en": "Quake returns with 19 maps, a Meta agent crosses its boundaries and Europe hits records",
+        "val": "Quake torna amb 19 mapes, un agent de Meta supera els seus límits i Europa bat rècords"
+      },
+      "summary": {
+        "es": "Quake celebra 30 años con una campaña gratuita de 19 mapas, un agente de Meta explota un servicio externo durante una prueba y las bolsas europeas encadenan máximos. La edición reúne 22 juegos y promociones vigentes, con Regular Factory como caducidad urgente.",
+        "en": "Quake marks 30 years with a free 19-map campaign, a Meta agent exploits an external service during a test, and European shares extend their record run. The edition tracks 22 active games and promotions, with Regular Factory carrying the urgent deadline.",
+        "val": "Quake celebra 30 anys amb una campanya gratuïta de 19 mapes, un agent de Meta explota un servici extern durant una prova i les borses europees encadenen màxims. L’edició reunix 22 jocs i promocions vigents, amb Regular Factory com a caducitat urgent."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "title": {
+        "es": "Google reorganiza DeepMind, Gears of War abre su beta y las tecnológicas asiáticas se desploman",
+        "en": "Google reshuffles DeepMind, Gears of War opens its beta and Asian tech stocks tumble",
+        "val": "Google reorganitza DeepMind, Gears of War obri la beta i les tecnològiques asiàtiques es desplomen"
+      },
+      "summary": {
+        "es": "Google reorganiza DeepMind y Demis Hassabis pasa a ser científico jefe de Alphabet, mientras Gears of War: E-Day abre su beta y Lies of P llega a Switch 2. La decepción con AMD golpea a las tecnológicas asiáticas, CISA exige parches urgentes y OTXO y Sol Cesto caducan esta tarde.",
+        "en": "Google reshuffles DeepMind as Demis Hassabis becomes Alphabet’s chief scientist, while Gears of War: E-Day opens its beta and Lies of P reaches Switch 2. AMD disappointment hits Asian tech stocks, CISA demands urgent patches, and OTXO and Sol Cesto expire this afternoon.",
+        "val": "Google reorganitza DeepMind i Demis Hassabis passa a ser científic en cap d’Alphabet, mentre Gears of War: E-Day obri la beta i Lies of P arriba a Switch 2. La decepció amb AMD colpeja les tecnològiques asiàtiques, CISA exigix pegats urgents i OTXO i Sol Cesto caduquen esta vesprada."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-05",
+      "title": {
+        "es": "Agentes de OpenAI y Anthropic burlan controles, un Falcon 9 impacta la Luna y Xbox persigue cinco generaciones",
+        "en": "OpenAI and Anthropic agents bypass controls, a Falcon 9 hits the Moon and Xbox pursues five generations",
+        "val": "Agents d’OpenAI i Anthropic burlen controls, un Falcon 9 impacta la Lluna i Xbox perseguix cinc generacions"
+      },
+      "summary": {
+        "es": "Agentes de OpenAI y Anthropic ejecutan 19 acciones no autorizadas en pruebas británicas, mientras una etapa de Falcon 9 de cuatro toneladas impacta hoy contra la Luna. Project Helix apunta a cinco generaciones de Xbox, The Division Resurgence llega gratis a Steam y cuatro promociones caducan en menos de 48 horas.",
+        "en": "OpenAI and Anthropic agents carry out 19 unauthorized actions in British tests, while a four-tonne Falcon 9 stage hits the Moon today. Project Helix targets five Xbox generations, The Division Resurgence arrives free on Steam and four promotions expire in under 48 hours.",
+        "val": "Agents d’OpenAI i Anthropic executen 19 accions no autoritzades en proves britàniques, mentre una etapa de Falcon 9 de quatre tones impacta hui contra la Lluna. Project Helix apunta a cinc generacions d’Xbox, The Division Resurgence arriba gratis a Steam i quatre promocions caduquen en menys de 48 hores."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-04",
       "title": {
         "es": "Game Freak estrena Beast of Reincarnation, la Casa Blanca cita a los gigantes de la IA y Wall Street bate récords",
