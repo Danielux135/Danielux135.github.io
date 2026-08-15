@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-15",
+      "title": {
+        "es": "El consumo de EE. UU. retrocede, Bitcoin pierde los 63.000 dólares y Pony.ai acelera sus robotaxis",
+        "en": "U.S. consumption retreats, Bitcoin loses $63,000 and Pony.ai accelerates its robotaxis",
+        "val": "El consum dels EUA retrocedix, Bitcoin perd els 63.000 dòlars i Pony.ai accelera els seus robotaxis"
+      },
+      "summary": {
+        "es": "Las ventas de EE. UU. caen, Bitcoin pierde los 63.000 dólares y Pony.ai acelera en Europa. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "U.S. sales fall, Bitcoin loses $63,000 and Pony.ai accelerates in Europe. This edition tracks 19 active games or promotions and six regional deals.",
+        "val": "Les vendes dels EUA cauen, Bitcoin perd els 63.000 dòlars i Pony.ai accelera a Europa. L’edició reunix 19 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-14",
       "title": {
         "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
@@ -1075,3 +1104,4 @@
     }
   ]
 }
+
