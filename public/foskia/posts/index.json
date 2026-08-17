@@ -1,6 +1,93 @@
 {
   "editions": [
     {
+      "date": "2026-08-17",
+      "title": {
+        "es": "Nvidia negocia 3.000 millones para OpenAI, Alemania frena su inversión y Gears bate récords",
+        "en": "Nvidia weighs $3 billion for OpenAI, German investment stalls and Gears breaks records",
+        "val": "Nvidia negocia 3.000 milions per a OpenAI, Alemanya frena la inversió i Gears bat rècords"
+      },
+      "summary": {
+        "es": "La inversión en infraestructura de IA vuelve a dominar la agenda, mientras las empresas alemanas reducen su apuesta por Estados Unidos. El fin de semana deja además un récord para la beta de Gears of War: E-Day, nuevas promociones gratuitas y señales mixtas en cripto.",
+        "en": "AI infrastructure investment dominates the agenda again as German companies scale back their U.S. commitments. The weekend also brings a record for the Gears of War: E-Day beta, new free-game promotions and mixed signals across crypto.",
+        "val": "La inversió en infraestructura d’IA torna a dominar l’agenda, mentre les empreses alemanyes reduïxen l’aposta pels Estats Units. El cap de setmana deixa també un rècord per a la beta de Gears of War: E-Day, noves promocions gratuïtes i senyals mixtos en cripto."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-16",
+      "title": {
+        "es": "Indonesia sufre un seísmo mortal, Anthropic apunta a 200.000 millones y el CO₂ deja huella en la sangre",
+        "en": "Indonesia suffers a deadly quake, Anthropic targets $200 billion and CO₂ leaves a mark on blood",
+        "val": "Indonèsia patix un sisme mortal, Anthropic apunta a 200.000 milions i el CO₂ deixa empremta en la sang"
+      },
+      "summary": {
+        "es": "Indonesia afronta un terremoto mortal, Anthropic exhibe una previsión récord y el CO₂ aparece ligado a cambios sanguíneos. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Indonesia faces a deadly earthquake, Anthropic presents a record forecast and CO₂ is linked to blood changes. This edition tracks 19 active games or promotions and six regional deals.",
+        "val": "Indonèsia afronta un terratrémol mortal, Anthropic exhibix una previsió rècord i el CO₂ apareix lligat a canvis sanguinis. L’edició reunix 19 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "title": {
+        "es": "El consumo de EE. UU. retrocede, Bitcoin pierde los 63.000 dólares y Pony.ai acelera sus robotaxis",
+        "en": "U.S. consumption retreats, Bitcoin loses $63,000 and Pony.ai accelerates its robotaxis",
+        "val": "El consum dels EUA retrocedix, Bitcoin perd els 63.000 dòlars i Pony.ai accelera els seus robotaxis"
+      },
+      "summary": {
+        "es": "Las ventas de EE. UU. caen, Bitcoin pierde los 63.000 dólares y Pony.ai acelera en Europa. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "U.S. sales fall, Bitcoin loses $63,000 and Pony.ai accelerates in Europe. This edition tracks 19 active games or promotions and six regional deals.",
+        "val": "Les vendes dels EUA cauen, Bitcoin perd els 63.000 dòlars i Pony.ai accelera a Europa. L’edició reunix 19 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-14",
       "title": {
         "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
