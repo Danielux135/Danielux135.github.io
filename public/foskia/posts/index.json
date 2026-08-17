@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-17",
+      "title": {
+        "es": "Nvidia negocia 3.000 millones para OpenAI, Alemania frena su inversión y Gears bate récords",
+        "en": "Nvidia weighs $3 billion for OpenAI, German investment stalls and Gears breaks records",
+        "val": "Nvidia negocia 3.000 milions per a OpenAI, Alemanya frena la inversió i Gears bat rècords"
+      },
+      "summary": {
+        "es": "La inversión en infraestructura de IA vuelve a dominar la agenda, mientras las empresas alemanas reducen su apuesta por Estados Unidos. El fin de semana deja además un récord para la beta de Gears of War: E-Day, nuevas promociones gratuitas y señales mixtas en cripto.",
+        "en": "AI infrastructure investment dominates the agenda again as German companies scale back their U.S. commitments. The weekend also brings a record for the Gears of War: E-Day beta, new free-game promotions and mixed signals across crypto.",
+        "val": "La inversió en infraestructura d’IA torna a dominar l’agenda, mentre les empreses alemanyes reduïxen l’aposta pels Estats Units. El cap de setmana deixa també un rècord per a la beta de Gears of War: E-Day, noves promocions gratuïtes i senyals mixtos en cripto."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-16",
       "title": {
         "es": "Indonesia sufre un seísmo mortal, Anthropic apunta a 200.000 millones y el CO₂ deja huella en la sangre",
@@ -1133,4 +1162,3 @@
     }
   ]
 }
-
