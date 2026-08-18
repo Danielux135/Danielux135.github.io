@@ -1,6 +1,35 @@
 {
   "editions": [
     {
+      "date": "2026-08-18",
+      "title": {
+        "es": "GitHub sufre un apagón global, Anthropic supera 65.000 millones y los bonos tocan máximos de 2007",
+        "en": "GitHub suffers a global outage, Anthropic tops $65 billion and bond yields hit 2007 highs",
+        "val": "GitHub patix una apagada global, Anthropic supera 65.000 milions i els bons toquen màxims de 2007"
+      },
+      "summary": {
+        "es": "Una larga caída de GitHub paraliza flujos de desarrollo mientras Anthropic acelera sus ingresos y el mercado de bonos vuelve a niveles no vistos desde 2007. La jornada suma nuevos juegos, una vulnerabilidad explotada en Ray, ciencia sorprendente y el estreno de The Sinking City 2.",
+        "en": "A lengthy GitHub outage disrupts development workflows while Anthropic accelerates revenue and bond yields return to levels unseen since 2007. The day also brings new games, an exploited Ray vulnerability, surprising science and the launch of The Sinking City 2.",
+        "val": "Una llarga caiguda de GitHub paralitza fluxos de desenvolupament mentre Anthropic accelera els ingressos i el mercat de bons torna a nivells no vistos des de 2007. La jornada suma nous jocs, una vulnerabilitat explotada en Ray, ciència sorprenent i l’estrena de The Sinking City 2."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ]
+    },
+    {
       "date": "2026-08-17",
       "title": {
         "es": "Nvidia negocia 3.000 millones para OpenAI, Alemania frena su inversión y Gears bate récords",
