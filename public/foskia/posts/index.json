@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-19",
+      "title": {
+        "es": "GLM-5.3 eleva la carrera de la IA, los bonos sacuden Wall Street y Game Pass estrena su segunda oleada",
+        "en": "GLM-5.3 raises the AI stakes, bonds rattle Wall Street and Game Pass launches its second wave",
+        "val": "GLM-5.3 eleva la carrera de la IA, els bons sacsegen Wall Street i Game Pass estrena la segona onada"
+      },
+      "summary": {
+        "es": "Z.ai presenta un modelo abierto especialmente potente para programar y detectar fallos mientras el repunte de las rentabilidades hunde a los semiconductores. La edición también reúne la segunda oleada de Game Pass, nuevas alertas de CISA y todos los juegos que aún pueden reclamarse.",
+        "en": "Z.ai unveils an unusually capable open model for coding and vulnerability discovery as surging yields hammer semiconductor stocks. This edition also covers Game Pass wave two, fresh CISA warnings and every game that can still be claimed.",
+        "val": "Z.ai presenta un model obert especialment potent per a programar i detectar fallades mentre el repunt de les rendibilitats afona els semiconductors. L’edició també reunix la segona onada de Game Pass, noves alertes de CISA i tots els jocs que encara es poden reclamar."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-19.json"
+    },
+    {
       "date": "2026-08-18",
       "title": {
         "es": "GitHub sufre un apagón global, Anthropic supera 65.000 millones y los bonos tocan máximos de 2007",
