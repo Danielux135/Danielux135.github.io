@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-20",
+      "title": {
+        "es": "Bitcoin roza los 70.000 dólares, Google refuerza sus chips y Swift pierde su rescate",
+        "en": "Bitcoin nears $70,000, Google strengthens its chip supply and Swift loses its rescue",
+        "val": "Bitcoin frega els 70.000 dòlars, Google reforça els seus xips i Swift perd el rescat"
+      },
+      "summary": {
+        "es": "El alivio en los bonos desata una subida de las criptomonedas mientras Google estrecha su alianza con Marvell y la NASA cancela la maniobra para elevar la órbita de Swift. La edición reúne además nuevas herramientas para desarrolladores, alertas urgentes de CISA y todos los juegos que siguen disponibles gratis.",
+        "en": "Bond-market relief sparks a cryptocurrency rally as Google deepens its Marvell partnership and NASA cancels the attempt to raise Swift’s orbit. This edition also covers new developer tools, urgent CISA alerts and every game still available for free.",
+        "val": "L’alleujament en els bons desencadena una pujada de les criptomonedes mentre Google estreny l’aliança amb Marvell i la NASA cancel·la la maniobra per a elevar l’òrbita de Swift. L’edició reunix, a més, noves ferramentes per a desenvolupadors, alertes urgents de CISA i tots els jocs que continuen disponibles gratis."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-20.json"
+    },
+    {
       "date": "2026-08-19",
       "title": {
         "es": "GLM-5.3 eleva la carrera de la IA, los bonos sacuden Wall Street y Game Pass estrena su segunda oleada",
