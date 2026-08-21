@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-21",
+      "title": {
+        "es": "Bitcoin supera los 75.000 dólares, Wall Street cae y Broadcom busca 60.000 millones para chips de IA",
+        "en": "Bitcoin clears $75,000, Wall Street slides and Broadcom seeks $60 billion for AI chips",
+        "val": "Bitcoin supera els 75.000 dòlars, Wall Street cau i Broadcom busca 60.000 milions per a xips d’IA"
+      },
+      "summary": {
+        "es": "El giro del mercado abre una jornada de contrastes: las criptomonedas aceleran mientras las acciones y los bonos estadounidenses retroceden, y Broadcom prepara una financiación récord para centros de datos. La edición reúne además alertas de seguridad, novedades de desarrollo y todos los juegos y pruebas gratuitas que siguen activos.",
+        "en": "A sharp market rotation defines the day: cryptocurrencies accelerate while U.S. stocks and bonds retreat, and Broadcom prepares record financing for data centers. This edition also gathers security alerts, developer updates and every game or free trial that remains active.",
+        "val": "El gir del mercat obri una jornada de contrastos: les criptomonedes acceleren mentre les accions i els bons nord-americans retrocedixen, i Broadcom prepara un finançament rècord per a centres de dades. L’edició reunix, a més, alertes de seguretat, novetats de desenvolupament i tots els jocs i proves gratuïtes que continuen actius."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-21.json"
+    },
+    {
       "date": "2026-08-20",
       "title": {
         "es": "Bitcoin roza los 70.000 dólares, Google refuerza sus chips y Swift pierde su rescate",
