@@ -1,0 +1,2699 @@
+{
+  "date": "2026-08-22",
+  "title": {
+    "es": "Bitcoin supera los 77.000 dólares, Wall Street salva la sesión y Europa acelera",
+    "en": "Bitcoin clears $77,000, Wall Street salvages the session and Europe accelerates",
+    "val": "Bitcoin supera els 77.000 dòlars, Wall Street salva la sessió i Europa accelera"
+  },
+  "intro": {
+    "es": "Bitcoin prolonga su ruptura mientras Wall Street rebota al cierre de una semana negativa y la actividad de la eurozona alcanza su mejor ritmo desde noviembre. La edición suma además el compromiso de GitHub tras su apagón, nuevos hallazgos lunares, alertas críticas de seguridad y todas las promociones de juegos que siguen vigentes.",
+    "en": "Bitcoin extends its breakout while Wall Street rebounds at the end of a losing week and eurozone activity reaches its strongest pace since November. This edition also covers GitHub’s pledge after its outage, new lunar findings, critical security alerts and every game promotion still available.",
+    "val": "Bitcoin prolonga la ruptura mentre Wall Street rebota al tancament d’una setmana negativa i l’activitat de l’eurozona arriba al millor ritme des de novembre. L’edició suma, a més, el compromís de GitHub després de l’apagada, noves troballes lunars, alertes crítiques de seguretat i totes les promocions de jocs que continuen vigents."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Xbox apenas concentra el 4 % de las ventas físicas de juegos en EE. UU.",
+            "en": "Xbox accounts for barely 4% of U.S. physical game sales",
+            "val": "Xbox a penes concentra el 4 % de les vendes físiques de jocs als EUA"
+          },
+          "summary": {
+            "es": "Circana sitúa a Nintendo en el 63 % de las copias nuevas vendidas en disco y a PlayStation en el 32 %, dejando a Xbox ligeramente por encima del 4 %. <a href=\"https://kotaku.com/nobodys-buying-new-physical-games-on-xbox-in-the-u-s-2000725930\">La cifra</a> refuerza el giro de Microsoft hacia Game Pass y las bibliotecas digitales.",
+            "en": "Circana puts Nintendo at 63% of new physical game sales and PlayStation at 32%, leaving Xbox just above 4%. <a href=\"https://kotaku.com/nobodys-buying-new-physical-games-on-xbox-in-the-u-s-2000725930\">The figure</a> underlines Microsoft’s shift toward Game Pass and digital libraries.",
+            "val": "Circana situa Nintendo en el 63 % de les còpies noves venudes en disc i PlayStation en el 32 %, deixant Xbox lleugerament per damunt del 4 %. <a href=\"https://kotaku.com/nobodys-buying-new-physical-games-on-xbox-in-the-u-s-2000725930\">La xifra</a> reforça el gir de Microsoft cap a Game Pass i les biblioteques digitals."
+          },
+          "source": "Kotaku / Pure Xbox / TweakTown",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://kotaku.com/nobodys-buying-new-physical-games-on-xbox-in-the-u-s-2000725930"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/xbox-reportedly-makes-up-less-than-5percent-of-us-physical-sales-in-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.tweaktown.com/news/113180/xbox-struggles-to-move-physical-discs-accounts-for-only-4-percent-of-disc-sales-in-the-us-this-year/index.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Xbox abre tres juegos completos hasta el domingo",
+            "en": "Xbox unlocks three full games through Sunday",
+            "val": "Xbox obri tres jocs complets fins diumenge"
+          },
+          "summary": {
+            "es": "Free Play Days permite jugar a Train Sim World 6, ICARUS: Console Edition y Lynked: Banner of the Spark hasta el 23 de agosto. <a href=\"https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23\">La promoción</a> exige una suscripción Game Pass elegible.",
+            "en": "Free Play Days unlocks Train Sim World 6, ICARUS: Console Edition and Lynked: Banner of the Spark through August 23. <a href=\"https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23\">The promotion</a> requires an eligible Game Pass subscription.",
+            "val": "Free Play Days permet jugar a Train Sim World 6, ICARUS: Console Edition i Lynked: Banner of the Spark fins al 23 d’agost. <a href=\"https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23\">La promoció</a> exigix una subscripció Game Pass elegible."
+          },
+          "source": "Xbox / Pure Xbox",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "8th Floor — gratis en itch.io",
+            "en": "8th Floor — free on itch.io",
+            "val": "8th Floor — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Juego de anomalías ambientado en el pasillo de un hotel, con un descuento temporal del 100 %. <a href=\"https://palesignal.itch.io/8th-floor\">Ficha exacta</a>.",
+            "en": "An anomaly-spotting game set in a hotel corridor, temporarily discounted by 100%. <a href=\"https://palesignal.itch.io/8th-floor\">Exact page</a>.",
+            "val": "Joc d’anomalies ambientat en el corredor d’un hotel, amb un descompte temporal del 100 %. <a href=\"https://palesignal.itch.io/8th-floor\">Fitxa exacta</a>."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 22 de agosto de 2026 a las 16:36 CEST",
+            "en": "Until August 22, 2026 at 4:36 p.m. CEST",
+            "val": "Fins al 22 d’agost de 2026 a les 16.36 CEST"
+          },
+          "urgent": true,
+          "url": "https://palesignal.itch.io/8th-floor",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://palesignal.itch.io/8th-floor"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/197941/8th-floor-100-off"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/game-sales"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Mystic Academy: Escape Room — gratis en Prime Gaming / GOG",
+            "en": "Mystic Academy: Escape Room — free on Prime Gaming / GOG",
+            "val": "Mystic Academy: Escape Room — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Mystic Academy: Escape Room se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Ficha exacta de canje</a>.",
+            "en": "Mystic Academy: Escape Room can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Exact claim page</a>.",
+            "val": "Mystic Academy: Escape Room es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 23 de agosto de 2026",
+            "en": "Until August 23, 2026",
+            "val": "Fins al 23 d’agost de 2026"
+          },
+          "urgent": true,
+          "url": "https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/claims/mystic-academy-escape-room-gog/dp/amzn1.pg.item.61f57a96-121c-443f-8432-652773456072"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/amazon-luna-free-pc-games-july-in-sound-mind-news-n/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Train Sim World 6 — gratis en Xbox Free Play Days",
+            "en": "Train Sim World 6 — free on Xbox Free Play Days",
+            "val": "Train Sim World 6 — gratis en Xbox Free Play Days"
+          },
+          "summary": {
+            "es": "La edición estándar completa se puede probar con una suscripción Game Pass elegible. <a href=\"https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The full Standard Edition can be played with an eligible Game Pass subscription. <a href=\"https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk\">Claim it here</a> before the stated deadline.",
+            "val": "L’edició estàndard completa es pot provar amb una subscripció Game Pass elegible. <a href=\"https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Xbox Free Play Days",
+          "until": {
+            "es": "Hasta el 23 de agosto de 2026",
+            "en": "Until August 23, 2026",
+            "val": "Fins al 23 d’agost de 2026"
+          },
+          "urgent": true,
+          "url": "https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk",
+          "source": "Xbox Free Play Days",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/train-sim-world-6-standard-edition/9pjj15jr1zwk"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "ICARUS: Console Edition — gratis en Xbox Free Play Days",
+            "en": "ICARUS: Console Edition — free on Xbox Free Play Days",
+            "val": "ICARUS: Console Edition — gratis en Xbox Free Play Days"
+          },
+          "summary": {
+            "es": "El juego de supervivencia cooperativa está abierto en Xbox Series X|S durante el fin de semana. <a href=\"https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The co-op survival game is unlocked on Xbox Series X|S for the weekend. <a href=\"https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd\">Claim it here</a> before the stated deadline.",
+            "val": "El joc de supervivència cooperativa està obert en Xbox Series X|S durant el cap de setmana. <a href=\"https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Xbox Free Play Days",
+          "until": {
+            "es": "Hasta el 23 de agosto de 2026",
+            "en": "Until August 23, 2026",
+            "val": "Fins al 23 d’agost de 2026"
+          },
+          "urgent": true,
+          "url": "https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd",
+          "source": "Xbox Free Play Days",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/icarus-console-edition/9p3h2pvzzpsd"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Lynked: Banner of the Spark — gratis en Xbox Free Play Days",
+            "en": "Lynked: Banner of the Spark — free on Xbox Free Play Days",
+            "val": "Lynked: Banner of the Spark — gratis en Xbox Free Play Days"
+          },
+          "summary": {
+            "es": "El híbrido de roguelite y simulación de vida se puede jugar completo durante Free Play Days. <a href=\"https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The roguelite and life-sim hybrid is fully playable during Free Play Days. <a href=\"https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6\">Claim it here</a> before the stated deadline.",
+            "val": "L’híbrid de roguelite i simulació de vida es pot jugar complet durant Free Play Days. <a href=\"https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Xbox Free Play Days",
+          "until": {
+            "es": "Hasta el 23 de agosto de 2026",
+            "en": "Until August 23, 2026",
+            "val": "Fins al 23 d’agost de 2026"
+          },
+          "urgent": true,
+          "url": "https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6",
+          "source": "Xbox Free Play Days",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/lynked-banner-of-the-spark/9p07zx96dtp6"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/free-play-days-try-these-xbox-games-for-free-august-20-23"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Borrowed Face — gratis en itch.io",
+            "en": "Borrowed Face — free on itch.io",
+            "val": "Borrowed Face — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Terror psicológico en primera persona con dos finales y una promoción de lanzamiento del 100 %. <a href=\"https://m1mo0.itch.io/borrowed-face\">Ficha exacta</a>.",
+            "en": "A first-person psychological horror game with two endings and a 100% launch promotion. <a href=\"https://m1mo0.itch.io/borrowed-face\">Exact page</a>.",
+            "val": "Terror psicològic en primera persona amb dos finals i una promoció de llançament del 100 %. <a href=\"https://m1mo0.itch.io/borrowed-face\">Fitxa exacta</a>."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 24 de agosto de 2026 a las 23:02 CEST",
+            "en": "Until August 24, 2026 at 11:02 p.m. CEST",
+            "val": "Fins al 24 d’agost de 2026 a les 23.02 CEST"
+          },
+          "urgent": false,
+          "url": "https://m1mo0.itch.io/borrowed-face",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://m1mo0.itch.io/borrowed-face"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/196643/borrowed-face-is-out-now-and-free-"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/game-sales"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Over The Top: WWI — gratis en Steam Free Weekend",
+            "en": "Over The Top: WWI — free on Steam Free Weekend",
+            "val": "Over The Top: WWI — gratis en Steam Free Weekend"
+          },
+          "summary": {
+            "es": "El combate multijugador de la Primera Guerra Mundial puede jugarse completo durante el fin de semana. <a href=\"https://store.steampowered.com/app/2778610/Over_The_Top_WWI/\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The World War I multiplayer combat game is fully playable for the weekend. <a href=\"https://store.steampowered.com/app/2778610/Over_The_Top_WWI/\">Claim it here</a> before the stated deadline.",
+            "val": "El combat multijugador de la Primera Guerra Mundial es pot jugar complet durant el cap de setmana. <a href=\"https://store.steampowered.com/app/2778610/Over_The_Top_WWI/\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Steam Free Weekend",
+          "until": {
+            "es": "Hasta el 24 de agosto de 2026",
+            "en": "Until August 24, 2026",
+            "val": "Fins al 24 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/2778610/Over_The_Top_WWI/",
+          "source": "Steam Free Weekend",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.steampowered.com/app/2778610/Over_The_Top_WWI/"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://dogdrip.com/en/calendar.php"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Railways: Train Simulator — gratis en Steam Free Weekend",
+            "en": "Railways: Train Simulator — free on Steam Free Weekend",
+            "val": "Railways: Train Simulator — gratis en Steam Free Weekend"
+          },
+          "summary": {
+            "es": "El simulador ferroviario abre temporalmente su versión completa. <a href=\"https://store.steampowered.com/app/2202110/Railways_Train_Simulator/\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The railway simulator temporarily unlocks its full version. <a href=\"https://store.steampowered.com/app/2202110/Railways_Train_Simulator/\">Claim it here</a> before the stated deadline.",
+            "val": "El simulador ferroviari obri temporalment la versió completa. <a href=\"https://store.steampowered.com/app/2202110/Railways_Train_Simulator/\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Steam Free Weekend",
+          "until": {
+            "es": "Hasta el 24 de agosto de 2026",
+            "en": "Until August 24, 2026",
+            "val": "Fins al 24 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/2202110/Railways_Train_Simulator/",
+          "source": "Steam Free Weekend",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.steampowered.com/app/2202110/Railways_Train_Simulator/"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://dogdrip.com/en/calendar.php"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Traffix — gratis en Steam Free Weekend",
+            "en": "Traffix — free on Steam Free Weekend",
+            "val": "Traffix — gratis en Steam Free Weekend"
+          },
+          "summary": {
+            "es": "El rompecabezas minimalista de gestión del tráfico se puede probar sin coste. <a href=\"https://store.steampowered.com/app/1102580/Traffix/\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The minimalist traffic-management puzzler can be tried at no cost. <a href=\"https://store.steampowered.com/app/1102580/Traffix/\">Claim it here</a> before the stated deadline.",
+            "val": "El trencaclosques minimalista de gestió del trànsit es pot provar sense cost. <a href=\"https://store.steampowered.com/app/1102580/Traffix/\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Steam Free Weekend",
+          "until": {
+            "es": "Hasta el 24 de agosto de 2026",
+            "en": "Until August 24, 2026",
+            "val": "Fins al 24 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/1102580/Traffix/",
+          "source": "Steam Free Weekend",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.steampowered.com/app/1102580/Traffix/"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://dogdrip.com/en/calendar.php"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Turbo Zone: Car Royale — gratis en Steam Free Weekend",
+            "en": "Turbo Zone: Car Royale — free on Steam Free Weekend",
+            "val": "Turbo Zone: Car Royale — gratis en Steam Free Weekend"
+          },
+          "summary": {
+            "es": "El juego de combate vehicular abre todos sus contenidos durante el fin de semana. <a href=\"https://store.steampowered.com/app/5002750/Turbo_Zone_Car_Royale/\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The vehicular combat game opens its full content for the weekend. <a href=\"https://store.steampowered.com/app/5002750/Turbo_Zone_Car_Royale/\">Claim it here</a> before the stated deadline.",
+            "val": "El joc de combat de vehicles obri tot el contingut durant el cap de setmana. <a href=\"https://store.steampowered.com/app/5002750/Turbo_Zone_Car_Royale/\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Steam Free Weekend",
+          "until": {
+            "es": "Hasta el 24 de agosto de 2026",
+            "en": "Until August 24, 2026",
+            "val": "Fins al 24 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/5002750/Turbo_Zone_Car_Royale/",
+          "source": "Steam Free Weekend",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.steampowered.com/app/5002750/Turbo_Zone_Car_Royale/"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://dogdrip.com/en/calendar.php"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Battlefield 6 — prueba gratuita multiplataforma",
+            "en": "Battlefield 6 — free cross-platform trial",
+            "val": "Battlefield 6 — prova gratuïta multiplataforma"
+          },
+          "summary": {
+            "es": "EA abre <a href=\"https://www.ea.com/games/battlefield/redsec/event/battlefield-6-free-trial\">Battlefield 6</a> en PC, PlayStation 5 y Xbox Series hasta el 25 de agosto. No requiere compra: basta con descargar Battlefield REDSEC y el progreso se conserva.",
+            "en": "EA has opened <a href=\"https://www.ea.com/games/battlefield/redsec/event/battlefield-6-free-trial\">Battlefield 6</a> on PC, PlayStation 5 and Xbox Series through August 25. No purchase is required: download Battlefield REDSEC and progress will carry over.",
+            "val": "EA obri <a href=\"https://www.ea.com/games/battlefield/redsec/event/battlefield-6-free-trial\">Battlefield 6</a> en PC, PlayStation 5 i Xbox Series fins al 25 d’agost. No requerix compra: només cal descarregar Battlefield REDSEC i el progrés es conserva."
+          },
+          "platform": "EA App / Steam / Epic Games Store / PlayStation 5 / Xbox Series X|S",
+          "until": {
+            "es": "Hasta el 25 de agosto de 2026",
+            "en": "Until August 25, 2026",
+            "val": "Fins al 25 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.ea.com/games/battlefield/redsec/event/battlefield-6-free-trial",
+          "source": "Electronic Arts",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.ea.com/games/battlefield/redsec/event/battlefield-6-free-trial"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.xbox.com/en-US/games/store/battlefield-6/9p2ff14jzll3"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.purexbox.com/news/2026/08/battlefield-6-is-free-to-play-on-xbox-this-week-starting-today"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Terraforming Mars — gratis en Prime Gaming / Amazon Games App",
+            "en": "Terraforming Mars — free on Prime Gaming / Amazon Games App",
+            "val": "Terraforming Mars — gratis en Prime Gaming / Amazon Games App"
+          },
+          "summary": {
+            "es": "Terraforming Mars se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://gaming.amazon.com/\">Página de canje</a>.",
+            "en": "Terraforming Mars can be claimed now and kept under the platform’s terms. Complete the process before the deadline. <a href=\"https://gaming.amazon.com/\">Claim page</a>.",
+            "val": "Terraforming Mars es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://gaming.amazon.com/\">Pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 26 de agosto de 2026",
+            "en": "Until August 26, 2026",
+            "val": "Fins al 26 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://gaming.amazon.com/",
+          "source": "Amazon Luna / Amazon Games",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://gaming.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Calendario de agosto",
+                "en": "August schedule",
+                "val": "Calendari d’agost"
+              },
+              "url": "https://offlane.xyz/deals/amazon-prime-gaming-august-2026-free-games"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/en-us/amazon-luna-free-space-grunts-chrono-shard-news-n/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Cardpocalypse — gratis en Epic Games Store",
+            "en": "Cardpocalypse — free on Epic Games Store",
+            "val": "Cardpocalypse — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "Epic regala la aventura de cartas de rol de Gambrinous; una vez añadida queda en la biblioteca. <a href=\"https://store.epicgames.com/p/cardpocalypse\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "Epic is giving away Gambrinous’ card-battling RPG adventure; once added, it stays in the library. <a href=\"https://store.epicgames.com/p/cardpocalypse\">Claim it here</a> before the stated deadline.",
+            "val": "Epic regala l’aventura de cartes de rol de Gambrinous; una vegada afegida queda en la biblioteca. <a href=\"https://store.epicgames.com/p/cardpocalypse\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 27 de agosto de 2026 a las 17:00 CEST",
+            "en": "Until August 27, 2026 at 5:00 p.m. CEST",
+            "val": "Fins al 27 d’agost de 2026 a les 17.00 CEST"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/cardpocalypse",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.epicgames.com/p/cardpocalypse"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Albion Online: Epic Mage Bundle — gratis en Epic Games Store",
+            "en": "Albion Online: Epic Mage Bundle — free on Epic Games Store",
+            "val": "Albion Online: Epic Mage Bundle — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "El paquete incluye objetos y ventajas para cuentas elegibles de Albion Online. <a href=\"https://store.epicgames.com/p/albion-online-epic-mage-bundle-2ceb19\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The bundle includes items and benefits for eligible Albion Online accounts. <a href=\"https://store.epicgames.com/p/albion-online-epic-mage-bundle-2ceb19\">Claim it here</a> before the stated deadline.",
+            "val": "El paquet inclou objectes i avantatges per a comptes elegibles d’Albion Online. <a href=\"https://store.epicgames.com/p/albion-online-epic-mage-bundle-2ceb19\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 27 de agosto de 2026 a las 17:00 CEST",
+            "en": "Until August 27, 2026 at 5:00 p.m. CEST",
+            "val": "Fins al 27 d’agost de 2026 a les 17.00 CEST"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/albion-online-epic-mage-bundle-2ceb19",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.epicgames.com/p/albion-online-epic-mage-bundle-2ceb19"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "THE MIDNIGHT BUS — gratis en itch.io",
+            "en": "THE MIDNIGHT BUS — free on itch.io",
+            "val": "THE MIDNIGHT BUS — gratis en itch.io"
+          },
+          "summary": {
+            "es": "El juego de terror psicológico está rebajado al 100 % y puede incorporarse a la colección. <a href=\"https://itandfeel.itch.io/the-midnight-bus\">Ficha exacta</a>.",
+            "en": "The psychological horror game is discounted by 100% and can be added to the collection. <a href=\"https://itandfeel.itch.io/the-midnight-bus\">Exact page</a>.",
+            "val": "El joc de terror psicològic té una rebaixa del 100 % i es pot incorporar a la col·lecció. <a href=\"https://itandfeel.itch.io/the-midnight-bus\">Fitxa exacta</a>."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 28 de agosto de 2026 a las 22:40 UTC",
+            "en": "Until August 28, 2026 at 10:40 p.m. UTC",
+            "val": "Fins al 28 d’agost de 2026 a les 22.40 UTC"
+          },
+          "urgent": false,
+          "url": "https://itandfeel.itch.io/the-midnight-bus",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itandfeel.itch.io/the-midnight-bus"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/171469/the-midnight-bus-remake"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/124572/launching-offer"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Dying Light 2 Stay Human: Reloaded Edition — gratis en PlayStation Plus Essential",
+            "en": "Dying Light 2 Stay Human: Reloaded Edition — free on PlayStation Plus Essential",
+            "val": "Dying Light 2 Stay Human: Reloaded Edition — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Dying Light 2 Stay Human: Reloaded Edition se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el canje antes del límite indicado. <a href=\"https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US\">Ficha exacta de canje</a>.",
+            "en": "Dying Light 2 Stay Human: Reloaded Edition can be claimed now and kept under the platform’s terms. Complete the claim before the stated deadline. <a href=\"https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US\">Exact redemption page</a>.",
+            "val": "Dying Light 2 Stay Human: Reloaded Edition es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el bescanvi abans del límit indicat. <a href=\"https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://blog.playstation.com/2026/07/28/playstation-plus-monthly-games-for-august-dying-light-2-stay-human-reloaded-edition-big-walk-signalis/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.playstation.com/en-us/ps-plus/whats-new/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Big Walk — gratis en PlayStation Plus Essential",
+            "en": "Big Walk — free on PlayStation Plus Essential",
+            "val": "Big Walk — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Big Walk se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el canje antes del límite indicado. <a href=\"https://store.playstation.com/en-us/concept/10017189\">Ficha exacta de canje</a>.",
+            "en": "Big Walk can be claimed now and kept under the platform’s terms. Complete the claim before the stated deadline. <a href=\"https://store.playstation.com/en-us/concept/10017189\">Exact redemption page</a>.",
+            "val": "Big Walk es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el bescanvi abans del límit indicat. <a href=\"https://store.playstation.com/en-us/concept/10017189\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/concept/10017189",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://store.playstation.com/en-us/concept/10017189"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://blog.playstation.com/2026/07/28/playstation-plus-monthly-games-for-august-dying-light-2-stay-human-reloaded-edition-big-walk-signalis/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.playstation.com/en-us/ps-plus/whats-new/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Signalis — gratis en PlayStation Plus Essential",
+            "en": "Signalis — free on PlayStation Plus Essential",
+            "val": "Signalis — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Signalis se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el canje antes del límite indicado. <a href=\"https://store.playstation.com/en-us/product/UP3864-CUSA34422_00-SIGNALIS0000004A/\">Ficha exacta de canje</a>.",
+            "en": "Signalis can be claimed now and kept under the platform’s terms. Complete the claim before the stated deadline. <a href=\"https://store.playstation.com/en-us/product/UP3864-CUSA34422_00-SIGNALIS0000004A/\">Exact redemption page</a>.",
+            "val": "Signalis es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el bescanvi abans del límit indicat. <a href=\"https://store.playstation.com/en-us/product/UP3864-CUSA34422_00-SIGNALIS0000004A/\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/en-us/product/UP3864-CUSA34422_00-SIGNALIS0000004A/",
+          "source": "PlayStation",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://store.playstation.com/en-us/product/UP3864-CUSA34422_00-SIGNALIS0000004A/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://blog.playstation.com/2026/07/28/playstation-plus-monthly-games-for-august-dying-light-2-stay-human-reloaded-edition-big-walk-signalis/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.playstation.com/en-us/ps-plus/whats-new/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "XCOM: Chimera Squad — gratis en Prime Gaming / GOG",
+            "en": "XCOM: Chimera Squad — free on Prime Gaming / GOG",
+            "val": "XCOM: Chimera Squad — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "XCOM: Chimera Squad se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://www.gog.com/en/game/xcom_chimera_squad\">Página de canje</a>.",
+            "en": "XCOM: Chimera Squad can be claimed now and kept under the platform’s terms. Complete the process before the deadline. <a href=\"https://www.gog.com/en/game/xcom_chimera_squad\">Claim page</a>.",
+            "val": "XCOM: Chimera Squad es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://www.gog.com/en/game/xcom_chimera_squad\">Pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gog.com/en/game/xcom_chimera_squad",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://www.gog.com/en/game/xcom_chimera_squad"
+            },
+            {
+              "title": {
+                "es": "Calendario de agosto",
+                "en": "August schedule",
+                "val": "Calendari d’agost"
+              },
+              "url": "https://offlane.xyz/deals/amazon-prime-gaming-august-2026-free-games"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://comicbook.com/gaming/news/gog-free-pc-games-august-2026/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Targeted - 10 Days — gratis en Epic Games Store",
+            "en": "Targeted - 10 Days — free on Epic Games Store",
+            "val": "Targeted - 10 Days — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "El desarrollador mantiene temporalmente a precio cero este juego de deducción y vigilancia. <a href=\"https://store.epicgames.com/p/targeted-10-days-75a48c\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The developer has temporarily set this surveillance deduction game to zero. <a href=\"https://store.epicgames.com/p/targeted-10-days-75a48c\">Claim it here</a> before the stated deadline.",
+            "val": "El desenvolupador manté temporalment a preu zero este joc de deducció i vigilància. <a href=\"https://store.epicgames.com/p/targeted-10-days-75a48c\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.epicgames.com/p/targeted-10-days-75a48c",
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://store.epicgames.com/p/targeted-10-days-75a48c"
+            },
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://www.reddit.com/r/FreeGameFindings/new/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "NIGHTBELL — gratis en itch.io",
+            "en": "NIGHTBELL — free on itch.io",
+            "val": "NIGHTBELL — gratis en itch.io"
+          },
+          "summary": {
+            "es": "La breve experiencia de terror puede descargarse con un descuento del 100 %. <a href=\"https://truegamesstudio.itch.io/nightbell\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The short horror experience can be downloaded at a 100% discount. <a href=\"https://truegamesstudio.itch.io/nightbell\">Claim it here</a> before the stated deadline.",
+            "val": "La breu experiència de terror es pot descarregar amb un descompte del 100 %. <a href=\"https://truegamesstudio.itch.io/nightbell\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://truegamesstudio.itch.io/nightbell",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://truegamesstudio.itch.io/nightbell"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "DIRE ECHO — gratis en itch.io",
+            "en": "DIRE ECHO — free on itch.io",
+            "val": "DIRE ECHO — gratis en itch.io"
+          },
+          "summary": {
+            "es": "El título independiente de terror está disponible para conservar sin pagar. <a href=\"https://truegamesstudio.itch.io/dire-echo\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The indie horror title is available to keep at no charge. <a href=\"https://truegamesstudio.itch.io/dire-echo\">Claim it here</a> before the stated deadline.",
+            "val": "El títol independent de terror està disponible per a conservar sense pagar. <a href=\"https://truegamesstudio.itch.io/dire-echo\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://truegamesstudio.itch.io/dire-echo",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://truegamesstudio.itch.io/dire-echo"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Forget-me-not — gratis en itch.io",
+            "en": "Forget-me-not — free on itch.io",
+            "val": "Forget-me-not — gratis en itch.io"
+          },
+          "summary": {
+            "es": "La aventura narrativa se ofrece gratis durante su campaña temporal. <a href=\"https://featherbox-studio.itch.io/forget-me-not\">Reclámalo aquí</a> antes del cierre indicado.",
+            "en": "The narrative adventure is free during its limited-time campaign. <a href=\"https://featherbox-studio.itch.io/forget-me-not\">Claim it here</a> before the stated deadline.",
+            "val": "L’aventura narrativa s’oferix gratis durant la campanya temporal. <a href=\"https://featherbox-studio.itch.io/forget-me-not\">Reclama’l ací</a> abans del tancament indicat."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 31 de agosto de 2026",
+            "en": "Until August 31, 2026",
+            "val": "Fins al 31 d’agost de 2026"
+          },
+          "urgent": false,
+          "url": "https://featherbox-studio.itch.io/forget-me-not",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente principal",
+                "en": "Primary source",
+                "val": "Font principal"
+              },
+              "url": "https://featherbox-studio.itch.io/forget-me-not"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Right and Down — gratis en Prime Gaming / GOG",
+            "en": "Right and Down — free on Prime Gaming / GOG",
+            "val": "Right and Down — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Los suscriptores de Prime pueden reclamar un código para GOG desde <a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> y conservar el juego. Conviene canjearlo antes de la fecha límite.",
+            "en": "Prime subscribers can claim a GOG code through <a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> and keep the game. Redeem it before the deadline.",
+            "val": "Els subscriptors de Prime poden reclamar un codi per a GOG des d’<a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> i conservar el joc. Convé bescanviar-lo abans de la data límit."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 5 de septiembre de 2026",
+            "en": "Until September 5, 2026",
+            "val": "Fins al 5 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gog.com/en/game/right_and_down",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Reclamar",
+                "en": "Claim",
+                "val": "Reclamar"
+              },
+              "url": "https://luna.amazon.com/claims/home?filter=Game"
+            },
+            {
+              "title": {
+                "es": "Ficha del juego",
+                "en": "Game page",
+                "val": "Fitxa del joc"
+              },
+              "url": "https://www.gog.com/en/game/right_and_down"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "HIVESWAP: Friendsim — gratis en Prime Gaming / GOG",
+            "en": "HIVESWAP: Friendsim — free on Prime Gaming / GOG",
+            "val": "HIVESWAP: Friendsim — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Los suscriptores de Prime pueden reclamar un código para GOG desde <a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> y conservar el juego. Conviene canjearlo antes de la fecha límite.",
+            "en": "Prime subscribers can claim a GOG code through <a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> and keep the game. Redeem it before the deadline.",
+            "val": "Els subscriptors de Prime poden reclamar un codi per a GOG des d’<a href=\"https://luna.amazon.com/claims/home?filter=Game\">Amazon Luna</a> i conservar el joc. Convé bescanviar-lo abans de la data límit."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 9 de septiembre de 2026",
+            "en": "Until September 9, 2026",
+            "val": "Fins al 9 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gog.com/en/game/hiveswap_friendsim",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Reclamar",
+                "en": "Claim",
+                "val": "Reclamar"
+              },
+              "url": "https://luna.amazon.com/claims/home?filter=Game"
+            },
+            {
+              "title": {
+                "es": "Ficha del juego",
+                "en": "Game page",
+                "val": "Fitxa del joc"
+              },
+              "url": "https://www.gog.com/en/game/hiveswap_friendsim"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Space Grunts 2 — gratis en Prime Gaming / GOG",
+            "en": "Space Grunts 2 — free on Prime Gaming / GOG",
+            "val": "Space Grunts 2 — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Space Grunts 2 se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://www.gog.com/en/game/space_grunts_2\">Página de canje</a>.",
+            "en": "Space Grunts 2 can be claimed now and kept under the platform’s terms. Complete the process before the deadline. <a href=\"https://www.gog.com/en/game/space_grunts_2\">Claim page</a>.",
+            "val": "Space Grunts 2 es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://www.gog.com/en/game/space_grunts_2\">Pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 16 de septiembre de 2026",
+            "en": "Until September 16, 2026",
+            "val": "Fins al 16 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://www.gog.com/en/game/space_grunts_2",
+          "source": "Amazon Luna / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://www.gog.com/en/game/space_grunts_2"
+            },
+            {
+              "title": {
+                "es": "Calendario de agosto",
+                "en": "August schedule",
+                "val": "Calendari d’agost"
+              },
+              "url": "https://offlane.xyz/deals/amazon-prime-gaming-august-2026-free-games"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/en-us/amazon-prime-free-pc-games-june-2026-news-n/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Ethan Is Missing — gratis en itch.io",
+            "en": "Ethan Is Missing — free on itch.io",
+            "val": "Ethan Is Missing — gratis en itch.io"
+          },
+          "summary": {
+            "es": "La novela visual de terror psicológico está al 100 % de descuento durante la promoción. <a href=\"https://eda-v4lent1ne.itch.io/ethan-is-missing\">Ficha exacta</a>.",
+            "en": "The psychological horror visual novel is 100% off during the promotion. <a href=\"https://eda-v4lent1ne.itch.io/ethan-is-missing\">Exact page</a>.",
+            "val": "La novel·la visual de terror psicològic té un descompte del 100 % durant la promoció. <a href=\"https://eda-v4lent1ne.itch.io/ethan-is-missing\">Fitxa exacta</a>."
+          },
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 22 de septiembre de 2026 a las 21:59 UTC",
+            "en": "Until September 22, 2026 at 9:59 p.m. UTC",
+            "val": "Fins al 22 de setembre de 2026 a les 21.59 UTC"
+          },
+          "urgent": false,
+          "url": "https://eda-v4lent1ne.itch.io/ethan-is-missing",
+          "source": "itch.io",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://eda-v4lent1ne.itch.io/ethan-is-missing"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/195934/100-off-for-ethan-is-missing"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://itch.io/s/34199/release-giveaway"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "In Sound Mind — gratis en Prime Gaming / Amazon Games App",
+            "en": "In Sound Mind — free on Prime Gaming / Amazon Games App",
+            "val": "In Sound Mind — gratis en Prime Gaming / Amazon Games App"
+          },
+          "summary": {
+            "es": "In Sound Mind se puede reclamar ahora y conservar según las condiciones de la plataforma. Conviene completar el proceso antes del límite indicado en la tienda. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Ficha exacta de canje</a>.",
+            "en": "In Sound Mind can be claimed now and kept under the platform’s terms. Complete the process before the deadline shown by the store. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Exact claim page</a>.",
+            "val": "In Sound Mind es pot reclamar ara i conservar segons les condicions de la plataforma. Convé completar el procés abans del límit indicat a la botiga. <a href=\"https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 23 de septiembre de 2026",
+            "en": "Until September 23, 2026",
+            "val": "Fins al 23 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399",
+          "source": "Amazon Luna / Amazon Games",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://luna.amazon.com/claims/in-sound-mind-aga/dp/amzn1.pg.item.1a5c5cac-5445-48ba-89f6-91c4e0068399"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.allkeyshop.com/blog/amazon-luna-free-pc-games-july-in-sound-mind-news-n/"
+            },
+            {
+              "title": {
+                "es": "Contexto y seguimiento",
+                "en": "Context and tracker",
+                "val": "Context i seguiment"
+              },
+              "url": "https://steamdeckhq.com/news/free-games-for-your-steam-deck-7-23-26/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Space Grunts: Chrono Shard — gratis en Prime Gaming / Epic Games Store",
+            "en": "Space Grunts: Chrono Shard — free on Prime Gaming / Epic Games Store",
+            "val": "Space Grunts: Chrono Shard — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Space Grunts: Chrono Shard se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://gaming.amazon.com/\">Página de canje</a>.",
+            "en": "Space Grunts: Chrono Shard can be claimed now and kept under the platform’s terms. Complete the process before the deadline. <a href=\"https://gaming.amazon.com/\">Claim page</a>.",
+            "val": "Space Grunts: Chrono Shard es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://gaming.amazon.com/\">Pàgina de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 23 de septiembre de 2026",
+            "en": "Until September 23, 2026",
+            "val": "Fins al 23 de setembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://gaming.amazon.com/",
+          "source": "Amazon Luna / Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o ficha principal",
+                "en": "Primary source or store page",
+                "val": "Font o fitxa principal"
+              },
+              "url": "https://gaming.amazon.com/"
+            },
+            {
+              "title": {
+                "es": "Calendario de agosto",
+                "en": "August schedule",
+                "val": "Calendari d’agost"
+              },
+              "url": "https://offlane.xyz/deals/amazon-prime-gaming-august-2026-free-games"
+            },
+            {
+              "title": {
+                "es": "Confirmación adicional",
+                "en": "Additional confirmation",
+                "val": "Confirmació addicional"
+              },
+              "url": "https://www.pcguide.com/news/amazon-prime-members-can-get-these-14-steam-deck-friendly-games-for-free-right-now/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Zoria: Age of Shattering — gratis en Prime Gaming / GOG",
+            "en": "Zoria: Age of Shattering — free on Prime Gaming / GOG",
+            "val": "Zoria: Age of Shattering — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Zoria: Age of Shattering se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://luna.amazon.com/claims/zoria-age-of-shattering-gog/dp/amzn1.pg.item.ec074069-a977-4885-b5b0-6f972d17abb7\">Ficha exacta de canje</a>.",
+            "en": "Zoria: Age of Shattering can be claimed now and kept under the platform’s terms. Complete the process before the stated deadline. <a href=\"https://luna.amazon.com/claims/zoria-age-of-shattering-gog/dp/amzn1.pg.item.ec074069-a977-4885-b5b0-6f972d17abb7\">Exact redemption page</a>.",
+            "val": "Zoria: Age of Shattering es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://luna.amazon.com/claims/zoria-age-of-shattering-gog/dp/amzn1.pg.item.ec074069-a977-4885-b5b0-6f972d17abb7\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 28 de octubre de 2026",
+            "en": "Until October 28, 2026",
+            "val": "Fins al 28 d’octubre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/zoria-age-of-shattering-gog/dp/amzn1.pg.item.ec074069-a977-4885-b5b0-6f972d17abb7",
+          "source": "Prime Gaming / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://luna.amazon.com/claims/zoria-age-of-shattering-gog/dp/amzn1.pg.item.ec074069-a977-4885-b5b0-6f972d17abb7"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.amazongamestudios.com/en-gb/news/articles/luna-july-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://luna.amazon.com/claims/home?filter=Game"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Weakless — gratis en Prime Gaming / GOG",
+            "en": "Weakless — free on Prime Gaming / GOG",
+            "val": "Weakless — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Weakless se puede reclamar ahora y conservar según las condiciones de la plataforma. Completa el proceso antes del límite indicado. <a href=\"https://luna.amazon.com/claims/weakless-gog/dp/amzn1.pg.item.35aae84a-f566-4890-8fd3-492318a39036\">Ficha exacta de canje</a>.",
+            "en": "Weakless can be claimed now and kept under the platform’s terms. Complete the process before the stated deadline. <a href=\"https://luna.amazon.com/claims/weakless-gog/dp/amzn1.pg.item.35aae84a-f566-4890-8fd3-492318a39036\">Exact redemption page</a>.",
+            "val": "Weakless es pot reclamar ara i conservar segons les condicions de la plataforma. Completa el procés abans del límit indicat. <a href=\"https://luna.amazon.com/claims/weakless-gog/dp/amzn1.pg.item.35aae84a-f566-4890-8fd3-492318a39036\">Fitxa exacta de bescanvi</a>."
+          },
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 28 de octubre de 2026",
+            "en": "Until October 28, 2026",
+            "val": "Fins al 28 d’octubre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/weakless-gog/dp/amzn1.pg.item.35aae84a-f566-4890-8fd3-492318a39036",
+          "source": "Prime Gaming / GOG",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://luna.amazon.com/claims/weakless-gog/dp/amzn1.pg.item.35aae84a-f566-4890-8fd3-492318a39036"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.amazongamestudios.com/en-gb/news/articles/luna-july-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://luna.amazon.com/claims/home?filter=Game"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "The Division Resurgence — free-to-play en Steam",
+            "en": "The Division Resurgence — free-to-play on Steam",
+            "val": "The Division Resurgence — free-to-play en Steam"
+          },
+          "summary": {
+            "es": "The Division Resurgence llega hoy a Steam como juego free-to-play permanente. Puede instalarse sin coste desde su <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">ficha exacta de Steam</a> y mantiene progresión cruzada con móviles.",
+            "en": "The Division Resurgence arrives on Steam today as a permanent free-to-play game. It can be installed at no cost from its <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">exact Steam page</a> and supports cross-progression with mobile.",
+            "val": "The Division Resurgence arriba hui a Steam com a joc free-to-play permanent. Es pot instal·lar sense cost des de la seua <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">fitxa exacta de Steam</a> i manté progressió creuada amb mòbils."
+          },
+          "platform": "Steam / Ubisoft Connect",
+          "until": {
+            "es": "Sin fecha de caducidad: free-to-play permanente",
+            "en": "No expiry: permanent free-to-play",
+            "val": "Sense data de caducitat: free-to-play permanent"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/3749720/The_Division_Resurgence/",
+          "source": "Steam / Ubisoft",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://store.steampowered.com/app/3749720/The_Division_Resurgence/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://news.ubisoft.com/en-us/article/5FtgpT4eqjzL49ROhjC99c/the-division-resurgence-play-free-on-steam-august-5"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.gameshub.com/news/news/the-division-resurgence-release-times-2892602/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "GitHub promete reforzar su infraestructura tras casi ocho horas de apagón",
+            "en": "GitHub pledges infrastructure upgrades after nearly eight hours offline",
+            "val": "GitHub promet reforçar la infraestructura després de quasi huit hores d’apagada"
+          },
+          "summary": {
+            "es": "La plataforma reconoció que “falló” a los desarrolladores tras una interrupción de siete horas y 47 minutos y anunció más capacidad y pruebas de recuperación. <a href=\"https://www.theregister.com/devops/2026/08/21/we-let-you-down-github-pledges-to-scale-up-before-developers-give-up/5291031\">El compromiso</a> llega después de varios incidentes que han afectado compilaciones y despliegues.",
+            "en": "The platform acknowledged it let developers down after a seven-hour, 47-minute outage and promised more capacity and recovery testing. <a href=\"https://www.theregister.com/devops/2026/08/21/we-let-you-down-github-pledges-to-scale-up-before-developers-give-up/5291031\">The pledge</a> follows several incidents that disrupted builds and deployments.",
+            "val": "La plataforma va reconéixer que va fallar als desenvolupadors després d’una interrupció de set hores i 47 minuts i va anunciar més capacitat i proves de recuperació. <a href=\"https://www.theregister.com/devops/2026/08/21/we-let-you-down-github-pledges-to-scale-up-before-developers-give-up/5291031\">El compromís</a> arriba després de diversos incidents que han afectat compilacions i desplegaments."
+          },
+          "source": "The Register / GeekWire / GitHub Status",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.theregister.com/devops/2026/08/21/we-let-you-down-github-pledges-to-scale-up-before-developers-give-up/5291031"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.geekwire.com/2026/github-outage-disrupts-developers-worldwide-in-latest-setback-for-microsoft-coding-platform/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.githubstatus.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "GitHub amplía las herramientas para revisar cambios complejos",
+            "en": "GitHub expands tools for reviewing complex changes",
+            "val": "GitHub amplia les ferramentes per a revisar canvis complexos"
+          },
+          "summary": {
+            "es": "Las solicitudes apiladas y las nuevas señales de calidad permiten dividir grandes modificaciones sin perder contexto. <a href=\"https://github.blog/changelog/\">Las novedades</a> buscan reducir conflictos y acelerar la revisión colaborativa.",
+            "en": "Stacked pull requests and new quality signals let teams split large changes without losing context. <a href=\"https://github.blog/changelog/\">The updates</a> aim to reduce conflicts and speed collaborative review.",
+            "val": "Les sol·licituds apilades i els nous senyals de qualitat permeten dividir grans modificacions sense perdre context. <a href=\"https://github.blog/changelog/\">Les novetats</a> busquen reduir conflictes i accelerar la revisió col·laborativa."
+          },
+          "source": "GitHub / InfoQ",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://github.blog/changelog/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.infoq.com/news/2026/08/github-stacked-pull-requests/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.infoq.com/news/2026/08/github-code-quality/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Microbios terrestres podrían sobrevivir meses cerca del polo sur lunar",
+            "en": "Earth microbes could survive for months near the lunar south pole",
+            "val": "Microbis terrestres podrien sobreviure mesos prop del pol sud lunar"
+          },
+          "summary": {
+            "es": "Un estudio dirigido por NASA concluye que ciertas bacterias resistirían semanas o meses en zonas protegidas del polo sur de la Luna. <a href=\"https://www.reuters.com/science/nasa-led-study-shows-some-earth-microbes-could-survive-moon-2026-08-21/\">El resultado</a> obliga a extremar la protección planetaria antes de las misiones tripuladas.",
+            "en": "A NASA-led study concludes that some bacteria could persist for weeks or months in sheltered areas near the Moon’s south pole. <a href=\"https://www.reuters.com/science/nasa-led-study-shows-some-earth-microbes-could-survive-moon-2026-08-21/\">The result</a> raises the bar for planetary protection ahead of crewed missions.",
+            "val": "Un estudi dirigit per NASA conclou que alguns bacteris resistirien setmanes o mesos en zones protegides del pol sud de la Lluna. <a href=\"https://www.reuters.com/science/nasa-led-study-shows-some-earth-microbes-could-survive-moon-2026-08-21/\">El resultat</a> obliga a extremar la protecció planetària abans de les missions tripulades."
+          },
+          "source": "Reuters / NASA / Nature",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/science/nasa-led-study-shows-some-earth-microbes-could-survive-moon-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://science.nasa.gov/earth/recent-news/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.nature.com/nature/articles?year=2026"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "NASA cartografía la huella de las olas de calor europeas",
+            "en": "NASA maps the footprint of Europe’s heat waves",
+            "val": "NASA cartografia l’empremta de les onades de calor europees"
+          },
+          "summary": {
+            "es": "Las observaciones por satélite muestran temperaturas de superficie anómalas y estrés acumulado en vegetación y suelos. <a href=\"https://science.nasa.gov/earth/recent-news/\">Los mapas</a> permiten comparar la intensidad regional y anticipar riesgos de incendios y sequía.",
+            "en": "Satellite observations show exceptional surface temperatures and accumulated stress in vegetation and soils. <a href=\"https://science.nasa.gov/earth/recent-news/\">The maps</a> help compare regional intensity and anticipate wildfire and drought risk.",
+            "val": "Les observacions per satèl·lit mostren temperatures de superfície anòmales i estrés acumulat en vegetació i sòls. <a href=\"https://science.nasa.gov/earth/recent-news/\">Els mapes</a> permeten comparar la intensitat regional i anticipar riscos d’incendis i sequera."
+          },
+          "source": "NASA / Nature / Live Science",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://science.nasa.gov/earth/recent-news/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.nature.com/nature/articles?year=2026"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.livescience.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Wall Street rebota, pero cierra la semana con pérdidas",
+            "en": "Wall Street rebounds but ends the week lower",
+            "val": "Wall Street rebota, però tanca la setmana amb pèrdues"
+          },
+          "summary": {
+            "es": "El S&P 500 ganó un 0,4 % y el Dow sumó 517 puntos el viernes, aunque ambos terminaron la semana a la baja mientras el bono a diez años alcanzaba el 4,73 %. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">La sesión</a> alivió el golpe previo sin despejar la presión de tipos y petróleo.",
+            "en": "The S&P 500 gained 0.4% and the Dow added 517 points Friday, though both ended the week lower as the 10-year yield reached 4.73%. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">The session</a> softened the prior blow without removing pressure from rates and oil.",
+            "val": "L’S&P 500 va guanyar un 0,4 % i el Dow va sumar 517 punts divendres, encara que tots dos van tancar la setmana a la baixa mentre el bo a deu anys arribava al 4,73 %. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">La sessió</a> va alleujar el colp previ sense dissipar la pressió dels tipus i el petroli."
+          },
+          "source": "Reuters / AP / The Guardian",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/business/us-stock-futures-rise-after-sharp-losses-prior-session-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.theguardian.com/business/live/2026/aug/21/retail-sales-economy-consumer-ons-heatwave-ftse-stock-market-growth-oil-live-updates"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La actividad de la eurozona crece al ritmo más rápido desde noviembre",
+            "en": "Eurozone activity grows at its fastest pace since November",
+            "val": "L’activitat de l’eurozona creix al ritme més ràpid des de novembre"
+          },
+          "summary": {
+            "es": "El PMI compuesto avanzó a 52,1 gracias al repunte de servicios y manufacturas, reforzando las expectativas de una postura más dura del BCE. <a href=\"https://www.reuters.com/world/europe/euro-zone-business-activity-growth-hits-highest-since-november-pmi-shows-2026-08-21/\">El indicador</a> mejora, aunque los costes y la demanda siguen desiguales entre países.",
+            "en": "The composite PMI rose to 52.1 as services and manufacturing improved, reinforcing expectations of a firmer ECB stance. <a href=\"https://www.reuters.com/world/europe/euro-zone-business-activity-growth-hits-highest-since-november-pmi-shows-2026-08-21/\">The indicator</a> strengthened, though costs and demand remain uneven across countries.",
+            "val": "El PMI compost va avançar a 52,1 gràcies al repunt de servicis i manufactures, reforçant les expectatives d’una postura més dura del BCE. <a href=\"https://www.reuters.com/world/europe/euro-zone-business-activity-growth-hits-highest-since-november-pmi-shows-2026-08-21/\">L’indicador</a> millora, encara que els costos i la demanda continuen desiguals entre països."
+          },
+          "source": "Reuters / The Guardian",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/world/europe/euro-zone-business-activity-growth-hits-highest-since-november-pmi-shows-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/world/europe/traders-are-bracing-increasingly-hawkish-ecb-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.theguardian.com/business/live/2026/aug/21/retail-sales-economy-consumer-ons-heatwave-ftse-stock-market-growth-oil-live-updates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin supera los 77.000 dólares y extiende su ruptura",
+            "en": "Bitcoin clears $77,000 and extends its breakout",
+            "val": "Bitcoin supera els 77.000 dòlars i prolonga la ruptura"
+          },
+          "summary": {
+            "es": "Bitcoin volvió a acelerar el viernes y cruzó los 77.000 dólares mientras el mercado absorbía una liquidación récord de posiciones cortas. <a href=\"https://apnews.com/article/stock-markets-bonds-futures-oil-iran-96ef9586e1288e50843b4d2b1ccebc32\">El avance</a> amplía el rally, pero también eleva el riesgo de movimientos bruscos.",
+            "en": "Bitcoin accelerated again Friday and crossed $77,000 as the market absorbed record short liquidations. <a href=\"https://apnews.com/article/stock-markets-bonds-futures-oil-iran-96ef9586e1288e50843b4d2b1ccebc32\">The advance</a> extends the rally but also raises the risk of sharp moves.",
+            "val": "Bitcoin va tornar a accelerar divendres i va travessar els 77.000 dòlars mentre el mercat absorbia una liquidació rècord de posicions curtes. <a href=\"https://apnews.com/article/stock-markets-bonds-futures-oil-iran-96ef9586e1288e50843b4d2b1ccebc32\">L’avanç</a> amplia el ral·li, però també eleva el risc de moviments bruscos."
+          },
+          "source": "AP / CoinDesk / MarketWatch",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://apnews.com/article/stock-markets-bonds-futures-oil-iran-96ef9586e1288e50843b4d2b1ccebc32"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.coindesk.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.coindesk.com/markets/2026/08/20/bearish-crypto-bets-lose-record-usd2-7-billion-as-bitcoin-surges-toward-usd70-000"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-treasury-intervention-bond-markets-walmart-earnings-results/card/bitcoin-moves-above-70-000-as-treasury-bond-intervention-sparks-crypto-rally-JcpK5RMYJaT1VMmBwE2r"
+            }
+          ],
+          "shortTerm": {
+            "es": "Mantener 75.000 deja abierta una prueba de 80.000; perder 72.000 favorecería una corrección hacia 70.000.",
+            "en": "Holding $75,000 keeps $80,000 in play; losing $72,000 would favor a pullback toward $70,000.",
+            "val": "Mantindre 75.000 deixa oberta una prova de 80.000; perdre 72.000 afavoriria una correcció cap a 70.000."
+          },
+          "longTerm": {
+            "es": "Cierres semanales sobre 75.000 confirmarían la ruptura; 62.000–65.000 sigue siendo el soporte macro relevante.",
+            "en": "Weekly closes above $75,000 would confirm the breakout; $62,000–$65,000 remains the relevant macro support.",
+            "val": "Tancaments setmanals sobre 75.000 confirmarien la ruptura; 62.000–65.000 continua sent el suport macro rellevant."
+          }
+        },
+        {
+          "title": {
+            "es": "Ethereum consolida el salto sobre los 2.300 dólares",
+            "en": "Ethereum consolidates its move above $2,300",
+            "val": "Ethereum consolida el salt sobre els 2.300 dòlars"
+          },
+          "summary": {
+            "es": "Ether mantiene buena parte del avance de doble dígito que acompañó la ruptura de Bitcoin. <a href=\"https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally\">El impulso</a> mejora la estructura técnica, aunque la volatilidad continúa elevada.",
+            "en": "Ether is holding much of the double-digit gain that accompanied Bitcoin’s breakout. <a href=\"https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally\">The move</a> improves the technical structure, although volatility remains elevated.",
+            "val": "Ether manté bona part de l’avanç de doble dígit que va acompanyar la ruptura de Bitcoin. <a href=\"https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally\">L’impuls</a> millora l’estructura tècnica, encara que la volatilitat continua elevada."
+          },
+          "source": "AP / CoinDesk / MarketWatch",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.coindesk.com/markets/2026/08/20/ether-jumps-18-to-usd2-250-as-bitcoin-tops-usd69-000-in-broad-crypto-rally"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.coindesk.com/price/ethereum"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.coindesk.com/"
+            }
+          ],
+          "shortTerm": {
+            "es": "2.250 es el primer soporte; superar 2.400 permitiría buscar 2.550.",
+            "en": "$2,250 is first support; clearing $2,400 would open a move toward $2,550.",
+            "val": "2.250 és el primer suport; superar 2.400 permetria buscar 2.550."
+          },
+          "longTerm": {
+            "es": "Recuperar 2.700–3.000 consolidaría el cambio de tendencia; caer bajo 2.000 lo debilitaría.",
+            "en": "Reclaiming $2,700–$3,000 would consolidate the trend reversal; falling below $2,000 would weaken it.",
+            "val": "Recuperar 2.700–3.000 consolidaria el canvi de tendència; caure per davall de 2.000 el debilitaria."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "La venta global de bonos eleva el coste de financiar gobiernos y empresas",
+            "en": "Global bond selloff raises borrowing costs for governments and companies",
+            "val": "La venda global de bons eleva el cost de finançar governs i empreses"
+          },
+          "summary": {
+            "es": "Las rentabilidades soberanas subieron con fuerza mientras los inversores exigían más prima por inflación, deuda y riesgo geopolítico. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-08-21/\">El movimiento</a> encarece hipotecas, inversión empresarial y servicio de la deuda pública.",
+            "en": "Sovereign yields rose sharply as investors demanded more compensation for inflation, debt and geopolitical risk. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-08-21/\">The move</a> raises the cost of mortgages, business investment and public-debt service.",
+            "val": "Les rendibilitats sobiranes van pujar amb força mentre els inversors exigien més prima per inflació, deute i risc geopolític. <a href=\"https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-08-21/\">El moviment</a> encareix hipoteques, inversió empresarial i servici del deute públic."
+          },
+          "source": "Reuters / AP",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/commentary/reuters-open-interest/global-markets-view-usa-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El petróleo supera los 92 dólares y vuelve a presionar la inflación",
+            "en": "Oil rises above $92 and renews inflation pressure",
+            "val": "El petroli supera els 92 dòlars i torna a pressionar la inflació"
+          },
+          "summary": {
+            "es": "El crudo estadounidense cerró en 92,67 dólares entre tensiones geopolíticas y dudas sobre la oferta. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">La subida</a> complica el descenso de precios energéticos y las decisiones de los bancos centrales.",
+            "en": "U.S. crude closed at $92.67 amid geopolitical tension and supply concerns. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">The rise</a> complicates lower energy inflation and central-bank decisions.",
+            "val": "El cru nord-americà va tancar en 92,67 dòlars entre tensions geopolítiques i dubtes sobre l’oferta. <a href=\"https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32\">La pujada</a> complica la baixada dels preus energètics i les decisions dels bancs centrals."
+          },
+          "source": "AP / Reuters / The Guardian",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://apnews.com/article/96ef9586e1288e50843b4d2b1ccebc32"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/world/china/global-markets-global-markets-2026-08-21/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.theguardian.com/business/live/2026/aug/21/retail-sales-economy-consumer-ons-heatwave-ftse-stock-market-growth-oil-live-updates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "OpenAI rebaja más de un 20 % el uso de GPT-5.6 Sol durante tres meses",
+            "en": "OpenAI cuts GPT-5.6 Sol usage costs by more than 20% for three months",
+            "val": "OpenAI rebaixa més d’un 20 % l’ús de GPT-5.6 Sol durant tres mesos"
+          },
+          "summary": {
+            "es": "La compañía aplica créditos promocionales a su modelo de razonamiento para impulsar pruebas y despliegues empresariales. <a href=\"https://openai.com/index/gpt-5-6/\">La actualización</a> reduce el coste efectivo, pero mantiene temporal la rebaja.",
+            "en": "The company is applying promotional credits to its reasoning model to encourage testing and enterprise deployments. <a href=\"https://openai.com/index/gpt-5-6/\">The update</a> lowers the effective cost, but the discount is temporary.",
+            "val": "La companyia aplica crèdits promocionals al seu model de raonament per a impulsar proves i desplegaments empresarials. <a href=\"https://openai.com/index/gpt-5-6/\">L’actualització</a> reduïx el cost efectiu, però manté temporal la rebaixa."
+          },
+          "source": "OpenAI / TechCrunch / Business Insider",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://openai.com/index/gpt-5-6/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.businessinsider.com/openai-training-pause-highlights-ai-safety-challenges-2026-8"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Anthropic afronta dudas por las marcas invisibles de Claude",
+            "en": "Anthropic faces scrutiny over Claude’s invisible markers",
+            "val": "Anthropic afronta dubtes per les marques invisibles de Claude"
+          },
+          "summary": {
+            "es": "El sistema de marcas para identificar texto generado abre un debate sobre interoperabilidad, privacidad y cumplimiento de la futura ley europea. <a href=\"https://www.businessinsider.com/why-anthropic-claude-text-ai-watermark-rivals-eu-law-2026-8\">La controversia</a> llega mientras Claude gana terreno entre clientes empresariales.",
+            "en": "A marking system intended to identify generated text has opened debate over interoperability, privacy and compliance with forthcoming European rules. <a href=\"https://www.businessinsider.com/why-anthropic-claude-text-ai-watermark-rivals-eu-law-2026-8\">The controversy</a> comes as Claude expands among enterprise customers.",
+            "val": "El sistema de marques per a identificar text generat obri un debat sobre interoperabilitat, privacitat i compliment de la futura llei europea. <a href=\"https://www.businessinsider.com/why-anthropic-claude-text-ai-watermark-rivals-eu-law-2026-8\">La controvèrsia</a> arriba mentre Claude guanya terreny entre clients empresarials."
+          },
+          "source": "Business Insider / Anthropic / The Verge",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.businessinsider.com/why-anthropic-claude-text-ai-watermark-rivals-eu-law-2026-8"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.anthropic.com/news"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.theverge.com/ai-artificial-intelligence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "Radeon RX 9050 confirma 4 GB y un bus de 64 bits",
+            "en": "Radeon RX 9050 confirms 4GB and a 64-bit bus",
+            "val": "Radeon RX 9050 confirma 4 GB i un bus de 64 bits"
+          },
+          "summary": {
+            "es": "La nueva GPU de entrada de AMD aparece con 16 MB de Infinity Cache y una configuración pensada para equipos económicos. <a href=\"https://www.tweaktown.com/\">Las especificaciones</a> apuntan a 1080p con límites claros en juegos que exigen mucha memoria.",
+            "en": "AMD’s new entry-level GPU has appeared with 16MB of Infinity Cache and a configuration aimed at budget systems. <a href=\"https://www.tweaktown.com/\">The specifications</a> point to 1080p gaming with clear limits in memory-heavy titles.",
+            "val": "La nova GPU d’entrada d’AMD apareix amb 16 MB d’Infinity Cache i una configuració pensada per a equips econòmics. <a href=\"https://www.tweaktown.com/\">Les especificacions</a> apunten a 1080p amb límits clars en jocs que exigixen molta memòria."
+          },
+          "source": "TweakTown / Tom’s Hardware / AMD",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.tweaktown.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.tomshardware.com/news"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.amd.com/en/newsroom.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Broadcom prepara una financiación récord para chips de IA",
+            "en": "Broadcom prepares record financing for AI chips",
+            "val": "Broadcom prepara un finançament rècord per a xips d’IA"
+          },
+          "summary": {
+            "es": "El paquete de más de 60.000 millones de dólares financiaría aceleradores y sistemas completos para centros de datos antes de que los clientes generen ingresos. <a href=\"https://www.reuters.com/technology/broadcom-seeks-more-than-60-billion-latest-ai-debt-deal-bloomberg-news-reports-2026-08-20/\">La operación</a> revela el enorme capital necesario para ampliar la infraestructura.",
+            "en": "The package of more than $60 billion would finance accelerators and complete data-center systems before customers generate revenue. <a href=\"https://www.reuters.com/technology/broadcom-seeks-more-than-60-billion-latest-ai-debt-deal-bloomberg-news-reports-2026-08-20/\">The deal</a> reveals the immense capital needed to expand infrastructure.",
+            "val": "El paquet de més de 60.000 milions de dòlars finançaria acceleradors i sistemes complets per a centres de dades abans que els clients generen ingressos. <a href=\"https://www.reuters.com/technology/broadcom-seeks-more-than-60-billion-latest-ai-debt-deal-bloomberg-news-reports-2026-08-20/\">L’operació</a> revela l’enorme capital necessari per a ampliar la infraestructura."
+          },
+          "source": "Reuters / Tom’s Hardware / CNBC",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.reuters.com/technology/broadcom-seeks-more-than-60-billion-latest-ai-debt-deal-bloomberg-news-reports-2026-08-20/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.tomshardware.com/news"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.cnbc.com/technology/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "CISA da hasta el 24 de agosto para corregir una vulnerabilidad ya explotada",
+            "en": "CISA sets an August 24 deadline for an actively exploited flaw",
+            "val": "CISA dona fins al 24 d’agost per a corregir una vulnerabilitat ja explotada"
+          },
+          "summary": {
+            "es": "La agencia incorporó un nuevo fallo a su catálogo KEV y fijó un plazo excepcionalmente corto para los organismos federales. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">La alerta</a> recomienda inventariar sistemas expuestos y aplicar mitigaciones sin demora.",
+            "en": "The agency added a new flaw to its KEV catalog and set an unusually short deadline for federal agencies. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">The alert</a> recommends inventorying exposed systems and applying mitigations immediately.",
+            "val": "L’agència va incorporar una nova fallada al catàleg KEV i va fixar un termini excepcionalment curt per als organismes federals. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">L’alerta</a> recomana inventariar sistemes exposats i aplicar mitigacions sense demora."
+          },
+          "source": "CISA",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.cisa.gov/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Cuatro fallos críticos amenazan macOS, SharePoint y vCenter",
+            "en": "Four critical flaws threaten macOS, SharePoint and vCenter",
+            "val": "Quatre fallades crítiques amenacen macOS, SharePoint i vCenter"
+          },
+          "summary": {
+            "es": "CISA advierte de explotación activa contra vulnerabilidades de Apple, Microsoft y VMware y exige priorizar los parches. <a href=\"https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html\">El conjunto</a> afecta puestos de trabajo y servidores empresariales con alto valor.",
+            "en": "CISA warns of active exploitation targeting Apple, Microsoft and VMware vulnerabilities and urges priority patching. <a href=\"https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html\">The group</a> affects high-value workstations and enterprise servers.",
+            "val": "CISA advertix d’explotació activa contra vulnerabilitats d’Apple, Microsoft i VMware i exigix prioritzar els pegats. <a href=\"https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html\">El conjunt</a> afecta llocs de treball i servidors empresarials d’alt valor."
+          },
+          "source": "The Hacker News / SecurityWeek / CISA",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-microsoft-vmware-apple-vulnerabilities/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Toy Story 5 y Rose of Nevada encabezan los estrenos domésticos",
+            "en": "Toy Story 5 and Rose of Nevada lead this week’s home releases",
+            "val": "Toy Story 5 i Rose of Nevada encapçalen les estrenes domèstiques"
+          },
+          "summary": {
+            "es": "Las plataformas renuevan sus catálogos con grandes producciones y cine independiente para el fin de semana. <a href=\"https://decider.com/2026/08/21/new-movies-on-streaming-toy-story-5-rose-of-nevada-and-more/\">La selección</a> reúne alquileres digitales, suscripciones y nuevas ventanas de streaming.",
+            "en": "Platforms are refreshing their catalogs with major productions and independent films for the weekend. <a href=\"https://decider.com/2026/08/21/new-movies-on-streaming-toy-story-5-rose-of-nevada-and-more/\">The selection</a> covers digital rentals, subscriptions and new streaming windows.",
+            "val": "Les plataformes renoven els catàlegs amb grans produccions i cine independent per al cap de setmana. <a href=\"https://decider.com/2026/08/21/new-movies-on-streaming-toy-story-5-rose-of-nevada-and-more/\">La selecció</a> reunix lloguers digitals, subscripcions i noves finestres d’streaming."
+          },
+          "source": "Decider / Cinco Días",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://decider.com/2026/08/21/new-movies-on-streaming-toy-story-5-rose-of-nevada-and-more/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://decider.com/2026/08/21/best-new-movies-shows-weekend-netflix-hulu-amazon-prime-hbo-august-21-2026/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://cincodias.elpais.com/smartlife/smart-tv/2026-08-21/estrenos-de-netflix-prime-video-hbo-max-movistar-plus-y-mas-en-el-fin-de-semana-del-21-al-23-de-agosto.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "El fin de semana de streaming mezcla regresos y finales de temporada",
+            "en": "Streaming weekend mixes returning shows and season finales",
+            "val": "El cap de setmana d’streaming mescla retorns i finals de temporada"
+          },
+          "summary": {
+            "es": "Las recomendaciones incluyen nuevas temporadas, comedias y el cierre de Outer Banks entre los principales servicios. <a href=\"https://ew.com/camp-miasma-always-sunny-season-18-outer-banks-finale-must-list-aug-21-12065199\">La agenda</a> muestra una oferta más repartida entre Netflix, Hulu, Prime Video y HBO.",
+            "en": "Recommendations include new seasons, comedies and the Outer Banks finale across the major services. <a href=\"https://ew.com/camp-miasma-always-sunny-season-18-outer-banks-finale-must-list-aug-21-12065199\">The lineup</a> shows a slate spread more evenly across Netflix, Hulu, Prime Video and HBO.",
+            "val": "Les recomanacions inclouen noves temporades, comèdies i el final d’Outer Banks entre els principals servicis. <a href=\"https://ew.com/camp-miasma-always-sunny-season-18-outer-banks-finale-must-list-aug-21-12065199\">L’agenda</a> mostra una oferta més repartida entre Netflix, Hulu, Prime Video i HBO."
+          },
+          "source": "Entertainment Weekly / AP / Decider",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://ew.com/camp-miasma-always-sunny-season-18-outer-banks-finale-must-list-aug-21-12065199"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://apnews.com/article/efb1bc125b2e0c312019e4860f5e53f9"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://decider.com/2026/08/21/best-new-movies-shows-weekend-netflix-hulu-amazon-prime-hbo-august-21-2026/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "JWST detecta un posible “astro de agujero negro” 100.000 millones de veces más brillante que el Sol",
+            "en": "JWST spots a possible “black-hole star” 100 billion times brighter than the Sun",
+            "val": "JWST detecta un possible “astre de forat negre” 100.000 milions de vegades més brillant que el Sol"
+          },
+          "summary": {
+            "es": "El objeto apareció solo 660 millones de años después del Big Bang y podría explicar algunos puntos rojos que desconciertan a los astrónomos. <a href=\"https://www.livescience.com/\">La hipótesis</a> propone gas denso alimentado desde dentro por un agujero negro.",
+            "en": "The object appeared just 660 million years after the Big Bang and may explain some mysterious little red dots. <a href=\"https://www.livescience.com/\">The hypothesis</a> proposes dense gas powered from within by a black hole.",
+            "val": "L’objecte va aparéixer només 660 milions d’anys després del Big Bang i podria explicar alguns punts rojos que desconcerten els astrònoms. <a href=\"https://www.livescience.com/\">La hipòtesi</a> proposa gas dens alimentat des de dins per un forat negre."
+          },
+          "source": "Live Science / Nature / ScienceAlert",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.livescience.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.nature.com/news"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.sciencealert.com/archive"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Göbekli Tepe revela cómo se organizaban sus constructores hace 11.000 años",
+            "en": "Göbekli Tepe reveals how its builders organized 11,000 years ago",
+            "val": "Göbekli Tepe revela com s’organitzaven els constructors fa 11.000 anys"
+          },
+          "summary": {
+            "es": "Nuevas estructuras y objetos afinan cómo vivían y distribuían el trabajo quienes levantaron el santuario. <a href=\"https://www.iflscience.com/\">El hallazgo</a> difumina la frontera simple entre cazadores-recolectores y sociedades monumentales.",
+            "en": "New structures and objects refine how the people who built the sanctuary lived and divided labor. <a href=\"https://www.iflscience.com/\">The find</a> blurs the simple boundary between hunter-gatherers and monumental societies.",
+            "val": "Noves estructures i objectes afinen com vivien i distribuïen el treball els qui van alçar el santuari. <a href=\"https://www.iflscience.com/\">La troballa</a> difumina la frontera simple entre caçadors recol·lectors i societats monumentals."
+          },
+          "source": "IFLScience / Smithsonian / Nature",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.iflscience.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.smithsonianmag.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.nature.com/news"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "DJI Neo Motion Fly More Combo por 369 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "Fnac España rebaja el kit de vuelo del DJI Neo de 529 € a 369 €, un 30% verificado. Incluye mando por movimiento y accesorios Fly More; <a href=\"https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720\">ver oferta</a>.",
+            "en": "",
+            "val": ""
+          },
+          "source": "Fnac España",
+          "url": "https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720",
+          "platform": "Fnac España",
+          "originalPrice": {
+            "es": "529 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "369 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-30%",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Mientras dure el stock",
+            "en": "",
+            "val": ""
+          },
+          "urgent": true,
+          "links": [
+            {
+              "title": {
+                "es": "Oferta verificada",
+                "en": "",
+                "val": ""
+              },
+              "url": "https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720"
+            }
+          ]
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "DJI Neo Motion Fly More Combo per 369 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "Fnac Espanya rebaixa el kit de vol del DJI Neo de 529 € a 369 €, un 30% verificat. Inclou comandament per moviment i accessoris Fly More; <a href=\"https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720\">vore oferta</a>."
+          },
+          "source": "Fnac España",
+          "url": "https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720",
+          "platform": "Fnac España",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "529 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "369 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-30%"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Mientras dure el stock"
+          },
+          "urgent": true,
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Oferta verificada"
+              },
+              "url": "https://www.chollometro.com/ofertas/dron-dji-neo-motion-fly-more-combo-1971720"
+            }
+          ]
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "TV Samsung TU50U8075H de 50 pulgadas por 349 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "MediaMarkt España rebaja este televisor 4K de 529 € a 349 €, un descuento verificado del 34 %. La <a href=\"https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html\">ficha del producto</a> confirma que está disponible para compra online; la promoción puede terminar antes si se agotan las existencias.",
+            "en": "",
+            "val": ""
+          },
+          "source": "MediaMarkt España",
+          "url": "https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html",
+          "platform": "MediaMarkt España",
+          "originalPrice": {
+            "es": "529 €",
+            "en": "",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "349 €",
+            "en": "",
+            "val": ""
+          },
+          "discount": {
+            "es": "-34 %",
+            "en": "",
+            "val": ""
+          },
+          "until": {
+            "es": "Hasta el 23 de agosto de 2026 o fin de existencias",
+            "en": "",
+            "val": ""
+          },
+          "urgent": false,
+          "links": [
+            {
+              "title": {
+                "es": "Oferta verificada",
+                "en": "",
+                "val": ""
+              },
+              "url": "https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html"
+            }
+          ]
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "TV Samsung TU50U8075H de 50 polzades per 349 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "MediaMarkt Espanya rebaixa este televisor 4K de 529 € a 349 €, un descompte verificat del 34 %. La <a href=\"https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html\">fitxa del producte</a> confirma que està disponible per a compra en línia; la promoció pot acabar abans si s’esgoten les existències."
+          },
+          "source": "MediaMarkt España",
+          "url": "https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html",
+          "platform": "MediaMarkt España",
+          "originalPrice": {
+            "es": "",
+            "en": "",
+            "val": "529 €"
+          },
+          "salePrice": {
+            "es": "",
+            "en": "",
+            "val": "349 €"
+          },
+          "discount": {
+            "es": "",
+            "en": "",
+            "val": "-34 %"
+          },
+          "until": {
+            "es": "",
+            "en": "",
+            "val": "Fins al 23 d’agost de 2026 o fi d’existències"
+          },
+          "urgent": false,
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "",
+                "val": "Oferta verificada"
+              },
+              "url": "https://www.mediamarkt.es/es/product/_tv-led-50-samsung-tu50u8075huxxc-uhd-4k-crystal-processor-4k-smart-tv-wifi-negro-1627517.html"
+            }
+          ]
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Blink Outdoor 2K camera for $30.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "The Blink Outdoor 2K wireless security camera drops from $89.99 to $30.99, a verified 65% discount. Shipping is free while the promotion remains live; <a href=\"https://slickdeals.net/f/19802082-blink-outdoor-2k-wireless-smart-security-camera-w-two-way-audio-noise-cancellation-white-30-99-free-shipping\">view deal</a>.",
+            "val": ""
+          },
+          "source": "Slickdeals / Amazon US",
+          "url": "https://slickdeals.net/f/19802082-blink-outdoor-2k-wireless-smart-security-camera-w-two-way-audio-noise-cancellation-white-30-99-free-shipping",
+          "platform": "Slickdeals / Amazon US",
+          "originalPrice": {
+            "es": "",
+            "en": "$89.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$30.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-65%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "While stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "Verified deal",
+                "val": ""
+              },
+              "url": "https://slickdeals.net/f/19802082-blink-outdoor-2k-wireless-smart-security-camera-w-two-way-audio-noise-cancellation-white-30-99-free-shipping"
+            }
+          ]
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "TCL 98-inch QM8K Mini-LED TV for $2,999.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "The TCL 98-inch QM8K Mini-LED Google TV is down from $3,999.99 to $2,999.99, exactly 25% off. The listing includes the 120/144Hz panel and anti-reflective screen; <a href=\"https://slickdeals.net/f/19856604-tcl-98-inch-class-qm8k-series-mini-led-qled-4k-hdr-98qm8k-120hz-144hz-anti-reflective-wide-angle-screen-smart-google-tv-dolby-atmos-2999-99\">view deal</a>.",
+            "val": ""
+          },
+          "source": "Slickdeals / Amazon US",
+          "url": "https://slickdeals.net/f/19856604-tcl-98-inch-class-qm8k-series-mini-led-qled-4k-hdr-98qm8k-120hz-144hz-anti-reflective-wide-angle-screen-smart-google-tv-dolby-atmos-2999-99",
+          "platform": "Slickdeals / Amazon US",
+          "originalPrice": {
+            "es": "",
+            "en": "$3,999.99",
+            "val": ""
+          },
+          "salePrice": {
+            "es": "",
+            "en": "$2,999.99",
+            "val": ""
+          },
+          "discount": {
+            "es": "",
+            "en": "-25%",
+            "val": ""
+          },
+          "until": {
+            "es": "",
+            "en": "While stock lasts",
+            "val": ""
+          },
+          "urgent": true,
+          "links": [
+            {
+              "title": {
+                "es": "",
+                "en": "Verified deal",
+                "val": ""
+              },
+              "url": "https://slickdeals.net/f/19856604-tcl-98-inch-class-qm8k-series-mini-led-qled-4k-hdr-98qm8k-120hz-144hz-anti-reflective-wide-angle-screen-smart-google-tv-dolby-atmos-2999-99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Anime NYC concentra estrenos, invitados y anuncios de la próxima temporada",
+            "en": "Anime NYC brings together premieres, guests and next-season announcements",
+            "val": "Anime NYC concentra estrenes, convidats i anuncis de la pròxima temporada"
+          },
+          "summary": {
+            "es": "Crunchyroll despliega paneles, primeras proyecciones y avances durante el evento de Nueva York. <a href=\"https://www.crunchyroll.com/news/announcements/2026/7/20/anime-nyc-2026-crunchyroll-panels-premieres-schedule\">El programa</a> convierte el fin de semana en uno de los grandes escaparates del anime fuera de Japón.",
+            "en": "Crunchyroll is staging panels, first screenings and previews throughout the New York event. <a href=\"https://www.crunchyroll.com/news/announcements/2026/7/20/anime-nyc-2026-crunchyroll-panels-premieres-schedule\">The schedule</a> makes the weekend one of anime’s largest showcases outside Japan.",
+            "val": "Crunchyroll desplega panells, primeres projeccions i avanços durant l’esdeveniment de Nova York. <a href=\"https://www.crunchyroll.com/news/announcements/2026/7/20/anime-nyc-2026-crunchyroll-panels-premieres-schedule\">El programa</a> convertix el cap de setmana en un dels grans aparadors de l’anime fora del Japó."
+          },
+          "source": "Crunchyroll / Anime News Network",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.crunchyroll.com/news/announcements/2026/7/20/anime-nyc-2026-crunchyroll-panels-premieres-schedule"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.crunchyroll.com/news/latest"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.animenewsnetwork.com/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Haikyu!! vs. The Little Giant avanza su duelo de 2027",
+            "en": "Haikyu!! vs. The Little Giant previews its 2027 showdown",
+            "val": "Haikyu!! vs. The Little Giant avança el duel de 2027"
+          },
+          "summary": {
+            "es": "La nueva imagen enfrenta a Karasuno con Kamomedai y llega junto al avance del especial Where Monsters Go. <a href=\"https://www.crunchyroll.com/news/latest/2026/8/19/haikyu-vs-chiisana-kyojin-anime-film-visual-special-episode-trailer\">La película</a> continuará el cierre cinematográfico del manga.",
+            "en": "The new visual pits Karasuno against Kamomedai and arrives alongside a preview of the Where Monsters Go special. <a href=\"https://www.crunchyroll.com/news/latest/2026/8/19/haikyu-vs-chiisana-kyojin-anime-film-visual-special-episode-trailer\">The film</a> will continue the manga’s theatrical conclusion.",
+            "val": "La nova imatge enfronta Karasuno amb Kamomedai i arriba amb l’avanç de l’especial Where Monsters Go. <a href=\"https://www.crunchyroll.com/news/latest/2026/8/19/haikyu-vs-chiisana-kyojin-anime-film-visual-special-episode-trailer\">La pel·lícula</a> continuarà el tancament cinematogràfic del manga."
+          },
+          "source": "Crunchyroll / Anime News Network",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.crunchyroll.com/news/latest/2026/8/19/haikyu-vs-chiisana-kyojin-anime-film-visual-special-episode-trailer"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.crunchyroll.com/news/latest"
+            },
+            {
+              "title": {
+                "es": "Fuente o referencia",
+                "en": "Source or reference",
+                "val": "Font o referència"
+              },
+              "url": "https://www.animenewsnetwork.com/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-22",
+      "title": {
+        "es": "Bitcoin supera los 77.000 dólares, Wall Street salva la sesión y Europa acelera",
+        "en": "Bitcoin clears $77,000, Wall Street salvages the session and Europe accelerates",
+        "val": "Bitcoin supera els 77.000 dòlars, Wall Street salva la sessió i Europa accelera"
+      },
+      "summary": {
+        "es": "Bitcoin prolonga su ruptura mientras Wall Street rebota al cierre de una semana negativa y la actividad de la eurozona alcanza su mejor ritmo desde noviembre. La edición suma además el compromiso de GitHub tras su apagón, nuevos hallazgos lunares, alertas críticas de seguridad y todas las promociones de juegos que siguen vigentes.",
+        "en": "Bitcoin extends its breakout while Wall Street rebounds at the end of a losing week and eurozone activity reaches its strongest pace since November. This edition also covers GitHub’s pledge after its outage, new lunar findings, critical security alerts and every game promotion still available.",
+        "val": "Bitcoin prolonga la ruptura mentre Wall Street rebota al tancament d’una setmana negativa i l’activitat de l’eurozona arriba al millor ritme des de novembre. L’edició suma, a més, el compromís de GitHub després de l’apagada, noves troballes lunars, alertes crítiques de seguretat i totes les promocions de jocs que continuen vigents."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-22.json"
+    },
+    {
       "date": "2026-08-21",
       "title": {
         "es": "Bitcoin supera los 75.000 dólares, Wall Street cae y Broadcom busca 60.000 millones para chips de IA",
