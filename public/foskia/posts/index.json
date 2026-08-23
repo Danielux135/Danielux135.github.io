@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-23",
+      "title": {
+        "es": "Nvidia paga 6.000 millones por IA, Bitcoin prueba los 80.000 y Ucrania sufre otro ataque mortal",
+        "en": "Nvidia pays $6 billion for AI, Bitcoin tests $80,000 and Ukraine suffers another deadly strike",
+        "val": "Nvidia paga 6.000 milions per IA, Bitcoin prova els 80.000 i Ucraïna patix un altre atac mortal"
+      },
+      "summary": {
+        "es": "Nvidia acelera su ofensiva de modelos abiertos con un acuerdo de 6.000 millones de dólares con Poolside, mientras Bitcoin conserva la ruptura que lo llevó a rozar los 80.000 y un ataque ruso de doble impacto deja al menos 16 muertos en Kryvyi Rih. La edición recoge además el regreso independiente de Double Fine, una alerta urgente de CISA, nuevos hallazgos del JWST y todas las promociones de juegos verificadas que continúan activas.",
+        "en": "Nvidia is accelerating its open-model push with a $6 billion Poolside deal, while Bitcoin holds the breakout that carried it close to $80,000 and a Russian double-tap strike kills at least 16 people in Kryvyi Rih. This edition also covers independent Double Fine’s return, an urgent CISA alert, new JWST findings and every verified game promotion that remains live.",
+        "val": "Nvidia accelera l’ofensiva de models oberts amb un acord de 6.000 milions de dòlars amb Poolside, mentre Bitcoin conserva la ruptura que el va portar a fregar els 80.000 i un atac rus de doble impacte deixa almenys 16 morts a Kryvyi Rih. L’edició recull, a més, el retorn independent de Double Fine, una alerta urgent de CISA, noves troballes del JWST i totes les promocions de jocs verificades que continuen actives."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-23.json"
+    },
+    {
       "date": "2026-08-22",
       "title": {
         "es": "Bitcoin supera los 77.000 dólares, Wall Street salva la sesión y Europa acelera",
