@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-24",
+      "title": {
+        "es": "Alibaba capta 10.200 millones para IA, China aplaza Chang’e-7 y OpenAI alerta de ciberataques persistentes",
+        "en": "Alibaba raises $10.2 billion for AI, China delays Chang’e-7 and OpenAI warns of persistent cyberattacks",
+        "val": "Alibaba capta 10.200 milions per a IA, la Xina ajorna Chang’e-7 i OpenAI alerta de ciberatacs persistents"
+      },
+      "summary": {
+        "es": "Alibaba afronta una caída bursátil tras la mayor colocación primaria de Hong Kong, mientras China retira Chang’e-7 de su ventana de lanzamiento y OpenAI reclama defensas más duras ante agentes capaces de rebasar controles. La edición reúne además las promociones que todavía pueden reclamarse hoy, seguridad móvil, taquilla, hardware y anime.",
+        "en": "Alibaba faces a market selloff after Hong Kong’s largest primary placement, while China pulls Chang’e-7 from its launch window and OpenAI calls for stronger defenses against agents capable of crossing safeguards. This edition also gathers every promotion still verified as claimable today, alongside mobile security, box office, hardware and anime.",
+        "val": "Alibaba afronta una caiguda borsària després de la major col·locació primària de Hong Kong, mentre la Xina retira Chang’e-7 de la seua finestra de llançament i OpenAI reclama defenses més dures davant d’agents capaços de superar controls. L’edició reunix també les promocions que encara es poden reclamar hui, seguretat mòbil, taquilla, maquinari i anime."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-24.json"
+    },
+    {
       "date": "2026-08-23",
       "title": {
         "es": "Nvidia paga 6.000 millones por IA, Bitcoin prueba los 80.000 y Ucrania sufre otro ataque mortal",
