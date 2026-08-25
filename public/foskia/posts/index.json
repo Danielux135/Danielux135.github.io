@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-25",
+      "title": {
+        "es": "Bitcoin recupera los 80.000 dólares, Meta ficha a Luke Metz y NASA prepara el lanzamiento de Roman",
+        "en": "Bitcoin retakes $80,000, Meta hires Luke Metz and NASA readies Roman for launch",
+        "val": "Bitcoin recupera els 80.000 dòlars, Meta fitxa Luke Metz i NASA prepara el llançament de Roman"
+      },
+      "summary": {
+        "es": "Bitcoin prolonga su rebote y vuelve a superar los 80.000 dólares, Meta añade otro investigador veterano a su laboratorio de superinteligencia y el telescopio Nancy Grace Roman entra en la recta final para despegar. La edición repasa además regulación de robotaxis, seguridad empresarial, anime y todos los juegos que todavía pueden reclamarse.",
+        "en": "Bitcoin extends its rebound and moves back above $80,000, Meta adds another veteran researcher to its superintelligence lab, and the Nancy Grace Roman telescope enters final launch preparations. This edition also covers robotaxi regulation, enterprise security, anime and every game still verified as claimable.",
+        "val": "Bitcoin prolonga el rebot i torna a superar els 80.000 dòlars, Meta incorpora un altre investigador veterà al seu laboratori de superintel·ligència i el telescopi Nancy Grace Roman entra en la recta final per a enlairar-se. L’edició repassa també la regulació dels robotaxis, la seguretat empresarial, l’anime i tots els jocs que encara es poden reclamar."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-25.json"
+    },
+    {
       "date": "2026-08-24",
       "title": {
         "es": "Alibaba capta 10.200 millones para IA, China aplaza Chang’e-7 y OpenAI alerta de ciberataques persistentes",
