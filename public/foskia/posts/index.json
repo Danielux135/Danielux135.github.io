@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-26",
+      "title": {
+        "es": "Nvidia afronta la prueba de Rubin, Bitcoin cede los 80.000 y CISA urge a parchear Zimbra",
+        "en": "Nvidia faces the Rubin test, Bitcoin slips below $80,000 and CISA urges Zimbra patching",
+        "val": "Nvidia afronta la prova de Rubin, Bitcoin cedix els 80.000 i CISA urgix a apedaçar Zimbra"
+      },
+      "summary": {
+        "es": "Nvidia presenta resultados con el mercado pendiente de Rubin y de la sostenibilidad del gasto en IA, mientras Bitcoin corrige tras tocar máximos de tres meses y CISA fija un plazo extraordinario para corregir una vulnerabilidad explotada de Zimbra. La edición reúne también los anuncios de Gamescom, ciencia, programación, anime, ofertas verificadas y todas las promociones de juegos aún vigentes.",
+        "en": "Nvidia reports earnings with markets focused on Rubin and the sustainability of AI spending, while Bitcoin pulls back after reaching a three-month high and CISA sets an unusually short deadline to fix an exploited Zimbra flaw. This edition also covers Gamescom announcements, science, programming, anime, verified deals and every game promotion still active.",
+        "val": "Nvidia presenta resultats amb el mercat pendent de Rubin i de la sostenibilitat de la despesa en IA, mentre Bitcoin corregix després de tocar màxims de tres mesos i CISA fixa un termini extraordinari per a corregir una vulnerabilitat explotada de Zimbra. L’edició reunix també els anuncis de Gamescom, ciència, programació, anime, ofertes verificades i totes les promocions de jocs encara vigents."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-26.json"
+    },
+    {
       "date": "2026-08-25",
       "title": {
         "es": "Bitcoin recupera los 80.000 dólares, Meta ficha a Luke Metz y NASA prepara el lanzamiento de Roman",
