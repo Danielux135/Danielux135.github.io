@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-08-29",
+      "title": {
+        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street",
+        "en": "OpenAI breaks with Cursor, Bitcoin drops below $78,000 and Warsh cools Wall Street",
+        "val": "OpenAI trenca amb Cursor, Bitcoin cau per davall de 78.000 dòlars i Warsh refreda Wall Street"
+      },
+      "summary": {
+        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street. La edición reúne 32 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "OpenAI breaks with Cursor, Bitcoin drops below $78,000 and Warsh cools Wall Street. This edition tracks 32 active games or promotions and six regional deals.",
+        "val": "OpenAI trenca amb Cursor, Bitcoin cau per davall de 78.000 dòlars i Warsh refreda Wall Street. L’edició reunix 32 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-08-29.json"
+    },
+    {
       "date": "2026-08-28",
       "title": {
         "es": "Un juez frena el veto a Anthropic, Nepal busca a mil desaparecidos y Samsung alcanza los 1.100 Hz",
