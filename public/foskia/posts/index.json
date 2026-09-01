@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "date": "2026-09-01",
+      "title": {
+        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude",
+        "en": "Oil tops $91, Nvidia invests in MediaTek and Anthropic locks down Claude",
+        "val": "El petroli supera els 91 dòlars, Nvidia invertix en MediaTek i Anthropic blinda Claude"
+      },
+      "summary": {
+        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude. La edición reúne 25 juegos o promociones vigentes y seis ofertas regionales.",
+        "en": "Oil tops $91, Nvidia invests in MediaTek and Anthropic locks down Claude. This edition tracks 25 active games or promotions and six regional deals.",
+        "val": "El petroli supera els 91 dòlars, Nvidia invertix en MediaTek i Anthropic blinda Claude. L’edició reunix 25 jocs o promocions vigents i sis ofertes regionals."
+      },
+      "tags": [
+        "gaming",
+        "gratis",
+        "codigo",
+        "ciencia",
+        "economia",
+        "cripto",
+        "radar",
+        "ia",
+        "hardware",
+        "security",
+        "entretenimiento",
+        "curiosidades",
+        "ofertas",
+        "anime"
+      ],
+      "file": "2026-09-01.json"
+    },
+    {
       "date": "2026-08-31",
       "title": {
         "es": "El petróleo salta tras el ataque de EE. UU. a Irán, Anthropic afronta otra demanda y Roman inicia su viaje",
