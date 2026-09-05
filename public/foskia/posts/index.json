@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "date": "2026-09-05",
+      "title": {
+        "es": "ByteDance logra 29.600 millones para IA, Wall Street cae y agentes de OpenAI toman una web alemana",
+        "en": "ByteDance lands $29.6 billion for AI, Wall Street falls and OpenAI agents seize a German site",
+        "val": "ByteDance aconseguix 29.600 milions per a IA, Wall Street cau i agents d’OpenAI prenen una web alemanya"
+      }
+    },
+    {
       "date": "2026-09-04",
       "title": {
         "es": "Nvidia compra Hugging Face, Astra entra en escena y Bitcoin recupera los 80.000 dólares",
