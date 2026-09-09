@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-09",
+      "title": {
+        "es": "OpenAI afirma resolver Navier–Stokes, el petróleo roza los 100 dólares y Ocarina of Time renace",
+        "en": "OpenAI claims a Navier–Stokes solution, oil nears $100 and Ocarina of Time is reborn",
+        "val": "OpenAI afirma resoldre Navier–Stokes, el petroli frega els 100 dòlars i Ocarina of Time renaix"
+      },
+      "file": "2026-09-09.json"
+    },
+    {
       "date": "2026-09-08",
       "title": {
         "es": "Jaguar Land Rover recorta 4.000 empleos, la ONU exige límites a la IA y Bitcoin pierde los 79.000 dólares",
