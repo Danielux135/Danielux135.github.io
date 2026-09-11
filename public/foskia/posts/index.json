@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-11",
+      "title": {
+        "es": "El BCE sube tipos, NASA abre su IA lunar y el Brent escala a 107 dólares",
+        "en": "ECB raises rates, NASA opens its lunar AI and Brent climbs to $107",
+        "val": "El BCE apuja els tipus, NASA obri la seua IA lunar i el Brent escala a 107 dòlars"
+      },
+      "file": "2026-09-11.json"
+    },
+    {
       "date": "2026-09-10",
       "title": {
         "es": "Apple estrena iPhone Duo, OpenAI pide reglas obligatorias y el Brent supera los 100 dólares",
