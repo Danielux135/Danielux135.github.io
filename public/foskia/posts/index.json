@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-12",
+      "title": {
+        "es": "Nvidia apunta a la OPV récord de Anthropic, la AIE recorta el crudo y Apple abre reservas",
+        "en": "Nvidia eyes Anthropic’s record IPO, IEA cuts oil supply and Apple opens preorders",
+        "val": "Nvidia apunta a l’OPV rècord d’Anthropic, l’AIE retalla el cru i Apple obri reserves"
+      },
+      "file": "2026-09-12.json"
+    },
+    {
       "date": "2026-09-11",
       "title": {
         "es": "El BCE sube tipos, NASA abre su IA lunar y el Brent escala a 107 dólares",
