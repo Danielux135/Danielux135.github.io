@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-13",
+      "title": {
+        "es": "Anthropic pide frenar la IA, StarCraft vuelve como shooter y Woman Unknown gana Venecia",
+        "en": "Anthropic calls for an AI slowdown, StarCraft returns as a shooter and Woman Unknown wins Venice",
+        "val": "Anthropic demana frenar la IA, StarCraft torna com a shooter i Woman Unknown guanya Venècia"
+      },
+      "file": "2026-09-13.json"
+    },
+    {
       "date": "2026-09-12",
       "title": {
         "es": "Nvidia apunta a la OPV récord de Anthropic, la AIE recorta el crudo y Apple abre reservas",
