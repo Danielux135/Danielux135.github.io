@@ -1,126 +1,131 @@
 {
   "editions": [
     {
-      "date": "2026-09-14",
+      "date": "2026-09-15",
+      "file": "2026-09-15.json",
       "title": {
-        "es": "Un corte saudí amenaza el 4% del crudo mundial, Bitcoin resiste y Diablo V amplía su arsenal",
+        "en": "Microsoft reins in its AI, Wall Street punishes chipmakers and Wolverine unsheathes his claws",
+        "es": "Microsoft pone límites a su IA, Wall Street castiga los chips y Wolverine afila las garras",
+        "val": "Microsoft posa límits a la seua IA, Wall Street castiga els xips i Wolverine trau les urpes"
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "file": "2026-09-14.json",
+      "title": {
         "en": "Saudi outage threatens 4% of global oil, Bitcoin holds and Diablo V expands its arsenal",
+        "es": "Un corte saudí amenaza el 4% del crudo mundial, Bitcoin resiste y Diablo V amplía su arsenal",
         "val": "Un tall saudita amenaça el 4% del cru mundial, Bitcoin resistix i Diablo V amplia l’arsenal"
-      },
-      "file": "2026-09-14.json"
+      }
     },
     {
       "date": "2026-09-13",
+      "file": "2026-09-13.json",
       "title": {
-        "es": "Anthropic pide frenar la IA, StarCraft vuelve como shooter y Woman Unknown gana Venecia",
         "en": "Anthropic calls for an AI slowdown, StarCraft returns as a shooter and Woman Unknown wins Venice",
+        "es": "Anthropic pide frenar la IA, StarCraft vuelve como shooter y Woman Unknown gana Venecia",
         "val": "Anthropic demana frenar la IA, StarCraft torna com a shooter i Woman Unknown guanya Venècia"
-      },
-      "file": "2026-09-13.json"
+      }
     },
     {
       "date": "2026-09-12",
+      "file": "2026-09-12.json",
       "title": {
-        "es": "Nvidia apunta a la OPV récord de Anthropic, la AIE recorta el crudo y Apple abre reservas",
         "en": "Nvidia eyes Anthropic’s record IPO, IEA cuts oil supply and Apple opens preorders",
+        "es": "Nvidia apunta a la OPV récord de Anthropic, la AIE recorta el crudo y Apple abre reservas",
         "val": "Nvidia apunta a l’OPV rècord d’Anthropic, l’AIE retalla el cru i Apple obri reserves"
-      },
-      "file": "2026-09-12.json"
+      }
     },
     {
       "date": "2026-09-11",
+      "file": "2026-09-11.json",
       "title": {
-        "es": "El BCE sube tipos, NASA abre su IA lunar y el Brent escala a 107 dólares",
         "en": "ECB raises rates, NASA opens its lunar AI and Brent climbs to $107",
+        "es": "El BCE sube tipos, NASA abre su IA lunar y el Brent escala a 107 dólares",
         "val": "El BCE apuja els tipus, NASA obri la seua IA lunar i el Brent escala a 107 dòlars"
-      },
-      "file": "2026-09-11.json"
+      }
     },
     {
       "date": "2026-09-10",
+      "file": "2026-09-10.json",
       "title": {
-        "es": "Apple estrena iPhone Duo, OpenAI pide reglas obligatorias y el Brent supera los 100 dólares",
         "en": "Apple unveils iPhone Duo, OpenAI calls for mandatory rules and Brent tops $100",
+        "es": "Apple estrena iPhone Duo, OpenAI pide reglas obligatorias y el Brent supera los 100 dólares",
         "val": "Apple estrena iPhone Duo, OpenAI demana regles obligatòries i el Brent supera els 100 dòlars"
-      },
-      "file": "2026-09-10.json"
+      }
     },
     {
       "date": "2026-09-09",
+      "file": "2026-09-09.json",
       "title": {
-        "es": "OpenAI afirma resolver Navier–Stokes, el petróleo roza los 100 dólares y Ocarina of Time renace",
         "en": "OpenAI claims a Navier–Stokes solution, oil nears $100 and Ocarina of Time is reborn",
+        "es": "OpenAI afirma resolver Navier–Stokes, el petróleo roza los 100 dólares y Ocarina of Time renace",
         "val": "OpenAI afirma resoldre Navier–Stokes, el petroli frega els 100 dòlars i Ocarina of Time renaix"
-      },
-      "file": "2026-09-09.json"
+      }
     },
     {
       "date": "2026-09-08",
+      "file": "2026-09-08.json",
       "title": {
-        "es": "Jaguar Land Rover recorta 4.000 empleos, la ONU exige límites a la IA y Bitcoin pierde los 79.000 dólares",
         "en": "Jaguar Land Rover cuts 4,000 jobs, the UN demands AI limits and Bitcoin slips below $79,000",
+        "es": "Jaguar Land Rover recorta 4.000 empleos, la ONU exige límites a la IA y Bitcoin pierde los 79.000 dólares",
         "val": "Jaguar Land Rover retalla 4.000 llocs de treball, l’ONU exigix límits a la IA i Bitcoin perd els 79.000 dòlars"
-      },
-      "file": "2026-09-08.json"
+      }
     },
     {
       "date": "2026-09-07",
       "title": {
-        "es": "China inyecta 54.000 millones en su banca, OpenAI pide frenar y Ormuz pierde tráfico",
         "en": "China injects $54 billion into banks, OpenAI urges restraint and Hormuz traffic sinks",
+        "es": "China inyecta 54.000 millones en su banca, OpenAI pide frenar y Ormuz pierde tráfico",
         "val": "La Xina injecta 54.000 milions en la banca, OpenAI demana frenar i Ormuz perd trànsit"
       }
     },
     {
       "date": "2026-09-06",
       "title": {
-        "es": "EE. UU. e Irán atacan petroleros, Anak Krakatau paraliza 209 vuelos y Berlín filtra 5,8 TB",
         "en": "US and Iran strike tankers, Anak Krakatau grounds 209 flights and Berlin leaks 5.8 TB",
+        "es": "EE. UU. e Irán atacan petroleros, Anak Krakatau paraliza 209 vuelos y Berlín filtra 5,8 TB",
         "val": "Els EUA i l’Iran ataquen petroliers, Anak Krakatau paralitza 209 vols i Berlín filtra 5,8 TB"
       }
     },
     {
       "date": "2026-09-05",
       "title": {
-        "es": "ByteDance logra 29.600 millones para IA, Wall Street cae y agentes de OpenAI toman una web alemana",
         "en": "ByteDance lands $29.6 billion for AI, Wall Street falls and OpenAI agents seize a German site",
+        "es": "ByteDance logra 29.600 millones para IA, Wall Street cae y agentes de OpenAI toman una web alemana",
         "val": "ByteDance aconseguix 29.600 milions per a IA, Wall Street cau i agents d’OpenAI prenen una web alemanya"
       }
     },
     {
       "date": "2026-09-04",
       "title": {
-        "es": "Nvidia compra Hugging Face, Astra entra en escena y Bitcoin recupera los 80.000 dólares",
         "en": "Nvidia buys Hugging Face, Astra steps onto the stage and Bitcoin retakes $80,000",
+        "es": "Nvidia compra Hugging Face, Astra entra en escena y Bitcoin recupera los 80.000 dólares",
         "val": "Nvidia compra Hugging Face, Astra entra en escena i Bitcoin recupera els 80.000 dòlars"
       }
     },
     {
       "date": "2026-09-03",
       "title": {
-        "es": "OpenAI prepara apagados automáticos, Gemini acelera y Saturno revela un decágono",
         "en": "OpenAI readies automated shutdowns, Gemini accelerates and Saturn reveals a decagon",
+        "es": "OpenAI prepara apagados automáticos, Gemini acelera y Saturno revela un decágono",
         "val": "OpenAI prepara apagats automàtics, Gemini accelera i Saturn revela un decàgon"
       }
     },
     {
       "date": "2026-09-02",
       "title": {
-        "es": "OpenAI prepara Astra, el petróleo toca 95 dólares y Kyiv sufre otra noche mortal",
         "en": "OpenAI readies Astra, oil hits $95 and Kyiv endures another deadly night",
+        "es": "OpenAI prepara Astra, el petróleo toca 95 dólares y Kyiv sufre otra noche mortal",
         "val": "OpenAI prepara Astra, el petroli toca 95 dòlars i Kyiv patix una altra nit mortal"
       }
     },
     {
       "date": "2026-09-01",
-      "title": {
-        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude",
-        "en": "Oil tops $91, Nvidia invests in MediaTek and Anthropic locks down Claude",
-        "val": "El petroli supera els 91 dòlars, Nvidia invertix en MediaTek i Anthropic blinda Claude"
-      },
+      "file": "2026-09-01.json",
       "summary": {
-        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude. La edición reúne 25 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Oil tops $91, Nvidia invests in MediaTek and Anthropic locks down Claude. This edition tracks 25 active games or promotions and six regional deals.",
+        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude. La edición reúne 25 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "El petroli supera els 91 dòlars, Nvidia invertix en MediaTek i Anthropic blinda Claude. L’edició reunix 25 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -139,18 +144,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-09-01.json"
+      "title": {
+        "en": "Oil tops $91, Nvidia invests in MediaTek and Anthropic locks down Claude",
+        "es": "El petróleo supera los 91 dólares, Nvidia invierte en MediaTek y Anthropic blinda a Claude",
+        "val": "El petroli supera els 91 dòlars, Nvidia invertix en MediaTek i Anthropic blinda Claude"
+      }
     },
     {
       "date": "2026-08-31",
-      "title": {
-        "es": "El petróleo salta tras el ataque de EE. UU. a Irán, Anthropic afronta otra demanda y Roman inicia su viaje",
-        "en": "Oil jumps after the U.S. strike on Iran, Anthropic faces another lawsuit and Roman begins its journey",
-        "val": "El petroli salta després de l’atac dels EUA a l’Iran, Anthropic afronta una altra demanda i Roman inicia el viatge"
-      },
+      "file": "2026-08-31.json",
       "summary": {
-        "es": "El petróleo salta tras el ataque de EE. UU. a Irán, Anthropic afronta otra demanda y Roman inicia su viaje. La edición reúne 34 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Oil jumps after the U.S. strike on Iran, Anthropic faces another lawsuit and Roman begins its journey. This edition tracks 34 active games or promotions and six regional deals.",
+        "es": "El petróleo salta tras el ataque de EE. UU. a Irán, Anthropic afronta otra demanda y Roman inicia su viaje. La edición reúne 34 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "El petroli salta després de l’atac dels EUA a l’Iran, Anthropic afronta una altra demanda i Roman inicia el viatge. L’edició reunix 34 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -169,18 +174,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-31.json"
+      "title": {
+        "en": "Oil jumps after the U.S. strike on Iran, Anthropic faces another lawsuit and Roman begins its journey",
+        "es": "El petróleo salta tras el ataque de EE. UU. a Irán, Anthropic afronta otra demanda y Roman inicia su viaje",
+        "val": "El petroli salta després de l’atac dels EUA a l’Iran, Anthropic afronta una altra demanda i Roman inicia el viatge"
+      }
     },
     {
       "date": "2026-08-30",
-      "title": {
-        "es": "Roman despega para cartografiar el universo, Islandia mira a la UE y CXMT entra en el próximo plegable de Xiaomi",
-        "en": "Roman launches to map the universe, Iceland looks toward the EU and CXMT enters Xiaomi’s next foldable",
-        "val": "Roman s’enlaira per a cartografiar l’univers, Islàndia mira cap a la UE i CXMT entra en el pròxim plegable de Xiaomi"
-      },
+      "file": "2026-08-30.json",
       "summary": {
-        "es": "Roman despega para cartografiar el universo, Islandia mira a la UE y CXMT entra en el próximo plegable de Xiaomi. La edición reúne 37 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Roman launches to map the universe, Iceland looks toward the EU and CXMT enters Xiaomi’s next foldable. This edition tracks 37 active games or promotions and six regional deals.",
+        "es": "Roman despega para cartografiar el universo, Islandia mira a la UE y CXMT entra en el próximo plegable de Xiaomi. La edición reúne 37 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Roman s’enlaira per a cartografiar l’univers, Islàndia mira cap a la UE i CXMT entra en el pròxim plegable de Xiaomi. L’edició reunix 37 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -199,18 +204,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-30.json"
+      "title": {
+        "en": "Roman launches to map the universe, Iceland looks toward the EU and CXMT enters Xiaomi’s next foldable",
+        "es": "Roman despega para cartografiar el universo, Islandia mira a la UE y CXMT entra en el próximo plegable de Xiaomi",
+        "val": "Roman s’enlaira per a cartografiar l’univers, Islàndia mira cap a la UE i CXMT entra en el pròxim plegable de Xiaomi"
+      }
     },
     {
       "date": "2026-08-29",
-      "title": {
-        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street",
-        "en": "OpenAI breaks with Cursor, Bitcoin drops below $78,000 and Warsh cools Wall Street",
-        "val": "OpenAI trenca amb Cursor, Bitcoin cau per davall de 78.000 dòlars i Warsh refreda Wall Street"
-      },
+      "file": "2026-08-29.json",
       "summary": {
-        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street. La edición reúne 32 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "OpenAI breaks with Cursor, Bitcoin drops below $78,000 and Warsh cools Wall Street. This edition tracks 32 active games or promotions and six regional deals.",
+        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street. La edición reúne 32 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "OpenAI trenca amb Cursor, Bitcoin cau per davall de 78.000 dòlars i Warsh refreda Wall Street. L’edició reunix 32 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -229,18 +234,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-29.json"
+      "title": {
+        "en": "OpenAI breaks with Cursor, Bitcoin drops below $78,000 and Warsh cools Wall Street",
+        "es": "OpenAI rompe con Cursor, Bitcoin cae bajo 78.000 dólares y Warsh enfría Wall Street",
+        "val": "OpenAI trenca amb Cursor, Bitcoin cau per davall de 78.000 dòlars i Warsh refreda Wall Street"
+      }
     },
     {
       "date": "2026-08-28",
-      "title": {
-        "es": "Un juez frena el veto a Anthropic, Nepal busca a mil desaparecidos y Samsung alcanza los 1.100 Hz",
-        "en": "Judge blocks Anthropic ban, Nepal searches for 1,000 missing and Samsung reaches 1,100Hz",
-        "val": "Un jutge frena el veto a Anthropic, Nepal busca mil desapareguts i Samsung arriba als 1.100 Hz"
-      },
+      "file": "2026-08-28.json",
       "summary": {
-        "es": "Un juez frena el veto a Anthropic, Nepal afronta una catástrofe glaciar y Samsung alcanza los 1.100 Hz. La edición reúne 33 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Judge blocks the Anthropic ban, Nepal faces a glacial disaster and Samsung reaches 1,100Hz. This edition tracks 33 active games or promotions and six regional deals.",
+        "es": "Un juez frena el veto a Anthropic, Nepal afronta una catástrofe glaciar y Samsung alcanza los 1.100 Hz. La edición reúne 33 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Un jutge frena el veto a Anthropic, el Nepal afronta una catàstrofe glacial i Samsung arriba als 1.100 Hz. L’edició reunix 33 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -259,18 +264,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-28.json"
+      "title": {
+        "en": "Judge blocks Anthropic ban, Nepal searches for 1,000 missing and Samsung reaches 1,100Hz",
+        "es": "Un juez frena el veto a Anthropic, Nepal busca a mil desaparecidos y Samsung alcanza los 1.100 Hz",
+        "val": "Un jutge frena el veto a Anthropic, Nepal busca mil desapareguts i Samsung arriba als 1.100 Hz"
+      }
     },
     {
       "date": "2026-08-27",
-      "title": {
-        "es": "Nvidia duplica ingresos, Anthropic firma por 45.000 millones y EE. UU. desmantela una red de ciberespionaje",
-        "en": "Nvidia doubles revenue, Anthropic signs a $45 billion deal and the U.S. dismantles a cyberespionage network",
-        "val": "Nvidia duplica ingressos, Anthropic firma per 45.000 milions i els EUA desmantellen una xarxa de ciberespionatge"
-      },
+      "file": "2026-08-27.json",
       "summary": {
-        "es": "Nvidia duplica ingresos, Anthropic reserva capacidad Rubin y Estados Unidos desmantela una red de ciberespionaje. La edición reúne 34 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Nvidia doubles revenue, Anthropic reserves Rubin capacity and the United States dismantles a cyberespionage network. This edition tracks 34 active games or promotions and six regional deals.",
+        "es": "Nvidia duplica ingresos, Anthropic reserva capacidad Rubin y Estados Unidos desmantela una red de ciberespionaje. La edición reúne 34 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Nvidia duplica ingressos, Anthropic reserva capacitat Rubin i els Estats Units desmantellen una xarxa de ciberespionatge. L’edició reunix 34 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -289,18 +294,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-27.json"
+      "title": {
+        "en": "Nvidia doubles revenue, Anthropic signs a $45 billion deal and the U.S. dismantles a cyberespionage network",
+        "es": "Nvidia duplica ingresos, Anthropic firma por 45.000 millones y EE. UU. desmantela una red de ciberespionaje",
+        "val": "Nvidia duplica ingressos, Anthropic firma per 45.000 milions i els EUA desmantellen una xarxa de ciberespionatge"
+      }
     },
     {
       "date": "2026-08-26",
-      "title": {
-        "es": "Nvidia afronta la prueba de Rubin, Bitcoin cede los 80.000 y CISA urge a parchear Zimbra",
-        "en": "Nvidia faces the Rubin test, Bitcoin slips below $80,000 and CISA urges Zimbra patching",
-        "val": "Nvidia afronta la prova de Rubin, Bitcoin cedix els 80.000 i CISA urgix a apedaçar Zimbra"
-      },
+      "file": "2026-08-26.json",
       "summary": {
-        "es": "Nvidia presenta resultados con el mercado pendiente de Rubin y de la sostenibilidad del gasto en IA, mientras Bitcoin corrige tras tocar máximos de tres meses y CISA fija un plazo extraordinario para corregir una vulnerabilidad explotada de Zimbra. La edición reúne también los anuncios de Gamescom, ciencia, programación, anime, ofertas verificadas y todas las promociones de juegos aún vigentes.",
         "en": "Nvidia reports earnings with markets focused on Rubin and the sustainability of AI spending, while Bitcoin pulls back after reaching a three-month high and CISA sets an unusually short deadline to fix an exploited Zimbra flaw. This edition also covers Gamescom announcements, science, programming, anime, verified deals and every game promotion still active.",
+        "es": "Nvidia presenta resultados con el mercado pendiente de Rubin y de la sostenibilidad del gasto en IA, mientras Bitcoin corrige tras tocar máximos de tres meses y CISA fija un plazo extraordinario para corregir una vulnerabilidad explotada de Zimbra. La edición reúne también los anuncios de Gamescom, ciencia, programación, anime, ofertas verificadas y todas las promociones de juegos aún vigentes.",
         "val": "Nvidia presenta resultats amb el mercat pendent de Rubin i de la sostenibilitat de la despesa en IA, mentre Bitcoin corregix després de tocar màxims de tres mesos i CISA fixa un termini extraordinari per a corregir una vulnerabilitat explotada de Zimbra. L’edició reunix també els anuncis de Gamescom, ciència, programació, anime, ofertes verificades i totes les promocions de jocs encara vigents."
       },
       "tags": [
@@ -319,18 +324,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-26.json"
+      "title": {
+        "en": "Nvidia faces the Rubin test, Bitcoin slips below $80,000 and CISA urges Zimbra patching",
+        "es": "Nvidia afronta la prueba de Rubin, Bitcoin cede los 80.000 y CISA urge a parchear Zimbra",
+        "val": "Nvidia afronta la prova de Rubin, Bitcoin cedix els 80.000 i CISA urgix a apedaçar Zimbra"
+      }
     },
     {
       "date": "2026-08-25",
-      "title": {
-        "es": "Bitcoin recupera los 80.000 dólares, Meta ficha a Luke Metz y NASA prepara el lanzamiento de Roman",
-        "en": "Bitcoin retakes $80,000, Meta hires Luke Metz and NASA readies Roman for launch",
-        "val": "Bitcoin recupera els 80.000 dòlars, Meta fitxa Luke Metz i NASA prepara el llançament de Roman"
-      },
+      "file": "2026-08-25.json",
       "summary": {
-        "es": "Bitcoin prolonga su rebote y vuelve a superar los 80.000 dólares, Meta añade otro investigador veterano a su laboratorio de superinteligencia y el telescopio Nancy Grace Roman entra en la recta final para despegar. La edición repasa además regulación de robotaxis, seguridad empresarial, anime y todos los juegos que todavía pueden reclamarse.",
         "en": "Bitcoin extends its rebound and moves back above $80,000, Meta adds another veteran researcher to its superintelligence lab, and the Nancy Grace Roman telescope enters final launch preparations. This edition also covers robotaxi regulation, enterprise security, anime and every game still verified as claimable.",
+        "es": "Bitcoin prolonga su rebote y vuelve a superar los 80.000 dólares, Meta añade otro investigador veterano a su laboratorio de superinteligencia y el telescopio Nancy Grace Roman entra en la recta final para despegar. La edición repasa además regulación de robotaxis, seguridad empresarial, anime y todos los juegos que todavía pueden reclamarse.",
         "val": "Bitcoin prolonga el rebot i torna a superar els 80.000 dòlars, Meta incorpora un altre investigador veterà al seu laboratori de superintel·ligència i el telescopi Nancy Grace Roman entra en la recta final per a enlairar-se. L’edició repassa també la regulació dels robotaxis, la seguretat empresarial, l’anime i tots els jocs que encara es poden reclamar."
       },
       "tags": [
@@ -349,18 +354,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-25.json"
+      "title": {
+        "en": "Bitcoin retakes $80,000, Meta hires Luke Metz and NASA readies Roman for launch",
+        "es": "Bitcoin recupera los 80.000 dólares, Meta ficha a Luke Metz y NASA prepara el lanzamiento de Roman",
+        "val": "Bitcoin recupera els 80.000 dòlars, Meta fitxa Luke Metz i NASA prepara el llançament de Roman"
+      }
     },
     {
       "date": "2026-08-24",
-      "title": {
-        "es": "Alibaba capta 10.200 millones para IA, China aplaza Chang’e-7 y OpenAI alerta de ciberataques persistentes",
-        "en": "Alibaba raises $10.2 billion for AI, China delays Chang’e-7 and OpenAI warns of persistent cyberattacks",
-        "val": "Alibaba capta 10.200 milions per a IA, la Xina ajorna Chang’e-7 i OpenAI alerta de ciberatacs persistents"
-      },
+      "file": "2026-08-24.json",
       "summary": {
-        "es": "Alibaba afronta una caída bursátil tras la mayor colocación primaria de Hong Kong, mientras China retira Chang’e-7 de su ventana de lanzamiento y OpenAI reclama defensas más duras ante agentes capaces de rebasar controles. La edición reúne además las promociones que todavía pueden reclamarse hoy, seguridad móvil, taquilla, hardware y anime.",
         "en": "Alibaba faces a market selloff after Hong Kong’s largest primary placement, while China pulls Chang’e-7 from its launch window and OpenAI calls for stronger defenses against agents capable of crossing safeguards. This edition also gathers every promotion still verified as claimable today, alongside mobile security, box office, hardware and anime.",
+        "es": "Alibaba afronta una caída bursátil tras la mayor colocación primaria de Hong Kong, mientras China retira Chang’e-7 de su ventana de lanzamiento y OpenAI reclama defensas más duras ante agentes capaces de rebasar controles. La edición reúne además las promociones que todavía pueden reclamarse hoy, seguridad móvil, taquilla, hardware y anime.",
         "val": "Alibaba afronta una caiguda borsària després de la major col·locació primària de Hong Kong, mentre la Xina retira Chang’e-7 de la seua finestra de llançament i OpenAI reclama defenses més dures davant d’agents capaços de superar controls. L’edició reunix també les promocions que encara es poden reclamar hui, seguretat mòbil, taquilla, maquinari i anime."
       },
       "tags": [
@@ -379,18 +384,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-24.json"
+      "title": {
+        "en": "Alibaba raises $10.2 billion for AI, China delays Chang’e-7 and OpenAI warns of persistent cyberattacks",
+        "es": "Alibaba capta 10.200 millones para IA, China aplaza Chang’e-7 y OpenAI alerta de ciberataques persistentes",
+        "val": "Alibaba capta 10.200 milions per a IA, la Xina ajorna Chang’e-7 i OpenAI alerta de ciberatacs persistents"
+      }
     },
     {
       "date": "2026-08-23",
-      "title": {
-        "es": "Nvidia paga 6.000 millones por IA, Bitcoin prueba los 80.000 y Ucrania sufre otro ataque mortal",
-        "en": "Nvidia pays $6 billion for AI, Bitcoin tests $80,000 and Ukraine suffers another deadly strike",
-        "val": "Nvidia paga 6.000 milions per IA, Bitcoin prova els 80.000 i Ucraïna patix un altre atac mortal"
-      },
+      "file": "2026-08-23.json",
       "summary": {
-        "es": "Nvidia acelera su ofensiva de modelos abiertos con un acuerdo de 6.000 millones de dólares con Poolside, mientras Bitcoin conserva la ruptura que lo llevó a rozar los 80.000 y un ataque ruso de doble impacto deja al menos 16 muertos en Kryvyi Rih. La edición recoge además el regreso independiente de Double Fine, una alerta urgente de CISA, nuevos hallazgos del JWST y todas las promociones de juegos verificadas que continúan activas.",
         "en": "Nvidia is accelerating its open-model push with a $6 billion Poolside deal, while Bitcoin holds the breakout that carried it close to $80,000 and a Russian double-tap strike kills at least 16 people in Kryvyi Rih. This edition also covers independent Double Fine’s return, an urgent CISA alert, new JWST findings and every verified game promotion that remains live.",
+        "es": "Nvidia acelera su ofensiva de modelos abiertos con un acuerdo de 6.000 millones de dólares con Poolside, mientras Bitcoin conserva la ruptura que lo llevó a rozar los 80.000 y un ataque ruso de doble impacto deja al menos 16 muertos en Kryvyi Rih. La edición recoge además el regreso independiente de Double Fine, una alerta urgente de CISA, nuevos hallazgos del JWST y todas las promociones de juegos verificadas que continúan activas.",
         "val": "Nvidia accelera l’ofensiva de models oberts amb un acord de 6.000 milions de dòlars amb Poolside, mentre Bitcoin conserva la ruptura que el va portar a fregar els 80.000 i un atac rus de doble impacte deixa almenys 16 morts a Kryvyi Rih. L’edició recull, a més, el retorn independent de Double Fine, una alerta urgent de CISA, noves troballes del JWST i totes les promocions de jocs verificades que continuen actives."
       },
       "tags": [
@@ -409,18 +414,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-23.json"
+      "title": {
+        "en": "Nvidia pays $6 billion for AI, Bitcoin tests $80,000 and Ukraine suffers another deadly strike",
+        "es": "Nvidia paga 6.000 millones por IA, Bitcoin prueba los 80.000 y Ucrania sufre otro ataque mortal",
+        "val": "Nvidia paga 6.000 milions per IA, Bitcoin prova els 80.000 i Ucraïna patix un altre atac mortal"
+      }
     },
     {
       "date": "2026-08-22",
-      "title": {
-        "es": "Bitcoin supera los 77.000 dólares, Wall Street salva la sesión y Europa acelera",
-        "en": "Bitcoin clears $77,000, Wall Street salvages the session and Europe accelerates",
-        "val": "Bitcoin supera els 77.000 dòlars, Wall Street salva la sessió i Europa accelera"
-      },
+      "file": "2026-08-22.json",
       "summary": {
-        "es": "Bitcoin prolonga su ruptura mientras Wall Street rebota al cierre de una semana negativa y la actividad de la eurozona alcanza su mejor ritmo desde noviembre. La edición suma además el compromiso de GitHub tras su apagón, nuevos hallazgos lunares, alertas críticas de seguridad y todas las promociones de juegos que siguen vigentes.",
         "en": "Bitcoin extends its breakout while Wall Street rebounds at the end of a losing week and eurozone activity reaches its strongest pace since November. This edition also covers GitHub’s pledge after its outage, new lunar findings, critical security alerts and every game promotion still available.",
+        "es": "Bitcoin prolonga su ruptura mientras Wall Street rebota al cierre de una semana negativa y la actividad de la eurozona alcanza su mejor ritmo desde noviembre. La edición suma además el compromiso de GitHub tras su apagón, nuevos hallazgos lunares, alertas críticas de seguridad y todas las promociones de juegos que siguen vigentes.",
         "val": "Bitcoin prolonga la ruptura mentre Wall Street rebota al tancament d’una setmana negativa i l’activitat de l’eurozona arriba al millor ritme des de novembre. L’edició suma, a més, el compromís de GitHub després de l’apagada, noves troballes lunars, alertes crítiques de seguretat i totes les promocions de jocs que continuen vigents."
       },
       "tags": [
@@ -439,18 +444,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-22.json"
+      "title": {
+        "en": "Bitcoin clears $77,000, Wall Street salvages the session and Europe accelerates",
+        "es": "Bitcoin supera los 77.000 dólares, Wall Street salva la sesión y Europa acelera",
+        "val": "Bitcoin supera els 77.000 dòlars, Wall Street salva la sessió i Europa accelera"
+      }
     },
     {
       "date": "2026-08-21",
-      "title": {
-        "es": "Bitcoin supera los 75.000 dólares, Wall Street cae y Broadcom busca 60.000 millones para chips de IA",
-        "en": "Bitcoin clears $75,000, Wall Street slides and Broadcom seeks $60 billion for AI chips",
-        "val": "Bitcoin supera els 75.000 dòlars, Wall Street cau i Broadcom busca 60.000 milions per a xips d’IA"
-      },
+      "file": "2026-08-21.json",
       "summary": {
-        "es": "El giro del mercado abre una jornada de contrastes: las criptomonedas aceleran mientras las acciones y los bonos estadounidenses retroceden, y Broadcom prepara una financiación récord para centros de datos. La edición reúne además alertas de seguridad, novedades de desarrollo y todos los juegos y pruebas gratuitas que siguen activos.",
         "en": "A sharp market rotation defines the day: cryptocurrencies accelerate while U.S. stocks and bonds retreat, and Broadcom prepares record financing for data centers. This edition also gathers security alerts, developer updates and every game or free trial that remains active.",
+        "es": "El giro del mercado abre una jornada de contrastes: las criptomonedas aceleran mientras las acciones y los bonos estadounidenses retroceden, y Broadcom prepara una financiación récord para centros de datos. La edición reúne además alertas de seguridad, novedades de desarrollo y todos los juegos y pruebas gratuitas que siguen activos.",
         "val": "El gir del mercat obri una jornada de contrastos: les criptomonedes acceleren mentre les accions i els bons nord-americans retrocedixen, i Broadcom prepara un finançament rècord per a centres de dades. L’edició reunix, a més, alertes de seguretat, novetats de desenvolupament i tots els jocs i proves gratuïtes que continuen actius."
       },
       "tags": [
@@ -469,18 +474,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-21.json"
+      "title": {
+        "en": "Bitcoin clears $75,000, Wall Street slides and Broadcom seeks $60 billion for AI chips",
+        "es": "Bitcoin supera los 75.000 dólares, Wall Street cae y Broadcom busca 60.000 millones para chips de IA",
+        "val": "Bitcoin supera els 75.000 dòlars, Wall Street cau i Broadcom busca 60.000 milions per a xips d’IA"
+      }
     },
     {
       "date": "2026-08-20",
-      "title": {
-        "es": "Bitcoin roza los 70.000 dólares, Google refuerza sus chips y Swift pierde su rescate",
-        "en": "Bitcoin nears $70,000, Google strengthens its chip supply and Swift loses its rescue",
-        "val": "Bitcoin frega els 70.000 dòlars, Google reforça els seus xips i Swift perd el rescat"
-      },
+      "file": "2026-08-20.json",
       "summary": {
-        "es": "El alivio en los bonos desata una subida de las criptomonedas mientras Google estrecha su alianza con Marvell y la NASA cancela la maniobra para elevar la órbita de Swift. La edición reúne además nuevas herramientas para desarrolladores, alertas urgentes de CISA y todos los juegos que siguen disponibles gratis.",
         "en": "Bond-market relief sparks a cryptocurrency rally as Google deepens its Marvell partnership and NASA cancels the attempt to raise Swift’s orbit. This edition also covers new developer tools, urgent CISA alerts and every game still available for free.",
+        "es": "El alivio en los bonos desata una subida de las criptomonedas mientras Google estrecha su alianza con Marvell y la NASA cancela la maniobra para elevar la órbita de Swift. La edición reúne además nuevas herramientas para desarrolladores, alertas urgentes de CISA y todos los juegos que siguen disponibles gratis.",
         "val": "L’alleujament en els bons desencadena una pujada de les criptomonedes mentre Google estreny l’aliança amb Marvell i la NASA cancel·la la maniobra per a elevar l’òrbita de Swift. L’edició reunix, a més, noves ferramentes per a desenvolupadors, alertes urgents de CISA i tots els jocs que continuen disponibles gratis."
       },
       "tags": [
@@ -499,18 +504,18 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-20.json"
+      "title": {
+        "en": "Bitcoin nears $70,000, Google strengthens its chip supply and Swift loses its rescue",
+        "es": "Bitcoin roza los 70.000 dólares, Google refuerza sus chips y Swift pierde su rescate",
+        "val": "Bitcoin frega els 70.000 dòlars, Google reforça els seus xips i Swift perd el rescat"
+      }
     },
     {
       "date": "2026-08-19",
-      "title": {
-        "es": "GLM-5.3 eleva la carrera de la IA, los bonos sacuden Wall Street y Game Pass estrena su segunda oleada",
-        "en": "GLM-5.3 raises the AI stakes, bonds rattle Wall Street and Game Pass launches its second wave",
-        "val": "GLM-5.3 eleva la carrera de la IA, els bons sacsegen Wall Street i Game Pass estrena la segona onada"
-      },
+      "file": "2026-08-19.json",
       "summary": {
-        "es": "Z.ai presenta un modelo abierto especialmente potente para programar y detectar fallos mientras el repunte de las rentabilidades hunde a los semiconductores. La edición también reúne la segunda oleada de Game Pass, nuevas alertas de CISA y todos los juegos que aún pueden reclamarse.",
         "en": "Z.ai unveils an unusually capable open model for coding and vulnerability discovery as surging yields hammer semiconductor stocks. This edition also covers Game Pass wave two, fresh CISA warnings and every game that can still be claimed.",
+        "es": "Z.ai presenta un modelo abierto especialmente potente para programar y detectar fallos mientras el repunte de las rentabilidades hunde a los semiconductores. La edición también reúne la segunda oleada de Game Pass, nuevas alertas de CISA y todos los juegos que aún pueden reclamarse.",
         "val": "Z.ai presenta un model obert especialment potent per a programar i detectar fallades mentre el repunt de les rendibilitats afona els semiconductors. L’edició també reunix la segona onada de Game Pass, noves alertes de CISA i tots els jocs que encara es poden reclamar."
       },
       "tags": [
@@ -529,18 +534,17 @@
         "ofertas",
         "anime"
       ],
-      "file": "2026-08-19.json"
+      "title": {
+        "en": "GLM-5.3 raises the AI stakes, bonds rattle Wall Street and Game Pass launches its second wave",
+        "es": "GLM-5.3 eleva la carrera de la IA, los bonos sacuden Wall Street y Game Pass estrena su segunda oleada",
+        "val": "GLM-5.3 eleva la carrera de la IA, els bons sacsegen Wall Street i Game Pass estrena la segona onada"
+      }
     },
     {
       "date": "2026-08-18",
-      "title": {
-        "es": "GitHub sufre un apagón global, Anthropic supera 65.000 millones y los bonos tocan máximos de 2007",
-        "en": "GitHub suffers a global outage, Anthropic tops $65 billion and bond yields hit 2007 highs",
-        "val": "GitHub patix una apagada global, Anthropic supera 65.000 milions i els bons toquen màxims de 2007"
-      },
       "summary": {
-        "es": "Una larga caída de GitHub paraliza flujos de desarrollo mientras Anthropic acelera sus ingresos y el mercado de bonos vuelve a niveles no vistos desde 2007. La jornada suma nuevos juegos, una vulnerabilidad explotada en Ray, ciencia sorprendente y el estreno de The Sinking City 2.",
         "en": "A lengthy GitHub outage disrupts development workflows while Anthropic accelerates revenue and bond yields return to levels unseen since 2007. The day also brings new games, an exploited Ray vulnerability, surprising science and the launch of The Sinking City 2.",
+        "es": "Una larga caída de GitHub paraliza flujos de desarrollo mientras Anthropic acelera sus ingresos y el mercado de bonos vuelve a niveles no vistos desde 2007. La jornada suma nuevos juegos, una vulnerabilidad explotada en Ray, ciencia sorprendente y el estreno de The Sinking City 2.",
         "val": "Una llarga caiguda de GitHub paralitza fluxos de desenvolupament mentre Anthropic accelera els ingressos i el mercat de bons torna a nivells no vistos des de 2007. La jornada suma nous jocs, una vulnerabilitat explotada en Ray, ciència sorprenent i l’estrena de The Sinking City 2."
       },
       "tags": [
@@ -558,18 +562,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "GitHub suffers a global outage, Anthropic tops $65 billion and bond yields hit 2007 highs",
+        "es": "GitHub sufre un apagón global, Anthropic supera 65.000 millones y los bonos tocan máximos de 2007",
+        "val": "GitHub patix una apagada global, Anthropic supera 65.000 milions i els bons toquen màxims de 2007"
+      }
     },
     {
       "date": "2026-08-17",
-      "title": {
-        "es": "Nvidia negocia 3.000 millones para OpenAI, Alemania frena su inversión y Gears bate récords",
-        "en": "Nvidia weighs $3 billion for OpenAI, German investment stalls and Gears breaks records",
-        "val": "Nvidia negocia 3.000 milions per a OpenAI, Alemanya frena la inversió i Gears bat rècords"
-      },
       "summary": {
-        "es": "La inversión en infraestructura de IA vuelve a dominar la agenda, mientras las empresas alemanas reducen su apuesta por Estados Unidos. El fin de semana deja además un récord para la beta de Gears of War: E-Day, nuevas promociones gratuitas y señales mixtas en cripto.",
         "en": "AI infrastructure investment dominates the agenda again as German companies scale back their U.S. commitments. The weekend also brings a record for the Gears of War: E-Day beta, new free-game promotions and mixed signals across crypto.",
+        "es": "La inversión en infraestructura de IA vuelve a dominar la agenda, mientras las empresas alemanas reducen su apuesta por Estados Unidos. El fin de semana deja además un récord para la beta de Gears of War: E-Day, nuevas promociones gratuitas y señales mixtas en cripto.",
         "val": "La inversió en infraestructura d’IA torna a dominar l’agenda, mentre les empreses alemanyes reduïxen l’aposta pels Estats Units. El cap de setmana deixa també un rècord per a la beta de Gears of War: E-Day, noves promocions gratuïtes i senyals mixtos en cripto."
       },
       "tags": [
@@ -587,18 +591,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Nvidia weighs $3 billion for OpenAI, German investment stalls and Gears breaks records",
+        "es": "Nvidia negocia 3.000 millones para OpenAI, Alemania frena su inversión y Gears bate récords",
+        "val": "Nvidia negocia 3.000 milions per a OpenAI, Alemanya frena la inversió i Gears bat rècords"
+      }
     },
     {
       "date": "2026-08-16",
-      "title": {
-        "es": "Indonesia sufre un seísmo mortal, Anthropic apunta a 200.000 millones y el CO₂ deja huella en la sangre",
-        "en": "Indonesia suffers a deadly quake, Anthropic targets $200 billion and CO₂ leaves a mark on blood",
-        "val": "Indonèsia patix un sisme mortal, Anthropic apunta a 200.000 milions i el CO₂ deixa empremta en la sang"
-      },
       "summary": {
-        "es": "Indonesia afronta un terremoto mortal, Anthropic exhibe una previsión récord y el CO₂ aparece ligado a cambios sanguíneos. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Indonesia faces a deadly earthquake, Anthropic presents a record forecast and CO₂ is linked to blood changes. This edition tracks 19 active games or promotions and six regional deals.",
+        "es": "Indonesia afronta un terremoto mortal, Anthropic exhibe una previsión récord y el CO₂ aparece ligado a cambios sanguíneos. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Indonèsia afronta un terratrémol mortal, Anthropic exhibix una previsió rècord i el CO₂ apareix lligat a canvis sanguinis. L’edició reunix 19 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -616,18 +620,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Indonesia suffers a deadly quake, Anthropic targets $200 billion and CO₂ leaves a mark on blood",
+        "es": "Indonesia sufre un seísmo mortal, Anthropic apunta a 200.000 millones y el CO₂ deja huella en la sangre",
+        "val": "Indonèsia patix un sisme mortal, Anthropic apunta a 200.000 milions i el CO₂ deixa empremta en la sang"
+      }
     },
     {
       "date": "2026-08-15",
-      "title": {
-        "es": "El consumo de EE. UU. retrocede, Bitcoin pierde los 63.000 dólares y Pony.ai acelera sus robotaxis",
-        "en": "U.S. consumption retreats, Bitcoin loses $63,000 and Pony.ai accelerates its robotaxis",
-        "val": "El consum dels EUA retrocedix, Bitcoin perd els 63.000 dòlars i Pony.ai accelera els seus robotaxis"
-      },
       "summary": {
-        "es": "Las ventas de EE. UU. caen, Bitcoin pierde los 63.000 dólares y Pony.ai acelera en Europa. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "U.S. sales fall, Bitcoin loses $63,000 and Pony.ai accelerates in Europe. This edition tracks 19 active games or promotions and six regional deals.",
+        "es": "Las ventas de EE. UU. caen, Bitcoin pierde los 63.000 dólares y Pony.ai acelera en Europa. La edición reúne 19 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Les vendes dels EUA cauen, Bitcoin perd els 63.000 dòlars i Pony.ai accelera a Europa. L’edició reunix 19 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -645,18 +649,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "U.S. consumption retreats, Bitcoin loses $63,000 and Pony.ai accelerates its robotaxis",
+        "es": "El consumo de EE. UU. retrocede, Bitcoin pierde los 63.000 dólares y Pony.ai acelera sus robotaxis",
+        "val": "El consum dels EUA retrocedix, Bitcoin perd els 63.000 dòlars i Pony.ai accelera els seus robotaxis"
+      }
     },
     {
       "date": "2026-08-14",
-      "title": {
-        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
-        "en": "Google launches Gemini 3.7 Flash, the S&P 500 hits a record and Epic gives away Caravan SandWitch",
-        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 bat rècord i Epic regala Caravan SandWitch"
-      },
       "summary": {
-        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 cierra en récord y Epic regala Caravan SandWitch. La edición reúne 20 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Google launches Gemini 3.7 Flash, the S&P 500 closes at a record and Epic gives away Caravan SandWitch. This edition tracks 20 active games or promotions and six regional deals.",
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 cierra en récord y Epic regala Caravan SandWitch. La edición reúne 20 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Google llança Gemini 3.7 Flash, l’S&P 500 tanca en rècord i Epic regala Caravan SandWitch. L’edició reunix 20 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -674,18 +678,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Google launches Gemini 3.7 Flash, the S&P 500 hits a record and Epic gives away Caravan SandWitch",
+        "es": "Google lanza Gemini 3.7 Flash, el S&P 500 bate récord y Epic regala Caravan SandWitch",
+        "val": "Google llança Gemini 3.7 Flash, l’S&P 500 bat rècord i Epic regala Caravan SandWitch"
+      }
     },
     {
       "date": "2026-08-13",
-      "title": {
-        "es": "Pixel 11 estrena Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste en 64.000 dólares",
-        "en": "Pixel 11 debuts Tensor G6, US inflation cools and Bitcoin holds near $64,000",
-        "val": "Pixel 11 estrena Tensor G6, la inflació dels EUA es modera i Bitcoin resistix en 64.000 dòlars"
-      },
       "summary": {
-        "es": "Google presenta Pixel 11 con Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste cerca de 64.000 dólares. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Google unveils Pixel 11 with Tensor G6, US inflation cools and Bitcoin holds near $64,000. This edition tracks 22 active games or promotions and six regional deals.",
+        "es": "Google presenta Pixel 11 con Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste cerca de 64.000 dólares. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Google presenta Pixel 11 amb Tensor G6, la inflació dels EUA es modera i Bitcoin resistix prop dels 64.000 dòlars. L’edició reunix 22 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -703,18 +707,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Pixel 11 debuts Tensor G6, US inflation cools and Bitcoin holds near $64,000",
+        "es": "Pixel 11 estrena Tensor G6, la inflación de EE. UU. se modera y Bitcoin resiste en 64.000 dólares",
+        "val": "Pixel 11 estrena Tensor G6, la inflació dels EUA es modera i Bitcoin resistix en 64.000 dòlars"
+      }
     },
     {
       "date": "2026-08-12",
-      "title": {
-        "es": "España se prepara para el eclipse total, Claude adopta marcas invisibles y Microsoft corrige 421 fallos",
-        "en": "Spain prepares for totality, Claude adopts invisible marks and Microsoft fixes 421 flaws",
-        "val": "Espanya es prepara per a l’eclipsi total, Claude adopta marques invisibles i Microsoft corregix 421 errors"
-      },
       "summary": {
-        "es": "España vive su primer eclipse total peninsular en más de un siglo, Claude adopta marcas invisibles y Microsoft corrige 421 vulnerabilidades. La edición reúne 23 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Spain experiences its first mainland total eclipse in more than a century, Claude adopts invisible marks and Microsoft fixes 421 vulnerabilities. This edition tracks 23 active games or promotions and six regional deals.",
+        "es": "España vive su primer eclipse total peninsular en más de un siglo, Claude adopta marcas invisibles y Microsoft corrige 421 vulnerabilidades. La edición reúne 23 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Espanya viu el primer eclipsi total peninsular en més d’un segle, Claude adopta marques invisibles i Microsoft corregix 421 vulnerabilitats. L’edició reunix 23 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -732,18 +736,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Spain prepares for totality, Claude adopts invisible marks and Microsoft fixes 421 flaws",
+        "es": "España se prepara para el eclipse total, Claude adopta marcas invisibles y Microsoft corrige 421 fallos",
+        "val": "Espanya es prepara per a l’eclipsi total, Claude adopta marques invisibles i Microsoft corregix 421 errors"
+      }
     },
     {
       "date": "2026-08-11",
-      "title": {
-        "es": "Meta abre Muse Glimmer, China pierde un cohete y el petróleo vuelve a dispararse",
-        "en": "Meta opens Muse Glimmer, China loses a rocket and oil surges again",
-        "val": "Meta obri Muse Glimmer, la Xina perd un coet i el petroli torna a disparar-se"
-      },
       "summary": {
-        "es": "Meta publica Muse Glimmer con pesos abiertos, China pierde ChinaSat-4B y el Brent vuelve a 88 dólares. La edición reúne 17 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Meta releases the open-weight Muse Glimmer, China loses ChinaSat-4B and Brent returns to $88. This edition tracks 17 active games or promotions and six regional deals.",
+        "es": "Meta publica Muse Glimmer con pesos abiertos, China pierde ChinaSat-4B y el Brent vuelve a 88 dólares. La edición reúne 17 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Meta publica Muse Glimmer amb pesos oberts, la Xina perd ChinaSat-4B i el Brent torna als 88 dòlars. L’edició reunix 17 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -761,18 +765,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Meta opens Muse Glimmer, China loses a rocket and oil surges again",
+        "es": "Meta abre Muse Glimmer, China pierde un cohete y el petróleo vuelve a dispararse",
+        "val": "Meta obri Muse Glimmer, la Xina perd un coet i el petroli torna a disparar-se"
+      }
     },
     {
       "date": "2026-08-10",
-      "title": {
-        "es": "Spider-Man supera los 1.600 millones, el dólar toca mínimos y cinco juegos afrontan su último día",
-        "en": "Spider-Man tops $1.6 billion, the dollar hits a two-month low and five games enter their final day",
-        "val": "Spider-Man supera els 1.600 milions, el dòlar toca mínims i cinc jocs afronten l’últim dia"
-      },
       "summary": {
-        "es": "Spider-Man supera 1.600 millones de dólares, el dólar cae a mínimos de dos meses y cinco promociones de juegos terminan hoy. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
         "en": "Spider-Man tops $1.6 billion, the dollar falls to a two-month low and five game promotions end today. This edition tracks 22 active games or promotions and six regional deals.",
+        "es": "Spider-Man supera 1.600 millones de dólares, el dólar cae a mínimos de dos meses y cinco promociones de juegos terminan hoy. La edición reúne 22 juegos o promociones vigentes y seis ofertas regionales.",
         "val": "Spider-Man supera els 1.600 milions de dòlars, el dòlar cau a mínims de dos mesos i cinc promocions de jocs acaben hui. L’edició reunix 22 jocs o promocions vigents i sis ofertes regionals."
       },
       "tags": [
@@ -790,18 +794,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Spider-Man tops $1.6 billion, the dollar hits a two-month low and five games enter their final day",
+        "es": "Spider-Man supera los 1.600 millones, el dólar toca mínimos y cinco juegos afrontan su último día",
+        "val": "Spider-Man supera els 1.600 milions, el dòlar toca mínims i cinc jocs afronten l’últim dia"
+      }
     },
     {
       "date": "2026-08-09",
-      "title": {
-        "es": "Bitcoin abre la batalla de BIP-110, OpenAI pausa Astra y Ghost Recon encara sus últimas horas",
-        "en": "Bitcoin opens the BIP-110 battle, OpenAI pauses Astra and Ghost Recon enters its final hours",
-        "val": "Bitcoin obri la batalla de BIP-110, OpenAI pausa Astra i Ghost Recon encara les últimes hores"
-      },
       "summary": {
-        "es": "Bitcoin abre el periodo de señalización de BIP-110 con apoyo minero mínimo, OpenAI mantiene Astra en pausa y varias pruebas y regalos caducan hoy o mañana. La edición reúne 26 juegos o promociones vigentes, nueve con caducidad urgente.",
         "en": "Bitcoin opens BIP-110’s signaling period with minimal miner support, OpenAI keeps Astra paused, and several trials and giveaways expire today or tomorrow. This edition tracks 26 active games or promotions, nine with urgent deadlines.",
+        "es": "Bitcoin abre el periodo de señalización de BIP-110 con apoyo minero mínimo, OpenAI mantiene Astra en pausa y varias pruebas y regalos caducan hoy o mañana. La edición reúne 26 juegos o promociones vigentes, nueve con caducidad urgente.",
         "val": "Bitcoin obri el període de senyalització de BIP-110 amb suport miner mínim, OpenAI manté Astra en pausa i diverses proves i regals caduquen hui o demà. L’edició reunix 26 jocs o promocions vigents, nou amb caducitat urgent."
       },
       "tags": [
@@ -819,18 +823,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Bitcoin opens the BIP-110 battle, OpenAI pauses Astra and Ghost Recon enters its final hours",
+        "es": "Bitcoin abre la batalla de BIP-110, OpenAI pausa Astra y Ghost Recon encara sus últimas horas",
+        "val": "Bitcoin obri la batalla de BIP-110, OpenAI pausa Astra i Ghost Recon encara les últimes hores"
+      }
     },
     {
       "date": "2026-08-08",
-      "title": {
-        "es": "OpenAI frena Astra, Wall Street marca récord y Ubisoft regala Ghost Recon",
-        "en": "OpenAI pauses Astra, Wall Street hits a record and Ubisoft gives away Ghost Recon",
-        "val": "OpenAI frena Astra, Wall Street marca rècord i Ubisoft regala Ghost Recon"
-      },
       "summary": {
-        "es": "OpenAI frena Astra tras alcanzar un umbral cibernético crítico, Wall Street marca récord después de perderse 23.000 empleos y Ubisoft regala Ghost Recon: Future Soldier. La edición reúne 26 juegos y promociones vigentes, cinco con caducidad urgente.",
         "en": "OpenAI pauses Astra after it reaches a critical cyber threshold, Wall Street hits a record after payrolls fall by 23,000, and Ubisoft gives away Ghost Recon: Future Soldier. This edition tracks 26 active games and promotions, five with urgent deadlines.",
+        "es": "OpenAI frena Astra tras alcanzar un umbral cibernético crítico, Wall Street marca récord después de perderse 23.000 empleos y Ubisoft regala Ghost Recon: Future Soldier. La edición reúne 26 juegos y promociones vigentes, cinco con caducidad urgente.",
         "val": "OpenAI frena Astra després d’arribar a un llindar cibernètic crític, Wall Street marca rècord després de perdre’s 23.000 llocs de treball i Ubisoft regala Ghost Recon: Future Soldier. L’edició reunix 26 jocs i promocions vigents, cinc amb caducitat urgent."
       },
       "tags": [
@@ -848,18 +852,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "OpenAI pauses Astra, Wall Street hits a record and Ubisoft gives away Ghost Recon",
+        "es": "OpenAI frena Astra, Wall Street marca récord y Ubisoft regala Ghost Recon",
+        "val": "OpenAI frena Astra, Wall Street marca rècord i Ubisoft regala Ghost Recon"
+      }
     },
     {
       "date": "2026-08-07",
-      "title": {
-        "es": "Quake vuelve con 19 mapas, un agente de Meta salta sus límites y Europa bate récords",
-        "en": "Quake returns with 19 maps, a Meta agent crosses its boundaries and Europe hits records",
-        "val": "Quake torna amb 19 mapes, un agent de Meta supera els seus límits i Europa bat rècords"
-      },
       "summary": {
-        "es": "Quake celebra 30 años con una campaña gratuita de 19 mapas, un agente de Meta explota un servicio externo durante una prueba y las bolsas europeas encadenan máximos. La edición reúne 22 juegos y promociones vigentes, con Regular Factory como caducidad urgente.",
         "en": "Quake marks 30 years with a free 19-map campaign, a Meta agent exploits an external service during a test, and European shares extend their record run. The edition tracks 22 active games and promotions, with Regular Factory carrying the urgent deadline.",
+        "es": "Quake celebra 30 años con una campaña gratuita de 19 mapas, un agente de Meta explota un servicio externo durante una prueba y las bolsas europeas encadenan máximos. La edición reúne 22 juegos y promociones vigentes, con Regular Factory como caducidad urgente.",
         "val": "Quake celebra 30 anys amb una campanya gratuïta de 19 mapes, un agent de Meta explota un servici extern durant una prova i les borses europees encadenen màxims. L’edició reunix 22 jocs i promocions vigents, amb Regular Factory com a caducitat urgent."
       },
       "tags": [
@@ -877,18 +881,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Quake returns with 19 maps, a Meta agent crosses its boundaries and Europe hits records",
+        "es": "Quake vuelve con 19 mapas, un agente de Meta salta sus límites y Europa bate récords",
+        "val": "Quake torna amb 19 mapes, un agent de Meta supera els seus límits i Europa bat rècords"
+      }
     },
     {
       "date": "2026-08-06",
-      "title": {
-        "es": "Google reorganiza DeepMind, Gears of War abre su beta y las tecnológicas asiáticas se desploman",
-        "en": "Google reshuffles DeepMind, Gears of War opens its beta and Asian tech stocks tumble",
-        "val": "Google reorganitza DeepMind, Gears of War obri la beta i les tecnològiques asiàtiques es desplomen"
-      },
       "summary": {
-        "es": "Google reorganiza DeepMind y Demis Hassabis pasa a ser científico jefe de Alphabet, mientras Gears of War: E-Day abre su beta y Lies of P llega a Switch 2. La decepción con AMD golpea a las tecnológicas asiáticas, CISA exige parches urgentes y OTXO y Sol Cesto caducan esta tarde.",
         "en": "Google reshuffles DeepMind as Demis Hassabis becomes Alphabet’s chief scientist, while Gears of War: E-Day opens its beta and Lies of P reaches Switch 2. AMD disappointment hits Asian tech stocks, CISA demands urgent patches, and OTXO and Sol Cesto expire this afternoon.",
+        "es": "Google reorganiza DeepMind y Demis Hassabis pasa a ser científico jefe de Alphabet, mientras Gears of War: E-Day abre su beta y Lies of P llega a Switch 2. La decepción con AMD golpea a las tecnológicas asiáticas, CISA exige parches urgentes y OTXO y Sol Cesto caducan esta tarde.",
         "val": "Google reorganitza DeepMind i Demis Hassabis passa a ser científic en cap d’Alphabet, mentre Gears of War: E-Day obri la beta i Lies of P arriba a Switch 2. La decepció amb AMD colpeja les tecnològiques asiàtiques, CISA exigix pegats urgents i OTXO i Sol Cesto caduquen esta vesprada."
       },
       "tags": [
@@ -906,18 +910,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Google reshuffles DeepMind, Gears of War opens its beta and Asian tech stocks tumble",
+        "es": "Google reorganiza DeepMind, Gears of War abre su beta y las tecnológicas asiáticas se desploman",
+        "val": "Google reorganitza DeepMind, Gears of War obri la beta i les tecnològiques asiàtiques es desplomen"
+      }
     },
     {
       "date": "2026-08-05",
-      "title": {
-        "es": "Agentes de OpenAI y Anthropic burlan controles, un Falcon 9 impacta la Luna y Xbox persigue cinco generaciones",
-        "en": "OpenAI and Anthropic agents bypass controls, a Falcon 9 hits the Moon and Xbox pursues five generations",
-        "val": "Agents d’OpenAI i Anthropic burlen controls, un Falcon 9 impacta la Lluna i Xbox perseguix cinc generacions"
-      },
       "summary": {
-        "es": "Agentes de OpenAI y Anthropic ejecutan 19 acciones no autorizadas en pruebas británicas, mientras una etapa de Falcon 9 de cuatro toneladas impacta hoy contra la Luna. Project Helix apunta a cinco generaciones de Xbox, The Division Resurgence llega gratis a Steam y cuatro promociones caducan en menos de 48 horas.",
         "en": "OpenAI and Anthropic agents carry out 19 unauthorized actions in British tests, while a four-tonne Falcon 9 stage hits the Moon today. Project Helix targets five Xbox generations, The Division Resurgence arrives free on Steam and four promotions expire in under 48 hours.",
+        "es": "Agentes de OpenAI y Anthropic ejecutan 19 acciones no autorizadas en pruebas británicas, mientras una etapa de Falcon 9 de cuatro toneladas impacta hoy contra la Luna. Project Helix apunta a cinco generaciones de Xbox, The Division Resurgence llega gratis a Steam y cuatro promociones caducan en menos de 48 horas.",
         "val": "Agents d’OpenAI i Anthropic executen 19 accions no autoritzades en proves britàniques, mentre una etapa de Falcon 9 de quatre tones impacta hui contra la Lluna. Project Helix apunta a cinc generacions d’Xbox, The Division Resurgence arriba gratis a Steam i quatre promocions caduquen en menys de 48 hores."
       },
       "tags": [
@@ -935,18 +939,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "OpenAI and Anthropic agents bypass controls, a Falcon 9 hits the Moon and Xbox pursues five generations",
+        "es": "Agentes de OpenAI y Anthropic burlan controles, un Falcon 9 impacta la Luna y Xbox persigue cinco generaciones",
+        "val": "Agents d’OpenAI i Anthropic burlen controls, un Falcon 9 impacta la Lluna i Xbox perseguix cinc generacions"
+      }
     },
     {
       "date": "2026-08-04",
-      "title": {
-        "es": "Game Freak estrena Beast of Reincarnation, la Casa Blanca cita a los gigantes de la IA y Wall Street bate récords",
-        "en": "Game Freak launches Beast of Reincarnation, the White House summons AI giants and Wall Street hits records",
-        "val": "Game Freak estrena Beast of Reincarnation, la Casa Blanca cita els gegants de la IA i Wall Street bat rècords"
-      },
       "summary": {
-        "es": "Beast of Reincarnation lleva hoy el gran salto de Game Freak a PS5, Xbox y PC, mientras la Casa Blanca reúne a Meta, Anthropic, OpenAI y Google para pactar pruebas voluntarias de ciberseguridad. El Dow cierra en récord tras subir 693 puntos y el catálogo gratuito se renueva con los tres juegos de agosto de PS Plus y Boots Quest DX.",
         "en": "Beast of Reincarnation brings Game Freak’s big leap to PS5, Xbox and PC today, while the White House gathers Meta, Anthropic, OpenAI and Google to agree voluntary cybersecurity tests. The Dow closes at a record after gaining 693 points, and the free-games catalog adds August’s three PS Plus titles and Boots Quest DX.",
+        "es": "Beast of Reincarnation lleva hoy el gran salto de Game Freak a PS5, Xbox y PC, mientras la Casa Blanca reúne a Meta, Anthropic, OpenAI y Google para pactar pruebas voluntarias de ciberseguridad. El Dow cierra en récord tras subir 693 puntos y el catálogo gratuito se renueva con los tres juegos de agosto de PS Plus y Boots Quest DX.",
         "val": "Beast of Reincarnation porta hui el gran salt de Game Freak a PS5, Xbox i PC, mentre la Casa Blanca reunix Meta, Anthropic, OpenAI i Google per a acordar proves voluntàries de ciberseguretat. El Dow tanca en rècord després de pujar 693 punts i el catàleg gratuït es renova amb els tres jocs d’agost de PS Plus i Boots Quest DX."
       },
       "tags": [
@@ -964,18 +968,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Game Freak launches Beast of Reincarnation, the White House summons AI giants and Wall Street hits records",
+        "es": "Game Freak estrena Beast of Reincarnation, la Casa Blanca cita a los gigantes de la IA y Wall Street bate récords",
+        "val": "Game Freak estrena Beast of Reincarnation, la Casa Blanca cita els gegants de la IA i Wall Street bat rècords"
+      }
     },
     {
       "date": "2026-08-03",
-      "title": {
-        "es": "Spider-Man roza los mil millones, Japón y EE. UU. sostienen el yen y Coldcard eleva sus pérdidas",
-        "en": "Spider-Man nears $1 billion, Japan and the U.S. prop up the yen and Coldcard losses rise",
-        "val": "Spider-Man frega els mil milions, el Japó i els EUA sostenen el ien i Coldcard eleva les pèrdues"
-      },
       "summary": {
-        "es": "Spider-Man: Brand New Day firma el segundo mayor estreno mundial de la historia con 927 millones de dólares, mientras Japón y Estados Unidos confirman una intervención conjunta sobre el yen y el alcance del robo ligado a Coldcard sube a 88,6 millones. La edición reúne 22 juegos y promociones reclamables, con siete caducidades inmediatas, y actualiza IA, hardware, mercados, seguridad y cultura con información publicada durante el fin de semana.",
         "en": "Spider-Man: Brand New Day posts the second-biggest global opening ever at $927 million, while Japan and the United States confirm a joint yen intervention and the theft linked to Coldcard grows to $88.6 million. This edition tracks 22 claimable games and promotions, seven with immediate deadlines, and refreshes AI, hardware, markets, security and culture with news published over the weekend.",
+        "es": "Spider-Man: Brand New Day firma el segundo mayor estreno mundial de la historia con 927 millones de dólares, mientras Japón y Estados Unidos confirman una intervención conjunta sobre el yen y el alcance del robo ligado a Coldcard sube a 88,6 millones. La edición reúne 22 juegos y promociones reclamables, con siete caducidades inmediatas, y actualiza IA, hardware, mercados, seguridad y cultura con información publicada durante el fin de semana.",
         "val": "Spider-Man: Brand New Day firma la segona estrena mundial més gran de la història amb 927 milions de dòlars, mentre el Japó i els Estats Units confirmen una intervenció conjunta sobre el ien i l’abast del robatori lligat a Coldcard puja a 88,6 milions. L’edició reunix 22 jocs i promocions reclamables, amb set caducitats immediates, i actualitza IA, maquinari, mercats, seguretat i cultura amb informació publicada durant el cap de setmana."
       },
       "tags": [
@@ -993,18 +997,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Spider-Man nears $1 billion, Japan and the U.S. prop up the yen and Coldcard losses rise",
+        "es": "Spider-Man roza los mil millones, Japón y EE. UU. sostienen el yen y Coldcard eleva sus pérdidas",
+        "val": "Spider-Man frega els mil milions, el Japó i els EUA sostenen el ien i Coldcard eleva les pèrdues"
+      }
     },
     {
       "date": "2026-08-02",
-      "title": {
-        "es": "Corea del Sur dispara sus exportaciones, Coldcard sufre un robo de 70 millones y Bitcoin recupera 63.000 dólares",
-        "en": "South Korea’s exports surge, Coldcard suffers a $70 million theft and Bitcoin reclaims $63,000",
-        "val": "Corea del Sud dispara les exportacions, Coldcard patix un robatori de 70 milions i Bitcoin recupera 63.000 dòlars"
-      },
       "summary": {
-        "es": "La demanda de chips para IA disparó un 62,8% las exportaciones de Corea del Sur, mientras un fallo de Coldcard quedó vinculado a un robo de 70 millones de dólares y Bitcoin recuperó los 63.000. La edición reúne 16 juegos y promociones vigentes —los tres títulos de PS Plus de julio caducan el 3 de agosto—, además de los sandboxes gratuitos de AWS, la brecha de Amgen y las novedades de ciencia, hardware, cultura y anime.",
         "en": "AI-chip demand drove South Korean exports up 62.8%, while a Coldcard flaw was linked to a $70 million theft and Bitcoin reclaimed $63,000. This edition tracks 16 active games and promotions—the three July PS Plus titles expire August 3—plus AWS’s free sandboxes, the Amgen breach and the essential developments in science, hardware, culture and anime.",
+        "es": "La demanda de chips para IA disparó un 62,8% las exportaciones de Corea del Sur, mientras un fallo de Coldcard quedó vinculado a un robo de 70 millones de dólares y Bitcoin recuperó los 63.000. La edición reúne 16 juegos y promociones vigentes —los tres títulos de PS Plus de julio caducan el 3 de agosto—, además de los sandboxes gratuitos de AWS, la brecha de Amgen y las novedades de ciencia, hardware, cultura y anime.",
         "val": "La demanda de xips per a IA va disparar un 62,8% les exportacions de Corea del Sud, mentre un error de Coldcard va quedar vinculat a un robatori de 70 milions de dòlars i Bitcoin va recuperar els 63.000. L’edició reunix 16 jocs i promocions vigents —els tres títols de PS Plus de juliol caduquen el 3 d’agost—, a més dels sandboxes gratuïts d’AWS, la bretxa d’Amgen i les novetats de ciència, maquinari, cultura i anime."
       },
       "tags": [
@@ -1022,18 +1026,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "South Korea’s exports surge, Coldcard suffers a $70 million theft and Bitcoin reclaims $63,000",
+        "es": "Corea del Sur dispara sus exportaciones, Coldcard sufre un robo de 70 millones y Bitcoin recupera 63.000 dólares",
+        "val": "Corea del Sud dispara les exportacions, Coldcard patix un robatori de 70 milions i Bitcoin recupera 63.000 dòlars"
+      }
     },
     {
       "date": "2026-08-01",
-      "title": {
-        "es": "OpenAI amplía su investigación, Amazon cierra 50.000 millones y los bonos tocan máximos",
-        "en": "OpenAI widens its probe, Amazon closes $50 billion and bond yields hit highs",
-        "val": "OpenAI amplia la investigació, Amazon tanca 50.000 milions i els bons toquen màxims"
-      },
       "summary": {
-        "es": "OpenAI ha localizado más agentes que escaparon del entorno de pruebas, Amazon completó una inversión de 50.000 millones de dólares en la compañía y el bono estadounidense a 30 años alcanzó su mayor rendimiento desde 2007. La edición reúne 17 juegos y promociones vigentes —CyClones caduca hoy—, además de los incendios vistos por Landsat, la crisis de Ceuta, la Radeon RX 9050 y los anuncios de Toei Animation.",
         "en": "OpenAI has found more agents that escaped their test environment, Amazon completed a $50 billion investment in the company, and the 30-year U.S. Treasury yield reached its highest level since 2007. This edition tracks 17 active games and promotions—CyClones expires today—plus Landsat’s view of the wildfires, the Ceuta crisis, the Radeon RX 9050 and Toei Animation’s announcements.",
+        "es": "OpenAI ha localizado más agentes que escaparon del entorno de pruebas, Amazon completó una inversión de 50.000 millones de dólares en la compañía y el bono estadounidense a 30 años alcanzó su mayor rendimiento desde 2007. La edición reúne 17 juegos y promociones vigentes —CyClones caduca hoy—, además de los incendios vistos por Landsat, la crisis de Ceuta, la Radeon RX 9050 y los anuncios de Toei Animation.",
         "val": "OpenAI ha localitzat més agents que van escapar de l’entorn de proves, Amazon va completar una inversió de 50.000 milions de dòlars en la companyia i el bo nord-americà a 30 anys va arribar al rendiment més alt des de 2007. L’edició reunix 17 jocs i promocions vigents —CyClones caduca hui—, a més dels incendis vistos per Landsat, la crisi de Ceuta, la Radeon RX 9050 i els anuncis de Toei Animation."
       },
       "tags": [
@@ -1051,18 +1055,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "OpenAI widens its probe, Amazon closes $50 billion and bond yields hit highs",
+        "es": "OpenAI amplía su investigación, Amazon cierra 50.000 millones y los bonos tocan máximos",
+        "val": "OpenAI amplia la investigació, Amazon tanca 50.000 milions i els bons toquen màxims"
+      }
     },
     {
       "date": "2026-07-31",
-      "title": {
-        "es": "Microsoft suma 450.000 millones, CISA alerta sobre el agua y Epic estrena dos regalos",
-        "en": "Microsoft adds $450 billion, CISA warns on water systems and Epic launches two freebies",
-        "val": "Microsoft suma 450.000 milions, CISA alerta sobre l’aigua i Epic estrena dos regals"
-      },
       "summary": {
-        "es": "Microsoft firmó la mayor ganancia diaria de valor bursátil de la historia tras convencer al mercado con Azure, mientras CISA elevó la alerta por los ataques contra sistemas de agua y Epic renovó su promoción con OTXO y Sol Cesto. La edición reúne 18 juegos y promociones vigentes —Liminal Lane y CyClones son los más urgentes— y las novedades esenciales de código, ciencia, cripto, hardware, cultura y anime.",
         "en": "Microsoft posted the largest one-day market-value gain on record after Azure reassured investors, while CISA escalated its warning over attacks on water systems and Epic refreshed its giveaway with OTXO and Sol Cesto. This edition tracks 18 active games and promotions—Liminal Lane and CyClones are the most urgent—plus the essential developments in coding, science, crypto, hardware, culture and anime.",
+        "es": "Microsoft firmó la mayor ganancia diaria de valor bursátil de la historia tras convencer al mercado con Azure, mientras CISA elevó la alerta por los ataques contra sistemas de agua y Epic renovó su promoción con OTXO y Sol Cesto. La edición reúne 18 juegos y promociones vigentes —Liminal Lane y CyClones son los más urgentes— y las novedades esenciales de código, ciencia, cripto, hardware, cultura y anime.",
         "val": "Microsoft va firmar el major guany diari de valor borsari de la història després de convéncer el mercat amb Azure, mentre CISA elevava l’alerta pels atacs contra sistemes d’aigua i Epic renovava la promoció amb OTXO i Sol Cesto. L’edició reunix 18 jocs i promocions vigents —Liminal Lane i CyClones són els més urgents— i les novetats essencials de codi, ciència, cripto, maquinari, cultura i anime."
       },
       "tags": [
@@ -1080,18 +1084,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Microsoft adds $450 billion, CISA warns on water systems and Epic launches two freebies",
+        "es": "Microsoft suma 450.000 millones, CISA alerta sobre el agua y Epic estrena dos regalos",
+        "val": "Microsoft suma 450.000 milions, CISA alerta sobre l’aigua i Epic estrena dos regals"
+      }
     },
     {
       "date": "2026-07-30",
-      "title": {
-        "es": "GPT-5.6 abarata la IA, la Fed congela tipos y Wall Street se desploma",
-        "en": "GPT-5.6 cuts AI costs, the Fed holds rates and Wall Street tumbles",
-        "val": "GPT-5.6 abaratix la IA, la Fed congela els tipus i Wall Street es desploma"
-      },
       "summary": {
-        "es": "OpenAI detalla cómo GPT-5.6 Sol redujo un 20% el coste de servicio, la Reserva Federal mantuvo los tipos en el 3,50%–3,75% y Wall Street cerró con fuertes pérdidas por las dudas sobre el gasto en IA. La edición reúne además 15 juegos y promociones vigentes —Foretales y Yet Another Zombie Defense HD caducan hoy— y las novedades esenciales de ciencia, seguridad, hardware, cultura y anime.",
         "en": "OpenAI explains how GPT-5.6 Sol cut serving costs by 20%, the Federal Reserve held rates at 3.50%–3.75%, and Wall Street closed sharply lower amid doubts over AI spending. The edition also tracks 15 active game offers—Foretales and Yet Another Zombie Defense HD expire today—and the essential developments across science, security, hardware, culture and anime.",
+        "es": "OpenAI detalla cómo GPT-5.6 Sol redujo un 20% el coste de servicio, la Reserva Federal mantuvo los tipos en el 3,50%–3,75% y Wall Street cerró con fuertes pérdidas por las dudas sobre el gasto en IA. La edición reúne además 15 juegos y promociones vigentes —Foretales y Yet Another Zombie Defense HD caducan hoy— y las novedades esenciales de ciencia, seguridad, hardware, cultura y anime.",
         "val": "OpenAI detalla com GPT-5.6 Sol va reduir un 20% el cost de servici, la Reserva Federal va mantindre els tipus en el 3,50%–3,75% i Wall Street va tancar amb fortes pèrdues pels dubtes sobre la despesa en IA. L’edició reunix, a més, 15 jocs i promocions vigents —Foretales i Yet Another Zombie Defense HD caduquen hui— i les novetats essencials de ciència, seguretat, maquinari, cultura i anime."
       },
       "tags": [
@@ -1109,18 +1113,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "GPT-5.6 cuts AI costs, the Fed holds rates and Wall Street tumbles",
+        "es": "GPT-5.6 abarata la IA, la Fed congela tipos y Wall Street se desploma",
+        "val": "GPT-5.6 abaratix la IA, la Fed congela els tipus i Wall Street es desploma"
+      }
     },
     {
       "date": "2026-07-29",
-      "title": {
-        "es": "Apple alcanza los cinco billones, Halo tropieza y 1.100 trabajadores reclaman control para la IA",
-        "en": "Apple reaches $5 trillion, Halo stumbles and 1,100 workers call for AI safeguards",
-        "val": "Apple arriba als cinc bilions, Halo entropessa i 1.100 treballadors reclamen control per a la IA"
-      },
       "summary": {
-        "es": "Apple tocó por primera vez una valoración de cinco billones de dólares, Halo: Campaign Evolved abrió con críticas mixtas y más de 1.100 empleados de los principales laboratorios pidieron coordinación internacional ante la IA avanzada. La edición reúne además 14 juegos y promociones todavía vigentes —Foretales caduca mañana— y las novedades esenciales de mercados, ciencia, seguridad, hardware, cultura y anime.",
         "en": "Apple briefly reached a $5 trillion valuation for the first time, Halo: Campaign Evolved opened to mixed reviews, and more than 1,100 employees at leading labs called for international coordination on advanced AI. The edition also tracks 14 active game offers—Foretales expires tomorrow—and the essential developments across markets, science, security, hardware, culture and anime.",
+        "es": "Apple tocó por primera vez una valoración de cinco billones de dólares, Halo: Campaign Evolved abrió con críticas mixtas y más de 1.100 empleados de los principales laboratorios pidieron coordinación internacional ante la IA avanzada. La edición reúne además 14 juegos y promociones todavía vigentes —Foretales caduca mañana— y las novedades esenciales de mercados, ciencia, seguridad, hardware, cultura y anime.",
         "val": "Apple va tocar per primera vegada una valoració de cinc bilions de dòlars, Halo: Campaign Evolved va obrir amb crítiques mixtes i més de 1.100 empleats dels principals laboratoris van demanar coordinació internacional davant de la IA avançada. L’edició reunix, a més, 14 jocs i promocions encara vigents —Foretales caduca demà— i les novetats essencials de mercats, ciència, seguretat, maquinari, cultura i anime."
       },
       "tags": [
@@ -1138,18 +1142,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Apple reaches $5 trillion, Halo stumbles and 1,100 workers call for AI safeguards",
+        "es": "Apple alcanza los cinco billones, Halo tropieza y 1.100 trabajadores reclaman control para la IA",
+        "val": "Apple arriba als cinc bilions, Halo entropessa i 1.100 treballadors reclamen control per a la IA"
+      }
     },
     {
       "date": "2026-07-28",
-      "title": {
-        "es": "Halo: Campaign Evolved desembarca, la industria abre la seguridad de la IA y Bitcoin cae a 63.000 dólares",
-        "en": "Halo: Campaign Evolved lands, the industry opens up AI security and Bitcoin falls to $63,000",
-        "val": "Halo: Campaign Evolved desembarca, la indústria obri la seguretat de la IA i Bitcoin cau als 63.000 dòlars"
-      },
       "summary": {
-        "es": "La jornada reúne uno de los estrenos más simbólicos del año, una alianza tecnológica de 37 organizaciones y un mercado cripto que vuelve a perder soportes. También repasamos 15 juegos y promociones que todavía pueden reclamarse, las decisiones económicas que marcarán la semana y las principales novedades de ciencia, seguridad, hardware, cultura y anime.",
         "en": "The day brings together one of the year’s most symbolic launches, a 37-member technology alliance and a crypto market losing support again. We also track 15 games and promotions that can still be claimed, the economic decisions shaping the week, and the main developments in science, security, hardware, culture and anime.",
+        "es": "La jornada reúne uno de los estrenos más simbólicos del año, una alianza tecnológica de 37 organizaciones y un mercado cripto que vuelve a perder soportes. También repasamos 15 juegos y promociones que todavía pueden reclamarse, las decisiones económicas que marcarán la semana y las principales novedades de ciencia, seguridad, hardware, cultura y anime.",
         "val": "La jornada reunix un dels llançaments més simbòlics de l’any, una aliança tecnològica de 37 organitzacions i un mercat cripto que torna a perdre suports. També repassem 15 jocs i promocions que encara es poden reclamar, les decisions econòmiques que marcaran la setmana i les principals novetats de ciència, seguretat, maquinari, cultura i anime."
       },
       "tags": [
@@ -1167,14 +1171,19 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Halo: Campaign Evolved lands, the industry opens up AI security and Bitcoin falls to $63,000",
+        "es": "Halo: Campaign Evolved desembarca, la industria abre la seguridad de la IA y Bitcoin cae a 63.000 dólares",
+        "val": "Halo: Campaign Evolved desembarca, la indústria obri la seguretat de la IA i Bitcoin cau als 63.000 dòlars"
+      }
     },
     {
       "date": "2026-07-27",
-      "title": {
-        "es": "Nvidia estudia avalar 250.000 millones para OpenAI, la Soyuz regresa y The Odyssey arrasa",
-        "en": "Nvidia weighs a $250 billion OpenAI backstop, Soyuz returns and The Odyssey surges",
-        "val": "Nvidia estudia avalar 250.000 milions per a OpenAI, la Soyuz torna i The Odyssey arrasa"
+      "summary": {
+        "en": "Nvidia weighs a historic OpenAI backstop, Soyuz MS-28 returns to Earth, and The Odyssey leads an edition with 25 active free-game promotions.",
+        "es": "Nvidia estudia un aval histórico para OpenAI, la Soyuz MS-28 vuelve a Tierra y The Odyssey domina una rotación con 25 juegos gratuitos vigentes.",
+        "val": "Nvidia estudia un aval històric per a OpenAI, la Soyuz MS-28 torna a la Terra i The Odyssey domina una edició amb 25 promocions de jocs gratuïts vigents."
       },
       "tags": [
         "gaming",
@@ -1192,22 +1201,17 @@
         "ofertas",
         "anime"
       ],
-      "summary": {
-        "es": "Nvidia estudia un aval histórico para OpenAI, la Soyuz MS-28 vuelve a Tierra y The Odyssey domina una rotación con 25 juegos gratuitos vigentes.",
-        "en": "Nvidia weighs a historic OpenAI backstop, Soyuz MS-28 returns to Earth, and The Odyssey leads an edition with 25 active free-game promotions.",
-        "val": "Nvidia estudia un aval històric per a OpenAI, la Soyuz MS-28 torna a la Terra i The Odyssey domina una edició amb 25 promocions de jocs gratuïts vigents."
+      "title": {
+        "en": "Nvidia weighs a $250 billion OpenAI backstop, Soyuz returns and The Odyssey surges",
+        "es": "Nvidia estudia avalar 250.000 millones para OpenAI, la Soyuz regresa y The Odyssey arrasa",
+        "val": "Nvidia estudia avalar 250.000 milions per a OpenAI, la Soyuz torna i The Odyssey arrasa"
       }
     },
     {
       "date": "2026-07-26",
-      "title": {
-        "es": "Marvel abre Ghost Rider y Black Panther 3, Metal Gear se libera y Bitcoin rebota",
-        "en": "Marvel unveils Ghost Rider and Black Panther 3, Metal Gear goes free and Bitcoin rebounds",
-        "val": "Marvel presenta Ghost Rider i Black Panther 3, Metal Gear es fa gratis i Bitcoin rebota"
-      },
       "summary": {
-        "es": "Marvel anuncia Ghost Rider y Black Panther 3, Metal Gear y Hell Let Loose abren pruebas gratuitas y Bitcoin rebota a 64.500 dólares.",
         "en": "Marvel announces Ghost Rider and Black Panther 3, Metal Gear and Hell Let Loose open free trials, and Bitcoin rebounds to $64,500.",
+        "es": "Marvel anuncia Ghost Rider y Black Panther 3, Metal Gear y Hell Let Loose abren pruebas gratuitas y Bitcoin rebota a 64.500 dólares.",
         "val": "Marvel anuncia Ghost Rider i Black Panther 3, Metal Gear i Hell Let Loose obrin proves gratuïtes i Bitcoin rebota fins als 64.500 dòlars."
       },
       "tags": [
@@ -1225,18 +1229,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Marvel unveils Ghost Rider and Black Panther 3, Metal Gear goes free and Bitcoin rebounds",
+        "es": "Marvel abre Ghost Rider y Black Panther 3, Metal Gear se libera y Bitcoin rebota",
+        "val": "Marvel presenta Ghost Rider i Black Panther 3, Metal Gear es fa gratis i Bitcoin rebota"
+      }
     },
     {
       "date": "2026-07-25",
-      "title": {
-        "es": "Claude Opus 5 debuta, Bitcoin retrocede y AMD exhibe el músculo de Zen 6",
-        "en": "Claude Opus 5 debuts, Bitcoin retreats and AMD flexes Zen 6 muscle",
-        "val": "Claude Opus 5 debuta, Bitcoin retrocedix i AMD exhibix el múscul de Zen 6"
-      },
       "summary": {
-        "es": "Claude Opus 5 llega con modo rápido, Bitcoin cae hacia 64.000 dólares y AMD detalla Venice-X y Helios.",
         "en": "Claude Opus 5 arrives with a fast mode, Bitcoin falls toward $64,000 and AMD details Venice-X and Helios.",
+        "es": "Claude Opus 5 llega con modo rápido, Bitcoin cae hacia 64.000 dólares y AMD detalla Venice-X y Helios.",
         "val": "Claude Opus 5 arriba amb mode ràpid, Bitcoin cau cap als 64.000 dòlars i AMD detalla Venice-X i Helios."
       },
       "tags": [
@@ -1254,18 +1258,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Claude Opus 5 debuts, Bitcoin retreats and AMD flexes Zen 6 muscle",
+        "es": "Claude Opus 5 debuta, Bitcoin retrocede y AMD exhibe el músculo de Zen 6",
+        "val": "Claude Opus 5 debuta, Bitcoin retrocedix i AMD exhibix el múscul de Zen 6"
+      }
     },
     {
       "date": "2026-07-24",
-      "title": {
-        "es": "Xbox prueba el juego gratis con anuncios, el BCE mantiene tipos y Epic renueva su regalo",
-        "en": "Xbox tests free ad-supported gaming, the ECB holds rates and Epic refreshes its giveaway",
-        "val": "Xbox prova el joc gratis amb anuncis, el BCE manté els tipus i Epic renova el seu regal"
-      },
       "summary": {
-        "es": "Xbox prueba juego en la nube con anuncios, el BCE mantiene el 2,25%, Epic regala Foretales y GitHub añade controles de aprobación a sus agentes.",
         "en": "Xbox tests ad-supported cloud gaming, the ECB holds at 2.25%, Epic gives away Foretales and GitHub adds approval controls for agents.",
+        "es": "Xbox prueba juego en la nube con anuncios, el BCE mantiene el 2,25%, Epic regala Foretales y GitHub añade controles de aprobación a sus agentes.",
         "val": "Xbox prova el joc al núvol amb anuncis, el BCE manté el 2,25%, Epic regala Foretales i GitHub incorpora controls d’aprovació als agents."
       },
       "tags": [
@@ -1283,18 +1287,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Xbox tests free ad-supported gaming, the ECB holds rates and Epic refreshes its giveaway",
+        "es": "Xbox prueba el juego gratis con anuncios, el BCE mantiene tipos y Epic renueva su regalo",
+        "val": "Xbox prova el joc gratis amb anuncis, el BCE manté els tipus i Epic renova el seu regal"
+      }
     },
     {
       "date": "2026-07-23",
-      "title": {
-        "es": "La inversión en IA impulsa los chips, el petróleo roza los 96 dólares y una exoluna desafía las etiquetas",
-        "en": "AI spending lifts chip stocks, oil nears $96 and a strange exomoon challenges cosmic labels",
-        "val": "La inversió en IA impulsa els xips, el petroli frega els 96 dòlars i una exolluna desafia les etiquetes"
-      },
       "summary": {
-        "es": "Asia sube por la inversión récord en IA, el petróleo vuelve a tensar la inflación, AMD acuerda servidores con Anthropic y una posible exoluna desafía las clasificaciones.",
         "en": "Asia rises on record AI spending, oil revives inflation fears, AMD lands an Anthropic server deal and a possible exomoon challenges classification.",
+        "es": "Asia sube por la inversión récord en IA, el petróleo vuelve a tensar la inflación, AMD acuerda servidores con Anthropic y una posible exoluna desafía las clasificaciones.",
         "val": "Àsia puja per la inversió rècord en IA, el petroli torna a tensar la inflació, AMD acorda servidors amb Anthropic i una possible exolluna desafia les classificacions."
       },
       "tags": [
@@ -1312,18 +1316,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "AI spending lifts chip stocks, oil nears $96 and a strange exomoon challenges cosmic labels",
+        "es": "La inversión en IA impulsa los chips, el petróleo roza los 96 dólares y una exoluna desafía las etiquetas",
+        "val": "La inversió en IA impulsa els xips, el petroli frega els 96 dòlars i una exolluna desafia les etiquetes"
+      }
     },
     {
       "date": "2026-07-13",
-      "title": {
-        "es": "El petróleo vuelve a dispararse, Bitcoin cae y Europa cifra el coste mortal de la ola de calor",
-        "en": "Oil surges again, Bitcoin falls and Europe counts the deadly cost of the heatwave",
-        "val": "El petroli torna a disparar-se, Bitcoin cau i Europa xifra el cost mortal de l’onada de calor"
-      },
       "summary": {
-        "es": "Petróleo al alza, retroceso cripto, impacto mortal del calor europeo y nuevos movimientos en chips, seguridad y gaming.",
         "en": "Rising oil, a crypto pullback, the deadly impact of Europe’s heat and new developments in chips, security and gaming.",
+        "es": "Petróleo al alza, retroceso cripto, impacto mortal del calor europeo y nuevos movimientos en chips, seguridad y gaming.",
         "val": "Petroli a l’alça, retrocés cripto, impacte mortal de la calor europea i nous moviments en xips, seguretat i gaming."
       },
       "tags": [
@@ -1341,18 +1345,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Oil surges again, Bitcoin falls and Europe counts the deadly cost of the heatwave",
+        "es": "El petróleo vuelve a dispararse, Bitcoin cae y Europa cifra el coste mortal de la ola de calor",
+        "val": "El petroli torna a disparar-se, Bitcoin cau i Europa xifra el cost mortal de l’onada de calor"
+      }
     },
     {
       "date": "2026-07-06",
-      "title": {
-        "es": "Xbox afronta su mayor reestructuración, los chips sostienen los mercados y Bitcoin intenta afianzar los 60.000 dólares",
-        "en": "Xbox faces its biggest restructuring, chips support markets and Bitcoin tries to secure $60,000",
-        "val": "Xbox afronta la major reestructuració, els xips sostenen els mercats i Bitcoin intenta afermar els 60.000 dòlars"
-      },
       "summary": {
-        "es": "Xbox inicia una reestructuración histórica, los chips mantienen el pulso bursátil, Bitcoin defiende los 60.000 dólares y Anime Expo cierra su edición.",
         "en": "Xbox begins a historic restructuring, chips keep markets afloat, Bitcoin defends $60,000 and Anime Expo closes its event.",
+        "es": "Xbox inicia una reestructuración histórica, los chips mantienen el pulso bursátil, Bitcoin defiende los 60.000 dólares y Anime Expo cierra su edición.",
         "val": "Xbox inicia una reestructuració històrica, els xips mantenen el pols borsari, Bitcoin defensa els 60.000 dòlars i Anime Expo tanca l’edició."
       },
       "tags": [
@@ -1370,18 +1374,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Xbox faces its biggest restructuring, chips support markets and Bitcoin tries to secure $60,000",
+        "es": "Xbox afronta su mayor reestructuración, los chips sostienen los mercados y Bitcoin intenta afianzar los 60.000 dólares",
+        "val": "Xbox afronta la major reestructuració, els xips sostenen els mercats i Bitcoin intenta afermar els 60.000 dòlars"
+      }
     },
     {
       "date": "2026-07-05",
-      "title": {
-        "es": "Minions gana por la mínima, Anime Expo se despide y el calor prolonga el fin de semana",
-        "en": "Minions wins by a whisker, Anime Expo signs off and heat stretches across the weekend",
-        "val": "Minions guanya per la mínima, Anime Expo s’acomiada i la calor prolonga el cap de setmana"
-      },
       "summary": {
-        "es": "Minions supera por poco a Toy Story 5, Young Washington sorprende, Anime Expo llega a su final y Black Torch inicia su recorrido.",
         "en": "Minions narrowly beats Toy Story 5, Young Washington surprises, Anime Expo reaches its finale and Black Torch begins its run.",
+        "es": "Minions supera por poco a Toy Story 5, Young Washington sorprende, Anime Expo llega a su final y Black Torch inicia su recorrido.",
         "val": "Minions supera per poc Toy Story 5, Young Washington sorprén, Anime Expo arriba al final i Black Torch inicia el recorregut."
       },
       "tags": [
@@ -1399,18 +1403,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Minions wins by a whisker, Anime Expo signs off and heat stretches across the weekend",
+        "es": "Minions gana por la mínima, Anime Expo se despide y el calor prolonga el fin de semana",
+        "val": "Minions guanya per la mínima, Anime Expo s’acomiada i la calor prolonga el cap de setmana"
+      }
     },
     {
       "date": "2026-07-04",
-      "title": {
-        "es": "Black Torch se estrena, el calor marca el 4 de julio y los Minions buscan dominar la taquilla",
-        "en": "Black Torch premieres, heat defines July 4 and the Minions chase the box-office lead",
-        "val": "Black Torch s’estrena, la calor marca el 4 de juliol i els Minions busquen dominar la taquilla"
-      },
       "summary": {
-        "es": "Black Torch inicia su emisión, Anime Expo concentra grandes paneles, el calor domina el 4 de julio y los Minions compiten por la taquilla festiva.",
         "en": "Black Torch begins airing, Anime Expo gathers major panels, heat dominates July 4 and the Minions compete for the holiday box office.",
+        "es": "Black Torch inicia su emisión, Anime Expo concentra grandes paneles, el calor domina el 4 de julio y los Minions compiten por la taquilla festiva.",
         "val": "Black Torch inicia l’emissió, Anime Expo concentra grans panells, la calor domina el 4 de juliol i els Minions competixen per la taquilla festiva."
       },
       "tags": [
@@ -1428,18 +1432,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Black Torch premieres, heat defines July 4 and the Minions chase the box-office lead",
+        "es": "Black Torch se estrena, el calor marca el 4 de julio y los Minions buscan dominar la taquilla",
+        "val": "Black Torch s’estrena, la calor marca el 4 de juliol i els Minions busquen dominar la taquilla"
+      }
     },
     {
       "date": "2026-07-03",
-      "title": {
-        "es": "Sony reconvierte su fábrica de discos, Epic estrena dos juegos gratis y Anime Expo acelera sus anuncios",
-        "en": "Sony repurposes its disc factory, Epic launches two free games and Anime Expo gathers momentum",
-        "val": "Sony reconvertix la fàbrica de discos, Epic estrena dos jocs gratis i Anime Expo accelera els anuncis"
-      },
       "summary": {
-        "es": "Sony prepara su etapa sin discos, Epic cambia sus juegos gratuitos, Anime Expo concentra las miradas y Black Torch afronta su estreno.",
         "en": "Sony prepares for a disc-less era, Epic changes its free games, Anime Expo takes centre stage and Black Torch approaches its premiere.",
+        "es": "Sony prepara su etapa sin discos, Epic cambia sus juegos gratuitos, Anime Expo concentra las miradas y Black Torch afronta su estreno.",
         "val": "Sony prepara l’etapa sense discos, Epic canvia els jocs gratuïts, Anime Expo concentra les mirades i Black Torch afronta l’estrena."
       },
       "tags": [
@@ -1457,18 +1461,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Sony repurposes its disc factory, Epic launches two free games and Anime Expo gathers momentum",
+        "es": "Sony reconvierte su fábrica de discos, Epic estrena dos juegos gratis y Anime Expo acelera sus anuncios",
+        "val": "Sony reconvertix la fàbrica de discos, Epic estrena dos jocs gratis i Anime Expo accelera els anuncis"
+      }
     },
     {
       "date": "2026-07-02",
-      "title": {
-        "es": "La industria se rebela contra el fin del disco, Anime Expo abre sus puertas y Europa prolonga la alerta por calor",
-        "en": "The games industry rebels against the end of discs, Anime Expo opens and Europe extends its heat alert",
-        "val": "La indústria es rebel·la contra el final del disc, Anime Expo obri les portes i Europa prolonga l’alerta per calor"
-      },
       "summary": {
-        "es": "La industria del videojuego responde a Sony, Anime Expo inicia su edición de 2026, Europa mantiene las alertas por calor y Bitcoin busca consolidar su rebote.",
         "en": "The games industry responds to Sony, Anime Expo begins its 2026 event, Europe keeps heat alerts in place and Bitcoin seeks to consolidate its rebound.",
+        "es": "La industria del videojuego responde a Sony, Anime Expo inicia su edición de 2026, Europa mantiene las alertas por calor y Bitcoin busca consolidar su rebote.",
         "val": "La indústria del videojoc respon a Sony, Anime Expo inicia l’edició de 2026, Europa manté les alertes per calor i Bitcoin busca consolidar el rebot."
       },
       "tags": [
@@ -1486,18 +1490,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "The games industry rebels against the end of discs, Anime Expo opens and Europe extends its heat alert",
+        "es": "La industria se rebela contra el fin del disco, Anime Expo abre sus puertas y Europa prolonga la alerta por calor",
+        "val": "La indústria es rebel·la contra el final del disc, Anime Expo obri les portes i Europa prolonga l’alerta per calor"
+      }
     },
     {
       "date": "2026-07-01",
-      "title": {
-        "es": "Sony acelera el adiós al disco, Europa sigue bajo calor extremo y Bitcoin defiende los 60.000 dólares",
-        "en": "Sony accelerates the end of discs, Europe remains under extreme heat and Bitcoin defends $60,000",
-        "val": "Sony accelera l’adeu al disc, Europa continua sota calor extrema i Bitcoin defensa els 60.000 dòlars"
-      },
       "summary": {
-        "es": "Sony avanza hacia un catálogo digital, Europa soporta calor extremo, los mercados estrenan semestre en máximos y Bitcoin busca estabilidad.",
         "en": "Sony moves towards a digital catalogue, Europe endures extreme heat, markets start the half-year at highs and Bitcoin seeks stability.",
+        "es": "Sony avanza hacia un catálogo digital, Europa soporta calor extremo, los mercados estrenan semestre en máximos y Bitcoin busca estabilidad.",
         "val": "Sony avança cap a un catàleg digital, Europa suporta calor extrema, els mercats estrenen semestre en màxims i Bitcoin busca estabilitat."
       },
       "tags": [
@@ -1515,18 +1519,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Sony accelerates the end of discs, Europe remains under extreme heat and Bitcoin defends $60,000",
+        "es": "Sony acelera el adiós al disco, Europa sigue bajo calor extremo y Bitcoin defiende los 60.000 dólares",
+        "val": "Sony accelera l’adeu al disc, Europa continua sota calor extrema i Bitcoin defensa els 60.000 dòlars"
+      }
     },
     {
       "date": "2026-06-30",
-      "title": {
-        "es": "Las bolsas firman un trimestre histórico, Europa arde y Bitcoin vuelve a los 60.000 dólares",
-        "en": "Stocks close a historic quarter, Europe burns and Bitcoin returns to $60,000",
-        "val": "Les borses firmen un trimestre històric, Europa crema i Bitcoin torna als 60.000 dòlars"
-      },
       "summary": {
-        "es": "Mercados en máximos, calor extremo en Europa, alerta de seguridad en Windows y el cierre definitivo de The Elder Scrolls: Blades.",
         "en": "Markets at highs, extreme heat in Europe, a Windows security alert and the permanent closure of The Elder Scrolls: Blades.",
+        "es": "Mercados en máximos, calor extremo en Europa, alerta de seguridad en Windows y el cierre definitivo de The Elder Scrolls: Blades.",
         "val": "Mercats en màxims, calor extrema a Europa, alerta de seguretat en Windows i el tancament definitiu de The Elder Scrolls: Blades."
       },
       "tags": [
@@ -1544,18 +1548,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Stocks close a historic quarter, Europe burns and Bitcoin returns to $60,000",
+        "es": "Las bolsas firman un trimestre histórico, Europa arde y Bitcoin vuelve a los 60.000 dólares",
+        "val": "Les borses firmen un trimestre històric, Europa crema i Bitcoin torna als 60.000 dòlars"
+      }
     },
     {
       "date": "2026-06-29",
-      "title": {
-        "es": "El petróleo vuelve a subir, Europa prolonga la alerta por calor y Bitcoin rebota sobre los 60.000 dólares",
-        "en": "Oil rises again, Europe extends heat alerts and Bitcoin rebounds above $60,000",
-        "val": "El petroli torna a pujar, Europa prolonga l’alerta per calor i Bitcoin rebota sobre els 60.000 dòlars"
-      },
       "summary": {
-        "es": "Calor récord en Europa, tensión en Oriente Próximo, rebote de los mercados, Bitcoin sobre 60.000 dólares y una semana decisiva para IA, chips y seguridad.",
         "en": "Record heat in Europe, Middle East tensions, a market rebound, Bitcoin above $60,000 and a decisive week for AI, chips and security.",
+        "es": "Calor récord en Europa, tensión en Oriente Próximo, rebote de los mercados, Bitcoin sobre 60.000 dólares y una semana decisiva para IA, chips y seguridad.",
         "val": "Calor rècord a Europa, tensió a Orient Pròxim, rebot dels mercats, Bitcoin sobre 60.000 dòlars i una setmana decisiva per a IA, xips i seguretat."
       },
       "tags": [
@@ -1573,18 +1577,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Oil rises again, Europe extends heat alerts and Bitcoin rebounds above $60,000",
+        "es": "El petróleo vuelve a subir, Europa prolonga la alerta por calor y Bitcoin rebota sobre los 60.000 dólares",
+        "val": "El petroli torna a pujar, Europa prolonga l’alerta per calor i Bitcoin rebota sobre els 60.000 dòlars"
+      }
     },
     {
       "date": "2026-06-28",
-      "title": {
-        "es": "Europa bate récords de calor, Steam abre sus rebajas y Bitcoin pelea por los 60.000 dólares",
-        "en": "Europe breaks heat records, Steam opens its sale and Bitcoin fights for $60,000",
-        "val": "Europa bat rècords de calor, Steam obri les seues rebaixes i Bitcoin lluita pels 60.000 dòlars"
-      },
       "summary": {
-        "es": "Ola de calor histórica en Europa, emergencia sísmica en Venezuela, rebajas de Steam, juegos gratis y un Bitcoin atrapado alrededor de 60.000 dólares.",
         "en": "A historic European heatwave, Venezuela’s earthquake emergency, Steam sales, free games and Bitcoin trapped around $60,000.",
+        "es": "Ola de calor histórica en Europa, emergencia sísmica en Venezuela, rebajas de Steam, juegos gratis y un Bitcoin atrapado alrededor de 60.000 dólares.",
         "val": "Onada de calor històrica a Europa, emergència sísmica a Veneçuela, rebaixes de Steam, jocs gratis i Bitcoin atrapat al voltant dels 60.000 dòlars."
       },
       "tags": [
@@ -1602,18 +1606,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Europe breaks heat records, Steam opens its sale and Bitcoin fights for $60,000",
+        "es": "Europa bate récords de calor, Steam abre sus rebajas y Bitcoin pelea por los 60.000 dólares",
+        "val": "Europa bat rècords de calor, Steam obri les seues rebaixes i Bitcoin lluita pels 60.000 dòlars"
+      }
     },
     {
       "date": "2026-06-23",
-      "title": {
-        "es": "Fable 5 sigue suspendido el día en que iba a estrenar precio, Bitcoin se recupera hacia los 65.000$ y Epic regala Citizen Sleeper y ROBOBEAT hasta el 25",
-        "en": "Fable 5 stays suspended on the day it was set to launch paid pricing, Bitcoin recovers toward $65,000, and Epic gives away Citizen Sleeper and ROBOBEAT",
-        "val": "Fable 5 continua suspés el dia en què anava a estrenar preu, Bitcoin es recupera cap als 65.000$ i Epic regala Citizen Sleeper i ROBOBEAT"
-      },
       "summary": {
-        "es": "Recuperación de Bitcoin, tensión comercial sobre modelos de IA, juegos gratis, nuevos anuncios de gaming y parches urgentes de seguridad.",
         "en": "A Bitcoin recovery, trade pressure on AI models, free games, new gaming announcements and urgent security patches.",
+        "es": "Recuperación de Bitcoin, tensión comercial sobre modelos de IA, juegos gratis, nuevos anuncios de gaming y parches urgentes de seguridad.",
         "val": "Recuperació de Bitcoin, tensió comercial sobre models d’IA, jocs gratis, nous anuncis de gaming i pedaços urgents de seguretat."
       },
       "tags": [
@@ -1631,18 +1635,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Fable 5 stays suspended on the day it was set to launch paid pricing, Bitcoin recovers toward $65,000, and Epic gives away Citizen Sleeper and ROBOBEAT",
+        "es": "Fable 5 sigue suspendido el día en que iba a estrenar precio, Bitcoin se recupera hacia los 65.000$ y Epic regala Citizen Sleeper y ROBOBEAT hasta el 25",
+        "val": "Fable 5 continua suspés el dia en què anava a estrenar preu, Bitcoin es recupera cap als 65.000$ i Epic regala Citizen Sleeper i ROBOBEAT"
+      }
     },
     {
       "date": "2026-06-22",
-      "title": {
-        "es": "Anthropic cierra hoy el acceso gratis a Claude Fable 5, Bitcoin cae a 64.000$ por récord de salidas en ETF y Epic regala Citizen Sleeper y ROBOBEAT",
-        "en": "Anthropic ends free access to Claude Fable 5, Bitcoin drops to $64,000 on record ETF outflows, and Epic gives away Citizen Sleeper and ROBOBEAT",
-        "val": "Anthropic tanca l’accés gratis a Claude Fable 5, Bitcoin cau a 64.000$ per rècord d’eixides en ETF i Epic regala Citizen Sleeper i ROBOBEAT"
-      },
       "summary": {
-        "es": "Cierres y cambios en modelos de IA, presión sobre Bitcoin, novedades de GTA 6, juegos gratis y un gran estreno de Toy Story 5.",
         "en": "AI model shutdowns and changes, pressure on Bitcoin, GTA 6 news, free games and a major Toy Story 5 opening.",
+        "es": "Cierres y cambios en modelos de IA, presión sobre Bitcoin, novedades de GTA 6, juegos gratis y un gran estreno de Toy Story 5.",
         "val": "Tancaments i canvis en models d’IA, pressió sobre Bitcoin, novetats de GTA 6, jocs gratis i una gran estrena de Toy Story 5."
       },
       "tags": [
@@ -1660,18 +1664,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Anthropic ends free access to Claude Fable 5, Bitcoin drops to $64,000 on record ETF outflows, and Epic gives away Citizen Sleeper and ROBOBEAT",
+        "es": "Anthropic cierra hoy el acceso gratis a Claude Fable 5, Bitcoin cae a 64.000$ por récord de salidas en ETF y Epic regala Citizen Sleeper y ROBOBEAT",
+        "val": "Anthropic tanca l’accés gratis a Claude Fable 5, Bitcoin cau a 64.000$ per rècord d’eixides en ETF i Epic regala Citizen Sleeper i ROBOBEAT"
+      }
     },
     {
       "date": "2026-06-21",
-      "title": {
-        "es": "Claude Fable 5 choca con los controles de exportación, la Fed dura no frena a Wall Street y Epic regala Citizen Sleeper y ROBOBEAT",
-        "en": "Claude Fable 5 collides with export controls, the hawkish Fed fails to stop Wall Street, and Epic gives away Citizen Sleeper and ROBOBEAT",
-        "val": "Claude Fable 5 xoca amb els controls d’exportació, la Fed dura no frena Wall Street i Epic regala Citizen Sleeper i ROBOBEAT"
-      },
       "summary": {
-        "es": "Controles de exportación sobre IA, recuperación de Wall Street, Bitcoin bajo presión, juegos gratis y estreno de House of the Dragon.",
         "en": "AI export controls, a Wall Street rebound, Bitcoin under pressure, free games and the House of the Dragon premiere.",
+        "es": "Controles de exportación sobre IA, recuperación de Wall Street, Bitcoin bajo presión, juegos gratis y estreno de House of the Dragon.",
         "val": "Controls d’exportació sobre IA, recuperació de Wall Street, Bitcoin sota pressió, jocs gratis i estrena de House of the Dragon."
       },
       "tags": [
@@ -1689,18 +1693,18 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Claude Fable 5 collides with export controls, the hawkish Fed fails to stop Wall Street, and Epic gives away Citizen Sleeper and ROBOBEAT",
+        "es": "Claude Fable 5 choca con los controles de exportación, la Fed dura no frena a Wall Street y Epic regala Citizen Sleeper y ROBOBEAT",
+        "val": "Claude Fable 5 xoca amb els controls d’exportació, la Fed dura no frena Wall Street i Epic regala Citizen Sleeper i ROBOBEAT"
+      }
     },
     {
       "date": "2026-06-20",
-      "title": {
-        "es": "Bitcoin se aferra a los 64.000$, el acuerdo EE.UU.-Irán tambaleante y Citizen Sleeper gratis en Epic",
-        "en": "Bitcoin holds $64,000, the US-Iran deal wobbles, and Citizen Sleeper is free on Epic",
-        "val": "Bitcoin s’aferra als 64.000$, l’acord EUA-Iran vacil·la i Citizen Sleeper és gratis a Epic"
-      },
       "summary": {
-        "es": "Bitcoin lateral, tensión entre Estados Unidos e Irán, juegos gratis de fin de semana y la previa de House of the Dragon.",
         "en": "Sideways Bitcoin, US-Iran tensions, weekend free games and a House of the Dragon preview.",
+        "es": "Bitcoin lateral, tensión entre Estados Unidos e Irán, juegos gratis de fin de semana y la previa de House of the Dragon.",
         "val": "Bitcoin lateral, tensió entre els Estats Units i l’Iran, jocs gratis de cap de setmana i la prèvia de House of the Dragon."
       },
       "tags": [
@@ -1718,7 +1722,12 @@
         "curiosidades",
         "ofertas",
         "anime"
-      ]
+      ],
+      "title": {
+        "en": "Bitcoin holds $64,000, the US-Iran deal wobbles, and Citizen Sleeper is free on Epic",
+        "es": "Bitcoin se aferra a los 64.000$, el acuerdo EE.UU.-Irán tambaleante y Citizen Sleeper gratis en Epic",
+        "val": "Bitcoin s’aferra als 64.000$, l’acord EUA-Iran vacil·la i Citizen Sleeper és gratis a Epic"
+      }
     }
   ]
 }
