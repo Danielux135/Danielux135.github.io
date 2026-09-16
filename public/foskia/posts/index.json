@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-16",
+      "file": "2026-09-16.json",
+      "title": {
+        "es": "Un agente de IA protagoniza la primera brecha notificada en España, Bitcoin cae y MediaTek salta a 2 nm",
+        "en": "AI agent carries out Spain’s first reported breach, Bitcoin slides and MediaTek jumps to 2nm",
+        "val": "Un agent d’IA protagonitza la primera bretxa notificada a Espanya, Bitcoin cau i MediaTek fa el salt als 2 nm"
+      }
+    },
+    {
       "date": "2026-09-15",
       "file": "2026-09-15.json",
       "title": {
