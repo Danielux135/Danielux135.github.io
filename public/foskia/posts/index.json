@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-17",
+      "file": "2026-09-17.json",
+      "title": {
+        "es": "OpenAI admite fallos de sus agentes, la Fed sube tipos y Anthropic unifica Claude",
+        "en": "OpenAI discloses agent failures, the Fed raises rates and Anthropic unifies Claude",
+        "val": "OpenAI admet fallades dels seus agents, la Fed apuja els tipus i Anthropic unifica Claude"
+      }
+    },
+    {
       "date": "2026-09-16",
       "file": "2026-09-16.json",
       "title": {
