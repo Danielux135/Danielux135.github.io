@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-18",
+      "file": "2026-09-18.json",
+      "title": {
+        "es": "El Banco de Japón lleva los tipos a máximos de 31 años, OpenAI lleva Astra a los bufetes y Huawei reta a Nvidia",
+        "en": "Bank of Japan takes rates to a 31-year high, OpenAI brings Astra to law firms and Huawei challenges Nvidia",
+        "val": "El Banc del Japó porta els tipus a màxims de 31 anys, OpenAI du Astra als bufets i Huawei desafia Nvidia"
+      }
+    },
+    {
       "date": "2026-09-17",
       "file": "2026-09-17.json",
       "title": {
