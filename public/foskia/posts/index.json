@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-19",
+      "file": "2026-09-19.json",
+      "title": {
+        "es": "Volkswagen encaja 10.000 millones, Anthropic financia auditorías y SpaceX amplía sus vuelos NASA",
+        "en": "Volkswagen takes a €10 billion hit, Anthropic funds audits and SpaceX expands its NASA flights",
+        "val": "Volkswagen encaixa 10.000 milions, Anthropic finança auditories i SpaceX amplia els vols NASA"
+      }
+    },
+    {
       "date": "2026-09-18",
       "file": "2026-09-18.json",
       "title": {
