@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-20",
+      "file": "2026-09-20.json",
+      "title": {
+        "es": "China alerta de que la IA agrava sus desequilibrios, FromSoftware rehúye las fórmulas y un ordenador de ADN alcanza 100 bits",
+        "en": "China warns AI may deepen its imbalances, FromSoftware rejects formulas and a DNA computer reaches 100 bits",
+        "val": "La Xina alerta que la IA agreuja els seus desequilibris, FromSoftware defuig les fórmules i un ordinador d’ADN arriba a 100 bits"
+      }
+    },
+    {
       "date": "2026-09-19",
       "file": "2026-09-19.json",
       "title": {
