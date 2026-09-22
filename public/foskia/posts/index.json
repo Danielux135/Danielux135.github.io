@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-22",
+      "file": "2026-09-22.json",
+      "title": {
+        "es": "Alibaba proyecta una IA de hasta 10 billones de parámetros, AMD vale un billón y la Tierra rompe siete límites",
+        "en": "Alibaba plans an AI with up to 10 trillion parameters, AMD reaches $1 trillion and Earth breaches seven boundaries",
+        "val": "Alibaba projecta una IA de fins a 10 bilions de paràmetres, AMD val un bilió i la Terra trenca set límits"
+      }
+    },
+    {
       "date": "2026-09-21",
       "file": "2026-09-21.json",
       "title": {
