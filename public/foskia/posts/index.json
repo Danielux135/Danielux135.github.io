@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-26",
+      "title": {
+        "es": "OpenAI investiga una fuga de datos, Bitget pierde 352 millones y Microsoft convierte Copilot en un agente total",
+        "en": "OpenAI investigates a data leak, Bitget loses $352 million and Microsoft turns Copilot into an all-in-one agent",
+        "val": "OpenAI investiga una fuga de dades, Bitget perd 352 milions i Microsoft convertix Copilot en un agent total"
+      },
+      "file": "2026-09-26.json"
+    },
+    {
       "date": "2026-09-25",
       "title": {
         "es": "Akamai firma 11.600 millones con Anthropic, Meta aligera la realidad virtual y los bonos se hunden",
