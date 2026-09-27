@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-27",
+      "title": {
+        "es": "EE. UU. y China recortan aranceles, Minecraft abre una nueva dimensión y Bitcoin aguanta los 84.000 dólares",
+        "en": "US and China cut tariffs, Minecraft opens a new dimension and Bitcoin holds $84,000",
+        "val": "Els EUA i la Xina retallen aranzels, Minecraft obri una nova dimensió i Bitcoin aguanta els 84.000 dòlars"
+      },
+      "file": "2026-09-27.json"
+    },
+    {
       "date": "2026-09-26",
       "title": {
         "es": "OpenAI investiga una fuga de datos, Bitget pierde 352 millones y Microsoft convierte Copilot en un agente total",
