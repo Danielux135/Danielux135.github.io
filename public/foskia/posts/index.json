@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-28",
+      "title": {
+        "es": "Un ordenador cuántico opera por primera vez en el espacio, Claude descubre un sistema enzimático y Bitcoin pierde los 84.000 dólares",
+        "en": "A quantum computer operates in space for the first time, Claude discovers an enzyme system and Bitcoin loses $84,000",
+        "val": "Un ordinador quàntic opera per primera vegada a l’espai, Claude descobrix un sistema enzimàtic i Bitcoin perd els 84.000 dòlars"
+      },
+      "file": "2026-09-28.json"
+    },
+    {
       "date": "2026-09-27",
       "title": {
         "es": "EE. UU. y China recortan aranceles, Minecraft abre una nueva dimensión y Bitcoin aguanta los 84.000 dólares",
