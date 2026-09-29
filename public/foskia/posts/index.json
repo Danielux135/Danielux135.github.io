@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-29",
+      "title": {
+        "es": "Nvidia pone límites a los agentes de IA, Starship alcanza la órbita y los bonos sufren su peor mes en dos años",
+        "en": "Nvidia reins in AI agents, Starship reaches orbit and bonds suffer their worst month in two years",
+        "val": "Nvidia posa límits als agents d’IA, Starship arriba a l’òrbita i els bons patixen el pitjor mes en dos anys"
+      },
+      "file": "2026-09-29.json"
+    },
+    {
       "date": "2026-09-28",
       "title": {
         "es": "Un ordenador cuántico opera por primera vez en el espacio, Claude descubre un sistema enzimático y Bitcoin pierde los 84.000 dólares",
