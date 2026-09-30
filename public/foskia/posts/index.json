@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-09-30",
+      "title": {
+        "es": "OpenAI activa agentes permanentes, Apple acelera sus lanzamientos y las inundaciones golpean Asia",
+        "en": "OpenAI launches persistent agents, Apple speeds up releases and floods hit Asia",
+        "val": "OpenAI activa agents permanents, Apple accelera els llançaments i les inundacions colpegen Àsia"
+      },
+      "file": "2026-09-30.json"
+    },
+    {
       "date": "2026-09-29",
       "title": {
         "es": "Nvidia pone límites a los agentes de IA, Starship alcanza la órbita y los bonos sufren su peor mes en dos años",
