@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-01",
+      "title": {
+        "es": "Gemini 4 Argon toma la delantera, la inflación de EE. UU. da aire a la Fed y Cisco tapa un día cero",
+        "en": "Gemini 4 Argon takes the lead, US inflation gives the Fed room and Cisco patches a zero-day",
+        "val": "Gemini 4 Argon pren la davantera, la inflació dels EUA dona aire a la Fed i Cisco tapa un dia zero"
+      },
+      "file": "2026-10-01.json"
+    },
+    {
       "date": "2026-09-30",
       "title": {
         "es": "OpenAI activa agentes permanentes, Apple acelera sus lanzamientos y las inundaciones golpean Asia",
