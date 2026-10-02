@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-02",
+      "title": {
+        "es": "Gemini 4 Argon aprieta la carrera, los bonos sacuden las bolsas y el Pentágono revela una brecha masiva",
+        "en": "Gemini 4 Argon tightens the race, bonds shake markets and the Pentagon reveals a massive breach",
+        "val": "Gemini 4 Argon estreny la carrera, els bons sacsegen les borses i el Pentàgon revela una bretxa massiva"
+      },
+      "file": "2026-10-02.json"
+    },
+    {
       "date": "2026-10-01",
       "title": {
         "es": "Gemini 4 Argon toma la delantera, la inflación de EE. UU. da aire a la Fed y Cisco tapa un día cero",
