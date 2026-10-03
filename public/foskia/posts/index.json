@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-03",
+      "title": {
+        "es": "El empleo de EE. UU. se frena, Bitcoin supera 86.000 dólares y Toshiba dobla su apuesta por los discos",
+        "en": "US hiring stalls, Bitcoin tops $86,000 and Toshiba doubles down on hard drives",
+        "val": "L’ocupació als EUA es frena, Bitcoin supera 86.000 dòlars i Toshiba redobla l’aposta pels discos"
+      },
+      "file": "2026-10-03.json"
+    },
+    {
       "date": "2026-10-02",
       "title": {
         "es": "Gemini 4 Argon aprieta la carrera, los bonos sacuden las bolsas y el Pentágono revela una brecha masiva",
