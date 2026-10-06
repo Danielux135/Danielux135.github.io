@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-06",
+      "title": {
+        "es": "España adelanta las elecciones, el FBI aparta a un contratista y Gears of War vuelve al Día E",
+        "en": "Spain calls a snap election, the FBI removes a contractor and Gears of War returns to E-Day",
+        "val": "Espanya avança les eleccions, l’FBI aparta un contractista i Gears of War torna al Dia E"
+      },
+      "file": "2026-10-06.json"
+    },
+    {
       "date": "2026-10-05",
       "title": {
         "es": "Altman acepta riesgos, Bolsonaro sorprende en Brasil y Bitcoin recupera los 86.000 dólares",
