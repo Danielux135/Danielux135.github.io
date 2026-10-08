@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-08",
+      "title": {
+        "es": "GPT-6 estrena respuestas interactivas, la deuda de la IA sacude los bonos y Google convierte texto en juegos",
+        "en": "GPT-6 debuts interactive answers, AI debt shakes bonds and Google turns text into games",
+        "val": "GPT-6 estrena respostes interactives, el deute de la IA sacseja els bons i Google convertix text en jocs"
+      },
+      "file": "2026-10-08.json"
+    },
+    {
       "date": "2026-10-07",
       "title": {
         "es": "Paramount absorbe Warner, el Brent supera los 101 dólares y OpenAI compite con DeepSeek por capital",
