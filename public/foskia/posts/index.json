@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-09",
+      "title": {
+        "es": "Las dudas sobre OpenAI castigan a los chips, Isaias paraliza el Golfo y TSMC bate récords",
+        "en": "OpenAI doubts hit chip stocks, Isaias paralyzes the Gulf and TSMC breaks records",
+        "val": "Els dubtes sobre OpenAI castiguen els xips, Isaias paralitza el Golf i TSMC bat rècords"
+      },
+      "file": "2026-10-09.json"
+    },
+    {
       "date": "2026-10-08",
       "title": {
         "es": "GPT-6 estrena respuestas interactivas, la deuda de la IA sacude los bonos y Google convierte texto en juegos",
