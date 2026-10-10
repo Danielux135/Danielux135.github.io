@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-10",
+      "title": {
+        "es": "Navi Pillay gana el Nobel de la Paz, Deno se integra en Cloudflare y un 7,7 sacude Panamá",
+        "en": "Navi Pillay wins the Nobel Peace Prize, Deno joins Cloudflare and a 7.7 quake strikes Panama",
+        "val": "Navi Pillay guanya el Nobel de la Pau, Deno s’integra en Cloudflare i un 7,7 sacseja Panamà"
+      },
+      "file": "2026-10-10.json"
+    },
+    {
       "date": "2026-10-09",
       "title": {
         "es": "Las dudas sobre OpenAI castigan a los chips, Isaias paraliza el Golfo y TSMC bate récords",
