@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-11",
+      "title": {
+        "es": "Un ataque mata a 12 personas en Riad, Anthropic desconecta sus pruebas y Naruto renace",
+        "en": "Riyadh attack kills 12, Anthropic takes its tests offline and Naruto returns",
+        "val": "Un atac mata 12 persones a Riad, Anthropic desconnecta les proves i Naruto renaix"
+      },
+      "file": "2026-10-11.json"
+    },
+    {
       "date": "2026-10-10",
       "title": {
         "es": "Navi Pillay gana el Nobel de la Paz, Deno se integra en Cloudflare y un 7,7 sacude Panamá",
