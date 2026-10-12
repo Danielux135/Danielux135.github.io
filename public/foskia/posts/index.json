@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-12",
+      "title": {
+        "es": "Rusia rompe la tregua energética, Washington reactiva las pruebas de IA y el petróleo cae",
+        "en": "Russia breaks the energy truce, Washington restores AI testing and oil falls",
+        "val": "Rússia trenca la treva energètica, Washington reactiva les proves d’IA i el petroli cau"
+      },
+      "file": "2026-10-12.json"
+    },
+    {
       "date": "2026-10-11",
       "title": {
         "es": "Un ataque mata a 12 personas en Riad, Anthropic desconecta sus pruebas y Naruto renace",
