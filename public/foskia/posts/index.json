@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-13",
+      "title": {
+        "es": "Anthropic frena el robo de Claude, Microsoft prepara un millón de chips Maia y Bitcoin cae",
+        "en": "Anthropic curbs Claude theft, Microsoft readies one million Maia chips and Bitcoin falls",
+        "val": "Anthropic frena el robatori de Claude, Microsoft prepara un milió de xips Maia i Bitcoin cau"
+      },
+      "file": "2026-10-13.json"
+    },
+    {
       "date": "2026-10-12",
       "title": {
         "es": "Rusia rompe la tregua energética, Washington reactiva las pruebas de IA y el petróleo cae",
