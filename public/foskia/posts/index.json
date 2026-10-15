@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-15",
+      "title": {
+        "es": "La inflación hunde la tecnología, Anthropic se acerca a bolsa y Bitcoin cae",
+        "en": "Inflation sinks tech stocks, Anthropic nears an IPO and Bitcoin falls",
+        "val": "La inflació afona la tecnologia, Anthropic s’acosta a borsa i Bitcoin cau"
+      },
+      "file": "2026-10-15.json"
+    },
+    {
       "date": "2026-10-14",
       "title": {
         "es": "Google lanza Gemini 4 Argon, los chips se tambalean y Bitcoin rebota",
