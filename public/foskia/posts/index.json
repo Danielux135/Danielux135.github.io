@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-16",
+      "title": {
+        "es": "TSMC bate récords, Estados Unidos encarece la producción y Bitcoin rebota",
+        "en": "TSMC breaks records, US producer prices surge and Bitcoin rebounds",
+        "val": "TSMC bat rècords, els Estats Units encareixen la producció i Bitcoin rebota"
+      },
+      "file": "2026-10-16.json"
+    },
+    {
       "date": "2026-10-15",
       "title": {
         "es": "La inflación hunde la tecnología, Anthropic se acerca a bolsa y Bitcoin cae",
