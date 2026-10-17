@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-17",
+      "title": {
+        "es": "Los costes importados se disparan, CISA alerta de un fallo explotado y Bitcoin retrocede",
+        "en": "Import costs surge, CISA flags an exploited flaw and Bitcoin slips",
+        "val": "Els costos importats es disparen, CISA alerta d’una fallada explotada i Bitcoin retrocedix"
+      },
+      "file": "2026-10-17.json"
+    },
+    {
       "date": "2026-10-16",
       "title": {
         "es": "TSMC bate récords, Estados Unidos encarece la producción y Bitcoin rebota",
