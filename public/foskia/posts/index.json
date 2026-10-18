@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-18",
+      "title": {
+        "es": "ConnectWise expone cuentas de Microsoft 365, Anthropic acelera el debate de la IA y Bitcoin rebota",
+        "en": "ConnectWise exposes Microsoft 365 accounts, Anthropic speeds up the AI debate and Bitcoin rebounds",
+        "val": "ConnectWise exposa comptes de Microsoft 365, Anthropic accelera el debat de la IA i Bitcoin rebota"
+      },
+      "file": "2026-10-18.json"
+    },
+    {
       "date": "2026-10-17",
       "title": {
         "es": "Los costes importados se disparan, CISA alerta de un fallo explotado y Bitcoin retrocede",
