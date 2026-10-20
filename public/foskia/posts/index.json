@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-20",
+      "title": {
+        "es": "Estados Unidos veta DeepSeek, Asia cae y NGINX corrige tres fallos críticos",
+        "en": "United States bans DeepSeek, Asia falls and NGINX fixes three critical flaws",
+        "val": "Els Estats Units veten DeepSeek, Àsia cau i NGINX corregix tres fallades crítiques"
+      },
+      "file": "2026-10-20.json"
+    },
+    {
       "date": "2026-10-19",
       "title": {
         "es": "China crece un 4,5%, LMCache corrige un RCE crítico y Bitcoin recupera los 82.500 dólares",
