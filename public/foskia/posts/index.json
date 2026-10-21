@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-21",
+      "title": {
+        "es": "OpenAI admite fallos de supervisión, la Fed apunta a diciembre y Ucrania recupera sus alertas",
+        "en": "OpenAI discloses monitoring failures, the Fed points to December and Ukraine regains alerts",
+        "val": "OpenAI admet fallades de supervisió, la Fed apunta a desembre i Ucraïna recupera les alertes"
+      },
+      "file": "2026-10-21.json"
+    },
+    {
       "date": "2026-10-20",
       "title": {
         "es": "Estados Unidos veta DeepSeek, Asia cae y NGINX corrige tres fallos críticos",
