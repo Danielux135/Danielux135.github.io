@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-22",
+      "title": {
+        "es": "Dos fallos críticos de PHP fuerzan apagones, OpenAI llega a Google Cloud y Netflix recorta su previsión publicitaria",
+        "en": "Two critical PHP flaws force outages, OpenAI lands on Google Cloud and Netflix cuts its ad forecast",
+        "val": "Dos fallades crítiques de PHP forcen apagades, OpenAI arriba a Google Cloud i Netflix retalla la previsió publicitària"
+      },
+      "file": "2026-10-22.json"
+    },
+    {
       "date": "2026-10-21",
       "title": {
         "es": "OpenAI admite fallos de supervisión, la Fed apunta a diciembre y Ucrania recupera sus alertas",
