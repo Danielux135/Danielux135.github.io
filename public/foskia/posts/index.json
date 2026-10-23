@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-23",
+      "title": {
+        "es": "EA cierra BioWare, Wall Street castiga a la IA y Claude Duet quiere trabajar sin que se lo pidan",
+        "en": "EA shuts BioWare, Wall Street punishes AI stocks and Claude Duet wants to work unprompted",
+        "val": "EA tanca BioWare, Wall Street castiga la IA i Claude Duet vol treballar sense que li ho demanen"
+      },
+      "file": "2026-10-23.json"
+    },
+    {
       "date": "2026-10-22",
       "title": {
         "es": "Dos fallos críticos de PHP fuerzan apagones, OpenAI llega a Google Cloud y Netflix recorta su previsión publicitaria",
