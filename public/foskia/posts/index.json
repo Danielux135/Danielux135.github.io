@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-27",
+      "title": {
+        "es": "Anthropic prepara la mayor OPV de la historia, Bitcoin aguanta los 80.000 dólares y Minecraft salta a Switch 2",
+        "en": "Anthropic readies the biggest IPO ever, Bitcoin holds $80,000 and Minecraft jumps to Switch 2",
+        "val": "Anthropic prepara l’OPV més gran de la història, Bitcoin aguanta els 80.000 dòlars i Minecraft salta a Switch 2"
+      },
+      "file": "2026-10-27.json"
+    },
+    {
       "date": "2026-10-26",
       "title": {
         "es": "Lula gana en Brasil, Anthropic afronta una demanda por Elvis y tres agujeros negros sacuden la ciencia",
@@ -2100,3 +2109,4 @@
     }
   ]
 }
+
