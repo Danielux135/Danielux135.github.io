@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-28",
+      "title": {
+        "es": "Apple estrena el chip M6, Israel queda sin mayoría y CISA alerta de ataques PHP2Shell",
+        "en": "Apple unveils the M6 chip, Israel is left without a majority and CISA warns of PHP2Shell attacks",
+        "val": "Apple estrena el xip M6, Israel queda sense majoria i CISA alerta d’atacs PHP2Shell"
+      },
+      "file": "2026-10-28.json"
+    },
+    {
       "date": "2026-10-27",
       "title": {
         "es": "Anthropic prepara la mayor OPV de la historia, Bitcoin aguanta los 80.000 dólares y Minecraft salta a Switch 2",
@@ -2109,4 +2118,3 @@
     }
   ]
 }
-
