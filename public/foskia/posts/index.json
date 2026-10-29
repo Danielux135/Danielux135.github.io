@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-29",
+      "title": {
+        "es": "GitHub orquesta modelos, la Fed mantiene los tipos y Apple lleva el tacto al MacBook Pro",
+        "en": "GitHub orchestrates models, the Fed holds rates and Apple brings touch to MacBook Pro",
+        "val": "GitHub orquestra models, la Fed manté els tipus i Apple porta el tacte al MacBook Pro"
+      },
+      "file": "2026-10-29.json"
+    },
+    {
       "date": "2026-10-28",
       "title": {
         "es": "Apple estrena el chip M6, Israel queda sin mayoría y CISA alerta de ataques PHP2Shell",
