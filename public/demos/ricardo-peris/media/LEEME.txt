@@ -1,15 +1,16 @@
-Vídeo de fondo de la cabecera de "Sobre Ricardo Peris"
-======================================================
+Vídeo de fondo del hero "Cinta"
+===============================
 
-Los estilos "Cinta", "Ventanal" y "Nave" (botón de estilo del modo admin)
-usan un vídeo a pantalla completa detrás del titular. Basta con dejar aquí
-los archivos con estos nombres exactos:
+El hero "Cinta", que abre la portada de inicio, usa un vídeo a pantalla
+completa detrás del titular. También lo usaban los estilos "Ventanal" y
+"Nave" de la antigua cabecera de "Sobre Ricardo Peris", hoy sin montar.
+Basta con dejar aquí los archivos con estos nombres exactos:
 
   sobre-ricardo-peris.mp4    obligatorio (H.264 / AAC o sin audio)
   sobre-ricardo-peris.webm   opcional, se sirve antes si el navegador lo admite
-  sobre-ricardo-peris.jpg    póster: primer fotograma, se ve mientras carga
+  sobre-ricardo-peris.jpg    póster: un fotograma del propio vídeo, se ve mientras carga
 
-Mientras no existan, los tres estilos enseñan el degradado de marca
+Mientras no existan, el hero enseña el degradado de marca
 (azul profundo -> grafito) y la página se ve terminada igual.
 
 Recomendaciones
