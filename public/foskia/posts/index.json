@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-10-31",
+      "title": {
+        "es": "Binance sufre el mayor robo cripto, Drupal urge a parchear y Epic renueva sus regalos",
+        "en": "Binance suffers the biggest crypto theft, Drupal urges patches and Epic refreshes its giveaways",
+        "val": "Binance patix el robatori cripto més gran, Drupal insta a aplicar pegats i Epic renova els seus regals"
+      },
+      "file": "2026-10-31.json"
+    },
+    {
       "date": "2026-10-30",
       "title": {
         "es": "Urda eleva su tragedia, Bitcoin cae y OpenAI redefine la conducta de sus modelos",
