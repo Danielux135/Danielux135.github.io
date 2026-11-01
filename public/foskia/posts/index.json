@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-01",
+      "title": {
+        "es": "Corea del Norte golpea Binance, OpenAI recorta su ronda y Android afronta un SMS crítico",
+        "en": "North Korea hits Binance, OpenAI cuts its funding round and Android faces a critical SMS flaw",
+        "val": "Corea del Nord colpeja Binance, OpenAI retalla la ronda i Android afronta un SMS crític"
+      },
+      "file": "2026-11-01.json"
+    },
+    {
       "date": "2026-10-31",
       "title": {
         "es": "Binance sufre el mayor robo cripto, Drupal urge a parchear y Epic renueva sus regalos",
