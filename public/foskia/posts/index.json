@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-02",
+      "title": {
+        "es": "La ONU cierra su misión en el Sáhara, OPEP+ congela el petróleo y Alpine reconstruye GitLab",
+        "en": "UN ends its Western Sahara mission, OPEC+ freezes oil output and Alpine rebuilds GitLab",
+        "val": "L’ONU tanca la missió al Sàhara, l’OPEP+ congela el petroli i Alpine reconstruïx GitLab"
+      },
+      "file": "2026-11-02.json"
+    },
+    {
       "date": "2026-11-01",
       "title": {
         "es": "Corea del Norte golpea Binance, OpenAI recorta su ronda y Android afronta un SMS crítico",
