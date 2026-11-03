@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-03",
+      "title": {
+        "es": "Binance encaja salidas de 4.720 millones, Nagoshi Studio cierra y Epic multiplica sus regalos",
+        "en": "Binance absorbs $4.72 billion in outflows, Nagoshi Studio closes and Epic multiplies its giveaways",
+        "val": "Binance encaixa eixides de 4.720 milions, Nagoshi Studio tanca i Epic multiplica els regals"
+      },
+      "file": "2026-11-03.json"
+    },
+    {
       "date": "2026-11-02",
       "title": {
         "es": "La ONU cierra su misión en el Sáhara, OPEP+ congela el petróleo y Alpine reconstruye GitLab",
