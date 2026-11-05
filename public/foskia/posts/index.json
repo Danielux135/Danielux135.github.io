@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-05",
+      "title": {
+        "es": "Mistral abre un modelo de un billón de parámetros, Bitcoin rebota y Marte vuelve a rugir",
+        "en": "Mistral opens a trillion-parameter model, Bitcoin rebounds and Mars rumbles again",
+        "val": "Mistral obri un model d’un bilió de paràmetres, Bitcoin rebota i Mart torna a rugir"
+      },
+      "file": "2026-11-05.json"
+    },
+    {
       "date": "2026-11-04",
       "title": {
         "es": "Xbox amplía Game Pass, Bitcoin resiste el hackeo y Swift regresa a la Tierra",
