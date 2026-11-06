@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-06",
+      "title": {
+        "es": "Wall Street borra tres billones, GPT-6 Cyber sube el listón y Unity estudia su venta",
+        "en": "Wall Street erases $3 trillion, GPT-6 Cyber raises the stakes and Unity weighs a sale",
+        "val": "Wall Street esborra tres bilions, GPT-6 Cyber apuja el llistó i Unity estudia la venda"
+      },
+      "file": "2026-11-06.json"
+    },
+    {
       "date": "2026-11-05",
       "title": {
         "es": "Mistral abre un modelo de un billón de parámetros, Bitcoin rebota y Marte vuelve a rugir",
