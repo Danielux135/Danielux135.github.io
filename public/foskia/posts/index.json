@@ -1,6 +1,15 @@
 {
   "editions": [
     {
+      "date": "2026-11-07",
+      "title": {
+        "es": "El empleo en EE. UU. agita los tipos, Bitcoin defiende 76.000 y Anthropic acelera",
+        "en": "US jobs shake rate expectations, Bitcoin holds $76,000 and Anthropic accelerates",
+        "val": "L'ocupació als EUA agita els tipus, Bitcoin defensa 76.000 i Anthropic accelera"
+      },
+      "file": "2026-11-07.json"
+    },
+    {
       "date": "2026-11-06",
       "title": {
         "es": "Wall Street borra tres billones, GPT-6 Cyber sube el listón y Unity estudia su venta",
