@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-10",
+      "title": {
+        "es": "Rusia y Ucrania retoman las conversaciones, N-able apaga N-central y Bitcoin pierde fuerza",
+        "en": "Russia and Ukraine return to talks, N-able takes N-central offline and Bitcoin loses momentum",
+        "val": "Rússia i Ucraïna reprenen les converses, N-able apaga N-central i Bitcoin perd força"
+      },
+      "intro": {
+        "es": "La diplomacia vuelve a moverse en Abu Dabi mientras una divulgación masiva obliga a desconectar una plataforma crítica de administración remota. La edición revisa además el rebote de los mercados, la debilidad de las criptomonedas y cada juego que sigue disponible sin coste.",
+        "en": "Diplomacy is moving again in Abu Dhabi while a mass disclosure forces a critical remote-management platform offline. This edition also reviews the market rebound, crypto weakness and every game that remains available at no cost.",
+        "val": "La diplomàcia torna a moure’s a Abu Dhabi mentre una divulgació massiva obliga a desconnectar una plataforma crítica d’administració remota. L’edició revisa, a més, el rebot dels mercats, la feblesa de les criptomonedes i cada joc que continua disponible sense cost."
+      },
+      "file": "2026-11-10.json"
+    },
+    {
       "date": "2026-11-09",
       "title": {
         "es": "Nvidia investiga a Jensen Huang, las criptomonedas caen y el Golfo se tensa",
