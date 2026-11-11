@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-11",
+      "title": {
+        "es": "Anthropic se prepara para salir a bolsa, la inflación golpea a Bitcoin y Ucrania mantiene abierto el diálogo",
+        "en": "Anthropic prepares to go public, inflation hits Bitcoin and Ukraine keeps talks open",
+        "val": "Anthropic es prepara per a eixir a borsa, la inflació colpeja Bitcoin i Ucraïna manté obert el diàleg"
+      },
+      "intro": {
+        "es": "Anthropic estrena dos modelos y activa una OPV de escala histórica mientras el IPC estadounidense sacude los mercados y las criptomonedas. La edición sigue también la negociación de Abu Dabi, los parches urgentes de Microsoft y todos los juegos que aún pueden reclamarse gratis.",
+        "en": "Anthropic launches two models and starts a potentially historic IPO while US inflation shakes markets and cryptocurrencies. This edition also tracks the Abu Dhabi talks, Microsoft’s urgent patches and every game that can still be claimed for free.",
+        "val": "Anthropic estrena dos models i activa una eixida a borsa d’escala històrica mentre l’IPC nord-americà sacseja els mercats i les criptomonedes. L’edició seguix també la negociació d’Abu Dhabi, els pedaços urgents de Microsoft i tots els jocs que encara es poden reclamar gratis."
+      },
+      "file": "2026-11-11.json"
+    },
+    {
       "date": "2026-11-10",
       "title": {
         "es": "Rusia y Ucrania retoman las conversaciones, N-able apaga N-central y Bitcoin pierde fuerza",
