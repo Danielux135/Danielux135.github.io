@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-12",
+      "title": {
+        "es": "Google lanza Gemini 4 Carbon, CoreWeave reactiva Wall Street y Ucrania pacta un gran canje",
+        "en": "Google launches Gemini 4 Carbon, CoreWeave revives Wall Street and Ukraine agrees a major swap",
+        "val": "Google llança Gemini 4 Carbon, CoreWeave reactiva Wall Street i Ucraïna pacta un gran intercanvi"
+      },
+      "intro": {
+        "es": "Gemini 4 Carbon llega con equipos de agentes mientras CoreWeave devuelve el apetito por el riesgo y Bitcoin intenta consolidar su rebote. La edición sigue también el acuerdo humanitario de Abu Dabi, dos incidentes de seguridad activos y todos los juegos que todavía pueden reclamarse gratis.",
+        "en": "Gemini 4 Carbon arrives with agent teams as CoreWeave restores risk appetite and Bitcoin tries to consolidate its rebound. This edition also tracks the Abu Dhabi humanitarian agreement, two active security incidents and every game that can still be claimed for free.",
+        "val": "Gemini 4 Carbon arriba amb equips d’agents mentre CoreWeave recupera l’apetit pel risc i Bitcoin intenta consolidar el rebot. L’edició seguix també l’acord humanitari d’Abu Dhabi, dos incidents de seguretat actius i tots els jocs que encara es poden reclamar gratis."
+      },
+      "file": "2026-11-12.json"
+    },
+    {
       "date": "2026-11-11",
       "title": {
         "es": "Anthropic se prepara para salir a bolsa, la inflación golpea a Bitcoin y Ucrania mantiene abierto el diálogo",
