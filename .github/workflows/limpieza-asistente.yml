@@ -1,0 +1,20 @@
+name: Limpieza del asistente de Ricardo Peris
+
+# El Microhosting de Nominalia no deja programar tareas. Esta llamada diaria
+# aplica los plazos de conservación que promete la política de privacidad de
+# la demo (conversaciones sin permiso, 24 horas). Solo borra lo que ya ha
+# pasado de plazo y no recibe ni manda datos.
+on:
+  schedule:
+    - cron: '25 4 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  limpieza:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Aplica los plazos de conservación
+        run: curl -fsSL --max-time 60 http://api.danielux.es/ricardo-peris/api/chatbot/cleanup.php
