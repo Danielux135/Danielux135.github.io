@@ -1,0 +1,7 @@
+# Vercel solo sirve las funciones de api/; la web está en GitHub Pages.
+# Lista blanca: se ignora todo lo de la raíz salvo lo que lleva «!».
+# Si una función empieza a leer otro archivo del repositorio, añádelo aquí.
+/*
+!api
+!package.json
+!vercel.json
