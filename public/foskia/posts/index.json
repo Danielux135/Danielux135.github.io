@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-13",
+      "title": {
+        "es": "Europa entra en las conversaciones de Ucrania, Bitcoin cede y una campaña asalta GitHub",
+        "en": "Europe joins Ukraine talks, Bitcoin slides and a campaign raids GitHub",
+        "val": "Europa entra en les converses d’Ucraïna, Bitcoin cedix i una campanya assalta GitHub"
+      },
+      "intro": {
+        "es": "Europa obtiene un asiento en la próxima ronda sobre Ucrania mientras los mercados digieren nuevas salidas de los ETF de Bitcoin. La edición sigue también una campaña masiva contra GitHub, el parche crítico de Apache y todos los juegos que todavía pueden reclamarse o probarse gratis.",
+        "en": "Europe gains a seat in the next round of Ukraine talks as markets digest further Bitcoin ETF outflows. This edition also tracks a mass GitHub campaign, Apache’s critical patch and every game still available to claim or try for free.",
+        "val": "Europa obté un seient en la pròxima ronda sobre Ucraïna mentre els mercats digerixen noves eixides dels ETF de Bitcoin. L’edició seguix també una campanya massiva contra GitHub, el pedaç crític d’Apache i tots els jocs que encara poden reclamar-se o provar-se gratis."
+      },
+      "file": "2026-11-13.json"
+    },
+    {
       "date": "2026-11-12",
       "title": {
         "es": "Google lanza Gemini 4 Carbon, CoreWeave reactiva Wall Street y Ucrania pacta un gran canje",
