@@ -3,7 +3,7 @@ const fetch = global.fetch || require('node-fetch');
 const BLOG_URL      = 'https://danielux.es/foskia/';
 const PORTFOLIO_URL = 'https://danielux.es/';
 const RAW_BASE      = 'https://raw.githubusercontent.com/Danielux135/Danielux135.github.io/main/public/foskia/posts';
-const UNSUB_BASE    = 'https://danielux.es/foskia/unsubscribe';
+const UNSUB_BASE    = 'https://danielux135-github-io.vercel.app/api/unsubscribe';
 
 function cleanEnv(v) {
   if (typeof v !== 'string') return '';
