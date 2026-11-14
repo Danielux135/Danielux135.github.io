@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-14",
+      "title": {
+        "es": "Bitcoin se desploma, Jensen Huang deja NVIDIA y EE. UU. pierde su estatus libre de sarampión",
+        "en": "Bitcoin plunges, Jensen Huang leaves NVIDIA and the US loses measles-free status",
+        "val": "Bitcoin s’afona, Jensen Huang deixa NVIDIA i els EUA perden l’estatus lliure de xarampió"
+      },
+      "intro": {
+        "es": "Bitcoin cae hacia 68.000 dólares en una liquidación que supera los 1.400 millones, mientras la salida de Jensen Huang sacude el corazón del auge de la IA. La edición sigue también el retroceso sanitario del sarampión, dos fallos explotados de CISA, Wolfenstein 3 y todos los juegos que aún pueden reclamarse o probarse gratis.",
+        "en": "Bitcoin drops toward $68,000 in a liquidation wave topping $1.4 billion as Jensen Huang’s departure shakes the core of the AI boom. This edition also tracks the measles public-health setback, two exploited flaws flagged by CISA, Wolfenstein 3 and every game still available to claim or try for free.",
+        "val": "Bitcoin cau cap als 68.000 dòlars en una onada de liquidacions que supera els 1.400 milions, mentre l’eixida de Jensen Huang sacseja el cor de l’auge de la IA. L’edició seguix també el retrocés sanitari del xarampió, dos fallades explotades de CISA, Wolfenstein 3 i tots els jocs que encara es poden reclamar o provar gratis."
+      },
+      "file": "2026-11-14.json"
+    },
+    {
       "date": "2026-11-13",
       "title": {
         "es": "Europa entra en las conversaciones de Ucrania, Bitcoin cede y una campaña asalta GitHub",

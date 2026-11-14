@@ -1,0 +1,3079 @@
+{
+  "date": "2026-11-14",
+  "title": {
+    "es": "Bitcoin se desploma, Jensen Huang deja NVIDIA y EE. UU. pierde su estatus libre de sarampión",
+    "en": "Bitcoin plunges, Jensen Huang leaves NVIDIA and the US loses measles-free status",
+    "val": "Bitcoin s’afona, Jensen Huang deixa NVIDIA i els EUA perden l’estatus lliure de xarampió"
+  },
+  "intro": {
+    "es": "Bitcoin cae hacia 68.000 dólares en una liquidación que supera los 1.400 millones, mientras la salida de Jensen Huang sacude el corazón del auge de la IA. La edición sigue también el retroceso sanitario del sarampión, dos fallos explotados de CISA, Wolfenstein 3 y todos los juegos que aún pueden reclamarse o probarse gratis.",
+    "en": "Bitcoin drops toward $68,000 in a liquidation wave topping $1.4 billion as Jensen Huang’s departure shakes the core of the AI boom. This edition also tracks the measles public-health setback, two exploited flaws flagged by CISA, Wolfenstein 3 and every game still available to claim or try for free.",
+    "val": "Bitcoin cau cap als 68.000 dòlars en una onada de liquidacions que supera els 1.400 milions, mentre l’eixida de Jensen Huang sacseja el cor de l’auge de la IA. L’edició seguix també el retrocés sanitari del xarampió, dos fallades explotades de CISA, Wolfenstein 3 i tots els jocs que encara es poden reclamar o provar gratis."
+  },
+  "sections": [
+    {
+      "category": "gaming",
+      "items": [
+        {
+          "title": {
+            "es": "Wolfenstein 3 entra oficialmente en producción",
+            "en": "Wolfenstein 3 officially enters production",
+            "val": "Wolfenstein 3 entra oficialment en producció"
+          },
+          "summary": {
+            "es": "MachineGames ya trabaja oficialmente en Wolfenstein 3, con Brian Bloom y Debra Wilson de regreso como BJ Blazkowicz y Grace Walker. <a href=\"https://www.pcgamer.com/games/fps/wolfenstein-3-is-in-production-at-machinegames/\">El anuncio</a> no incluye todavía fecha ni plataformas, pero convierte años de rumores en un proyecto confirmado.",
+            "en": "MachineGames is officially working on Wolfenstein 3, with Brian Bloom and Debra Wilson returning as BJ Blazkowicz and Grace Walker. <a href=\"https://www.pcgamer.com/games/fps/wolfenstein-3-is-in-production-at-machinegames/\">The announcement</a> gives no date or platforms yet, but turns years of rumours into a confirmed project.",
+            "val": "MachineGames ja treballa oficialment en Wolfenstein 3, amb Brian Bloom i Debra Wilson de retorn com BJ Blazkowicz i Grace Walker. <a href=\"https://www.pcgamer.com/games/fps/wolfenstein-3-is-in-production-at-machinegames/\">L’anunci</a> encara no inclou data ni plataformes, però convertix anys de rumors en un projecte confirmat."
+          },
+          "source": {
+            "es": "PC Gamer",
+            "en": "PC Gamer",
+            "val": "PC Gamer"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "PC Gamer",
+                "en": "PC Gamer",
+                "val": "PC Gamer"
+              },
+              "url": "https://www.pcgamer.com/games/fps/wolfenstein-3-is-in-production-at-machinegames/"
+            },
+            {
+              "title": {
+                "es": "VGC",
+                "en": "VGC",
+                "val": "VGC"
+              },
+              "url": "https://www.videogameschronicle.com/news/machinegames-has-finally-officially-confirmed-that-wolfenstein-3-is-in-development/"
+            },
+            {
+              "title": {
+                "es": "Gematsu",
+                "en": "Gematsu",
+                "val": "Gematsu"
+              },
+              "url": "https://www.gematsu.com/2026/11/wolfenstein-3-announced"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Xbox lleva 21 clásicos originales más a PC",
+            "en": "Xbox brings 21 more original classics to PC",
+            "val": "Xbox porta 21 clàssics originals més a PC"
+          },
+          "summary": {
+            "es": "Microsoft amplía a 25 el catálogo de Xbox original ejecutable en PC, con KOTOR, Morrowind, TimeSplitters 2 y varios Star Wars. <a href=\"https://news.xbox.com/en-us/2026/11/12/25-original-xbox-games-now-available-on-PC/\">Xbox Wire</a> confirma además logros inéditos para cuatro clásicos.",
+            "en": "Microsoft has expanded the original Xbox catalogue playable on PC to 25 titles, adding KOTOR, Morrowind, TimeSplitters 2 and several Star Wars games. <a href=\"https://news.xbox.com/en-us/2026/11/12/25-original-xbox-games-now-available-on-PC/\">Xbox Wire</a> also confirms first-ever achievements for four classics.",
+            "val": "Microsoft amplia a 25 el catàleg de Xbox original executable en PC, amb KOTOR, Morrowind, TimeSplitters 2 i diversos Star Wars. <a href=\"https://news.xbox.com/en-us/2026/11/12/25-original-xbox-games-now-available-on-PC/\">Xbox Wire</a> confirma, a més, assoliments inèdits per a quatre clàssics."
+          },
+          "source": {
+            "es": "Xbox Wire",
+            "en": "Xbox Wire",
+            "val": "Xbox Wire"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Xbox Wire",
+                "en": "Xbox Wire",
+                "val": "Xbox Wire"
+              },
+              "url": "https://news.xbox.com/en-us/2026/11/12/25-original-xbox-games-now-available-on-PC/"
+            },
+            {
+              "title": {
+                "es": "VGC",
+                "en": "VGC",
+                "val": "VGC"
+              },
+              "url": "https://www.videogameschronicle.com/news/21-original-xbox-games-are-now-on-pc-via-backward-compatibility/"
+            },
+            {
+              "title": {
+                "es": "Meristation",
+                "en": "Meristation",
+                "val": "Meristation"
+              },
+              "url": "https://as.com/meristation/noticias/apuesta-historica-de-xbox-por-la-preservacion-21-nuevos-juegos-de-xbox-original-llegan-a-pc-y-algunos-con-logros-por-primera-vez-f202611-n/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "gratis",
+      "items": [
+        {
+          "title": {
+            "es": "Hypnospace Outlaw — gratis en Xbox Free Play Days / Game Pass",
+            "en": "Hypnospace Outlaw — free on Xbox Free Play Days / Game Pass",
+            "val": "Hypnospace Outlaw — gratis en Xbox Free Play Days / Game Pass"
+          },
+          "summary": {
+            "es": "Acceso temporal incluido durante la promoción; el juego no se conserva al terminar. <a href=\"https://www.xbox.com/en-GB/games/store/hypnospace-outlaw/9pm3nvb3pxg0\">Abre la ficha oficial</a> antes del límite.",
+            "en": "Temporary access is included during the promotion; the game is not kept afterwards. <a href=\"https://www.xbox.com/en-GB/games/store/hypnospace-outlaw/9pm3nvb3pxg0\">Open the official listing</a> before the deadline.",
+            "val": "Accés temporal inclòs durant la promoció; el joc no es conserva en acabar. <a href=\"https://www.xbox.com/en-GB/games/store/hypnospace-outlaw/9pm3nvb3pxg0\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Xbox Free Play Days / Game Pass",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.xbox.com/en-GB/games/store/hypnospace-outlaw/9pm3nvb3pxg0"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://news.xbox.com/en-us/2026/11/12/free-play-days-11-12-2026/amp/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.trueachievements.com/news/xbox-free-play-days-november-12-2026"
+            }
+          ],
+          "platform": "Xbox Free Play Days / Game Pass",
+          "until": {
+            "es": "Hasta el 15 de noviembre de 2026; Xbox no publica hora",
+            "en": "Until November 15, 2026; Xbox does not publish a time",
+            "val": "Fins al 15 de novembre de 2026; Xbox no publica hora"
+          },
+          "url": "https://www.xbox.com/en-GB/games/store/hypnospace-outlaw/9pm3nvb3pxg0",
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "STUFFED — gratis en Xbox Free Play Days / Game Pass",
+            "en": "STUFFED — free on Xbox Free Play Days / Game Pass",
+            "val": "STUFFED — gratis en Xbox Free Play Days / Game Pass"
+          },
+          "summary": {
+            "es": "Acceso temporal incluido durante la promoción; el juego no se conserva al terminar. <a href=\"https://www.xbox.com/en-GB/games/store/stuffed/9n2xc0ml2k47\">Abre la ficha oficial</a> antes del límite.",
+            "en": "Temporary access is included during the promotion; the game is not kept afterwards. <a href=\"https://www.xbox.com/en-GB/games/store/stuffed/9n2xc0ml2k47\">Open the official listing</a> before the deadline.",
+            "val": "Accés temporal inclòs durant la promoció; el joc no es conserva en acabar. <a href=\"https://www.xbox.com/en-GB/games/store/stuffed/9n2xc0ml2k47\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Xbox Free Play Days / Game Pass",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.xbox.com/en-GB/games/store/stuffed/9n2xc0ml2k47"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://news.xbox.com/en-us/2026/11/12/free-play-days-11-12-2026/amp/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.trueachievements.com/news/xbox-free-play-days-november-12-2026"
+            }
+          ],
+          "platform": "Xbox Free Play Days / Game Pass",
+          "until": {
+            "es": "Hasta el 15 de noviembre de 2026; Xbox no publica hora",
+            "en": "Until November 15, 2026; Xbox does not publish a time",
+            "val": "Fins al 15 de novembre de 2026; Xbox no publica hora"
+          },
+          "url": "https://www.xbox.com/en-GB/games/store/stuffed/9n2xc0ml2k47",
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "Sumerian Six — gratis en Xbox Free Play Days / Game Pass",
+            "en": "Sumerian Six — free on Xbox Free Play Days / Game Pass",
+            "val": "Sumerian Six — gratis en Xbox Free Play Days / Game Pass"
+          },
+          "summary": {
+            "es": "Acceso temporal incluido durante la promoción; el juego no se conserva al terminar. <a href=\"https://www.xbox.com/en-GB/games/store/sumerian-six/9ND6NQ57WCPN\">Abre la ficha oficial</a> antes del límite.",
+            "en": "Temporary access is included during the promotion; the game is not kept afterwards. <a href=\"https://www.xbox.com/en-GB/games/store/sumerian-six/9ND6NQ57WCPN\">Open the official listing</a> before the deadline.",
+            "val": "Accés temporal inclòs durant la promoció; el joc no es conserva en acabar. <a href=\"https://www.xbox.com/en-GB/games/store/sumerian-six/9ND6NQ57WCPN\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Xbox Free Play Days / Game Pass",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.xbox.com/en-GB/games/store/sumerian-six/9ND6NQ57WCPN"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://news.xbox.com/en-us/2026/11/12/free-play-days-11-12-2026/amp/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.trueachievements.com/news/xbox-free-play-days-november-12-2026"
+            }
+          ],
+          "platform": "Xbox Free Play Days / Game Pass",
+          "until": {
+            "es": "Hasta el 15 de noviembre de 2026; Xbox no publica hora",
+            "en": "Until November 15, 2026; Xbox does not publish a time",
+            "val": "Fins al 15 de novembre de 2026; Xbox no publica hora"
+          },
+          "url": "https://www.xbox.com/en-GB/games/store/sumerian-six/9ND6NQ57WCPN",
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "Sunderfolk — gratis en Xbox Free Play Days / Game Pass",
+            "en": "Sunderfolk — free on Xbox Free Play Days / Game Pass",
+            "val": "Sunderfolk — gratis en Xbox Free Play Days / Game Pass"
+          },
+          "summary": {
+            "es": "Acceso temporal incluido durante la promoción; el juego no se conserva al terminar. <a href=\"https://www.xbox.com/en-GB/games/store/sunderfolk/9nkt0w32rm3k\">Abre la ficha oficial</a> antes del límite.",
+            "en": "Temporary access is included during the promotion; the game is not kept afterwards. <a href=\"https://www.xbox.com/en-GB/games/store/sunderfolk/9nkt0w32rm3k\">Open the official listing</a> before the deadline.",
+            "val": "Accés temporal inclòs durant la promoció; el joc no es conserva en acabar. <a href=\"https://www.xbox.com/en-GB/games/store/sunderfolk/9nkt0w32rm3k\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Xbox Free Play Days / Game Pass",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.xbox.com/en-GB/games/store/sunderfolk/9nkt0w32rm3k"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://news.xbox.com/en-us/2026/11/12/free-play-days-11-12-2026/amp/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.trueachievements.com/news/xbox-free-play-days-november-12-2026"
+            }
+          ],
+          "platform": "Xbox Free Play Days / Game Pass",
+          "until": {
+            "es": "Hasta el 15 de noviembre de 2026; Xbox no publica hora",
+            "en": "Until November 15, 2026; Xbox does not publish a time",
+            "val": "Fins al 15 de novembre de 2026; Xbox no publica hora"
+          },
+          "url": "https://www.xbox.com/en-GB/games/store/sunderfolk/9nkt0w32rm3k",
+          "urgent": true
+        },
+        {
+          "title": {
+            "es": "IL-2 Sturmovik: Battle of Stalingrad — gratis en Steam (prueba temporal)",
+            "en": "IL-2 Sturmovik: Battle of Stalingrad — free on Steam (prueba temporal)",
+            "val": "IL-2 Sturmovik: Battle of Stalingrad — gratis en Steam (prueba temporal)"
+          },
+          "summary": {
+            "es": "Acceso temporal incluido durante la promoción; el juego no se conserva al terminar. <a href=\"https://store.steampowered.com/app/307960/IL2_Sturmovik_Battle_of_Stalingrad/\">Abre la ficha oficial</a> antes del límite.",
+            "en": "Temporary access is included during the promotion; the game is not kept afterwards. <a href=\"https://store.steampowered.com/app/307960/IL2_Sturmovik_Battle_of_Stalingrad/\">Open the official listing</a> before the deadline.",
+            "val": "Accés temporal inclòs durant la promoció; el joc no es conserva en acabar. <a href=\"https://store.steampowered.com/app/307960/IL2_Sturmovik_Battle_of_Stalingrad/\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Steam (prueba temporal)",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/307960/IL2_Sturmovik_Battle_of_Stalingrad/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://steamcommunity.com/app/307960/announcements/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://steamdb.info/sub/1862771/history/"
+            }
+          ],
+          "platform": "Steam (prueba temporal)",
+          "until": {
+            "es": "Hasta el 16 de noviembre de 2026 a las 18:00 UTC",
+            "en": "Until November 16, 2026 at 18:00 UTC",
+            "val": "Fins al 16 de novembre de 2026 a les 18:00 UTC"
+          },
+          "url": "https://store.steampowered.com/app/307960/IL2_Sturmovik_Battle_of_Stalingrad/",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Radiant Exodus — gratis en Steam",
+            "en": "Radiant Exodus — free on Steam",
+            "val": "Radiant Exodus — gratis en Steam"
+          },
+          "summary": {
+            "es": "Radiant Exodus está disponible sin coste durante la promoción. <a href=\"https://store.steampowered.com/app/2920120/Radiant_Exodus/\">Abre la ficha exacta</a> y comprueba los requisitos antes del límite.",
+            "en": "Radiant Exodus is available at no cost during the promotion. <a href=\"https://store.steampowered.com/app/2920120/Radiant_Exodus/\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Radiant Exodus està disponible sense cost durant la promoció. <a href=\"https://store.steampowered.com/app/2920120/Radiant_Exodus/\">Obri la fitxa exacta</a> i comprova els requisits abans del límit."
+          },
+          "source": "store.steampowered.com / claimline-two.vercel.app / store.steampowered.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/2920120/Radiant_Exodus/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://claimline-two.vercel.app/free-games/steam"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/news/posts/?enddate=1785143543&feed=steam_community_announcements"
+            }
+          ],
+          "platform": "Steam",
+          "until": {
+            "es": "Hasta el 17 de noviembre de 2026; hora no publicada",
+            "en": "Until November 17, 2026; time not published",
+            "val": "Fins al 17 de novembre de 2026; hora no publicada"
+          },
+          "url": "https://store.steampowered.com/app/2920120/Radiant_Exodus/",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "RUNZ Playtest — prueba gratuita con clave de Steam",
+            "en": "RUNZ Playtest — free Steam-key playtest",
+            "val": "RUNZ Playtest — prova gratuïta amb clau de Steam"
+          },
+          "summary": {
+            "es": "GamerPower distribuye claves de Steam para la prueba de RUNZ hasta el 17 de noviembre. Es acceso temporal y las claves dependen de existencias; <a href=\"https://store.steampowered.com/app/4704420/runz/\">la ficha exacta</a> permite comprobar el juego antes de solicitarla.",
+            "en": "GamerPower is distributing Steam keys for the RUNZ playtest through November 17. Access is temporary and keys are while supplies last; <a href=\"https://store.steampowered.com/app/4704420/runz/\">the exact store page</a> identifies the game before claiming.",
+            "val": "GamerPower distribuïx claus de Steam per a la prova de RUNZ fins al 17 de novembre. L’accés és temporal i les claus depenen d’existències; <a href=\"https://store.steampowered.com/app/4704420/runz/\">la fitxa exacta</a> permet comprovar el joc abans de sol·licitar-la."
+          },
+          "source": {
+            "es": "GamerPower",
+            "en": "GamerPower",
+            "val": "GamerPower"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "GamerPower",
+                "en": "GamerPower",
+                "val": "GamerPower"
+              },
+              "url": "https://www.gamerpower.com/giveaways/steam"
+            },
+            {
+              "title": {
+                "es": "GamerScout",
+                "en": "GamerScout",
+                "val": "GamerScout"
+              },
+              "url": "https://www.gamerscout.io/giveaways"
+            },
+            {
+              "title": {
+                "es": "GameBrief",
+                "en": "GameBrief",
+                "val": "GameBrief"
+              },
+              "url": "https://www.gamebrief.net/giveaways/steam"
+            }
+          ],
+          "platform": "Steam / GamerPower",
+          "until": {
+            "es": "Hasta el 17 de noviembre de 2026; claves mientras haya existencias",
+            "en": "Until November 17, 2026; keys while supplies last",
+            "val": "Fins al 17 de novembre de 2026; claus mentre hi haja existències"
+          },
+          "url": "https://store.steampowered.com/app/4704420/runz/",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Vampire: The Masquerade – Swansong — gratis con Prime Gaming",
+            "en": "Vampire: The Masquerade – Swansong — free with Prime Gaming",
+            "val": "Vampire: The Masquerade – Swansong — gratis amb Prime Gaming"
+          },
+          "summary": {
+            "es": "La aventura narrativa de Big Bad Wolf entrega una clave para Epic Games Store. <a href=\"https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3\">Reclámalo en la ficha exacta</a>; se conserva después de canjearlo.",
+            "en": "Big Bad Wolf’s narrative adventure supplies an Epic Games Store entitlement. <a href=\"https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3\">Claim it on the exact listing</a>; it remains yours after redemption.",
+            "val": "L’aventura narrativa de Big Bad Wolf entrega una clau per a Epic Games Store. <a href=\"https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3\">Reclama’l en la fitxa exacta</a>; es conserva després de bescanviar-lo."
+          },
+          "source": "Prime Gaming / Amazon Luna / Vandal / official store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/en-ca/news/articles/luna-october-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://vandal.elespanol.com/noticia/2026288037/amazon-regala-hoy-2-nuevos-juegos-gratis-de-pc-a-todos-los-suscriptores-de-amazon-prime/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.epicgames.com/p/vampire-the-masquerade-swansong"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 18 de noviembre de 2026",
+            "en": "Until November 18, 2026",
+            "val": "Fins al 18 de novembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/vampire-the-masquerade-swansong-epic/dp/amzn1.pg.item.7885fee3-7dda-40c5-8642-596bb1f4a9b3"
+        },
+        {
+          "title": {
+            "es": "Knightica — gratis en Epic Games Store",
+            "en": "Knightica — free on Epic Games Store",
+            "val": "Knightica — gratis en Epic Games Store"
+          },
+          "summary": {
+            "es": "La licencia se conserva tras reclamarla dentro del plazo indicado. <a href=\"https://store.epicgames.com/p/knightica-3be45c\">Abre la ficha oficial</a> antes del límite.",
+            "en": "The licence remains in your library after it is claimed within the stated window. <a href=\"https://store.epicgames.com/p/knightica-3be45c\">Open the official listing</a> before the deadline.",
+            "val": "La llicència es conserva després de reclamar-la dins del termini indicat. <a href=\"https://store.epicgames.com/p/knightica-3be45c\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.epicgames.com/p/knightica-3be45c"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://gamingroute.com/free-games-this-week/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.epicgames.com/free-games"
+            }
+          ],
+          "platform": "Epic Games Store",
+          "until": {
+            "es": "Hasta el 19 de noviembre de 2026 a las 16:00 UTC",
+            "en": "Until November 19, 2026 at 16:00 UTC",
+            "val": "Fins al 19 de novembre de 2026 a les 16:00 UTC"
+          },
+          "url": "https://store.epicgames.com/p/knightica-3be45c",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Itching for Games 3 (116 juegos) — gratis en itch.io",
+            "en": "Itching for Games 3 (116 juegos) — free on itch.io",
+            "val": "Itching for Games 3 (116 juegos) — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Itching for Games 3 (116 juegos) puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://itch.io/b/3955/itching-for-games-3\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "Itching for Games 3 (116 juegos) can be claimed at no cost and kept under the store's terms. <a href=\"https://itch.io/b/3955/itching-for-games-3\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Itching for Games 3 (116 juegos) es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://itch.io/b/3955/itching-for-games-3\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "itch.io / juegosgratis.info / claimthatgame.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://itch.io/b/3955/itching-for-games-3"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://juegosgratis.info/pc"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://claimthatgame.com/"
+            }
+          ],
+          "platform": "itch.io",
+          "until": {
+            "es": "Hasta el 22 de noviembre de 2026 a las 22:59 UTC",
+            "en": "Until November 22, 2026 at 22:59 UTC",
+            "val": "Fins al 22 de novembre de 2026 a les 22:59 UTC"
+          },
+          "url": "https://itch.io/b/3955/itching-for-games-3",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Ad Infinitum — gratis en Prime Gaming / Epic Games Store",
+            "en": "Ad Infinitum — free on Prime Gaming / Epic Games Store",
+            "val": "Ad Infinitum — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Ad Infinitum puede reclamarse o jugarse sin coste durante la promoción. <a href=\"https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457\">Abre la ficha exacta</a> y revisa los requisitos antes del límite.",
+            "en": "Ad Infinitum can be claimed or played at no cost during the promotion. <a href=\"https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Ad Infinitum es pot reclamar o jugar sense cost durant la promoció. <a href=\"https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457\">Obri la fitxa exacta</a> i revisa els requisits abans del límit."
+          },
+          "source": "luna.amazon.com / couchloot.com / www.notebookcheck.net",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://couchloot.com/free"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.notebookcheck.net/Amazon-adds-two-new-free-games-to-Luna.1431431.0.html"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 25 de noviembre de 2026",
+            "en": "Until November 25, 2026",
+            "val": "Fins al 25 de novembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/ad-infinitum-epic/dp/amzn1.pg.item.69de011b-6575-41ab-9964-971e59cf7457",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Time Travel: Escape Room Game — gratis en Prime Gaming / Legacy Games",
+            "en": "Time Travel: Escape Room Game — free on Prime Gaming / Legacy Games",
+            "val": "Time Travel: Escape Room Game — gratis en Prime Gaming / Legacy Games"
+          },
+          "summary": {
+            "es": "Time Travel: Escape Room Game puede reclamarse o jugarse sin coste durante la promoción. <a href=\"https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5\">Abre la ficha exacta</a> y revisa los requisitos antes del límite.",
+            "en": "Time Travel: Escape Room Game can be claimed or played at no cost during the promotion. <a href=\"https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Time Travel: Escape Room Game es pot reclamar o jugar sense cost durant la promoció. <a href=\"https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5\">Obri la fitxa exacta</a> i revisa els requisits abans del límit."
+          },
+          "source": "luna.amazon.com / couchloot.com / www.notebookcheck.net",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://couchloot.com/free"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.notebookcheck.net/Amazon-adds-two-new-free-games-to-Luna.1431431.0.html"
+            }
+          ],
+          "platform": "Prime Gaming / Legacy Games",
+          "until": {
+            "es": "Hasta el 25 de noviembre de 2026",
+            "en": "Until November 25, 2026",
+            "val": "Fins al 25 de novembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/time-travel-escape-room-game-legacy/dp/amzn1.pg.item.c3af790f-8ce0-42b2-8c16-ebecb97303f5",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Dead Island 2 — gratis en PlayStation Plus Essential",
+            "en": "Dead Island 2 — free on PlayStation Plus Essential",
+            "val": "Dead Island 2 — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Juego mensual de noviembre para PS4 y PS5. Requiere suscripción activa y se conserva mientras esta continúe.",
+            "en": "November monthly game for PS4 and PS5. An active subscription is required and access continues while subscribed.",
+            "val": "Joc mensual de novembre per a PS4 i PS5. Requerix subscripció activa i es conserva mentre continue."
+          },
+          "source": "Oferta oficial / tienda",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.playstation.com/es-es/concept/201061"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.playstation.com/2026/10/28/playstation-plus-monthly-games-for-november-dead-island-2-tomb-raider-iv-vi-remastered-monster-train-2/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.latam.playstation.com/?p=101153"
+            }
+          ],
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 30 de noviembre de 2026",
+            "en": "Until November 30, 2026",
+            "val": "Fins al 30 de novembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/es-es/concept/201061"
+        },
+        {
+          "title": {
+            "es": "Monster Train 2 — gratis en PlayStation Plus Essential",
+            "en": "Monster Train 2 — free on PlayStation Plus Essential",
+            "val": "Monster Train 2 — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Roguelite de construcción de mazos para PS5 incluido en la selección mensual. Requiere una suscripción activa para jugar.",
+            "en": "PS5 deckbuilding roguelite included in the monthly selection. An active subscription is required to play.",
+            "val": "Roguelite de construcció de baralles per a PS5 inclòs en la selecció mensual. Requerix una subscripció activa per a jugar."
+          },
+          "source": "Oferta oficial / tienda",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.playstation.com/es-es/product/EP8909-PPSA25758_00-0047300101977880"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.playstation.com/2026/10/28/playstation-plus-monthly-games-for-november-dead-island-2-tomb-raider-iv-vi-remastered-monster-train-2/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.latam.playstation.com/?p=101153"
+            }
+          ],
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 30 de noviembre de 2026",
+            "en": "Until November 30, 2026",
+            "val": "Fins al 30 de novembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/es-es/product/EP8909-PPSA25758_00-0047300101977880"
+        },
+        {
+          "title": {
+            "es": "Tomb Raider IV–VI Remastered — gratis en PlayStation Plus Essential",
+            "en": "Tomb Raider IV–VI Remastered — free on PlayStation Plus Essential",
+            "val": "Tomb Raider IV–VI Remastered — gratis en PlayStation Plus Essential"
+          },
+          "summary": {
+            "es": "Colección mensual para PS4 y PS5 con The Last Revelation, Chronicles y The Angel of Darkness. Requiere una suscripción activa para jugar.",
+            "en": "Monthly PS4 and PS5 collection containing The Last Revelation, Chronicles and The Angel of Darkness. An active subscription is required to play.",
+            "val": "Col·lecció mensual per a PS4 i PS5 amb The Last Revelation, Chronicles i The Angel of Darkness. Requerix una subscripció activa per a jugar."
+          },
+          "source": "Oferta oficial / tienda",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.playstation.com/es-es/product/EP1875-PPSA18151_00-TOMBRAIDER456225"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.playstation.com/2026/10/28/playstation-plus-monthly-games-for-november-dead-island-2-tomb-raider-iv-vi-remastered-monster-train-2/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://blog.latam.playstation.com/?p=101153"
+            }
+          ],
+          "platform": "PlayStation Plus Essential",
+          "until": {
+            "es": "Hasta el 30 de noviembre de 2026",
+            "en": "Until November 30, 2026",
+            "val": "Fins al 30 de novembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://store.playstation.com/es-es/product/EP1875-PPSA18151_00-TOMBRAIDER456225"
+        },
+        {
+          "title": {
+            "es": "KIBORG — gratis en Prime Gaming / Amazon Games App",
+            "en": "KIBORG — free on Prime Gaming / Amazon Games App",
+            "val": "KIBORG — gratis en Prime Gaming / Amazon Games App"
+          },
+          "summary": {
+            "es": "KIBORG puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "KIBORG can be claimed at no cost and kept under the store's terms. <a href=\"https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "KIBORG es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "gg.deals / luna.amazon.com / www.amazongamestudios.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freetokeep.gg/game/kiborg"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-october-2026"
+            }
+          ],
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 2 de diciembre de 2026",
+            "en": "Until December 2, 2026",
+            "val": "Fins al 2 de desembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/kiborg-aga/dp/amzn1.pg.item.6a6eac09-8806-4c39-95a2-c7cf131f89fc?ingress=amzn",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Trash Goblin — gratis en Prime Gaming / Epic Games Store",
+            "en": "Trash Goblin — free on Prime Gaming / Epic Games Store",
+            "val": "Trash Goblin — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Trash Goblin puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "Trash Goblin can be claimed at no cost and kept under the store's terms. <a href=\"https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Trash Goblin es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "gg.deals / luna.amazon.com / www.amazongamestudios.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freetokeep.gg/game/trash-goblin"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/en-au/news/articles/luna-october-2026"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 2 de diciembre de 2026",
+            "en": "Until December 2, 2026",
+            "val": "Fins al 2 de desembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/trash-goblin-epic/dp/amzn1.pg.item.1892b601-09dc-470b-9d62-7feac63376a3?ingress=amzn",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Squirrel with a Gun — gratis en Prime Gaming / Amazon Games App",
+            "en": "Squirrel with a Gun — free on Prime Gaming / Amazon Games App",
+            "val": "Squirrel with a Gun — gratis en Prime Gaming / Amazon Games App"
+          },
+          "summary": {
+            "es": "Amazon lo activó el 5 de noviembre para su aplicación de juegos, pero todavía no publica una fecha final ni una URL individual estable. <a href=\"https://luna.amazon.com/claims/home\">Abre la página oficial</a> antes del límite.",
+            "en": "Amazon activated it on November 5 for its games app, but has not yet published an end date or stable individual URL. <a href=\"https://luna.amazon.com/claims/home\">Open the official page</a> before the deadline.",
+            "val": "Amazon el va activar el 5 de novembre per a l'aplicació de jocs, però encara no publica una data final ni una URL individual estable. <a href=\"https://luna.amazon.com/claims/home\">Obri la pàgina oficial</a> abans del límit."
+          },
+          "source": "https://luna.amazon.com/claims/home / https://www.amazongamestudios.com/es-es/news/articles/luna-november-2026 / https://www.gamespress.com/es/Luna-November-Content-Update",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/home"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/es-es/news/articles/luna-november-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamespress.com/es/Luna-November-Content-Update"
+            }
+          ],
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 9 de diciembre de 2026",
+            "en": "Until December 9, 2026",
+            "val": "Fins al 9 de desembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/squirrel-with-a-gun-aga/dp/amzn1.pg.item.70eff815-88f4-47f9-83e0-8a8d2837c7ad",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "WRC Generations — gratis en Prime Gaming / Epic Games Store",
+            "en": "WRC Generations — free on Prime Gaming / Epic Games Store",
+            "val": "WRC Generations — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "Amazon lo activó el 5 de noviembre mediante un código para Epic, pero todavía no publica una fecha final ni una URL individual estable. <a href=\"https://luna.amazon.com/claims/home\">Abre la página oficial</a> antes del límite.",
+            "en": "Amazon activated it on November 5 via an Epic code, but has not yet published an end date or stable individual URL. <a href=\"https://luna.amazon.com/claims/home\">Open the official page</a> before the deadline.",
+            "val": "Amazon el va activar el 5 de novembre mitjançant un codi per a Epic, però encara no publica una data final ni una URL individual estable. <a href=\"https://luna.amazon.com/claims/home\">Obri la pàgina oficial</a> abans del límit."
+          },
+          "source": "https://luna.amazon.com/claims/home / https://www.amazongamestudios.com/es-es/news/articles/luna-november-2026 / https://www.gamespress.com/es/Luna-November-Content-Update",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/home"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/es-es/news/articles/luna-november-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamespress.com/es/Luna-November-Content-Update"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 9 de diciembre de 2026",
+            "en": "Until December 9, 2026",
+            "val": "Fins al 9 de desembre de 2026"
+          },
+          "url": "https://luna.amazon.com/claims/wrc-generations-epic/dp/amzn1.pg.item.59a0703f-be28-476e-9160-8e56e257dee5",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Caravan SandWitch — gratis con Prime Gaming",
+            "en": "Caravan SandWitch — free with Prime Gaming",
+            "val": "Caravan SandWitch — gratis amb Prime Gaming"
+          },
+          "summary": {
+            "es": "La aventura de exploración sin combates se canjea para la aplicación Amazon Games. <a href=\"https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a\">Reclámalo en la ficha exacta</a>; se conserva después de canjearlo.",
+            "en": "The combat-free exploration adventure redeems through the Amazon Games app. <a href=\"https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a\">Claim it on the exact listing</a>; it remains yours after redemption.",
+            "val": "L’aventura d’exploració sense combats es bescanvia per a l’aplicació Amazon Games. <a href=\"https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a\">Reclama’l en la fitxa exacta</a>; es conserva després de bescanviar-lo."
+          },
+          "source": "Prime Gaming / Amazon Luna / Vandal / official store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.amazongamestudios.com/en-ca/news/articles/luna-october-2026"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://vandal.elespanol.com/noticia/2026288037/amazon-regala-hoy-2-nuevos-juegos-gratis-de-pc-a-todos-los-suscriptores-de-amazon-prime/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/1582650/Caravan_SandWitch/"
+            }
+          ],
+          "platform": "Prime Gaming / Amazon Games App",
+          "until": {
+            "es": "Hasta el 16 de diciembre de 2026",
+            "en": "Until December 16, 2026",
+            "val": "Fins al 16 de desembre de 2026"
+          },
+          "urgent": false,
+          "url": "https://luna.amazon.com/claims/caravan-sandwitch-aga/dp/amzn1.pg.item.98d2b591-efd2-420f-928c-e7a9b409f67a"
+        },
+        {
+          "title": {
+            "es": "Jurassic World Evolution 2 — gratis en Prime Gaming / Epic Games Store",
+            "en": "Jurassic World Evolution 2 — free on Prime Gaming / Epic Games Store",
+            "val": "Jurassic World Evolution 2 — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "La licencia se conserva tras reclamarla dentro del plazo indicado. <a href=\"https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5\">Abre la ficha oficial</a> antes del límite.",
+            "en": "The licence remains in your library after it is claimed within the stated window. <a href=\"https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5\">Open the official listing</a> before the deadline.",
+            "val": "La llicència es conserva després de reclamar-la dins del termini indicat. <a href=\"https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Prime Gaming / Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-seven-free-games-for-november-include-jurassic-world-evolution-2/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freetokeep.gg/game/jurassic-world-evolution-2"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 16 de diciembre de 2026 a las 18:00 UTC",
+            "en": "Until December 16, 2026 at 18:00 UTC",
+            "val": "Fins al 16 de desembre de 2026 a les 18:00 UTC"
+          },
+          "url": "https://luna.amazon.com/claims/jurassic-world-evolution-2-epic/dp/amzn1.pg.item.208bb96b-9ae6-4538-a1ff-c1831794f1b5",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Radiolight — gratis en Prime Gaming / Epic Games Store",
+            "en": "Radiolight — free on Prime Gaming / Epic Games Store",
+            "val": "Radiolight — gratis en Prime Gaming / Epic Games Store"
+          },
+          "summary": {
+            "es": "La licencia se conserva tras reclamarla dentro del plazo indicado. <a href=\"https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16\">Abre la ficha oficial</a> antes del límite.",
+            "en": "The licence remains in your library after it is claimed within the stated window. <a href=\"https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16\">Open the official listing</a> before the deadline.",
+            "val": "La llicència es conserva després de reclamar-la dins del termini indicat. <a href=\"https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16\">Obri la fitxa oficial</a> abans del límit."
+          },
+          "source": "Prime Gaming / Epic Games Store",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-seven-free-games-for-november-include-jurassic-world-evolution-2/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freetokeep.gg/game/radiolight"
+            }
+          ],
+          "platform": "Prime Gaming / Epic Games Store",
+          "until": {
+            "es": "Hasta el 16 de diciembre de 2026 a las 18:00 UTC",
+            "en": "Until December 16, 2026 at 18:00 UTC",
+            "val": "Fins al 16 de desembre de 2026 a les 18:00 UTC"
+          },
+          "url": "https://luna.amazon.com/claims/radiolight-epic/dp/amzn1.pg.item.828a67e3-e1ec-4968-9719-afa81008da16",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "WarBreeds — gratis en Prime Gaming / GOG",
+            "en": "WarBreeds — free on Prime Gaming / GOG",
+            "val": "WarBreeds — gratis en Prime Gaming / GOG"
+          },
+          "summary": {
+            "es": "Los suscriptores de Prime reciben un código GOG para conservar el clásico de estrategia en tiempo real. <a href=\"https://www.gog.com/en/game/warbreeds\">Abre la ficha exacta</a> y reclámalo.",
+            "en": "Prime subscribers receive a GOG code to keep the classic real-time strategy game. <a href=\"https://www.gog.com/en/game/warbreeds\">Open the exact listing</a> and claim it.",
+            "val": "Els subscriptors de Prime reben un codi de GOG per a conservar el clàssic d’estratègia en temps real. <a href=\"https://www.gog.com/en/game/warbreeds\">Obri la fitxa exacta</a> i reclama’l."
+          },
+          "source": "Amazon Luna / GOG / Notebookcheck",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gog.com/en/game/warbreeds"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.notebookcheck.net/Amazon-adds-two-new-free-games-to-Luna.1421624.0.html"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.videogameschronicle.com/news/amazon-primes-10-free-games-for-october-include-five-nights-at-freddys-into-the-pit-and-doom-2016/"
+            }
+          ],
+          "platform": "Prime Gaming / GOG",
+          "until": {
+            "es": "Hasta el 8 de enero de 2027",
+            "en": "Until January 8, 2027",
+            "val": "Fins al 8 de gener de 2027"
+          },
+          "urgent": false,
+          "url": "https://www.gog.com/en/game/warbreeds"
+        },
+        {
+          "title": {
+            "es": "ANCIENT EVIL — gratis en IndieGala",
+            "en": "ANCIENT EVIL — free on IndieGala",
+            "val": "ANCIENT EVIL — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "ANCIENT EVIL puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://freebies.indiegala.com/ancient-evil\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "ANCIENT EVIL can be claimed at no cost and kept under the store's terms. <a href=\"https://freebies.indiegala.com/ancient-evil\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "ANCIENT EVIL es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://freebies.indiegala.com/ancient-evil\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "freebies.indiegala.com / juegosgratis.info",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/ancient-evil"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://juegosgratis.info/pc"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre continue activa la campanya"
+          },
+          "url": "https://freebies.indiegala.com/ancient-evil",
+          "urgent": false
+        },
+        {
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/4126040/Aniimo/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://aniimo.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.pcgamer.com/games/rpg/aniimo-release-date-launch-times/"
+            }
+          ],
+          "source": "Steam / Pawprint Studio",
+          "summary": {
+            "es": "RPG de mundo abierto centrado en capturar criaturas y transformarse en ellas. <a href=\"https://store.steampowered.com/app/4126040/Aniimo/\">Jugar gratis</a>. Consulta la ficha oficial antes de descargarlo.",
+            "en": "An open-world RPG built around catching creatures and transforming into them. <a href=\"https://store.steampowered.com/app/4126040/Aniimo/\">Play free</a>. Check the official listing before downloading.",
+            "val": "RPG de món obert centrat a capturar criatures i transformar-s’hi. <a href=\"https://store.steampowered.com/app/4126040/Aniimo/\">Juga gratis</a>. Consulta la fitxa oficial abans de descarregar-lo."
+          },
+          "title": {
+            "es": "Aniimo — free-to-play en Steam",
+            "en": "Aniimo — free-to-play on Steam",
+            "val": "Aniimo — free-to-play en Steam"
+          },
+          "platform": "Steam (PC)",
+          "until": {
+            "es": "Sin caducidad: free-to-play permanente",
+            "en": "No expiry: permanent free-to-play",
+            "val": "Sense caducitat: free-to-play permanent"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/4126040/Aniimo/"
+        },
+        {
+          "title": {
+            "es": "Battle Ram — gratis en IndieGala",
+            "en": "Battle Ram — free on IndieGala",
+            "val": "Battle Ram — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "La descarga para PC puede conservarse sin DRM mientras dure la promoción. <a href=\"https://freebies.indiegala.com/battle-ram\">Abre la ficha exacta</a> y añádelo a tu biblioteca.",
+            "en": "The PC download can be kept DRM-free while the campaign lasts. <a href=\"https://freebies.indiegala.com/battle-ram\">Open the exact listing</a> and add it to your library.",
+            "val": "La descàrrega per a PC es pot conservar sense DRM mentre dure la promoció. <a href=\"https://freebies.indiegala.com/battle-ram\">Obri la fitxa exacta</a> i afig-lo a la teua biblioteca."
+          },
+          "source": "IndieGala / GamerPower / IsThereAnyDeal",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/battle-ram"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamerpower.com/all/free-games"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://isthereanydeal.com/giveaways/"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/battle-ram"
+        },
+        {
+          "title": {
+            "es": "Best Plumber — gratis en IndieGala",
+            "en": "Best Plumber — free on IndieGala",
+            "val": "Best Plumber — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "IndieGala permite añadir esta descarga DRM-free a la biblioteca sin coste, sin publicar fecha de retirada. <a href=\"https://freebies.indiegala.com/best-plumber\">Reclamar Best Plumber</a> mientras siga disponible.",
+            "en": "IndieGala lets users add this DRM-free download to their library at no cost, with no removal date posted. <a href=\"https://freebies.indiegala.com/best-plumber\">Claim Best Plumber</a> while it remains available.",
+            "val": "IndieGala permet afegir esta descàrrega DRM-free a la biblioteca sense cost, sense publicar data de retirada. <a href=\"https://freebies.indiegala.com/best-plumber\">Reclama Best Plumber</a> mentre continue disponible."
+          },
+          "source": "IndieGala / TechARP / Pants Pants Revolution",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/best-plumber"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.techarp.com/gaming/best-plumber-free-game/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://pantspantsrevolution.com/september-26th-free-games-roundup/"
+            }
+          ],
+          "platform": "IndieGala (PC, DRM-free)",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/best-plumber"
+        },
+        {
+          "title": {
+            "es": "Dual Chroma: Academy Carols — gratis en itch.io",
+            "en": "Dual Chroma: Academy Carols — free on itch.io",
+            "val": "Dual Chroma: Academy Carols — gratis en itch.io"
+          },
+          "summary": {
+            "es": "Dual Chroma: Academy Carols puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://galengames.itch.io/academy-carols\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "Dual Chroma: Academy Carols can be claimed at no cost and kept under the store's terms. <a href=\"https://galengames.itch.io/academy-carols\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Dual Chroma: Academy Carols es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://galengames.itch.io/academy-carols\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "galengames.itch.io / juegosgratis.info / claimthatgame.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://galengames.itch.io/academy-carols"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://juegosgratis.info/pc"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://claimthatgame.com/"
+            }
+          ],
+          "platform": "itch.io",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre continue activa la campanya"
+          },
+          "url": "https://galengames.itch.io/academy-carols",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Dwarven Realms — gratis en Alienware Arena / Steam",
+            "en": "Dwarven Realms — free on Alienware Arena / Steam",
+            "val": "Dwarven Realms — gratis en Alienware Arena / Steam"
+          },
+          "summary": {
+            "es": "Dwarven Realms puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://store.steampowered.com/app/2015240/Dwarven_Realms/\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "Dwarven Realms can be claimed at no cost and kept under the store's terms. <a href=\"https://store.steampowered.com/app/2015240/Dwarven_Realms/\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Dwarven Realms es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://store.steampowered.com/app/2015240/Dwarven_Realms/\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "de.alienwarearena.com / store.steampowered.com / gamesgratis.net",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://de.alienwarearena.com/ucf/show/2175676/boards/contest-and-giveaways-global/Giveaway/dwarven-realms-steam-game-key-giveaway"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/2015240/Dwarven_Realms/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://gamesgratis.net/"
+            }
+          ],
+          "platform": "Steam / Alienware Arena",
+          "until": {
+            "es": "Sin fecha pública; claves adicionales mientras queden existencias",
+            "en": "No public end date; extra keys while supplies last",
+            "val": "Sense data pública; claus addicionals mentre queden existències"
+          },
+          "url": "https://store.steampowered.com/app/2015240/Dwarven_Realms/",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "GigaBash — gratis en STOVE",
+            "en": "GigaBash — free on STOVE",
+            "val": "GigaBash — gratis en STOVE"
+          },
+          "summary": {
+            "es": "GigaBash puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://store.onstove.com/en/games/3515\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "GigaBash can be claimed at no cost and kept under the store's terms. <a href=\"https://store.onstove.com/en/games/3515\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "GigaBash es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://store.onstove.com/en/games/3515\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "store.onstove.com / juegosgratis.info / thelootdrop.gg",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://store.onstove.com/en/games/3515"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://juegosgratis.info/pc"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://thelootdrop.gg/free"
+            }
+          ],
+          "platform": "STOVE",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre continue activa la campanya"
+          },
+          "url": "https://store.onstove.com/en/games/3515",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Last Room — gratis en IndieGala",
+            "en": "Last Room — free on IndieGala",
+            "val": "Last Room — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "La descarga para PC puede conservarse sin DRM mientras dure la promoción. <a href=\"https://freebies.indiegala.com/last-room\">Abre la ficha exacta</a> y añádelo a tu biblioteca.",
+            "en": "The PC download can be kept DRM-free while the campaign lasts. <a href=\"https://freebies.indiegala.com/last-room\">Open the exact listing</a> and add it to your library.",
+            "val": "La descàrrega per a PC es pot conservar sense DRM mentre dure la promoció. <a href=\"https://freebies.indiegala.com/last-room\">Obri la fitxa exacta</a> i afig-lo a la teua biblioteca."
+          },
+          "source": "IndieGala / GamerPower / IsThereAnyDeal",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/last-room"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamerpower.com/all/free-games"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://isthereanydeal.com/giveaways/"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/last-room"
+        },
+        {
+          "title": {
+            "es": "Leaper — gratis en IndieGala",
+            "en": "Leaper — free on IndieGala",
+            "val": "Leaper — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "La descarga para PC puede conservarse sin DRM mientras dure la promoción. <a href=\"https://freebies.indiegala.com/leaper\">Abre la ficha exacta</a> y añádelo a tu biblioteca.",
+            "en": "The PC download can be kept DRM-free while the campaign lasts. <a href=\"https://freebies.indiegala.com/leaper\">Open the exact listing</a> and add it to your library.",
+            "val": "La descàrrega per a PC es pot conservar sense DRM mentre dure la promoció. <a href=\"https://freebies.indiegala.com/leaper\">Obri la fitxa exacta</a> i afig-lo a la teua biblioteca."
+          },
+          "source": "IndieGala / GamerPower / IsThereAnyDeal",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/leaper"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamerpower.com/all/free-games"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://isthereanydeal.com/giveaways/"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/leaper"
+        },
+        {
+          "title": {
+            "es": "My Darkest Witch — gratis en IndieGala",
+            "en": "My Darkest Witch — free on IndieGala",
+            "val": "My Darkest Witch — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "My Darkest Witch puede reclamarse sin coste y conservarse según las condiciones de la tienda. <a href=\"https://freebies.indiegala.com/my-darkest-witch\">Abre la ficha exacta</a> y comprueba los requisitos antes de la fecha límite.",
+            "en": "My Darkest Witch can be claimed at no cost and kept under the store's terms. <a href=\"https://freebies.indiegala.com/my-darkest-witch\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "My Darkest Witch es pot reclamar sense cost i conservar segons les condicions de la botiga. <a href=\"https://freebies.indiegala.com/my-darkest-witch\">Obri la fitxa exacta</a> i comprova els requisits abans de la data límit."
+          },
+          "source": "freebies.indiegala.com / juegosgratis.info",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/my-darkest-witch"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://juegosgratis.info/pc"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre continue activa la campanya"
+          },
+          "url": "https://freebies.indiegala.com/my-darkest-witch",
+          "urgent": false
+        },
+        {
+          "title": {
+            "es": "Sausage Hunter — gratis en IndieGala",
+            "en": "Sausage Hunter — free on IndieGala",
+            "val": "Sausage Hunter — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "El plataformas puede reclamarse como descarga DRM-free y conservarse en la biblioteca de IndieGala. <a href=\"https://freebies.indiegala.com/sausage-hunter\">Añadir Sausage Hunter</a>; la tienda no indica una fecha límite.",
+            "en": "The platformer can be claimed as a DRM-free download and kept in the IndieGala library. <a href=\"https://freebies.indiegala.com/sausage-hunter\">Add Sausage Hunter</a>; the store lists no deadline.",
+            "val": "El joc de plataformes es pot reclamar com a descàrrega DRM-free i conservar-se en la biblioteca d’IndieGala. <a href=\"https://freebies.indiegala.com/sausage-hunter\">Afig Sausage Hunter</a>; la botiga no indica cap data límit."
+          },
+          "source": "IndieGala / GamerPower / IsThereAnyDeal",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/sausage-hunter"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamerpower.com/giveaways/drm-free/free-games"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://isthereanydeal.com/giveaways/15486/"
+            }
+          ],
+          "platform": "IndieGala (PC, DRM-free)",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/sausage-hunter"
+        },
+        {
+          "title": {
+            "es": "Sharknado VR — gratis en Meta Quest / Oculus Rift",
+            "en": "Sharknado VR — free on Meta Quest / Oculus Rift",
+            "val": "Sharknado VR — gratis en Meta Quest / Oculus Rift"
+          },
+          "summary": {
+            "es": "Sharknado VR está disponible sin coste durante la promoción. <a href=\"https://www.meta.com/experiences/pcvr/sharknado-vr/2065958466801059/\">Abre la ficha exacta</a> y comprueba los requisitos antes del límite.",
+            "en": "Sharknado VR is available at no cost during the promotion. <a href=\"https://www.meta.com/experiences/pcvr/sharknado-vr/2065958466801059/\">Open the exact listing</a> and check the requirements before the deadline.",
+            "val": "Sharknado VR està disponible sense cost durant la promoció. <a href=\"https://www.meta.com/experiences/pcvr/sharknado-vr/2065958466801059/\">Obri la fitxa exacta</a> i comprova els requisits abans del límit."
+          },
+          "source": "www.meta.com / freegg.gg / gaming.lenovo.com",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.meta.com/experiences/pcvr/sharknado-vr/2065958466801059/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freegg.gg/free/sharknado-vr/"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://gaming.lenovo.com/freebies/post/meta-store-game-sharknado-vr-free-P8vIDxpIodlmCFL"
+            }
+          ],
+          "platform": "Meta Quest / Oculus Rift",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public end date; available while the campaign remains live",
+            "val": "Sense data pública; disponible mentre continue activa la campanya"
+          },
+          "url": "https://www.meta.com/experiences/pcvr/sharknado-vr/2065958466801059/",
+          "urgent": false
+        },
+        {
+          "links": [
+            {
+              "title": {
+                "en": "Source and context",
+                "es": "Fuente y contexto",
+                "val": "Font i context"
+              },
+              "url": "https://store.steampowered.com/app/3749720/The_Division_Resurgence/"
+            },
+            {
+              "title": {
+                "en": "Source and context",
+                "es": "Fuente y contexto",
+                "val": "Font i context"
+              },
+              "url": "https://news.ubisoft.com/en-us/article/5FtgpT4eqjzL49ROhjC99c/the-division-resurgence-play-free-on-steam-august-5"
+            },
+            {
+              "title": {
+                "en": "Source and context",
+                "es": "Fuente y contexto",
+                "val": "Font i context"
+              },
+              "url": "https://www.gameshub.com/news/news/the-division-resurgence-release-times-2892602/"
+            }
+          ],
+          "platform": "Steam / Ubisoft Connect",
+          "source": "Steam / Ubisoft",
+          "summary": {
+            "en": "The Division Resurgence arrives on Steam today as a permanent free-to-play game. It can be installed at no cost from its <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">exact Steam page</a> and supports cross-progression with mobile. Check the official listing before downloading.",
+            "es": "The Division Resurgence llega hoy a Steam como juego free-to-play permanente. Puede instalarse sin coste desde su <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">ficha exacta de Steam</a> y mantiene progresión cruzada con móviles. Consulta la ficha oficial antes de descargarlo.",
+            "val": "The Division Resurgence arriba hui a Steam com a joc free-to-play permanent. Es pot instal·lar sense cost des de la seua <a href=\"https://store.steampowered.com/app/3749720/The_Division_Resurgence/\">fitxa exacta de Steam</a> i manté progressió creuada amb mòbils. Consulta la fitxa oficial abans de descarregar-lo."
+          },
+          "title": {
+            "en": "The Division Resurgence — free-to-play on Steam",
+            "es": "The Division Resurgence — free-to-play en Steam",
+            "val": "The Division Resurgence — free-to-play en Steam"
+          },
+          "until": {
+            "en": "No expiry: permanent free-to-play",
+            "es": "Sin fecha de caducidad: free-to-play permanente",
+            "val": "Sense data de caducitat: free-to-play permanent"
+          },
+          "urgent": false,
+          "url": "https://store.steampowered.com/app/3749720/The_Division_Resurgence/"
+        },
+        {
+          "title": {
+            "es": "Wordle — gratis en IndieGala",
+            "en": "Wordle — free on IndieGala",
+            "val": "Wordle — gratis en IndieGala"
+          },
+          "summary": {
+            "es": "La descarga para PC puede conservarse sin DRM mientras dure la promoción. <a href=\"https://freebies.indiegala.com/wordle\">Abre la ficha exacta</a> y añádelo a tu biblioteca.",
+            "en": "The PC download can be kept DRM-free while the campaign lasts. <a href=\"https://freebies.indiegala.com/wordle\">Open the exact listing</a> and add it to your library.",
+            "val": "La descàrrega per a PC es pot conservar sense DRM mentre dure la promoció. <a href=\"https://freebies.indiegala.com/wordle\">Obri la fitxa exacta</a> i afig-lo a la teua biblioteca."
+          },
+          "source": "IndieGala / GamerPower / IsThereAnyDeal",
+          "links": [
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://freebies.indiegala.com/wordle"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://www.gamerpower.com/all/free-games"
+            },
+            {
+              "title": {
+                "es": "Fuente y contexto",
+                "en": "Source and context",
+                "val": "Font i context"
+              },
+              "url": "https://isthereanydeal.com/giveaways/"
+            }
+          ],
+          "platform": "IndieGala",
+          "until": {
+            "es": "Sin fecha pública; disponible mientras siga activa la campaña",
+            "en": "No public deadline; available while the campaign remains active",
+            "val": "Sense data pública; disponible mentre la campanya continue activa"
+          },
+          "urgent": false,
+          "url": "https://freebies.indiegala.com/wordle"
+        }
+      ]
+    },
+    {
+      "category": "codigo",
+      "items": [
+        {
+          "title": {
+            "es": "Gemini 4 Hydrogen llega a GitHub Copilot",
+            "en": "Gemini 4 Hydrogen lands in GitHub Copilot",
+            "val": "Gemini 4 Hydrogen arriba a GitHub Copilot"
+          },
+          "summary": {
+            "es": "GitHub incorpora Gemini 4 Hydrogen de forma general a Copilot para programación rápida, uso de herramientas y flujos agénticos de varios pasos. <a href=\"https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/\">La disponibilidad</a> abarca los principales planes de Copilot.",
+            "en": "GitHub is making Gemini 4 Hydrogen generally available in Copilot for fast coding, tool use and multi-step agentic workflows. <a href=\"https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/\">Availability</a> covers the main Copilot plans.",
+            "val": "GitHub incorpora Gemini 4 Hydrogen de manera general a Copilot per a programació ràpida, ús de ferramentes i fluxos agèntics de diversos passos. <a href=\"https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/\">La disponibilitat</a> comprén els principals plans de Copilot."
+          },
+          "source": {
+            "es": "GitHub Changelog",
+            "en": "GitHub Changelog",
+            "val": "GitHub Changelog"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "GitHub Changelog",
+                "en": "GitHub Changelog",
+                "val": "GitHub Changelog"
+              },
+              "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/"
+            },
+            {
+              "title": {
+                "es": "Google DeepMind",
+                "en": "Google DeepMind",
+                "val": "Google DeepMind"
+              },
+              "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf"
+            },
+            {
+              "title": {
+                "es": "Databricks",
+                "en": "Databricks",
+                "val": "Databricks"
+              },
+              "url": "https://docs.databricks.com/gcp/en/release-notes/product/2026/november"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "GitHub abre el control de AI Scan a la API REST",
+            "en": "GitHub opens AI Scan controls to the REST API",
+            "val": "GitHub obri el control d’AI Scan a l’API REST"
+          },
+          "summary": {
+            "es": "Las organizaciones ya pueden activar o desactivar AI Scan por repositorio mediante la API REST y automatizar despliegues graduales. <a href=\"https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/\">La vista previa pública</a> exige permisos de administración y respeta la herencia de políticas.",
+            "en": "Organisations can now enable or disable AI Scan per repository through the REST API and automate gradual rollouts. <a href=\"https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/\">The public preview</a> requires admin permissions and respects policy inheritance.",
+            "val": "Les organitzacions ja poden activar o desactivar AI Scan per repositori mitjançant l’API REST i automatitzar desplegaments graduals. <a href=\"https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/\">La vista prèvia pública</a> exigix permisos d’administració i respecta l’herència de polítiques."
+          },
+          "source": {
+            "es": "GitHub Changelog",
+            "en": "GitHub Changelog",
+            "val": "GitHub Changelog"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "GitHub Changelog",
+                "en": "GitHub Changelog",
+                "val": "GitHub Changelog"
+              },
+              "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/"
+            },
+            {
+              "title": {
+                "es": "GitHub Docs",
+                "en": "GitHub Docs",
+                "val": "GitHub Docs"
+              },
+              "url": "https://docs.github.com/en/rest/code-scanning/code-scanning?apiVersion=2026-03-10"
+            },
+            {
+              "title": {
+                "es": "QA Tech Tools",
+                "en": "QA Tech Tools",
+                "val": "QA Tech Tools"
+              },
+              "url": "https://qatechtools.com/2026/11/13/github-ai-scan-rest-api-qa-rollout/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ciencia",
+      "items": [
+        {
+          "title": {
+            "es": "Estados Unidos pierde el estatus de país libre de sarampión",
+            "en": "United States loses measles-free status",
+            "val": "Els Estats Units perden l’estatus de país lliure de xarampió"
+          },
+          "summary": {
+            "es": "La transmisión sostenida durante más de doce meses ha hecho que Estados Unidos pierda un reconocimiento que conservaba desde 2000. <a href=\"https://www.reuters.com/world/us-loses-measles-free-status-after-continued-spread-disease-wsj-reports-2026-11-14/\">Reuters</a> cifra en 5.182 los casos confirmados en 2026 y vincula el retroceso a la caída de la vacunación.",
+            "en": "Sustained transmission for more than twelve months has cost the United States a status it had held since 2000. <a href=\"https://www.reuters.com/world/us-loses-measles-free-status-after-continued-spread-disease-wsj-reports-2026-11-14/\">Reuters</a> reports 5,182 confirmed cases in 2026 and ties the setback to falling vaccination coverage.",
+            "val": "La transmissió sostinguda durant més de dotze mesos ha fet que els Estats Units perden un reconeixement que conservaven des de 2000. <a href=\"https://www.reuters.com/world/us-loses-measles-free-status-after-continued-spread-disease-wsj-reports-2026-11-14/\">Reuters</a> xifra en 5.182 els casos confirmats en 2026 i vincula el retrocés a la caiguda de la vacunació."
+          },
+          "source": {
+            "es": "Reuters",
+            "en": "Reuters",
+            "val": "Reuters"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/world/us-loses-measles-free-status-after-continued-spread-disease-wsj-reports-2026-11-14/"
+            },
+            {
+              "title": {
+                "es": "RTÉ",
+                "en": "RTÉ",
+                "val": "RTÉ"
+              },
+              "url": "https://www.rte.ie/news/world/2026/1111/1598821-us-measles-status/"
+            },
+            {
+              "title": {
+                "es": "The Guardian",
+                "en": "The Guardian",
+                "val": "The Guardian"
+              },
+              "url": "https://www.theguardian.com/us-news/2026/nov/11/measles-status-rfk-jr-anti-vaccine-agenda"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "LHCb detecta indicios de una desintegración de una entre diez mil millones",
+            "en": "LHCb finds evidence of a one-in-ten-billion decay",
+            "val": "LHCb detecta indicis d’una desintegració d’una entre deu mil milions"
+          },
+          "summary": {
+            "es": "Tras 42 años de búsqueda, LHCb observa indicios de que un mesón B⁰ se desintegra en dos muones, un proceso previsto solo una vez por cada diez mil millones de eventos. <a href=\"https://home.cern/lhcb-finds-evidence-of-one-in-ten-billion-particle-decay/\">CERN</a> sitúa la significación en 3,2 sigma: evidencia sólida, todavía no descubrimiento.",
+            "en": "After a 42-year search, LHCb has found evidence that a B⁰ meson decays into two muons, a process expected only once in ten billion events. <a href=\"https://home.cern/lhcb-finds-evidence-of-one-in-ten-billion-particle-decay/\">CERN</a> puts the significance at 3.2 sigma: strong evidence, but not yet a discovery.",
+            "val": "Després de 42 anys de busca, LHCb observa indicis que un mesó B⁰ es desintegra en dos muons, un procés previst només una vegada per cada deu mil milions d’esdeveniments. <a href=\"https://home.cern/lhcb-finds-evidence-of-one-in-ten-billion-particle-decay/\">CERN</a> situa la significació en 3,2 sigma: evidència sòlida, encara no descobriment."
+          },
+          "source": {
+            "es": "CERN",
+            "en": "CERN",
+            "val": "CERN"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "CERN",
+                "en": "CERN",
+                "val": "CERN"
+              },
+              "url": "https://home.cern/lhcb-finds-evidence-of-one-in-ten-billion-particle-decay/"
+            },
+            {
+              "title": {
+                "es": "ScienceAlert",
+                "en": "ScienceAlert",
+                "val": "ScienceAlert"
+              },
+              "url": "https://www.sciencealert.com/after-42-years-of-searching-physicists-find-evidence-of-a-one-in-10-billion-particle-decay"
+            },
+            {
+              "title": {
+                "es": "UKRI",
+                "en": "UKRI",
+                "val": "UKRI"
+              },
+              "url": "https://www.ukri.org/news/scientists-find-evidence-of-rarest-particle-decay-after-42-years/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "economia",
+      "items": [
+        {
+          "title": {
+            "es": "Europa gana terreno bursátil mientras se desinfla la tecnología estadounidense",
+            "en": "Europe gains market ground as US tech cools",
+            "val": "Europa guanya terreny borsari mentre es desinfla la tecnologia estatunidenca"
+          },
+          "summary": {
+            "es": "El STOXX 600 roza máximos gracias a beneficios sólidos y petróleo más barato, mientras el Nasdaq-100 se estanca. <a href=\"https://www.reuters.com/business/finance/how-us-tech-pain-is-european-stock-markets-gain-2026-11-13/\">Reuters</a> calcula que los beneficios trimestrales europeos avanzan hacia un crecimiento del 25%.",
+            "en": "The STOXX 600 is near record highs on solid earnings and cheaper oil while the Nasdaq-100 stalls. <a href=\"https://www.reuters.com/business/finance/how-us-tech-pain-is-european-stock-markets-gain-2026-11-13/\">Reuters</a> says European quarterly earnings are on track for 25% growth.",
+            "val": "L’STOXX 600 frega màxims gràcies a beneficis sòlids i petroli més barat, mentre el Nasdaq-100 s’estanca. <a href=\"https://www.reuters.com/business/finance/how-us-tech-pain-is-european-stock-markets-gain-2026-11-13/\">Reuters</a> calcula que els beneficis trimestrals europeus avancen cap a un creixement del 25%."
+          },
+          "source": {
+            "es": "Reuters",
+            "en": "Reuters",
+            "val": "Reuters"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/business/finance/how-us-tech-pain-is-european-stock-markets-gain-2026-11-13/"
+            },
+            {
+              "title": {
+                "es": "Reuters Markets",
+                "en": "Reuters Markets",
+                "val": "Reuters Markets"
+              },
+              "url": "https://www.reuters.com/business/finance/after-us-market-shake-out-signs-suggest-too-soon-say-worst-is-over-2026-11-11/"
+            },
+            {
+              "title": {
+                "es": "BCE",
+                "en": "ECB",
+                "val": "BCE"
+              },
+              "url": "https://www.ecb.europa.eu/stats/macroeconomic_and_sectoral/hicp/html/index.en.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "La salida de Jensen Huang sacude el valor central del auge de la IA",
+            "en": "Jensen Huang’s exit shakes the central stock of the AI boom",
+            "val": "L’eixida de Jensen Huang sacseja el valor central de l’auge de la IA"
+          },
+          "summary": {
+            "es": "La dimisión de Jensen Huang abre una sucesión crítica en NVIDIA y acelera la rotación hacia AMD, Intel y Broadcom. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> advierte de que el episodio también reabre el debate sobre el gasto y la financiación circular del ecosistema de IA.",
+            "en": "Jensen Huang’s resignation opens a critical succession process at NVIDIA and speeds rotation into AMD, Intel and Broadcom. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> says the episode also revives scrutiny of AI spending and circular financing.",
+            "val": "La dimissió de Jensen Huang obri una successió crítica en NVIDIA i accelera la rotació cap a AMD, Intel i Broadcom. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> advertix que l’episodi també reobri el debat sobre la despesa i el finançament circular de l’ecosistema d’IA."
+          },
+          "source": {
+            "es": "Associated Press",
+            "en": "Associated Press",
+            "val": "Associated Press"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Associated Press",
+                "en": "Associated Press",
+                "val": "Associated Press"
+              },
+              "url": "https://apnews.com/article/1b7431af84c9d78773c277672a9486f3"
+            },
+            {
+              "title": {
+                "es": "MacRumors",
+                "en": "MacRumors",
+                "val": "MacRumors"
+              },
+              "url": "https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/"
+            },
+            {
+              "title": {
+                "es": "The Jerusalem Post",
+                "en": "The Jerusalem Post",
+                "val": "The Jerusalem Post"
+              },
+              "url": "https://www.jpost.com/business-and-innovation/tech-and-start-ups/article-914815"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "cripto",
+      "items": [
+        {
+          "title": {
+            "es": "Bitcoin cae a la zona de 68.000 dólares y liquida posiciones largas",
+            "en": "Bitcoin falls toward $68,000 and wipes out leveraged longs",
+            "val": "Bitcoin cau cap als 68.000 dòlars i liquida posicions llargues"
+          },
+          "summary": {
+            "es": "Bitcoin pierde cerca de un 7% en 24 horas y perfora los 69.000 dólares, con unos 1.470 millones de dólares liquidados en el mercado cripto. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">The Block</a> atribuye el movimiento al apalancamiento, el temor a nuevas subidas de tipos y el choque de NVIDIA.",
+            "en": "Bitcoin has lost roughly 7% in 24 hours and broken below $69,000, triggering about $1.47 billion in crypto liquidations. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">The Block</a> links the move to leverage, renewed rate-hike fears and the NVIDIA shock.",
+            "val": "Bitcoin perd prop d’un 7% en 24 hores i trenca els 69.000 dòlars, amb uns 1.470 milions de dòlars liquidats al mercat cripto. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">The Block</a> atribuïx el moviment al palanquejament, el temor a noves pujades de tipus i el xoc de NVIDIA."
+          },
+          "source": {
+            "es": "The Block",
+            "en": "The Block",
+            "val": "The Block"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "The Block",
+                "en": "The Block",
+                "val": "The Block"
+              },
+              "url": "https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643"
+            },
+            {
+              "title": {
+                "es": "The Wall Street Journal",
+                "en": "The Wall Street Journal",
+                "val": "The Wall Street Journal"
+              },
+              "url": "https://www.wsj.com/finance/currencies/bitcoin-holds-below-70-000-as-risk-off-mood-pressures-crypto-d61d684d"
+            },
+            {
+              "title": {
+                "es": "BeInCrypto",
+                "en": "BeInCrypto",
+                "val": "BeInCrypto"
+              },
+              "url": "https://beincrypto.com/bitcoin-below-68000-crypto-liquidations-bulls/"
+            },
+            {
+              "title": {
+                "es": "Decrypt",
+                "en": "Decrypt",
+                "val": "Decrypt"
+              },
+              "url": "https://decrypt.co/prediction-markets/btc-price-on-november-14-4-59pm-utc"
+            }
+          ],
+          "shortTerm": {
+            "es": "Sesgo bajista mientras no recupere 70.000–72.000 dólares; soportes en 66.000 y 64.000.",
+            "en": "Bearish bias while BTC remains below $70,000–$72,000; support sits near $66,000 and $64,000.",
+            "val": "Biaix baixista mentre no recupere 70.000–72.000 dòlars; suports en 66.000 i 64.000."
+          },
+          "longTerm": {
+            "es": "La tesis estructural sigue ligada a adopción y oferta limitada, pero tipos altos y salidas de ETF pueden prolongar la volatilidad.",
+            "en": "The structural case still rests on adoption and limited supply, but high rates and ETF outflows may extend volatility.",
+            "val": "La tesi estructural continua lligada a l’adopció i l’oferta limitada, però els tipus alts i les eixides d’ETF poden prolongar la volatilitat."
+          }
+        },
+        {
+          "title": {
+            "es": "Ethereum pierde los 2.000 dólares con el mercado en modo defensivo",
+            "en": "Ethereum slips below $2,000 as markets turn defensive",
+            "val": "Ethereum perd els 2.000 dòlars amb el mercat en mode defensiu"
+          },
+          "summary": {
+            "es": "Ethereum cae alrededor del 6% y se mueve en torno a 1.920–1.950 dólares, su nivel más débil en tres meses. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">Los datos de mercado</a> muestran que la caída acompaña a Bitcoin y a las tecnológicas, no a un fallo propio de la red.",
+            "en": "Ethereum is down about 6% and trading around $1,920–$1,950, its weakest level in three months. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">Market data</a> show the fall tracking Bitcoin and technology stocks rather than a network-specific failure.",
+            "val": "Ethereum cau prop d’un 6% i es mou al voltant de 1.920–1.950 dòlars, el nivell més dèbil en tres mesos. <a href=\"https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643\">Les dades de mercat</a> mostren que la caiguda acompanya Bitcoin i les tecnològiques, no un problema propi de la xarxa."
+          },
+          "source": {
+            "es": "The Block",
+            "en": "The Block",
+            "val": "The Block"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "The Block",
+                "en": "The Block",
+                "val": "The Block"
+              },
+              "url": "https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643"
+            },
+            {
+              "title": {
+                "es": "The Wall Street Journal",
+                "en": "The Wall Street Journal",
+                "val": "The Wall Street Journal"
+              },
+              "url": "https://www.wsj.com/finance/currencies/bitcoin-holds-below-70-000-as-risk-off-mood-pressures-crypto-d61d684d"
+            },
+            {
+              "title": {
+                "es": "BeInCrypto",
+                "en": "BeInCrypto",
+                "val": "BeInCrypto"
+              },
+              "url": "https://beincrypto.com/bitcoin-below-68000-crypto-liquidations-bulls/"
+            },
+            {
+              "title": {
+                "es": "Decrypt",
+                "en": "Decrypt",
+                "val": "Decrypt"
+              },
+              "url": "https://decrypt.co/prediction-markets/btc-price-on-november-14-4-59pm-utc"
+            }
+          ],
+          "shortTerm": {
+            "es": "La pérdida de 2.000 dólares deja 1.900 como apoyo inmediato; recuperar 2.050 aliviaría la presión.",
+            "en": "Losing $2,000 puts $1,900 in focus as immediate support; a move back above $2,050 would ease pressure.",
+            "val": "La pèrdua de 2.000 dòlars deixa 1.900 com a suport immediat; recuperar 2.050 alleujaria la pressió."
+          },
+          "longTerm": {
+            "es": "Escalado, actividad de capa 2 y tokenización sostienen la utilidad, aunque el entorno monetario limita la valoración.",
+            "en": "Scaling, layer-2 activity and tokenisation support utility, although the monetary backdrop constrains valuation.",
+            "val": "L’escalat, l’activitat de capa 2 i la tokenització sostenen la utilitat, encara que l’entorn monetari limita la valoració."
+          }
+        },
+        {
+          "title": {
+            "es": "Los ETF cripto pierden 1.500 millones mientras el capital vuelve a acciones",
+            "en": "Crypto ETFs lose $1.5 billion as money rotates back into stocks",
+            "val": "Els ETF cripto perden 1.500 milions mentre el capital torna a accions"
+          },
+          "summary": {
+            "es": "Los grandes ETF de activos digitales encadenan salidas de unos 1.500 millones de dólares, en contraste con compras oportunistas en renta variable. <a href=\"https://beincrypto.com/crypto-etf-outflows-stock-etf-inflows/\">El flujo</a> agrava el retroceso de Bitcoin y reduce la liquidez disponible para absorber ventas.",
+            "en": "Major digital-asset ETFs have suffered about $1.5 billion of outflows while investors buy dips in equities. <a href=\"https://beincrypto.com/crypto-etf-outflows-stock-etf-inflows/\">The flow divergence</a> deepens Bitcoin’s retreat and leaves less liquidity to absorb selling.",
+            "val": "Els grans ETF d’actius digitals encadenen eixides d’uns 1.500 milions de dòlars, en contrast amb compres oportunistes en renda variable. <a href=\"https://beincrypto.com/crypto-etf-outflows-stock-etf-inflows/\">El flux</a> agreuja el retrocés de Bitcoin i reduïx la liquiditat disponible per a absorbir vendes."
+          },
+          "source": {
+            "es": "BeInCrypto",
+            "en": "BeInCrypto",
+            "val": "BeInCrypto"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "BeInCrypto",
+                "en": "BeInCrypto",
+                "val": "BeInCrypto"
+              },
+              "url": "https://beincrypto.com/crypto-etf-outflows-stock-etf-inflows/"
+            },
+            {
+              "title": {
+                "es": "The Block",
+                "en": "The Block",
+                "val": "The Block"
+              },
+              "url": "https://www.theblock.co/news/markets/2026-11-13-bitcoin-tumbles-below-69000-439643"
+            },
+            {
+              "title": {
+                "es": "CoinDesk",
+                "en": "CoinDesk",
+                "val": "CoinDesk"
+              },
+              "url": "https://www.coindesk.com/markets/2026/11/12/bitcoin-dips-with-nvidia-as-etf-outflows-reach-day-five"
+            }
+          ],
+          "shortTerm": {
+            "es": "Mientras sigan las salidas, los rebotes tienen riesgo de agotarse rápido.",
+            "en": "While outflows persist, rebounds may fade quickly.",
+            "val": "Mentre continuen les eixides, els rebots tenen risc d’esgotar-se ràpidament."
+          },
+          "longTerm": {
+            "es": "La recuperación depende de que vuelvan entradas institucionales sostenidas y mejore el apetito por riesgo.",
+            "en": "A durable recovery depends on sustained institutional inflows and better risk appetite.",
+            "val": "La recuperació depén que tornen entrades institucionals sostingudes i millore l’apetit pel risc."
+          }
+        }
+      ]
+    },
+    {
+      "category": "radar",
+      "items": [
+        {
+          "title": {
+            "es": "Estados Unidos paraliza vuelos por un fallo nacional de comunicaciones",
+            "en": "United States grounds flights after nationwide communications failure",
+            "val": "Els Estats Units paralitzen vols per una fallada nacional de comunicacions"
+          },
+          "summary": {
+            "es": "La autoridad aérea estadounidense ha inmovilizado vuelos en todo el país tras una interrupción de comunicaciones del control aéreo. <a href=\"https://www.arabnews.com/world?page=11&service=rss&website%23lang=en\">El parte de Reuters</a> describe una respuesta nacional mientras se investiga el alcance y se restauran los sistemas.",
+            "en": "US aviation authorities grounded flights nationwide after an air-traffic-control communications outage. <a href=\"https://www.arabnews.com/world?page=11&service=rss&website%23lang=en\">The Reuters report</a> describes a national response while officials assess the scope and restore systems.",
+            "val": "L’autoritat aèria estatunidenca ha immobilitzat vols a tot el país després d’una interrupció de comunicacions del control aeri. <a href=\"https://www.arabnews.com/world?page=11&service=rss&website%23lang=en\">El comunicat de Reuters</a> descriu una resposta nacional mentre s’investiga l’abast i es restauren els sistemes."
+          },
+          "source": {
+            "es": "Reuters vía Arab News",
+            "en": "Reuters via Arab News",
+            "val": "Reuters via Arab News"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Reuters vía Arab News",
+                "en": "Reuters via Arab News",
+                "val": "Reuters via Arab News"
+              },
+              "url": "https://www.arabnews.com/world?page=11&service=rss&website%23lang=en"
+            },
+            {
+              "title": {
+                "es": "ABC News Australia",
+                "en": "ABC News Australia",
+                "val": "ABC News Australia"
+              },
+              "url": "https://www.abc.net.au/news/2026-11-13/microsoft-outlook-outage/107380958"
+            },
+            {
+              "title": {
+                "es": "Reuters Mundo",
+                "en": "Reuters World",
+                "val": "Reuters Món"
+              },
+              "url": "https://www.reuters.com/world/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "China realiza maniobras no anunciadas en el Pacífico cerca de Taiwán",
+            "en": "China stages unannounced Pacific drills near Taiwan",
+            "val": "La Xina fa maniobres no anunciades al Pacífic prop de Taiwan"
+          },
+          "summary": {
+            "es": "Fuerzas chinas han realizado ejercicios sin aviso previo que funcionarios regionales describen como intimidación silenciosa alrededor de Taiwán. <a href=\"https://korea.stream/en/world?src=Reuters\">Reuters</a> sitúa el movimiento en un momento de tensión militar y diplomática creciente.",
+            "en": "Chinese forces have staged unannounced drills that regional officials describe as silent intimidation around Taiwan. <a href=\"https://korea.stream/en/world?src=Reuters\">Reuters</a> places the move amid rising military and diplomatic tension.",
+            "val": "Forces xineses han fet exercicis sense avís previ que funcionaris regionals descriuen com una intimidació silenciosa al voltant de Taiwan. <a href=\"https://korea.stream/en/world?src=Reuters\">Reuters</a> situa el moviment en un moment de tensió militar i diplomàtica creixent."
+          },
+          "source": {
+            "es": "Reuters vía Korea Stream",
+            "en": "Reuters via Korea Stream",
+            "val": "Reuters via Korea Stream"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Reuters vía Korea Stream",
+                "en": "Reuters via Korea Stream",
+                "val": "Reuters via Korea Stream"
+              },
+              "url": "https://korea.stream/en/world?src=Reuters"
+            },
+            {
+              "title": {
+                "es": "Reuters China",
+                "en": "Reuters China",
+                "val": "Reuters Xina"
+              },
+              "url": "https://www.reuters.com/world/china/"
+            },
+            {
+              "title": {
+                "es": "AP China",
+                "en": "AP China",
+                "val": "AP Xina"
+              },
+              "url": "https://apnews.com/hub/china"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ia",
+      "items": [
+        {
+          "title": {
+            "es": "Una demanda pide frenar los modelos de IA de frontera",
+            "en": "Lawsuit seeks to halt frontier AI models",
+            "val": "Una demanda demana frenar els models d’IA de frontera"
+          },
+          "summary": {
+            "es": "Varias organizaciones han demandado a OpenAI, Google, Anthropic, Meta y xAI para solicitar una orden que detenga el desarrollo de sus modelos más avanzados. <a href=\"https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/\">Reuters</a> señala que el caso convierte el riesgo existencial en una batalla judicial directa.",
+            "en": "Several organisations have sued OpenAI, Google, Anthropic, Meta and xAI, asking a court to halt development of their most advanced models. <a href=\"https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/\">Reuters</a> says the case turns existential-risk arguments into a direct legal battle.",
+            "val": "Diverses organitzacions han demandat OpenAI, Google, Anthropic, Meta i xAI per a sol·licitar una ordre que detinga el desenvolupament dels seus models més avançats. <a href=\"https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/\">Reuters</a> assenyala que el cas convertix el risc existencial en una batalla judicial directa."
+          },
+          "source": {
+            "es": "Reuters",
+            "en": "Reuters",
+            "val": "Reuters"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Reuters",
+                "en": "Reuters",
+                "val": "Reuters"
+              },
+              "url": "https://www.reuters.com/business/openai-google-anthropic-hit-with-lawsuit-seeking-halt-frontier-ai-development-2026-11-12/"
+            },
+            {
+              "title": {
+                "es": "The 420",
+                "en": "The 420",
+                "val": "The 420"
+              },
+              "url": "https://the420.in/openai-google-anthropic-frontier-ai-lawsuit/"
+            },
+            {
+              "title": {
+                "es": "OpenAI Safety",
+                "en": "OpenAI Safety",
+                "val": "OpenAI Safety"
+              },
+              "url": "https://openai.com/safety/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Gemini 4 Hydrogen prioriza velocidad y agentes eficientes",
+            "en": "Gemini 4 Hydrogen targets fast, efficient agents",
+            "val": "Gemini 4 Hydrogen prioritza velocitat i agents eficients"
+          },
+          "summary": {
+            "es": "Google presenta Gemini 4 Hydrogen como su modelo Flash de nueva generación, optimizado para instrucciones, herramientas y razonamiento de varios pasos con menor coste. <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf\">La ficha técnica</a> acompaña su llegada a GitHub Copilot y plataformas empresariales.",
+            "en": "Google positions Gemini 4 Hydrogen as its next-generation Flash model, optimised for instructions, tools and multi-step reasoning at lower cost. <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf\">The model card</a> arrives alongside deployment in GitHub Copilot and enterprise platforms.",
+            "val": "Google presenta Gemini 4 Hydrogen com el seu model Flash de nova generació, optimitzat per a instruccions, ferramentes i raonament de diversos passos amb menys cost. <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf\">La fitxa tècnica</a> acompanya l’arribada a GitHub Copilot i plataformes empresarials."
+          },
+          "source": {
+            "es": "GitHub Changelog",
+            "en": "GitHub Changelog",
+            "val": "GitHub Changelog"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "GitHub Changelog",
+                "en": "GitHub Changelog",
+                "val": "GitHub Changelog"
+              },
+              "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/"
+            },
+            {
+              "title": {
+                "es": "Google DeepMind",
+                "en": "Google DeepMind",
+                "val": "Google DeepMind"
+              },
+              "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf"
+            },
+            {
+              "title": {
+                "es": "Databricks",
+                "en": "Databricks",
+                "val": "Databricks"
+              },
+              "url": "https://docs.databricks.com/gcp/en/release-notes/product/2026/november"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "hardware",
+      "items": [
+        {
+          "title": {
+            "es": "NVIDIA busca sucesor tras la dimisión de Jensen Huang",
+            "en": "NVIDIA searches for a successor after Jensen Huang resigns",
+            "val": "NVIDIA busca successor després de la dimissió de Jensen Huang"
+          },
+          "summary": {
+            "es": "La salida de Jensen Huang deja a NVIDIA sin el arquitecto público de su dominio en aceleradores de IA y abre una lista de candidatos internos y externos. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> advierte de que clientes y rivales pueden aprovechar la transición para diversificar chips.",
+            "en": "Jensen Huang’s departure leaves NVIDIA without the public architect of its AI-accelerator dominance and opens a list of internal and external candidates. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> warns that customers and rivals may use the transition to diversify chips.",
+            "val": "L’eixida de Jensen Huang deixa NVIDIA sense l’arquitecte públic del seu domini en acceleradors d’IA i obri una llista de candidats interns i externs. <a href=\"https://apnews.com/article/1b7431af84c9d78773c277672a9486f3\">AP</a> advertix que clients i rivals poden aprofitar la transició per a diversificar xips."
+          },
+          "source": {
+            "es": "Associated Press",
+            "en": "Associated Press",
+            "val": "Associated Press"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Associated Press",
+                "en": "Associated Press",
+                "val": "Associated Press"
+              },
+              "url": "https://apnews.com/article/1b7431af84c9d78773c277672a9486f3"
+            },
+            {
+              "title": {
+                "es": "MacRumors",
+                "en": "MacRumors",
+                "val": "MacRumors"
+              },
+              "url": "https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/"
+            },
+            {
+              "title": {
+                "es": "The Jerusalem Post",
+                "en": "The Jerusalem Post",
+                "val": "The Jerusalem Post"
+              },
+              "url": "https://www.jpost.com/business-and-innovation/tech-and-start-ups/article-914815"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Johny Srouji figura entre los candidatos para dirigir NVIDIA",
+            "en": "Johny Srouji emerges among candidates to lead NVIDIA",
+            "val": "Johny Srouji figura entre els candidats per a dirigir NVIDIA"
+          },
+          "summary": {
+            "es": "El responsable de hardware de Apple, Johny Srouji, aparece entre los nombres valorados para sustituir a Jensen Huang junto a otros ejecutivos del sector. <a href=\"https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/\">La información</a> anticipa una disputa por liderazgo técnico en plena expansión de la demanda de IA.",
+            "en": "Apple hardware chief Johny Srouji is among the names reportedly considered to replace Jensen Huang alongside other industry executives. <a href=\"https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/\">The report</a> points to a contest for technical leadership amid surging AI demand.",
+            "val": "El responsable de maquinari d’Apple, Johny Srouji, figura entre els noms valorats per a substituir Jensen Huang junt amb altres executius del sector. <a href=\"https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/\">La informació</a> anticipa una disputa pel lideratge tècnic en plena expansió de la demanda d’IA."
+          },
+          "source": {
+            "es": "Associated Press",
+            "en": "Associated Press",
+            "val": "Associated Press"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Associated Press",
+                "en": "Associated Press",
+                "val": "Associated Press"
+              },
+              "url": "https://apnews.com/article/1b7431af84c9d78773c277672a9486f3"
+            },
+            {
+              "title": {
+                "es": "MacRumors",
+                "en": "MacRumors",
+                "val": "MacRumors"
+              },
+              "url": "https://www.macrumors.com/2026/11/12/johny-srouji-eyed-as-potential-nvidia-ceo/"
+            },
+            {
+              "title": {
+                "es": "The Jerusalem Post",
+                "en": "The Jerusalem Post",
+                "val": "The Jerusalem Post"
+              },
+              "url": "https://www.jpost.com/business-and-innovation/tech-and-start-ups/article-914815"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "items": [
+        {
+          "title": {
+            "es": "CISA exige actuar sobre fallos explotados de Check Point y UnrealIRCd",
+            "en": "CISA flags exploited Check Point and UnrealIRCd flaws",
+            "val": "CISA exigix actuar sobre fallades explotades de Check Point i UnrealIRCd"
+          },
+          "summary": {
+            "es": "CISA añade CVE-2026-123039 y CVE-2026-114713 a su catálogo de vulnerabilidades explotadas y fija el 16 de noviembre como plazo federal. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">El catálogo KEV</a> exige parcheo o mitigación y triaje forense para buscar intrusiones previas.",
+            "en": "CISA has added CVE-2026-123039 and CVE-2026-114713 to its exploited-vulnerability catalogue, setting a November 16 federal deadline. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">The KEV catalogue</a> calls for patching or mitigation plus forensic triage for earlier compromise.",
+            "val": "CISA afig CVE-2026-123039 i CVE-2026-114713 al catàleg de vulnerabilitats explotades i fixa el 16 de novembre com a termini federal. <a href=\"https://www.cisa.gov/known-exploited-vulnerabilities-catalog\">El catàleg KEV</a> exigix pedaç o mitigació i triatge forense per a buscar intrusions prèvies."
+          },
+          "source": {
+            "es": "CISA KEV",
+            "en": "CISA KEV",
+            "val": "CISA KEV"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "CISA KEV",
+                "en": "CISA KEV",
+                "val": "CISA KEV"
+              },
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+            },
+            {
+              "title": {
+                "es": "CVE Todo",
+                "en": "CVE Todo",
+                "val": "CVE Todo"
+              },
+              "url": "https://cvetodo.com/threat-report/2026-11-13"
+            },
+            {
+              "title": {
+                "es": "ThreatPodium",
+                "en": "ThreatPodium",
+                "val": "ThreatPodium"
+              },
+              "url": "https://threatpodium.com/threat-intelligence-report-2026-11-14/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Una campaña roba secretos en miles de repositorios de GitHub",
+            "en": "Campaign steals secrets across thousands of GitHub repositories",
+            "val": "Una campanya roba secrets en milers de repositoris de GitHub"
+          },
+          "summary": {
+            "es": "La campaña wfx-loot comprometió 4.837 cuentas, abrió sondas en 61.764 repositorios y llegó a ejecutar malware en al menos 1.806 proyectos. <a href=\"https://www.csoonline.com/article/4248672/thousands-of-github-repos-hit-with-secret-stealing-malware.html\">Los investigadores</a> describen el robo de secretos CI/CD, credenciales cloud y claves de servicios de IA.",
+            "en": "The wfx-loot campaign compromised 4,837 accounts, probed 61,764 repositories and executed malware in at least 1,806 projects. <a href=\"https://www.csoonline.com/article/4248672/thousands-of-github-repos-hit-with-secret-stealing-malware.html\">Researchers</a> describe theft of CI/CD secrets, cloud credentials and AI-service keys.",
+            "val": "La campanya wfx-loot va comprometre 4.837 comptes, va obrir sondes en 61.764 repositoris i va arribar a executar programari maliciós en almenys 1.806 projectes. <a href=\"https://www.csoonline.com/article/4248672/thousands-of-github-repos-hit-with-secret-stealing-malware.html\">Els investigadors</a> descriuen el robatori de secrets CI/CD, credencials cloud i claus de servicis d’IA."
+          },
+          "source": {
+            "es": "CSO Online",
+            "en": "CSO Online",
+            "val": "CSO Online"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "CSO Online",
+                "en": "CSO Online",
+                "val": "CSO Online"
+              },
+              "url": "https://www.csoonline.com/article/4248672/thousands-of-github-repos-hit-with-secret-stealing-malware.html"
+            },
+            {
+              "title": {
+                "es": "O3 Security",
+                "en": "O3 Security",
+                "val": "O3 Security"
+              },
+              "url": "https://o3.security/blog/wfx-github-actions-secret-stealer-compromised-accounts"
+            },
+            {
+              "title": {
+                "es": "GitHub Security",
+                "en": "GitHub Security",
+                "val": "GitHub Security"
+              },
+              "url": "https://github.com/security"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "entretenimiento",
+      "items": [
+        {
+          "title": {
+            "es": "Margot Robbie protagonizará The Week of Pain para A24",
+            "en": "Margot Robbie will star in A24’s The Week of Pain",
+            "val": "Margot Robbie protagonitzarà The Week of Pain per a A24"
+          },
+          "summary": {
+            "es": "Margot Robbie encabezará The Week of Pain, escrita y dirigida por Kristoffer Borgli, con A24, Square Peg y LuckyChap detrás del proyecto. <a href=\"https://deadline.com/2026/11/margot-robbie-kristoffer-borgli-the-week-of-pain-a24-1237222997/\">Deadline</a> indica que la producción se prepara para 2027 y mantiene la trama en secreto.",
+            "en": "Margot Robbie will lead The Week of Pain, written and directed by Kristoffer Borgli, with A24, Square Peg and LuckyChap behind the project. <a href=\"https://deadline.com/2026/11/margot-robbie-kristoffer-borgli-the-week-of-pain-a24-1237222997/\">Deadline</a> says production is being prepared for 2027 while the plot remains under wraps.",
+            "val": "Margot Robbie encapçalarà The Week of Pain, escrita i dirigida per Kristoffer Borgli, amb A24, Square Peg i LuckyChap darrere del projecte. <a href=\"https://deadline.com/2026/11/margot-robbie-kristoffer-borgli-the-week-of-pain-a24-1237222997/\">Deadline</a> indica que la producció es prepara per a 2027 i manté la trama en secret."
+          },
+          "source": {
+            "es": "Deadline",
+            "en": "Deadline",
+            "val": "Deadline"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Deadline",
+                "en": "Deadline",
+                "val": "Deadline"
+              },
+              "url": "https://deadline.com/2026/11/margot-robbie-kristoffer-borgli-the-week-of-pain-a24-1237222997/"
+            },
+            {
+              "title": {
+                "es": "Variety",
+                "en": "Variety",
+                "val": "Variety"
+              },
+              "url": "https://au.variety.com/2026/film/news/margot-robbie-a24-the-week-of-pain-kristoffer-borgli-42565/"
+            },
+            {
+              "title": {
+                "es": "TheWrap",
+                "en": "TheWrap",
+                "val": "TheWrap"
+              },
+              "url": "https://www.thewrap.com/creative-content/movies/margot-robbie-joins-kristoffer-borglis-the-week-of-pain/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Disney+ estrena A Proud Family Wizmas",
+            "en": "Disney+ premieres A Proud Family Wizmas",
+            "val": "Disney+ estrena A Proud Family Wizmas"
+          },
+          "summary": {
+            "es": "A Proud Family Wizmas llega hoy a Disney+ con Penny Proud sustituyendo a Santa tras una crisis navideña. <a href=\"https://streamingintothevoid.com/streaming-calendar/?date=2026-11-14\">El calendario de estrenos</a> sitúa también UFC 334 y nuevos títulos de Paramount+ y Peacock en la jornada.",
+            "en": "A Proud Family Wizmas arrives on Disney+ today, with Penny Proud replacing Santa after a Christmas crisis. <a href=\"https://streamingintothevoid.com/streaming-calendar/?date=2026-11-14\">The release calendar</a> also lists UFC 334 and new Paramount+ and Peacock titles for the day.",
+            "val": "A Proud Family Wizmas arriba hui a Disney+, amb Penny Proud substituint Santa després d’una crisi nadalenca. <a href=\"https://streamingintothevoid.com/streaming-calendar/?date=2026-11-14\">El calendari d’estrenes</a> situa també UFC 334 i nous títols de Paramount+ i Peacock en la jornada."
+          },
+          "source": {
+            "es": "Streaming Into the Void",
+            "en": "Streaming Into the Void",
+            "val": "Streaming Into the Void"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Streaming Into the Void",
+                "en": "Streaming Into the Void",
+                "val": "Streaming Into the Void"
+              },
+              "url": "https://streamingintothevoid.com/streaming-calendar/?date=2026-11-14"
+            },
+            {
+              "title": {
+                "es": "KiTools Entertainment",
+                "en": "KiTools Entertainment",
+                "val": "KiTools Entertainment"
+              },
+              "url": "https://www.kitools.in/entertainment/2026-11-14"
+            },
+            {
+              "title": {
+                "es": "Disney+",
+                "en": "Disney+",
+                "val": "Disney+"
+              },
+              "url": "https://www.disneyplus.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "curiosidades",
+      "items": [
+        {
+          "title": {
+            "es": "Una fórmula de 1960 señaló este día como el fin del mundo",
+            "en": "A 1960 formula marked this day as doomsday",
+            "val": "Una fórmula de 1960 va assenyalar este dia com la fi del món"
+          },
+          "summary": {
+            "es": "Una extrapolación publicada en 1960 proyectó el 13 de noviembre de 2026 como una singularidad demográfica en la que la población tendería matemáticamente a infinito. <a href=\"https://daily8news.com/category/science/?date=2026-11-14\">La efeméride</a> demuestra el peligro de prolongar una curva más allá de sus límites: el día llegó y el modelo, no el mundo, fue lo que colapsó.",
+            "en": "An extrapolation published in 1960 projected November 13, 2026 as a demographic singularity when population would mathematically approach infinity. <a href=\"https://daily8news.com/category/science/?date=2026-11-14\">The anniversary</a> shows the danger of extending a curve beyond its limits: the date arrived, and it was the model—not the world—that collapsed.",
+            "val": "Una extrapolació publicada en 1960 va projectar el 13 de novembre de 2026 com una singularitat demogràfica en què la població tendiria matemàticament a infinit. <a href=\"https://daily8news.com/category/science/?date=2026-11-14\">L’efemèride</a> mostra el perill d’allargar una corba més enllà dels seus límits: el dia va arribar i el que va col·lapsar va ser el model, no el món."
+          },
+          "source": {
+            "es": "Daily 8 Science",
+            "en": "Daily 8 Science",
+            "val": "Daily 8 Science"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Daily 8 Science",
+                "en": "Daily 8 Science",
+                "val": "Daily 8 Science"
+              },
+              "url": "https://daily8news.com/category/science/?date=2026-11-14"
+            },
+            {
+              "title": {
+                "es": "CERN",
+                "en": "CERN",
+                "val": "CERN"
+              },
+              "url": "https://home.cern/lhcb-finds-evidence-of-one-in-ten-billion-particle-decay/"
+            },
+            {
+              "title": {
+                "es": "ScienceAlert",
+                "en": "ScienceAlert",
+                "val": "ScienceAlert"
+              },
+              "url": "https://www.sciencealert.com/after-42-years-of-searching-physicists-find-evidence-of-a-one-in-10-billion-particle-decay"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Dos monederos de Bitcoin despiertan tras 16 años",
+            "en": "Two Bitcoin wallets wake after 16 years",
+            "val": "Dos moneders de Bitcoin desperten després de 16 anys"
+          },
+          "summary": {
+            "es": "Dos direcciones inactivas desde los primeros años de Bitcoin han movido unos 6,9 millones de dólares después de 16 años. <a href=\"https://www.gtokentool.com/en/news/digest/2026-11-14\">El registro del movimiento</a> ilustra cuánto puede cambiar el valor de unas monedas que permanecieron intactas desde la era pionera.",
+            "en": "Two addresses dormant since Bitcoin’s earliest years have moved roughly $6.9 million after 16 years. <a href=\"https://www.gtokentool.com/en/news/digest/2026-11-14\">The transaction record</a> shows how dramatically the value of coins left untouched since the pioneer era can change.",
+            "val": "Dos adreces inactives des dels primers anys de Bitcoin han mogut uns 6,9 milions de dòlars després de 16 anys. <a href=\"https://www.gtokentool.com/en/news/digest/2026-11-14\">El registre del moviment</a> il·lustra quant pot canviar el valor d’unes monedes que van romandre intactes des de l’era pionera."
+          },
+          "source": {
+            "es": "GTokenTool",
+            "en": "GTokenTool",
+            "val": "GTokenTool"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "GTokenTool",
+                "en": "GTokenTool",
+                "val": "GTokenTool"
+              },
+              "url": "https://www.gtokentool.com/en/news/digest/2026-11-14"
+            },
+            {
+              "title": {
+                "es": "Decrypt",
+                "en": "Decrypt",
+                "val": "Decrypt"
+              },
+              "url": "https://decrypt.co/"
+            },
+            {
+              "title": {
+                "es": "Blockchain.com Explorer",
+                "en": "Blockchain.com Explorer",
+                "val": "Blockchain.com Explorer"
+              },
+              "url": "https://www.blockchain.com/explorer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "ofertas",
+      "items": [
+        {
+          "market": "es",
+          "title": {
+            "es": "Cherry XTRFY K4V2: mínimo histórico de 34,99 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "El teclado mecánico TKL con Cherry MX2A Red cae de 119,99 € a 34,99 €, un 70% y mínimo histórico verificado por PcComponentes. <a href=\"https://www.pccomponentes.com/teclado-cherry-xtrfy-k4v2-mecanico-compacto-rgb-con-switches-cherry-mx2a-red\">La ficha del producto</a> mantiene la promoción de Black Friday mientras haya existencias.",
+            "en": "",
+            "val": ""
+          },
+          "price": "34,99 €",
+          "oldPrice": "119,99 €",
+          "discount": "-70%",
+          "source": "PcComponentes",
+          "urgent": true,
+          "url": "https://www.pccomponentes.com/teclado-cherry-xtrfy-k4v2-mecanico-compacto-rgb-con-switches-cherry-mx2a-red"
+        },
+        {
+          "market": "es",
+          "title": {
+            "es": "Monitor MSI G275L E14 por 89,99 €",
+            "en": "",
+            "val": ""
+          },
+          "summary": {
+            "es": "El monitor IPS Full HD de 27 pulgadas y 144 Hz baja de 149 € a 89,99 €, un 39%. <a href=\"https://www.pccomponentes.com/monitor-msi-g275l-e14-27-fullhd-144hz-ips-hdr-adaptive-sync\">PcComponentes</a> lo vende y envía dentro de su campaña de Black Friday.",
+            "en": "",
+            "val": ""
+          },
+          "price": "89,99 €",
+          "oldPrice": "149 €",
+          "discount": "-39%",
+          "source": "PcComponentes",
+          "urgent": true,
+          "url": "https://www.pccomponentes.com/monitor-msi-g275l-e14-27-fullhd-144hz-ips-hdr-adaptive-sync"
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Cherry XTRFY K4V2: mínim històric de 34,99 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "El teclat mecànic TKL amb Cherry MX2A Red baixa de 119,99 € a 34,99 €, un 70% i mínim històric verificat per PcComponentes. <a href=\"https://www.pccomponentes.com/teclado-cherry-xtrfy-k4v2-mecanico-compacto-rgb-con-switches-cherry-mx2a-red\">La fitxa del producte</a> manté la promoció de Black Friday mentre hi haja existències."
+          },
+          "price": "34,99 €",
+          "oldPrice": "119,99 €",
+          "discount": "-70%",
+          "source": "PcComponentes",
+          "urgent": true,
+          "url": "https://www.pccomponentes.com/teclado-cherry-xtrfy-k4v2-mecanico-compacto-rgb-con-switches-cherry-mx2a-red"
+        },
+        {
+          "market": "val",
+          "title": {
+            "es": "",
+            "en": "",
+            "val": "Monitor MSI G275L E14 per 89,99 €"
+          },
+          "summary": {
+            "es": "",
+            "en": "",
+            "val": "El monitor IPS Full HD de 27 polzades i 144 Hz baixa de 149 € a 89,99 €, un 39%. <a href=\"https://www.pccomponentes.com/monitor-msi-g275l-e14-27-fullhd-144hz-ips-hdr-adaptive-sync\">PcComponentes</a> el ven i l’envia dins de la campanya de Black Friday."
+          },
+          "price": "89,99 €",
+          "oldPrice": "149 €",
+          "discount": "-39%",
+          "source": "PcComponentes",
+          "urgent": true,
+          "url": "https://www.pccomponentes.com/monitor-msi-g275l-e14-27-fullhd-144hz-ips-hdr-adaptive-sync"
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "JBL Tune 780NC headphones for $89.95",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "Best Buy cuts the 2026 noise-cancelling over-ear headphones from $149.95 to $89.95, a 40% saving. <a href=\"https://www.bestbuy.com/product/jbl-tune-780nc-bluetooth-wireless-over-the-ear-noise-cancelling-headphones-2026-black/6669907\">The exact listing</a> marks the deal as ending November 15.",
+            "val": ""
+          },
+          "price": "$89.95",
+          "oldPrice": "$149.95",
+          "discount": "-40%",
+          "source": "Best Buy",
+          "urgent": true,
+          "url": "https://www.bestbuy.com/product/jbl-tune-780nc-bluetooth-wireless-over-the-ear-noise-cancelling-headphones-2026-black/6669907"
+        },
+        {
+          "market": "en",
+          "title": {
+            "es": "",
+            "en": "Shokz OpenRun Pro Mini for $99.99",
+            "val": ""
+          },
+          "summary": {
+            "es": "",
+            "en": "The open-ear bone-conduction sports headphones fall from $159.99 to $99.99, a 38% discount. <a href=\"https://www.bestbuy.com/product/shokz-openrun-pro-mini-premium-bone-conduction-open-ear-sport-headphones-black/6522549\">Best Buy’s product page</a> lists the holiday deal as ending November 14.",
+            "val": ""
+          },
+          "price": "$99.99",
+          "oldPrice": "$159.99",
+          "discount": "-38%",
+          "source": "Best Buy",
+          "urgent": true,
+          "url": "https://www.bestbuy.com/product/shokz-openrun-pro-mini-premium-bone-conduction-open-ear-sport-headphones-black/6522549"
+        }
+      ]
+    },
+    {
+      "category": "anime",
+      "items": [
+        {
+          "title": {
+            "es": "Dragon Ball Super: Beerus estrena doblajes en Crunchyroll",
+            "en": "Dragon Ball Super: Beerus dubs launch on Crunchyroll",
+            "val": "Dragon Ball Super: Beerus estrena doblatges en Crunchyroll"
+          },
+          "summary": {
+            "es": "Toei Animation ha estrenado en Crunchyroll los doblajes en inglés, español y portugués de Dragon Ball Super: Beerus. <a href=\"https://toei-animation-usa.com/press-release.html\">El comunicado oficial</a> confirma el regreso de Goku, Vegeta y Beerus con sus repartos de voz.",
+            "en": "Toei Animation has launched the English, Spanish and Portuguese dubs of Dragon Ball Super: Beerus on Crunchyroll. <a href=\"https://toei-animation-usa.com/press-release.html\">The official release</a> confirms Goku, Vegeta and Beerus returning with their voice casts.",
+            "val": "Toei Animation ha estrenat en Crunchyroll els doblatges en anglés, espanyol i portugués de Dragon Ball Super: Beerus. <a href=\"https://toei-animation-usa.com/press-release.html\">El comunicat oficial</a> confirma el retorn de Goku, Vegeta i Beerus amb els seus repartiments de veu."
+          },
+          "source": {
+            "es": "Toei Animation",
+            "en": "Toei Animation",
+            "val": "Toei Animation"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "Toei Animation",
+                "en": "Toei Animation",
+                "val": "Toei Animation"
+              },
+              "url": "https://toei-animation-usa.com/press-release.html"
+            },
+            {
+              "title": {
+                "es": "AniWatchList",
+                "en": "AniWatchList",
+                "val": "AniWatchList"
+              },
+              "url": "https://aniwatchlist.com/news?issue=2026-11-08"
+            },
+            {
+              "title": {
+                "es": "Crunchyroll News",
+                "en": "Crunchyroll News",
+                "val": "Crunchyroll News"
+              },
+              "url": "https://www.crunchyroll.com/news/"
+            }
+          ]
+        },
+        {
+          "title": {
+            "es": "Expelled from Paradise: Resonance of the Heart llega a los cines japoneses",
+            "en": "Expelled from Paradise: Resonance of the Heart reaches Japanese cinemas",
+            "val": "Expelled from Paradise: Resonance of the Heart arriba als cinemes japonesos"
+          },
+          "summary": {
+            "es": "La secuela de ciencia ficción reúne de nuevo a Gen Urobuchi y Seiji Mizushima más de una década después de la película original. <a href=\"https://aniwatchlist.com/news?issue=2026-11-08\">La agenda semanal</a> sitúa su estreno japonés el 13 de noviembre junto a una oleada de anuncios para 2027.",
+            "en": "The science-fiction sequel reunites Gen Urobuchi and Seiji Mizushima more than a decade after the original film. <a href=\"https://aniwatchlist.com/news?issue=2026-11-08\">The weekly schedule</a> places its Japanese premiere on November 13 alongside a wave of 2027 announcements.",
+            "val": "La seqüela de ciència-ficció reunix de nou Gen Urobuchi i Seiji Mizushima més d’una dècada després de la pel·lícula original. <a href=\"https://aniwatchlist.com/news?issue=2026-11-08\">L’agenda setmanal</a> situa l’estrena japonesa el 13 de novembre junt amb una onada d’anuncis per a 2027."
+          },
+          "source": {
+            "es": "AniNextUp",
+            "en": "AniNextUp",
+            "val": "AniNextUp"
+          },
+          "links": [
+            {
+              "title": {
+                "es": "AniNextUp",
+                "en": "AniNextUp",
+                "val": "AniNextUp"
+              },
+              "url": "https://aninextup.com/this-week"
+            },
+            {
+              "title": {
+                "es": "AniNextUp News",
+                "en": "AniNextUp News",
+                "val": "AniNextUp News"
+              },
+              "url": "https://aninextup.com/news?category=new-anime"
+            },
+            {
+              "title": {
+                "es": "Crunchyroll",
+                "en": "Crunchyroll",
+                "val": "Crunchyroll"
+              },
+              "url": "https://www.crunchyroll.com/es-es/news/seasonal-lineup/2026/10/11/crunchyroll-calendario-semanal-otono-2026"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
