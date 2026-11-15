@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-15",
+      "title": {
+        "es": "Voyager 1 roza un día-luz, Arabia Saudí intercepta misiles y Bitcoin cae a 64.000 dólares",
+        "en": "Voyager 1 nears one light-day, Saudi Arabia intercepts missiles and Bitcoin falls to $64,000",
+        "val": "Voyager 1 frega un dia-llum, l’Aràbia Saudita intercepta míssils i Bitcoin cau a 64.000 dòlars"
+      },
+      "intro": {
+        "es": "Voyager 1 se acerca al primer récord de un día-luz para un objeto humano mientras una nueva interceptación de misiles eleva la tensión en Arabia Saudí. La edición sigue además la caída de Bitcoin, dos amenazas de seguridad explotadas y todas las promociones de juegos que continúan activas.",
+        "en": "Voyager 1 is approaching the first one-light-day record for a human-made object as fresh missile interceptions raise tensions in Saudi Arabia. This edition also tracks Bitcoin’s slide, two actively exploited security threats and every game promotion that remains live.",
+        "val": "Voyager 1 s’acosta al primer rècord d’un dia-llum per a un objecte humà mentre una nova intercepció de míssils eleva la tensió a l’Aràbia Saudita. L’edició seguix també la caiguda de Bitcoin, dos amenaces de seguretat explotades i totes les promocions de jocs que continuen actives."
+      },
+      "file": "2026-11-15.json"
+    },
+    {
       "date": "2026-11-14",
       "title": {
         "es": "Bitcoin se desploma, Jensen Huang deja NVIDIA y EE. UU. pierde su estatus libre de sarampión",
