@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-16",
+      "title": {
+        "es": "NVIDIA y Anthropic ponen a prueba los mercados, Bitcoin busca suelo y las armas autónomas dividen al mundo",
+        "en": "NVIDIA and Anthropic test markets, Bitcoin seeks a floor and autonomous weapons divide the world",
+        "val": "NVIDIA i Anthropic posen a prova els mercats, Bitcoin busca sòl i les armes autònomes dividixen el món"
+      },
+      "intro": {
+        "es": "Los mercados encaran los resultados de NVIDIA y una posible OPV de Anthropic mientras Bitcoin intenta estabilizarse cerca de 65.000 dólares. La edición sigue además el bloqueo a unas reglas vinculantes para armas autónomas, dos fallos explotados y todas las promociones de juegos que continúan activas.",
+        "en": "Markets face NVIDIA’s results and a possible Anthropic IPO as Bitcoin tries to stabilise near $65,000. This edition also tracks the blockade against binding rules for autonomous weapons, two exploited flaws and every game promotion that remains active.",
+        "val": "Els mercats encaren els resultats de NVIDIA i una possible eixida a borsa d’Anthropic mentre Bitcoin intenta estabilitzar-se prop dels 65.000 dòlars. L’edició seguix també el bloqueig a unes regles vinculants per a armes autònomes, dos fallades explotades i totes les promocions de jocs que continuen actives."
+      },
+      "file": "2026-11-16.json"
+    },
+    {
       "date": "2026-11-15",
       "title": {
         "es": "Voyager 1 roza un día-luz, Arabia Saudí intercepta misiles y Bitcoin cae a 64.000 dólares",
