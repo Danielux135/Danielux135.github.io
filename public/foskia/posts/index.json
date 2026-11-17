@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-17",
+      "title": {
+        "es": "Qwen4-Max acelera la carrera de la IA, Bitcoin encadena seis semanas a la baja y Trump abre su gira asiática",
+        "en": "Qwen4-Max accelerates the AI race, Bitcoin logs a sixth weekly loss and Trump opens his Asia tour",
+        "val": "Qwen4-Max accelera la carrera de la IA, Bitcoin encadena sis setmanes a la baixa i Trump obri la gira asiàtica"
+      },
+      "intro": {
+        "es": "Alibaba presenta un modelo de 2,4 billones de parámetros mientras OpenAI amplía el acceso gratuito para científicos y NVIDIA detalla Rubin HPC. La edición sigue además la sexta semana bajista de Bitcoin, la gira asiática de Trump, dos fallos explotados con vencimiento hoy y todas las promociones de juegos todavía activas.",
+        "en": "Alibaba unveils a 2.4-trillion-parameter model as OpenAI expands free access for scientists and NVIDIA details Rubin HPC. This edition also tracks Bitcoin’s sixth losing week, Trump’s Asia tour, two exploited flaws due for remediation today and every game promotion still live.",
+        "val": "Alibaba presenta un model de 2,4 bilions de paràmetres mentre OpenAI amplia l’accés gratuït per a científics i NVIDIA detalla Rubin HPC. L’edició seguix també la sisena setmana baixista de Bitcoin, la gira asiàtica de Trump, dos fallades explotades amb venciment hui i totes les promocions de jocs encara actives."
+      },
+      "file": "2026-11-17.json"
+    },
+    {
       "date": "2026-11-16",
       "title": {
         "es": "NVIDIA y Anthropic ponen a prueba los mercados, Bitcoin busca suelo y las armas autónomas dividen al mundo",
