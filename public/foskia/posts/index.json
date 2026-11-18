@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-18",
+      "title": {
+        "es": "NVIDIA duplica ingresos, GTA VI domina The Game Awards y Bitcoin busca suelo en 65.000 dólares",
+        "en": "NVIDIA doubles revenue, GTA VI dominates The Game Awards and Bitcoin seeks a floor near $65,000",
+        "val": "NVIDIA duplica ingressos, GTA VI domina The Game Awards i Bitcoin busca sòl prop dels 65.000 dòlars"
+      },
+      "intro": {
+        "es": "NVIDIA supera las previsiones con 115.800 millones de dólares trimestrales mientras GTA VI suma ocho nominaciones y los mercados esperan la OPV de Anthropic. La edición sigue además el hito de Voyager 1, la emergencia Java4Shell, los regalos que aún pueden reclamarse y las mejores ofertas verificadas.",
+        "en": "NVIDIA beats forecasts with $115.8 billion in quarterly revenue as GTA VI earns eight nominations and markets await Anthropic’s IPO. This edition also tracks Voyager 1’s milestone, the Java4Shell emergency, every game promotion still claimable and the best verified deals.",
+        "val": "NVIDIA supera les previsions amb 115.800 milions de dòlars trimestrals mentre GTA VI suma huit nominacions i els mercats esperen l’eixida a borsa d’Anthropic. L’edició seguix també la fita de Voyager 1, l’emergència Java4Shell, els regals que encara es poden reclamar i les millors ofertes verificades."
+      },
+      "file": "2026-11-18.json"
+    },
+    {
       "date": "2026-11-17",
       "title": {
         "es": "Qwen4-Max acelera la carrera de la IA, Bitcoin encadena seis semanas a la baja y Trump abre su gira asiática",
