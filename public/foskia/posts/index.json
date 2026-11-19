@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-19",
+      "title": {
+        "es": "GTA VI toma el mundo, Anthropic firma una OPV récord y Bitcoin defiende los 64.000 dólares",
+        "en": "GTA VI takes over the world, Anthropic lands a record IPO and Bitcoin holds $64,000",
+        "val": "GTA VI pren el món, Anthropic firma una OPV rècord i Bitcoin defensa els 64.000 dòlars"
+      },
+      "intro": {
+        "es": "GTA VI inicia su despliegue mundial mientras Anthropic protagoniza la mayor salida a bolsa de la historia y la Reserva Federal endurece el tono. La edición sigue además la emergencia Java4Shell, los nuevos mundos de Genie 4, todos los juegos que aún pueden reclamarse y ofertas verificadas para España, la Comunitat Valenciana y el mercado anglosajón.",
+        "en": "GTA VI begins its worldwide rollout as Anthropic delivers the largest IPO in history and the Federal Reserve turns more hawkish. This edition also tracks the Java4Shell emergency, Genie 4’s new worlds, every game that can still be claimed and verified deals for Spanish, Valencian and English-language markets.",
+        "val": "GTA VI inicia el desplegament mundial mentre Anthropic protagonitza l’eixida a borsa més gran de la història i la Reserva Federal endurix el to. L’edició seguix també l’emergència Java4Shell, els nous mons de Genie 4, tots els jocs que encara es poden reclamar i ofertes verificades per a Espanya, la Comunitat Valenciana i el mercat anglosaxó."
+      },
+      "file": "2026-11-19.json"
+    },
+    {
       "date": "2026-11-18",
       "title": {
         "es": "NVIDIA duplica ingresos, GTA VI domina The Game Awards y Bitcoin busca suelo en 65.000 dólares",
