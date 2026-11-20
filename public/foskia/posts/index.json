@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-20",
+      "title": {
+        "es": "La Corte Internacional condena a Myanmar, Anthropic se estrena en bolsa y Bitcoin cede",
+        "en": "World Court rules against Myanmar, Anthropic hits the market and Bitcoin slips",
+        "val": "La Cort Internacional condemna Myanmar, Anthropic s’estrena en borsa i Bitcoin cedix"
+      },
+      "intro": {
+        "es": "La histórica sentencia por el genocidio rohinyá marca una jornada en la que Anthropic debuta con volatilidad y Corea del Sur rebasa el billón de dólares exportado. La edición sigue además los récords de GTA VI, los fallos en dos misiones de Marte, las novedades de Gemini, cuatro vulnerabilidades explotadas y todos los juegos gratis que continúan activos.",
+        "en": "The historic Rohingya-genocide ruling leads a day in which Anthropic makes a volatile market debut and South Korea passes $1 trillion in exports. This edition also tracks GTA VI’s records, faults affecting two Mars missions, Gemini updates, four exploited vulnerabilities and every free game promotion still live.",
+        "val": "La sentència històrica pel genocidi rohingya marca una jornada en què Anthropic debuta amb volatilitat i Corea del Sud supera el bilió de dòlars exportat. L’edició seguix, a més, els rècords de GTA VI, les fallades en dos missions de Mart, les novetats de Gemini, quatre vulnerabilitats explotades i tots els jocs gratis que continuen actius."
+      },
+      "file": "2026-11-20.json"
+    },
+    {
       "date": "2026-11-19",
       "title": {
         "es": "GTA VI toma el mundo, Anthropic firma una OPV récord y Bitcoin defiende los 64.000 dólares",
