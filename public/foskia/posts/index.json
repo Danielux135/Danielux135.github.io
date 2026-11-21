@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-21",
+      "title": {
+        "es": "Wall Street entra en corrección, Bitcoin pierde los 60.000 dólares y Voyager alcanza un día-luz",
+        "en": "Wall Street enters correction, Bitcoin loses $60,000 and Voyager reaches one light-day",
+        "val": "Wall Street entra en correcció, Bitcoin perd els 60.000 dòlars i Voyager arriba a un dia-llum"
+      },
+      "intro": {
+        "es": "La venta global de activos de riesgo lleva al S&P 500 y al Dow a terreno de corrección y arrastra Bitcoin, Ether y Solana a mínimos del verano. La edición sigue también el hito de Voyager 1, el emulador local de AWS construido por agentes, los recortes de Ubisoft, una fusión estelar observada de principio a fin y todos los juegos gratis que continúan activos.",
+        "en": "The global risk-asset selloff pushes the S&P 500 and Dow into correction territory and drags Bitcoin, Ether and Solana back to summer lows. This edition also covers Voyager 1’s milestone, AWS’s agent-built local emulator, Ubisoft job cuts, a stellar merger observed from start to finish and every free-game promotion still live.",
+        "val": "La venda global d’actius de risc porta l’S&P 500 i el Dow a terreny de correcció i arrossega Bitcoin, Ether i Solana a mínims de l’estiu. L’edició seguix també la fita de Voyager 1, l’emulador local d’AWS construït per agents, les retallades d’Ubisoft, una fusió estel·lar observada de principi a fi i tots els jocs gratis que continuen actius."
+      },
+      "file": "2026-11-21.json"
+    },
+    {
       "date": "2026-11-20",
       "title": {
         "es": "La Corte Internacional condena a Myanmar, Anthropic se estrena en bolsa y Bitcoin cede",
