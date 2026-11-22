@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-22",
+      "title": {
+        "es": "BepiColombo llega a Mercurio, Bitcoin recupera los 60.000 dólares y la COP31 busca un acuerdo",
+        "en": "BepiColombo reaches Mercury, Bitcoin retakes $60,000 and COP31 seeks a deal",
+        "val": "BepiColombo arriba a Mercuri, Bitcoin recupera els 60.000 dòlars i la COP31 busca un acord"
+      },
+      "intro": {
+        "es": "La misión europea-japonesa BepiColombo entra en órbita de Mercurio tras ocho años de viaje, mientras Bitcoin rebota sobre los 60.000 dólares y la COP31 prolonga sus negociaciones por la ausencia de una referencia clara a los combustibles fósiles. La edición sigue también el récord de GTA VI, un modelo abierto que cabe en un portátil, cuatro vulnerabilidades explotadas, el regreso de Macaulay Culkin y todas las promociones de juegos que siguen activas.",
+        "en": "The European-Japanese BepiColombo mission enters Mercury orbit after an eight-year journey, while Bitcoin rebounds above $60,000 and COP31 extends negotiations over the lack of a clear fossil-fuel reference. This edition also tracks GTA VI’s record launch, an open model that fits on a laptop, four actively exploited vulnerabilities, Macaulay Culkin’s return and every game promotion still live.",
+        "val": "La missió europea-japonesa BepiColombo entra en òrbita de Mercuri després de huit anys de viatge, mentre Bitcoin rebota per damunt dels 60.000 dòlars i la COP31 allarga les negociacions per l’absència d’una referència clara als combustibles fòssils. L’edició seguix també el rècord de GTA VI, un model obert que cap en un portàtil, quatre vulnerabilitats explotades, el retorn de Macaulay Culkin i totes les promocions de jocs que continuen actives."
+      },
+      "file": "2026-11-22.json"
+    },
+    {
       "date": "2026-11-21",
       "title": {
         "es": "Wall Street entra en corrección, Bitcoin pierde los 60.000 dólares y Voyager alcanza un día-luz",
