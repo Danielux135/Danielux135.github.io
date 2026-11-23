@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-23",
+      "title": {
+        "es": "La COP31 termina sin acuerdo, Bitcoin rebota y BepiColombo alcanza Mercurio",
+        "en": "COP31 ends without a deal, Bitcoin rebounds and BepiColombo reaches Mercury",
+        "val": "La COP31 acaba sense acord, Bitcoin rebota i BepiColombo arriba a Mercuri"
+      },
+      "intro": {
+        "es": "La COP31 cierra sin consenso tras el rechazo europeo a un texto que evitaba comprometer el abandono de los combustibles fósiles, mientras Bitcoin intenta consolidar el rebote sobre los 60.000 dólares y BepiColombo inicia su etapa orbital en Mercurio. La edición sigue también el estreno récord de GTA VI, los nuevos GPT-6.2, cuatro fallos empresariales explotados, el regreso de The Hunger Games y todas las promociones de juegos y ofertas que continúan activas.",
+        "en": "COP31 closes without consensus after Europe rejects a text that avoided a fossil-fuel phaseout commitment, while Bitcoin tries to consolidate its rebound above $60,000 and BepiColombo begins its orbital phase at Mercury. This edition also tracks GTA VI’s record launch, the new GPT-6.2 models, four actively exploited enterprise flaws, the return of The Hunger Games and every game promotion and deal still live.",
+        "val": "La COP31 tanca sense consens després que Europa rebutge un text que evitava comprometre l’abandó dels combustibles fòssils, mentre Bitcoin intenta consolidar el rebot per damunt dels 60.000 dòlars i BepiColombo inicia l’etapa orbital a Mercuri. L’edició seguix també l’estrena rècord de GTA VI, els nous GPT-6.2, quatre fallades empresarials explotades, el retorn de The Hunger Games i totes les promocions de jocs i ofertes que continuen actives."
+      },
+      "file": "2026-11-23.json"
+    },
+    {
       "date": "2026-11-22",
       "title": {
         "es": "BepiColombo llega a Mercurio, Bitcoin recupera los 60.000 dólares y la COP31 busca un acuerdo",
