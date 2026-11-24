@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-24",
+      "title": {
+        "es": "Nvidia recupera a Jensen Huang, Wall Street rebota y GTA VI rompe el récord de PlayStation",
+        "en": "Nvidia brings Jensen Huang back, Wall Street rebounds and GTA VI breaks PlayStation records",
+        "val": "Nvidia recupera Jensen Huang, Wall Street rebota i GTA VI trenca el rècord de PlayStation"
+      },
+      "intro": {
+        "es": "Nvidia ha restituido a Jensen Huang como consejero delegado y el giro ha impulsado un rebote histórico de las acciones tecnológicas, mientras GTA VI supera los 39 millones de jugadores únicos en PS5. La edición incorpora además Claude Ship, los nuevos controles de archivos de Gemini API, las observaciones de Webb sobre Cassiopeia A, parches urgentes de seguridad y todas las promociones verificadas que siguen activas.",
+        "en": "Nvidia has reinstated Jensen Huang as chief executive, triggering a historic technology-stock rebound, while GTA VI passes 39 million unique PS5 players. This edition also covers Claude Ship, Gemini API file controls, Webb observations of Cassiopeia A, urgent security patches and every verified game promotion still live.",
+        "val": "Nvidia ha restituït Jensen Huang com a conseller delegat i el gir ha impulsat un rebot històric de les accions tecnològiques, mentre GTA VI supera els 39 milions de jugadors únics en PS5. L’edició incorpora també Claude Ship, els nous controls d’arxius de Gemini API, les observacions de Webb sobre Cassiopeia A, pedaços urgents de seguretat i totes les promocions verificades que continuen actives."
+      },
+      "file": "2026-11-24.json"
+    },
+    {
       "date": "2026-11-23",
       "title": {
         "es": "La COP31 termina sin acuerdo, Bitcoin rebota y BepiColombo alcanza Mercurio",
