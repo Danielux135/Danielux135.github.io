@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-25",
+      "title": {
+        "es": "Wall Street pierde fuelle, Bitcoin cae de 60.000 dólares y Pando escala Git para la era de los agentes",
+        "en": "Wall Street loses steam, Bitcoin falls below $60,000 and Pando scales Git for the agent era",
+        "val": "Wall Street perd força, Bitcoin cau dels 60.000 dòlars i Pando escala Git per a l’era dels agents"
+      },
+      "intro": {
+        "es": "El rebote tecnológico impulsado por Nvidia se ha enfriado y Bitcoin vuelve a cotizar por debajo de 60.000 dólares, con el mercado en modo de aversión al riesgo. La edición explica también cómo Pando sostiene el trabajo concurrente de agentes, la nueva tierra volcánica de Iwo Jima, los modelos GLM-5.4 y las promociones gratuitas que vencen hoy.",
+        "en": "The Nvidia-led technology rebound has cooled and Bitcoin is trading below $60,000 again as markets move back into risk-off mode. This edition also explains how Pando supports concurrent agent workloads, Iwo Jima’s new volcanic land, the GLM-5.4 models and the free-game promotions expiring today.",
+        "val": "El rebot tecnològic impulsat per Nvidia s’ha refredat i Bitcoin torna a cotitzar per davall de 60.000 dòlars, amb el mercat de nou en mode d’aversió al risc. L’edició explica també com Pando sosté el treball concurrent d’agents, la nova terra volcànica d’Iwo Jima, els models GLM-5.4 i les promocions gratuïtes que vencen hui."
+      },
+      "file": "2026-11-25.json"
+    },
+    {
       "date": "2026-11-24",
       "title": {
         "es": "Nvidia recupera a Jensen Huang, Wall Street rebota y GTA VI rompe el récord de PlayStation",
