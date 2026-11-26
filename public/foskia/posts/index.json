@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-26",
+      "title": {
+        "es": "Bitcoin rebota sobre 60.000 dólares, Europa Clipper vuelve a la Tierra y Epic apura Mark of the Deep",
+        "en": "Bitcoin rebounds above $60,000, Europa Clipper returns to Earth and Epic’s Mark of the Deep nears expiry",
+        "val": "Bitcoin rebota sobre 60.000 dòlars, Europa Clipper torna a la Terra i Epic apura Mark of the Deep"
+      },
+      "intro": {
+        "es": "Bitcoin recupera los 60.000 dólares, aunque el mercado mantiene un miedo extremo, mientras Europa Clipper prepara una asistencia gravitatoria sobre la Tierra. La edición reúne también la nueva historia de Rayman Legends Retold, diez vulnerabilidades explotadas que CISA exige corregir y todos los juegos que todavía pueden reclamarse, con dos promociones de Epic que vencen hoy.",
+        "en": "Bitcoin has reclaimed $60,000 even as the market remains in extreme fear, while Europa Clipper prepares for an Earth gravity assist. This edition also covers Rayman Legends Retold’s expanded story, ten exploited vulnerabilities flagged for urgent remediation by CISA and every game still available to claim, including two Epic promotions expiring today.",
+        "val": "Bitcoin recupera els 60.000 dòlars, encara que el mercat manté una por extrema, mentre Europa Clipper prepara una assistència gravitatòria sobre la Terra. L’edició reunix també la nova història de Rayman Legends Retold, deu vulnerabilitats explotades que CISA exigix corregir i tots els jocs que encara es poden reclamar, amb dos promocions d’Epic que vencen hui."
+      },
+      "file": "2026-11-26.json"
+    },
+    {
       "date": "2026-11-25",
       "title": {
         "es": "Wall Street pierde fuelle, Bitcoin cae de 60.000 dólares y Pando escala Git para la era de los agentes",
