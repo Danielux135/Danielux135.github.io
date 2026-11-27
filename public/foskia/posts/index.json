@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-27",
+      "title": {
+        "es": "Bitcoin aguanta los 60.000 dólares, 1Password sufre una brecha y Epic regala Bread & Fred",
+        "en": "Bitcoin holds $60,000, 1Password suffers a breach and Epic gives away Bread & Fred",
+        "val": "Bitcoin aguanta els 60.000 dòlars, 1Password patix una bretxa i Epic regala Bread & Fred"
+      },
+      "intro": {
+        "es": "Bitcoin conserva el umbral de 60.000 dólares dentro de un mercado todavía dominado por el miedo extremo. La edición explica además la brecha de 1Password, el relevo semanal de Epic con Bread & Fred, la elección de Pablo Hernández de Cos para dirigir el BCE y las primeras imágenes cercanas del enorme cráter dejado por DART.",
+        "en": "Bitcoin is holding the $60,000 threshold in a market still dominated by extreme fear. This edition also explains the 1Password breach, Epic’s weekly switch to Bread & Fred, Pablo Hernández de Cos being chosen to lead the ECB and the first close-up images of the huge crater left by DART.",
+        "val": "Bitcoin conserva el llindar de 60.000 dòlars dins d’un mercat encara dominat per la por extrema. L’edició explica també la bretxa de 1Password, el relleu setmanal d’Epic amb Bread & Fred, l’elecció de Pablo Hernández de Cos per a dirigir el BCE i les primeres imatges pròximes de l’enorme cràter deixat per DART."
+      },
+      "file": "2026-11-27.json"
+    },
+    {
       "date": "2026-11-26",
       "title": {
         "es": "Bitcoin rebota sobre 60.000 dólares, Europa Clipper vuelve a la Tierra y Epic apura Mark of the Deep",
