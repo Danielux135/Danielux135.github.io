@@ -1,6 +1,20 @@
 {
   "editions": [
     {
+      "date": "2026-11-28",
+      "title": {
+        "es": "Una tormenta paraliza el festivo estadounidense, SAP investiga una intrusión y Bitcoin pelea por los 60.000 dólares",
+        "en": "A storm disrupts the US holiday, SAP investigates an intrusion and Bitcoin battles to hold $60,000",
+        "val": "Una tempesta paralitza el festiu estatunidenc, SAP investiga una intrusió i Bitcoin lluita pels 60.000 dòlars"
+      },
+      "intro": {
+        "es": "La tormenta de Acción de Gracias dejó casi un millón de hogares sin luz y miles de vuelos alterados, mientras SAP confirmó actividad sospechosa en GitHub. La edición sigue además la batalla de Bitcoin por los 60.000 dólares, los cultivos que viajarán en la misión NG-25, los nuevos regalos de GOG e itch.io y el retraso de Daisy’s Life a 2027.",
+        "en": "The Thanksgiving storm left almost one million customers without power and disrupted thousands of flights, while SAP confirmed suspicious GitHub activity. This edition also tracks Bitcoin’s fight to hold $60,000, the crops flying on the NG-25 mission, new GOG and itch.io giveaways, and Daisy’s Life moving to 2027.",
+        "val": "La tempesta d’Acció de Gràcies va deixar quasi un milió de clients sense llum i va alterar milers de vols, mentre SAP va confirmar activitat sospitosa en GitHub. L’edició seguix també la lluita de Bitcoin pels 60.000 dòlars, els cultius que viatjaran en la missió NG-25, els nous regals de GOG i itch.io i el retard de Daisy’s Life a 2027."
+      },
+      "file": "2026-11-28.json"
+    },
+    {
       "date": "2026-11-27",
       "title": {
         "es": "Bitcoin aguanta los 60.000 dólares, 1Password sufre una brecha y Epic regala Bread & Fred",
